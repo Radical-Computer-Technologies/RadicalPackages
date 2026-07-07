@@ -2,14 +2,96 @@ Package: radbard
 Version: 0.1.0
 Architecture: amd64
 Maintainer: Radical Computer Technologies
-Installed-Size: 61721
-Depends: libc6, libstdc++6, libgcc-s1, libxkbcommon0, libudev1, libinput10, libgbm1, libfontconfig1, libfreetype6, libasound2, libfluidsynth3, curl
+Installed-Size: 22148
+Depends: radlib-runtime (>= 0.1.0), libc6, libstdc++6, libgcc-s1, libxkbcommon0, libudev1, libinput10, libgbm1, libfontconfig1, libfreetype6, libasound2, libfluidsynth3, curl
 Filename: pool/main/r/radbard/radbard-0.1.0-x86_64.deb
-Size: 21729972
-MD5sum: 63e0ff0405f6e011bd9ca279d17d15ba
-SHA1: 45c96bf027639064d9d1f61bd2802e3b9ef10430
-SHA256: ce2592a13d24aa5fd6f367b968b59c7ef815ea58bbf7d950c371fb397730779b
+Size: 6508504
+MD5sum: 84a4f6495a91238eb1a9ab3bec678b96
+SHA1: ec3946cf0a9fd0142c10ff726e461653a69137a7
+SHA256: cf577af73fe5e9336a13df545a8dea3768440b47fd63b7d424bd75a31086928a
 Section: sound
 Priority: optional
 Description: RADBard music and audio composition suite
+
+Package: radlib
+Version: 0.1.0
+Architecture: amd64
+Maintainer: RADLib <support@radlib.local>
+Depends: radlib-runtime, radlib-dev, radlib-doc, radlib-examples, radlib-tools
+Filename: pool/main/r/radlib/radlib_0.1.0.deb
+Size: 5566
+MD5sum: b25d12bdc9a44ceadae5d6270cbde53a
+SHA1: 442aab1e10db6d260b8163f1835dc76760027378
+SHA256: 5d64c67b6c86452d45cb622e6015e600ee3c4ebc5d9cb42e4339964444802584
+Section: devel
+Priority: optional
+Description: RADLib complete SDK meta-package
+
+Package: radlib-dev
+Version: 0.1.0
+Architecture: amd64
+Maintainer: RADLib <support@radlib.local>
+Depends: radlib-runtime
+Filename: pool/main/r/radlib-dev/radlib-dev_0.1.0.deb
+Size: 63106
+MD5sum: 365991ef7a7abfbfa30edb55eaef3a97
+SHA1: 0240e267d8d393b9d992196e23b8a5de02f7f065
+SHA256: ad471751aac909317f406bafabab0dc67f2b1747b43e99d7f9776508f34448d3
+Section: devel
+Priority: optional
+Description: RADLib public headers and CMake package files
+
+Package: radlib-doc
+Version: 0.1.0
+Architecture: amd64
+Maintainer: RADLib <support@radlib.local>
+Filename: pool/main/r/radlib-doc/radlib-doc_0.1.0.deb
+Size: 5544
+MD5sum: 7f665a970f08a08adbaade526bd34746
+SHA1: b4a598b4af222441ef9866f918232a50d61f350c
+SHA256: 9e6afbb4928c633c880a7cd2bd622f67a3a581d61b22e675d7695a109417e3f5
+Section: devel
+Priority: optional
+Description: RADLib generated API documentation
+
+Package: radlib-examples
+Version: 0.1.0
+Architecture: amd64
+Maintainer: RADLib <support@radlib.local>
+Depends: radlib-dev
+Filename: pool/main/r/radlib-examples/radlib-examples_0.1.0.deb
+Size: 41442
+MD5sum: 4b6d5628a6528588cc92c3186f89747b
+SHA1: ca81b596b4909fa19760a9f30f8f82d472ddef8f
+SHA256: c0abacee995ad37424e0d67a0c0d7747dca46f338b2ec70fbdaf8974d3aeebd5
+Section: devel
+Priority: optional
+Description: RADLib example applications and sample protocols
+
+Package: radlib-runtime
+Version: 0.1.0
+Architecture: amd64
+Maintainer: RADLib <support@radlib.local>
+Filename: pool/main/r/radlib-runtime/radlib-runtime_0.1.0.deb
+Size: 11763858
+MD5sum: 606e039cbffaf85623fce55dae7bc931
+SHA1: 92abc2873e4d6207334d353d754b0a7dc5f92a78
+SHA256: 98a33bc51e0966cac8163fe6d6a82bb7c38e806529b371964d604de7e4a2a3b3
+Section: devel
+Priority: optional
+Description: RADLib shared runtime libraries
+
+Package: radlib-tools
+Version: 0.1.0
+Architecture: amd64
+Maintainer: RADLib <support@radlib.local>
+Depends: python3
+Filename: pool/main/r/radlib-tools/radlib-tools_0.1.0.deb
+Size: 8940
+MD5sum: d8b70f5fc44fe0c618c4a3e46a116e93
+SHA1: 93ddacd7a0ad079c02fa562241c72c9328b0b3bf
+SHA256: 751968b33fcffd080f484b27577a924ed92093cef8c9d887f01f3be012f8f06c
+Section: devel
+Priority: optional
+Description: RADLib SDK tools and protocol generator
 

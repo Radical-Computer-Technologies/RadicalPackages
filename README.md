@@ -10,7 +10,7 @@ GitHub Pages URL:
 
 ### Debian Systems / Ubuntu
 
-This repository currently publishes x86_64 / amd64 Debian packages for RADBard.
+This repository currently publishes x86_64 / amd64 Debian packages.
 
 Add the repository:
 
@@ -39,6 +39,12 @@ sudo apt install <package>
 
 | Package | Description | Install |
 | --- | --- | --- |
+| `radlib-runtime` | RADLib shared runtime libraries required by RADLib-based apps. | `sudo apt install radlib-runtime` |
+| `radlib-dev` | RADLib public headers and CMake package files. | `sudo apt install radlib-dev` |
+| `radlib-doc` | RADLib generated API documentation package. | `sudo apt install radlib-doc` |
+| `radlib-examples` | RADLib example applications and sample projects. | `sudo apt install radlib-examples` |
+| `radlib-tools` | RADLib SDK tools and protocol generator. | `sudo apt install radlib-tools` |
+| `radlib` | Aggregate RADLib package that installs runtime, development files, docs, examples, and tools. | `sudo apt install radlib` |
 | `radbard` | RADBard music and audio composition suite. | `sudo apt install radbard` |
 
 ## Documentation
@@ -60,10 +66,12 @@ scripts/
 
 ## Maintainer Workflow
 
-Publish a Debian package:
+Publish Debian packages:
 
 ```bash
-scripts/update_debian_repo.sh ../RADBard/release/radbard-0.1.0-x86_64.deb
+scripts/update_debian_repo.sh \
+  ../RADLib/build/package/deb/out/*.deb \
+  ../RADBard/release/radbard-0.1.0-x86_64.deb
 ```
 
 Regenerate RADLib Doxygen documentation:
