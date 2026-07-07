@@ -1,0 +1,709 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="classRADCore_1_1RADDataStream" kind="class" language="C++" prot="public">
+    <compoundname>RADCore::RADDataStream</compoundname>
+    <includes refid="RADCore_8h" local="no">RADCore.h</includes>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classRADCore_1_1RADDataStream_1a8fd874d6e591fb785a9e0d43e7a9a1dd" prot="private" static="no" mutable="no">
+        <type><ref refid="classRADCore_1_1RADIODevice" kindref="compound">RADIODevice</ref> &amp;</type>
+        <definition>RADIODevice&amp; RADCore::RADDataStream::device_</definition>
+        <argsstring></argsstring>
+        <name>device_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADCore/headers/RADCore.h" line="1438" column="21" bodyfile="RADCore/headers/RADCore.h" bodystart="1438" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classRADCore_1_1RADDataStream_1a8a6afcb465e3973a8d939cd8449a6f96" prot="private" static="no" mutable="no">
+        <type><ref refid="namespaceRADCore_1a2978a0330f6422a32756d3a280409311" kindref="member">ByteOrder</ref></type>
+        <definition>ByteOrder RADCore::RADDataStream::byteOrder_</definition>
+        <argsstring></argsstring>
+        <name>byteOrder_</name>
+        <initializer>= <ref refid="namespaceRADCore_1a2978a0330f6422a32756d3a280409311a3c0ba6b22b526d7fd50c3026435a8c02" kindref="member">ByteOrder::LittleEndian</ref></initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADCore/headers/RADCore.h" line="1439" column="19" bodyfile="RADCore/headers/RADCore.h" bodystart="1439" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classRADCore_1_1RADDataStream_1a3e2d8962eae80594cf06763c494956bf" prot="private" static="no" mutable="no">
+        <type><ref refid="namespaceRADCore_1aa8c90fdf4affbca3fa05ccd2adb3d4ef" kindref="member">DataStreamStatus</ref></type>
+        <definition>DataStreamStatus RADCore::RADDataStream::status_</definition>
+        <argsstring></argsstring>
+        <name>status_</name>
+        <initializer>= <ref refid="namespaceRADCore_1aa8c90fdf4affbca3fa05ccd2adb3d4efaa60852f204ed8028c1c58808b746d115" kindref="member">DataStreamStatus::Ok</ref></initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADCore/headers/RADCore.h" line="1440" column="26" bodyfile="RADCore/headers/RADCore.h" bodystart="1440" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classRADCore_1_1RADDataStream_1a18c9a78492365b4e13019e4d1a21e3c1" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>RADCore::RADDataStream::RADDataStream</definition>
+        <argsstring>(RADIODevice &amp;device)</argsstring>
+        <name>RADDataStream</name>
+        <param>
+          <type><ref refid="classRADCore_1_1RADIODevice" kindref="compound">RADIODevice</ref> &amp;</type>
+          <declname>device</declname>
+        </param>
+        <briefdescription>
+<para>Creates a stream over device. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADCore/headers/RADCore.h" line="1367" column="18"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADCore_1_1RADDataStream_1a5bd382707ddaca8b23124dc91643db99" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void RADCore::RADDataStream::setByteOrder</definition>
+        <argsstring>(ByteOrder byteOrder)</argsstring>
+        <name>setByteOrder</name>
+        <param>
+          <type><ref refid="namespaceRADCore_1a2978a0330f6422a32756d3a280409311" kindref="member">ByteOrder</ref></type>
+          <declname>byteOrder</declname>
+        </param>
+        <briefdescription>
+<para>Sets byte order for integer and floating point values. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADCore/headers/RADCore.h" line="1370" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADCore_1_1RADDataStream_1aebb526a5eb0a30a9028de4418cc31429" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="namespaceRADCore_1a2978a0330f6422a32756d3a280409311" kindref="member">ByteOrder</ref></type>
+        <definition>ByteOrder RADCore::RADDataStream::byteOrder</definition>
+        <argsstring>() const</argsstring>
+        <name>byteOrder</name>
+        <briefdescription>
+<para>Returns current byte order. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADCore/headers/RADCore.h" line="1372" column="19"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADCore_1_1RADDataStream_1a2c9387c9905ff1f363f163a578c5f05c" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="namespaceRADCore_1aa8c90fdf4affbca3fa05ccd2adb3d4ef" kindref="member">DataStreamStatus</ref></type>
+        <definition>DataStreamStatus RADCore::RADDataStream::status</definition>
+        <argsstring>() const</argsstring>
+        <name>status</name>
+        <briefdescription>
+<para>Returns current stream status. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADCore/headers/RADCore.h" line="1374" column="26"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADCore_1_1RADDataStream_1a853f21f44e07c8e6ccaec8821ba089f6" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool RADCore::RADDataStream::ok</definition>
+        <argsstring>() const</argsstring>
+        <name>ok</name>
+        <briefdescription>
+<para>Returns true when status is Ok. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADCore/headers/RADCore.h" line="1376" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADCore_1_1RADDataStream_1a1c6e211d311c948e1c09e5449ed406de" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void RADCore::RADDataStream::resetStatus</definition>
+        <argsstring>()</argsstring>
+        <name>resetStatus</name>
+        <briefdescription>
+<para>Resets status to Ok. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADCore/headers/RADCore.h" line="1378" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADCore_1_1RADDataStream_1ab400919d96e7872a9a2bf867ec976873" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classRADCore_1_1RADDataStream" kindref="compound">RADDataStream</ref> &amp;</type>
+        <definition>RADDataStream&amp; RADCore::RADDataStream::operator&lt;&lt;</definition>
+        <argsstring>(uint8_t value)</argsstring>
+        <name>operator&lt;&lt;</name>
+        <param>
+          <type>uint8_t</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+<para>Writes an unsigned 8-bit integer. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADCore/headers/RADCore.h" line="1381" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADCore_1_1RADDataStream_1a38fffe30153b4806b019e770afb48816" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classRADCore_1_1RADDataStream" kindref="compound">RADDataStream</ref> &amp;</type>
+        <definition>RADDataStream&amp; RADCore::RADDataStream::operator&lt;&lt;</definition>
+        <argsstring>(uint16_t value)</argsstring>
+        <name>operator&lt;&lt;</name>
+        <param>
+          <type>uint16_t</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+<para>Writes an unsigned 16-bit integer. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADCore/headers/RADCore.h" line="1383" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADCore_1_1RADDataStream_1a53b1260f87c4944c38540828c4c6dccf" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classRADCore_1_1RADDataStream" kindref="compound">RADDataStream</ref> &amp;</type>
+        <definition>RADDataStream&amp; RADCore::RADDataStream::operator&lt;&lt;</definition>
+        <argsstring>(uint32_t value)</argsstring>
+        <name>operator&lt;&lt;</name>
+        <param>
+          <type>uint32_t</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+<para>Writes an unsigned 32-bit integer. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADCore/headers/RADCore.h" line="1385" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADCore_1_1RADDataStream_1a23ccacdece9040d99d666534ce76efce" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classRADCore_1_1RADDataStream" kindref="compound">RADDataStream</ref> &amp;</type>
+        <definition>RADDataStream&amp; RADCore::RADDataStream::operator&lt;&lt;</definition>
+        <argsstring>(uint64_t value)</argsstring>
+        <name>operator&lt;&lt;</name>
+        <param>
+          <type>uint64_t</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+<para>Writes an unsigned 64-bit integer. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADCore/headers/RADCore.h" line="1387" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADCore_1_1RADDataStream_1abd7b9835b3596bab899c6d097eb8a6e5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classRADCore_1_1RADDataStream" kindref="compound">RADDataStream</ref> &amp;</type>
+        <definition>RADDataStream&amp; RADCore::RADDataStream::operator&lt;&lt;</definition>
+        <argsstring>(int8_t value)</argsstring>
+        <name>operator&lt;&lt;</name>
+        <param>
+          <type>int8_t</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+<para>Writes a signed 8-bit integer. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADCore/headers/RADCore.h" line="1389" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADCore_1_1RADDataStream_1a75af1f60f90dfd6a8fc48671d0aa23e2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classRADCore_1_1RADDataStream" kindref="compound">RADDataStream</ref> &amp;</type>
+        <definition>RADDataStream&amp; RADCore::RADDataStream::operator&lt;&lt;</definition>
+        <argsstring>(int16_t value)</argsstring>
+        <name>operator&lt;&lt;</name>
+        <param>
+          <type>int16_t</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+<para>Writes a signed 16-bit integer. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADCore/headers/RADCore.h" line="1391" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADCore_1_1RADDataStream_1a2ffb456e5a1452883ca234121292e65d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classRADCore_1_1RADDataStream" kindref="compound">RADDataStream</ref> &amp;</type>
+        <definition>RADDataStream&amp; RADCore::RADDataStream::operator&lt;&lt;</definition>
+        <argsstring>(int32_t value)</argsstring>
+        <name>operator&lt;&lt;</name>
+        <param>
+          <type>int32_t</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+<para>Writes a signed 32-bit integer. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADCore/headers/RADCore.h" line="1393" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADCore_1_1RADDataStream_1ae349687d838072d4719fb8ddb980189f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classRADCore_1_1RADDataStream" kindref="compound">RADDataStream</ref> &amp;</type>
+        <definition>RADDataStream&amp; RADCore::RADDataStream::operator&lt;&lt;</definition>
+        <argsstring>(int64_t value)</argsstring>
+        <name>operator&lt;&lt;</name>
+        <param>
+          <type>int64_t</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+<para>Writes a signed 64-bit integer. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADCore/headers/RADCore.h" line="1395" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADCore_1_1RADDataStream_1ac1bc606458e0a6f7a06a8bcd06c1472a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classRADCore_1_1RADDataStream" kindref="compound">RADDataStream</ref> &amp;</type>
+        <definition>RADDataStream&amp; RADCore::RADDataStream::operator&lt;&lt;</definition>
+        <argsstring>(float value)</argsstring>
+        <name>operator&lt;&lt;</name>
+        <param>
+          <type>float</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+<para>Writes a 32-bit float. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADCore/headers/RADCore.h" line="1397" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADCore_1_1RADDataStream_1a4c0714448c341d943daed3128b3c9289" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classRADCore_1_1RADDataStream" kindref="compound">RADDataStream</ref> &amp;</type>
+        <definition>RADDataStream&amp; RADCore::RADDataStream::operator&lt;&lt;</definition>
+        <argsstring>(double value)</argsstring>
+        <name>operator&lt;&lt;</name>
+        <param>
+          <type>double</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+<para>Writes a 64-bit double. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADCore/headers/RADCore.h" line="1399" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADCore_1_1RADDataStream_1a1dde6472894bb42277cd29b9f6cc7ba7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classRADCore_1_1RADDataStream" kindref="compound">RADDataStream</ref> &amp;</type>
+        <definition>RADDataStream&amp; RADCore::RADDataStream::operator&lt;&lt;</definition>
+        <argsstring>(const std::string &amp;value)</argsstring>
+        <name>operator&lt;&lt;</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+<para>Writes a length-prefixed string. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADCore/headers/RADCore.h" line="1401" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADCore_1_1RADDataStream_1aae6a1d974a3a9c297ec4867fad79fcef" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classRADCore_1_1RADDataStream" kindref="compound">RADDataStream</ref> &amp;</type>
+        <definition>RADDataStream&amp; RADCore::RADDataStream::operator&lt;&lt;</definition>
+        <argsstring>(const std::vector&lt; uint8_t &gt; &amp;value)</argsstring>
+        <name>operator&lt;&lt;</name>
+        <param>
+          <type>const std::vector&lt; uint8_t &gt; &amp;</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+<para>Writes a length-prefixed byte array. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADCore/headers/RADCore.h" line="1403" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADCore_1_1RADDataStream_1a6d685386482897d42fdf5495795c315f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classRADCore_1_1RADDataStream" kindref="compound">RADDataStream</ref> &amp;</type>
+        <definition>RADDataStream&amp; RADCore::RADDataStream::operator&gt;&gt;</definition>
+        <argsstring>(uint8_t &amp;value)</argsstring>
+        <name>operator&gt;&gt;</name>
+        <param>
+          <type>uint8_t &amp;</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+<para>Reads an unsigned 8-bit integer. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADCore/headers/RADCore.h" line="1406" column="23"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADCore_1_1RADDataStream_1a1809abd75ee66b2b246f04565857b432" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classRADCore_1_1RADDataStream" kindref="compound">RADDataStream</ref> &amp;</type>
+        <definition>RADDataStream&amp; RADCore::RADDataStream::operator&gt;&gt;</definition>
+        <argsstring>(uint16_t &amp;value)</argsstring>
+        <name>operator&gt;&gt;</name>
+        <param>
+          <type>uint16_t &amp;</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+<para>Reads an unsigned 16-bit integer. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADCore/headers/RADCore.h" line="1408" column="23"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADCore_1_1RADDataStream_1ac1371fba0383ea2b04687cdd766b5586" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classRADCore_1_1RADDataStream" kindref="compound">RADDataStream</ref> &amp;</type>
+        <definition>RADDataStream&amp; RADCore::RADDataStream::operator&gt;&gt;</definition>
+        <argsstring>(uint32_t &amp;value)</argsstring>
+        <name>operator&gt;&gt;</name>
+        <param>
+          <type>uint32_t &amp;</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+<para>Reads an unsigned 32-bit integer. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADCore/headers/RADCore.h" line="1410" column="23"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADCore_1_1RADDataStream_1ab6479e6e776a5888f47c0c1dcb6862cc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classRADCore_1_1RADDataStream" kindref="compound">RADDataStream</ref> &amp;</type>
+        <definition>RADDataStream&amp; RADCore::RADDataStream::operator&gt;&gt;</definition>
+        <argsstring>(uint64_t &amp;value)</argsstring>
+        <name>operator&gt;&gt;</name>
+        <param>
+          <type>uint64_t &amp;</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+<para>Reads an unsigned 64-bit integer. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADCore/headers/RADCore.h" line="1412" column="23"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADCore_1_1RADDataStream_1aa8ee7acb02411994bb7549601fd9ee52" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classRADCore_1_1RADDataStream" kindref="compound">RADDataStream</ref> &amp;</type>
+        <definition>RADDataStream&amp; RADCore::RADDataStream::operator&gt;&gt;</definition>
+        <argsstring>(int8_t &amp;value)</argsstring>
+        <name>operator&gt;&gt;</name>
+        <param>
+          <type>int8_t &amp;</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+<para>Reads a signed 8-bit integer. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADCore/headers/RADCore.h" line="1414" column="23"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADCore_1_1RADDataStream_1a5650550c2d746b861da0f7120232f770" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classRADCore_1_1RADDataStream" kindref="compound">RADDataStream</ref> &amp;</type>
+        <definition>RADDataStream&amp; RADCore::RADDataStream::operator&gt;&gt;</definition>
+        <argsstring>(int16_t &amp;value)</argsstring>
+        <name>operator&gt;&gt;</name>
+        <param>
+          <type>int16_t &amp;</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+<para>Reads a signed 16-bit integer. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADCore/headers/RADCore.h" line="1416" column="23"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADCore_1_1RADDataStream_1a2b2a4cb7ba7b04ea7bc2720e9cb26857" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classRADCore_1_1RADDataStream" kindref="compound">RADDataStream</ref> &amp;</type>
+        <definition>RADDataStream&amp; RADCore::RADDataStream::operator&gt;&gt;</definition>
+        <argsstring>(int32_t &amp;value)</argsstring>
+        <name>operator&gt;&gt;</name>
+        <param>
+          <type>int32_t &amp;</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+<para>Reads a signed 32-bit integer. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADCore/headers/RADCore.h" line="1418" column="23"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADCore_1_1RADDataStream_1af4eb02846842744a153573db2a43c9af" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classRADCore_1_1RADDataStream" kindref="compound">RADDataStream</ref> &amp;</type>
+        <definition>RADDataStream&amp; RADCore::RADDataStream::operator&gt;&gt;</definition>
+        <argsstring>(int64_t &amp;value)</argsstring>
+        <name>operator&gt;&gt;</name>
+        <param>
+          <type>int64_t &amp;</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+<para>Reads a signed 64-bit integer. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADCore/headers/RADCore.h" line="1420" column="23"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADCore_1_1RADDataStream_1a945dc6f08181ca3dbdb4e554d3fd99a6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classRADCore_1_1RADDataStream" kindref="compound">RADDataStream</ref> &amp;</type>
+        <definition>RADDataStream&amp; RADCore::RADDataStream::operator&gt;&gt;</definition>
+        <argsstring>(float &amp;value)</argsstring>
+        <name>operator&gt;&gt;</name>
+        <param>
+          <type>float &amp;</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+<para>Reads a 32-bit float. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADCore/headers/RADCore.h" line="1422" column="23"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADCore_1_1RADDataStream_1abd39e8e4571d076274c3a521c0b409fa" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classRADCore_1_1RADDataStream" kindref="compound">RADDataStream</ref> &amp;</type>
+        <definition>RADDataStream&amp; RADCore::RADDataStream::operator&gt;&gt;</definition>
+        <argsstring>(double &amp;value)</argsstring>
+        <name>operator&gt;&gt;</name>
+        <param>
+          <type>double &amp;</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+<para>Reads a 64-bit double. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADCore/headers/RADCore.h" line="1424" column="23"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADCore_1_1RADDataStream_1af75689b5a4b566f4243e27d4f0b43200" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classRADCore_1_1RADDataStream" kindref="compound">RADDataStream</ref> &amp;</type>
+        <definition>RADDataStream&amp; RADCore::RADDataStream::operator&gt;&gt;</definition>
+        <argsstring>(std::string &amp;value)</argsstring>
+        <name>operator&gt;&gt;</name>
+        <param>
+          <type>std::string &amp;</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+<para>Reads a length-prefixed string. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADCore/headers/RADCore.h" line="1426" column="23"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADCore_1_1RADDataStream_1a314e9ec8fcc2ba2ded063140f7860547" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classRADCore_1_1RADDataStream" kindref="compound">RADDataStream</ref> &amp;</type>
+        <definition>RADDataStream&amp; RADCore::RADDataStream::operator&gt;&gt;</definition>
+        <argsstring>(std::vector&lt; uint8_t &gt; &amp;value)</argsstring>
+        <name>operator&gt;&gt;</name>
+        <param>
+          <type>std::vector&lt; uint8_t &gt; &amp;</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+<para>Reads a length-prefixed byte array. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADCore/headers/RADCore.h" line="1428" column="23"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="classRADCore_1_1RADDataStream_1a5298bd894aea55f79fd89418158267c7" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool RADCore::RADDataStream::writeRaw</definition>
+        <argsstring>(const void *data, size_t size)</argsstring>
+        <name>writeRaw</name>
+        <param>
+          <type>const void *</type>
+          <declname>data</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>size</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADCore/headers/RADCore.h" line="1431" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADCore_1_1RADDataStream_1a3f4ad10c064ce1764b872db34b79b3ce" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool RADCore::RADDataStream::readRaw</definition>
+        <argsstring>(void *data, size_t size)</argsstring>
+        <name>readRaw</name>
+        <param>
+          <type>void *</type>
+          <declname>data</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>size</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADCore/headers/RADCore.h" line="1432" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADCore_1_1RADDataStream_1a256549033718895c3f27769564758911" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename T</type>
+          </param>
+        </templateparamlist>
+        <type>bool</type>
+        <definition>bool RADCore::RADDataStream::writeIntegral</definition>
+        <argsstring>(T value)</argsstring>
+        <name>writeIntegral</name>
+        <param>
+          <type>T</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADCore/headers/RADCore.h" line="1434" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADCore_1_1RADDataStream_1aeffcc00daddb9e7bd9aa0e3dd065ad64" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename T</type>
+          </param>
+        </templateparamlist>
+        <type>bool</type>
+        <definition>bool RADCore::RADDataStream::readIntegral</definition>
+        <argsstring>(T &amp;value)</argsstring>
+        <name>readIntegral</name>
+        <param>
+          <type>T &amp;</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADCore/headers/RADCore.h" line="1436" column="14"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Binary serialization stream for <ref refid="classRADCore_1_1RADIODevice" kindref="compound">RADIODevice</ref>. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="RADCore/headers/RADCore.h" line="1364" column="5" bodyfile="RADCore/headers/RADCore.h" bodystart="1364" bodyend="1441"/>
+    <listofallmembers>
+      <member refid="classRADCore_1_1RADDataStream_1aebb526a5eb0a30a9028de4418cc31429" prot="public" virt="non-virtual"><scope>RADCore::RADDataStream</scope><name>byteOrder</name></member>
+      <member refid="classRADCore_1_1RADDataStream_1a8a6afcb465e3973a8d939cd8449a6f96" prot="private" virt="non-virtual"><scope>RADCore::RADDataStream</scope><name>byteOrder_</name></member>
+      <member refid="classRADCore_1_1RADDataStream_1a8fd874d6e591fb785a9e0d43e7a9a1dd" prot="private" virt="non-virtual"><scope>RADCore::RADDataStream</scope><name>device_</name></member>
+      <member refid="classRADCore_1_1RADDataStream_1a853f21f44e07c8e6ccaec8821ba089f6" prot="public" virt="non-virtual"><scope>RADCore::RADDataStream</scope><name>ok</name></member>
+      <member refid="classRADCore_1_1RADDataStream_1ab400919d96e7872a9a2bf867ec976873" prot="public" virt="non-virtual"><scope>RADCore::RADDataStream</scope><name>operator&lt;&lt;</name></member>
+      <member refid="classRADCore_1_1RADDataStream_1a38fffe30153b4806b019e770afb48816" prot="public" virt="non-virtual"><scope>RADCore::RADDataStream</scope><name>operator&lt;&lt;</name></member>
+      <member refid="classRADCore_1_1RADDataStream_1a53b1260f87c4944c38540828c4c6dccf" prot="public" virt="non-virtual"><scope>RADCore::RADDataStream</scope><name>operator&lt;&lt;</name></member>
+      <member refid="classRADCore_1_1RADDataStream_1a23ccacdece9040d99d666534ce76efce" prot="public" virt="non-virtual"><scope>RADCore::RADDataStream</scope><name>operator&lt;&lt;</name></member>
+      <member refid="classRADCore_1_1RADDataStream_1abd7b9835b3596bab899c6d097eb8a6e5" prot="public" virt="non-virtual"><scope>RADCore::RADDataStream</scope><name>operator&lt;&lt;</name></member>
+      <member refid="classRADCore_1_1RADDataStream_1a75af1f60f90dfd6a8fc48671d0aa23e2" prot="public" virt="non-virtual"><scope>RADCore::RADDataStream</scope><name>operator&lt;&lt;</name></member>
+      <member refid="classRADCore_1_1RADDataStream_1a2ffb456e5a1452883ca234121292e65d" prot="public" virt="non-virtual"><scope>RADCore::RADDataStream</scope><name>operator&lt;&lt;</name></member>
+      <member refid="classRADCore_1_1RADDataStream_1ae349687d838072d4719fb8ddb980189f" prot="public" virt="non-virtual"><scope>RADCore::RADDataStream</scope><name>operator&lt;&lt;</name></member>
+      <member refid="classRADCore_1_1RADDataStream_1ac1bc606458e0a6f7a06a8bcd06c1472a" prot="public" virt="non-virtual"><scope>RADCore::RADDataStream</scope><name>operator&lt;&lt;</name></member>
+      <member refid="classRADCore_1_1RADDataStream_1a4c0714448c341d943daed3128b3c9289" prot="public" virt="non-virtual"><scope>RADCore::RADDataStream</scope><name>operator&lt;&lt;</name></member>
+      <member refid="classRADCore_1_1RADDataStream_1a1dde6472894bb42277cd29b9f6cc7ba7" prot="public" virt="non-virtual"><scope>RADCore::RADDataStream</scope><name>operator&lt;&lt;</name></member>
+      <member refid="classRADCore_1_1RADDataStream_1aae6a1d974a3a9c297ec4867fad79fcef" prot="public" virt="non-virtual"><scope>RADCore::RADDataStream</scope><name>operator&lt;&lt;</name></member>
+      <member refid="classRADCore_1_1RADDataStream_1a6d685386482897d42fdf5495795c315f" prot="public" virt="non-virtual"><scope>RADCore::RADDataStream</scope><name>operator&gt;&gt;</name></member>
+      <member refid="classRADCore_1_1RADDataStream_1a1809abd75ee66b2b246f04565857b432" prot="public" virt="non-virtual"><scope>RADCore::RADDataStream</scope><name>operator&gt;&gt;</name></member>
+      <member refid="classRADCore_1_1RADDataStream_1ac1371fba0383ea2b04687cdd766b5586" prot="public" virt="non-virtual"><scope>RADCore::RADDataStream</scope><name>operator&gt;&gt;</name></member>
+      <member refid="classRADCore_1_1RADDataStream_1ab6479e6e776a5888f47c0c1dcb6862cc" prot="public" virt="non-virtual"><scope>RADCore::RADDataStream</scope><name>operator&gt;&gt;</name></member>
+      <member refid="classRADCore_1_1RADDataStream_1aa8ee7acb02411994bb7549601fd9ee52" prot="public" virt="non-virtual"><scope>RADCore::RADDataStream</scope><name>operator&gt;&gt;</name></member>
+      <member refid="classRADCore_1_1RADDataStream_1a5650550c2d746b861da0f7120232f770" prot="public" virt="non-virtual"><scope>RADCore::RADDataStream</scope><name>operator&gt;&gt;</name></member>
+      <member refid="classRADCore_1_1RADDataStream_1a2b2a4cb7ba7b04ea7bc2720e9cb26857" prot="public" virt="non-virtual"><scope>RADCore::RADDataStream</scope><name>operator&gt;&gt;</name></member>
+      <member refid="classRADCore_1_1RADDataStream_1af4eb02846842744a153573db2a43c9af" prot="public" virt="non-virtual"><scope>RADCore::RADDataStream</scope><name>operator&gt;&gt;</name></member>
+      <member refid="classRADCore_1_1RADDataStream_1a945dc6f08181ca3dbdb4e554d3fd99a6" prot="public" virt="non-virtual"><scope>RADCore::RADDataStream</scope><name>operator&gt;&gt;</name></member>
+      <member refid="classRADCore_1_1RADDataStream_1abd39e8e4571d076274c3a521c0b409fa" prot="public" virt="non-virtual"><scope>RADCore::RADDataStream</scope><name>operator&gt;&gt;</name></member>
+      <member refid="classRADCore_1_1RADDataStream_1af75689b5a4b566f4243e27d4f0b43200" prot="public" virt="non-virtual"><scope>RADCore::RADDataStream</scope><name>operator&gt;&gt;</name></member>
+      <member refid="classRADCore_1_1RADDataStream_1a314e9ec8fcc2ba2ded063140f7860547" prot="public" virt="non-virtual"><scope>RADCore::RADDataStream</scope><name>operator&gt;&gt;</name></member>
+      <member refid="classRADCore_1_1RADDataStream_1a18c9a78492365b4e13019e4d1a21e3c1" prot="public" virt="non-virtual"><scope>RADCore::RADDataStream</scope><name>RADDataStream</name></member>
+      <member refid="classRADCore_1_1RADDataStream_1aeffcc00daddb9e7bd9aa0e3dd065ad64" prot="private" virt="non-virtual"><scope>RADCore::RADDataStream</scope><name>readIntegral</name></member>
+      <member refid="classRADCore_1_1RADDataStream_1a3f4ad10c064ce1764b872db34b79b3ce" prot="private" virt="non-virtual"><scope>RADCore::RADDataStream</scope><name>readRaw</name></member>
+      <member refid="classRADCore_1_1RADDataStream_1a1c6e211d311c948e1c09e5449ed406de" prot="public" virt="non-virtual"><scope>RADCore::RADDataStream</scope><name>resetStatus</name></member>
+      <member refid="classRADCore_1_1RADDataStream_1a5bd382707ddaca8b23124dc91643db99" prot="public" virt="non-virtual"><scope>RADCore::RADDataStream</scope><name>setByteOrder</name></member>
+      <member refid="classRADCore_1_1RADDataStream_1a2c9387c9905ff1f363f163a578c5f05c" prot="public" virt="non-virtual"><scope>RADCore::RADDataStream</scope><name>status</name></member>
+      <member refid="classRADCore_1_1RADDataStream_1a3e2d8962eae80594cf06763c494956bf" prot="private" virt="non-virtual"><scope>RADCore::RADDataStream</scope><name>status_</name></member>
+      <member refid="classRADCore_1_1RADDataStream_1a256549033718895c3f27769564758911" prot="private" virt="non-virtual"><scope>RADCore::RADDataStream</scope><name>writeIntegral</name></member>
+      <member refid="classRADCore_1_1RADDataStream_1a5298bd894aea55f79fd89418158267c7" prot="private" virt="non-virtual"><scope>RADCore::RADDataStream</scope><name>writeRaw</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

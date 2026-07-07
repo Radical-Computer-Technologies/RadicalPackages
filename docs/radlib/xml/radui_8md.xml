@@ -1,0 +1,59 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="radui_8md" kind="file" language="Markdown">
+    <compoundname>radui.md</compoundname>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline><highlight class="normal">#<sp/>RADUi</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">RADUi<sp/>provides<sp/>backend-neutral<sp/>UI<sp/>dispatching,<sp/>reusable<sp/>UI<sp/>state<sp/>models,<sp/>Slint</highlight></codeline>
+<codeline><highlight class="normal">backend<sp/>integration,<sp/>plotting,<sp/>terminal<sp/>helpers,<sp/>and<sp/>an<sp/>application-shell<sp/>layer</highlight></codeline>
+<codeline><highlight class="normal">for<sp/>desktop<sp/>and<sp/>embedded<sp/>tools.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>Application<sp/>Shell</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">`RADAppKit.h`<sp/>adds<sp/>models<sp/>for<sp/>IDE-style<sp/>applications:</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">-<sp/>`AppShellModel`<sp/>combines<sp/>menus,<sp/>toolbars,<sp/>status<sp/>bars,<sp/>docks,<sp/>documents,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>commands,<sp/>and<sp/>notifications.</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>`DockLayoutModel`<sp/>stores<sp/>visible/selected<sp/>panels<sp/>and<sp/>serializes<sp/>layouts.</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>`DocumentWorkspaceModel`<sp/>tracks<sp/>open<sp/>tabs,<sp/>active<sp/>tab,<sp/>and<sp/>modified<sp/>state.</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>`CommandPaletteModel`<sp/>filters<sp/>and<sp/>triggers<sp/>commands.</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>`NotificationModel`<sp/>stores<sp/>toasts/status<sp/>messages<sp/>and<sp/>action<sp/>ids.</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>`VirtualTableModel`,<sp/>`FileBrowserModel`,<sp/>`LogViewModel`,<sp/>`SearchBoxModel`,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>and<sp/>`ProgressModel`<sp/>cover<sp/>common<sp/>tool<sp/>surfaces.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>Theme<sp/>System</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">`RADTheme.h`<sp/>adds<sp/>`Theme`,<sp/>`ThemeManager`,<sp/>and<sp/>JSON<sp/>persistence<sp/>for<sp/>color,</highlight></codeline>
+<codeline><highlight class="normal">spacing,<sp/>typography,<sp/>radius,<sp/>toolbar,<sp/>status<sp/>bar,<sp/>and<sp/>icon-name<sp/>tokens.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Use<sp/>`RADUi::Slint::bindTheme()`<sp/>to<sp/>push<sp/>theme<sp/>changes<sp/>into<sp/>generated<sp/>Slint</highlight></codeline>
+<codeline><highlight class="normal">components<sp/>while<sp/>keeping<sp/>the<sp/>C++<sp/>state<sp/>backend-neutral.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>Slint<sp/>Backend</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Slint<sp/>remains<sp/>the<sp/>first<sp/>concrete<sp/>backend.<sp/>Slint-specific<sp/>helpers<sp/>live<sp/>under</highlight></codeline>
+<codeline><highlight class="normal">`RADUi::Slint`<sp/>and<sp/>should<sp/>adapt<sp/>generated<sp/>components<sp/>to<sp/>backend-neutral<sp/>RADUi</highlight></codeline>
+<codeline><highlight class="normal">models<sp/>rather<sp/>than<sp/>storing<sp/>application<sp/>state<sp/>directly<sp/>in<sp/>`.slint`<sp/>files.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>Examples</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">The<sp/>beta<sp/>SDK<sp/>includes<sp/>developer-tool<sp/>examples:</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">-<sp/>`RADStudioExample`:<sp/>IDE-style<sp/>app<sp/>shell<sp/>with<sp/>project<sp/>tree,<sp/>editor,<sp/>terminal,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>browser/docs<sp/>pane,<sp/>output,<sp/>commands,<sp/>notifications,<sp/>and<sp/>theme<sp/>switching.</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>`RADUiSlintTextEditor`,<sp/>`RADUiSlintTerminal`,<sp/>and<sp/>`RADWebBrowserExample`:</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>standalone<sp/>developer<sp/>tools.</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>`RADEmbeddedDashboard`,<sp/>`RADSerialMonitorUi`,<sp/>`RADNetworkMonitorUi`,<sp/>and</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>`RADLogViewerUi`:<sp/>embedded/device<sp/>and<sp/>diagnostics<sp/>surfaces.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">OpenGL<sp/>plot<sp/>acceleration<sp/>is<sp/>available<sp/>as<sp/>an<sp/>experimental<sp/>mode;<sp/>software</highlight></codeline>
+<codeline><highlight class="normal">rendering<sp/>remains<sp/>the<sp/>compatibility<sp/>path.</highlight></codeline>
+    </programlisting>
+    <location file="docs/public/radui.md"/>
+  </compounddef>
+</doxygen>

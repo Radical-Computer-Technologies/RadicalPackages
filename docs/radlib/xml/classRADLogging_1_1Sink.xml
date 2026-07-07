@@ -1,0 +1,73 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="classRADLogging_1_1Sink" kind="class" language="C++" prot="public" abstract="yes">
+    <compoundname>RADLogging::Sink</compoundname>
+    <includes refid="RADLogging_8h" local="no">RADLogging.h</includes>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classRADLogging_1_1Sink_1a5447e48a271a6758031196d01bbd89fb" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type></type>
+        <definition>virtual RADLogging::Sink::~Sink</definition>
+        <argsstring>()=default</argsstring>
+        <name>~Sink</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADLogging/headers/RADLogging.h" line="34" column="17"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADLogging_1_1Sink_1a0a33f2232e199caf4d55946ae11c35f9" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>void</type>
+        <definition>virtual void RADLogging::Sink::write</definition>
+        <argsstring>(Level level, const std::string &amp;category, const std::string &amp;line)=0</argsstring>
+        <name>write</name>
+        <param>
+          <type><ref refid="namespaceRADLogging_1a8317de65c6fc04ea0c80520b60f81949" kindref="member">Level</ref></type>
+          <declname>level</declname>
+        </param>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>category</declname>
+        </param>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>line</declname>
+        </param>
+        <briefdescription>
+<para>Writes one already-formatted log line. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADLogging/headers/RADLogging.h" line="36" column="22"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADLogging_1_1Sink_1a528547b28b4849bd81f9a6b20c3d6468" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type>void</type>
+        <definition>virtual void RADLogging::Sink::flush</definition>
+        <argsstring>()</argsstring>
+        <name>flush</name>
+        <briefdescription>
+<para>Flushes buffered output. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADLogging/headers/RADLogging.h" line="38" column="22" bodyfile="RADLogging/headers/RADLogging.h" bodystart="38" bodyend="38"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para><ref refid="classRADLogging_1_1Logger" kindref="compound">Logger</ref> sink interface. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="RADLogging/headers/RADLogging.h" line="32" column="5" bodyfile="RADLogging/headers/RADLogging.h" bodystart="32" bodyend="39"/>
+    <listofallmembers>
+      <member refid="classRADLogging_1_1Sink_1a528547b28b4849bd81f9a6b20c3d6468" prot="public" virt="virtual"><scope>RADLogging::Sink</scope><name>flush</name></member>
+      <member refid="classRADLogging_1_1Sink_1a0a33f2232e199caf4d55946ae11c35f9" prot="public" virt="pure-virtual"><scope>RADLogging::Sink</scope><name>write</name></member>
+      <member refid="classRADLogging_1_1Sink_1a5447e48a271a6758031196d01bbd89fb" prot="public" virt="virtual"><scope>RADLogging::Sink</scope><name>~Sink</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

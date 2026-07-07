@@ -1,0 +1,134 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="classRADDevice_1_1AdcChannel" kind="class" language="C++" prot="public">
+    <compoundname>RADDevice::AdcChannel</compoundname>
+    <includes refid="RADDevice_8h" local="no">RADDevice.h</includes>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classRADDevice_1_1AdcChannel_1ac2cb73134bbdd622abd14da525a33ef9" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int RADDevice::AdcChannel::device_</definition>
+        <argsstring></argsstring>
+        <name>device_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADDevice/headers/RADDevice.h" line="163" column="13" bodyfile="RADDevice/headers/RADDevice.h" bodystart="163" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classRADDevice_1_1AdcChannel_1a16a150b6abcf1e702fcc5a8926485c9e" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int RADDevice::AdcChannel::channel_</definition>
+        <argsstring></argsstring>
+        <name>channel_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADDevice/headers/RADDevice.h" line="164" column="13" bodyfile="RADDevice/headers/RADDevice.h" bodystart="164" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classRADDevice_1_1AdcChannel_1aaf6a2d8b54f2158247b89367b3c516dd" prot="private" static="no" mutable="no">
+        <type><ref refid="structRADDevice_1_1DevicePaths" kindref="compound">DevicePaths</ref></type>
+        <definition>DevicePaths RADDevice::AdcChannel::paths_</definition>
+        <argsstring></argsstring>
+        <name>paths_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADDevice/headers/RADDevice.h" line="165" column="21" bodyfile="RADDevice/headers/RADDevice.h" bodystart="165" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classRADDevice_1_1AdcChannel_1a9057c51874b7d4494d3b00808ab62ce4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>RADDevice::AdcChannel::AdcChannel</definition>
+        <argsstring>(int device, int channel, DevicePaths paths={})</argsstring>
+        <name>AdcChannel</name>
+        <param>
+          <type>int</type>
+          <declname>device</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>channel</declname>
+        </param>
+        <param>
+          <type><ref refid="structRADDevice_1_1DevicePaths" kindref="compound">DevicePaths</ref></type>
+          <declname>paths</declname>
+          <defval>{}</defval>
+        </param>
+        <briefdescription>
+<para>Creates an ADC channel wrapper. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADDevice/headers/RADDevice.h" line="154" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADDevice_1_1AdcChannel_1afe05ea0e522657dd445aefe897286102" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classRADCore_1_1RADResult" kindref="compound">RADCore::RADResult</ref>&lt; int &gt;</type>
+        <definition>RADCore::RADResult&lt;int&gt; RADDevice::AdcChannel::readRaw</definition>
+        <argsstring>() const</argsstring>
+        <name>readRaw</name>
+        <briefdescription>
+<para>Reads raw integer sample. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADDevice/headers/RADDevice.h" line="156" column="28"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADDevice_1_1AdcChannel_1acf9a8d15330317362caf73e4c05d4c99" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classRADCore_1_1RADResult" kindref="compound">RADCore::RADResult</ref>&lt; double &gt;</type>
+        <definition>RADCore::RADResult&lt;double&gt; RADDevice::AdcChannel::readScale</definition>
+        <argsstring>() const</argsstring>
+        <name>readScale</name>
+        <briefdescription>
+<para>Reads scale value when available. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADDevice/headers/RADDevice.h" line="158" column="28"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADDevice_1_1AdcChannel_1a550386a14e42d96c9f8e927ace2ff5c4" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classRADCore_1_1RADResult" kindref="compound">RADCore::RADResult</ref>&lt; double &gt;</type>
+        <definition>RADCore::RADResult&lt;double&gt; RADDevice::AdcChannel::readScaled</definition>
+        <argsstring>() const</argsstring>
+        <name>readScaled</name>
+        <briefdescription>
+<para>Reads scaled voltage/value when scale is available. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADDevice/headers/RADDevice.h" line="160" column="28"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>IIO ADC channel reader. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="RADDevice/headers/RADDevice.h" line="151" column="5" bodyfile="RADDevice/headers/RADDevice.h" bodystart="151" bodyend="166"/>
+    <listofallmembers>
+      <member refid="classRADDevice_1_1AdcChannel_1a9057c51874b7d4494d3b00808ab62ce4" prot="public" virt="non-virtual"><scope>RADDevice::AdcChannel</scope><name>AdcChannel</name></member>
+      <member refid="classRADDevice_1_1AdcChannel_1a16a150b6abcf1e702fcc5a8926485c9e" prot="private" virt="non-virtual"><scope>RADDevice::AdcChannel</scope><name>channel_</name></member>
+      <member refid="classRADDevice_1_1AdcChannel_1ac2cb73134bbdd622abd14da525a33ef9" prot="private" virt="non-virtual"><scope>RADDevice::AdcChannel</scope><name>device_</name></member>
+      <member refid="classRADDevice_1_1AdcChannel_1aaf6a2d8b54f2158247b89367b3c516dd" prot="private" virt="non-virtual"><scope>RADDevice::AdcChannel</scope><name>paths_</name></member>
+      <member refid="classRADDevice_1_1AdcChannel_1afe05ea0e522657dd445aefe897286102" prot="public" virt="non-virtual"><scope>RADDevice::AdcChannel</scope><name>readRaw</name></member>
+      <member refid="classRADDevice_1_1AdcChannel_1acf9a8d15330317362caf73e4c05d4c99" prot="public" virt="non-virtual"><scope>RADDevice::AdcChannel</scope><name>readScale</name></member>
+      <member refid="classRADDevice_1_1AdcChannel_1a550386a14e42d96c9f8e927ace2ff5c4" prot="public" virt="non-virtual"><scope>RADDevice::AdcChannel</scope><name>readScaled</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

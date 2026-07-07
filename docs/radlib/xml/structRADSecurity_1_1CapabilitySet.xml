@@ -1,0 +1,102 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="structRADSecurity_1_1CapabilitySet" kind="struct" language="C++" prot="public">
+    <compoundname>RADSecurity::CapabilitySet</compoundname>
+    <includes refid="RADSecurity_8h" local="no">RADSecurity.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structRADSecurity_1_1CapabilitySet_1aa8b1098ca8f31e0d9787e331ffba216b" prot="public" static="no" mutable="no">
+        <type>uint64_t</type>
+        <definition>uint64_t RADSecurity::CapabilitySet::effective</definition>
+        <argsstring></argsstring>
+        <name>effective</name>
+        <initializer>= 0</initializer>
+        <briefdescription>
+<para>Effective capability mask. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADSecurity/headers/RADSecurity.h" line="22" column="18" bodyfile="RADSecurity/headers/RADSecurity.h" bodystart="22" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structRADSecurity_1_1CapabilitySet_1a94b175b6bfedcb6c1f0a77fb57396924" prot="public" static="no" mutable="no">
+        <type>uint64_t</type>
+        <definition>uint64_t RADSecurity::CapabilitySet::permitted</definition>
+        <argsstring></argsstring>
+        <name>permitted</name>
+        <initializer>= 0</initializer>
+        <briefdescription>
+<para>Permitted capability mask. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADSecurity/headers/RADSecurity.h" line="24" column="18" bodyfile="RADSecurity/headers/RADSecurity.h" bodystart="24" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structRADSecurity_1_1CapabilitySet_1a0704a1b28b56e056c50713acd76daf84" prot="public" static="no" mutable="no">
+        <type>uint64_t</type>
+        <definition>uint64_t RADSecurity::CapabilitySet::inheritable</definition>
+        <argsstring></argsstring>
+        <name>inheritable</name>
+        <initializer>= 0</initializer>
+        <briefdescription>
+<para>Inheritable capability mask. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADSecurity/headers/RADSecurity.h" line="26" column="18" bodyfile="RADSecurity/headers/RADSecurity.h" bodystart="26" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structRADSecurity_1_1CapabilitySet_1a3f2b308a84eae829d7ab06919d3629ac" prot="public" static="no" mutable="no">
+        <type>uint64_t</type>
+        <definition>uint64_t RADSecurity::CapabilitySet::bounding</definition>
+        <argsstring></argsstring>
+        <name>bounding</name>
+        <initializer>= 0</initializer>
+        <briefdescription>
+<para>Bounding capability mask. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADSecurity/headers/RADSecurity.h" line="28" column="18" bodyfile="RADSecurity/headers/RADSecurity.h" bodystart="28" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structRADSecurity_1_1CapabilitySet_1a12e3f96a9b2e92b0d0c7c8fb3814e9f6" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool RADSecurity::CapabilitySet::hasEffective</definition>
+        <argsstring>(int capabilityNumber) const</argsstring>
+        <name>hasEffective</name>
+        <param>
+          <type>int</type>
+          <declname>capabilityNumber</declname>
+        </param>
+        <briefdescription>
+<para>Returns true when capabilityNumber is present in the effective set. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADSecurity/headers/RADSecurity.h" line="31" column="14"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Linux capability state parsed from /proc status fields. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="RADSecurity/headers/RADSecurity.h" line="20" column="5" bodyfile="RADSecurity/headers/RADSecurity.h" bodystart="20" bodyend="32"/>
+    <listofallmembers>
+      <member refid="structRADSecurity_1_1CapabilitySet_1a3f2b308a84eae829d7ab06919d3629ac" prot="public" virt="non-virtual"><scope>RADSecurity::CapabilitySet</scope><name>bounding</name></member>
+      <member refid="structRADSecurity_1_1CapabilitySet_1aa8b1098ca8f31e0d9787e331ffba216b" prot="public" virt="non-virtual"><scope>RADSecurity::CapabilitySet</scope><name>effective</name></member>
+      <member refid="structRADSecurity_1_1CapabilitySet_1a12e3f96a9b2e92b0d0c7c8fb3814e9f6" prot="public" virt="non-virtual"><scope>RADSecurity::CapabilitySet</scope><name>hasEffective</name></member>
+      <member refid="structRADSecurity_1_1CapabilitySet_1a0704a1b28b56e056c50713acd76daf84" prot="public" virt="non-virtual"><scope>RADSecurity::CapabilitySet</scope><name>inheritable</name></member>
+      <member refid="structRADSecurity_1_1CapabilitySet_1a94b175b6bfedcb6c1f0a77fb57396924" prot="public" virt="non-virtual"><scope>RADSecurity::CapabilitySet</scope><name>permitted</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

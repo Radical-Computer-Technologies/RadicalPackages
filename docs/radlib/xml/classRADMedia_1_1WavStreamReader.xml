@@ -1,0 +1,251 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="classRADMedia_1_1WavStreamReader" kind="class" language="C++" prot="public">
+    <compoundname>RADMedia::WavStreamReader</compoundname>
+    <includes refid="RADMedia_8h" local="no">RADMedia.h</includes>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classRADMedia_1_1WavStreamReader_1ace7a818ff438a246db477a5ecc37f055" prot="private" static="no" mutable="no">
+        <type>std::unique_ptr&lt; Impl &gt;</type>
+        <definition>std::unique_ptr&lt;Impl&gt; RADMedia::WavStreamReader::pImpl_</definition>
+        <argsstring></argsstring>
+        <name>pImpl_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADMedia/headers/RADMedia.h" line="121" column="25" bodyfile="RADMedia/headers/RADMedia.h" bodystart="120" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classRADMedia_1_1WavStreamReader_1a7aad9ebef9de9f164847cc8db566a3c8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>RADMedia::WavStreamReader::WavStreamReader</definition>
+        <argsstring>()</argsstring>
+        <name>WavStreamReader</name>
+        <briefdescription>
+<para>Creates a closed stream reader. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADMedia/headers/RADMedia.h" line="89" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADMedia_1_1WavStreamReader_1a3073dbdf373c0f9355589f33135f938e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>RADMedia::WavStreamReader::~WavStreamReader</definition>
+        <argsstring>()</argsstring>
+        <name>~WavStreamReader</name>
+        <briefdescription>
+<para>Closes the file if still open. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADMedia/headers/RADMedia.h" line="91" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADMedia_1_1WavStreamReader_1a1c47f36d53cde3d74c9c2f9cd78183bd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>RADMedia::WavStreamReader::WavStreamReader</definition>
+        <argsstring>(const WavStreamReader &amp;)=delete</argsstring>
+        <name>WavStreamReader</name>
+        <param>
+          <type>const <ref refid="classRADMedia_1_1WavStreamReader" kindref="compound">WavStreamReader</ref> &amp;</type>
+        </param>
+        <briefdescription>
+<para>Streaming readers are move-only by ownership design. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADMedia/headers/RADMedia.h" line="94" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADMedia_1_1WavStreamReader_1ad5bd46e1f7bc5e4acd249885d6826f77" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classRADMedia_1_1WavStreamReader" kindref="compound">WavStreamReader</ref> &amp;</type>
+        <definition>WavStreamReader&amp; RADMedia::WavStreamReader::operator=</definition>
+        <argsstring>(const WavStreamReader &amp;)=delete</argsstring>
+        <name>operator=</name>
+        <param>
+          <type>const <ref refid="classRADMedia_1_1WavStreamReader" kindref="compound">WavStreamReader</ref> &amp;</type>
+        </param>
+        <briefdescription>
+<para>Streaming readers are move-only by ownership design. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADMedia/headers/RADMedia.h" line="96" column="25"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADMedia_1_1WavStreamReader_1a0cf12a9bff5b68f23748267fb933d9d2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool RADMedia::WavStreamReader::open</definition>
+        <argsstring>(const std::string &amp;path, std::string *error=nullptr)</argsstring>
+        <name>open</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>path</declname>
+        </param>
+        <param>
+          <type>std::string *</type>
+          <declname>error</declname>
+          <defval>nullptr</defval>
+        </param>
+        <briefdescription>
+<para>Opens path and parses its WAV header. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADMedia/headers/RADMedia.h" line="99" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADMedia_1_1WavStreamReader_1a72853d85df5bb143784c964b976ae03d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void RADMedia::WavStreamReader::close</definition>
+        <argsstring>()</argsstring>
+        <name>close</name>
+        <briefdescription>
+<para>Closes the stream. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADMedia/headers/RADMedia.h" line="101" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADMedia_1_1WavStreamReader_1a657c3d882f96d0859c3a80804a2c1e0c" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool RADMedia::WavStreamReader::isOpen</definition>
+        <argsstring>() const</argsstring>
+        <name>isOpen</name>
+        <briefdescription>
+<para>Returns true when a WAV stream is open. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADMedia/headers/RADMedia.h" line="103" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADMedia_1_1WavStreamReader_1a0f8b16e0b0158d2a9c0b432430dc8ace" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>const <ref refid="structRADMedia_1_1WavFormat" kindref="compound">WavFormat</ref> &amp;</type>
+        <definition>const WavFormat&amp; RADMedia::WavStreamReader::format</definition>
+        <argsstring>() const</argsstring>
+        <name>format</name>
+        <briefdescription>
+<para>Returns the parsed stream format. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADMedia/headers/RADMedia.h" line="106" column="25"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADMedia_1_1WavStreamReader_1a2ab72c9358e52586e4de981420cc52d8" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>size_t</type>
+        <definition>size_t RADMedia::WavStreamReader::totalFrames</definition>
+        <argsstring>() const</argsstring>
+        <name>totalFrames</name>
+        <briefdescription>
+<para>Returns the total number of audio frames. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADMedia/headers/RADMedia.h" line="108" column="16"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADMedia_1_1WavStreamReader_1af3032197ccfc2f692011d51c01cb6fe3" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>size_t</type>
+        <definition>size_t RADMedia::WavStreamReader::framesRemaining</definition>
+        <argsstring>() const</argsstring>
+        <name>framesRemaining</name>
+        <briefdescription>
+<para>Returns frames not yet read. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADMedia/headers/RADMedia.h" line="110" column="16"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADMedia_1_1WavStreamReader_1ae0813b122c37efa6ad8c72d25079911d" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>double RADMedia::WavStreamReader::durationSeconds</definition>
+        <argsstring>() const</argsstring>
+        <name>durationSeconds</name>
+        <briefdescription>
+<para>Returns total duration in seconds. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADMedia/headers/RADMedia.h" line="112" column="16"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADMedia_1_1WavStreamReader_1ae6d5467ee1db93af90d882116dd04aaa" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool RADMedia::WavStreamReader::eof</definition>
+        <argsstring>() const</argsstring>
+        <name>eof</name>
+        <briefdescription>
+<para>Returns true once no frames remain. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADMedia/headers/RADMedia.h" line="114" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADMedia_1_1WavStreamReader_1a672814de52bfa26ee2b3b49854bbf6f5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>ssize_t</type>
+        <definition>ssize_t RADMedia::WavStreamReader::readFrames</definition>
+        <argsstring>(void *buffer, size_t maxFrames)</argsstring>
+        <name>readFrames</name>
+        <param>
+          <type>void *</type>
+          <declname>buffer</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>maxFrames</declname>
+        </param>
+        <briefdescription>
+<para>Reads up to maxFrames into buffer and returns frames read. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADMedia/headers/RADMedia.h" line="117" column="17"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Streaming WAV reader that avoids loading the whole file up front. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="RADMedia/headers/RADMedia.h" line="86" column="5" bodyfile="RADMedia/headers/RADMedia.h" bodystart="86" bodyend="122"/>
+    <listofallmembers>
+      <member refid="classRADMedia_1_1WavStreamReader_1a72853d85df5bb143784c964b976ae03d" prot="public" virt="non-virtual"><scope>RADMedia::WavStreamReader</scope><name>close</name></member>
+      <member refid="classRADMedia_1_1WavStreamReader_1ae0813b122c37efa6ad8c72d25079911d" prot="public" virt="non-virtual"><scope>RADMedia::WavStreamReader</scope><name>durationSeconds</name></member>
+      <member refid="classRADMedia_1_1WavStreamReader_1ae6d5467ee1db93af90d882116dd04aaa" prot="public" virt="non-virtual"><scope>RADMedia::WavStreamReader</scope><name>eof</name></member>
+      <member refid="classRADMedia_1_1WavStreamReader_1a0f8b16e0b0158d2a9c0b432430dc8ace" prot="public" virt="non-virtual"><scope>RADMedia::WavStreamReader</scope><name>format</name></member>
+      <member refid="classRADMedia_1_1WavStreamReader_1af3032197ccfc2f692011d51c01cb6fe3" prot="public" virt="non-virtual"><scope>RADMedia::WavStreamReader</scope><name>framesRemaining</name></member>
+      <member refid="classRADMedia_1_1WavStreamReader_1a657c3d882f96d0859c3a80804a2c1e0c" prot="public" virt="non-virtual"><scope>RADMedia::WavStreamReader</scope><name>isOpen</name></member>
+      <member refid="classRADMedia_1_1WavStreamReader_1a0cf12a9bff5b68f23748267fb933d9d2" prot="public" virt="non-virtual"><scope>RADMedia::WavStreamReader</scope><name>open</name></member>
+      <member refid="classRADMedia_1_1WavStreamReader_1ad5bd46e1f7bc5e4acd249885d6826f77" prot="public" virt="non-virtual"><scope>RADMedia::WavStreamReader</scope><name>operator=</name></member>
+      <member refid="classRADMedia_1_1WavStreamReader_1ace7a818ff438a246db477a5ecc37f055" prot="private" virt="non-virtual"><scope>RADMedia::WavStreamReader</scope><name>pImpl_</name></member>
+      <member refid="classRADMedia_1_1WavStreamReader_1a672814de52bfa26ee2b3b49854bbf6f5" prot="public" virt="non-virtual"><scope>RADMedia::WavStreamReader</scope><name>readFrames</name></member>
+      <member refid="classRADMedia_1_1WavStreamReader_1a2ab72c9358e52586e4de981420cc52d8" prot="public" virt="non-virtual"><scope>RADMedia::WavStreamReader</scope><name>totalFrames</name></member>
+      <member refid="classRADMedia_1_1WavStreamReader_1a7aad9ebef9de9f164847cc8db566a3c8" prot="public" virt="non-virtual"><scope>RADMedia::WavStreamReader</scope><name>WavStreamReader</name></member>
+      <member refid="classRADMedia_1_1WavStreamReader_1a1c47f36d53cde3d74c9c2f9cd78183bd" prot="public" virt="non-virtual"><scope>RADMedia::WavStreamReader</scope><name>WavStreamReader</name></member>
+      <member refid="classRADMedia_1_1WavStreamReader_1a3073dbdf373c0f9355589f33135f938e" prot="public" virt="non-virtual"><scope>RADMedia::WavStreamReader</scope><name>~WavStreamReader</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

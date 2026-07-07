@@ -1,0 +1,339 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="classRADUi_1_1PtyTerminalSession" kind="class" language="C++" prot="public">
+    <compoundname>RADUi::PtyTerminalSession</compoundname>
+    <includes refid="RADTerminal_8h" local="no">RADTerminal.h</includes>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classRADUi_1_1PtyTerminalSession_1a1370b6916476ffc120fa5122457d4b3a" prot="private" static="no" mutable="no">
+        <type>std::atomic&lt; bool &gt;</type>
+        <definition>std::atomic&lt;bool&gt; RADUi::PtyTerminalSession::running_</definition>
+        <argsstring></argsstring>
+        <name>running_</name>
+        <initializer>{false}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADUi/headers/RADTerminal.h" line="179" column="21" bodyfile="RADUi/headers/RADTerminal.h" bodystart="179" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classRADUi_1_1PtyTerminalSession_1ac38b8a4e8d8c4bc163f2d2916d09e4dd" prot="private" static="no" mutable="no">
+        <type>std::thread</type>
+        <definition>std::thread RADUi::PtyTerminalSession::reader_</definition>
+        <argsstring></argsstring>
+        <name>reader_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADUi/headers/RADTerminal.h" line="180" column="21" bodyfile="RADUi/headers/RADTerminal.h" bodystart="180" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classRADUi_1_1PtyTerminalSession_1a35efc0c8f9ee42021966fd8be8f7885e" prot="private" static="no" mutable="no">
+        <type><ref refid="classRADUi_1_1TerminalBuffer" kindref="compound">TerminalBuffer</ref></type>
+        <definition>TerminalBuffer RADUi::PtyTerminalSession::buffer_</definition>
+        <argsstring></argsstring>
+        <name>buffer_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADUi/headers/RADTerminal.h" line="181" column="24" bodyfile="RADUi/headers/RADTerminal.h" bodystart="181" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classRADUi_1_1PtyTerminalSession_1a9351cf6478b88aa912985222e8d6050b" prot="private" static="no" mutable="no">
+        <type>std::function&lt; void()&gt;</type>
+        <definition>std::function&lt;void()&gt; RADUi::PtyTerminalSession::changed_</definition>
+        <argsstring></argsstring>
+        <name>changed_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADUi/headers/RADTerminal.h" line="182" column="23" bodyfile="RADUi/headers/RADTerminal.h" bodystart="182" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classRADUi_1_1PtyTerminalSession_1a7b2b225b7e5bfea006c8a3cf3db7fb5b" prot="private" static="no" mutable="no">
+        <type>std::unique_ptr&lt; <ref refid="classRADCore_1_1RADPtyProcess" kindref="compound">RADCore::RADPtyProcess</ref> &gt;</type>
+        <definition>std::unique_ptr&lt;RADCore::RADPtyProcess&gt; RADUi::PtyTerminalSession::process_</definition>
+        <argsstring></argsstring>
+        <name>process_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADUi/headers/RADTerminal.h" line="183" column="25" bodyfile="RADUi/headers/RADTerminal.h" bodystart="183" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classRADUi_1_1PtyTerminalSession_1a6dc17efe18b8837c055cbcb0d89e0731" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>RADUi::PtyTerminalSession::PtyTerminalSession</definition>
+        <argsstring>(std::function&lt; void()&gt; changed={})</argsstring>
+        <name>PtyTerminalSession</name>
+        <param>
+          <type>std::function&lt; void()&gt;</type>
+          <declname>changed</declname>
+          <defval>{}</defval>
+        </param>
+        <briefdescription>
+<para>Creates a terminal session and optional change callback. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADUi/headers/RADTerminal.h" line="147" column="18"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADUi_1_1PtyTerminalSession_1ac7dab2fc696bb71b08ee29360baf647f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>RADUi::PtyTerminalSession::~PtyTerminalSession</definition>
+        <argsstring>()</argsstring>
+        <name>~PtyTerminalSession</name>
+        <briefdescription>
+<para>Stops the session and joins the reader thread. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADUi/headers/RADTerminal.h" line="149" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADUi_1_1PtyTerminalSession_1aa17c3f83b42f36fb6b6c38cdcd131a6b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>RADUi::PtyTerminalSession::PtyTerminalSession</definition>
+        <argsstring>(const PtyTerminalSession &amp;)=delete</argsstring>
+        <name>PtyTerminalSession</name>
+        <param>
+          <type>const <ref refid="classRADUi_1_1PtyTerminalSession" kindref="compound">PtyTerminalSession</ref> &amp;</type>
+        </param>
+        <briefdescription>
+<para>Terminal sessions own a PTY and are not copied. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADUi/headers/RADTerminal.h" line="152" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADUi_1_1PtyTerminalSession_1a932f8b11486c2efcf36a88f03ed80bc7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classRADUi_1_1PtyTerminalSession" kindref="compound">PtyTerminalSession</ref> &amp;</type>
+        <definition>PtyTerminalSession&amp; RADUi::PtyTerminalSession::operator=</definition>
+        <argsstring>(const PtyTerminalSession &amp;)=delete</argsstring>
+        <name>operator=</name>
+        <param>
+          <type>const <ref refid="classRADUi_1_1PtyTerminalSession" kindref="compound">PtyTerminalSession</ref> &amp;</type>
+        </param>
+        <briefdescription>
+<para>Terminal sessions own a PTY and are not copied. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADUi/headers/RADTerminal.h" line="154" column="28"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADUi_1_1PtyTerminalSession_1a01921af62365fb5e42e3abf3dc10342e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool RADUi::PtyTerminalSession::start</definition>
+        <argsstring>(const std::string &amp;shell={}, uint16_t rows=30, uint16_t columns=120)</argsstring>
+        <name>start</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>shell</declname>
+          <defval>{}</defval>
+        </param>
+        <param>
+          <type>uint16_t</type>
+          <declname>rows</declname>
+          <defval>30</defval>
+        </param>
+        <param>
+          <type>uint16_t</type>
+          <declname>columns</declname>
+          <defval>120</defval>
+        </param>
+        <briefdescription>
+<para>Starts shell in a PTY sized rows by columns. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADUi/headers/RADTerminal.h" line="157" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADUi_1_1PtyTerminalSession_1a98ad0d8966f76a6b6340e48a071778b1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void RADUi::PtyTerminalSession::stop</definition>
+        <argsstring>()</argsstring>
+        <name>stop</name>
+        <briefdescription>
+<para>Stops the child process and reader thread. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADUi/headers/RADTerminal.h" line="159" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADUi_1_1PtyTerminalSession_1a1cb42c6cb483bde2a63465e0eece2700" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool RADUi::PtyTerminalSession::isRunning</definition>
+        <argsstring>() const</argsstring>
+        <name>isRunning</name>
+        <briefdescription>
+<para>Returns true while the PTY session is active. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADUi/headers/RADTerminal.h" line="161" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADUi_1_1PtyTerminalSession_1ac43c0fc11d77621ce77101f56d20be21" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool RADUi::PtyTerminalSession::resize</definition>
+        <argsstring>(uint16_t rows, uint16_t columns)</argsstring>
+        <name>resize</name>
+        <param>
+          <type>uint16_t</type>
+          <declname>rows</declname>
+        </param>
+        <param>
+          <type>uint16_t</type>
+          <declname>columns</declname>
+        </param>
+        <briefdescription>
+<para>Resizes the PTY and terminal buffer. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADUi/headers/RADTerminal.h" line="163" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADUi_1_1PtyTerminalSession_1ac5abf6431c1612839f7f9aeb832921e6" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool RADUi::PtyTerminalSession::isAlternateScreen</definition>
+        <argsstring>() const</argsstring>
+        <name>isAlternateScreen</name>
+        <briefdescription>
+<para>Returns true when the terminal is using its alternate screen. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADUi/headers/RADTerminal.h" line="165" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADUi_1_1PtyTerminalSession_1a3222a247c464c615a3c026ff0af1ff49" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structRADUi_1_1TerminalCursor" kindref="compound">TerminalCursor</ref></type>
+        <definition>TerminalCursor RADUi::PtyTerminalSession::cursor</definition>
+        <argsstring>() const</argsstring>
+        <name>cursor</name>
+        <briefdescription>
+<para>Returns current terminal cursor state. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADUi/headers/RADTerminal.h" line="167" column="24"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADUi_1_1PtyTerminalSession_1a76c98d5b9e97f4f9ba51bde836da743f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void RADUi::PtyTerminalSession::writeInput</definition>
+        <argsstring>(std::string_view input)</argsstring>
+        <name>writeInput</name>
+        <param>
+          <type>std::string_view</type>
+          <declname>input</declname>
+        </param>
+        <briefdescription>
+<para>Writes user input bytes to the PTY. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADUi/headers/RADTerminal.h" line="170" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADUi_1_1PtyTerminalSession_1aba394151acc1c27c2513112a15915d04" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>std::vector&lt; <ref refid="structRADUi_1_1TerminalLine" kindref="compound">TerminalLine</ref> &gt;</type>
+        <definition>std::vector&lt;TerminalLine&gt; RADUi::PtyTerminalSession::snapshot</definition>
+        <argsstring>() const</argsstring>
+        <name>snapshot</name>
+        <briefdescription>
+<para>Returns a copy of visible terminal lines. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADUi/headers/RADTerminal.h" line="172" column="21"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADUi_1_1PtyTerminalSession_1a55aa3aec60207fc78b539b3a82f6928b" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>std::string</type>
+        <definition>std::string RADUi::PtyTerminalSession::plainText</definition>
+        <argsstring>() const</argsstring>
+        <name>plainText</name>
+        <briefdescription>
+<para>Returns visible terminal text without color metadata. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADUi/headers/RADTerminal.h" line="174" column="21"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="classRADUi_1_1PtyTerminalSession_1a9456ee08edef6f36479711ad99cf5d7d" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void RADUi::PtyTerminalSession::readLoop</definition>
+        <argsstring>()</argsstring>
+        <name>readLoop</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADUi/headers/RADTerminal.h" line="177" column="14"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>PTY-backed terminal session that feeds output into <ref refid="classRADUi_1_1TerminalBuffer" kindref="compound">TerminalBuffer</ref>. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="RADUi/headers/RADTerminal.h" line="144" column="5" bodyfile="RADUi/headers/RADTerminal.h" bodystart="144" bodyend="184"/>
+    <listofallmembers>
+      <member refid="classRADUi_1_1PtyTerminalSession_1a35efc0c8f9ee42021966fd8be8f7885e" prot="private" virt="non-virtual"><scope>RADUi::PtyTerminalSession</scope><name>buffer_</name></member>
+      <member refid="classRADUi_1_1PtyTerminalSession_1a9351cf6478b88aa912985222e8d6050b" prot="private" virt="non-virtual"><scope>RADUi::PtyTerminalSession</scope><name>changed_</name></member>
+      <member refid="classRADUi_1_1PtyTerminalSession_1a3222a247c464c615a3c026ff0af1ff49" prot="public" virt="non-virtual"><scope>RADUi::PtyTerminalSession</scope><name>cursor</name></member>
+      <member refid="classRADUi_1_1PtyTerminalSession_1ac5abf6431c1612839f7f9aeb832921e6" prot="public" virt="non-virtual"><scope>RADUi::PtyTerminalSession</scope><name>isAlternateScreen</name></member>
+      <member refid="classRADUi_1_1PtyTerminalSession_1a1cb42c6cb483bde2a63465e0eece2700" prot="public" virt="non-virtual"><scope>RADUi::PtyTerminalSession</scope><name>isRunning</name></member>
+      <member refid="classRADUi_1_1PtyTerminalSession_1a932f8b11486c2efcf36a88f03ed80bc7" prot="public" virt="non-virtual"><scope>RADUi::PtyTerminalSession</scope><name>operator=</name></member>
+      <member refid="classRADUi_1_1PtyTerminalSession_1a55aa3aec60207fc78b539b3a82f6928b" prot="public" virt="non-virtual"><scope>RADUi::PtyTerminalSession</scope><name>plainText</name></member>
+      <member refid="classRADUi_1_1PtyTerminalSession_1a7b2b225b7e5bfea006c8a3cf3db7fb5b" prot="private" virt="non-virtual"><scope>RADUi::PtyTerminalSession</scope><name>process_</name></member>
+      <member refid="classRADUi_1_1PtyTerminalSession_1a6dc17efe18b8837c055cbcb0d89e0731" prot="public" virt="non-virtual"><scope>RADUi::PtyTerminalSession</scope><name>PtyTerminalSession</name></member>
+      <member refid="classRADUi_1_1PtyTerminalSession_1aa17c3f83b42f36fb6b6c38cdcd131a6b" prot="public" virt="non-virtual"><scope>RADUi::PtyTerminalSession</scope><name>PtyTerminalSession</name></member>
+      <member refid="classRADUi_1_1PtyTerminalSession_1ac38b8a4e8d8c4bc163f2d2916d09e4dd" prot="private" virt="non-virtual"><scope>RADUi::PtyTerminalSession</scope><name>reader_</name></member>
+      <member refid="classRADUi_1_1PtyTerminalSession_1a9456ee08edef6f36479711ad99cf5d7d" prot="private" virt="non-virtual"><scope>RADUi::PtyTerminalSession</scope><name>readLoop</name></member>
+      <member refid="classRADUi_1_1PtyTerminalSession_1ac43c0fc11d77621ce77101f56d20be21" prot="public" virt="non-virtual"><scope>RADUi::PtyTerminalSession</scope><name>resize</name></member>
+      <member refid="classRADUi_1_1PtyTerminalSession_1a1370b6916476ffc120fa5122457d4b3a" prot="private" virt="non-virtual"><scope>RADUi::PtyTerminalSession</scope><name>running_</name></member>
+      <member refid="classRADUi_1_1PtyTerminalSession_1aba394151acc1c27c2513112a15915d04" prot="public" virt="non-virtual"><scope>RADUi::PtyTerminalSession</scope><name>snapshot</name></member>
+      <member refid="classRADUi_1_1PtyTerminalSession_1a01921af62365fb5e42e3abf3dc10342e" prot="public" virt="non-virtual"><scope>RADUi::PtyTerminalSession</scope><name>start</name></member>
+      <member refid="classRADUi_1_1PtyTerminalSession_1a98ad0d8966f76a6b6340e48a071778b1" prot="public" virt="non-virtual"><scope>RADUi::PtyTerminalSession</scope><name>stop</name></member>
+      <member refid="classRADUi_1_1PtyTerminalSession_1a76c98d5b9e97f4f9ba51bde836da743f" prot="public" virt="non-virtual"><scope>RADUi::PtyTerminalSession</scope><name>writeInput</name></member>
+      <member refid="classRADUi_1_1PtyTerminalSession_1ac7dab2fc696bb71b08ee29360baf647f" prot="public" virt="non-virtual"><scope>RADUi::PtyTerminalSession</scope><name>~PtyTerminalSession</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

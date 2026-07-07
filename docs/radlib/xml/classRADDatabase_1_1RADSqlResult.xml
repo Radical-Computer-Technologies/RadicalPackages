@@ -1,0 +1,131 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="classRADDatabase_1_1RADSqlResult" kind="class" language="C++" prot="public">
+    <compoundname>RADDatabase::RADSqlResult</compoundname>
+    <includes refid="RADDatabase_8h" local="no">RADDatabase.h</includes>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classRADDatabase_1_1RADSqlResult_1a75c88a8c08ba2ec04209142318b68f09" prot="private" static="no" mutable="no">
+        <type>std::vector&lt; <ref refid="namespaceRADDatabase_1abe0324b6a7cf6dc7cfe2f9e048796525" kindref="member">RADSqlRow</ref> &gt;</type>
+        <definition>std::vector&lt;RADSqlRow&gt; RADDatabase::RADSqlResult::rows_</definition>
+        <argsstring></argsstring>
+        <name>rows_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADDatabase/headers/RADDatabase.h" line="43" column="21" bodyfile="RADDatabase/headers/RADDatabase.h" bodystart="43" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classRADDatabase_1_1RADSqlResult_1abc31ea7a48dfb443c588329a095caca2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>RADDatabase::RADSqlResult::RADSqlResult</definition>
+        <argsstring>()=default</argsstring>
+        <name>RADSqlResult</name>
+        <briefdescription>
+<para>Creates an empty result. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADDatabase/headers/RADDatabase.h" line="29" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADDatabase_1_1RADSqlResult_1a03b3dc99f17ecb8bcd59f80b93d86e5e" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>RADDatabase::RADSqlResult::RADSqlResult</definition>
+        <argsstring>(std::vector&lt; RADSqlRow &gt; rows)</argsstring>
+        <name>RADSqlResult</name>
+        <param>
+          <type>std::vector&lt; <ref refid="namespaceRADDatabase_1abe0324b6a7cf6dc7cfe2f9e048796525" kindref="member">RADSqlRow</ref> &gt;</type>
+          <declname>rows</declname>
+        </param>
+        <briefdescription>
+<para>Creates a result from already-collected rows. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADDatabase/headers/RADDatabase.h" line="31" column="18"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADDatabase_1_1RADSqlResult_1a30d67f9ddc1d11ac42faaea68b4660c4" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>size_t</type>
+        <definition>size_t RADDatabase::RADSqlResult::rowCount</definition>
+        <argsstring>() const</argsstring>
+        <name>rowCount</name>
+        <briefdescription>
+<para>Returns the number of rows in this result. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADDatabase/headers/RADDatabase.h" line="34" column="16"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADDatabase_1_1RADSqlResult_1ad142beb1d52776a67bccdc03358d999e" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool RADDatabase::RADSqlResult::empty</definition>
+        <argsstring>() const</argsstring>
+        <name>empty</name>
+        <briefdescription>
+<para>Returns true when no rows are present. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADDatabase/headers/RADDatabase.h" line="36" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADDatabase_1_1RADSqlResult_1a29ab5b22309fd63b213e99bf07d16367" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>const <ref refid="namespaceRADDatabase_1abe0324b6a7cf6dc7cfe2f9e048796525" kindref="member">RADSqlRow</ref> &amp;</type>
+        <definition>const RADSqlRow&amp; RADDatabase::RADSqlResult::row</definition>
+        <argsstring>(size_t index) const</argsstring>
+        <name>row</name>
+        <param>
+          <type>size_t</type>
+          <declname>index</declname>
+        </param>
+        <briefdescription>
+<para>Returns a row by index; callers must pass an index below <ref refid="classRADDatabase_1_1RADSqlResult_1a30d67f9ddc1d11ac42faaea68b4660c4" kindref="member">rowCount()</ref>. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADDatabase/headers/RADDatabase.h" line="38" column="25"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADDatabase_1_1RADSqlResult_1aad1bb2d270d952553902dfd6dc5c747d" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>const std::vector&lt; <ref refid="namespaceRADDatabase_1abe0324b6a7cf6dc7cfe2f9e048796525" kindref="member">RADSqlRow</ref> &gt; &amp;</type>
+        <definition>const std::vector&lt;RADSqlRow&gt;&amp; RADDatabase::RADSqlResult::rows</definition>
+        <argsstring>() const</argsstring>
+        <name>rows</name>
+        <briefdescription>
+<para>Returns all rows for range iteration or bulk inspection. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADDatabase/headers/RADDatabase.h" line="40" column="27"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Value object containing rows returned from a SQL query. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="RADDatabase/headers/RADDatabase.h" line="26" column="5" bodyfile="RADDatabase/headers/RADDatabase.h" bodystart="26" bodyend="44"/>
+    <listofallmembers>
+      <member refid="classRADDatabase_1_1RADSqlResult_1ad142beb1d52776a67bccdc03358d999e" prot="public" virt="non-virtual"><scope>RADDatabase::RADSqlResult</scope><name>empty</name></member>
+      <member refid="classRADDatabase_1_1RADSqlResult_1abc31ea7a48dfb443c588329a095caca2" prot="public" virt="non-virtual"><scope>RADDatabase::RADSqlResult</scope><name>RADSqlResult</name></member>
+      <member refid="classRADDatabase_1_1RADSqlResult_1a03b3dc99f17ecb8bcd59f80b93d86e5e" prot="public" virt="non-virtual"><scope>RADDatabase::RADSqlResult</scope><name>RADSqlResult</name></member>
+      <member refid="classRADDatabase_1_1RADSqlResult_1a29ab5b22309fd63b213e99bf07d16367" prot="public" virt="non-virtual"><scope>RADDatabase::RADSqlResult</scope><name>row</name></member>
+      <member refid="classRADDatabase_1_1RADSqlResult_1a30d67f9ddc1d11ac42faaea68b4660c4" prot="public" virt="non-virtual"><scope>RADDatabase::RADSqlResult</scope><name>rowCount</name></member>
+      <member refid="classRADDatabase_1_1RADSqlResult_1aad1bb2d270d952553902dfd6dc5c747d" prot="public" virt="non-virtual"><scope>RADDatabase::RADSqlResult</scope><name>rows</name></member>
+      <member refid="classRADDatabase_1_1RADSqlResult_1a75c88a8c08ba2ec04209142318b68f09" prot="private" virt="non-virtual"><scope>RADDatabase::RADSqlResult</scope><name>rows_</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

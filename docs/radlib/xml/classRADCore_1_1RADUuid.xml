@@ -1,0 +1,149 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="classRADCore_1_1RADUuid" kind="class" language="C++" prot="public">
+    <compoundname>RADCore::RADUuid</compoundname>
+    <includes refid="RADCore_8h" local="no">RADCore.h</includes>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classRADCore_1_1RADUuid_1ab3b3cc9a541a7769d0493735d3077d24" prot="private" static="no" mutable="no">
+        <type>std::array&lt; uint8_t, 16 &gt;</type>
+        <definition>std::array&lt;uint8_t, 16&gt; RADCore::RADUuid::bytes_</definition>
+        <argsstring></argsstring>
+        <name>bytes_</name>
+        <initializer>{}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADCore/headers/RADCore.h" line="451" column="20" bodyfile="RADCore/headers/RADCore.h" bodystart="451" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classRADCore_1_1RADUuid_1a7b358c68b31d91aec9443cf126eb1c1f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>RADCore::RADUuid::RADUuid</definition>
+        <argsstring>()</argsstring>
+        <name>RADUuid</name>
+        <briefdescription>
+<para>Creates a null UUID. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADCore/headers/RADCore.h" line="434" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADCore_1_1RADUuid_1a21482c7d15be5314c03ff62e7824fcc8" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>RADCore::RADUuid::RADUuid</definition>
+        <argsstring>(std::array&lt; uint8_t, 16 &gt; bytes)</argsstring>
+        <name>RADUuid</name>
+        <param>
+          <type>std::array&lt; uint8_t, 16 &gt;</type>
+          <declname>bytes</declname>
+        </param>
+        <briefdescription>
+<para>Creates a UUID from raw bytes. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADCore/headers/RADCore.h" line="436" column="18"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADCore_1_1RADUuid_1ae8adfff451bf2ced1775d4f1fd10c7d0" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>std::string</type>
+        <definition>std::string RADCore::RADUuid::toString</definition>
+        <argsstring>() const</argsstring>
+        <name>toString</name>
+        <briefdescription>
+<para>Formats as canonical UUID text. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADCore/headers/RADCore.h" line="444" column="21"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADCore_1_1RADUuid_1af496d3cdc9c2be38047ab1ec8bbeca05" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool RADCore::RADUuid::isNull</definition>
+        <argsstring>() const</argsstring>
+        <name>isNull</name>
+        <briefdescription>
+<para>Returns true when all UUID bytes are zero. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADCore/headers/RADCore.h" line="446" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADCore_1_1RADUuid_1ac65a93af6077fdf0779bd0ae5e43d8a7" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>const std::array&lt; uint8_t, 16 &gt; &amp;</type>
+        <definition>const std::array&lt;uint8_t, 16&gt;&amp; RADCore::RADUuid::bytes</definition>
+        <argsstring>() const</argsstring>
+        <name>bytes</name>
+        <briefdescription>
+<para>Returns raw UUID bytes. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADCore/headers/RADCore.h" line="448" column="26"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="classRADCore_1_1RADUuid_1a741cd987de1f6de00a3e1f60c3994e61" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classRADCore_1_1RADUuid" kindref="compound">RADUuid</ref></type>
+        <definition>static RADUuid RADCore::RADUuid::createUuid</definition>
+        <argsstring>()</argsstring>
+        <name>createUuid</name>
+        <briefdescription>
+<para>Creates a random UUID. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADCore/headers/RADCore.h" line="439" column="24"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADCore_1_1RADUuid_1a12278a8d6b7a8d4e48022039b50a6407" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::optional&lt; <ref refid="classRADCore_1_1RADUuid" kindref="compound">RADUuid</ref> &gt;</type>
+        <definition>static std::optional&lt;RADUuid&gt; RADCore::RADUuid::fromString</definition>
+        <argsstring>(const std::string &amp;text)</argsstring>
+        <name>fromString</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>text</declname>
+        </param>
+        <briefdescription>
+<para>Parses canonical UUID text. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADCore/headers/RADCore.h" line="441" column="30"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>128-bit UUID helper. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="RADCore/headers/RADCore.h" line="431" column="5" bodyfile="RADCore/headers/RADCore.h" bodystart="431" bodyend="452"/>
+    <listofallmembers>
+      <member refid="classRADCore_1_1RADUuid_1ac65a93af6077fdf0779bd0ae5e43d8a7" prot="public" virt="non-virtual"><scope>RADCore::RADUuid</scope><name>bytes</name></member>
+      <member refid="classRADCore_1_1RADUuid_1ab3b3cc9a541a7769d0493735d3077d24" prot="private" virt="non-virtual"><scope>RADCore::RADUuid</scope><name>bytes_</name></member>
+      <member refid="classRADCore_1_1RADUuid_1a741cd987de1f6de00a3e1f60c3994e61" prot="public" virt="non-virtual"><scope>RADCore::RADUuid</scope><name>createUuid</name></member>
+      <member refid="classRADCore_1_1RADUuid_1a12278a8d6b7a8d4e48022039b50a6407" prot="public" virt="non-virtual"><scope>RADCore::RADUuid</scope><name>fromString</name></member>
+      <member refid="classRADCore_1_1RADUuid_1af496d3cdc9c2be38047ab1ec8bbeca05" prot="public" virt="non-virtual"><scope>RADCore::RADUuid</scope><name>isNull</name></member>
+      <member refid="classRADCore_1_1RADUuid_1a7b358c68b31d91aec9443cf126eb1c1f" prot="public" virt="non-virtual"><scope>RADCore::RADUuid</scope><name>RADUuid</name></member>
+      <member refid="classRADCore_1_1RADUuid_1a21482c7d15be5314c03ff62e7824fcc8" prot="public" virt="non-virtual"><scope>RADCore::RADUuid</scope><name>RADUuid</name></member>
+      <member refid="classRADCore_1_1RADUuid_1ae8adfff451bf2ced1775d4f1fd10c7d0" prot="public" virt="non-virtual"><scope>RADCore::RADUuid</scope><name>toString</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

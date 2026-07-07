@@ -1,0 +1,164 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="classRADDatabase_1_1RADSqlTransaction" kind="class" language="C++" prot="public">
+    <compoundname>RADDatabase::RADSqlTransaction</compoundname>
+    <includes refid="RADDatabase_8h" local="no">RADDatabase.h</includes>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classRADDatabase_1_1RADSqlTransaction_1abb300fa17cc6324f2998a73349f4d555" prot="private" static="no" mutable="no">
+        <type><ref refid="classRADDatabase_1_1RADSqlDatabase" kindref="compound">RADSqlDatabase</ref> *</type>
+        <definition>RADSqlDatabase* RADDatabase::RADSqlTransaction::database_</definition>
+        <argsstring></argsstring>
+        <name>database_</name>
+        <initializer>= nullptr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADDatabase/headers/RADDatabase.h" line="182" column="24" bodyfile="RADDatabase/headers/RADDatabase.h" bodystart="182" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classRADDatabase_1_1RADSqlTransaction_1a7a89e8ae878ac63d0bbac6a68e99c1f6" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool RADDatabase::RADSqlTransaction::active_</definition>
+        <argsstring></argsstring>
+        <name>active_</name>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADDatabase/headers/RADDatabase.h" line="183" column="14" bodyfile="RADDatabase/headers/RADDatabase.h" bodystart="183" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classRADDatabase_1_1RADSqlTransaction_1a9a00f42e9ba6b7cd179bc50bdebd394c" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>RADDatabase::RADSqlTransaction::RADSqlTransaction</definition>
+        <argsstring>(RADSqlDatabase &amp;database)</argsstring>
+        <name>RADSqlTransaction</name>
+        <param>
+          <type><ref refid="classRADDatabase_1_1RADSqlDatabase" kindref="compound">RADSqlDatabase</ref> &amp;</type>
+          <declname>database</declname>
+        </param>
+        <briefdescription>
+<para>Begins a transaction on database. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADDatabase/headers/RADDatabase.h" line="165" column="18"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADDatabase_1_1RADSqlTransaction_1afd0ec124970c39a32cd50d66746cc2fb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>RADDatabase::RADSqlTransaction::~RADSqlTransaction</definition>
+        <argsstring>()</argsstring>
+        <name>~RADSqlTransaction</name>
+        <briefdescription>
+<para>Rolls back if still active. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADDatabase/headers/RADDatabase.h" line="167" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADDatabase_1_1RADSqlTransaction_1ae2d1d32518de3d240e92cc320b1f36ba" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>RADDatabase::RADSqlTransaction::RADSqlTransaction</definition>
+        <argsstring>(const RADSqlTransaction &amp;)=delete</argsstring>
+        <name>RADSqlTransaction</name>
+        <param>
+          <type>const <ref refid="classRADDatabase_1_1RADSqlTransaction" kindref="compound">RADSqlTransaction</ref> &amp;</type>
+        </param>
+        <briefdescription>
+<para>Transactions cannot be copied. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADDatabase/headers/RADDatabase.h" line="170" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADDatabase_1_1RADSqlTransaction_1a40d01cfa92ffb6590911e4429f8a28e2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classRADDatabase_1_1RADSqlTransaction" kindref="compound">RADSqlTransaction</ref> &amp;</type>
+        <definition>RADSqlTransaction&amp; RADDatabase::RADSqlTransaction::operator=</definition>
+        <argsstring>(const RADSqlTransaction &amp;)=delete</argsstring>
+        <name>operator=</name>
+        <param>
+          <type>const <ref refid="classRADDatabase_1_1RADSqlTransaction" kindref="compound">RADSqlTransaction</ref> &amp;</type>
+        </param>
+        <briefdescription>
+<para>Transactions cannot be copied. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADDatabase/headers/RADDatabase.h" line="172" column="27"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADDatabase_1_1RADSqlTransaction_1adf2576064af892a93016ab38c143f322" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool RADDatabase::RADSqlTransaction::isActive</definition>
+        <argsstring>() const</argsstring>
+        <name>isActive</name>
+        <briefdescription>
+<para>Returns true when begin succeeded and the transaction is active. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADDatabase/headers/RADDatabase.h" line="175" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADDatabase_1_1RADSqlTransaction_1ae9f1272ef3fe8e76fd2757b8ae898b20" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool RADDatabase::RADSqlTransaction::commit</definition>
+        <argsstring>()</argsstring>
+        <name>commit</name>
+        <briefdescription>
+<para>Commits the transaction. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADDatabase/headers/RADDatabase.h" line="177" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADDatabase_1_1RADSqlTransaction_1a60fd226283a1aa77c508aeafeafda147" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool RADDatabase::RADSqlTransaction::rollback</definition>
+        <argsstring>()</argsstring>
+        <name>rollback</name>
+        <briefdescription>
+<para>Rolls back the transaction. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADDatabase/headers/RADDatabase.h" line="179" column="14"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>RAII transaction that rolls back unless committed. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="RADDatabase/headers/RADDatabase.h" line="162" column="5" bodyfile="RADDatabase/headers/RADDatabase.h" bodystart="162" bodyend="184"/>
+    <listofallmembers>
+      <member refid="classRADDatabase_1_1RADSqlTransaction_1a7a89e8ae878ac63d0bbac6a68e99c1f6" prot="private" virt="non-virtual"><scope>RADDatabase::RADSqlTransaction</scope><name>active_</name></member>
+      <member refid="classRADDatabase_1_1RADSqlTransaction_1ae9f1272ef3fe8e76fd2757b8ae898b20" prot="public" virt="non-virtual"><scope>RADDatabase::RADSqlTransaction</scope><name>commit</name></member>
+      <member refid="classRADDatabase_1_1RADSqlTransaction_1abb300fa17cc6324f2998a73349f4d555" prot="private" virt="non-virtual"><scope>RADDatabase::RADSqlTransaction</scope><name>database_</name></member>
+      <member refid="classRADDatabase_1_1RADSqlTransaction_1adf2576064af892a93016ab38c143f322" prot="public" virt="non-virtual"><scope>RADDatabase::RADSqlTransaction</scope><name>isActive</name></member>
+      <member refid="classRADDatabase_1_1RADSqlTransaction_1a40d01cfa92ffb6590911e4429f8a28e2" prot="public" virt="non-virtual"><scope>RADDatabase::RADSqlTransaction</scope><name>operator=</name></member>
+      <member refid="classRADDatabase_1_1RADSqlTransaction_1a9a00f42e9ba6b7cd179bc50bdebd394c" prot="public" virt="non-virtual"><scope>RADDatabase::RADSqlTransaction</scope><name>RADSqlTransaction</name></member>
+      <member refid="classRADDatabase_1_1RADSqlTransaction_1ae2d1d32518de3d240e92cc320b1f36ba" prot="public" virt="non-virtual"><scope>RADDatabase::RADSqlTransaction</scope><name>RADSqlTransaction</name></member>
+      <member refid="classRADDatabase_1_1RADSqlTransaction_1a60fd226283a1aa77c508aeafeafda147" prot="public" virt="non-virtual"><scope>RADDatabase::RADSqlTransaction</scope><name>rollback</name></member>
+      <member refid="classRADDatabase_1_1RADSqlTransaction_1afd0ec124970c39a32cd50d66746cc2fb" prot="public" virt="non-virtual"><scope>RADDatabase::RADSqlTransaction</scope><name>~RADSqlTransaction</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

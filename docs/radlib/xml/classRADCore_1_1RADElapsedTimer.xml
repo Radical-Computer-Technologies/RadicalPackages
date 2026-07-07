@@ -1,0 +1,123 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="classRADCore_1_1RADElapsedTimer" kind="class" language="C++" prot="public">
+    <compoundname>RADCore::RADElapsedTimer</compoundname>
+    <includes refid="RADCore_8h" local="no">RADCore.h</includes>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classRADCore_1_1RADElapsedTimer_1a3454e4fc8ede01ea565c6d6fe752c056" prot="private" static="no" mutable="no">
+        <type>std::chrono::steady_clock::time_point</type>
+        <definition>std::chrono::steady_clock::time_point RADCore::RADElapsedTimer::start_</definition>
+        <argsstring></argsstring>
+        <name>start_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADCore/headers/RADCore.h" line="230" column="47" bodyfile="RADCore/headers/RADCore.h" bodystart="230" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classRADCore_1_1RADElapsedTimer_1a836c228916d39c5fe345166fbfbf70d7" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>RADCore::RADElapsedTimer::RADElapsedTimer</definition>
+        <argsstring>()</argsstring>
+        <name>RADElapsedTimer</name>
+        <briefdescription>
+<para>Creates and starts the timer. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADCore/headers/RADCore.h" line="214" column="9" bodyfile="RADCore/headers/RADCore.h" bodystart="214" bodyend="214"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADCore_1_1RADElapsedTimer_1a655e9696430047173fcfb606dc5c9332" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void RADCore::RADElapsedTimer::restart</definition>
+        <argsstring>()</argsstring>
+        <name>restart</name>
+        <briefdescription>
+<para>Restarts the timer. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADCore/headers/RADCore.h" line="216" column="14" bodyfile="RADCore/headers/RADCore.h" bodystart="216" bodyend="216"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADCore_1_1RADElapsedTimer_1ac1c01d0cc1e821203973d4933f12bb54" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>int64_t</type>
+        <definition>int64_t RADCore::RADElapsedTimer::elapsedNanoseconds</definition>
+        <argsstring>() const</argsstring>
+        <name>elapsedNanoseconds</name>
+        <briefdescription>
+<para>Returns elapsed nanoseconds. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADCore/headers/RADCore.h" line="218" column="17" bodyfile="RADCore/headers/RADCore.h" bodystart="218" bodyend="221"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADCore_1_1RADElapsedTimer_1ab8869ce612b3af1e1c204e4eac72b4ae" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>int64_t</type>
+        <definition>int64_t RADCore::RADElapsedTimer::elapsedMicroseconds</definition>
+        <argsstring>() const</argsstring>
+        <name>elapsedMicroseconds</name>
+        <briefdescription>
+<para>Returns elapsed microseconds. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADCore/headers/RADCore.h" line="223" column="17" bodyfile="RADCore/headers/RADCore.h" bodystart="223" bodyend="223"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADCore_1_1RADElapsedTimer_1af1b80259811d6f4bc29dad82e79d50e7" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>int64_t</type>
+        <definition>int64_t RADCore::RADElapsedTimer::elapsedMilliseconds</definition>
+        <argsstring>() const</argsstring>
+        <name>elapsedMilliseconds</name>
+        <briefdescription>
+<para>Returns elapsed milliseconds. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADCore/headers/RADCore.h" line="225" column="17" bodyfile="RADCore/headers/RADCore.h" bodystart="225" bodyend="225"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADCore_1_1RADElapsedTimer_1a09a73fd4e95734b07ae859f249e59c9e" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>double</type>
+        <definition>double RADCore::RADElapsedTimer::elapsedSeconds</definition>
+        <argsstring>() const</argsstring>
+        <name>elapsedSeconds</name>
+        <briefdescription>
+<para>Returns elapsed seconds as a double. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADCore/headers/RADCore.h" line="227" column="16" bodyfile="RADCore/headers/RADCore.h" bodystart="227" bodyend="227"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Monotonic elapsed timer based on std::chrono::steady_clock. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="RADCore/headers/RADCore.h" line="211" column="5" bodyfile="RADCore/headers/RADCore.h" bodystart="211" bodyend="231"/>
+    <listofallmembers>
+      <member refid="classRADCore_1_1RADElapsedTimer_1ab8869ce612b3af1e1c204e4eac72b4ae" prot="public" virt="non-virtual"><scope>RADCore::RADElapsedTimer</scope><name>elapsedMicroseconds</name></member>
+      <member refid="classRADCore_1_1RADElapsedTimer_1af1b80259811d6f4bc29dad82e79d50e7" prot="public" virt="non-virtual"><scope>RADCore::RADElapsedTimer</scope><name>elapsedMilliseconds</name></member>
+      <member refid="classRADCore_1_1RADElapsedTimer_1ac1c01d0cc1e821203973d4933f12bb54" prot="public" virt="non-virtual"><scope>RADCore::RADElapsedTimer</scope><name>elapsedNanoseconds</name></member>
+      <member refid="classRADCore_1_1RADElapsedTimer_1a09a73fd4e95734b07ae859f249e59c9e" prot="public" virt="non-virtual"><scope>RADCore::RADElapsedTimer</scope><name>elapsedSeconds</name></member>
+      <member refid="classRADCore_1_1RADElapsedTimer_1a836c228916d39c5fe345166fbfbf70d7" prot="public" virt="non-virtual"><scope>RADCore::RADElapsedTimer</scope><name>RADElapsedTimer</name></member>
+      <member refid="classRADCore_1_1RADElapsedTimer_1a655e9696430047173fcfb606dc5c9332" prot="public" virt="non-virtual"><scope>RADCore::RADElapsedTimer</scope><name>restart</name></member>
+      <member refid="classRADCore_1_1RADElapsedTimer_1a3454e4fc8ede01ea565c6d6fe752c056" prot="private" virt="non-virtual"><scope>RADCore::RADElapsedTimer</scope><name>start_</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

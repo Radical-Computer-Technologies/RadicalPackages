@@ -1,0 +1,270 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="namespaceRADSecurity" kind="namespace" language="C++">
+    <compoundname>RADSecurity</compoundname>
+    <innerclass refid="structRADSecurity_1_1CapabilitySet" prot="public">RADSecurity::CapabilitySet</innerclass>
+    <innerclass refid="structRADSecurity_1_1SandboxProfile" prot="public">RADSecurity::SandboxProfile</innerclass>
+    <innerclass refid="classRADSecurity_1_1Crypto" prot="public">RADSecurity::Crypto</innerclass>
+    <innerclass refid="structRADSecurity_1_1LicensePayload" prot="public">RADSecurity::LicensePayload</innerclass>
+    <innerclass refid="structRADSecurity_1_1LicenseCheckOptions" prot="public">RADSecurity::LicenseCheckOptions</innerclass>
+    <innerclass refid="structRADSecurity_1_1TrustedLicenseKey" prot="public">RADSecurity::TrustedLicenseKey</innerclass>
+    <innerclass refid="structRADSecurity_1_1LicenseCheckResult" prot="public">RADSecurity::LicenseCheckResult</innerclass>
+    <innerclass refid="classRADSecurity_1_1LicenseManager" prot="public">RADSecurity::LicenseManager</innerclass>
+      <sectiondef kind="enum">
+      <memberdef kind="enum" id="namespaceRADSecurity_1a619e218496ec60c75bb1e203377ce1a5" prot="public" static="no" strong="yes">
+        <type></type>
+        <name>LicenseKind</name>
+        <enumvalue id="namespaceRADSecurity_1a619e218496ec60c75bb1e203377ce1a5a88183b946cc5f0e8c96b2e66e1c74a7e" prot="public">
+          <name>Unknown</name>
+          <briefdescription>
+<para>License kind could not be parsed. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespaceRADSecurity_1a619e218496ec60c75bb1e203377ce1a5a7d61983c34edc2a8cabbea71c4732f62" prot="public">
+          <name>Community</name>
+          <briefdescription>
+<para>Community, personal, educational, evaluation, or non-commercial use. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespaceRADSecurity_1a619e218496ec60c75bb1e203377ce1a5ab74a43dbb36287ea86eb5b0c7b86e8e8" prot="public">
+          <name>Evaluation</name>
+          <briefdescription>
+<para>Time-limited trial or evaluation grant. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespaceRADSecurity_1a619e218496ec60c75bb1e203377ce1a5a9e1c63fe89fae4da8db2c9e550b3e6c1" prot="public">
+          <name>Academic</name>
+          <briefdescription>
+<para>Academic, research, or classroom grant. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespaceRADSecurity_1a619e218496ec60c75bb1e203377ce1a5ad094f6309adf0869850f6d9d368dd395" prot="public">
+          <name>SmallBusiness</name>
+          <briefdescription>
+<para>No-fee commercial use under the small-business thresholds. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespaceRADSecurity_1a619e218496ec60c75bb1e203377ce1a5ab2788e1ab6be65f1c38bf7d23cd081f1" prot="public">
+          <name>Commercial</name>
+          <briefdescription>
+<para>Paid commercial license. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespaceRADSecurity_1a619e218496ec60c75bb1e203377ce1a5a6f041af43be87a195bd3f075922f344a" prot="public">
+          <name>Partner</name>
+          <briefdescription>
+<para>Partner, reseller, integrator, or strategic free commercial grant. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespaceRADSecurity_1a619e218496ec60c75bb1e203377ce1a5aafbf0897a5a83fdd873dfb032ec695d3" prot="public">
+          <name>Internal</name>
+          <briefdescription>
+<para>Internal Radical Computer Technologies development or testing grant. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>License category encoded in signed RADLib/application license files. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADSecurity/headers/RADSecurity.h" line="92" column="5" bodyfile="RADSecurity/headers/RADSecurity.h" bodystart="92" bodyend="109"/>
+      </memberdef>
+      <memberdef kind="enum" id="namespaceRADSecurity_1af455611e5aa5dc3c0135486be5789eed" prot="public" static="no" strong="yes">
+        <type></type>
+        <name>LicenseStatus</name>
+        <enumvalue id="namespaceRADSecurity_1af455611e5aa5dc3c0135486be5789eeda3ac705f2acd51a4613f9188c05c91d0d" prot="public">
+          <name>Valid</name>
+          <briefdescription>
+<para>License is valid for the supplied check options. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespaceRADSecurity_1af455611e5aa5dc3c0135486be5789eeda2aee0be2678ee90fd327cc186826438e" prot="public">
+          <name>Missing</name>
+          <briefdescription>
+<para>License file was missing or empty. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespaceRADSecurity_1af455611e5aa5dc3c0135486be5789eedae41199faa7290c167f70f314c5e6c165" prot="public">
+          <name>ParseError</name>
+          <briefdescription>
+<para>License JSON could not be parsed or had missing required fields. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespaceRADSecurity_1af455611e5aa5dc3c0135486be5789eedacf220632b6c3b4876d924d00ac2fee54" prot="public">
+          <name>BadSignature</name>
+          <briefdescription>
+<para>Signature is absent, malformed, or does not verify. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespaceRADSecurity_1af455611e5aa5dc3c0135486be5789eeda7a2a59d45e0b864a1176d21f835b18c8" prot="public">
+          <name>UnknownIssuerKey</name>
+          <briefdescription>
+<para>Signed license references an issuer key that is not trusted. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespaceRADSecurity_1af455611e5aa5dc3c0135486be5789eeda6c78a737c216a215e32d441e76e9f8cd" prot="public">
+          <name>RevokedIssuerKey</name>
+          <briefdescription>
+<para>Signed license references an issuer key that has been revoked. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespaceRADSecurity_1af455611e5aa5dc3c0135486be5789eeda05a552d0584560b9eca4e5c2ed6c9fa2" prot="public">
+          <name>NotYetValid</name>
+          <briefdescription>
+<para>License is not valid yet. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespaceRADSecurity_1af455611e5aa5dc3c0135486be5789eeda24fe48030f7d3097d5882535b04c3fa8" prot="public">
+          <name>Expired</name>
+          <briefdescription>
+<para>License has expired. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespaceRADSecurity_1af455611e5aa5dc3c0135486be5789eedae6ed9df22f9fd5cd34a4bad5dfa9bd96" prot="public">
+          <name>ProductMismatch</name>
+          <briefdescription>
+<para>License product does not match the requested product. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespaceRADSecurity_1af455611e5aa5dc3c0135486be5789eeda2d50084f04994afa70d78b604a22dd31" prot="public">
+          <name>VersionMismatch</name>
+          <briefdescription>
+<para>License does not allow the requested major version. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespaceRADSecurity_1af455611e5aa5dc3c0135486be5789eeda9fc460a382950bff45fbf6deb78ac629" prot="public">
+          <name>MachineMismatch</name>
+          <briefdescription>
+<para>License is bound to a different machine fingerprint. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespaceRADSecurity_1af455611e5aa5dc3c0135486be5789eeda067070e4ede406d7a7da9513a2889aec" prot="public">
+          <name>LicenseeMismatch</name>
+          <briefdescription>
+<para>License is validly signed but belongs to another licensee key. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespaceRADSecurity_1af455611e5aa5dc3c0135486be5789eeda7478248260338c0fb5ffd566e74af078" prot="public">
+          <name>FeatureMissing</name>
+          <briefdescription>
+<para>License does not grant the requested feature. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>Result code returned by license verification. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADSecurity/headers/RADSecurity.h" line="112" column="5" bodyfile="RADSecurity/headers/RADSecurity.h" bodystart="112" bodyend="139"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="namespaceRADSecurity_1a300c2dff0e35761ef0530a4c80cdad76" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classRADCore_1_1RADResult" kindref="compound">RADCore::RADResult</ref>&lt; <ref refid="structRADSecurity_1_1CapabilitySet" kindref="compound">CapabilitySet</ref> &gt;</type>
+        <definition>RADCore::RADResult&lt;CapabilitySet&gt; RADSecurity::readCapabilitySet</definition>
+        <argsstring>(const std::string &amp;procStatusPath=&quot;/proc/self/status&quot;)</argsstring>
+        <name>readCapabilitySet</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>procStatusPath</declname>
+          <defval>&quot;/proc/self/status&quot;</defval>
+        </param>
+        <briefdescription>
+<para>Reads Linux process capabilities from procStatusPath. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADSecurity/headers/RADSecurity.h" line="84" column="24" declfile="RADSecurity/headers/RADSecurity.h" declline="84" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceRADSecurity_1a19fee9a3ea49b41da6313c0ab96a1d58" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classRADCore_1_1RADJsonValue" kindref="compound">RADCore::RADJsonValue</ref></type>
+        <definition>RADCore::RADJsonValue RADSecurity::sandboxProfileToJson</definition>
+        <argsstring>(const SandboxProfile &amp;profile)</argsstring>
+        <name>sandboxProfileToJson</name>
+        <param>
+          <type>const <ref refid="structRADSecurity_1_1SandboxProfile" kindref="compound">SandboxProfile</ref> &amp;</type>
+          <declname>profile</declname>
+        </param>
+        <briefdescription>
+<para>Serializes a sandbox profile to JSON for review or external launchers. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADSecurity/headers/RADSecurity.h" line="87" column="27" declfile="RADSecurity/headers/RADSecurity.h" declline="87" declcolumn="27"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceRADSecurity_1a3ba68349d34f71bbac93546811368c8e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structRADSecurity_1_1SandboxProfile" kindref="compound">SandboxProfile</ref></type>
+        <definition>SandboxProfile RADSecurity::sandboxProfileFromJson</definition>
+        <argsstring>(const RADCore::RADJsonValue &amp;value)</argsstring>
+        <name>sandboxProfileFromJson</name>
+        <param>
+          <type>const <ref refid="classRADCore_1_1RADJsonValue" kindref="compound">RADCore::RADJsonValue</ref> &amp;</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+<para>Parses a sandbox profile from JSON. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADSecurity/headers/RADSecurity.h" line="89" column="20" declfile="RADSecurity/headers/RADSecurity.h" declline="89" declcolumn="20"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="RADSecurity/headers/RADSecurity.h" line="17" column="1"/>
+  </compounddef>
+</doxygen>

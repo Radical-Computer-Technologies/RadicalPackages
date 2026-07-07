@@ -1,0 +1,50 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="md_docs_public_radinstaller" kind="page">
+    <compoundname>md_docs_public_radinstaller</compoundname>
+    <title>RADInstaller</title>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para><ref refid="namespaceRADInstaller" kindref="compound">RADInstaller</ref> is the manifest-driven install engine used by RADLib package and application installers. It copies selected components from a package root into an install root, verifies optional payload checksums, rolls back partial installs on failure, creates desktop entries, and writes an uninstall manifest.</para>
+<sect1 id="md_docs_public_radinstaller_1autotoc_md13">
+<title>Manifest Shape</title>
+<para>Installer manifests are JSON files with product metadata, component file lists, and optional desktop entries.</para>
+<para><programlisting filename=".json"><codeline><highlight class="normal">{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>&quot;productName&quot;:<sp/>&quot;My<sp/>RADLib<sp/>App&quot;,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>&quot;version&quot;:<sp/>&quot;0.1.0&quot;,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>&quot;publisher&quot;:<sp/>&quot;Example&quot;,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>&quot;components&quot;:<sp/>[</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>&quot;id&quot;:<sp/>&quot;runtime&quot;,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>&quot;name&quot;:<sp/>&quot;Runtime&quot;,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>&quot;defaultSelected&quot;:<sp/>true,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>&quot;files&quot;:<sp/>[</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;source&quot;:<sp/>&quot;bin/my-app&quot;,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;destination&quot;:<sp/>&quot;usr/bin/my-app&quot;,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;checksum&quot;:<sp/>&quot;fnv1a64:0123456789abcdef&quot;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>]</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>],</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>&quot;desktopEntries&quot;:<sp/>[</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>&quot;fileName&quot;:<sp/>&quot;my-app.desktop&quot;,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>&quot;name&quot;:<sp/>&quot;My<sp/>App&quot;,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>&quot;exec&quot;:<sp/>&quot;/usr/bin/my-app&quot;,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>&quot;categories&quot;:<sp/>&quot;Development;&quot;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>]</highlight></codeline>
+<codeline><highlight class="normal">}</highlight></codeline>
+</programlisting></para>
+</sect1>
+<sect1 id="md_docs_public_radinstaller_1autotoc_md14">
+<title>API Flow</title>
+<para>Use <computeroutput><ref refid="classRADInstaller_1_1Installer_1ad3e1c0ce80253b938bfcdb82e102a3dd" kindref="member">RADInstaller::Installer::loadManifest()</ref></computeroutput> to parse JSON, then call <computeroutput>install()</computeroutput> with a source package root and target install root. Pass explicit component ids to install a custom selection, or pass an empty list to install components where <computeroutput>defaultSelected</computeroutput> is true. The generated uninstall manifest is written to <computeroutput>.radinstall/uninstall.json</computeroutput> under the target root.</para>
+<para>The <computeroutput>RADInstallerUiExample</computeroutput> Slint app demonstrates the same engine from a GUI. RADLib SDK archives include a <computeroutput>radinstall.json</computeroutput> manifest, so the UI example can install an unpacked RADLib SDK without requiring RADLib implementation sources. </para>
+</sect1>
+    </detaileddescription>
+    <location file="docs/public/radinstaller.md"/>
+  </compounddef>
+</doxygen>

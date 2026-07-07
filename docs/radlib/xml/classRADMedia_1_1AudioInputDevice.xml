@@ -1,0 +1,158 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="classRADMedia_1_1AudioInputDevice" kind="class" language="C++" prot="public">
+    <compoundname>RADMedia::AudioInputDevice</compoundname>
+    <basecompoundref refid="classRADMedia_1_1RADAudioDevice" prot="public" virt="non-virtual">RADMedia::RADAudioDevice</basecompoundref>
+    <includes refid="RADMedia_8h" local="no">RADMedia.h</includes>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classRADMedia_1_1AudioInputDevice_1a8c2f11f57d903b34399bdd7b650fcfa6" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>RADMedia::AudioInputDevice::AudioInputDevice</definition>
+        <argsstring>(RADCore::EventLoop &amp;loop)</argsstring>
+        <name>AudioInputDevice</name>
+        <param>
+          <type><ref refid="classRADCore_1_1EventLoop" kindref="compound">RADCore::EventLoop</ref> &amp;</type>
+          <declname>loop</declname>
+        </param>
+        <briefdescription>
+<para>Creates an input audio device using loop for capture events. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADMedia/headers/RADMedia.h" line="558" column="18"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Convenience input-only audio device. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="4">
+        <label>RADCore::RADObject</label>
+        <link refid="classRADCore_1_1RADObject"/>
+      </node>
+      <node id="3">
+        <label>RADCore::RADIODevice</label>
+        <link refid="classRADCore_1_1RADIODevice"/>
+        <childnode refid="4" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>RADMedia::AudioInputDevice</label>
+        <link refid="classRADMedia_1_1AudioInputDevice"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>RADMedia::RADAudioDevice</label>
+        <link refid="classRADMedia_1_1RADAudioDevice"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="4">
+        <label>RADCore::RADObject</label>
+        <link refid="classRADCore_1_1RADObject"/>
+      </node>
+      <node id="6">
+        <label>RADCore::Event&lt; void(std::string) &gt;</label>
+        <link refid="classRADCore_1_1Event"/>
+      </node>
+      <node id="5">
+        <label>RADCore::Event&lt; void() &gt;</label>
+        <link refid="classRADCore_1_1Event"/>
+      </node>
+      <node id="7">
+        <label>RADCore::Event&lt; void(size_t) &gt;</label>
+        <link refid="classRADCore_1_1Event"/>
+      </node>
+      <node id="3">
+        <label>RADCore::RADIODevice</label>
+        <link refid="classRADCore_1_1RADIODevice"/>
+        <childnode refid="4" relation="public-inheritance">
+        </childnode>
+        <childnode refid="5" relation="usage">
+          <edgelabel>readyRead</edgelabel>
+        </childnode>
+        <childnode refid="6" relation="usage">
+          <edgelabel>errorOccurred</edgelabel>
+        </childnode>
+        <childnode refid="7" relation="usage">
+          <edgelabel>bytesWritten</edgelabel>
+        </childnode>
+      </node>
+      <node id="1">
+        <label>RADMedia::AudioInputDevice</label>
+        <link refid="classRADMedia_1_1AudioInputDevice"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>RADMedia::RADAudioDevice</label>
+        <link refid="classRADMedia_1_1RADAudioDevice"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+        <childnode refid="5" relation="usage">
+          <edgelabel>started</edgelabel>
+          <edgelabel>stopped</edgelabel>
+          <edgelabel>underrun</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="RADMedia/headers/RADMedia.h" line="555" column="5" bodyfile="RADMedia/headers/RADMedia.h" bodystart="555" bodyend="559"/>
+    <listofallmembers>
+      <member refid="classRADCore_1_1RADObject_1a06cdf252ffb5e2f88332ebda12a62080" prot="public" virt="non-virtual"><scope>RADMedia::AudioInputDevice</scope><name>associatedEventLoop</name></member>
+      <member refid="classRADMedia_1_1AudioInputDevice_1a8c2f11f57d903b34399bdd7b650fcfa6" prot="public" virt="non-virtual"><scope>RADMedia::AudioInputDevice</scope><name>AudioInputDevice</name></member>
+      <member refid="classRADMedia_1_1RADAudioDevice_1ab7235b3bd8e44ac345ee8a29d6c8b428" prot="public" virt="non-virtual"><scope>RADMedia::AudioInputDevice</scope><name>bufferFrames</name></member>
+      <member refid="classRADMedia_1_1RADAudioDevice_1a8f414ec9ab0595656fff7305cb47e544" prot="public" virt="non-virtual"><scope>RADMedia::AudioInputDevice</scope><name>bytesAvailable</name></member>
+      <member refid="classRADCore_1_1RADIODevice_1abc75c243e088fa3ae539276e90ddf769" prot="public" virt="non-virtual"><scope>RADMedia::AudioInputDevice</scope><name>bytesWritten</name></member>
+      <member refid="classRADMedia_1_1RADAudioDevice_1a9a98ffe960fe6b8ade1d4fdb3d3e8446" prot="public" virt="virtual"><scope>RADMedia::AudioInputDevice</scope><name>close</name></member>
+      <member refid="classRADMedia_1_1RADAudioDevice_1aa021425b90a436da516ec21675125b06" prot="public" virt="non-virtual"><scope>RADMedia::AudioInputDevice</scope><name>delayFrames</name></member>
+      <member refid="classRADMedia_1_1RADAudioDevice_1a5166612299d5dae7208a5bf3b4fa76e9" prot="public" virt="non-virtual"><scope>RADMedia::AudioInputDevice</scope><name>deviceId</name></member>
+      <member refid="classRADMedia_1_1RADAudioDevice_1abb40e37863809e416ff8a0f6fe627ccc" prot="public" virt="non-virtual"><scope>RADMedia::AudioInputDevice</scope><name>direction</name></member>
+      <member refid="classRADMedia_1_1RADAudioDevice_1a3c5e8a7db4315857d09370ca7616a9a0" prot="public" virt="non-virtual"><scope>RADMedia::AudioInputDevice</scope><name>drain</name></member>
+      <member refid="classRADMedia_1_1RADAudioDevice_1a91bd9bfed58f70156cf2d8b6ebd66403" prot="public" virt="non-virtual"><scope>RADMedia::AudioInputDevice</scope><name>drop</name></member>
+      <member refid="classRADCore_1_1RADIODevice_1ab7c511255b907eb2490fe91c6521232c" prot="public" virt="non-virtual"><scope>RADMedia::AudioInputDevice</scope><name>errorOccurred</name></member>
+      <member refid="classRADMedia_1_1RADAudioDevice_1adaf9738a7df2a0823a2e60140251fab0" prot="public" virt="non-virtual"><scope>RADMedia::AudioInputDevice</scope><name>format</name></member>
+      <member refid="classRADMedia_1_1RADAudioDevice_1a10c04d0bcbbd57b759013552b64911b4" prot="public" virt="non-virtual"><scope>RADMedia::AudioInputDevice</scope><name>framesPerChunk</name></member>
+      <member refid="classRADMedia_1_1RADAudioDevice_1a23ce6f0a2563cc2f12408bbf0b9959cf" prot="public" virt="non-virtual"><scope>RADMedia::AudioInputDevice</scope><name>isFormatSupported</name></member>
+      <member refid="classRADMedia_1_1RADAudioDevice_1a5d1b2df6c238f5d63729213c49e345aa" prot="public" virt="virtual"><scope>RADMedia::AudioInputDevice</scope><name>isOpen</name></member>
+      <member refid="classRADCore_1_1RADObject_1ad2ddfd066d14be9adc2f96bfca417fc6" prot="public" virt="non-virtual"><scope>RADMedia::AudioInputDevice</scope><name>lifetimeToken</name></member>
+      <member refid="classRADMedia_1_1RADAudioDevice_1a7228c7604b77c20e4693f6a28b03c423" prot="public" virt="non-virtual"><scope>RADMedia::AudioInputDevice</scope><name>maxBufferedBytes</name></member>
+      <member refid="classRADCore_1_1RADObject_1a1f7f7f2fb40211e28455cd74a029339a" prot="public" virt="non-virtual"><scope>RADMedia::AudioInputDevice</scope><name>moveToThread</name></member>
+      <member refid="classRADMedia_1_1RADAudioDevice_1a2052b6db7d0ce9501274d7095ef261ea" prot="public" virt="virtual"><scope>RADMedia::AudioInputDevice</scope><name>open</name></member>
+      <member refid="classRADMedia_1_1RADAudioDevice_1a6882b2582f45d80febe7861cf7d00106" prot="public" virt="non-virtual"><scope>RADMedia::AudioInputDevice</scope><name>periodFrames</name></member>
+      <member refid="classRADMedia_1_1RADAudioDevice_1a4eeb3ab49677da0c7dc37f79d04bfcb5" prot="public" virt="non-virtual"><scope>RADMedia::AudioInputDevice</scope><name>RADAudioDevice</name></member>
+      <member refid="classRADCore_1_1RADObject_1a9bc3fed915f7c71232e68c2628d34708" prot="public" virt="non-virtual"><scope>RADMedia::AudioInputDevice</scope><name>RADObject</name></member>
+      <member refid="classRADCore_1_1RADIODevice_1a427d98f45c056913a9e150b156648f2e" prot="public" virt="non-virtual"><scope>RADMedia::AudioInputDevice</scope><name>read</name></member>
+      <member refid="classRADCore_1_1RADIODevice_1a47e171d308e84d5dad6b730f34f0fbf8" prot="public" virt="non-virtual"><scope>RADMedia::AudioInputDevice</scope><name>readAll</name></member>
+      <member refid="classRADMedia_1_1RADAudioDevice_1a5006064cdc09bac0e2ebdd061c0205c7" prot="public" virt="virtual"><scope>RADMedia::AudioInputDevice</scope><name>readData</name></member>
+      <member refid="classRADCore_1_1RADIODevice_1a667c135df0be382dab141d8b4c5a1ce5" prot="public" virt="non-virtual"><scope>RADMedia::AudioInputDevice</scope><name>readyRead</name></member>
+      <member refid="classRADCore_1_1RADObject_1af3e26b970c8080418f0d6b80cad986a2" prot="public" virt="non-virtual"><scope>RADMedia::AudioInputDevice</scope><name>registerLink</name></member>
+      <member refid="classRADMedia_1_1RADAudioDevice_1a132d747a0c5fbcf80288182a845d4f86" prot="public" virt="non-virtual"><scope>RADMedia::AudioInputDevice</scope><name>setBufferFrames</name></member>
+      <member refid="classRADMedia_1_1RADAudioDevice_1a572404cd469a68e5f7cbe36301b1a3a2" prot="public" virt="non-virtual"><scope>RADMedia::AudioInputDevice</scope><name>setDeviceId</name></member>
+      <member refid="classRADMedia_1_1RADAudioDevice_1a92eea7e0f2c03432b371e43c9ea6470c" prot="public" virt="non-virtual"><scope>RADMedia::AudioInputDevice</scope><name>setFormat</name></member>
+      <member refid="classRADMedia_1_1RADAudioDevice_1af7eb19fa7499cc5a806fdb916201d4f8" prot="public" virt="non-virtual"><scope>RADMedia::AudioInputDevice</scope><name>setFramesPerChunk</name></member>
+      <member refid="classRADMedia_1_1RADAudioDevice_1ac9922ff631c4b2ee674c66c8285c58be" prot="public" virt="non-virtual"><scope>RADMedia::AudioInputDevice</scope><name>setMaxBufferedBytes</name></member>
+      <member refid="classRADMedia_1_1RADAudioDevice_1a4495a904e41fd81bf3e7efd9e44de071" prot="public" virt="non-virtual"><scope>RADMedia::AudioInputDevice</scope><name>setPeriodFrames</name></member>
+      <member refid="classRADMedia_1_1RADAudioDevice_1ad1115ac1db2c219bda490edb80a7402f" prot="public" virt="non-virtual"><scope>RADMedia::AudioInputDevice</scope><name>setTargetLatencyUsec</name></member>
+      <member refid="classRADMedia_1_1RADAudioDevice_1a563b32570151da356de0ee3df1c4288e" prot="public" virt="non-virtual"><scope>RADMedia::AudioInputDevice</scope><name>started</name></member>
+      <member refid="classRADMedia_1_1RADAudioDevice_1a3efb87a66badeb4c1974e3f56a88867a" prot="public" virt="non-virtual"><scope>RADMedia::AudioInputDevice</scope><name>stopped</name></member>
+      <member refid="classRADMedia_1_1RADAudioDevice_1a5597a83e3ff2b44bade0854cc814b6c8" prot="public" virt="non-virtual"><scope>RADMedia::AudioInputDevice</scope><name>targetLatencyUsec</name></member>
+      <member refid="classRADCore_1_1RADObject_1a8b11df0b951d0db1ba99cfb851e34f31" prot="public" virt="non-virtual"><scope>RADMedia::AudioInputDevice</scope><name>threadAffinity</name></member>
+      <member refid="classRADCore_1_1RADObject_1ac7ca67b41523794ae5a6b3634d6ce3b6" prot="public" virt="non-virtual"><scope>RADMedia::AudioInputDevice</scope><name>threadId</name></member>
+      <member refid="classRADMedia_1_1RADAudioDevice_1a62e083abec1806ca29c9ed5839401441" prot="public" virt="non-virtual"><scope>RADMedia::AudioInputDevice</scope><name>underrun</name></member>
+      <member refid="classRADCore_1_1RADIODevice_1a8475de4a0ca7d13b9049a73bad575a4f" prot="public" virt="non-virtual"><scope>RADMedia::AudioInputDevice</scope><name>write</name></member>
+      <member refid="classRADCore_1_1RADIODevice_1a145436d6349cd9d057cb9723e2bd1c13" prot="public" virt="non-virtual"><scope>RADMedia::AudioInputDevice</scope><name>write</name></member>
+      <member refid="classRADMedia_1_1RADAudioDevice_1aedcdcfeb1769ea5c57bcc4d024993d6c" prot="public" virt="virtual"><scope>RADMedia::AudioInputDevice</scope><name>writeData</name></member>
+      <member refid="classRADMedia_1_1RADAudioDevice_1af1bc9649a503c7ebe66a634c29c454d7" prot="public" virt="non-virtual"><scope>RADMedia::AudioInputDevice</scope><name>writeFrames</name></member>
+      <member refid="classRADMedia_1_1RADAudioDevice_1a2a322457407437c92537173cd794ec67" prot="public" virt="non-virtual"><scope>RADMedia::AudioInputDevice</scope><name>~RADAudioDevice</name></member>
+      <member refid="classRADCore_1_1RADIODevice_1a0c5117d5f499fc00faa821aa3194d8f7" prot="public" virt="virtual"><scope>RADMedia::AudioInputDevice</scope><name>~RADIODevice</name></member>
+      <member refid="classRADCore_1_1RADObject_1a7369e27a46c163ee89c63227db650ce5" prot="public" virt="virtual"><scope>RADMedia::AudioInputDevice</scope><name>~RADObject</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,121 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="RADCLI_8h" kind="file" language="C++">
+    <compoundname>RADCLI.h</compoundname>
+    <includes local="no">RADCore/RADCore.h</includes>
+    <includes local="no">map</includes>
+    <includes local="no">optional</includes>
+    <includes local="no">string</includes>
+    <includes local="no">vector</includes>
+    <incdepgraph>
+      <node id="2">
+        <label>RADCore/RADCore.h</label>
+      </node>
+      <node id="5">
+        <label>string</label>
+      </node>
+      <node id="3">
+        <label>map</label>
+      </node>
+      <node id="4">
+        <label>optional</label>
+      </node>
+      <node id="6">
+        <label>vector</label>
+      </node>
+      <node id="1">
+        <label>RADCLI/headers/RADCLI.h</label>
+        <link refid="RADCLI_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+    </incdepgraph>
+    <innerclass refid="structRADCLI_1_1Option" prot="public">RADCLI::Option</innerclass>
+    <innerclass refid="classRADCLI_1_1ParseResult" prot="public">RADCLI::ParseResult</innerclass>
+    <innerclass refid="classRADCLI_1_1CommandLineParser" prot="public">RADCLI::CommandLineParser</innerclass>
+    <innernamespace refid="namespaceRADCLI">RADCLI</innernamespace>
+    <briefdescription>
+<para>Command-line parsing and application utility helpers. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#ifndef<sp/>RADCLI_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>RADCLI_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="preprocessor">#pragma<sp/>once</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;RADCore/RADCore.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;map&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;optional&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;string&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;vector&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight></codeline>
+<codeline lineno="18" refid="namespaceRADCLI" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal"><ref refid="namespaceRADCLI" kindref="compound">RADCLI</ref><sp/>{</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight></codeline>
+<codeline lineno="21" refid="structRADCLI_1_1Option" refkind="compound"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structRADCLI_1_1Option" kindref="compound">Option</ref><sp/>{</highlight></codeline>
+<codeline lineno="23" refid="structRADCLI_1_1Option_1a2bf11f8e6625d8f72486d65381437468" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::string<sp/><ref refid="structRADCLI_1_1Option_1a2bf11f8e6625d8f72486d65381437468" kindref="member">name</ref>;</highlight></codeline>
+<codeline lineno="25" refid="structRADCLI_1_1Option_1a90805153870e169298a6920c16eb339c" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/><ref refid="structRADCLI_1_1Option_1a90805153870e169298a6920c16eb339c" kindref="member">shortName</ref><sp/>=<sp/></highlight><highlight class="charliteral">&apos;\0&apos;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="27" refid="structRADCLI_1_1Option_1ac93f50f443ea908e96f21214a35f4a27" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::string<sp/><ref refid="structRADCLI_1_1Option_1ac93f50f443ea908e96f21214a35f4a27" kindref="member">description</ref>;</highlight></codeline>
+<codeline lineno="29" refid="structRADCLI_1_1Option_1acd159e1e4a83eb0ede5fb2c4f7db6d17" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="structRADCLI_1_1Option_1acd159e1e4a83eb0ede5fb2c4f7db6d17" kindref="member">requiresValue</ref><sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="31" refid="structRADCLI_1_1Option_1aec4e69f830852d604aaf3bf8020a7d87" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="structRADCLI_1_1Option_1aec4e69f830852d604aaf3bf8020a7d87" kindref="member">required</ref><sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="33" refid="structRADCLI_1_1Option_1a09668f1090ed8a40cea85ceaeeb535b4" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::string<sp/><ref refid="structRADCLI_1_1Option_1a09668f1090ed8a40cea85ceaeeb535b4" kindref="member">defaultValue</ref>;</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/><sp/>};</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight></codeline>
+<codeline lineno="37" refid="classRADCLI_1_1ParseResult" refkind="compound"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classRADCLI_1_1ParseResult" kindref="compound">ParseResult</ref><sp/>{</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="40" refid="classRADCLI_1_1ParseResult_1a9a361888d7f9c39b037f82735e4baf43" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classRADCLI_1_1ParseResult_1a9a361888d7f9c39b037f82735e4baf43" kindref="member">ok</ref>()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="42" refid="classRADCLI_1_1ParseResult_1ad3f9feb08d21d09d6aa4f68106b23b46" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::string&amp;<sp/><ref refid="classRADCLI_1_1ParseResult_1ad3f9feb08d21d09d6aa4f68106b23b46" kindref="member">error</ref>()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="44" refid="classRADCLI_1_1ParseResult_1a49b66dd0ade2921288804022276639e7" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classRADCLI_1_1ParseResult_1a49b66dd0ade2921288804022276639e7" kindref="member">has</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::string&amp;<sp/>name)<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="46" refid="classRADCLI_1_1ParseResult_1ac622ac4176beba698e48faff808cfff5" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::string<sp/><ref refid="classRADCLI_1_1ParseResult_1ac622ac4176beba698e48faff808cfff5" kindref="member">value</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::string&amp;<sp/>name,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::string&amp;<sp/>defaultValue<sp/>=<sp/>{})<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="48" refid="classRADCLI_1_1ParseResult_1acf603300fc6e8d5b85262687c1a55f44" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::vector&lt;std::string&gt;&amp;<sp/><ref refid="classRADCLI_1_1ParseResult_1acf603300fc6e8d5b85262687c1a55f44" kindref="member">positionals</ref>()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"></highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="51" refid="classRADCLI_1_1ParseResult_1a41a7521828bf3848f8977e841f18df99" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">friend</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classRADCLI_1_1CommandLineParser" kindref="compound">CommandLineParser</ref>;</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>ok_<sp/>=<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::string<sp/>error_;</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::map&lt;std::string,<sp/>std::string&gt;<sp/>values_;</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::vector&lt;std::string&gt;<sp/>present_;</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::vector&lt;std::string&gt;<sp/>positionals_;</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/>};</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"></highlight></codeline>
+<codeline lineno="60" refid="classRADCLI_1_1CommandLineParser" refkind="compound"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classRADCLI_1_1CommandLineParser" kindref="compound">CommandLineParser</ref><sp/>{</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="63" refid="classRADCLI_1_1CommandLineParser_1aac4da97e2f7dedb9caa85ae58d6ce1aa" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">explicit</highlight><highlight class="normal"><sp/><ref refid="classRADCLI_1_1CommandLineParser_1aac4da97e2f7dedb9caa85ae58d6ce1aa" kindref="member">CommandLineParser</ref>(std::string<sp/>applicationName<sp/>=<sp/>{});</highlight></codeline>
+<codeline lineno="65" refid="classRADCLI_1_1CommandLineParser_1a73e48b3e7efb9ef0a2ca904f46d74a12" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classRADCLI_1_1CommandLineParser_1a73e48b3e7efb9ef0a2ca904f46d74a12" kindref="member">setDescription</ref>(std::string<sp/>description);</highlight></codeline>
+<codeline lineno="67" refid="classRADCLI_1_1CommandLineParser_1a1418b40655cf217b889ab8a7a56cb9a4" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classRADCLI_1_1CommandLineParser_1a1418b40655cf217b889ab8a7a56cb9a4" kindref="member">addOption</ref>(<ref refid="structRADCLI_1_1Option" kindref="compound">Option</ref><sp/>option);</highlight></codeline>
+<codeline lineno="69" refid="classRADCLI_1_1CommandLineParser_1a5fcb8a9890f144c7bd049ebb0dcd3264" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classRADCLI_1_1ParseResult" kindref="compound">ParseResult</ref><sp/><ref refid="classRADCLI_1_1CommandLineParser_1a5fcb8a9890f144c7bd049ebb0dcd3264" kindref="member">parse</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>argc,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">**<sp/>argv)<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="71" refid="classRADCLI_1_1CommandLineParser_1af18e6b14a5ffa055b76c82c83e5c0229" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classRADCLI_1_1ParseResult" kindref="compound">ParseResult</ref><sp/><ref refid="classRADCLI_1_1CommandLineParser_1af18e6b14a5ffa055b76c82c83e5c0229" kindref="member">parse</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::vector&lt;std::string&gt;&amp;<sp/>args)<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="73" refid="classRADCLI_1_1CommandLineParser_1a68788797e12346a25bcf15d3e49b32f3" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::string<sp/><ref refid="classRADCLI_1_1CommandLineParser_1a68788797e12346a25bcf15d3e49b32f3" kindref="member">helpText</ref>()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"></highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structRADCLI_1_1Option" kindref="compound">Option</ref>*<sp/>findLong(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::string&amp;<sp/>name)<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structRADCLI_1_1Option" kindref="compound">Option</ref>*<sp/>findShort(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>shortName)<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"></highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::string<sp/>applicationName_;</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::string<sp/>description_;</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::vector&lt;Option&gt;<sp/>options_;</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/>};</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"></highlight></codeline>
+<codeline lineno="85" refid="namespaceRADCLI_1abf666f5ada86197d2a8949e4ec050b6d" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>std::optional&lt;std::string&gt;<sp/><ref refid="namespaceRADCLI_1abf666f5ada86197d2a8949e4ec050b6d" kindref="member">environmentVariable</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::string&amp;<sp/>name);</highlight></codeline>
+<codeline lineno="87" refid="namespaceRADCLI_1a9badbd653a5f9552775186e1522e3765" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="namespaceRADCLI_1a9badbd653a5f9552775186e1522e3765" kindref="member">setEnvironmentVariable</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::string&amp;<sp/>name,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::string&amp;<sp/>value,<sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>overwrite<sp/>=<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="89" refid="namespaceRADCLI_1a49eaf45dc00f1d2d07c82bd3a012c214" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>std::string<sp/><ref refid="namespaceRADCLI_1a49eaf45dc00f1d2d07c82bd3a012c214" kindref="member">executablePath</ref>();</highlight></codeline>
+<codeline lineno="91" refid="namespaceRADCLI_1a54d41d6cc7a3f1dda387b78f0c3f9440" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>std::string<sp/><ref refid="namespaceRADCLI_1a54d41d6cc7a3f1dda387b78f0c3f9440" kindref="member">currentUserName</ref>();</highlight></codeline>
+<codeline lineno="93" refid="namespaceRADCLI_1a7b710c172eaf0adbf55470cd4544b369" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>std::string<sp/><ref refid="namespaceRADCLI_1a7b710c172eaf0adbf55470cd4544b369" kindref="member">radlibVersionString</ref>();</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"></highlight></codeline>
+<codeline lineno="95"><highlight class="normal">}<sp/></highlight><highlight class="comment">//<sp/>namespace<sp/>RADCLI</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="96"><highlight class="normal"></highlight></codeline>
+<codeline lineno="97"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+    </programlisting>
+    <location file="RADCLI/headers/RADCLI.h"/>
+  </compounddef>
+</doxygen>

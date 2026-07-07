@@ -1,0 +1,135 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="classRADData_1_1RADFixedPool" kind="class" language="C++" prot="public">
+    <compoundname>RADData::RADFixedPool</compoundname>
+    <includes refid="RADDataStructures_8h" local="no">RADDataStructures.h</includes>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classRADData_1_1RADFixedPool_1a58948d897edefa179b92ce86f2d95b27" prot="private" static="no" mutable="no">
+        <type>size_t</type>
+        <definition>size_t RADData::RADFixedPool::blockSize_</definition>
+        <argsstring></argsstring>
+        <name>blockSize_</name>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADDataStructures/headers/RADDataStructures.h" line="186" column="16" bodyfile="RADDataStructures/headers/RADDataStructures.h" bodystart="186" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classRADData_1_1RADFixedPool_1a969ab5e744f1fdb30203694fafdc0a7a" prot="private" static="no" mutable="no">
+        <type>std::vector&lt; std::max_align_t &gt;</type>
+        <definition>std::vector&lt;std::max_align_t&gt; RADData::RADFixedPool::storage_</definition>
+        <argsstring></argsstring>
+        <name>storage_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADDataStructures/headers/RADDataStructures.h" line="187" column="21" bodyfile="RADDataStructures/headers/RADDataStructures.h" bodystart="187" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classRADData_1_1RADFixedPool_1ae08b39ea27f3654ad7e092028faf62f6" prot="private" static="no" mutable="no">
+        <type>uint8_t *</type>
+        <definition>uint8_t* RADData::RADFixedPool::freeList_</definition>
+        <argsstring></argsstring>
+        <name>freeList_</name>
+        <initializer>= nullptr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADDataStructures/headers/RADDataStructures.h" line="188" column="17" bodyfile="RADDataStructures/headers/RADDataStructures.h" bodystart="188" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classRADData_1_1RADFixedPool_1a9e9e3e54fd722b65890dd2bc719a3458" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>RADData::RADFixedPool::RADFixedPool</definition>
+        <argsstring>(size_t blockSize, size_t blockCount)</argsstring>
+        <name>RADFixedPool</name>
+        <param>
+          <type>size_t</type>
+          <declname>blockSize</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>blockCount</declname>
+        </param>
+        <briefdescription>
+<para>Creates a pool with blockSize bytes per block and blockCount blocks. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADDataStructures/headers/RADDataStructures.h" line="154" column="9" bodyfile="RADDataStructures/headers/RADDataStructures.h" bodystart="154" bodyend="164"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADData_1_1RADFixedPool_1afc2a32d6e1075cfd833cff6dc19d9bfa" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void *</type>
+        <definition>void* RADData::RADFixedPool::allocate</definition>
+        <argsstring>()</argsstring>
+        <name>allocate</name>
+        <briefdescription>
+<para>Allocates one fixed-size block or returns nullptr when exhausted. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADDataStructures/headers/RADDataStructures.h" line="167" column="14" bodyfile="RADDataStructures/headers/RADDataStructures.h" bodystart="167" bodyend="172"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADData_1_1RADFixedPool_1a52256f96083f4092327574bb006d2f9b" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void RADData::RADFixedPool::deallocate</definition>
+        <argsstring>(void *ptr)</argsstring>
+        <name>deallocate</name>
+        <param>
+          <type>void *</type>
+          <declname>ptr</declname>
+        </param>
+        <briefdescription>
+<para>Returns one block to the pool. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADDataStructures/headers/RADDataStructures.h" line="175" column="14" bodyfile="RADDataStructures/headers/RADDataStructures.h" bodystart="175" bodyend="180"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADData_1_1RADFixedPool_1a4ed260432224b4366cffb38274970312" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>size_t</type>
+        <definition>size_t RADData::RADFixedPool::blockSize</definition>
+        <argsstring>() const</argsstring>
+        <name>blockSize</name>
+        <briefdescription>
+<para>Returns the block size. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADDataStructures/headers/RADDataStructures.h" line="183" column="16" bodyfile="RADDataStructures/headers/RADDataStructures.h" bodystart="183" bodyend="183"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Fixed-size block pool for high-frequency same-size allocations. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="RADDataStructures/headers/RADDataStructures.h" line="151" column="5" bodyfile="RADDataStructures/headers/RADDataStructures.h" bodystart="151" bodyend="189"/>
+    <listofallmembers>
+      <member refid="classRADData_1_1RADFixedPool_1afc2a32d6e1075cfd833cff6dc19d9bfa" prot="public" virt="non-virtual"><scope>RADData::RADFixedPool</scope><name>allocate</name></member>
+      <member refid="classRADData_1_1RADFixedPool_1a4ed260432224b4366cffb38274970312" prot="public" virt="non-virtual"><scope>RADData::RADFixedPool</scope><name>blockSize</name></member>
+      <member refid="classRADData_1_1RADFixedPool_1a58948d897edefa179b92ce86f2d95b27" prot="private" virt="non-virtual"><scope>RADData::RADFixedPool</scope><name>blockSize_</name></member>
+      <member refid="classRADData_1_1RADFixedPool_1a52256f96083f4092327574bb006d2f9b" prot="public" virt="non-virtual"><scope>RADData::RADFixedPool</scope><name>deallocate</name></member>
+      <member refid="classRADData_1_1RADFixedPool_1ae08b39ea27f3654ad7e092028faf62f6" prot="private" virt="non-virtual"><scope>RADData::RADFixedPool</scope><name>freeList_</name></member>
+      <member refid="classRADData_1_1RADFixedPool_1a9e9e3e54fd722b65890dd2bc719a3458" prot="public" virt="non-virtual"><scope>RADData::RADFixedPool</scope><name>RADFixedPool</name></member>
+      <member refid="classRADData_1_1RADFixedPool_1a969ab5e744f1fdb30203694fafdc0a7a" prot="private" virt="non-virtual"><scope>RADData::RADFixedPool</scope><name>storage_</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

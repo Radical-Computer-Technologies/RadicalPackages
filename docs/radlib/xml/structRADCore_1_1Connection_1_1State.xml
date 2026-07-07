@@ -1,0 +1,48 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="structRADCore_1_1Connection_1_1State" kind="struct" language="C++" prot="public">
+    <compoundname>RADCore::Connection::State</compoundname>
+    <includes refid="RADCore_8h" local="no">RADCore.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structRADCore_1_1Connection_1_1State_1a4c5068aa12bab3cd4d9501997e1e44ce" prot="public" static="no" mutable="no">
+        <type>std::atomic_bool</type>
+        <definition>std::atomic_bool RADCore::Connection::State::connected</definition>
+        <argsstring></argsstring>
+        <name>connected</name>
+        <initializer>{false}</initializer>
+        <briefdescription>
+<para>True while connected. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADCore/headers/RADCore.h" line="908" column="30" bodyfile="RADCore/headers/RADCore.h" bodystart="908" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structRADCore_1_1Connection_1_1State_1a1b83c65cc9dac1d71d2d72981a40e12d" prot="public" static="no" mutable="no">
+        <type>std::function&lt; void()&gt;</type>
+        <definition>std::function&lt;void()&gt; RADCore::Connection::State::disconnectCallback</definition>
+        <argsstring></argsstring>
+        <name>disconnectCallback</name>
+        <briefdescription>
+<para>Disconnect callback owned by the connection. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADCore/headers/RADCore.h" line="910" column="27" bodyfile="RADCore/headers/RADCore.h" bodystart="910" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Shared connection state used by <ref refid="classRADCore_1_1Event" kindref="compound">Event</ref> and <ref refid="classRADCore_1_1Connection" kindref="compound">Connection</ref>. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="RADCore/headers/RADCore.h" line="906" column="9" bodyfile="RADCore/headers/RADCore.h" bodystart="906" bodyend="911"/>
+    <listofallmembers>
+      <member refid="structRADCore_1_1Connection_1_1State_1a4c5068aa12bab3cd4d9501997e1e44ce" prot="public" virt="non-virtual"><scope>RADCore::Connection::State</scope><name>connected</name></member>
+      <member refid="structRADCore_1_1Connection_1_1State_1a1b83c65cc9dac1d71d2d72981a40e12d" prot="public" virt="non-virtual"><scope>RADCore::Connection::State</scope><name>disconnectCallback</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

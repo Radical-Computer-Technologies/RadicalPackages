@@ -1,0 +1,669 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="classRADMedia_1_1RADAudioDevice" kind="class" language="C++" prot="public">
+    <compoundname>RADMedia::RADAudioDevice</compoundname>
+    <basecompoundref refid="classRADCore_1_1RADIODevice" prot="public" virt="non-virtual">RADCore::RADIODevice</basecompoundref>
+    <derivedcompoundref refid="classRADMedia_1_1AudioInputDevice" prot="public" virt="non-virtual">RADMedia::AudioInputDevice</derivedcompoundref>
+    <includes refid="RADMedia_8h" local="no">RADMedia.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="classRADMedia_1_1RADAudioDevice_1a563b32570151da356de0ee3df1c4288e" prot="public" static="no" mutable="no">
+        <type><ref refid="classRADCore_1_1Event" kindref="compound">RADCore::Event</ref>&lt; void() &gt;</type>
+        <definition>RADCore::Event&lt;void () &gt; RADMedia::RADAudioDevice::started</definition>
+        <argsstring></argsstring>
+        <name>started</name>
+        <briefdescription>
+<para>Raised when the device starts capture or playback. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADMedia/headers/RADMedia.h" line="479" column="30" bodyfile="RADMedia/headers/RADMedia.h" bodystart="479" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classRADMedia_1_1RADAudioDevice_1a3efb87a66badeb4c1974e3f56a88867a" prot="public" static="no" mutable="no">
+        <type><ref refid="classRADCore_1_1Event" kindref="compound">RADCore::Event</ref>&lt; void() &gt;</type>
+        <definition>RADCore::Event&lt;void () &gt; RADMedia::RADAudioDevice::stopped</definition>
+        <argsstring></argsstring>
+        <name>stopped</name>
+        <briefdescription>
+<para>Raised when the device stops. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADMedia/headers/RADMedia.h" line="481" column="30" bodyfile="RADMedia/headers/RADMedia.h" bodystart="481" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classRADMedia_1_1RADAudioDevice_1a62e083abec1806ca29c9ed5839401441" prot="public" static="no" mutable="no">
+        <type><ref refid="classRADCore_1_1Event" kindref="compound">RADCore::Event</ref>&lt; void() &gt;</type>
+        <definition>RADCore::Event&lt;void () &gt; RADMedia::RADAudioDevice::underrun</definition>
+        <argsstring></argsstring>
+        <name>underrun</name>
+        <briefdescription>
+<para>Raised when playback underruns. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADMedia/headers/RADMedia.h" line="483" column="30" bodyfile="RADMedia/headers/RADMedia.h" bodystart="483" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classRADMedia_1_1RADAudioDevice_1a87d4d0ca138ff664d19912f817520517" prot="private" static="no" mutable="no">
+        <type>std::shared_ptr&lt; Impl &gt;</type>
+        <definition>std::shared_ptr&lt;Impl&gt; RADMedia::RADAudioDevice::pImpl_</definition>
+        <argsstring></argsstring>
+        <name>pImpl_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADMedia/headers/RADMedia.h" line="551" column="25" bodyfile="RADMedia/headers/RADMedia.h" bodystart="550" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classRADMedia_1_1RADAudioDevice_1a4eeb3ab49677da0c7dc37f79d04bfcb5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>RADMedia::RADAudioDevice::RADAudioDevice</definition>
+        <argsstring>(RADCore::EventLoop &amp;loop, AudioDeviceDirection direction)</argsstring>
+        <name>RADAudioDevice</name>
+        <param>
+          <type><ref refid="classRADCore_1_1EventLoop" kindref="compound">RADCore::EventLoop</ref> &amp;</type>
+          <declname>loop</declname>
+        </param>
+        <param>
+          <type><ref refid="namespaceRADMedia_1a73b48b9a800c2b2038c792f19444b794" kindref="member">AudioDeviceDirection</ref></type>
+          <declname>direction</declname>
+        </param>
+        <briefdescription>
+<para>Creates an input or output audio device using loop for events. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADMedia/headers/RADMedia.h" line="486" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADMedia_1_1RADAudioDevice_1a2a322457407437c92537173cd794ec67" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>RADMedia::RADAudioDevice::~RADAudioDevice</definition>
+        <argsstring>() override</argsstring>
+        <name>~RADAudioDevice</name>
+        <briefdescription>
+<para>Closes the device if still open. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADMedia/headers/RADMedia.h" line="488" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADMedia_1_1RADAudioDevice_1abb40e37863809e416ff8a0f6fe627ccc" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="namespaceRADMedia_1a73b48b9a800c2b2038c792f19444b794" kindref="member">AudioDeviceDirection</ref></type>
+        <definition>AudioDeviceDirection RADMedia::RADAudioDevice::direction</definition>
+        <argsstring>() const</argsstring>
+        <name>direction</name>
+        <briefdescription>
+<para>Returns whether this device captures input or plays output. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADMedia/headers/RADMedia.h" line="494" column="30"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADMedia_1_1RADAudioDevice_1a572404cd469a68e5f7cbe36301b1a3a2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void RADMedia::RADAudioDevice::setDeviceId</definition>
+        <argsstring>(std::string deviceId)</argsstring>
+        <name>setDeviceId</name>
+        <param>
+          <type>std::string</type>
+          <declname>deviceId</declname>
+        </param>
+        <briefdescription>
+<para>Sets the ALSA device id, usually &quot;default&quot; or an enumerated id. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADMedia/headers/RADMedia.h" line="497" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADMedia_1_1RADAudioDevice_1a5166612299d5dae7208a5bf3b4fa76e9" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>const std::string &amp;</type>
+        <definition>const std::string&amp; RADMedia::RADAudioDevice::deviceId</definition>
+        <argsstring>() const</argsstring>
+        <name>deviceId</name>
+        <briefdescription>
+<para>Returns the configured ALSA device id. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADMedia/headers/RADMedia.h" line="499" column="27"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADMedia_1_1RADAudioDevice_1a92eea7e0f2c03432b371e43c9ea6470c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void RADMedia::RADAudioDevice::setFormat</definition>
+        <argsstring>(WavFormat format)</argsstring>
+        <name>setFormat</name>
+        <param>
+          <type><ref refid="structRADMedia_1_1WavFormat" kindref="compound">WavFormat</ref></type>
+          <declname>format</declname>
+        </param>
+        <briefdescription>
+<para>Sets the desired audio format. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADMedia/headers/RADMedia.h" line="502" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADMedia_1_1RADAudioDevice_1adaf9738a7df2a0823a2e60140251fab0" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>const <ref refid="structRADMedia_1_1WavFormat" kindref="compound">WavFormat</ref> &amp;</type>
+        <definition>const WavFormat&amp; RADMedia::RADAudioDevice::format</definition>
+        <argsstring>() const</argsstring>
+        <name>format</name>
+        <briefdescription>
+<para>Returns the configured audio format. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADMedia/headers/RADMedia.h" line="504" column="25"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADMedia_1_1RADAudioDevice_1af7eb19fa7499cc5a806fdb916201d4f8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void RADMedia::RADAudioDevice::setFramesPerChunk</definition>
+        <argsstring>(size_t frames)</argsstring>
+        <name>setFramesPerChunk</name>
+        <param>
+          <type>size_t</type>
+          <declname>frames</declname>
+        </param>
+        <briefdescription>
+<para>Sets how many frames are transferred per low-level chunk. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADMedia/headers/RADMedia.h" line="507" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADMedia_1_1RADAudioDevice_1a10c04d0bcbbd57b759013552b64911b4" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>size_t</type>
+        <definition>size_t RADMedia::RADAudioDevice::framesPerChunk</definition>
+        <argsstring>() const</argsstring>
+        <name>framesPerChunk</name>
+        <briefdescription>
+<para>Returns frames transferred per low-level chunk. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADMedia/headers/RADMedia.h" line="509" column="16"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADMedia_1_1RADAudioDevice_1ad1115ac1db2c219bda490edb80a7402f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void RADMedia::RADAudioDevice::setTargetLatencyUsec</definition>
+        <argsstring>(unsigned int usec)</argsstring>
+        <name>setTargetLatencyUsec</name>
+        <param>
+          <type>unsigned int</type>
+          <declname>usec</declname>
+        </param>
+        <briefdescription>
+<para>Sets the requested ALSA device latency in microseconds before opening. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADMedia/headers/RADMedia.h" line="511" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADMedia_1_1RADAudioDevice_1a5597a83e3ff2b44bade0854cc814b6c8" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>unsigned int</type>
+        <definition>unsigned int RADMedia::RADAudioDevice::targetLatencyUsec</definition>
+        <argsstring>() const</argsstring>
+        <name>targetLatencyUsec</name>
+        <briefdescription>
+<para>Returns the requested ALSA device latency in microseconds. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADMedia/headers/RADMedia.h" line="513" column="22"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADMedia_1_1RADAudioDevice_1a4495a904e41fd81bf3e7efd9e44de071" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void RADMedia::RADAudioDevice::setPeriodFrames</definition>
+        <argsstring>(size_t frames)</argsstring>
+        <name>setPeriodFrames</name>
+        <param>
+          <type>size_t</type>
+          <declname>frames</declname>
+        </param>
+        <briefdescription>
+<para>Sets the requested ALSA hardware period size in frames. Zero uses <ref refid="classRADMedia_1_1RADAudioDevice_1a10c04d0bcbbd57b759013552b64911b4" kindref="member">framesPerChunk()</ref>. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADMedia/headers/RADMedia.h" line="515" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADMedia_1_1RADAudioDevice_1a6882b2582f45d80febe7861cf7d00106" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>size_t</type>
+        <definition>size_t RADMedia::RADAudioDevice::periodFrames</definition>
+        <argsstring>() const</argsstring>
+        <name>periodFrames</name>
+        <briefdescription>
+<para>Returns the requested ALSA hardware period size in frames, or zero for automatic. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADMedia/headers/RADMedia.h" line="517" column="16"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADMedia_1_1RADAudioDevice_1a132d747a0c5fbcf80288182a845d4f86" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void RADMedia::RADAudioDevice::setBufferFrames</definition>
+        <argsstring>(size_t frames)</argsstring>
+        <name>setBufferFrames</name>
+        <param>
+          <type>size_t</type>
+          <declname>frames</declname>
+        </param>
+        <briefdescription>
+<para>Sets the requested ALSA hardware buffer size in frames. Zero uses <ref refid="classRADMedia_1_1RADAudioDevice_1a5597a83e3ff2b44bade0854cc814b6c8" kindref="member">targetLatencyUsec()</ref>. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADMedia/headers/RADMedia.h" line="519" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADMedia_1_1RADAudioDevice_1ab7235b3bd8e44ac345ee8a29d6c8b428" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>size_t</type>
+        <definition>size_t RADMedia::RADAudioDevice::bufferFrames</definition>
+        <argsstring>() const</argsstring>
+        <name>bufferFrames</name>
+        <briefdescription>
+<para>Returns the requested ALSA hardware buffer size in frames, or zero for automatic. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADMedia/headers/RADMedia.h" line="521" column="16"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADMedia_1_1RADAudioDevice_1ac9922ff631c4b2ee674c66c8285c58be" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void RADMedia::RADAudioDevice::setMaxBufferedBytes</definition>
+        <argsstring>(size_t bytes)</argsstring>
+        <name>setMaxBufferedBytes</name>
+        <param>
+          <type>size_t</type>
+          <declname>bytes</declname>
+        </param>
+        <briefdescription>
+<para>Sets the maximum queued input bytes retained for reads. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADMedia/headers/RADMedia.h" line="524" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADMedia_1_1RADAudioDevice_1a7228c7604b77c20e4693f6a28b03c423" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>size_t</type>
+        <definition>size_t RADMedia::RADAudioDevice::maxBufferedBytes</definition>
+        <argsstring>() const</argsstring>
+        <name>maxBufferedBytes</name>
+        <briefdescription>
+<para>Returns the maximum queued input bytes. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADMedia/headers/RADMedia.h" line="526" column="16"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADMedia_1_1RADAudioDevice_1a8f414ec9ab0595656fff7305cb47e544" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>size_t</type>
+        <definition>size_t RADMedia::RADAudioDevice::bytesAvailable</definition>
+        <argsstring>() const</argsstring>
+        <name>bytesAvailable</name>
+        <briefdescription>
+<para>Returns queued readable bytes for input devices. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADMedia/headers/RADMedia.h" line="528" column="16"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADMedia_1_1RADAudioDevice_1a2052b6db7d0ce9501274d7095ef261ea" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>bool</type>
+        <definition>bool RADMedia::RADAudioDevice::open</definition>
+        <argsstring>(RADCore::OpenMode mode) override</argsstring>
+        <name>open</name>
+        <reimplements refid="classRADCore_1_1RADIODevice_1a011c0578dea19d3ba6112b6d3acc092d">open</reimplements>
+        <param>
+          <type><ref refid="namespaceRADCore_1aefc7037828eebd6f6c85bda2ea2b2852" kindref="member">RADCore::OpenMode</ref></type>
+          <declname>mode</declname>
+        </param>
+        <briefdescription>
+<para>Opens the device for read or write depending on direction. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADMedia/headers/RADMedia.h" line="531" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADMedia_1_1RADAudioDevice_1a9a98ffe960fe6b8ade1d4fdb3d3e8446" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void RADMedia::RADAudioDevice::close</definition>
+        <argsstring>() override</argsstring>
+        <name>close</name>
+        <reimplements refid="classRADCore_1_1RADIODevice_1a2bb9a50ef6582fd91565a69353d6afbb">close</reimplements>
+        <briefdescription>
+<para>Closes the ALSA handle and worker thread. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADMedia/headers/RADMedia.h" line="533" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADMedia_1_1RADAudioDevice_1a5d1b2df6c238f5d63729213c49e345aa" prot="public" static="no" const="yes" explicit="no" inline="no" virt="virtual">
+        <type>bool</type>
+        <definition>bool RADMedia::RADAudioDevice::isOpen</definition>
+        <argsstring>() const override</argsstring>
+        <name>isOpen</name>
+        <reimplements refid="classRADCore_1_1RADIODevice_1a8c11ea54d9c6868fbe765b3097cfeb14">isOpen</reimplements>
+        <briefdescription>
+<para>Returns true when the ALSA device is open. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADMedia/headers/RADMedia.h" line="535" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADMedia_1_1RADAudioDevice_1a5006064cdc09bac0e2ebdd061c0205c7" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>ssize_t</type>
+        <definition>ssize_t RADMedia::RADAudioDevice::readData</definition>
+        <argsstring>(void *buffer, size_t maxBytes) override</argsstring>
+        <name>readData</name>
+        <reimplements refid="classRADCore_1_1RADIODevice_1ae51b17a6ec9132085bb6e9e5249c591a">readData</reimplements>
+        <param>
+          <type>void *</type>
+          <declname>buffer</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>maxBytes</declname>
+        </param>
+        <briefdescription>
+<para>Reads captured bytes from the input buffer. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADMedia/headers/RADMedia.h" line="537" column="17"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADMedia_1_1RADAudioDevice_1aedcdcfeb1769ea5c57bcc4d024993d6c" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>ssize_t</type>
+        <definition>ssize_t RADMedia::RADAudioDevice::writeData</definition>
+        <argsstring>(const void *data, size_t size) override</argsstring>
+        <name>writeData</name>
+        <reimplements refid="classRADCore_1_1RADIODevice_1ac76e45e22e043402a06d61e4823433c5">writeData</reimplements>
+        <param>
+          <type>const void *</type>
+          <declname>data</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>size</declname>
+        </param>
+        <briefdescription>
+<para>Writes bytes to the output device. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADMedia/headers/RADMedia.h" line="539" column="17"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADMedia_1_1RADAudioDevice_1af1bc9649a503c7ebe66a634c29c454d7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>ssize_t</type>
+        <definition>ssize_t RADMedia::RADAudioDevice::writeFrames</definition>
+        <argsstring>(const void *data, size_t frames)</argsstring>
+        <name>writeFrames</name>
+        <param>
+          <type>const void *</type>
+          <declname>data</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>frames</declname>
+        </param>
+        <briefdescription>
+<para>Writes complete frames to the output device. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADMedia/headers/RADMedia.h" line="541" column="17"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADMedia_1_1RADAudioDevice_1aa021425b90a436da516ec21675125b06" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>size_t</type>
+        <definition>size_t RADMedia::RADAudioDevice::delayFrames</definition>
+        <argsstring>() const</argsstring>
+        <name>delayFrames</name>
+        <briefdescription>
+<para>Returns ALSA&apos;s current playback/capture delay in frames, or zero when unavailable. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADMedia/headers/RADMedia.h" line="543" column="16"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADMedia_1_1RADAudioDevice_1a3c5e8a7db4315857d09370ca7616a9a0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void RADMedia::RADAudioDevice::drain</definition>
+        <argsstring>()</argsstring>
+        <name>drain</name>
+        <briefdescription>
+<para>Drains queued playback frames. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADMedia/headers/RADMedia.h" line="545" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADMedia_1_1RADAudioDevice_1a91bd9bfed58f70156cf2d8b6ebd66403" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void RADMedia::RADAudioDevice::drop</definition>
+        <argsstring>()</argsstring>
+        <name>drop</name>
+        <briefdescription>
+<para>Drops queued playback/capture frames. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADMedia/headers/RADMedia.h" line="547" column="14"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="classRADMedia_1_1RADAudioDevice_1a23ce6f0a2563cc2f12408bbf0b9959cf" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>static bool RADMedia::RADAudioDevice::isFormatSupported</definition>
+        <argsstring>(const std::string &amp;deviceId, AudioDeviceDirection direction, const WavFormat &amp;format)</argsstring>
+        <name>isFormatSupported</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>deviceId</declname>
+        </param>
+        <param>
+          <type><ref refid="namespaceRADMedia_1a73b48b9a800c2b2038c792f19444b794" kindref="member">AudioDeviceDirection</ref></type>
+          <declname>direction</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structRADMedia_1_1WavFormat" kindref="compound">WavFormat</ref> &amp;</type>
+          <declname>format</declname>
+        </param>
+        <briefdescription>
+<para>Returns true when ALSA reports deviceId can use format for direction. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADMedia/headers/RADMedia.h" line="491" column="21"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>ALSA-backed input or output audio device implementing RADIODevice. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="3">
+        <label>RADCore::RADObject</label>
+        <link refid="classRADCore_1_1RADObject"/>
+      </node>
+      <node id="2">
+        <label>RADCore::RADIODevice</label>
+        <link refid="classRADCore_1_1RADIODevice"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>RADMedia::AudioInputDevice</label>
+        <link refid="classRADMedia_1_1AudioInputDevice"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>RADMedia::RADAudioDevice</label>
+        <link refid="classRADMedia_1_1RADAudioDevice"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="3">
+        <label>RADCore::RADObject</label>
+        <link refid="classRADCore_1_1RADObject"/>
+      </node>
+      <node id="5">
+        <label>RADCore::Event&lt; void(std::string) &gt;</label>
+        <link refid="classRADCore_1_1Event"/>
+      </node>
+      <node id="4">
+        <label>RADCore::Event&lt; void() &gt;</label>
+        <link refid="classRADCore_1_1Event"/>
+      </node>
+      <node id="6">
+        <label>RADCore::Event&lt; void(size_t) &gt;</label>
+        <link refid="classRADCore_1_1Event"/>
+      </node>
+      <node id="2">
+        <label>RADCore::RADIODevice</label>
+        <link refid="classRADCore_1_1RADIODevice"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+        <childnode refid="4" relation="usage">
+          <edgelabel>readyRead</edgelabel>
+        </childnode>
+        <childnode refid="5" relation="usage">
+          <edgelabel>errorOccurred</edgelabel>
+        </childnode>
+        <childnode refid="6" relation="usage">
+          <edgelabel>bytesWritten</edgelabel>
+        </childnode>
+      </node>
+      <node id="1">
+        <label>RADMedia::RADAudioDevice</label>
+        <link refid="classRADMedia_1_1RADAudioDevice"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="4" relation="usage">
+          <edgelabel>started</edgelabel>
+          <edgelabel>stopped</edgelabel>
+          <edgelabel>underrun</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="RADMedia/headers/RADMedia.h" line="475" column="5" bodyfile="RADMedia/headers/RADMedia.h" bodystart="475" bodyend="552"/>
+    <listofallmembers>
+      <member refid="classRADCore_1_1RADObject_1a06cdf252ffb5e2f88332ebda12a62080" prot="public" virt="non-virtual"><scope>RADMedia::RADAudioDevice</scope><name>associatedEventLoop</name></member>
+      <member refid="classRADMedia_1_1RADAudioDevice_1ab7235b3bd8e44ac345ee8a29d6c8b428" prot="public" virt="non-virtual"><scope>RADMedia::RADAudioDevice</scope><name>bufferFrames</name></member>
+      <member refid="classRADMedia_1_1RADAudioDevice_1a8f414ec9ab0595656fff7305cb47e544" prot="public" virt="non-virtual"><scope>RADMedia::RADAudioDevice</scope><name>bytesAvailable</name></member>
+      <member refid="classRADCore_1_1RADIODevice_1abc75c243e088fa3ae539276e90ddf769" prot="public" virt="non-virtual"><scope>RADMedia::RADAudioDevice</scope><name>bytesWritten</name></member>
+      <member refid="classRADMedia_1_1RADAudioDevice_1a9a98ffe960fe6b8ade1d4fdb3d3e8446" prot="public" virt="virtual"><scope>RADMedia::RADAudioDevice</scope><name>close</name></member>
+      <member refid="classRADMedia_1_1RADAudioDevice_1aa021425b90a436da516ec21675125b06" prot="public" virt="non-virtual"><scope>RADMedia::RADAudioDevice</scope><name>delayFrames</name></member>
+      <member refid="classRADMedia_1_1RADAudioDevice_1a5166612299d5dae7208a5bf3b4fa76e9" prot="public" virt="non-virtual"><scope>RADMedia::RADAudioDevice</scope><name>deviceId</name></member>
+      <member refid="classRADMedia_1_1RADAudioDevice_1abb40e37863809e416ff8a0f6fe627ccc" prot="public" virt="non-virtual"><scope>RADMedia::RADAudioDevice</scope><name>direction</name></member>
+      <member refid="classRADMedia_1_1RADAudioDevice_1a3c5e8a7db4315857d09370ca7616a9a0" prot="public" virt="non-virtual"><scope>RADMedia::RADAudioDevice</scope><name>drain</name></member>
+      <member refid="classRADMedia_1_1RADAudioDevice_1a91bd9bfed58f70156cf2d8b6ebd66403" prot="public" virt="non-virtual"><scope>RADMedia::RADAudioDevice</scope><name>drop</name></member>
+      <member refid="classRADCore_1_1RADIODevice_1ab7c511255b907eb2490fe91c6521232c" prot="public" virt="non-virtual"><scope>RADMedia::RADAudioDevice</scope><name>errorOccurred</name></member>
+      <member refid="classRADMedia_1_1RADAudioDevice_1adaf9738a7df2a0823a2e60140251fab0" prot="public" virt="non-virtual"><scope>RADMedia::RADAudioDevice</scope><name>format</name></member>
+      <member refid="classRADMedia_1_1RADAudioDevice_1a10c04d0bcbbd57b759013552b64911b4" prot="public" virt="non-virtual"><scope>RADMedia::RADAudioDevice</scope><name>framesPerChunk</name></member>
+      <member refid="classRADMedia_1_1RADAudioDevice_1a23ce6f0a2563cc2f12408bbf0b9959cf" prot="public" virt="non-virtual"><scope>RADMedia::RADAudioDevice</scope><name>isFormatSupported</name></member>
+      <member refid="classRADMedia_1_1RADAudioDevice_1a5d1b2df6c238f5d63729213c49e345aa" prot="public" virt="virtual"><scope>RADMedia::RADAudioDevice</scope><name>isOpen</name></member>
+      <member refid="classRADCore_1_1RADObject_1ad2ddfd066d14be9adc2f96bfca417fc6" prot="public" virt="non-virtual"><scope>RADMedia::RADAudioDevice</scope><name>lifetimeToken</name></member>
+      <member refid="classRADMedia_1_1RADAudioDevice_1a7228c7604b77c20e4693f6a28b03c423" prot="public" virt="non-virtual"><scope>RADMedia::RADAudioDevice</scope><name>maxBufferedBytes</name></member>
+      <member refid="classRADCore_1_1RADObject_1a1f7f7f2fb40211e28455cd74a029339a" prot="public" virt="non-virtual"><scope>RADMedia::RADAudioDevice</scope><name>moveToThread</name></member>
+      <member refid="classRADMedia_1_1RADAudioDevice_1a2052b6db7d0ce9501274d7095ef261ea" prot="public" virt="virtual"><scope>RADMedia::RADAudioDevice</scope><name>open</name></member>
+      <member refid="classRADMedia_1_1RADAudioDevice_1a6882b2582f45d80febe7861cf7d00106" prot="public" virt="non-virtual"><scope>RADMedia::RADAudioDevice</scope><name>periodFrames</name></member>
+      <member refid="classRADMedia_1_1RADAudioDevice_1a87d4d0ca138ff664d19912f817520517" prot="private" virt="non-virtual"><scope>RADMedia::RADAudioDevice</scope><name>pImpl_</name></member>
+      <member refid="classRADMedia_1_1RADAudioDevice_1a4eeb3ab49677da0c7dc37f79d04bfcb5" prot="public" virt="non-virtual"><scope>RADMedia::RADAudioDevice</scope><name>RADAudioDevice</name></member>
+      <member refid="classRADCore_1_1RADObject_1a9bc3fed915f7c71232e68c2628d34708" prot="public" virt="non-virtual"><scope>RADMedia::RADAudioDevice</scope><name>RADObject</name></member>
+      <member refid="classRADCore_1_1RADIODevice_1a427d98f45c056913a9e150b156648f2e" prot="public" virt="non-virtual"><scope>RADMedia::RADAudioDevice</scope><name>read</name></member>
+      <member refid="classRADCore_1_1RADIODevice_1a47e171d308e84d5dad6b730f34f0fbf8" prot="public" virt="non-virtual"><scope>RADMedia::RADAudioDevice</scope><name>readAll</name></member>
+      <member refid="classRADMedia_1_1RADAudioDevice_1a5006064cdc09bac0e2ebdd061c0205c7" prot="public" virt="virtual"><scope>RADMedia::RADAudioDevice</scope><name>readData</name></member>
+      <member refid="classRADCore_1_1RADIODevice_1a667c135df0be382dab141d8b4c5a1ce5" prot="public" virt="non-virtual"><scope>RADMedia::RADAudioDevice</scope><name>readyRead</name></member>
+      <member refid="classRADCore_1_1RADObject_1af3e26b970c8080418f0d6b80cad986a2" prot="public" virt="non-virtual"><scope>RADMedia::RADAudioDevice</scope><name>registerLink</name></member>
+      <member refid="classRADMedia_1_1RADAudioDevice_1a132d747a0c5fbcf80288182a845d4f86" prot="public" virt="non-virtual"><scope>RADMedia::RADAudioDevice</scope><name>setBufferFrames</name></member>
+      <member refid="classRADMedia_1_1RADAudioDevice_1a572404cd469a68e5f7cbe36301b1a3a2" prot="public" virt="non-virtual"><scope>RADMedia::RADAudioDevice</scope><name>setDeviceId</name></member>
+      <member refid="classRADMedia_1_1RADAudioDevice_1a92eea7e0f2c03432b371e43c9ea6470c" prot="public" virt="non-virtual"><scope>RADMedia::RADAudioDevice</scope><name>setFormat</name></member>
+      <member refid="classRADMedia_1_1RADAudioDevice_1af7eb19fa7499cc5a806fdb916201d4f8" prot="public" virt="non-virtual"><scope>RADMedia::RADAudioDevice</scope><name>setFramesPerChunk</name></member>
+      <member refid="classRADMedia_1_1RADAudioDevice_1ac9922ff631c4b2ee674c66c8285c58be" prot="public" virt="non-virtual"><scope>RADMedia::RADAudioDevice</scope><name>setMaxBufferedBytes</name></member>
+      <member refid="classRADMedia_1_1RADAudioDevice_1a4495a904e41fd81bf3e7efd9e44de071" prot="public" virt="non-virtual"><scope>RADMedia::RADAudioDevice</scope><name>setPeriodFrames</name></member>
+      <member refid="classRADMedia_1_1RADAudioDevice_1ad1115ac1db2c219bda490edb80a7402f" prot="public" virt="non-virtual"><scope>RADMedia::RADAudioDevice</scope><name>setTargetLatencyUsec</name></member>
+      <member refid="classRADMedia_1_1RADAudioDevice_1a563b32570151da356de0ee3df1c4288e" prot="public" virt="non-virtual"><scope>RADMedia::RADAudioDevice</scope><name>started</name></member>
+      <member refid="classRADMedia_1_1RADAudioDevice_1a3efb87a66badeb4c1974e3f56a88867a" prot="public" virt="non-virtual"><scope>RADMedia::RADAudioDevice</scope><name>stopped</name></member>
+      <member refid="classRADMedia_1_1RADAudioDevice_1a5597a83e3ff2b44bade0854cc814b6c8" prot="public" virt="non-virtual"><scope>RADMedia::RADAudioDevice</scope><name>targetLatencyUsec</name></member>
+      <member refid="classRADCore_1_1RADObject_1a8b11df0b951d0db1ba99cfb851e34f31" prot="public" virt="non-virtual"><scope>RADMedia::RADAudioDevice</scope><name>threadAffinity</name></member>
+      <member refid="classRADCore_1_1RADObject_1ac7ca67b41523794ae5a6b3634d6ce3b6" prot="public" virt="non-virtual"><scope>RADMedia::RADAudioDevice</scope><name>threadId</name></member>
+      <member refid="classRADMedia_1_1RADAudioDevice_1a62e083abec1806ca29c9ed5839401441" prot="public" virt="non-virtual"><scope>RADMedia::RADAudioDevice</scope><name>underrun</name></member>
+      <member refid="classRADCore_1_1RADIODevice_1a8475de4a0ca7d13b9049a73bad575a4f" prot="public" virt="non-virtual"><scope>RADMedia::RADAudioDevice</scope><name>write</name></member>
+      <member refid="classRADCore_1_1RADIODevice_1a145436d6349cd9d057cb9723e2bd1c13" prot="public" virt="non-virtual"><scope>RADMedia::RADAudioDevice</scope><name>write</name></member>
+      <member refid="classRADMedia_1_1RADAudioDevice_1aedcdcfeb1769ea5c57bcc4d024993d6c" prot="public" virt="virtual"><scope>RADMedia::RADAudioDevice</scope><name>writeData</name></member>
+      <member refid="classRADMedia_1_1RADAudioDevice_1af1bc9649a503c7ebe66a634c29c454d7" prot="public" virt="non-virtual"><scope>RADMedia::RADAudioDevice</scope><name>writeFrames</name></member>
+      <member refid="classRADMedia_1_1RADAudioDevice_1a2a322457407437c92537173cd794ec67" prot="public" virt="non-virtual"><scope>RADMedia::RADAudioDevice</scope><name>~RADAudioDevice</name></member>
+      <member refid="classRADCore_1_1RADIODevice_1a0c5117d5f499fc00faa821aa3194d8f7" prot="public" virt="virtual"><scope>RADMedia::RADAudioDevice</scope><name>~RADIODevice</name></member>
+      <member refid="classRADCore_1_1RADObject_1a7369e27a46c163ee89c63227db650ce5" prot="public" virt="virtual"><scope>RADMedia::RADAudioDevice</scope><name>~RADObject</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

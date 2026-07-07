@@ -1,0 +1,150 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="RADInput_8h" kind="file" language="C++">
+    <compoundname>RADInput.h</compoundname>
+    <includes local="no">RADCore/RADCore.h</includes>
+    <includes local="no">atomic</includes>
+    <includes local="no">cstdint</includes>
+    <includes local="no">memory</includes>
+    <includes local="no">string</includes>
+    <includes local="no">thread</includes>
+    <includes local="no">vector</includes>
+    <incdepgraph>
+      <node id="3">
+        <label>atomic</label>
+      </node>
+      <node id="1">
+        <label>RADInput/headers/RADInput.h</label>
+        <link refid="RADInput_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>RADCore/RADCore.h</label>
+      </node>
+      <node id="4">
+        <label>cstdint</label>
+      </node>
+      <node id="6">
+        <label>string</label>
+      </node>
+      <node id="8">
+        <label>vector</label>
+      </node>
+      <node id="7">
+        <label>thread</label>
+      </node>
+      <node id="5">
+        <label>memory</label>
+      </node>
+    </incdepgraph>
+    <innerclass refid="structRADInput_1_1InputPaths" prot="public">RADInput::InputPaths</innerclass>
+    <innerclass refid="structRADInput_1_1InputDeviceInfo" prot="public">RADInput::InputDeviceInfo</innerclass>
+    <innerclass refid="structRADInput_1_1InputEvent" prot="public">RADInput::InputEvent</innerclass>
+    <innerclass refid="structRADInput_1_1Calibration" prot="public">RADInput::Calibration</innerclass>
+    <innerclass refid="classRADInput_1_1InputManager" prot="public">RADInput::InputManager</innerclass>
+    <innernamespace refid="namespaceRADInput">RADInput</innernamespace>
+    <briefdescription>
+<para>Linux evdev input discovery, event reading, hotplug polling, and calibration helpers. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#ifndef<sp/>RADINPUT_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>RADINPUT_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="preprocessor">#pragma<sp/>once</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;RADCore/RADCore.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;atomic&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;cstdint&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;memory&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;string&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;thread&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;vector&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight></codeline>
+<codeline lineno="20" refid="namespaceRADInput" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal"><ref refid="namespaceRADInput" kindref="compound">RADInput</ref><sp/>{</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight></codeline>
+<codeline lineno="23" refid="structRADInput_1_1InputPaths" refkind="compound"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structRADInput_1_1InputPaths" kindref="compound">InputPaths</ref><sp/>{</highlight></codeline>
+<codeline lineno="25" refid="structRADInput_1_1InputPaths_1a815877f3555f5742f1abbd5bc3b244a9" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::string<sp/><ref refid="structRADInput_1_1InputPaths_1a815877f3555f5742f1abbd5bc3b244a9" kindref="member">devInput</ref><sp/>=<sp/></highlight><highlight class="stringliteral">&quot;/dev/input&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="27" refid="structRADInput_1_1InputPaths_1a1e01322e6e26e425e7198c6c911f145b" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::string<sp/><ref refid="structRADInput_1_1InputPaths_1a1e01322e6e26e425e7198c6c911f145b" kindref="member">sysClassInput</ref><sp/>=<sp/></highlight><highlight class="stringliteral">&quot;/sys/class/input&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/><sp/><sp/>};</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight></codeline>
+<codeline lineno="31" refid="structRADInput_1_1InputDeviceInfo" refkind="compound"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structRADInput_1_1InputDeviceInfo" kindref="compound">InputDeviceInfo</ref><sp/>{</highlight></codeline>
+<codeline lineno="33" refid="structRADInput_1_1InputDeviceInfo_1a01a0488cb0a56a4263ff9e624c9732e0" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::string<sp/><ref refid="structRADInput_1_1InputDeviceInfo_1a01a0488cb0a56a4263ff9e624c9732e0" kindref="member">path</ref>;</highlight></codeline>
+<codeline lineno="35" refid="structRADInput_1_1InputDeviceInfo_1ae54bd56d1fc9b244b629f484e8c94da3" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::string<sp/><ref refid="structRADInput_1_1InputDeviceInfo_1ae54bd56d1fc9b244b629f484e8c94da3" kindref="member">name</ref>;</highlight></codeline>
+<codeline lineno="37" refid="structRADInput_1_1InputDeviceInfo_1ab258b1cc1447fa799c379e68a6475244" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::string<sp/><ref refid="structRADInput_1_1InputDeviceInfo_1ab258b1cc1447fa799c379e68a6475244" kindref="member">sysfsPath</ref>;</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/>};</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"></highlight></codeline>
+<codeline lineno="41" refid="structRADInput_1_1InputEvent" refkind="compound"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structRADInput_1_1InputEvent" kindref="compound">InputEvent</ref><sp/>{</highlight></codeline>
+<codeline lineno="43" refid="structRADInput_1_1InputEvent_1a0246c7ea353fba6de57577b0bd75f9fa" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::string<sp/><ref refid="structRADInput_1_1InputEvent_1a0246c7ea353fba6de57577b0bd75f9fa" kindref="member">devicePath</ref>;</highlight></codeline>
+<codeline lineno="45" refid="structRADInput_1_1InputEvent_1a417e51d9562b4ced019f0f3e8dc4603c" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>int64_t<sp/><ref refid="structRADInput_1_1InputEvent_1a417e51d9562b4ced019f0f3e8dc4603c" kindref="member">seconds</ref><sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="47" refid="structRADInput_1_1InputEvent_1ad3f81521ec8782a9a7fa90202a790343" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>int64_t<sp/><ref refid="structRADInput_1_1InputEvent_1ad3f81521ec8782a9a7fa90202a790343" kindref="member">microseconds</ref><sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="49" refid="structRADInput_1_1InputEvent_1a7cce011557a0fa3fdbfd292c1f8e5fc2" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>uint16_t<sp/><ref refid="structRADInput_1_1InputEvent_1a7cce011557a0fa3fdbfd292c1f8e5fc2" kindref="member">type</ref><sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="51" refid="structRADInput_1_1InputEvent_1abc06fe76e6747f094f88d8c0e09d59d1" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>uint16_t<sp/><ref refid="structRADInput_1_1InputEvent_1abc06fe76e6747f094f88d8c0e09d59d1" kindref="member">code</ref><sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="53" refid="structRADInput_1_1InputEvent_1a2327552fd6f7a24b48de2253342637bf" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>int32_t<sp/><ref refid="structRADInput_1_1InputEvent_1a2327552fd6f7a24b48de2253342637bf" kindref="member">value</ref><sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/>};</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"></highlight></codeline>
+<codeline lineno="57" refid="structRADInput_1_1Calibration" refkind="compound"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structRADInput_1_1Calibration" kindref="compound">Calibration</ref><sp/>{</highlight></codeline>
+<codeline lineno="59" refid="structRADInput_1_1Calibration_1a07802bdce2186dbb065d442e5f3aa339" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="structRADInput_1_1Calibration_1a07802bdce2186dbb065d442e5f3aa339" kindref="member">inMinX</ref><sp/>=<sp/>0.0;</highlight></codeline>
+<codeline lineno="61" refid="structRADInput_1_1Calibration_1ab7cb98102bff7608aa12ff9bbb9ba040" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="structRADInput_1_1Calibration_1ab7cb98102bff7608aa12ff9bbb9ba040" kindref="member">inMaxX</ref><sp/>=<sp/>1.0;</highlight></codeline>
+<codeline lineno="63" refid="structRADInput_1_1Calibration_1a243b9e8af98b0c4e0a3cff33ebead673" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="structRADInput_1_1Calibration_1a243b9e8af98b0c4e0a3cff33ebead673" kindref="member">inMinY</ref><sp/>=<sp/>0.0;</highlight></codeline>
+<codeline lineno="65" refid="structRADInput_1_1Calibration_1a9e32231407a6df8aeb66b20bf2a6cbc6" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="structRADInput_1_1Calibration_1a9e32231407a6df8aeb66b20bf2a6cbc6" kindref="member">inMaxY</ref><sp/>=<sp/>1.0;</highlight></codeline>
+<codeline lineno="67" refid="structRADInput_1_1Calibration_1a0c677f3787202ea1dbe561ddc9bb4ba4" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="structRADInput_1_1Calibration_1a0c677f3787202ea1dbe561ddc9bb4ba4" kindref="member">outMinX</ref><sp/>=<sp/>0.0;</highlight></codeline>
+<codeline lineno="69" refid="structRADInput_1_1Calibration_1a6cb1f8ecd7a1c490a61beda762496a68" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="structRADInput_1_1Calibration_1a6cb1f8ecd7a1c490a61beda762496a68" kindref="member">outMaxX</ref><sp/>=<sp/>1.0;</highlight></codeline>
+<codeline lineno="71" refid="structRADInput_1_1Calibration_1a7f4d2768bd5fd9b8cc82f97e52770d28" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="structRADInput_1_1Calibration_1a7f4d2768bd5fd9b8cc82f97e52770d28" kindref="member">outMinY</ref><sp/>=<sp/>0.0;</highlight></codeline>
+<codeline lineno="73" refid="structRADInput_1_1Calibration_1a840184ea4cce187386dc225b5698606c" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="structRADInput_1_1Calibration_1a840184ea4cce187386dc225b5698606c" kindref="member">outMaxY</ref><sp/>=<sp/>1.0;</highlight></codeline>
+<codeline lineno="75" refid="structRADInput_1_1Calibration_1ade29a9926e384808478f0b70020236a7" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="structRADInput_1_1Calibration_1ade29a9926e384808478f0b70020236a7" kindref="member">invertX</ref><sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="77" refid="structRADInput_1_1Calibration_1a1383c8150191a89b2d64157b432bdf23" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="structRADInput_1_1Calibration_1a1383c8150191a89b2d64157b432bdf23" kindref="member">invertY</ref><sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"></highlight></codeline>
+<codeline lineno="80" refid="structRADInput_1_1Calibration_1a3dd8e867b08b4e47ee2ec3b003a7a620" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::pair&lt;double,<sp/>double&gt;<sp/><ref refid="structRADInput_1_1Calibration_1a3dd8e867b08b4e47ee2ec3b003a7a620" kindref="member">map</ref>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>x,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>y)<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/>};</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"></highlight></codeline>
+<codeline lineno="84" refid="classRADInput_1_1InputManager" refkind="compound"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classRADInput_1_1InputManager" kindref="compound">InputManager</ref><sp/>:<sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="classRADCore_1_1RADObject" kindref="compound">RADCore::RADObject</ref><sp/>{</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="87" refid="classRADInput_1_1InputManager_1aa7ce4239c8aad83c59f2149dd8f157b9" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">explicit</highlight><highlight class="normal"><sp/><ref refid="classRADInput_1_1InputManager_1aa7ce4239c8aad83c59f2149dd8f157b9" kindref="member">InputManager</ref>(<ref refid="structRADInput_1_1InputPaths" kindref="compound">InputPaths</ref><sp/><ref refid="classRADInput_1_1InputManager_1a572997502f2a23255491c54d0df3cdeb" kindref="member">paths</ref><sp/>=<sp/>{},<sp/><ref refid="classRADCore_1_1EventLoop" kindref="compound">RADCore::EventLoop</ref>*<sp/>loop<sp/>=<sp/></highlight><highlight class="keyword">nullptr</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="89" refid="classRADInput_1_1InputManager_1ac516f686b9d3f13f0f6b12530d511111" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classRADInput_1_1InputManager_1ac516f686b9d3f13f0f6b12530d511111" kindref="member">~InputManager</ref>();</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"></highlight></codeline>
+<codeline lineno="92" refid="classRADInput_1_1InputManager_1af2a806d65142dc515f85a5c8cb402c0d" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::vector&lt;InputDeviceInfo&gt;<sp/><ref refid="classRADInput_1_1InputManager_1af2a806d65142dc515f85a5c8cb402c0d" kindref="member">discover</ref>()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="94" refid="classRADInput_1_1InputManager_1a927ffeaa59412f5a9a2afea584e46942" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classRADInput_1_1InputManager_1a927ffeaa59412f5a9a2afea584e46942" kindref="member">startDevice</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::string&amp;<sp/>path,<sp/>std::string*<sp/>error<sp/>=<sp/></highlight><highlight class="keyword">nullptr</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="96" refid="classRADInput_1_1InputManager_1abaada0d96d136a2494ba4d9c5324677a" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classRADInput_1_1InputManager_1abaada0d96d136a2494ba4d9c5324677a" kindref="member">startHotplugMonitor</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>intervalMs<sp/>=<sp/>1000);</highlight></codeline>
+<codeline lineno="98" refid="classRADInput_1_1InputManager_1a92e9b1f1a9af13b0f391c8ddfb9eb045" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classRADInput_1_1InputManager_1a92e9b1f1a9af13b0f391c8ddfb9eb045" kindref="member">stopHotplugMonitor</ref>();</highlight></codeline>
+<codeline lineno="100" refid="classRADInput_1_1InputManager_1a930d8d30d05ddf70c2db732526201d26" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classRADInput_1_1InputManager_1a930d8d30d05ddf70c2db732526201d26" kindref="member">stopAll</ref>();</highlight></codeline>
+<codeline lineno="102" refid="classRADInput_1_1InputManager_1aebd9a15edf3fa331018da35f42a91aaa" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classRADInput_1_1InputManager_1aebd9a15edf3fa331018da35f42a91aaa" kindref="member">isRunning</ref>()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="104" refid="classRADInput_1_1InputManager_1a572997502f2a23255491c54d0df3cdeb" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structRADInput_1_1InputPaths" kindref="compound">InputPaths</ref>&amp;<sp/><ref refid="classRADInput_1_1InputManager_1a572997502f2a23255491c54d0df3cdeb" kindref="member">paths</ref>()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="105"><highlight class="normal"></highlight></codeline>
+<codeline lineno="106"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="RADCore_8h_1a839276d514e8d63a3803d5cafc923a0d" kindref="member">RADEvents</ref>:</highlight></codeline>
+<codeline lineno="108" refid="classRADInput_1_1InputManager_1acabcd0d02a2b146dee3864e9032c5d88" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="RADCore_8h_1a6834046ef184f6f1f29ac61c42919a6c" kindref="member">RAD_EVENT</ref>(<ref refid="classRADInput_1_1InputManager_1acabcd0d02a2b146dee3864e9032c5d88" kindref="member">eventReceived</ref>,<sp/>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structRADInput_1_1InputEvent" kindref="compound">RADInput::InputEvent</ref>&amp;));</highlight></codeline>
+<codeline lineno="110" refid="classRADInput_1_1InputManager_1a4d7d764793682c721eccb051a9fefeae" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="RADCore_8h_1a6834046ef184f6f1f29ac61c42919a6c" kindref="member">RAD_EVENT</ref>(<ref refid="classRADInput_1_1InputManager_1a4d7d764793682c721eccb051a9fefeae" kindref="member">devicesChanged</ref>,<sp/>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::vector&lt;RADInput::InputDeviceInfo&gt;&amp;));</highlight></codeline>
+<codeline lineno="111"><highlight class="normal"></highlight></codeline>
+<codeline lineno="112"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="113"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">Reader;</highlight></codeline>
+<codeline lineno="114"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>publishEvent(<ref refid="structRADInput_1_1InputEvent" kindref="compound">InputEvent</ref><sp/>event);</highlight></codeline>
+<codeline lineno="115"><highlight class="normal"></highlight></codeline>
+<codeline lineno="116"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structRADInput_1_1InputPaths" kindref="compound">InputPaths</ref><sp/>paths_;</highlight></codeline>
+<codeline lineno="117"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classRADCore_1_1EventLoop" kindref="compound">RADCore::EventLoop</ref>*<sp/>loop_<sp/>=<sp/></highlight><highlight class="keyword">nullptr</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="118"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::vector&lt;std::unique_ptr&lt;Reader&gt;&gt;<sp/>readers_;</highlight></codeline>
+<codeline lineno="119"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::atomic&lt;bool&gt;<sp/>hotplugRunning_{</highlight><highlight class="keyword">false</highlight><highlight class="normal">};</highlight></codeline>
+<codeline lineno="120"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::thread<sp/>hotplugThread_;</highlight></codeline>
+<codeline lineno="121"><highlight class="normal"><sp/><sp/><sp/><sp/>};</highlight></codeline>
+<codeline lineno="122"><highlight class="normal"></highlight></codeline>
+<codeline lineno="123"><highlight class="normal">}<sp/></highlight><highlight class="comment">//<sp/>namespace<sp/>RADInput</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="124"><highlight class="normal"></highlight></codeline>
+<codeline lineno="125"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+    </programlisting>
+    <location file="RADInput/headers/RADInput.h"/>
+  </compounddef>
+</doxygen>

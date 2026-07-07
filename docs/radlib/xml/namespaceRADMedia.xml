@@ -1,0 +1,199 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="namespaceRADMedia" kind="namespace" language="C++">
+    <compoundname>RADMedia</compoundname>
+    <innerclass refid="structRADMedia_1_1WavFormat" prot="public">RADMedia::WavFormat</innerclass>
+    <innerclass refid="classRADMedia_1_1WavFile" prot="public">RADMedia::WavFile</innerclass>
+    <innerclass refid="classRADMedia_1_1WavStreamReader" prot="public">RADMedia::WavStreamReader</innerclass>
+    <innerclass refid="structRADMedia_1_1AudioSinkDevice" prot="public">RADMedia::AudioSinkDevice</innerclass>
+    <innerclass refid="structRADMedia_1_1AudioSourceDevice" prot="public">RADMedia::AudioSourceDevice</innerclass>
+    <innerclass refid="classRADMedia_1_1AudioDevice" prot="public">RADMedia::AudioDevice</innerclass>
+    <innerclass refid="structRADMedia_1_1AudioBuffer" prot="public">RADMedia::AudioBuffer</innerclass>
+    <innerclass refid="structRADMedia_1_1MidiNoteEvent" prot="public">RADMedia::MidiNoteEvent</innerclass>
+    <innerclass refid="structRADMedia_1_1MidiProgramChange" prot="public">RADMedia::MidiProgramChange</innerclass>
+    <innerclass refid="structRADMedia_1_1MidiPitchBend" prot="public">RADMedia::MidiPitchBend</innerclass>
+    <innerclass refid="structRADMedia_1_1MidiClip" prot="public">RADMedia::MidiClip</innerclass>
+    <innerclass refid="structRADMedia_1_1MusicXmlNoteEvent" prot="public">RADMedia::MusicXmlNoteEvent</innerclass>
+    <innerclass refid="structRADMedia_1_1MusicXmlHairpinEvent" prot="public">RADMedia::MusicXmlHairpinEvent</innerclass>
+    <innerclass refid="structRADMedia_1_1MusicXmlRepeatEvent" prot="public">RADMedia::MusicXmlRepeatEvent</innerclass>
+    <innerclass refid="structRADMedia_1_1MusicXmlRehearsalEvent" prot="public">RADMedia::MusicXmlRehearsalEvent</innerclass>
+    <innerclass refid="structRADMedia_1_1MusicXmlScoreOptions" prot="public">RADMedia::MusicXmlScoreOptions</innerclass>
+    <innerclass refid="classRADMedia_1_1MusicXml" prot="public">RADMedia::MusicXml</innerclass>
+    <innerclass refid="structRADMedia_1_1SoundFontInfo" prot="public">RADMedia::SoundFontInfo</innerclass>
+    <innerclass refid="structRADMedia_1_1SoundFontPreset" prot="public">RADMedia::SoundFontPreset</innerclass>
+    <innerclass refid="classRADMedia_1_1SoundFontCatalog" prot="public">RADMedia::SoundFontCatalog</innerclass>
+    <innerclass refid="classRADMedia_1_1MidiSynthesizer" prot="public">RADMedia::MidiSynthesizer</innerclass>
+    <innerclass refid="classRADMedia_1_1AudioDecoder" prot="public">RADMedia::AudioDecoder</innerclass>
+    <innerclass refid="classRADMedia_1_1AudioDecoderStream" prot="public">RADMedia::AudioDecoderStream</innerclass>
+    <innerclass refid="classRADMedia_1_1RADAudioDevice" prot="public">RADMedia::RADAudioDevice</innerclass>
+    <innerclass refid="classRADMedia_1_1AudioInputDevice" prot="public">RADMedia::AudioInputDevice</innerclass>
+    <innerclass refid="classRADMedia_1_1AudioPlayer" prot="public">RADMedia::AudioPlayer</innerclass>
+      <sectiondef kind="enum">
+      <memberdef kind="enum" id="namespaceRADMedia_1a02acf0cdfb93b25be9b5768d435305fa" prot="public" static="no" strong="yes">
+        <type></type>
+        <name>AudioSampleFormat</name>
+        <enumvalue id="namespaceRADMedia_1a02acf0cdfb93b25be9b5768d435305faa88183b946cc5f0e8c96b2e66e1c74a7e" prot="public">
+          <name>Unknown</name>
+          <briefdescription>
+<para>Unknown or unsupported sample format. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespaceRADMedia_1a02acf0cdfb93b25be9b5768d435305faab31df9c476d20e85ff898121efe11b5a" prot="public">
+          <name>UInt8</name>
+          <briefdescription>
+<para>Unsigned 8-bit PCM. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespaceRADMedia_1a02acf0cdfb93b25be9b5768d435305faa39bc2ae44b184207f560ff8619823208" prot="public">
+          <name>Int16</name>
+          <briefdescription>
+<para>Signed 16-bit PCM. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespaceRADMedia_1a02acf0cdfb93b25be9b5768d435305faa4e8e80af771a0a3abd3d7e579bff9456" prot="public">
+          <name>Int24</name>
+          <briefdescription>
+<para>Signed packed 24-bit PCM. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespaceRADMedia_1a02acf0cdfb93b25be9b5768d435305faac06129f6e6e15c09328365e553f1dc31" prot="public">
+          <name>Int32</name>
+          <briefdescription>
+<para>Signed 32-bit PCM. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespaceRADMedia_1a02acf0cdfb93b25be9b5768d435305faa166495adc0d0f53bee6baecc577f5204" prot="public">
+          <name>Float32</name>
+          <briefdescription>
+<para>32-bit floating-point PCM. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>Sample encodings supported by <ref refid="namespaceRADMedia" kindref="compound">RADMedia</ref> audio paths. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADMedia/headers/RADMedia.h" line="23" column="5" bodyfile="RADMedia/headers/RADMedia.h" bodystart="23" bodyend="36"/>
+      </memberdef>
+      <memberdef kind="enum" id="namespaceRADMedia_1a73b48b9a800c2b2038c792f19444b794" prot="public" static="no" strong="yes">
+        <type></type>
+        <name>AudioDeviceDirection</name>
+        <enumvalue id="namespaceRADMedia_1a73b48b9a800c2b2038c792f19444b794a324118a6721dd6b8a9b9f4e327df2bf5" prot="public">
+          <name>Input</name>
+          <briefdescription>
+<para>Capture audio from an input device. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespaceRADMedia_1a73b48b9a800c2b2038c792f19444b794a29c2c02a361c9d7028472e5d92cd4a54" prot="public">
+          <name>Output</name>
+          <briefdescription>
+<para>Play audio to an output device. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>Direction used when opening or enumerating audio devices. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADMedia/headers/RADMedia.h" line="39" column="5" bodyfile="RADMedia/headers/RADMedia.h" bodystart="39" bodyend="44"/>
+      </memberdef>
+      <memberdef kind="enum" id="namespaceRADMedia_1a25191a85a77d21b471a3805cedabcc34" prot="public" static="no" strong="yes">
+        <type></type>
+        <name>MusicXmlStaffMode</name>
+        <enumvalue id="namespaceRADMedia_1a25191a85a77d21b471a3805cedabcc34a56694ab2f8017b01b4284af08186b5fd" prot="public">
+          <name>Treble</name>
+          <briefdescription>
+<para>Single treble clef staff. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespaceRADMedia_1a25191a85a77d21b471a3805cedabcc34aca4103a5e6809c7e14ec7f4fcf676bb5" prot="public">
+          <name>Bass</name>
+          <briefdescription>
+<para>Single bass clef staff. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespaceRADMedia_1a25191a85a77d21b471a3805cedabcc34ae2dbff84383435c5b45486d3224eb072" prot="public">
+          <name>GrandStaff</name>
+          <briefdescription>
+<para>Two-staff piano style score, split around <ref refid="structRADMedia_1_1MusicXmlScoreOptions_1aabd426c237cd0ca1951fe05f963a39f0" kindref="member">MusicXmlScoreOptions::grandStaffSplitNote</ref>. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>Staff layout used when generating MusicXML from MIDI-style note events. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADMedia/headers/RADMedia.h" line="224" column="5" bodyfile="RADMedia/headers/RADMedia.h" bodystart="224" bodyend="231"/>
+      </memberdef>
+      <memberdef kind="enum" id="namespaceRADMedia_1ad996a50fab18eaac5c081b228ec9d8c9" prot="public" static="no" strong="yes">
+        <type></type>
+        <name>SoundFontType</name>
+        <enumvalue id="namespaceRADMedia_1ad996a50fab18eaac5c081b228ec9d8c9a88183b946cc5f0e8c96b2e66e1c74a7e" prot="public">
+          <name>Unknown</name>
+          <briefdescription>
+<para>Unknown or unsupported SoundFont-like file. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespaceRADMedia_1ad996a50fab18eaac5c081b228ec9d8c9a71650a6f5cd102b48f21837cc84e746e" prot="public">
+          <name>SF2</name>
+          <briefdescription>
+<para>SF2 SoundFont 2 file. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespaceRADMedia_1ad996a50fab18eaac5c081b228ec9d8c9acfdf0ac2d39999977b0fe41b86b4a6aa" prot="public">
+          <name>SF3</name>
+          <briefdescription>
+<para>SF3 compressed SoundFont file. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>Known SoundFont file type. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADMedia/headers/RADMedia.h" line="328" column="5" bodyfile="RADMedia/headers/RADMedia.h" bodystart="328" bodyend="335"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="RADMedia/headers/RADMedia.h" line="20" column="1"/>
+  </compounddef>
+</doxygen>

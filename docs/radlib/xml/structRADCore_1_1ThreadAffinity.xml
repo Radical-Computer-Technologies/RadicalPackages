@@ -1,0 +1,60 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="structRADCore_1_1ThreadAffinity" kind="struct" language="C++" prot="public">
+    <compoundname>RADCore::ThreadAffinity</compoundname>
+    <includes refid="RADCore_8h" local="no">RADCore.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structRADCore_1_1ThreadAffinity_1aef0b9e90dea11224df34a4e24817bae4" prot="public" static="no" mutable="no">
+        <type>std::thread::id</type>
+        <definition>std::thread::id RADCore::ThreadAffinity::threadId</definition>
+        <argsstring></argsstring>
+        <name>threadId</name>
+        <briefdescription>
+<para>Target thread id. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADCore/headers/RADCore.h" line="868" column="25" bodyfile="RADCore/headers/RADCore.h" bodystart="868" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structRADCore_1_1ThreadAffinity_1a8cfedb87a0aa03973cb3052b398c711a" prot="public" static="no" mutable="no">
+        <type><ref refid="classRADCore_1_1EventLoop" kindref="compound">EventLoop</ref> *</type>
+        <definition>EventLoop* RADCore::ThreadAffinity::eventLoop</definition>
+        <argsstring></argsstring>
+        <name>eventLoop</name>
+        <briefdescription>
+<para>Associated event loop, if any. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADCore/headers/RADCore.h" line="870" column="19" bodyfile="RADCore/headers/RADCore.h" bodystart="870" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Thread affinity snapshot for <ref refid="classRADCore_1_1RADObject" kindref="compound">RADObject</ref> event delivery. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="1">
+        <label>RADCore::ThreadAffinity</label>
+        <link refid="structRADCore_1_1ThreadAffinity"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>eventLoop</edgelabel>
+        </childnode>
+      </node>
+      <node id="2">
+        <label>RADCore::EventLoop</label>
+        <link refid="classRADCore_1_1EventLoop"/>
+      </node>
+    </collaborationgraph>
+    <location file="RADCore/headers/RADCore.h" line="866" column="5" bodyfile="RADCore/headers/RADCore.h" bodystart="866" bodyend="871"/>
+    <listofallmembers>
+      <member refid="structRADCore_1_1ThreadAffinity_1a8cfedb87a0aa03973cb3052b398c711a" prot="public" virt="non-virtual"><scope>RADCore::ThreadAffinity</scope><name>eventLoop</name></member>
+      <member refid="structRADCore_1_1ThreadAffinity_1aef0b9e90dea11224df34a4e24817bae4" prot="public" virt="non-virtual"><scope>RADCore::ThreadAffinity</scope><name>threadId</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

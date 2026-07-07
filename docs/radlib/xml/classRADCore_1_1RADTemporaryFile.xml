@@ -1,0 +1,266 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="classRADCore_1_1RADTemporaryFile" kind="class" language="C++" prot="public">
+    <compoundname>RADCore::RADTemporaryFile</compoundname>
+    <includes refid="RADCore_8h" local="no">RADCore.h</includes>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classRADCore_1_1RADTemporaryFile_1a3349931add1afec0b35dca6178ba98f3" prot="private" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string RADCore::RADTemporaryFile::fileName_</definition>
+        <argsstring></argsstring>
+        <name>fileName_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADCore/headers/RADCore.h" line="821" column="21" bodyfile="RADCore/headers/RADCore.h" bodystart="821" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classRADCore_1_1RADTemporaryFile_1a3a7339a9287ddb0cac2623845e6c58db" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int RADCore::RADTemporaryFile::fd_</definition>
+        <argsstring></argsstring>
+        <name>fd_</name>
+        <initializer>= -1</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADCore/headers/RADCore.h" line="822" column="13" bodyfile="RADCore/headers/RADCore.h" bodystart="822" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classRADCore_1_1RADTemporaryFile_1acd13ef390936a913005cae5187fd942c" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool RADCore::RADTemporaryFile::autoRemove_</definition>
+        <argsstring></argsstring>
+        <name>autoRemove_</name>
+        <initializer>= true</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADCore/headers/RADCore.h" line="823" column="14" bodyfile="RADCore/headers/RADCore.h" bodystart="823" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classRADCore_1_1RADTemporaryFile_1ab85649ffaedb9bc2c7e0ef4f69a2ff43" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>RADCore::RADTemporaryFile::RADTemporaryFile</definition>
+        <argsstring>(std::string prefix=&quot;radlib&quot;)</argsstring>
+        <name>RADTemporaryFile</name>
+        <param>
+          <type>std::string</type>
+          <declname>prefix</declname>
+          <defval>&quot;radlib&quot;</defval>
+        </param>
+        <briefdescription>
+<para>Creates a temporary file with prefix. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADCore/headers/RADCore.h" line="794" column="18"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADCore_1_1RADTemporaryFile_1ad2177c6d6e80a19effa738bbda04b1a9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>RADCore::RADTemporaryFile::~RADTemporaryFile</definition>
+        <argsstring>()</argsstring>
+        <name>~RADTemporaryFile</name>
+        <briefdescription>
+<para>Closes and removes the file when autoRemove is enabled. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADCore/headers/RADCore.h" line="796" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADCore_1_1RADTemporaryFile_1a3be03efcdac968df09635a202e8b2b26" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>RADCore::RADTemporaryFile::RADTemporaryFile</definition>
+        <argsstring>(const RADTemporaryFile &amp;)=delete</argsstring>
+        <name>RADTemporaryFile</name>
+        <param>
+          <type>const <ref refid="classRADCore_1_1RADTemporaryFile" kindref="compound">RADTemporaryFile</ref> &amp;</type>
+        </param>
+        <briefdescription>
+<para>Temporary files own a file descriptor and cannot be copied. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADCore/headers/RADCore.h" line="799" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADCore_1_1RADTemporaryFile_1a2276ad171729aea696ff4fee8a68e919" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classRADCore_1_1RADTemporaryFile" kindref="compound">RADTemporaryFile</ref> &amp;</type>
+        <definition>RADTemporaryFile&amp; RADCore::RADTemporaryFile::operator=</definition>
+        <argsstring>(const RADTemporaryFile &amp;)=delete</argsstring>
+        <name>operator=</name>
+        <param>
+          <type>const <ref refid="classRADCore_1_1RADTemporaryFile" kindref="compound">RADTemporaryFile</ref> &amp;</type>
+        </param>
+        <briefdescription>
+<para>Temporary files own a file descriptor and cannot be copied. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADCore/headers/RADCore.h" line="801" column="26"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADCore_1_1RADTemporaryFile_1a88050087407a4847def567047b416dfc" prot="public" static="no" const="no" explicit="no" inline="no" noexcept="yes" virt="non-virtual">
+        <type></type>
+        <definition>RADCore::RADTemporaryFile::RADTemporaryFile</definition>
+        <argsstring>(RADTemporaryFile &amp;&amp;other) noexcept</argsstring>
+        <name>RADTemporaryFile</name>
+        <param>
+          <type><ref refid="classRADCore_1_1RADTemporaryFile" kindref="compound">RADTemporaryFile</ref> &amp;&amp;</type>
+          <declname>other</declname>
+        </param>
+        <briefdescription>
+<para>Moves ownership from other. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADCore/headers/RADCore.h" line="803" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADCore_1_1RADTemporaryFile_1a6997e1f6ade315981800bef5afaa3a2a" prot="public" static="no" const="no" explicit="no" inline="no" noexcept="yes" virt="non-virtual">
+        <type><ref refid="classRADCore_1_1RADTemporaryFile" kindref="compound">RADTemporaryFile</ref> &amp;</type>
+        <definition>RADTemporaryFile&amp; RADCore::RADTemporaryFile::operator=</definition>
+        <argsstring>(RADTemporaryFile &amp;&amp;other) noexcept</argsstring>
+        <name>operator=</name>
+        <param>
+          <type><ref refid="classRADCore_1_1RADTemporaryFile" kindref="compound">RADTemporaryFile</ref> &amp;&amp;</type>
+          <declname>other</declname>
+        </param>
+        <briefdescription>
+<para>Moves ownership from other. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADCore/headers/RADCore.h" line="805" column="26"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADCore_1_1RADTemporaryFile_1aac79b89c0219c6e0ee450df3764967ce" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool RADCore::RADTemporaryFile::isValid</definition>
+        <argsstring>() const</argsstring>
+        <name>isValid</name>
+        <briefdescription>
+<para>Returns true when file creation succeeded. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADCore/headers/RADCore.h" line="808" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADCore_1_1RADTemporaryFile_1ab808b469a4ac88cd3b9603e93535bb5e" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>const std::string &amp;</type>
+        <definition>const std::string&amp; RADCore::RADTemporaryFile::fileName</definition>
+        <argsstring>() const</argsstring>
+        <name>fileName</name>
+        <briefdescription>
+<para>Returns the temporary file path. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADCore/headers/RADCore.h" line="810" column="27"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADCore_1_1RADTemporaryFile_1a2a72a3220244337ebc38bf73f7e61d7e" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int RADCore::RADTemporaryFile::fd</definition>
+        <argsstring>() const</argsstring>
+        <name>fd</name>
+        <briefdescription>
+<para>Returns the native file descriptor. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADCore/headers/RADCore.h" line="812" column="13"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADCore_1_1RADTemporaryFile_1ac668d47ce00e44093cf7b40047409a64" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void RADCore::RADTemporaryFile::setAutoRemove</definition>
+        <argsstring>(bool enabled)</argsstring>
+        <name>setAutoRemove</name>
+        <param>
+          <type>bool</type>
+          <declname>enabled</declname>
+        </param>
+        <briefdescription>
+<para>Enables or disables removal on destruction. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADCore/headers/RADCore.h" line="814" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADCore_1_1RADTemporaryFile_1afeb8b4c9221f31a08b19ddd9a2551f4f" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool RADCore::RADTemporaryFile::autoRemove</definition>
+        <argsstring>() const</argsstring>
+        <name>autoRemove</name>
+        <briefdescription>
+<para>Returns true when destruction removes the file. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADCore/headers/RADCore.h" line="816" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADCore_1_1RADTemporaryFile_1a0b589f3c29236c9942361388fc531e57" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool RADCore::RADTemporaryFile::remove</definition>
+        <argsstring>()</argsstring>
+        <name>remove</name>
+        <briefdescription>
+<para>Removes the temporary file immediately. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADCore/headers/RADCore.h" line="818" column="14"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>RAII temporary file with optional auto-remove. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="RADCore/headers/RADCore.h" line="791" column="5" bodyfile="RADCore/headers/RADCore.h" bodystart="791" bodyend="824"/>
+    <listofallmembers>
+      <member refid="classRADCore_1_1RADTemporaryFile_1afeb8b4c9221f31a08b19ddd9a2551f4f" prot="public" virt="non-virtual"><scope>RADCore::RADTemporaryFile</scope><name>autoRemove</name></member>
+      <member refid="classRADCore_1_1RADTemporaryFile_1acd13ef390936a913005cae5187fd942c" prot="private" virt="non-virtual"><scope>RADCore::RADTemporaryFile</scope><name>autoRemove_</name></member>
+      <member refid="classRADCore_1_1RADTemporaryFile_1a2a72a3220244337ebc38bf73f7e61d7e" prot="public" virt="non-virtual"><scope>RADCore::RADTemporaryFile</scope><name>fd</name></member>
+      <member refid="classRADCore_1_1RADTemporaryFile_1a3a7339a9287ddb0cac2623845e6c58db" prot="private" virt="non-virtual"><scope>RADCore::RADTemporaryFile</scope><name>fd_</name></member>
+      <member refid="classRADCore_1_1RADTemporaryFile_1ab808b469a4ac88cd3b9603e93535bb5e" prot="public" virt="non-virtual"><scope>RADCore::RADTemporaryFile</scope><name>fileName</name></member>
+      <member refid="classRADCore_1_1RADTemporaryFile_1a3349931add1afec0b35dca6178ba98f3" prot="private" virt="non-virtual"><scope>RADCore::RADTemporaryFile</scope><name>fileName_</name></member>
+      <member refid="classRADCore_1_1RADTemporaryFile_1aac79b89c0219c6e0ee450df3764967ce" prot="public" virt="non-virtual"><scope>RADCore::RADTemporaryFile</scope><name>isValid</name></member>
+      <member refid="classRADCore_1_1RADTemporaryFile_1a2276ad171729aea696ff4fee8a68e919" prot="public" virt="non-virtual"><scope>RADCore::RADTemporaryFile</scope><name>operator=</name></member>
+      <member refid="classRADCore_1_1RADTemporaryFile_1a6997e1f6ade315981800bef5afaa3a2a" prot="public" virt="non-virtual"><scope>RADCore::RADTemporaryFile</scope><name>operator=</name></member>
+      <member refid="classRADCore_1_1RADTemporaryFile_1ab85649ffaedb9bc2c7e0ef4f69a2ff43" prot="public" virt="non-virtual"><scope>RADCore::RADTemporaryFile</scope><name>RADTemporaryFile</name></member>
+      <member refid="classRADCore_1_1RADTemporaryFile_1a3be03efcdac968df09635a202e8b2b26" prot="public" virt="non-virtual"><scope>RADCore::RADTemporaryFile</scope><name>RADTemporaryFile</name></member>
+      <member refid="classRADCore_1_1RADTemporaryFile_1a88050087407a4847def567047b416dfc" prot="public" virt="non-virtual"><scope>RADCore::RADTemporaryFile</scope><name>RADTemporaryFile</name></member>
+      <member refid="classRADCore_1_1RADTemporaryFile_1a0b589f3c29236c9942361388fc531e57" prot="public" virt="non-virtual"><scope>RADCore::RADTemporaryFile</scope><name>remove</name></member>
+      <member refid="classRADCore_1_1RADTemporaryFile_1ac668d47ce00e44093cf7b40047409a64" prot="public" virt="non-virtual"><scope>RADCore::RADTemporaryFile</scope><name>setAutoRemove</name></member>
+      <member refid="classRADCore_1_1RADTemporaryFile_1ad2177c6d6e80a19effa738bbda04b1a9" prot="public" virt="non-virtual"><scope>RADCore::RADTemporaryFile</scope><name>~RADTemporaryFile</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

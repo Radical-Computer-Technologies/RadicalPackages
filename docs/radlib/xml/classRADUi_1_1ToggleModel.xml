@@ -1,0 +1,140 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="classRADUi_1_1ToggleModel" kind="class" language="C++" prot="public">
+    <compoundname>RADUi::ToggleModel</compoundname>
+    <basecompoundref refid="classRADCore_1_1RADObject" prot="public" virt="non-virtual">RADCore::RADObject</basecompoundref>
+    <includes refid="RADWidgets_8h" local="no">RADWidgets.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="classRADUi_1_1ToggleModel_1adb3db2b107f1e26639664b9235f9e7df" prot="public" static="no" mutable="no">
+        <type><ref refid="classRADCore_1_1Event" kindref="compound">RADCore::Event</ref>&lt; void() &gt;</type>
+        <definition>RADCore::Event&lt;void () &gt; RADUi::ToggleModel::changed</definition>
+        <argsstring></argsstring>
+        <name>changed</name>
+        <briefdescription>
+<para>Raised when checked state changes. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADUi/headers/RADWidgets.h" line="184" column="30" bodyfile="RADUi/headers/RADWidgets.h" bodystart="184" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classRADUi_1_1ToggleModel_1a7858f8c16bb5db5b933f26d4ab7a95e4" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool RADUi::ToggleModel::checked_</definition>
+        <argsstring></argsstring>
+        <name>checked_</name>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADUi/headers/RADWidgets.h" line="194" column="14" bodyfile="RADUi/headers/RADWidgets.h" bodystart="194" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classRADUi_1_1ToggleModel_1ae9ee2db927a9f8ff1a1516db2336003c" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool RADUi::ToggleModel::isChecked</definition>
+        <argsstring>() const</argsstring>
+        <name>isChecked</name>
+        <briefdescription>
+<para>Returns current checked state. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADUi/headers/RADWidgets.h" line="187" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADUi_1_1ToggleModel_1a57b1092fcea000cf84b1f888f66830d0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void RADUi::ToggleModel::setChecked</definition>
+        <argsstring>(bool checked)</argsstring>
+        <name>setChecked</name>
+        <param>
+          <type>bool</type>
+          <declname>checked</declname>
+        </param>
+        <briefdescription>
+<para>Sets checked state. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADUi/headers/RADWidgets.h" line="189" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADUi_1_1ToggleModel_1a70fd1ebe74c828370e5eda3d9f1fe5e0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void RADUi::ToggleModel::toggle</definition>
+        <argsstring>()</argsstring>
+        <name>toggle</name>
+        <briefdescription>
+<para>Inverts checked state. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADUi/headers/RADWidgets.h" line="191" column="14"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Boolean toggle/check model. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>RADUi::ToggleModel</label>
+        <link refid="classRADUi_1_1ToggleModel"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>RADCore::RADObject</label>
+        <link refid="classRADCore_1_1RADObject"/>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>RADUi::ToggleModel</label>
+        <link refid="classRADUi_1_1ToggleModel"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="3" relation="usage">
+          <edgelabel>changed</edgelabel>
+        </childnode>
+      </node>
+      <node id="2">
+        <label>RADCore::RADObject</label>
+        <link refid="classRADCore_1_1RADObject"/>
+      </node>
+      <node id="3">
+        <label>RADCore::Event&lt; void() &gt;</label>
+        <link refid="classRADCore_1_1Event"/>
+      </node>
+    </collaborationgraph>
+    <location file="RADUi/headers/RADWidgets.h" line="180" column="5" bodyfile="RADUi/headers/RADWidgets.h" bodystart="180" bodyend="195"/>
+    <listofallmembers>
+      <member refid="classRADCore_1_1RADObject_1a06cdf252ffb5e2f88332ebda12a62080" prot="public" virt="non-virtual"><scope>RADUi::ToggleModel</scope><name>associatedEventLoop</name></member>
+      <member refid="classRADUi_1_1ToggleModel_1adb3db2b107f1e26639664b9235f9e7df" prot="public" virt="non-virtual"><scope>RADUi::ToggleModel</scope><name>changed</name></member>
+      <member refid="classRADUi_1_1ToggleModel_1a7858f8c16bb5db5b933f26d4ab7a95e4" prot="private" virt="non-virtual"><scope>RADUi::ToggleModel</scope><name>checked_</name></member>
+      <member refid="classRADUi_1_1ToggleModel_1ae9ee2db927a9f8ff1a1516db2336003c" prot="public" virt="non-virtual"><scope>RADUi::ToggleModel</scope><name>isChecked</name></member>
+      <member refid="classRADCore_1_1RADObject_1ad2ddfd066d14be9adc2f96bfca417fc6" prot="public" virt="non-virtual"><scope>RADUi::ToggleModel</scope><name>lifetimeToken</name></member>
+      <member refid="classRADCore_1_1RADObject_1a1f7f7f2fb40211e28455cd74a029339a" prot="public" virt="non-virtual"><scope>RADUi::ToggleModel</scope><name>moveToThread</name></member>
+      <member refid="classRADCore_1_1RADObject_1a9bc3fed915f7c71232e68c2628d34708" prot="public" virt="non-virtual"><scope>RADUi::ToggleModel</scope><name>RADObject</name></member>
+      <member refid="classRADCore_1_1RADObject_1af3e26b970c8080418f0d6b80cad986a2" prot="public" virt="non-virtual"><scope>RADUi::ToggleModel</scope><name>registerLink</name></member>
+      <member refid="classRADUi_1_1ToggleModel_1a57b1092fcea000cf84b1f888f66830d0" prot="public" virt="non-virtual"><scope>RADUi::ToggleModel</scope><name>setChecked</name></member>
+      <member refid="classRADCore_1_1RADObject_1a8b11df0b951d0db1ba99cfb851e34f31" prot="public" virt="non-virtual"><scope>RADUi::ToggleModel</scope><name>threadAffinity</name></member>
+      <member refid="classRADCore_1_1RADObject_1ac7ca67b41523794ae5a6b3634d6ce3b6" prot="public" virt="non-virtual"><scope>RADUi::ToggleModel</scope><name>threadId</name></member>
+      <member refid="classRADUi_1_1ToggleModel_1a70fd1ebe74c828370e5eda3d9f1fe5e0" prot="public" virt="non-virtual"><scope>RADUi::ToggleModel</scope><name>toggle</name></member>
+      <member refid="classRADCore_1_1RADObject_1a7369e27a46c163ee89c63227db650ce5" prot="public" virt="virtual"><scope>RADUi::ToggleModel</scope><name>~RADObject</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

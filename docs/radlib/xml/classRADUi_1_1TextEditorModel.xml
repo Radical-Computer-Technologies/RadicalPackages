@@ -1,0 +1,633 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="classRADUi_1_1TextEditorModel" kind="class" language="C++" prot="public">
+    <compoundname>RADUi::TextEditorModel</compoundname>
+    <basecompoundref refid="classRADCore_1_1RADObject" prot="public" virt="non-virtual">RADCore::RADObject</basecompoundref>
+    <includes refid="RADWidgets_8h" local="no">RADWidgets.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="classRADUi_1_1TextEditorModel_1aa9738e0ab72e76885aefc30afca6db95" prot="public" static="no" mutable="no">
+        <type><ref refid="classRADCore_1_1Event" kindref="compound">RADCore::Event</ref>&lt; void() &gt;</type>
+        <definition>RADCore::Event&lt;void () &gt; RADUi::TextEditorModel::changed</definition>
+        <argsstring></argsstring>
+        <name>changed</name>
+        <briefdescription>
+<para>Raised when editor text, display settings, or scroll state changes. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADUi/headers/RADWidgets.h" line="284" column="30" bodyfile="RADUi/headers/RADWidgets.h" bodystart="284" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classRADUi_1_1TextEditorModel_1addcac465433f478ab7d6a09b2c3ee969" prot="private" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string RADUi::TextEditorModel::text_</definition>
+        <argsstring></argsstring>
+        <name>text_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADUi/headers/RADWidgets.h" line="341" column="21" bodyfile="RADUi/headers/RADWidgets.h" bodystart="341" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classRADUi_1_1TextEditorModel_1a82ffbcd0cc3c78e968be305bc875ee3d" prot="private" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string RADUi::TextEditorModel::displayText_</definition>
+        <argsstring></argsstring>
+        <name>displayText_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADUi/headers/RADWidgets.h" line="342" column="21" bodyfile="RADUi/headers/RADWidgets.h" bodystart="342" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classRADUi_1_1TextEditorModel_1ad8d16b39b62c664c83a5695f82e4e377" prot="private" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string RADUi::TextEditorModel::lineNumberText_</definition>
+        <argsstring></argsstring>
+        <name>lineNumberText_</name>
+        <initializer>= &quot;1&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADUi/headers/RADWidgets.h" line="343" column="21" bodyfile="RADUi/headers/RADWidgets.h" bodystart="343" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classRADUi_1_1TextEditorModel_1aea794ebbbb4d8e22e9998e762f906ad0" prot="private" static="no" mutable="no">
+        <type>size_t</type>
+        <definition>size_t RADUi::TextEditorModel::lineCount_</definition>
+        <argsstring></argsstring>
+        <name>lineCount_</name>
+        <initializer>= 1</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADUi/headers/RADWidgets.h" line="344" column="16" bodyfile="RADUi/headers/RADWidgets.h" bodystart="344" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classRADUi_1_1TextEditorModel_1ae8eac219d102b6101fd566b7d4231986" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool RADUi::TextEditorModel::showLineNumbers_</definition>
+        <argsstring></argsstring>
+        <name>showLineNumbers_</name>
+        <initializer>= true</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADUi/headers/RADWidgets.h" line="345" column="14" bodyfile="RADUi/headers/RADWidgets.h" bodystart="345" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classRADUi_1_1TextEditorModel_1ab6a0a4abf39b6c884bd3f226dd9f4c1d" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool RADUi::TextEditorModel::showWhitespace_</definition>
+        <argsstring></argsstring>
+        <name>showWhitespace_</name>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADUi/headers/RADWidgets.h" line="346" column="14" bodyfile="RADUi/headers/RADWidgets.h" bodystart="346" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classRADUi_1_1TextEditorModel_1a76cba426faf24a413866a4f6358880a2" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double RADUi::TextEditorModel::scrollY_</definition>
+        <argsstring></argsstring>
+        <name>scrollY_</name>
+        <initializer>= 0.0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADUi/headers/RADWidgets.h" line="347" column="16" bodyfile="RADUi/headers/RADWidgets.h" bodystart="347" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classRADUi_1_1TextEditorModel_1a90e5600f56e16315c090f013517caf5b" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double RADUi::TextEditorModel::viewportHeight_</definition>
+        <argsstring></argsstring>
+        <name>viewportHeight_</name>
+        <initializer>= 0.0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADUi/headers/RADWidgets.h" line="348" column="16" bodyfile="RADUi/headers/RADWidgets.h" bodystart="348" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classRADUi_1_1TextEditorModel_1a329e1fb4330cef42a80d8c4c2ab10dfb" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>const std::string &amp;</type>
+        <definition>const std::string&amp; RADUi::TextEditorModel::text</definition>
+        <argsstring>() const</argsstring>
+        <name>text</name>
+        <briefdescription>
+<para>Returns raw editor text. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADUi/headers/RADWidgets.h" line="287" column="27"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADUi_1_1TextEditorModel_1a96ed6230a7f512822406037d9738f975" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void RADUi::TextEditorModel::setText</definition>
+        <argsstring>(std::string text)</argsstring>
+        <name>setText</name>
+        <param>
+          <type>std::string</type>
+          <declname>text</declname>
+        </param>
+        <briefdescription>
+<para>Replaces raw editor text. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADUi/headers/RADWidgets.h" line="289" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADUi_1_1TextEditorModel_1abbcf3e5a7e4d44cdd9909565b3f2c9ad" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void RADUi::TextEditorModel::setEditorText</definition>
+        <argsstring>(std::string text)</argsstring>
+        <name>setEditorText</name>
+        <param>
+          <type>std::string</type>
+          <declname>text</declname>
+        </param>
+        <briefdescription>
+<para>Replaces editor text after decoding visible whitespace when needed. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADUi/headers/RADWidgets.h" line="291" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADUi_1_1TextEditorModel_1a7ce78047cbf02d5e35479266ee2c5627" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>size_t</type>
+        <definition>size_t RADUi::TextEditorModel::insertText</definition>
+        <argsstring>(size_t byteOffset, std::string_view text)</argsstring>
+        <name>insertText</name>
+        <param>
+          <type>size_t</type>
+          <declname>byteOffset</declname>
+        </param>
+        <param>
+          <type>std::string_view</type>
+          <declname>text</declname>
+        </param>
+        <briefdescription>
+<para>Inserts text at a byte offset and returns the new offset. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADUi/headers/RADWidgets.h" line="293" column="16"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADUi_1_1TextEditorModel_1a1c2ef4394888f9c3922aab96cb3f10df" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>const std::string &amp;</type>
+        <definition>const std::string&amp; RADUi::TextEditorModel::displayText</definition>
+        <argsstring>() const</argsstring>
+        <name>displayText</name>
+        <briefdescription>
+<para>Returns text transformed for display settings. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADUi/headers/RADWidgets.h" line="296" column="27"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADUi_1_1TextEditorModel_1a40b7dde29748dbee144b1330ccbe9e5b" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>const std::string &amp;</type>
+        <definition>const std::string&amp; RADUi::TextEditorModel::lineNumberText</definition>
+        <argsstring>() const</argsstring>
+        <name>lineNumberText</name>
+        <briefdescription>
+<para>Returns newline-separated line-number text. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADUi/headers/RADWidgets.h" line="298" column="27"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADUi_1_1TextEditorModel_1a226218640c77dd5aa0165f270d0c8dc0" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>size_t</type>
+        <definition>size_t RADUi::TextEditorModel::lineCount</definition>
+        <argsstring>() const</argsstring>
+        <name>lineCount</name>
+        <briefdescription>
+<para>Returns current line count. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADUi/headers/RADWidgets.h" line="300" column="16"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADUi_1_1TextEditorModel_1a870847a8a85ae37d8fe5bdb3fb9dde27" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool RADUi::TextEditorModel::showLineNumbers</definition>
+        <argsstring>() const</argsstring>
+        <name>showLineNumbers</name>
+        <briefdescription>
+<para>Returns true when line numbers should be displayed. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADUi/headers/RADWidgets.h" line="303" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADUi_1_1TextEditorModel_1a7f28e177e08a6f58227058ca4fcf0fd5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void RADUi::TextEditorModel::setShowLineNumbers</definition>
+        <argsstring>(bool show)</argsstring>
+        <name>setShowLineNumbers</name>
+        <param>
+          <type>bool</type>
+          <declname>show</declname>
+        </param>
+        <briefdescription>
+<para>Enables or disables line-number display. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADUi/headers/RADWidgets.h" line="305" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADUi_1_1TextEditorModel_1a135d62bd06bfe0ad6238abc9f45f883b" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool RADUi::TextEditorModel::showWhitespace</definition>
+        <argsstring>() const</argsstring>
+        <name>showWhitespace</name>
+        <briefdescription>
+<para>Returns true when whitespace markers should be shown. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADUi/headers/RADWidgets.h" line="308" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADUi_1_1TextEditorModel_1a6dfe8e03afef3b882668e86e7df96c65" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void RADUi::TextEditorModel::setShowWhitespace</definition>
+        <argsstring>(bool show)</argsstring>
+        <name>setShowWhitespace</name>
+        <param>
+          <type>bool</type>
+          <declname>show</declname>
+        </param>
+        <briefdescription>
+<para>Enables or disables visible whitespace display. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADUi/headers/RADWidgets.h" line="310" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADUi_1_1TextEditorModel_1a57047d575b1749c4670b81f0e9240945" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>double RADUi::TextEditorModel::scrollY</definition>
+        <argsstring>() const</argsstring>
+        <name>scrollY</name>
+        <briefdescription>
+<para>Returns model scroll offset in logical pixels. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADUi/headers/RADWidgets.h" line="313" column="16"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADUi_1_1TextEditorModel_1a15dc0760b760fe1f1d85fbcca09484b9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void RADUi::TextEditorModel::setScrollY</definition>
+        <argsstring>(double scrollY)</argsstring>
+        <name>setScrollY</name>
+        <param>
+          <type>double</type>
+          <declname>scrollY</declname>
+        </param>
+        <briefdescription>
+<para>Sets model scroll offset in logical pixels. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADUi/headers/RADWidgets.h" line="315" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADUi_1_1TextEditorModel_1af63eac4d469d1ac178c14bf5715d8e61" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>double RADUi::TextEditorModel::slintViewportY</definition>
+        <argsstring>() const</argsstring>
+        <name>slintViewportY</name>
+        <briefdescription>
+<para>Returns Slint-compatible viewport offset. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADUi/headers/RADWidgets.h" line="317" column="16"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADUi_1_1TextEditorModel_1a8bbabb05bab9c6cd017092c1e275a2fb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void RADUi::TextEditorModel::setSlintViewportY</definition>
+        <argsstring>(double viewportY)</argsstring>
+        <name>setSlintViewportY</name>
+        <param>
+          <type>double</type>
+          <declname>viewportY</declname>
+        </param>
+        <briefdescription>
+<para>Sets scroll offset from a <ref refid="namespaceRADUi_1_1Slint" kindref="compound">Slint</ref> viewport position. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADUi/headers/RADWidgets.h" line="319" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADUi_1_1TextEditorModel_1a95cba0390904db195e8acd5bcab9cd92" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void RADUi::TextEditorModel::setViewportHeight</definition>
+        <argsstring>(double viewportHeight)</argsstring>
+        <name>setViewportHeight</name>
+        <param>
+          <type>double</type>
+          <declname>viewportHeight</declname>
+        </param>
+        <briefdescription>
+<para>Sets the visible viewport height used by <ref refid="classRADUi_1_1TextEditorModel_1af552b3e71c752ad9308041d9bfb3cc64" kindref="member">ensureLineVisible()</ref>. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADUi/headers/RADWidgets.h" line="321" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADUi_1_1TextEditorModel_1a74561e9f73cd222c155c89a3c3c37de9" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>double RADUi::TextEditorModel::viewportHeight</definition>
+        <argsstring>() const</argsstring>
+        <name>viewportHeight</name>
+        <briefdescription>
+<para>Returns the configured viewport height. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADUi/headers/RADWidgets.h" line="323" column="16"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADUi_1_1TextEditorModel_1af552b3e71c752ad9308041d9bfb3cc64" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void RADUi::TextEditorModel::ensureLineVisible</definition>
+        <argsstring>(size_t line, double lineHeight=19.0, double padding=12.0)</argsstring>
+        <name>ensureLineVisible</name>
+        <param>
+          <type>size_t</type>
+          <declname>line</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>lineHeight</declname>
+          <defval>19.0</defval>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>padding</declname>
+          <defval>12.0</defval>
+        </param>
+        <briefdescription>
+<para>Scrolls as needed so zero-based line is visible. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADUi/headers/RADWidgets.h" line="325" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADUi_1_1TextEditorModel_1a6b5ccca92b0c28dfee0fb60b258a0d00" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void RADUi::TextEditorModel::scrollToLastLine</definition>
+        <argsstring>(double lineHeight=19.0, double padding=12.0)</argsstring>
+        <name>scrollToLastLine</name>
+        <param>
+          <type>double</type>
+          <declname>lineHeight</declname>
+          <defval>19.0</defval>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>padding</declname>
+          <defval>12.0</defval>
+        </param>
+        <briefdescription>
+<para>Scrolls so the last line is visible. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADUi/headers/RADWidgets.h" line="327" column="14"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="classRADUi_1_1TextEditorModel_1a738cb8c7d1263f5988b35c453d52aee0" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::string</type>
+        <definition>static std::string RADUi::TextEditorModel::makeWhitespaceVisible</definition>
+        <argsstring>(std::string_view text)</argsstring>
+        <name>makeWhitespaceVisible</name>
+        <param>
+          <type>std::string_view</type>
+          <declname>text</declname>
+        </param>
+        <briefdescription>
+<para>Converts tabs/spaces/newlines into visible display symbols. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADUi/headers/RADWidgets.h" line="330" column="28"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADUi_1_1TextEditorModel_1a0bae15428f480add18ac84123a9ea5f1" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::string</type>
+        <definition>static std::string RADUi::TextEditorModel::decodeVisibleWhitespace</definition>
+        <argsstring>(std::string_view text)</argsstring>
+        <name>decodeVisibleWhitespace</name>
+        <param>
+          <type>std::string_view</type>
+          <declname>text</declname>
+        </param>
+        <briefdescription>
+<para>Converts visible whitespace display symbols back to raw text. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADUi/headers/RADWidgets.h" line="332" column="28"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADUi_1_1TextEditorModel_1a781b7f504ee2f4a8f111bb0eb63aca3b" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>size_t</type>
+        <definition>static size_t RADUi::TextEditorModel::countLines</definition>
+        <argsstring>(std::string_view text)</argsstring>
+        <name>countLines</name>
+        <param>
+          <type>std::string_view</type>
+          <declname>text</declname>
+        </param>
+        <briefdescription>
+<para>Counts text lines, treating empty text as one line. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADUi/headers/RADWidgets.h" line="334" column="23"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADUi_1_1TextEditorModel_1a7c5ac1bb8279cba512ca3ed6e149e6b7" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::string</type>
+        <definition>static std::string RADUi::TextEditorModel::makeLineNumberText</definition>
+        <argsstring>(size_t lineCount)</argsstring>
+        <name>makeLineNumberText</name>
+        <param>
+          <type>size_t</type>
+          <declname>lineCount</declname>
+        </param>
+        <briefdescription>
+<para>Builds newline-separated line-number text for lineCount lines. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADUi/headers/RADWidgets.h" line="336" column="28"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="classRADUi_1_1TextEditorModel_1ab81490aff998185e5c22b94bb34ec0fa" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void RADUi::TextEditorModel::refreshDerived</definition>
+        <argsstring>()</argsstring>
+        <name>refreshDerived</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADUi/headers/RADWidgets.h" line="339" column="14"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Multi-line text editor model with derived display text and scrolling helpers. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>RADCore::RADObject</label>
+        <link refid="classRADCore_1_1RADObject"/>
+      </node>
+      <node id="1">
+        <label>RADUi::TextEditorModel</label>
+        <link refid="classRADUi_1_1TextEditorModel"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>RADCore::RADObject</label>
+        <link refid="classRADCore_1_1RADObject"/>
+      </node>
+      <node id="3">
+        <label>RADCore::Event&lt; void() &gt;</label>
+        <link refid="classRADCore_1_1Event"/>
+      </node>
+      <node id="1">
+        <label>RADUi::TextEditorModel</label>
+        <link refid="classRADUi_1_1TextEditorModel"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="3" relation="usage">
+          <edgelabel>changed</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="RADUi/headers/RADWidgets.h" line="280" column="5" bodyfile="RADUi/headers/RADWidgets.h" bodystart="280" bodyend="349"/>
+    <listofallmembers>
+      <member refid="classRADCore_1_1RADObject_1a06cdf252ffb5e2f88332ebda12a62080" prot="public" virt="non-virtual"><scope>RADUi::TextEditorModel</scope><name>associatedEventLoop</name></member>
+      <member refid="classRADUi_1_1TextEditorModel_1aa9738e0ab72e76885aefc30afca6db95" prot="public" virt="non-virtual"><scope>RADUi::TextEditorModel</scope><name>changed</name></member>
+      <member refid="classRADUi_1_1TextEditorModel_1a781b7f504ee2f4a8f111bb0eb63aca3b" prot="public" virt="non-virtual"><scope>RADUi::TextEditorModel</scope><name>countLines</name></member>
+      <member refid="classRADUi_1_1TextEditorModel_1a0bae15428f480add18ac84123a9ea5f1" prot="public" virt="non-virtual"><scope>RADUi::TextEditorModel</scope><name>decodeVisibleWhitespace</name></member>
+      <member refid="classRADUi_1_1TextEditorModel_1a1c2ef4394888f9c3922aab96cb3f10df" prot="public" virt="non-virtual"><scope>RADUi::TextEditorModel</scope><name>displayText</name></member>
+      <member refid="classRADUi_1_1TextEditorModel_1a82ffbcd0cc3c78e968be305bc875ee3d" prot="private" virt="non-virtual"><scope>RADUi::TextEditorModel</scope><name>displayText_</name></member>
+      <member refid="classRADUi_1_1TextEditorModel_1af552b3e71c752ad9308041d9bfb3cc64" prot="public" virt="non-virtual"><scope>RADUi::TextEditorModel</scope><name>ensureLineVisible</name></member>
+      <member refid="classRADUi_1_1TextEditorModel_1a7ce78047cbf02d5e35479266ee2c5627" prot="public" virt="non-virtual"><scope>RADUi::TextEditorModel</scope><name>insertText</name></member>
+      <member refid="classRADCore_1_1RADObject_1ad2ddfd066d14be9adc2f96bfca417fc6" prot="public" virt="non-virtual"><scope>RADUi::TextEditorModel</scope><name>lifetimeToken</name></member>
+      <member refid="classRADUi_1_1TextEditorModel_1a226218640c77dd5aa0165f270d0c8dc0" prot="public" virt="non-virtual"><scope>RADUi::TextEditorModel</scope><name>lineCount</name></member>
+      <member refid="classRADUi_1_1TextEditorModel_1aea794ebbbb4d8e22e9998e762f906ad0" prot="private" virt="non-virtual"><scope>RADUi::TextEditorModel</scope><name>lineCount_</name></member>
+      <member refid="classRADUi_1_1TextEditorModel_1a40b7dde29748dbee144b1330ccbe9e5b" prot="public" virt="non-virtual"><scope>RADUi::TextEditorModel</scope><name>lineNumberText</name></member>
+      <member refid="classRADUi_1_1TextEditorModel_1ad8d16b39b62c664c83a5695f82e4e377" prot="private" virt="non-virtual"><scope>RADUi::TextEditorModel</scope><name>lineNumberText_</name></member>
+      <member refid="classRADUi_1_1TextEditorModel_1a7c5ac1bb8279cba512ca3ed6e149e6b7" prot="public" virt="non-virtual"><scope>RADUi::TextEditorModel</scope><name>makeLineNumberText</name></member>
+      <member refid="classRADUi_1_1TextEditorModel_1a738cb8c7d1263f5988b35c453d52aee0" prot="public" virt="non-virtual"><scope>RADUi::TextEditorModel</scope><name>makeWhitespaceVisible</name></member>
+      <member refid="classRADCore_1_1RADObject_1a1f7f7f2fb40211e28455cd74a029339a" prot="public" virt="non-virtual"><scope>RADUi::TextEditorModel</scope><name>moveToThread</name></member>
+      <member refid="classRADCore_1_1RADObject_1a9bc3fed915f7c71232e68c2628d34708" prot="public" virt="non-virtual"><scope>RADUi::TextEditorModel</scope><name>RADObject</name></member>
+      <member refid="classRADUi_1_1TextEditorModel_1ab81490aff998185e5c22b94bb34ec0fa" prot="private" virt="non-virtual"><scope>RADUi::TextEditorModel</scope><name>refreshDerived</name></member>
+      <member refid="classRADCore_1_1RADObject_1af3e26b970c8080418f0d6b80cad986a2" prot="public" virt="non-virtual"><scope>RADUi::TextEditorModel</scope><name>registerLink</name></member>
+      <member refid="classRADUi_1_1TextEditorModel_1a6b5ccca92b0c28dfee0fb60b258a0d00" prot="public" virt="non-virtual"><scope>RADUi::TextEditorModel</scope><name>scrollToLastLine</name></member>
+      <member refid="classRADUi_1_1TextEditorModel_1a57047d575b1749c4670b81f0e9240945" prot="public" virt="non-virtual"><scope>RADUi::TextEditorModel</scope><name>scrollY</name></member>
+      <member refid="classRADUi_1_1TextEditorModel_1a76cba426faf24a413866a4f6358880a2" prot="private" virt="non-virtual"><scope>RADUi::TextEditorModel</scope><name>scrollY_</name></member>
+      <member refid="classRADUi_1_1TextEditorModel_1abbcf3e5a7e4d44cdd9909565b3f2c9ad" prot="public" virt="non-virtual"><scope>RADUi::TextEditorModel</scope><name>setEditorText</name></member>
+      <member refid="classRADUi_1_1TextEditorModel_1a15dc0760b760fe1f1d85fbcca09484b9" prot="public" virt="non-virtual"><scope>RADUi::TextEditorModel</scope><name>setScrollY</name></member>
+      <member refid="classRADUi_1_1TextEditorModel_1a7f28e177e08a6f58227058ca4fcf0fd5" prot="public" virt="non-virtual"><scope>RADUi::TextEditorModel</scope><name>setShowLineNumbers</name></member>
+      <member refid="classRADUi_1_1TextEditorModel_1a6dfe8e03afef3b882668e86e7df96c65" prot="public" virt="non-virtual"><scope>RADUi::TextEditorModel</scope><name>setShowWhitespace</name></member>
+      <member refid="classRADUi_1_1TextEditorModel_1a8bbabb05bab9c6cd017092c1e275a2fb" prot="public" virt="non-virtual"><scope>RADUi::TextEditorModel</scope><name>setSlintViewportY</name></member>
+      <member refid="classRADUi_1_1TextEditorModel_1a96ed6230a7f512822406037d9738f975" prot="public" virt="non-virtual"><scope>RADUi::TextEditorModel</scope><name>setText</name></member>
+      <member refid="classRADUi_1_1TextEditorModel_1a95cba0390904db195e8acd5bcab9cd92" prot="public" virt="non-virtual"><scope>RADUi::TextEditorModel</scope><name>setViewportHeight</name></member>
+      <member refid="classRADUi_1_1TextEditorModel_1a870847a8a85ae37d8fe5bdb3fb9dde27" prot="public" virt="non-virtual"><scope>RADUi::TextEditorModel</scope><name>showLineNumbers</name></member>
+      <member refid="classRADUi_1_1TextEditorModel_1ae8eac219d102b6101fd566b7d4231986" prot="private" virt="non-virtual"><scope>RADUi::TextEditorModel</scope><name>showLineNumbers_</name></member>
+      <member refid="classRADUi_1_1TextEditorModel_1a135d62bd06bfe0ad6238abc9f45f883b" prot="public" virt="non-virtual"><scope>RADUi::TextEditorModel</scope><name>showWhitespace</name></member>
+      <member refid="classRADUi_1_1TextEditorModel_1ab6a0a4abf39b6c884bd3f226dd9f4c1d" prot="private" virt="non-virtual"><scope>RADUi::TextEditorModel</scope><name>showWhitespace_</name></member>
+      <member refid="classRADUi_1_1TextEditorModel_1af63eac4d469d1ac178c14bf5715d8e61" prot="public" virt="non-virtual"><scope>RADUi::TextEditorModel</scope><name>slintViewportY</name></member>
+      <member refid="classRADUi_1_1TextEditorModel_1a329e1fb4330cef42a80d8c4c2ab10dfb" prot="public" virt="non-virtual"><scope>RADUi::TextEditorModel</scope><name>text</name></member>
+      <member refid="classRADUi_1_1TextEditorModel_1addcac465433f478ab7d6a09b2c3ee969" prot="private" virt="non-virtual"><scope>RADUi::TextEditorModel</scope><name>text_</name></member>
+      <member refid="classRADCore_1_1RADObject_1a8b11df0b951d0db1ba99cfb851e34f31" prot="public" virt="non-virtual"><scope>RADUi::TextEditorModel</scope><name>threadAffinity</name></member>
+      <member refid="classRADCore_1_1RADObject_1ac7ca67b41523794ae5a6b3634d6ce3b6" prot="public" virt="non-virtual"><scope>RADUi::TextEditorModel</scope><name>threadId</name></member>
+      <member refid="classRADUi_1_1TextEditorModel_1a74561e9f73cd222c155c89a3c3c37de9" prot="public" virt="non-virtual"><scope>RADUi::TextEditorModel</scope><name>viewportHeight</name></member>
+      <member refid="classRADUi_1_1TextEditorModel_1a90e5600f56e16315c090f013517caf5b" prot="private" virt="non-virtual"><scope>RADUi::TextEditorModel</scope><name>viewportHeight_</name></member>
+      <member refid="classRADCore_1_1RADObject_1a7369e27a46c163ee89c63227db650ce5" prot="public" virt="virtual"><scope>RADUi::TextEditorModel</scope><name>~RADObject</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,97 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="classRADUi_1_1Binding" kind="class" language="C++" prot="public">
+    <compoundname>RADUi::Binding</compoundname>
+    <includes refid="RADUi_8h" local="no">RADUi.h</includes>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classRADUi_1_1Binding_1aef5cc593006b948f051cc19f09a172cb" prot="private" static="no" mutable="no">
+        <type>std::shared_ptr&lt; <ref refid="classRADCore_1_1RADObject" kindref="compound">RADCore::RADObject</ref> &gt;</type>
+        <definition>std::shared_ptr&lt;RADCore::RADObject&gt; RADUi::Binding::owner_</definition>
+        <argsstring></argsstring>
+        <name>owner_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADUi/headers/RADUi.h" line="41" column="25" bodyfile="RADUi/headers/RADUi.h" bodystart="41" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classRADUi_1_1Binding_1ad3e4785003ad95568ddb6f163f0ff372" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>RADUi::Binding::Binding</definition>
+        <argsstring>()=default</argsstring>
+        <name>Binding</name>
+        <briefdescription>
+<para>Creates an empty, disconnected binding. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADUi/headers/RADUi.h" line="31" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADUi_1_1Binding_1af4a29bf884b75856af2b9ac460457a2e" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>RADUi::Binding::Binding</definition>
+        <argsstring>(std::shared_ptr&lt; RADCore::RADObject &gt; owner)</argsstring>
+        <name>Binding</name>
+        <param>
+          <type>std::shared_ptr&lt; <ref refid="classRADCore_1_1RADObject" kindref="compound">RADCore::RADObject</ref> &gt;</type>
+          <declname>owner</declname>
+        </param>
+        <briefdescription>
+<para>Creates a binding that owns owner for the lifetime of the binding. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADUi/headers/RADUi.h" line="33" column="18"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADUi_1_1Binding_1aa87036a0d9ee224b277f9c20bc8b40aa" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void RADUi::Binding::disconnect</definition>
+        <argsstring>()</argsstring>
+        <name>disconnect</name>
+        <briefdescription>
+<para>Releases the owned bridge object and disconnects future delivery. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADUi/headers/RADUi.h" line="36" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADUi_1_1Binding_1a19cd95fc143ba10d09c999c0d5df44c7" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool RADUi::Binding::isConnected</definition>
+        <argsstring>() const</argsstring>
+        <name>isConnected</name>
+        <briefdescription>
+<para>Returns true when this binding still owns a bridge object. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADUi/headers/RADUi.h" line="38" column="14"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>RAII-style binding handle that keeps a bridge object alive until disconnected. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="RADUi/headers/RADUi.h" line="28" column="5" bodyfile="RADUi/headers/RADUi.h" bodystart="28" bodyend="42"/>
+    <listofallmembers>
+      <member refid="classRADUi_1_1Binding_1ad3e4785003ad95568ddb6f163f0ff372" prot="public" virt="non-virtual"><scope>RADUi::Binding</scope><name>Binding</name></member>
+      <member refid="classRADUi_1_1Binding_1af4a29bf884b75856af2b9ac460457a2e" prot="public" virt="non-virtual"><scope>RADUi::Binding</scope><name>Binding</name></member>
+      <member refid="classRADUi_1_1Binding_1aa87036a0d9ee224b277f9c20bc8b40aa" prot="public" virt="non-virtual"><scope>RADUi::Binding</scope><name>disconnect</name></member>
+      <member refid="classRADUi_1_1Binding_1a19cd95fc143ba10d09c999c0d5df44c7" prot="public" virt="non-virtual"><scope>RADUi::Binding</scope><name>isConnected</name></member>
+      <member refid="classRADUi_1_1Binding_1aef5cc593006b948f051cc19f09a172cb" prot="private" virt="non-virtual"><scope>RADUi::Binding</scope><name>owner_</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

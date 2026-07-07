@@ -1,0 +1,221 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="classRADCore_1_1RADSettings" kind="class" language="C++" prot="public">
+    <compoundname>RADCore::RADSettings</compoundname>
+    <includes refid="RADCore_8h" local="no">RADCore.h</includes>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classRADCore_1_1RADSettings_1afac9fe85186a2243f05a21e540d33b2a" prot="private" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string RADCore::RADSettings::fileName_</definition>
+        <argsstring></argsstring>
+        <name>fileName_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADCore/headers/RADCore.h" line="665" column="21" bodyfile="RADCore/headers/RADCore.h" bodystart="665" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classRADCore_1_1RADSettings_1a7397af46f9b540104cb805074d19a50e" prot="private" static="no" mutable="no">
+        <type><ref refid="classRADCore_1_1RADJsonValue" kindref="compound">RADJsonValue</ref></type>
+        <definition>RADJsonValue RADCore::RADSettings::root_</definition>
+        <argsstring></argsstring>
+        <name>root_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADCore/headers/RADCore.h" line="666" column="22" bodyfile="RADCore/headers/RADCore.h" bodystart="666" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classRADCore_1_1RADSettings_1a399abde883ab97cbacfc0a951ef0b5df" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>RADCore::RADSettings::RADSettings</definition>
+        <argsstring>(std::string fileName)</argsstring>
+        <name>RADSettings</name>
+        <param>
+          <type>std::string</type>
+          <declname>fileName</declname>
+        </param>
+        <briefdescription>
+<para>Creates settings bound to fileName. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADCore/headers/RADCore.h" line="645" column="18"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADCore_1_1RADSettings_1a62881c253f1f577ceb7ff09ce8d428c9" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>const std::string &amp;</type>
+        <definition>const std::string&amp; RADCore::RADSettings::fileName</definition>
+        <argsstring>() const</argsstring>
+        <name>fileName</name>
+        <briefdescription>
+<para>Returns backing file path. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADCore/headers/RADCore.h" line="648" column="27"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADCore_1_1RADSettings_1adb6affd570a91bb8c3c711994d38d892" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool RADCore::RADSettings::load</definition>
+        <argsstring>(std::string *error=nullptr)</argsstring>
+        <name>load</name>
+        <param>
+          <type>std::string *</type>
+          <declname>error</declname>
+          <defval>nullptr</defval>
+        </param>
+        <briefdescription>
+<para>Loads settings from disk. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADCore/headers/RADCore.h" line="650" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADCore_1_1RADSettings_1a8c59eddd8fcbf43abaa5e87d00f4cf9c" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool RADCore::RADSettings::save</definition>
+        <argsstring>(std::string *error=nullptr) const</argsstring>
+        <name>save</name>
+        <param>
+          <type>std::string *</type>
+          <declname>error</declname>
+          <defval>nullptr</defval>
+        </param>
+        <briefdescription>
+<para>Saves settings to disk. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADCore/headers/RADCore.h" line="652" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADCore_1_1RADSettings_1ab32fb09038b093c8cbd2d21d9a407b8a" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool RADCore::RADSettings::contains</definition>
+        <argsstring>(const std::string &amp;key) const</argsstring>
+        <name>contains</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>key</declname>
+        </param>
+        <briefdescription>
+<para>Returns true when key exists. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADCore/headers/RADCore.h" line="654" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADCore_1_1RADSettings_1acf87256e13ff5c972018117aa20ad759" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classRADCore_1_1RADJsonValue" kindref="compound">RADJsonValue</ref></type>
+        <definition>RADJsonValue RADCore::RADSettings::value</definition>
+        <argsstring>(const std::string &amp;key, RADJsonValue defaultValue={}) const</argsstring>
+        <name>value</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>key</declname>
+        </param>
+        <param>
+          <type><ref refid="classRADCore_1_1RADJsonValue" kindref="compound">RADJsonValue</ref></type>
+          <declname>defaultValue</declname>
+          <defval>{}</defval>
+        </param>
+        <briefdescription>
+<para>Returns value for key or defaultValue. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADCore/headers/RADCore.h" line="656" column="22"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADCore_1_1RADSettings_1a1d6947f8097e98835470b3f6177975bd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void RADCore::RADSettings::setValue</definition>
+        <argsstring>(const std::string &amp;key, RADJsonValue value)</argsstring>
+        <name>setValue</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>key</declname>
+        </param>
+        <param>
+          <type><ref refid="classRADCore_1_1RADJsonValue" kindref="compound">RADJsonValue</ref></type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+<para>Sets value for key. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADCore/headers/RADCore.h" line="658" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADCore_1_1RADSettings_1aa0ec242d6f5a93ad134fd95ab7eae9d8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void RADCore::RADSettings::remove</definition>
+        <argsstring>(const std::string &amp;key)</argsstring>
+        <name>remove</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>key</declname>
+        </param>
+        <briefdescription>
+<para>Removes key. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADCore/headers/RADCore.h" line="660" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADCore_1_1RADSettings_1a3cfef05aed5768ee563f9c4fa148c168" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void RADCore::RADSettings::clear</definition>
+        <argsstring>()</argsstring>
+        <name>clear</name>
+        <briefdescription>
+<para>Removes all settings. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADCore/headers/RADCore.h" line="662" column="14"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>JSON-file-backed key/value settings helper. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="RADCore/headers/RADCore.h" line="642" column="5" bodyfile="RADCore/headers/RADCore.h" bodystart="642" bodyend="667"/>
+    <listofallmembers>
+      <member refid="classRADCore_1_1RADSettings_1a3cfef05aed5768ee563f9c4fa148c168" prot="public" virt="non-virtual"><scope>RADCore::RADSettings</scope><name>clear</name></member>
+      <member refid="classRADCore_1_1RADSettings_1ab32fb09038b093c8cbd2d21d9a407b8a" prot="public" virt="non-virtual"><scope>RADCore::RADSettings</scope><name>contains</name></member>
+      <member refid="classRADCore_1_1RADSettings_1a62881c253f1f577ceb7ff09ce8d428c9" prot="public" virt="non-virtual"><scope>RADCore::RADSettings</scope><name>fileName</name></member>
+      <member refid="classRADCore_1_1RADSettings_1afac9fe85186a2243f05a21e540d33b2a" prot="private" virt="non-virtual"><scope>RADCore::RADSettings</scope><name>fileName_</name></member>
+      <member refid="classRADCore_1_1RADSettings_1adb6affd570a91bb8c3c711994d38d892" prot="public" virt="non-virtual"><scope>RADCore::RADSettings</scope><name>load</name></member>
+      <member refid="classRADCore_1_1RADSettings_1a399abde883ab97cbacfc0a951ef0b5df" prot="public" virt="non-virtual"><scope>RADCore::RADSettings</scope><name>RADSettings</name></member>
+      <member refid="classRADCore_1_1RADSettings_1aa0ec242d6f5a93ad134fd95ab7eae9d8" prot="public" virt="non-virtual"><scope>RADCore::RADSettings</scope><name>remove</name></member>
+      <member refid="classRADCore_1_1RADSettings_1a7397af46f9b540104cb805074d19a50e" prot="private" virt="non-virtual"><scope>RADCore::RADSettings</scope><name>root_</name></member>
+      <member refid="classRADCore_1_1RADSettings_1a8c59eddd8fcbf43abaa5e87d00f4cf9c" prot="public" virt="non-virtual"><scope>RADCore::RADSettings</scope><name>save</name></member>
+      <member refid="classRADCore_1_1RADSettings_1a1d6947f8097e98835470b3f6177975bd" prot="public" virt="non-virtual"><scope>RADCore::RADSettings</scope><name>setValue</name></member>
+      <member refid="classRADCore_1_1RADSettings_1acf87256e13ff5c972018117aa20ad759" prot="public" virt="non-virtual"><scope>RADCore::RADSettings</scope><name>value</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

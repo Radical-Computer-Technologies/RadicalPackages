@@ -1,0 +1,167 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="classRADService_1_1ServiceManager" kind="class" language="C++" prot="public">
+    <compoundname>RADService::ServiceManager</compoundname>
+    <includes refid="RADService_8h" local="no">RADService.h</includes>
+      <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="classRADService_1_1ServiceManager_1a5553f71a468e5f39b57efae3e5eb3f34" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::string</type>
+        <definition>static std::string RADService::ServiceManager::generateSystemdUnit</definition>
+        <argsstring>(const ServiceUnit &amp;unit)</argsstring>
+        <name>generateSystemdUnit</name>
+        <param>
+          <type>const <ref refid="structRADService_1_1ServiceUnit" kindref="compound">ServiceUnit</ref> &amp;</type>
+          <declname>unit</declname>
+        </param>
+        <briefdescription>
+<para>Serializes a systemd unit file. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADService/headers/RADService.h" line="72" column="28"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADService_1_1ServiceManager_1a4c2b7c5d156d04a58ed4ec4bd3e7d24a" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>static bool RADService::ServiceManager::writeSystemdUnit</definition>
+        <argsstring>(const ServiceUnit &amp;unit, const std::string &amp;directory, std::string *error=nullptr)</argsstring>
+        <name>writeSystemdUnit</name>
+        <param>
+          <type>const <ref refid="structRADService_1_1ServiceUnit" kindref="compound">ServiceUnit</ref> &amp;</type>
+          <declname>unit</declname>
+        </param>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>directory</declname>
+        </param>
+        <param>
+          <type>std::string *</type>
+          <declname>error</declname>
+          <defval>nullptr</defval>
+        </param>
+        <briefdescription>
+<para>Writes a systemd unit file to directory. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADService/headers/RADService.h" line="74" column="21"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADService_1_1ServiceManager_1aefaaa17adb2594c7146bb6284c703817" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>static bool RADService::ServiceManager::notify</definition>
+        <argsstring>(const std::string &amp;message, std::string *error=nullptr)</argsstring>
+        <name>notify</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>message</declname>
+        </param>
+        <param>
+          <type>std::string *</type>
+          <declname>error</declname>
+          <defval>nullptr</defval>
+        </param>
+        <briefdescription>
+<para>Sends sd_notify-compatible message to NOTIFY_SOCKET without libsystemd. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADService/headers/RADService.h" line="76" column="21"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADService_1_1ServiceManager_1adae59da1d42079d8312fa40cdd437bd8" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>static bool RADService::ServiceManager::notifyReady</definition>
+        <argsstring>(std::string *error=nullptr)</argsstring>
+        <name>notifyReady</name>
+        <param>
+          <type>std::string *</type>
+          <declname>error</declname>
+          <defval>nullptr</defval>
+        </param>
+        <briefdescription>
+<para>Sends READY=1 notification. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADService/headers/RADService.h" line="78" column="21"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADService_1_1ServiceManager_1ac9eabb0a6729df50267348768be28ec8" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>static bool RADService::ServiceManager::notifyWatchdog</definition>
+        <argsstring>(std::string *error=nullptr)</argsstring>
+        <name>notifyWatchdog</name>
+        <param>
+          <type>std::string *</type>
+          <declname>error</declname>
+          <defval>nullptr</defval>
+        </param>
+        <briefdescription>
+<para>Sends WATCHDOG=1 notification. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADService/headers/RADService.h" line="80" column="21"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADService_1_1ServiceManager_1afa4e5d7b7161fb371850eb6c27e359d8" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::string</type>
+        <definition>static std::string RADService::ServiceManager::restartPolicyName</definition>
+        <argsstring>(RestartPolicy policy)</argsstring>
+        <name>restartPolicyName</name>
+        <param>
+          <type><ref refid="namespaceRADService_1ad48c24e7fb20b3de7548d5d0e40d32f4" kindref="member">RestartPolicy</ref></type>
+          <declname>policy</declname>
+        </param>
+        <briefdescription>
+<para>Converts restart policy to systemd text. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADService/headers/RADService.h" line="82" column="28"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADService_1_1ServiceManager_1a9fcb2a7ba01f25279e9486ce5db17464" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>static bool RADService::ServiceManager::daemonize</definition>
+        <argsstring>(std::string *error=nullptr)</argsstring>
+        <name>daemonize</name>
+        <param>
+          <type>std::string *</type>
+          <declname>error</declname>
+          <defval>nullptr</defval>
+        </param>
+        <briefdescription>
+<para>Performs a Unix double-fork daemonization when supported. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADService/headers/RADService.h" line="84" column="21"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Service helper methods. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="RADService/headers/RADService.h" line="69" column="5" bodyfile="RADService/headers/RADService.h" bodystart="69" bodyend="85"/>
+    <listofallmembers>
+      <member refid="classRADService_1_1ServiceManager_1a9fcb2a7ba01f25279e9486ce5db17464" prot="public" virt="non-virtual"><scope>RADService::ServiceManager</scope><name>daemonize</name></member>
+      <member refid="classRADService_1_1ServiceManager_1a5553f71a468e5f39b57efae3e5eb3f34" prot="public" virt="non-virtual"><scope>RADService::ServiceManager</scope><name>generateSystemdUnit</name></member>
+      <member refid="classRADService_1_1ServiceManager_1aefaaa17adb2594c7146bb6284c703817" prot="public" virt="non-virtual"><scope>RADService::ServiceManager</scope><name>notify</name></member>
+      <member refid="classRADService_1_1ServiceManager_1adae59da1d42079d8312fa40cdd437bd8" prot="public" virt="non-virtual"><scope>RADService::ServiceManager</scope><name>notifyReady</name></member>
+      <member refid="classRADService_1_1ServiceManager_1ac9eabb0a6729df50267348768be28ec8" prot="public" virt="non-virtual"><scope>RADService::ServiceManager</scope><name>notifyWatchdog</name></member>
+      <member refid="classRADService_1_1ServiceManager_1afa4e5d7b7161fb371850eb6c27e359d8" prot="public" virt="non-virtual"><scope>RADService::ServiceManager</scope><name>restartPolicyName</name></member>
+      <member refid="classRADService_1_1ServiceManager_1a4c2b7c5d156d04a58ed4ec4bd3e7d24a" prot="public" virt="non-virtual"><scope>RADService::ServiceManager</scope><name>writeSystemdUnit</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,139 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="classRADUi_1_1TreeModel" kind="class" language="C++" prot="public">
+    <compoundname>RADUi::TreeModel</compoundname>
+    <basecompoundref refid="classRADCore_1_1RADObject" prot="public" virt="non-virtual">RADCore::RADObject</basecompoundref>
+    <includes refid="RADWidgets_8h" local="no">RADWidgets.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="classRADUi_1_1TreeModel_1adf259d28e6c7c6e6f54059cac5d9b78d" prot="public" static="no" mutable="no">
+        <type><ref refid="classRADCore_1_1Event" kindref="compound">RADCore::Event</ref>&lt; void() &gt;</type>
+        <definition>RADCore::Event&lt;void () &gt; RADUi::TreeModel::changed</definition>
+        <argsstring></argsstring>
+        <name>changed</name>
+        <briefdescription>
+<para>Raised when roots change. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADUi/headers/RADWidgets.h" line="409" column="30" bodyfile="RADUi/headers/RADWidgets.h" bodystart="409" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classRADUi_1_1TreeModel_1a34c8490e8ed45fde7b6ca12ac6d1963a" prot="private" static="no" mutable="no">
+        <type>std::vector&lt; <ref refid="structRADUi_1_1TreeNode" kindref="compound">TreeNode</ref> &gt;</type>
+        <definition>std::vector&lt;TreeNode&gt; RADUi::TreeModel::roots_</definition>
+        <argsstring></argsstring>
+        <name>roots_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADUi/headers/RADWidgets.h" line="419" column="21" bodyfile="RADUi/headers/RADWidgets.h" bodystart="419" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classRADUi_1_1TreeModel_1a7cd2a92a0ae3a9d4ddd5342e2f42c02e" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>const std::vector&lt; <ref refid="structRADUi_1_1TreeNode" kindref="compound">TreeNode</ref> &gt; &amp;</type>
+        <definition>const std::vector&lt;TreeNode&gt;&amp; RADUi::TreeModel::roots</definition>
+        <argsstring>() const</argsstring>
+        <name>roots</name>
+        <briefdescription>
+<para>Returns root nodes. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADUi/headers/RADWidgets.h" line="412" column="27"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADUi_1_1TreeModel_1a1dfd1880ae3c146ee58ae7d1fb1ce298" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void RADUi::TreeModel::setRoots</definition>
+        <argsstring>(std::vector&lt; TreeNode &gt; roots)</argsstring>
+        <name>setRoots</name>
+        <param>
+          <type>std::vector&lt; <ref refid="structRADUi_1_1TreeNode" kindref="compound">TreeNode</ref> &gt;</type>
+          <declname>roots</declname>
+        </param>
+        <briefdescription>
+<para>Replaces root nodes. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADUi/headers/RADWidgets.h" line="414" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADUi_1_1TreeModel_1a667c0ba7fa58c0a28dfc485b939ce746" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void RADUi::TreeModel::clear</definition>
+        <argsstring>()</argsstring>
+        <name>clear</name>
+        <briefdescription>
+<para>Removes all root nodes. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADUi/headers/RADWidgets.h" line="416" column="14"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Tree-view state model. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>RADCore::RADObject</label>
+        <link refid="classRADCore_1_1RADObject"/>
+      </node>
+      <node id="1">
+        <label>RADUi::TreeModel</label>
+        <link refid="classRADUi_1_1TreeModel"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>RADCore::RADObject</label>
+        <link refid="classRADCore_1_1RADObject"/>
+      </node>
+      <node id="3">
+        <label>RADCore::Event&lt; void() &gt;</label>
+        <link refid="classRADCore_1_1Event"/>
+      </node>
+      <node id="1">
+        <label>RADUi::TreeModel</label>
+        <link refid="classRADUi_1_1TreeModel"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="3" relation="usage">
+          <edgelabel>changed</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="RADUi/headers/RADWidgets.h" line="405" column="5" bodyfile="RADUi/headers/RADWidgets.h" bodystart="405" bodyend="420"/>
+    <listofallmembers>
+      <member refid="classRADCore_1_1RADObject_1a06cdf252ffb5e2f88332ebda12a62080" prot="public" virt="non-virtual"><scope>RADUi::TreeModel</scope><name>associatedEventLoop</name></member>
+      <member refid="classRADUi_1_1TreeModel_1adf259d28e6c7c6e6f54059cac5d9b78d" prot="public" virt="non-virtual"><scope>RADUi::TreeModel</scope><name>changed</name></member>
+      <member refid="classRADUi_1_1TreeModel_1a667c0ba7fa58c0a28dfc485b939ce746" prot="public" virt="non-virtual"><scope>RADUi::TreeModel</scope><name>clear</name></member>
+      <member refid="classRADCore_1_1RADObject_1ad2ddfd066d14be9adc2f96bfca417fc6" prot="public" virt="non-virtual"><scope>RADUi::TreeModel</scope><name>lifetimeToken</name></member>
+      <member refid="classRADCore_1_1RADObject_1a1f7f7f2fb40211e28455cd74a029339a" prot="public" virt="non-virtual"><scope>RADUi::TreeModel</scope><name>moveToThread</name></member>
+      <member refid="classRADCore_1_1RADObject_1a9bc3fed915f7c71232e68c2628d34708" prot="public" virt="non-virtual"><scope>RADUi::TreeModel</scope><name>RADObject</name></member>
+      <member refid="classRADCore_1_1RADObject_1af3e26b970c8080418f0d6b80cad986a2" prot="public" virt="non-virtual"><scope>RADUi::TreeModel</scope><name>registerLink</name></member>
+      <member refid="classRADUi_1_1TreeModel_1a7cd2a92a0ae3a9d4ddd5342e2f42c02e" prot="public" virt="non-virtual"><scope>RADUi::TreeModel</scope><name>roots</name></member>
+      <member refid="classRADUi_1_1TreeModel_1a34c8490e8ed45fde7b6ca12ac6d1963a" prot="private" virt="non-virtual"><scope>RADUi::TreeModel</scope><name>roots_</name></member>
+      <member refid="classRADUi_1_1TreeModel_1a1dfd1880ae3c146ee58ae7d1fb1ce298" prot="public" virt="non-virtual"><scope>RADUi::TreeModel</scope><name>setRoots</name></member>
+      <member refid="classRADCore_1_1RADObject_1a8b11df0b951d0db1ba99cfb851e34f31" prot="public" virt="non-virtual"><scope>RADUi::TreeModel</scope><name>threadAffinity</name></member>
+      <member refid="classRADCore_1_1RADObject_1ac7ca67b41523794ae5a6b3634d6ce3b6" prot="public" virt="non-virtual"><scope>RADUi::TreeModel</scope><name>threadId</name></member>
+      <member refid="classRADCore_1_1RADObject_1a7369e27a46c163ee89c63227db650ce5" prot="public" virt="virtual"><scope>RADUi::TreeModel</scope><name>~RADObject</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="md_docs_public_radinput" kind="page">
+    <compoundname>md_docs_public_radinput</compoundname>
+    <title>RADInput</title>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para><ref refid="namespaceRADInput" kindref="compound">RADInput</ref> discovers Linux evdev devices from <computeroutput>/dev/input</computeroutput> and <computeroutput>/sys/class/input</computeroutput>. <computeroutput>InputManager</computeroutput> can read raw input events on a background thread and emit them through <ref refid="namespaceRADCore" kindref="compound">RADCore</ref> events, optionally posted back to a target <computeroutput><ref refid="classRADCore_1_1EventLoop" kindref="compound">RADCore::EventLoop</ref></computeroutput>.</para>
+<para>Use <computeroutput>Calibration</computeroutput> to map raw touch/pointer coordinates into display-space coordinates. Tests and embedded products can pass <computeroutput>InputPaths</computeroutput> to point the API at a fixture tree or alternate device root. </para>
+    </detaileddescription>
+    <location file="docs/public/radinput.md"/>
+  </compounddef>
+</doxygen>

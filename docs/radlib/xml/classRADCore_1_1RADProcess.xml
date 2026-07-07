@@ -1,0 +1,283 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="classRADCore_1_1RADProcess" kind="class" language="C++" prot="public">
+    <compoundname>RADCore::RADProcess</compoundname>
+    <basecompoundref refid="classRADCore_1_1RADObject" prot="public" virt="non-virtual">RADCore::RADObject</basecompoundref>
+    <includes refid="RADCore_8h" local="no">RADCore.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="classRADCore_1_1RADProcess_1a4bc79fead73baad59b9d8cea8ba026e7" prot="public" static="no" mutable="no">
+        <type><ref refid="classRADCore_1_1Event" kindref="compound">RADCore::Event</ref>&lt; void() &gt;</type>
+        <definition>RADCore::Event&lt;void () &gt; RADCore::RADProcess::started</definition>
+        <argsstring></argsstring>
+        <name>started</name>
+        <briefdescription>
+<para>Raised when the child process starts. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADCore/headers/RADCore.h" line="1757" column="30" bodyfile="RADCore/headers/RADCore.h" bodystart="1757" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classRADCore_1_1RADProcess_1a59569bdd242dce76f35ae7d52103ba3a" prot="public" static="no" mutable="no">
+        <type><ref refid="classRADCore_1_1Event" kindref="compound">RADCore::Event</ref>&lt; void(int) &gt;</type>
+        <definition>RADCore::Event&lt;void (int) &gt; RADCore::RADProcess::finished</definition>
+        <argsstring></argsstring>
+        <name>finished</name>
+        <briefdescription>
+<para>Raised with exit code when the child exits. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADCore/headers/RADCore.h" line="1759" column="30" bodyfile="RADCore/headers/RADCore.h" bodystart="1759" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classRADCore_1_1RADProcess_1a36c8846b4a1367b159120f66959ed553" prot="public" static="no" mutable="no">
+        <type><ref refid="classRADCore_1_1Event" kindref="compound">RADCore::Event</ref>&lt; void(std::string) &gt;</type>
+        <definition>RADCore::Event&lt;void (std::string) &gt; RADCore::RADProcess::errorOccurred</definition>
+        <argsstring></argsstring>
+        <name>errorOccurred</name>
+        <briefdescription>
+<para>Raised when process start/wait/read fails. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADCore/headers/RADCore.h" line="1761" column="30" bodyfile="RADCore/headers/RADCore.h" bodystart="1761" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classRADCore_1_1RADProcess_1ae469efc3e2e6aeb83c98e401a16d1f00" prot="private" static="no" mutable="no">
+        <type>std::unique_ptr&lt; Impl &gt;</type>
+        <definition>std::unique_ptr&lt;Impl&gt; RADCore::RADProcess::pImpl_</definition>
+        <argsstring></argsstring>
+        <name>pImpl_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADCore/headers/RADCore.h" line="1786" column="25" bodyfile="RADCore/headers/RADCore.h" bodystart="1785" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classRADCore_1_1RADProcess_1a59b5b66eaad4dc5b68b8ba95cd970202" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>RADCore::RADProcess::RADProcess</definition>
+        <argsstring>()</argsstring>
+        <name>RADProcess</name>
+        <briefdescription>
+<para>Creates a non-running process. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADCore/headers/RADCore.h" line="1764" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADCore_1_1RADProcess_1acb5edb89d2c2802743cfa0bdb7e1e6a9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>RADCore::RADProcess::~RADProcess</definition>
+        <argsstring>() override</argsstring>
+        <name>~RADProcess</name>
+        <briefdescription>
+<para>Kills or cleans up the process if needed. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADCore/headers/RADCore.h" line="1766" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADCore_1_1RADProcess_1aae955fa63a2e7d07b84cfa45157a0b76" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool RADCore::RADProcess::start</definition>
+        <argsstring>(const std::string &amp;program, const std::vector&lt; std::string &gt; &amp;arguments={})</argsstring>
+        <name>start</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>program</declname>
+        </param>
+        <param>
+          <type>const std::vector&lt; std::string &gt; &amp;</type>
+          <declname>arguments</declname>
+          <defval>{}</defval>
+        </param>
+        <briefdescription>
+<para>Starts program with arguments. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADCore/headers/RADCore.h" line="1769" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADCore_1_1RADProcess_1a1645a3c1398ecb45cf07f11f4fef9a06" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool RADCore::RADProcess::waitForFinished</definition>
+        <argsstring>(int timeoutMs=-1)</argsstring>
+        <name>waitForFinished</name>
+        <param>
+          <type>int</type>
+          <declname>timeoutMs</declname>
+          <defval>-1</defval>
+        </param>
+        <briefdescription>
+<para>Waits for process exit; timeoutMs &lt; 0 waits indefinitely. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADCore/headers/RADCore.h" line="1771" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADCore_1_1RADProcess_1a1dba82e26a8ad0202b92918fa3e82d69" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void RADCore::RADProcess::kill</definition>
+        <argsstring>()</argsstring>
+        <name>kill</name>
+        <briefdescription>
+<para>Sends a kill request to the process. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADCore/headers/RADCore.h" line="1773" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADCore_1_1RADProcess_1aa48f48972e65144973dc4f627bc412bb" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="namespaceRADCore_1ad8ca1405788b77553fa27fa95724fb11" kindref="member">ProcessState</ref></type>
+        <definition>ProcessState RADCore::RADProcess::state</definition>
+        <argsstring>() const</argsstring>
+        <name>state</name>
+        <briefdescription>
+<para>Returns process state. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADCore/headers/RADCore.h" line="1776" column="22"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADCore_1_1RADProcess_1ab2986a337a4dcbabe778c41c33507520" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int RADCore::RADProcess::exitCode</definition>
+        <argsstring>() const</argsstring>
+        <name>exitCode</name>
+        <briefdescription>
+<para>Returns exit code after finish. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADCore/headers/RADCore.h" line="1778" column="13"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADCore_1_1RADProcess_1af38716069cca20168e1a32cd957b8943" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>std::string</type>
+        <definition>std::string RADCore::RADProcess::readAllStandardOutput</definition>
+        <argsstring>() const</argsstring>
+        <name>readAllStandardOutput</name>
+        <briefdescription>
+<para>Returns captured stdout. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADCore/headers/RADCore.h" line="1780" column="21"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADCore_1_1RADProcess_1a5a07c7d977481cb9f79da19985e7653f" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>std::string</type>
+        <definition>std::string RADCore::RADProcess::readAllStandardError</definition>
+        <argsstring>() const</argsstring>
+        <name>readAllStandardError</name>
+        <briefdescription>
+<para>Returns captured stderr. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADCore/headers/RADCore.h" line="1782" column="21"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Child process helper for stdout/stderr capture. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>RADCore::RADObject</label>
+        <link refid="classRADCore_1_1RADObject"/>
+      </node>
+      <node id="1">
+        <label>RADCore::RADProcess</label>
+        <link refid="classRADCore_1_1RADProcess"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>RADCore::RADObject</label>
+        <link refid="classRADCore_1_1RADObject"/>
+      </node>
+      <node id="5">
+        <label>RADCore::Event&lt; void(std::string) &gt;</label>
+        <link refid="classRADCore_1_1Event"/>
+      </node>
+      <node id="4">
+        <label>RADCore::Event&lt; void() &gt;</label>
+        <link refid="classRADCore_1_1Event"/>
+      </node>
+      <node id="1">
+        <label>RADCore::RADProcess</label>
+        <link refid="classRADCore_1_1RADProcess"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="3" relation="usage">
+          <edgelabel>finished</edgelabel>
+        </childnode>
+        <childnode refid="4" relation="usage">
+          <edgelabel>started</edgelabel>
+        </childnode>
+        <childnode refid="5" relation="usage">
+          <edgelabel>errorOccurred</edgelabel>
+        </childnode>
+      </node>
+      <node id="3">
+        <label>RADCore::Event&lt; void(int) &gt;</label>
+        <link refid="classRADCore_1_1Event"/>
+      </node>
+    </collaborationgraph>
+    <location file="RADCore/headers/RADCore.h" line="1753" column="5" bodyfile="RADCore/headers/RADCore.h" bodystart="1753" bodyend="1787"/>
+    <listofallmembers>
+      <member refid="classRADCore_1_1RADObject_1a06cdf252ffb5e2f88332ebda12a62080" prot="public" virt="non-virtual"><scope>RADCore::RADProcess</scope><name>associatedEventLoop</name></member>
+      <member refid="classRADCore_1_1RADProcess_1a36c8846b4a1367b159120f66959ed553" prot="public" virt="non-virtual"><scope>RADCore::RADProcess</scope><name>errorOccurred</name></member>
+      <member refid="classRADCore_1_1RADProcess_1ab2986a337a4dcbabe778c41c33507520" prot="public" virt="non-virtual"><scope>RADCore::RADProcess</scope><name>exitCode</name></member>
+      <member refid="classRADCore_1_1RADProcess_1a59569bdd242dce76f35ae7d52103ba3a" prot="public" virt="non-virtual"><scope>RADCore::RADProcess</scope><name>finished</name></member>
+      <member refid="classRADCore_1_1RADProcess_1a1dba82e26a8ad0202b92918fa3e82d69" prot="public" virt="non-virtual"><scope>RADCore::RADProcess</scope><name>kill</name></member>
+      <member refid="classRADCore_1_1RADObject_1ad2ddfd066d14be9adc2f96bfca417fc6" prot="public" virt="non-virtual"><scope>RADCore::RADProcess</scope><name>lifetimeToken</name></member>
+      <member refid="classRADCore_1_1RADObject_1a1f7f7f2fb40211e28455cd74a029339a" prot="public" virt="non-virtual"><scope>RADCore::RADProcess</scope><name>moveToThread</name></member>
+      <member refid="classRADCore_1_1RADProcess_1ae469efc3e2e6aeb83c98e401a16d1f00" prot="private" virt="non-virtual"><scope>RADCore::RADProcess</scope><name>pImpl_</name></member>
+      <member refid="classRADCore_1_1RADObject_1a9bc3fed915f7c71232e68c2628d34708" prot="public" virt="non-virtual"><scope>RADCore::RADProcess</scope><name>RADObject</name></member>
+      <member refid="classRADCore_1_1RADProcess_1a59b5b66eaad4dc5b68b8ba95cd970202" prot="public" virt="non-virtual"><scope>RADCore::RADProcess</scope><name>RADProcess</name></member>
+      <member refid="classRADCore_1_1RADProcess_1a5a07c7d977481cb9f79da19985e7653f" prot="public" virt="non-virtual"><scope>RADCore::RADProcess</scope><name>readAllStandardError</name></member>
+      <member refid="classRADCore_1_1RADProcess_1af38716069cca20168e1a32cd957b8943" prot="public" virt="non-virtual"><scope>RADCore::RADProcess</scope><name>readAllStandardOutput</name></member>
+      <member refid="classRADCore_1_1RADObject_1af3e26b970c8080418f0d6b80cad986a2" prot="public" virt="non-virtual"><scope>RADCore::RADProcess</scope><name>registerLink</name></member>
+      <member refid="classRADCore_1_1RADProcess_1aae955fa63a2e7d07b84cfa45157a0b76" prot="public" virt="non-virtual"><scope>RADCore::RADProcess</scope><name>start</name></member>
+      <member refid="classRADCore_1_1RADProcess_1a4bc79fead73baad59b9d8cea8ba026e7" prot="public" virt="non-virtual"><scope>RADCore::RADProcess</scope><name>started</name></member>
+      <member refid="classRADCore_1_1RADProcess_1aa48f48972e65144973dc4f627bc412bb" prot="public" virt="non-virtual"><scope>RADCore::RADProcess</scope><name>state</name></member>
+      <member refid="classRADCore_1_1RADObject_1a8b11df0b951d0db1ba99cfb851e34f31" prot="public" virt="non-virtual"><scope>RADCore::RADProcess</scope><name>threadAffinity</name></member>
+      <member refid="classRADCore_1_1RADObject_1ac7ca67b41523794ae5a6b3634d6ce3b6" prot="public" virt="non-virtual"><scope>RADCore::RADProcess</scope><name>threadId</name></member>
+      <member refid="classRADCore_1_1RADProcess_1a1645a3c1398ecb45cf07f11f4fef9a06" prot="public" virt="non-virtual"><scope>RADCore::RADProcess</scope><name>waitForFinished</name></member>
+      <member refid="classRADCore_1_1RADObject_1a7369e27a46c163ee89c63227db650ce5" prot="public" virt="virtual"><scope>RADCore::RADProcess</scope><name>~RADObject</name></member>
+      <member refid="classRADCore_1_1RADProcess_1acb5edb89d2c2802743cfa0bdb7e1e6a9" prot="public" virt="non-virtual"><scope>RADCore::RADProcess</scope><name>~RADProcess</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

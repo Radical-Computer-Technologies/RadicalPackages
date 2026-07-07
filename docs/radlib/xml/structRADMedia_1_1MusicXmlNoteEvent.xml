@@ -1,0 +1,144 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="structRADMedia_1_1MusicXmlNoteEvent" kind="struct" language="C++" prot="public">
+    <compoundname>RADMedia::MusicXmlNoteEvent</compoundname>
+    <includes refid="RADMedia_8h" local="no">RADMedia.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structRADMedia_1_1MusicXmlNoteEvent_1a5d4d90e7aea24343693d4b97fe1219ab" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int RADMedia::MusicXmlNoteEvent::startTicks</definition>
+        <argsstring></argsstring>
+        <name>startTicks</name>
+        <initializer>= 0</initializer>
+        <briefdescription>
+<para>Absolute note start in MusicXML divisions. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADMedia/headers/RADMedia.h" line="236" column="13" bodyfile="RADMedia/headers/RADMedia.h" bodystart="236" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structRADMedia_1_1MusicXmlNoteEvent_1a978e027e636367e5d236c7e37cf2d26b" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int RADMedia::MusicXmlNoteEvent::durationTicks</definition>
+        <argsstring></argsstring>
+        <name>durationTicks</name>
+        <initializer>= 0</initializer>
+        <briefdescription>
+<para>Note duration in MusicXML divisions. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADMedia/headers/RADMedia.h" line="238" column="13" bodyfile="RADMedia/headers/RADMedia.h" bodystart="238" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structRADMedia_1_1MusicXmlNoteEvent_1afb6a266153dc0a73d25a75913ba79057" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int RADMedia::MusicXmlNoteEvent::midiNote</definition>
+        <argsstring></argsstring>
+        <name>midiNote</name>
+        <initializer>= 60</initializer>
+        <briefdescription>
+<para>MIDI note number, 0-127. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADMedia/headers/RADMedia.h" line="240" column="13" bodyfile="RADMedia/headers/RADMedia.h" bodystart="240" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structRADMedia_1_1MusicXmlNoteEvent_1a135d9b31bdf6cd324cfb5b1a48790477" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int RADMedia::MusicXmlNoteEvent::writtenDurationTicks</definition>
+        <argsstring></argsstring>
+        <name>writtenDurationTicks</name>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Optional written duration for cases where the sounding duration is ambiguous, such as dotted tuplets. Zero lets the score generator infer spelling. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADMedia/headers/RADMedia.h" line="243" column="13" bodyfile="RADMedia/headers/RADMedia.h" bodystart="243" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structRADMedia_1_1MusicXmlNoteEvent_1a90aec1c5ae42c04f52150d58b45289fe" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int RADMedia::MusicXmlNoteEvent::writtenDots</definition>
+        <argsstring></argsstring>
+        <name>writtenDots</name>
+        <initializer>= 0</initializer>
+        <briefdescription>
+<para>Optional number of written augmentation dots when writtenDurationTicks is set. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADMedia/headers/RADMedia.h" line="245" column="13" bodyfile="RADMedia/headers/RADMedia.h" bodystart="245" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structRADMedia_1_1MusicXmlNoteEvent_1af3e21ed07d2de155c4272dccbd34cbf8" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int RADMedia::MusicXmlNoteEvent::tupletActualNotes</definition>
+        <argsstring></argsstring>
+        <name>tupletActualNotes</name>
+        <initializer>= 0</initializer>
+        <briefdescription>
+<para>Optional tuplet actual-note count, e.g. 3 for a triplet. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADMedia/headers/RADMedia.h" line="247" column="13" bodyfile="RADMedia/headers/RADMedia.h" bodystart="247" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structRADMedia_1_1MusicXmlNoteEvent_1ae4a197ddc32fe64f98a1fa08c64f21bc" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int RADMedia::MusicXmlNoteEvent::tupletNormalNotes</definition>
+        <argsstring></argsstring>
+        <name>tupletNormalNotes</name>
+        <initializer>= 0</initializer>
+        <briefdescription>
+<para>Optional tuplet normal-note count, e.g. 2 for a triplet. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADMedia/headers/RADMedia.h" line="249" column="13" bodyfile="RADMedia/headers/RADMedia.h" bodystart="249" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structRADMedia_1_1MusicXmlNoteEvent_1a5a513acecddf19a97c95af37c8f98f45" prot="public" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string RADMedia::MusicXmlNoteEvent::color</definition>
+        <argsstring></argsstring>
+        <name>color</name>
+        <briefdescription>
+<para>Optional MusicXML color value such as &quot;#7dd3fc&quot;; empty uses renderer default. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADMedia/headers/RADMedia.h" line="251" column="21" bodyfile="RADMedia/headers/RADMedia.h" bodystart="251" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>MIDI-like note event for MusicXML score generation. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="RADMedia/headers/RADMedia.h" line="234" column="5" bodyfile="RADMedia/headers/RADMedia.h" bodystart="234" bodyend="252"/>
+    <listofallmembers>
+      <member refid="structRADMedia_1_1MusicXmlNoteEvent_1a5a513acecddf19a97c95af37c8f98f45" prot="public" virt="non-virtual"><scope>RADMedia::MusicXmlNoteEvent</scope><name>color</name></member>
+      <member refid="structRADMedia_1_1MusicXmlNoteEvent_1a978e027e636367e5d236c7e37cf2d26b" prot="public" virt="non-virtual"><scope>RADMedia::MusicXmlNoteEvent</scope><name>durationTicks</name></member>
+      <member refid="structRADMedia_1_1MusicXmlNoteEvent_1afb6a266153dc0a73d25a75913ba79057" prot="public" virt="non-virtual"><scope>RADMedia::MusicXmlNoteEvent</scope><name>midiNote</name></member>
+      <member refid="structRADMedia_1_1MusicXmlNoteEvent_1a5d4d90e7aea24343693d4b97fe1219ab" prot="public" virt="non-virtual"><scope>RADMedia::MusicXmlNoteEvent</scope><name>startTicks</name></member>
+      <member refid="structRADMedia_1_1MusicXmlNoteEvent_1af3e21ed07d2de155c4272dccbd34cbf8" prot="public" virt="non-virtual"><scope>RADMedia::MusicXmlNoteEvent</scope><name>tupletActualNotes</name></member>
+      <member refid="structRADMedia_1_1MusicXmlNoteEvent_1ae4a197ddc32fe64f98a1fa08c64f21bc" prot="public" virt="non-virtual"><scope>RADMedia::MusicXmlNoteEvent</scope><name>tupletNormalNotes</name></member>
+      <member refid="structRADMedia_1_1MusicXmlNoteEvent_1a90aec1c5ae42c04f52150d58b45289fe" prot="public" virt="non-virtual"><scope>RADMedia::MusicXmlNoteEvent</scope><name>writtenDots</name></member>
+      <member refid="structRADMedia_1_1MusicXmlNoteEvent_1a135d9b31bdf6cd324cfb5b1a48790477" prot="public" virt="non-virtual"><scope>RADMedia::MusicXmlNoteEvent</scope><name>writtenDurationTicks</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,237 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="classRADCore_1_1RADFileSystemWatcher" kind="class" language="C++" prot="public">
+    <compoundname>RADCore::RADFileSystemWatcher</compoundname>
+    <basecompoundref refid="classRADCore_1_1RADObject" prot="public" virt="non-virtual">RADCore::RADObject</basecompoundref>
+    <includes refid="RADCore_8h" local="no">RADCore.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="classRADCore_1_1RADFileSystemWatcher_1a1b44d92a9f0050a95d1837216320449e" prot="public" static="no" mutable="no">
+        <type><ref refid="classRADCore_1_1Event" kindref="compound">RADCore::Event</ref>&lt; void(std::string, <ref refid="namespaceRADCore_1a937659aa8d64a9943a3382392c60bbc6" kindref="member">FileSystemEvent</ref>) &gt;</type>
+        <definition>RADCore::Event&lt;void (std::string, FileSystemEvent) &gt; RADCore::RADFileSystemWatcher::changed</definition>
+        <argsstring></argsstring>
+        <name>changed</name>
+        <briefdescription>
+<para>Raised with path and event type when a watched path changes. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADCore/headers/RADCore.h" line="1466" column="30" bodyfile="RADCore/headers/RADCore.h" bodystart="1466" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classRADCore_1_1RADFileSystemWatcher_1a290d00a5543303b7a21b3d52c9221ca3" prot="public" static="no" mutable="no">
+        <type><ref refid="classRADCore_1_1Event" kindref="compound">RADCore::Event</ref>&lt; void(std::string) &gt;</type>
+        <definition>RADCore::Event&lt;void (std::string) &gt; RADCore::RADFileSystemWatcher::errorOccurred</definition>
+        <argsstring></argsstring>
+        <name>errorOccurred</name>
+        <briefdescription>
+<para>Raised when watcher setup or event processing fails. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADCore/headers/RADCore.h" line="1468" column="30" bodyfile="RADCore/headers/RADCore.h" bodystart="1468" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classRADCore_1_1RADFileSystemWatcher_1a78a24537d9b16f4dbb746d78d92dd52f" prot="private" static="no" mutable="no">
+        <type>std::shared_ptr&lt; Impl &gt;</type>
+        <definition>std::shared_ptr&lt;Impl&gt; RADCore::RADFileSystemWatcher::pImpl_</definition>
+        <argsstring></argsstring>
+        <name>pImpl_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADCore/headers/RADCore.h" line="1488" column="25" bodyfile="RADCore/headers/RADCore.h" bodystart="1487" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classRADCore_1_1RADFileSystemWatcher_1a5fe1301aefa297baf229ae70d294982c" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>RADCore::RADFileSystemWatcher::RADFileSystemWatcher</definition>
+        <argsstring>(EventLoop &amp;loop)</argsstring>
+        <name>RADFileSystemWatcher</name>
+        <param>
+          <type><ref refid="classRADCore_1_1EventLoop" kindref="compound">EventLoop</ref> &amp;</type>
+          <declname>loop</declname>
+        </param>
+        <briefdescription>
+<para>Creates a watcher that posts events to loop. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADCore/headers/RADCore.h" line="1471" column="18"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADCore_1_1RADFileSystemWatcher_1a206be719ea9dec5c29ca1ac7c6f433c9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>RADCore::RADFileSystemWatcher::~RADFileSystemWatcher</definition>
+        <argsstring>() override</argsstring>
+        <name>~RADFileSystemWatcher</name>
+        <briefdescription>
+<para>Stops the watcher. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADCore/headers/RADCore.h" line="1473" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADCore_1_1RADFileSystemWatcher_1ac44e2528a1fc4ed8fc14d354be269808" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool RADCore::RADFileSystemWatcher::addPath</definition>
+        <argsstring>(const std::string &amp;path)</argsstring>
+        <name>addPath</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>path</declname>
+        </param>
+        <briefdescription>
+<para>Adds a non-recursive path watch. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADCore/headers/RADCore.h" line="1476" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADCore_1_1RADFileSystemWatcher_1acea1a928edcf727751fc25c99c62a611" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool RADCore::RADFileSystemWatcher::addPath</definition>
+        <argsstring>(const std::string &amp;path, bool recursive)</argsstring>
+        <name>addPath</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>path</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>recursive</declname>
+        </param>
+        <briefdescription>
+<para>Adds a path watch, recursively when requested. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADCore/headers/RADCore.h" line="1478" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADCore_1_1RADFileSystemWatcher_1a0bbaa3848199c40f9cf537f962c60426" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void RADCore::RADFileSystemWatcher::removePath</definition>
+        <argsstring>(const std::string &amp;path)</argsstring>
+        <name>removePath</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>path</declname>
+        </param>
+        <briefdescription>
+<para>Removes a watched path. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADCore/headers/RADCore.h" line="1480" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADCore_1_1RADFileSystemWatcher_1ad7373c3b23ae01bb580eb9a70f7ba890" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void RADCore::RADFileSystemWatcher::clear</definition>
+        <argsstring>()</argsstring>
+        <name>clear</name>
+        <briefdescription>
+<para>Removes all watched paths. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADCore/headers/RADCore.h" line="1482" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADCore_1_1RADFileSystemWatcher_1a2bc6789347e9ffa2f10714fe51ca861d" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>std::vector&lt; std::string &gt;</type>
+        <definition>std::vector&lt;std::string&gt; RADCore::RADFileSystemWatcher::paths</definition>
+        <argsstring>() const</argsstring>
+        <name>paths</name>
+        <briefdescription>
+<para>Returns currently watched paths. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADCore/headers/RADCore.h" line="1484" column="21"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>inotify-backed filesystem watcher that emits on a <ref refid="namespaceRADCore" kindref="compound">RADCore</ref> <ref refid="classRADCore_1_1EventLoop" kindref="compound">EventLoop</ref>. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>RADCore::RADObject</label>
+        <link refid="classRADCore_1_1RADObject"/>
+      </node>
+      <node id="1">
+        <label>RADCore::RADFileSystemWatcher</label>
+        <link refid="classRADCore_1_1RADFileSystemWatcher"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>RADCore::RADObject</label>
+        <link refid="classRADCore_1_1RADObject"/>
+      </node>
+      <node id="3">
+        <label>RADCore::Event&lt; void(std::string, FileSystemEvent) &gt;</label>
+        <link refid="classRADCore_1_1Event"/>
+      </node>
+      <node id="4">
+        <label>RADCore::Event&lt; void(std::string) &gt;</label>
+        <link refid="classRADCore_1_1Event"/>
+      </node>
+      <node id="1">
+        <label>RADCore::RADFileSystemWatcher</label>
+        <link refid="classRADCore_1_1RADFileSystemWatcher"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="3" relation="usage">
+          <edgelabel>changed</edgelabel>
+        </childnode>
+        <childnode refid="4" relation="usage">
+          <edgelabel>errorOccurred</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="RADCore/headers/RADCore.h" line="1462" column="5" bodyfile="RADCore/headers/RADCore.h" bodystart="1462" bodyend="1489"/>
+    <listofallmembers>
+      <member refid="classRADCore_1_1RADFileSystemWatcher_1ac44e2528a1fc4ed8fc14d354be269808" prot="public" virt="non-virtual"><scope>RADCore::RADFileSystemWatcher</scope><name>addPath</name></member>
+      <member refid="classRADCore_1_1RADFileSystemWatcher_1acea1a928edcf727751fc25c99c62a611" prot="public" virt="non-virtual"><scope>RADCore::RADFileSystemWatcher</scope><name>addPath</name></member>
+      <member refid="classRADCore_1_1RADObject_1a06cdf252ffb5e2f88332ebda12a62080" prot="public" virt="non-virtual"><scope>RADCore::RADFileSystemWatcher</scope><name>associatedEventLoop</name></member>
+      <member refid="classRADCore_1_1RADFileSystemWatcher_1a1b44d92a9f0050a95d1837216320449e" prot="public" virt="non-virtual"><scope>RADCore::RADFileSystemWatcher</scope><name>changed</name></member>
+      <member refid="classRADCore_1_1RADFileSystemWatcher_1ad7373c3b23ae01bb580eb9a70f7ba890" prot="public" virt="non-virtual"><scope>RADCore::RADFileSystemWatcher</scope><name>clear</name></member>
+      <member refid="classRADCore_1_1RADFileSystemWatcher_1a290d00a5543303b7a21b3d52c9221ca3" prot="public" virt="non-virtual"><scope>RADCore::RADFileSystemWatcher</scope><name>errorOccurred</name></member>
+      <member refid="classRADCore_1_1RADObject_1ad2ddfd066d14be9adc2f96bfca417fc6" prot="public" virt="non-virtual"><scope>RADCore::RADFileSystemWatcher</scope><name>lifetimeToken</name></member>
+      <member refid="classRADCore_1_1RADObject_1a1f7f7f2fb40211e28455cd74a029339a" prot="public" virt="non-virtual"><scope>RADCore::RADFileSystemWatcher</scope><name>moveToThread</name></member>
+      <member refid="classRADCore_1_1RADFileSystemWatcher_1a2bc6789347e9ffa2f10714fe51ca861d" prot="public" virt="non-virtual"><scope>RADCore::RADFileSystemWatcher</scope><name>paths</name></member>
+      <member refid="classRADCore_1_1RADFileSystemWatcher_1a78a24537d9b16f4dbb746d78d92dd52f" prot="private" virt="non-virtual"><scope>RADCore::RADFileSystemWatcher</scope><name>pImpl_</name></member>
+      <member refid="classRADCore_1_1RADFileSystemWatcher_1a5fe1301aefa297baf229ae70d294982c" prot="public" virt="non-virtual"><scope>RADCore::RADFileSystemWatcher</scope><name>RADFileSystemWatcher</name></member>
+      <member refid="classRADCore_1_1RADObject_1a9bc3fed915f7c71232e68c2628d34708" prot="public" virt="non-virtual"><scope>RADCore::RADFileSystemWatcher</scope><name>RADObject</name></member>
+      <member refid="classRADCore_1_1RADObject_1af3e26b970c8080418f0d6b80cad986a2" prot="public" virt="non-virtual"><scope>RADCore::RADFileSystemWatcher</scope><name>registerLink</name></member>
+      <member refid="classRADCore_1_1RADFileSystemWatcher_1a0bbaa3848199c40f9cf537f962c60426" prot="public" virt="non-virtual"><scope>RADCore::RADFileSystemWatcher</scope><name>removePath</name></member>
+      <member refid="classRADCore_1_1RADObject_1a8b11df0b951d0db1ba99cfb851e34f31" prot="public" virt="non-virtual"><scope>RADCore::RADFileSystemWatcher</scope><name>threadAffinity</name></member>
+      <member refid="classRADCore_1_1RADObject_1ac7ca67b41523794ae5a6b3634d6ce3b6" prot="public" virt="non-virtual"><scope>RADCore::RADFileSystemWatcher</scope><name>threadId</name></member>
+      <member refid="classRADCore_1_1RADFileSystemWatcher_1a206be719ea9dec5c29ca1ac7c6f433c9" prot="public" virt="non-virtual"><scope>RADCore::RADFileSystemWatcher</scope><name>~RADFileSystemWatcher</name></member>
+      <member refid="classRADCore_1_1RADObject_1a7369e27a46c163ee89c63227db650ce5" prot="public" virt="virtual"><scope>RADCore::RADFileSystemWatcher</scope><name>~RADObject</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

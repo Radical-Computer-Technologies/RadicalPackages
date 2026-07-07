@@ -1,0 +1,242 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="classRADNet_1_1RADUdpSocket" kind="class" language="C++" prot="public">
+    <compoundname>RADNet::RADUdpSocket</compoundname>
+    <basecompoundref refid="classRADCore_1_1RADObject" prot="public" virt="non-virtual">RADCore::RADObject</basecompoundref>
+    <includes refid="RADNet_8h" local="no">RADNet.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="classRADNet_1_1RADUdpSocket_1a5a21257765b62a68afbd0d8b026eafb0" prot="public" static="no" mutable="no">
+        <type><ref refid="classRADCore_1_1Event" kindref="compound">RADCore::Event</ref>&lt; void(<ref refid="structRADNet_1_1Datagram" kindref="compound">RADNet::Datagram</ref>) &gt;</type>
+        <definition>RADCore::Event&lt;void (RADNet::Datagram) &gt; RADNet::RADUdpSocket::datagramReceived</definition>
+        <argsstring></argsstring>
+        <name>datagramReceived</name>
+        <briefdescription>
+<para>Raised on the owning <ref refid="namespaceRADCore" kindref="compound">RADCore</ref> event loop when a datagram arrives. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADNet/headers/RADNet.h" line="67" column="30" bodyfile="RADNet/headers/RADNet.h" bodystart="67" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classRADNet_1_1RADUdpSocket_1accd770efda6be6e81d74fca947621509" prot="public" static="no" mutable="no">
+        <type><ref refid="classRADCore_1_1Event" kindref="compound">RADCore::Event</ref>&lt; void(std::string) &gt;</type>
+        <definition>RADCore::Event&lt;void (std::string) &gt; RADNet::RADUdpSocket::errorOccurred</definition>
+        <argsstring></argsstring>
+        <name>errorOccurred</name>
+        <briefdescription>
+<para>Raised when bind, send, receive, or reactor setup fails. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADNet/headers/RADNet.h" line="69" column="30" bodyfile="RADNet/headers/RADNet.h" bodystart="69" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classRADNet_1_1RADUdpSocket_1a3ceac4d5854e20c0daf9c24bb3b7d551" prot="private" static="no" mutable="no">
+        <type>std::shared_ptr&lt; Impl &gt;</type>
+        <definition>std::shared_ptr&lt;Impl&gt; RADNet::RADUdpSocket::pImpl_</definition>
+        <argsstring></argsstring>
+        <name>pImpl_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADNet/headers/RADNet.h" line="89" column="25" bodyfile="RADNet/headers/RADNet.h" bodystart="88" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classRADNet_1_1RADUdpSocket_1acb5aef653ebbd661bae94a22f4ba1e7c" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>RADNet::RADUdpSocket::RADUdpSocket</definition>
+        <argsstring>(RADCore::EventLoop &amp;loop)</argsstring>
+        <name>RADUdpSocket</name>
+        <param>
+          <type><ref refid="classRADCore_1_1EventLoop" kindref="compound">RADCore::EventLoop</ref> &amp;</type>
+          <declname>loop</declname>
+        </param>
+        <briefdescription>
+<para>Creates a UDP socket whose events are posted to loop. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADNet/headers/RADNet.h" line="72" column="18"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADNet_1_1RADUdpSocket_1a2ab454c88f30a444cfa31a522861206d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>RADNet::RADUdpSocket::~RADUdpSocket</definition>
+        <argsstring>()</argsstring>
+        <name>~RADUdpSocket</name>
+        <briefdescription>
+<para>Closes the socket and unregisters it from the reactor. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADNet/headers/RADNet.h" line="74" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADNet_1_1RADUdpSocket_1a80fe8ba08481080ded1b15612a38eb3e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool RADNet::RADUdpSocket::bind</definition>
+        <argsstring>(uint16_t port, const std::string &amp;address=&quot;0.0.0.0&quot;)</argsstring>
+        <name>bind</name>
+        <param>
+          <type>uint16_t</type>
+          <declname>port</declname>
+        </param>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>address</declname>
+          <defval>&quot;0.0.0.0&quot;</defval>
+        </param>
+        <briefdescription>
+<para>Binds to address:port. Use port 0 to request an ephemeral port. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADNet/headers/RADNet.h" line="77" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADNet_1_1RADUdpSocket_1a1a006ffcb2688a2a840318ded41ad7cf" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool RADNet::RADUdpSocket::sendTo</definition>
+        <argsstring>(const std::string &amp;address, uint16_t port, const std::vector&lt; uint8_t &gt; &amp;payload)</argsstring>
+        <name>sendTo</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>address</declname>
+        </param>
+        <param>
+          <type>uint16_t</type>
+          <declname>port</declname>
+        </param>
+        <param>
+          <type>const std::vector&lt; uint8_t &gt; &amp;</type>
+          <declname>payload</declname>
+        </param>
+        <briefdescription>
+<para>Sends payload to address:port. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADNet/headers/RADNet.h" line="79" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADNet_1_1RADUdpSocket_1a2fa0aa30a7aa5e1975fc55fb62c6ab08" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void RADNet::RADUdpSocket::close</definition>
+        <argsstring>()</argsstring>
+        <name>close</name>
+        <briefdescription>
+<para>Closes the UDP file descriptor if open. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADNet/headers/RADNet.h" line="81" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADNet_1_1RADUdpSocket_1ac3544d2ab8e4c98b6e038a4d65b2bf76" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool RADNet::RADUdpSocket::isOpen</definition>
+        <argsstring>() const</argsstring>
+        <name>isOpen</name>
+        <briefdescription>
+<para>Returns true when the socket currently owns an open descriptor. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADNet/headers/RADNet.h" line="83" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADNet_1_1RADUdpSocket_1af66c6eb01e95182bbbf061a46fda4aad" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>uint16_t</type>
+        <definition>uint16_t RADNet::RADUdpSocket::localPort</definition>
+        <argsstring>() const</argsstring>
+        <name>localPort</name>
+        <briefdescription>
+<para>Returns the bound local port, or 0 when unavailable. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADNet/headers/RADNet.h" line="85" column="18"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Event-loop integrated UDP socket. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>RADCore::RADObject</label>
+        <link refid="classRADCore_1_1RADObject"/>
+      </node>
+      <node id="1">
+        <label>RADNet::RADUdpSocket</label>
+        <link refid="classRADNet_1_1RADUdpSocket"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>RADCore::RADObject</label>
+        <link refid="classRADCore_1_1RADObject"/>
+      </node>
+      <node id="4">
+        <label>RADCore::Event&lt; void(std::string) &gt;</label>
+        <link refid="classRADCore_1_1Event"/>
+      </node>
+      <node id="3">
+        <label>RADCore::Event&lt; void(RADNet::Datagram) &gt;</label>
+        <link refid="classRADCore_1_1Event"/>
+      </node>
+      <node id="1">
+        <label>RADNet::RADUdpSocket</label>
+        <link refid="classRADNet_1_1RADUdpSocket"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="3" relation="usage">
+          <edgelabel>datagramReceived</edgelabel>
+        </childnode>
+        <childnode refid="4" relation="usage">
+          <edgelabel>errorOccurred</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="RADNet/headers/RADNet.h" line="63" column="5" bodyfile="RADNet/headers/RADNet.h" bodystart="63" bodyend="90"/>
+    <listofallmembers>
+      <member refid="classRADCore_1_1RADObject_1a06cdf252ffb5e2f88332ebda12a62080" prot="public" virt="non-virtual"><scope>RADNet::RADUdpSocket</scope><name>associatedEventLoop</name></member>
+      <member refid="classRADNet_1_1RADUdpSocket_1a80fe8ba08481080ded1b15612a38eb3e" prot="public" virt="non-virtual"><scope>RADNet::RADUdpSocket</scope><name>bind</name></member>
+      <member refid="classRADNet_1_1RADUdpSocket_1a2fa0aa30a7aa5e1975fc55fb62c6ab08" prot="public" virt="non-virtual"><scope>RADNet::RADUdpSocket</scope><name>close</name></member>
+      <member refid="classRADNet_1_1RADUdpSocket_1a5a21257765b62a68afbd0d8b026eafb0" prot="public" virt="non-virtual"><scope>RADNet::RADUdpSocket</scope><name>datagramReceived</name></member>
+      <member refid="classRADNet_1_1RADUdpSocket_1accd770efda6be6e81d74fca947621509" prot="public" virt="non-virtual"><scope>RADNet::RADUdpSocket</scope><name>errorOccurred</name></member>
+      <member refid="classRADNet_1_1RADUdpSocket_1ac3544d2ab8e4c98b6e038a4d65b2bf76" prot="public" virt="non-virtual"><scope>RADNet::RADUdpSocket</scope><name>isOpen</name></member>
+      <member refid="classRADCore_1_1RADObject_1ad2ddfd066d14be9adc2f96bfca417fc6" prot="public" virt="non-virtual"><scope>RADNet::RADUdpSocket</scope><name>lifetimeToken</name></member>
+      <member refid="classRADNet_1_1RADUdpSocket_1af66c6eb01e95182bbbf061a46fda4aad" prot="public" virt="non-virtual"><scope>RADNet::RADUdpSocket</scope><name>localPort</name></member>
+      <member refid="classRADCore_1_1RADObject_1a1f7f7f2fb40211e28455cd74a029339a" prot="public" virt="non-virtual"><scope>RADNet::RADUdpSocket</scope><name>moveToThread</name></member>
+      <member refid="classRADNet_1_1RADUdpSocket_1a3ceac4d5854e20c0daf9c24bb3b7d551" prot="private" virt="non-virtual"><scope>RADNet::RADUdpSocket</scope><name>pImpl_</name></member>
+      <member refid="classRADCore_1_1RADObject_1a9bc3fed915f7c71232e68c2628d34708" prot="public" virt="non-virtual"><scope>RADNet::RADUdpSocket</scope><name>RADObject</name></member>
+      <member refid="classRADNet_1_1RADUdpSocket_1acb5aef653ebbd661bae94a22f4ba1e7c" prot="public" virt="non-virtual"><scope>RADNet::RADUdpSocket</scope><name>RADUdpSocket</name></member>
+      <member refid="classRADCore_1_1RADObject_1af3e26b970c8080418f0d6b80cad986a2" prot="public" virt="non-virtual"><scope>RADNet::RADUdpSocket</scope><name>registerLink</name></member>
+      <member refid="classRADNet_1_1RADUdpSocket_1a1a006ffcb2688a2a840318ded41ad7cf" prot="public" virt="non-virtual"><scope>RADNet::RADUdpSocket</scope><name>sendTo</name></member>
+      <member refid="classRADCore_1_1RADObject_1a8b11df0b951d0db1ba99cfb851e34f31" prot="public" virt="non-virtual"><scope>RADNet::RADUdpSocket</scope><name>threadAffinity</name></member>
+      <member refid="classRADCore_1_1RADObject_1ac7ca67b41523794ae5a6b3634d6ce3b6" prot="public" virt="non-virtual"><scope>RADNet::RADUdpSocket</scope><name>threadId</name></member>
+      <member refid="classRADCore_1_1RADObject_1a7369e27a46c163ee89c63227db650ce5" prot="public" virt="virtual"><scope>RADNet::RADUdpSocket</scope><name>~RADObject</name></member>
+      <member refid="classRADNet_1_1RADUdpSocket_1a2ab454c88f30a444cfa31a522861206d" prot="public" virt="non-virtual"><scope>RADNet::RADUdpSocket</scope><name>~RADUdpSocket</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

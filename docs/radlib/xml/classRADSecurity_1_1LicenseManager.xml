@@ -1,0 +1,370 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="classRADSecurity_1_1LicenseManager" kind="class" language="C++" prot="public">
+    <compoundname>RADSecurity::LicenseManager</compoundname>
+    <includes refid="RADSecurity_8h" local="no">RADSecurity.h</includes>
+      <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="classRADSecurity_1_1LicenseManager_1ab8436dde0e673739561e857e42e00270" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classRADCore_1_1RADResult" kindref="compound">RADCore::RADResult</ref>&lt; std::string &gt;</type>
+        <definition>static RADCore::RADResult&lt;std::string&gt; RADSecurity::LicenseManager::machineFingerprint</definition>
+        <argsstring>()</argsstring>
+        <name>machineFingerprint</name>
+        <briefdescription>
+<para>Returns a privacy-preserving host fingerprint for local license binding. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADSecurity/headers/RADSecurity.h" line="224" column="35"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADSecurity_1_1LicenseManager_1acb5d850d8cf77d6b6fdc3610e68a382c" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classRADCore_1_1RADResult" kindref="compound">RADCore::RADResult</ref>&lt; std::string &gt;</type>
+        <definition>static RADCore::RADResult&lt;std::string&gt; RADSecurity::LicenseManager::publicKeyFingerprint</definition>
+        <argsstring>(const std::string &amp;publicKeyPem)</argsstring>
+        <name>publicKeyFingerprint</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>publicKeyPem</declname>
+        </param>
+        <briefdescription>
+<para>Returns a SHA-256 fingerprint for a PEM public key. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADSecurity/headers/RADSecurity.h" line="226" column="35"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADSecurity_1_1LicenseManager_1a64b3d504a2eff1bf491251131a5b05f0" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::string</type>
+        <definition>static std::string RADSecurity::LicenseManager::licenseKindToString</definition>
+        <argsstring>(LicenseKind kind)</argsstring>
+        <name>licenseKindToString</name>
+        <param>
+          <type><ref refid="namespaceRADSecurity_1a619e218496ec60c75bb1e203377ce1a5" kindref="member">LicenseKind</ref></type>
+          <declname>kind</declname>
+        </param>
+        <briefdescription>
+<para>Converts a license kind to stable text. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADSecurity/headers/RADSecurity.h" line="228" column="28"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADSecurity_1_1LicenseManager_1ae79d35b2bdb3e5405edccbff3e7683d3" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="namespaceRADSecurity_1a619e218496ec60c75bb1e203377ce1a5" kindref="member">LicenseKind</ref></type>
+        <definition>static LicenseKind RADSecurity::LicenseManager::licenseKindFromString</definition>
+        <argsstring>(const std::string &amp;text)</argsstring>
+        <name>licenseKindFromString</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>text</declname>
+        </param>
+        <briefdescription>
+<para>Parses stable license kind text. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADSecurity/headers/RADSecurity.h" line="230" column="28"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADSecurity_1_1LicenseManager_1aea2a361b1af92ed944ed7e913ac9f863" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::string</type>
+        <definition>static std::string RADSecurity::LicenseManager::licenseStatusToString</definition>
+        <argsstring>(LicenseStatus status)</argsstring>
+        <name>licenseStatusToString</name>
+        <param>
+          <type><ref refid="namespaceRADSecurity_1af455611e5aa5dc3c0135486be5789eed" kindref="member">LicenseStatus</ref></type>
+          <declname>status</declname>
+        </param>
+        <briefdescription>
+<para>Converts a license status to stable text. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADSecurity/headers/RADSecurity.h" line="232" column="28"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADSecurity_1_1LicenseManager_1a4dec90a7884e298de6f035721194e794" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classRADCore_1_1RADJsonValue" kindref="compound">RADCore::RADJsonValue</ref></type>
+        <definition>static RADCore::RADJsonValue RADSecurity::LicenseManager::payloadToJson</definition>
+        <argsstring>(const LicensePayload &amp;payload)</argsstring>
+        <name>payloadToJson</name>
+        <param>
+          <type>const <ref refid="structRADSecurity_1_1LicensePayload" kindref="compound">LicensePayload</ref> &amp;</type>
+          <declname>payload</declname>
+        </param>
+        <briefdescription>
+<para>Serializes the signed payload in canonical form. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADSecurity/headers/RADSecurity.h" line="234" column="38"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADSecurity_1_1LicenseManager_1a6eca697b0680e56dfdfc0c2b254f2b47" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classRADCore_1_1RADResult" kindref="compound">RADCore::RADResult</ref>&lt; <ref refid="structRADSecurity_1_1LicensePayload" kindref="compound">LicensePayload</ref> &gt;</type>
+        <definition>static RADCore::RADResult&lt;LicensePayload&gt; RADSecurity::LicenseManager::payloadFromJson</definition>
+        <argsstring>(const RADCore::RADJsonValue &amp;value)</argsstring>
+        <name>payloadFromJson</name>
+        <param>
+          <type>const <ref refid="classRADCore_1_1RADJsonValue" kindref="compound">RADCore::RADJsonValue</ref> &amp;</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+<para>Parses a payload object from JSON. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADSecurity/headers/RADSecurity.h" line="236" column="35"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADSecurity_1_1LicenseManager_1a4592289f935b4469b46c8c619a08fbb4" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::string</type>
+        <definition>static std::string RADSecurity::LicenseManager::canonicalPayloadJson</definition>
+        <argsstring>(const LicensePayload &amp;payload)</argsstring>
+        <name>canonicalPayloadJson</name>
+        <param>
+          <type>const <ref refid="structRADSecurity_1_1LicensePayload" kindref="compound">LicensePayload</ref> &amp;</type>
+          <declname>payload</declname>
+        </param>
+        <briefdescription>
+<para>Returns canonical JSON bytes used for signing and verification. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADSecurity/headers/RADSecurity.h" line="238" column="28"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADSecurity_1_1LicenseManager_1ae8be5abe6e876746fc2d983e6ebcda69" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classRADCore_1_1RADResult" kindref="compound">RADCore::RADResult</ref>&lt; <ref refid="classRADCore_1_1RADJsonDocument" kindref="compound">RADCore::RADJsonDocument</ref> &gt;</type>
+        <definition>static RADCore::RADResult&lt;RADCore::RADJsonDocument&gt; RADSecurity::LicenseManager::createSignedLicense</definition>
+        <argsstring>(const LicensePayload &amp;payload, const std::string &amp;privateKeyPem, const std::string &amp;issuerKeyId={})</argsstring>
+        <name>createSignedLicense</name>
+        <param>
+          <type>const <ref refid="structRADSecurity_1_1LicensePayload" kindref="compound">LicensePayload</ref> &amp;</type>
+          <declname>payload</declname>
+        </param>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>privateKeyPem</declname>
+        </param>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>issuerKeyId</declname>
+          <defval>{}</defval>
+        </param>
+        <briefdescription>
+<para>Creates a signed license JSON document with a hex RSA-SHA256 signature. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADSecurity/headers/RADSecurity.h" line="240" column="35"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADSecurity_1_1LicenseManager_1a33288beb9dccc29180376fd7a7367117" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classRADCore_1_1RADResult" kindref="compound">RADCore::RADResult</ref>&lt; <ref refid="classRADCore_1_1RADJsonDocument" kindref="compound">RADCore::RADJsonDocument</ref> &gt;</type>
+        <definition>static RADCore::RADResult&lt;RADCore::RADJsonDocument&gt; RADSecurity::LicenseManager::createNodeLockedLicense</definition>
+        <argsstring>(LicensePayload payload, const std::string &amp;privateKeyPem, const std::string &amp;machineFingerprintOverride={}, const std::string &amp;issuerKeyId={})</argsstring>
+        <name>createNodeLockedLicense</name>
+        <param>
+          <type><ref refid="structRADSecurity_1_1LicensePayload" kindref="compound">LicensePayload</ref></type>
+          <declname>payload</declname>
+        </param>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>privateKeyPem</declname>
+        </param>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>machineFingerprintOverride</declname>
+          <defval>{}</defval>
+        </param>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>issuerKeyId</declname>
+          <defval>{}</defval>
+        </param>
+        <briefdescription>
+<para>Creates a signed license bound to this machine or to machineFingerprintOverride. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADSecurity/headers/RADSecurity.h" line="245" column="35"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADSecurity_1_1LicenseManager_1aa09a1f2466dbee5a0c8950309f29c94f" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structRADSecurity_1_1LicenseCheckResult" kindref="compound">LicenseCheckResult</ref></type>
+        <definition>static LicenseCheckResult RADSecurity::LicenseManager::verifySignedLicense</definition>
+        <argsstring>(const RADCore::RADJsonDocument &amp;document, const std::string &amp;publicKeyPem, const LicenseCheckOptions &amp;options={})</argsstring>
+        <name>verifySignedLicense</name>
+        <param>
+          <type>const <ref refid="classRADCore_1_1RADJsonDocument" kindref="compound">RADCore::RADJsonDocument</ref> &amp;</type>
+          <declname>document</declname>
+        </param>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>publicKeyPem</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structRADSecurity_1_1LicenseCheckOptions" kindref="compound">LicenseCheckOptions</ref> &amp;</type>
+          <declname>options</declname>
+          <defval>{}</defval>
+        </param>
+        <briefdescription>
+<para>Verifies a signed license document using publicKeyPem. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADSecurity/headers/RADSecurity.h" line="251" column="35"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADSecurity_1_1LicenseManager_1ac66050332f75707ca285e2891abf23cb" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structRADSecurity_1_1LicenseCheckResult" kindref="compound">LicenseCheckResult</ref></type>
+        <definition>static LicenseCheckResult RADSecurity::LicenseManager::verifySignedLicense</definition>
+        <argsstring>(const RADCore::RADJsonDocument &amp;document, const std::vector&lt; TrustedLicenseKey &gt; &amp;trustedKeys, const LicenseCheckOptions &amp;options={})</argsstring>
+        <name>verifySignedLicense</name>
+        <param>
+          <type>const <ref refid="classRADCore_1_1RADJsonDocument" kindref="compound">RADCore::RADJsonDocument</ref> &amp;</type>
+          <declname>document</declname>
+        </param>
+        <param>
+          <type>const std::vector&lt; <ref refid="structRADSecurity_1_1TrustedLicenseKey" kindref="compound">TrustedLicenseKey</ref> &gt; &amp;</type>
+          <declname>trustedKeys</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structRADSecurity_1_1LicenseCheckOptions" kindref="compound">LicenseCheckOptions</ref> &amp;</type>
+          <declname>options</declname>
+          <defval>{}</defval>
+        </param>
+        <briefdescription>
+<para>Verifies a signed license document by selecting the trusted key matching key_id. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADSecurity/headers/RADSecurity.h" line="256" column="35"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADSecurity_1_1LicenseManager_1a8ff4f56b44ecac8a862fae7a14972325" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structRADSecurity_1_1LicenseCheckResult" kindref="compound">LicenseCheckResult</ref></type>
+        <definition>static LicenseCheckResult RADSecurity::LicenseManager::verifySignedLicenseFile</definition>
+        <argsstring>(const std::string &amp;path, const std::string &amp;publicKeyPem, const LicenseCheckOptions &amp;options={})</argsstring>
+        <name>verifySignedLicenseFile</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>path</declname>
+        </param>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>publicKeyPem</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structRADSecurity_1_1LicenseCheckOptions" kindref="compound">LicenseCheckOptions</ref> &amp;</type>
+          <declname>options</declname>
+          <defval>{}</defval>
+        </param>
+        <briefdescription>
+<para>Loads and verifies a signed license file. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADSecurity/headers/RADSecurity.h" line="261" column="35"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADSecurity_1_1LicenseManager_1a55ad5982586d7c018062de1b567deaf9" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structRADSecurity_1_1LicenseCheckResult" kindref="compound">LicenseCheckResult</ref></type>
+        <definition>static LicenseCheckResult RADSecurity::LicenseManager::verifySignedLicenseFile</definition>
+        <argsstring>(const std::string &amp;path, const std::vector&lt; TrustedLicenseKey &gt; &amp;trustedKeys, const LicenseCheckOptions &amp;options={})</argsstring>
+        <name>verifySignedLicenseFile</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>path</declname>
+        </param>
+        <param>
+          <type>const std::vector&lt; <ref refid="structRADSecurity_1_1TrustedLicenseKey" kindref="compound">TrustedLicenseKey</ref> &gt; &amp;</type>
+          <declname>trustedKeys</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structRADSecurity_1_1LicenseCheckOptions" kindref="compound">LicenseCheckOptions</ref> &amp;</type>
+          <declname>options</declname>
+          <defval>{}</defval>
+        </param>
+        <briefdescription>
+<para>Loads and verifies a signed license file using a trusted issuer key set. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADSecurity/headers/RADSecurity.h" line="266" column="35"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADSecurity_1_1LicenseManager_1a727d7096c3aa40071e121dedbfb1c3af" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classRADCore_1_1RADResult" kindref="compound">RADCore::RADResult</ref>&lt; void &gt;</type>
+        <definition>static RADCore::RADResult&lt;void&gt; RADSecurity::LicenseManager::writeSignedLicenseFile</definition>
+        <argsstring>(const std::string &amp;path, const LicensePayload &amp;payload, const std::string &amp;privateKeyPem, const std::string &amp;issuerKeyId={})</argsstring>
+        <name>writeSignedLicenseFile</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>path</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structRADSecurity_1_1LicensePayload" kindref="compound">LicensePayload</ref> &amp;</type>
+          <declname>payload</declname>
+        </param>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>privateKeyPem</declname>
+        </param>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>issuerKeyId</declname>
+          <defval>{}</defval>
+        </param>
+        <briefdescription>
+<para>Writes a signed license file. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADSecurity/headers/RADSecurity.h" line="271" column="35"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Offline signed-license utilities for RADLib and RADLib applications. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="RADSecurity/headers/RADSecurity.h" line="221" column="5" bodyfile="RADSecurity/headers/RADSecurity.h" bodystart="221" bodyend="276"/>
+    <listofallmembers>
+      <member refid="classRADSecurity_1_1LicenseManager_1a4592289f935b4469b46c8c619a08fbb4" prot="public" virt="non-virtual"><scope>RADSecurity::LicenseManager</scope><name>canonicalPayloadJson</name></member>
+      <member refid="classRADSecurity_1_1LicenseManager_1a33288beb9dccc29180376fd7a7367117" prot="public" virt="non-virtual"><scope>RADSecurity::LicenseManager</scope><name>createNodeLockedLicense</name></member>
+      <member refid="classRADSecurity_1_1LicenseManager_1ae8be5abe6e876746fc2d983e6ebcda69" prot="public" virt="non-virtual"><scope>RADSecurity::LicenseManager</scope><name>createSignedLicense</name></member>
+      <member refid="classRADSecurity_1_1LicenseManager_1ae79d35b2bdb3e5405edccbff3e7683d3" prot="public" virt="non-virtual"><scope>RADSecurity::LicenseManager</scope><name>licenseKindFromString</name></member>
+      <member refid="classRADSecurity_1_1LicenseManager_1a64b3d504a2eff1bf491251131a5b05f0" prot="public" virt="non-virtual"><scope>RADSecurity::LicenseManager</scope><name>licenseKindToString</name></member>
+      <member refid="classRADSecurity_1_1LicenseManager_1aea2a361b1af92ed944ed7e913ac9f863" prot="public" virt="non-virtual"><scope>RADSecurity::LicenseManager</scope><name>licenseStatusToString</name></member>
+      <member refid="classRADSecurity_1_1LicenseManager_1ab8436dde0e673739561e857e42e00270" prot="public" virt="non-virtual"><scope>RADSecurity::LicenseManager</scope><name>machineFingerprint</name></member>
+      <member refid="classRADSecurity_1_1LicenseManager_1a6eca697b0680e56dfdfc0c2b254f2b47" prot="public" virt="non-virtual"><scope>RADSecurity::LicenseManager</scope><name>payloadFromJson</name></member>
+      <member refid="classRADSecurity_1_1LicenseManager_1a4dec90a7884e298de6f035721194e794" prot="public" virt="non-virtual"><scope>RADSecurity::LicenseManager</scope><name>payloadToJson</name></member>
+      <member refid="classRADSecurity_1_1LicenseManager_1acb5d850d8cf77d6b6fdc3610e68a382c" prot="public" virt="non-virtual"><scope>RADSecurity::LicenseManager</scope><name>publicKeyFingerprint</name></member>
+      <member refid="classRADSecurity_1_1LicenseManager_1aa09a1f2466dbee5a0c8950309f29c94f" prot="public" virt="non-virtual"><scope>RADSecurity::LicenseManager</scope><name>verifySignedLicense</name></member>
+      <member refid="classRADSecurity_1_1LicenseManager_1ac66050332f75707ca285e2891abf23cb" prot="public" virt="non-virtual"><scope>RADSecurity::LicenseManager</scope><name>verifySignedLicense</name></member>
+      <member refid="classRADSecurity_1_1LicenseManager_1a8ff4f56b44ecac8a862fae7a14972325" prot="public" virt="non-virtual"><scope>RADSecurity::LicenseManager</scope><name>verifySignedLicenseFile</name></member>
+      <member refid="classRADSecurity_1_1LicenseManager_1a55ad5982586d7c018062de1b567deaf9" prot="public" virt="non-virtual"><scope>RADSecurity::LicenseManager</scope><name>verifySignedLicenseFile</name></member>
+      <member refid="classRADSecurity_1_1LicenseManager_1a727d7096c3aa40071e121dedbfb1c3af" prot="public" virt="non-virtual"><scope>RADSecurity::LicenseManager</scope><name>writeSignedLicenseFile</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

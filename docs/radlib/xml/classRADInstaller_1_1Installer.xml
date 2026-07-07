@@ -1,0 +1,129 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="classRADInstaller_1_1Installer" kind="class" language="C++" prot="public">
+    <compoundname>RADInstaller::Installer</compoundname>
+    <includes refid="RADInstaller_8h" local="no">RADInstaller.h</includes>
+      <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="classRADInstaller_1_1Installer_1ad3e1c0ce80253b938bfcdb82e102a3dd" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classRADCore_1_1RADResult" kindref="compound">RADCore::RADResult</ref>&lt; <ref refid="structRADInstaller_1_1Manifest" kindref="compound">Manifest</ref> &gt;</type>
+        <definition>static RADCore::RADResult&lt;Manifest&gt; RADInstaller::Installer::loadManifest</definition>
+        <argsstring>(const std::string &amp;path)</argsstring>
+        <name>loadManifest</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>path</declname>
+        </param>
+        <briefdescription>
+<para>Loads a manifest from JSON. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADInstaller/headers/RADInstaller.h" line="86" column="35"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADInstaller_1_1Installer_1abd2785d92edcd2d1b862583b2c5b7a65" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structRADInstaller_1_1Result" kindref="compound">Result</ref></type>
+        <definition>static Result RADInstaller::Installer::install</definition>
+        <argsstring>(const Manifest &amp;manifest, const std::string &amp;sourceRoot, const std::string &amp;targetRoot, const std::vector&lt; std::string &gt; &amp;selectedComponents={}, ProgressCallback progress={})</argsstring>
+        <name>install</name>
+        <param>
+          <type>const <ref refid="structRADInstaller_1_1Manifest" kindref="compound">Manifest</ref> &amp;</type>
+          <declname>manifest</declname>
+        </param>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>sourceRoot</declname>
+        </param>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>targetRoot</declname>
+        </param>
+        <param>
+          <type>const std::vector&lt; std::string &gt; &amp;</type>
+          <declname>selectedComponents</declname>
+          <defval>{}</defval>
+        </param>
+        <param>
+          <type><ref refid="namespaceRADInstaller_1aafeb1c4292f6f1d2193d8034fa25bc0a" kindref="member">ProgressCallback</ref></type>
+          <declname>progress</declname>
+          <defval>{}</defval>
+        </param>
+        <briefdescription>
+<para>Installs selected components from sourceRoot to targetRoot. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADInstaller/headers/RADInstaller.h" line="88" column="23"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADInstaller_1_1Installer_1abb9072ee2f580dfb56bd66c54ded1d67" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structRADInstaller_1_1Result" kindref="compound">Result</ref></type>
+        <definition>static Result RADInstaller::Installer::uninstall</definition>
+        <argsstring>(const std::string &amp;uninstallManifestPath, ProgressCallback progress={})</argsstring>
+        <name>uninstall</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>uninstallManifestPath</declname>
+        </param>
+        <param>
+          <type><ref refid="namespaceRADInstaller_1aafeb1c4292f6f1d2193d8034fa25bc0a" kindref="member">ProgressCallback</ref></type>
+          <declname>progress</declname>
+          <defval>{}</defval>
+        </param>
+        <briefdescription>
+<para>Uninstalls files recorded in uninstallManifestPath. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADInstaller/headers/RADInstaller.h" line="92" column="23"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADInstaller_1_1Installer_1ae89e0b31f5fd4235c97802345a16cc6e" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>static bool RADInstaller::Installer::writeUninstallManifest</definition>
+        <argsstring>(const std::string &amp;path, const Manifest &amp;manifest, const std::vector&lt; std::string &gt; &amp;installedFiles, std::string *error=nullptr)</argsstring>
+        <name>writeUninstallManifest</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>path</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structRADInstaller_1_1Manifest" kindref="compound">Manifest</ref> &amp;</type>
+          <declname>manifest</declname>
+        </param>
+        <param>
+          <type>const std::vector&lt; std::string &gt; &amp;</type>
+          <declname>installedFiles</declname>
+        </param>
+        <param>
+          <type>std::string *</type>
+          <declname>error</declname>
+          <defval>nullptr</defval>
+        </param>
+        <briefdescription>
+<para>Writes an uninstall manifest for installed files. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADInstaller/headers/RADInstaller.h" line="94" column="21"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Manifest-driven installer engine with rollback and uninstall manifest support. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="RADInstaller/headers/RADInstaller.h" line="83" column="5" bodyfile="RADInstaller/headers/RADInstaller.h" bodystart="83" bodyend="96"/>
+    <listofallmembers>
+      <member refid="classRADInstaller_1_1Installer_1abd2785d92edcd2d1b862583b2c5b7a65" prot="public" virt="non-virtual"><scope>RADInstaller::Installer</scope><name>install</name></member>
+      <member refid="classRADInstaller_1_1Installer_1ad3e1c0ce80253b938bfcdb82e102a3dd" prot="public" virt="non-virtual"><scope>RADInstaller::Installer</scope><name>loadManifest</name></member>
+      <member refid="classRADInstaller_1_1Installer_1abb9072ee2f580dfb56bd66c54ded1d67" prot="public" virt="non-virtual"><scope>RADInstaller::Installer</scope><name>uninstall</name></member>
+      <member refid="classRADInstaller_1_1Installer_1ae89e0b31f5fd4235c97802345a16cc6e" prot="public" virt="non-virtual"><scope>RADInstaller::Installer</scope><name>writeUninstallManifest</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,21 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="md_docs_public_radprotocol" kind="page">
+    <compoundname>md_docs_public_radprotocol</compoundname>
+    <title>RADNet Protocol Generation</title>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>RADLib includes a CMake-invoked Python generator for compact binary TCP protocols.</para>
+<para>The wire frame is:</para>
+<para><itemizedlist>
+<listitem><para><computeroutput>uint32 messageId</computeroutput> in network byte order.</para>
+</listitem><listitem><para><computeroutput>uint32 payloadSize</computeroutput> in network byte order.</para>
+</listitem><listitem><para>Binary payload.</para>
+</listitem></itemizedlist>
+</para>
+<para>JSON protocol files define messages and fields. The generator emits C++ structs, message IDs, payload encoders/decoders, and frame helpers. Runtime endpoint configuration remains JSON-loadable through <computeroutput><ref refid="namespaceRADNet_1ae30adbe571690eef5da7562f7b4fdf34" kindref="member">RADNet::endpointConfigFromJson()</ref></computeroutput>. </para>
+    </detaileddescription>
+    <location file="docs/public/radprotocol.md"/>
+  </compounddef>
+</doxygen>
