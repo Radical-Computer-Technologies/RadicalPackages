@@ -2,7 +2,9 @@
 
 Radical Computer Technologies package repository and documentation hub.
 
-## Install RADBard on Debian / Ubuntu
+## Package Repositories
+
+### Debian Systems / Ubuntu
 
 Add the Radical Computer Technologies package repository:
 
@@ -19,13 +21,19 @@ EOF
 sudo apt update
 ```
 
-Install RADBard:
+Install a package:
 
 ```bash
-sudo apt install radbard
+sudo apt install <package>
 ```
 
 `Trusted: yes` is temporary for the unsigned beta repository. The repository should be signed before broad public release.
+
+## Packages
+
+| Package | Description | Install |
+| --- | --- | --- |
+| `radbard` | RADBard music and audio composition suite. | `sudo apt install radbard` |
 
 ## Links
 

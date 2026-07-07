@@ -6,7 +6,9 @@ GitHub Pages URL:
 
 <https://radical-computer-technologies.github.io/RadicalPackages/>
 
-## Debian / Ubuntu Repository
+## Package Repositories
+
+### Debian Systems / Ubuntu
 
 This repository currently publishes x86_64 / amd64 Debian packages for RADBard.
 
@@ -25,13 +27,19 @@ EOF
 sudo apt update
 ```
 
-Install RADBard:
+Install a package:
 
 ```bash
-sudo apt install radbard
+sudo apt install <package>
 ```
 
 `Trusted: yes` is used while the repository is in early unsigned beta form. Replace this with a signed repository key before broad public release.
+
+## Packages
+
+| Package | Description | Install |
+| --- | --- | --- |
+| `radbard` | RADBard music and audio composition suite. | `sudo apt install radbard` |
 
 ## Documentation
 
