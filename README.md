@@ -8,17 +8,34 @@ GitHub Pages URL:
 
 ## Package Repositories
 
-### Debian Systems / Ubuntu
+### Debian Systems / Ubuntu Stable
 
 This repository currently publishes x86_64 / amd64 Debian packages.
 
-Add the repository:
+Add the stable repository:
 
 ```bash
 sudo tee /etc/apt/sources.list.d/radical-computer-technologies.sources >/dev/null <<'EOF'
 Types: deb
 URIs: https://radical-computer-technologies.github.io/RadicalPackages/debian/
 Suites: stable
+Components: main
+Architectures: amd64
+Trusted: yes
+EOF
+
+sudo apt update
+```
+
+### Debian Systems / Ubuntu Experimental
+
+Add the experimental repository when you want beta applications such as RADBard:
+
+```bash
+sudo tee /etc/apt/sources.list.d/radical-computer-technologies-experimental.sources >/dev/null <<'EOF'
+Types: deb
+URIs: https://radical-computer-technologies.github.io/RadicalPackages/debian/
+Suites: experimental
 Components: main
 Architectures: amd64
 Trusted: yes
@@ -35,7 +52,7 @@ sudo apt install <package>
 
 `Trusted: yes` is used while the repository is in early unsigned beta form. Replace this with a signed repository key before broad public release.
 
-## Packages
+## Stable Packages
 
 | Package | Description | Install |
 | --- | --- | --- |
@@ -45,7 +62,12 @@ sudo apt install <package>
 | `radlib-examples` | RADLib example applications and sample projects. | `sudo apt install radlib-examples` |
 | `radlib-tools` | RADLib SDK tools and protocol generator. | `sudo apt install radlib-tools` |
 | `radlib` | Aggregate RADLib package that installs runtime, development files, docs, examples, and tools. | `sudo apt install radlib` |
-| `radbard` | RADBard music and audio composition suite. | `sudo apt install radbard` |
+
+## Experimental Packages
+
+| Package | Description | Install |
+| --- | --- | --- |
+| `radbard` | RADBard music and audio composition suite beta. | `sudo apt install radbard` |
 
 ## Documentation
 
@@ -56,7 +78,9 @@ sudo apt install <package>
 ```text
 debian/
   dists/stable/main/binary-amd64/
+  dists/experimental/main/binary-amd64/
   pool/main/
+  suites/
 docs/
   radlib/api/
 scripts/
