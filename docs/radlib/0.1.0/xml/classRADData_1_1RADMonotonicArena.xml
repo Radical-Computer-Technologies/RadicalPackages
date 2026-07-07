@@ -1,0 +1,137 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="classRADData_1_1RADMonotonicArena" kind="class" language="C++" prot="public">
+    <compoundname>RADData::RADMonotonicArena</compoundname>
+    <includes refid="RADDataStructures_8h" local="no">RADDataStructures.h</includes>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classRADData_1_1RADMonotonicArena_1a8ac756e985a39863ff55453176b31f18" prot="private" static="no" mutable="no">
+        <type>std::vector&lt; uint8_t &gt;</type>
+        <definition>std::vector&lt;uint8_t&gt; RADData::RADMonotonicArena::storage_</definition>
+        <argsstring></argsstring>
+        <name>storage_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADDataStructures/headers/RADDataStructures.h" line="146" column="21" bodyfile="RADDataStructures/headers/RADDataStructures.h" bodystart="146" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classRADData_1_1RADMonotonicArena_1a5fff7dd9e0993fb01dd93bbd597dd6cd" prot="private" static="no" mutable="no">
+        <type>size_t</type>
+        <definition>size_t RADData::RADMonotonicArena::offset_</definition>
+        <argsstring></argsstring>
+        <name>offset_</name>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADDataStructures/headers/RADDataStructures.h" line="147" column="16" bodyfile="RADDataStructures/headers/RADDataStructures.h" bodystart="147" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classRADData_1_1RADMonotonicArena_1a36ae907956383485ba920f4ca12952e9" prot="public" static="no" const="no" explicit="yes" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>RADData::RADMonotonicArena::RADMonotonicArena</definition>
+        <argsstring>(size_t capacity=65536)</argsstring>
+        <name>RADMonotonicArena</name>
+        <param>
+          <type>size_t</type>
+          <declname>capacity</declname>
+          <defval>65536</defval>
+        </param>
+        <briefdescription>
+<para>Creates an arena with initial capacity bytes. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADDataStructures/headers/RADDataStructures.h" line="127" column="18" bodyfile="RADDataStructures/headers/RADDataStructures.h" bodystart="127" bodyend="127"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADData_1_1RADMonotonicArena_1a76bc540872f96cb76ea51c4d12f07bb7" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void *</type>
+        <definition>void* RADData::RADMonotonicArena::allocate</definition>
+        <argsstring>(size_t size, size_t alignment=alignof(std::max_align_t))</argsstring>
+        <name>allocate</name>
+        <param>
+          <type>size_t</type>
+          <declname>size</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>alignment</declname>
+          <defval>alignof(std::max_align_t)</defval>
+        </param>
+        <briefdescription>
+<para>Allocates size bytes with alignment. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADDataStructures/headers/RADDataStructures.h" line="129" column="14" bodyfile="RADDataStructures/headers/RADDataStructures.h" bodystart="129" bodyend="137"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADData_1_1RADMonotonicArena_1aae3c1516857f0a9f1fa5e3f9af78e936" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void RADData::RADMonotonicArena::reset</definition>
+        <argsstring>()</argsstring>
+        <name>reset</name>
+        <briefdescription>
+<para>Resets all allocations without releasing storage. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADDataStructures/headers/RADDataStructures.h" line="139" column="14" bodyfile="RADDataStructures/headers/RADDataStructures.h" bodystart="139" bodyend="139"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADData_1_1RADMonotonicArena_1a1113afc996c7644f9bc5eafca70acc5d" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>size_t</type>
+        <definition>size_t RADData::RADMonotonicArena::used</definition>
+        <argsstring>() const</argsstring>
+        <name>used</name>
+        <briefdescription>
+<para>Returns allocated bytes in the current generation. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADDataStructures/headers/RADDataStructures.h" line="141" column="16" bodyfile="RADDataStructures/headers/RADDataStructures.h" bodystart="141" bodyend="141"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADData_1_1RADMonotonicArena_1a0c7c18987999f7df5c3b445d0673c4a3" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>size_t</type>
+        <definition>size_t RADData::RADMonotonicArena::capacity</definition>
+        <argsstring>() const</argsstring>
+        <name>capacity</name>
+        <briefdescription>
+<para>Returns backing capacity. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADDataStructures/headers/RADDataStructures.h" line="143" column="16" bodyfile="RADDataStructures/headers/RADDataStructures.h" bodystart="143" bodyend="143"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Simple monotonic arena for short-lived allocations. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="RADDataStructures/headers/RADDataStructures.h" line="124" column="5" bodyfile="RADDataStructures/headers/RADDataStructures.h" bodystart="124" bodyend="148"/>
+    <listofallmembers>
+      <member refid="classRADData_1_1RADMonotonicArena_1a76bc540872f96cb76ea51c4d12f07bb7" prot="public" virt="non-virtual"><scope>RADData::RADMonotonicArena</scope><name>allocate</name></member>
+      <member refid="classRADData_1_1RADMonotonicArena_1a0c7c18987999f7df5c3b445d0673c4a3" prot="public" virt="non-virtual"><scope>RADData::RADMonotonicArena</scope><name>capacity</name></member>
+      <member refid="classRADData_1_1RADMonotonicArena_1a5fff7dd9e0993fb01dd93bbd597dd6cd" prot="private" virt="non-virtual"><scope>RADData::RADMonotonicArena</scope><name>offset_</name></member>
+      <member refid="classRADData_1_1RADMonotonicArena_1a36ae907956383485ba920f4ca12952e9" prot="public" virt="non-virtual"><scope>RADData::RADMonotonicArena</scope><name>RADMonotonicArena</name></member>
+      <member refid="classRADData_1_1RADMonotonicArena_1aae3c1516857f0a9f1fa5e3f9af78e936" prot="public" virt="non-virtual"><scope>RADData::RADMonotonicArena</scope><name>reset</name></member>
+      <member refid="classRADData_1_1RADMonotonicArena_1a8ac756e985a39863ff55453176b31f18" prot="private" virt="non-virtual"><scope>RADData::RADMonotonicArena</scope><name>storage_</name></member>
+      <member refid="classRADData_1_1RADMonotonicArena_1a1113afc996c7644f9bc5eafca70acc5d" prot="public" virt="non-virtual"><scope>RADData::RADMonotonicArena</scope><name>used</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

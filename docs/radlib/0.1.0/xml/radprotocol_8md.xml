@@ -1,0 +1,26 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="radprotocol_8md" kind="file" language="Markdown">
+    <compoundname>radprotocol.md</compoundname>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline><highlight class="normal">#<sp/>RADNet<sp/>Protocol<sp/>Generation</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">RADLib<sp/>includes<sp/>a<sp/>CMake-invoked<sp/>Python<sp/>generator<sp/>for<sp/>compact<sp/>binary<sp/>TCP<sp/>protocols.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">The<sp/>wire<sp/>frame<sp/>is:</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">-<sp/>`uint32<sp/>messageId`<sp/>in<sp/>network<sp/>byte<sp/>order.</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>`uint32<sp/>payloadSize`<sp/>in<sp/>network<sp/>byte<sp/>order.</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>Binary<sp/>payload.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">JSON<sp/>protocol<sp/>files<sp/>define<sp/>messages<sp/>and<sp/>fields.<sp/>The<sp/>generator<sp/>emits<sp/>C++<sp/>structs,</highlight></codeline>
+<codeline><highlight class="normal">message<sp/>IDs,<sp/>payload<sp/>encoders/decoders,<sp/>and<sp/>frame<sp/>helpers.<sp/>Runtime<sp/>endpoint</highlight></codeline>
+<codeline><highlight class="normal">configuration<sp/>remains<sp/>JSON-loadable<sp/>through<sp/>`RADNet::endpointConfigFromJson()`.</highlight></codeline>
+    </programlisting>
+    <location file="docs/public/radprotocol.md"/>
+  </compounddef>
+</doxygen>

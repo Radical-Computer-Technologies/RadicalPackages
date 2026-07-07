@@ -1,0 +1,93 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="classRADCore_1_1RADCancellationSource" kind="class" language="C++" prot="public">
+    <compoundname>RADCore::RADCancellationSource</compoundname>
+    <includes refid="RADCore_8h" local="no">RADCore.h</includes>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classRADCore_1_1RADCancellationSource_1a48f73ca6464b279495362c8af96af07b" prot="private" static="no" mutable="no">
+        <type>std::shared_ptr&lt; std::atomic_bool &gt;</type>
+        <definition>std::shared_ptr&lt;std::atomic_bool&gt; RADCore::RADCancellationSource::cancelled_</definition>
+        <argsstring></argsstring>
+        <name>cancelled_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADCore/headers/RADCore.h" line="289" column="25" bodyfile="RADCore/headers/RADCore.h" bodystart="289" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classRADCore_1_1RADCancellationSource_1a7b1be1f0606048f7d9cb0c2d4ad249af" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>RADCore::RADCancellationSource::RADCancellationSource</definition>
+        <argsstring>()</argsstring>
+        <name>RADCancellationSource</name>
+        <briefdescription>
+<para>Creates a source with a fresh token. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADCore/headers/RADCore.h" line="280" column="9" bodyfile="RADCore/headers/RADCore.h" bodystart="280" bodyend="280"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADCore_1_1RADCancellationSource_1afaaea5035bf278d348be1cae8b33803c" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classRADCore_1_1RADCancellationToken" kindref="compound">RADCancellationToken</ref></type>
+        <definition>RADCancellationToken RADCore::RADCancellationSource::token</definition>
+        <argsstring>() const</argsstring>
+        <name>token</name>
+        <briefdescription>
+<para>Returns the token that observers should poll. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADCore/headers/RADCore.h" line="282" column="30" bodyfile="RADCore/headers/RADCore.h" bodystart="282" bodyend="282"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADCore_1_1RADCancellationSource_1a2998c350c4a13dd999af55abbc6fecb9" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void RADCore::RADCancellationSource::cancel</definition>
+        <argsstring>()</argsstring>
+        <name>cancel</name>
+        <briefdescription>
+<para>Requests cancellation. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADCore/headers/RADCore.h" line="284" column="14" bodyfile="RADCore/headers/RADCore.h" bodystart="284" bodyend="284"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADCore_1_1RADCancellationSource_1a79c6063802ff0aa808c480389d315728" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool RADCore::RADCancellationSource::isCancellationRequested</definition>
+        <argsstring>() const</argsstring>
+        <name>isCancellationRequested</name>
+        <briefdescription>
+<para>Returns true when cancellation was requested. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADCore/headers/RADCore.h" line="286" column="14" bodyfile="RADCore/headers/RADCore.h" bodystart="286" bodyend="286"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Owner object used to request cancellation on associated tokens. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="RADCore/headers/RADCore.h" line="277" column="5" bodyfile="RADCore/headers/RADCore.h" bodystart="277" bodyend="290"/>
+    <listofallmembers>
+      <member refid="classRADCore_1_1RADCancellationSource_1a2998c350c4a13dd999af55abbc6fecb9" prot="public" virt="non-virtual"><scope>RADCore::RADCancellationSource</scope><name>cancel</name></member>
+      <member refid="classRADCore_1_1RADCancellationSource_1a48f73ca6464b279495362c8af96af07b" prot="private" virt="non-virtual"><scope>RADCore::RADCancellationSource</scope><name>cancelled_</name></member>
+      <member refid="classRADCore_1_1RADCancellationSource_1a79c6063802ff0aa808c480389d315728" prot="public" virt="non-virtual"><scope>RADCore::RADCancellationSource</scope><name>isCancellationRequested</name></member>
+      <member refid="classRADCore_1_1RADCancellationSource_1a7b1be1f0606048f7d9cb0c2d4ad249af" prot="public" virt="non-virtual"><scope>RADCore::RADCancellationSource</scope><name>RADCancellationSource</name></member>
+      <member refid="classRADCore_1_1RADCancellationSource_1afaaea5035bf278d348be1cae8b33803c" prot="public" virt="non-virtual"><scope>RADCore::RADCancellationSource</scope><name>token</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

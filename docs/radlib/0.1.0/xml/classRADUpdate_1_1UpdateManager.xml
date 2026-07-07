@@ -1,0 +1,181 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="classRADUpdate_1_1UpdateManager" kind="class" language="C++" prot="public">
+    <compoundname>RADUpdate::UpdateManager</compoundname>
+    <includes refid="RADUpdate_8h" local="no">RADUpdate.h</includes>
+      <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="classRADUpdate_1_1UpdateManager_1af98685fa5a31d7011b0d6e3fc5798db8" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classRADCore_1_1RADResult" kindref="compound">RADCore::RADResult</ref>&lt; <ref refid="structRADUpdate_1_1UpdateManifest" kindref="compound">UpdateManifest</ref> &gt;</type>
+        <definition>static RADCore::RADResult&lt;UpdateManifest&gt; RADUpdate::UpdateManager::loadManifest</definition>
+        <argsstring>(const std::string &amp;path)</argsstring>
+        <name>loadManifest</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>path</declname>
+        </param>
+        <briefdescription>
+<para>Loads an update manifest from JSON. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADUpdate/headers/RADUpdate.h" line="75" column="35"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADUpdate_1_1UpdateManager_1a0ce5b8118ece08396491c7915853daad" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classRADCore_1_1RADJsonValue" kindref="compound">RADCore::RADJsonValue</ref></type>
+        <definition>static RADCore::RADJsonValue RADUpdate::UpdateManager::manifestToJson</definition>
+        <argsstring>(const UpdateManifest &amp;manifest)</argsstring>
+        <name>manifestToJson</name>
+        <param>
+          <type>const <ref refid="structRADUpdate_1_1UpdateManifest" kindref="compound">UpdateManifest</ref> &amp;</type>
+          <declname>manifest</declname>
+        </param>
+        <briefdescription>
+<para>Converts a manifest to JSON. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADUpdate/headers/RADUpdate.h" line="77" column="38"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADUpdate_1_1UpdateManager_1a3aca046051955f54fcdf1c39eb47b341" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structRADUpdate_1_1VerificationResult" kindref="compound">VerificationResult</ref></type>
+        <definition>static VerificationResult RADUpdate::UpdateManager::verifyBundle</definition>
+        <argsstring>(const std::string &amp;bundleRoot, const std::string &amp;manifestPath, const std::string &amp;publicKeyPem={})</argsstring>
+        <name>verifyBundle</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>bundleRoot</declname>
+        </param>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>manifestPath</declname>
+        </param>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>publicKeyPem</declname>
+          <defval>{}</defval>
+        </param>
+        <briefdescription>
+<para>Verifies payload hashes, sizes, and optional manifest signature. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADUpdate/headers/RADUpdate.h" line="79" column="35"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADUpdate_1_1UpdateManager_1a91265840879e47743272d1e6d4ad7a91" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structRADInstaller_1_1Result" kindref="compound">RADInstaller::Result</ref></type>
+        <definition>static RADInstaller::Result RADUpdate::UpdateManager::installBundle</definition>
+        <argsstring>(const std::string &amp;bundleRoot, const UpdateManifest &amp;manifest, const std::string &amp;targetRoot, const std::vector&lt; std::string &gt; &amp;selectedComponents={})</argsstring>
+        <name>installBundle</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>bundleRoot</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structRADUpdate_1_1UpdateManifest" kindref="compound">UpdateManifest</ref> &amp;</type>
+          <declname>manifest</declname>
+        </param>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>targetRoot</declname>
+        </param>
+        <param>
+          <type>const std::vector&lt; std::string &gt; &amp;</type>
+          <declname>selectedComponents</declname>
+          <defval>{}</defval>
+        </param>
+        <briefdescription>
+<para>Installs a bundle using <ref refid="namespaceRADInstaller" kindref="compound">RADInstaller</ref> when installerManifest is present. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADUpdate/headers/RADUpdate.h" line="82" column="37"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADUpdate_1_1UpdateManager_1a750d0f1b7b2657d35bee6c85c521117a" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classRADCore_1_1RADResult" kindref="compound">RADCore::RADResult</ref>&lt; <ref refid="structRADUpdate_1_1ABMetadata" kindref="compound">ABMetadata</ref> &gt;</type>
+        <definition>static RADCore::RADResult&lt;ABMetadata&gt; RADUpdate::UpdateManager::loadABMetadata</definition>
+        <argsstring>(const std::string &amp;path)</argsstring>
+        <name>loadABMetadata</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>path</declname>
+        </param>
+        <briefdescription>
+<para>Loads A/B metadata JSON. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADUpdate/headers/RADUpdate.h" line="86" column="35"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADUpdate_1_1UpdateManager_1af7fdb7dd3da161ec2e0a8f21f9103315" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>static bool RADUpdate::UpdateManager::saveABMetadata</definition>
+        <argsstring>(const std::string &amp;path, const ABMetadata &amp;metadata, std::string *error=nullptr)</argsstring>
+        <name>saveABMetadata</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>path</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structRADUpdate_1_1ABMetadata" kindref="compound">ABMetadata</ref> &amp;</type>
+          <declname>metadata</declname>
+        </param>
+        <param>
+          <type>std::string *</type>
+          <declname>error</declname>
+          <defval>nullptr</defval>
+        </param>
+        <briefdescription>
+<para>Saves A/B metadata JSON. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADUpdate/headers/RADUpdate.h" line="88" column="21"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADUpdate_1_1UpdateManager_1a844c8ce467a06589aae40a20ddc7344e" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classRADCore_1_1RADJsonValue" kindref="compound">RADCore::RADJsonValue</ref></type>
+        <definition>static RADCore::RADJsonValue RADUpdate::UpdateManager::abMetadataToJson</definition>
+        <argsstring>(const ABMetadata &amp;metadata)</argsstring>
+        <name>abMetadataToJson</name>
+        <param>
+          <type>const <ref refid="structRADUpdate_1_1ABMetadata" kindref="compound">ABMetadata</ref> &amp;</type>
+          <declname>metadata</declname>
+        </param>
+        <briefdescription>
+<para>Converts A/B metadata to JSON. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADUpdate/headers/RADUpdate.h" line="90" column="38"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Manifest parser, verifier, and installer bridge. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="RADUpdate/headers/RADUpdate.h" line="72" column="5" bodyfile="RADUpdate/headers/RADUpdate.h" bodystart="72" bodyend="91"/>
+    <listofallmembers>
+      <member refid="classRADUpdate_1_1UpdateManager_1a844c8ce467a06589aae40a20ddc7344e" prot="public" virt="non-virtual"><scope>RADUpdate::UpdateManager</scope><name>abMetadataToJson</name></member>
+      <member refid="classRADUpdate_1_1UpdateManager_1a91265840879e47743272d1e6d4ad7a91" prot="public" virt="non-virtual"><scope>RADUpdate::UpdateManager</scope><name>installBundle</name></member>
+      <member refid="classRADUpdate_1_1UpdateManager_1a750d0f1b7b2657d35bee6c85c521117a" prot="public" virt="non-virtual"><scope>RADUpdate::UpdateManager</scope><name>loadABMetadata</name></member>
+      <member refid="classRADUpdate_1_1UpdateManager_1af98685fa5a31d7011b0d6e3fc5798db8" prot="public" virt="non-virtual"><scope>RADUpdate::UpdateManager</scope><name>loadManifest</name></member>
+      <member refid="classRADUpdate_1_1UpdateManager_1a0ce5b8118ece08396491c7915853daad" prot="public" virt="non-virtual"><scope>RADUpdate::UpdateManager</scope><name>manifestToJson</name></member>
+      <member refid="classRADUpdate_1_1UpdateManager_1af7fdb7dd3da161ec2e0a8f21f9103315" prot="public" virt="non-virtual"><scope>RADUpdate::UpdateManager</scope><name>saveABMetadata</name></member>
+      <member refid="classRADUpdate_1_1UpdateManager_1a3aca046051955f54fcdf1c39eb47b341" prot="public" virt="non-virtual"><scope>RADUpdate::UpdateManager</scope><name>verifyBundle</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

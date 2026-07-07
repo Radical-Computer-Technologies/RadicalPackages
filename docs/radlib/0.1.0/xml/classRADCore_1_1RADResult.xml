@@ -1,0 +1,224 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="classRADCore_1_1RADResult" kind="class" language="C++" prot="public">
+    <compoundname>RADCore::RADResult</compoundname>
+    <includes refid="RADCore_8h" local="no">RADCore.h</includes>
+    <templateparamlist>
+      <param>
+        <type>typename T</type>
+      </param>
+    </templateparamlist>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classRADCore_1_1RADResult_1a773350b8bd63735285c63a0dcca5f85e" prot="private" static="no" mutable="no">
+        <type>std::optional&lt; T &gt;</type>
+        <definition>std::optional&lt;T&gt; RADCore::RADResult&lt; T &gt;::value_</definition>
+        <argsstring></argsstring>
+        <name>value_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADCore/headers/RADCore.h" line="150" column="23" bodyfile="RADCore/headers/RADCore.h" bodystart="150" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classRADCore_1_1RADResult_1a814c86f5800be43e2274e0d6759ef7a8" prot="private" static="no" mutable="no">
+        <type><ref refid="classRADCore_1_1RADError" kindref="compound">RADError</ref></type>
+        <definition>RADError RADCore::RADResult&lt; T &gt;::error_</definition>
+        <argsstring></argsstring>
+        <name>error_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADCore/headers/RADCore.h" line="151" column="18" bodyfile="RADCore/headers/RADCore.h" bodystart="151" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="classRADCore_1_1RADResult_1a18594ebd7e444b3c44c49037ff3f56ac" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classRADCore_1_1RADResult" kindref="compound">RADResult</ref></type>
+        <definition>static RADResult RADCore::RADResult&lt; T &gt;::success</definition>
+        <argsstring>(T value)</argsstring>
+        <name>success</name>
+        <param>
+          <type>T</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+<para>Creates a successful result. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADCore/headers/RADCore.h" line="129" column="26" bodyfile="RADCore/headers/RADCore.h" bodystart="129" bodyend="129"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADCore_1_1RADResult_1ac1cc5306211cbeede1277efb4c9a418d" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classRADCore_1_1RADResult" kindref="compound">RADResult</ref></type>
+        <definition>static RADResult RADCore::RADResult&lt; T &gt;::failure</definition>
+        <argsstring>(RADError error)</argsstring>
+        <name>failure</name>
+        <param>
+          <type><ref refid="classRADCore_1_1RADError" kindref="compound">RADError</ref></type>
+          <declname>error</declname>
+        </param>
+        <briefdescription>
+<para>Creates a failed result. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADCore/headers/RADCore.h" line="131" column="26" bodyfile="RADCore/headers/RADCore.h" bodystart="131" bodyend="131"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classRADCore_1_1RADResult_1aff1814c4166ad38db0cdce89e1290d9c" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool RADCore::RADResult&lt; T &gt;::ok</definition>
+        <argsstring>() const</argsstring>
+        <name>ok</name>
+        <briefdescription>
+<para>Returns true when a value is present. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADCore/headers/RADCore.h" line="134" column="14" bodyfile="RADCore/headers/RADCore.h" bodystart="134" bodyend="134"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADCore_1_1RADResult_1ac444531492bdc741e732f72b6940ba3c" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool RADCore::RADResult&lt; T &gt;::hasError</definition>
+        <argsstring>() const</argsstring>
+        <name>hasError</name>
+        <briefdescription>
+<para>Returns true when this result has an error. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADCore/headers/RADCore.h" line="136" column="14" bodyfile="RADCore/headers/RADCore.h" bodystart="136" bodyend="136"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADCore_1_1RADResult_1a2cae0593ba7964db70dcc60d7870da5c" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>T &amp;</type>
+        <definition>T&amp; RADCore::RADResult&lt; T &gt;::value</definition>
+        <argsstring>()</argsstring>
+        <name>value</name>
+        <briefdescription>
+<para>Returns the result value; callers should check <ref refid="classRADCore_1_1RADResult_1aff1814c4166ad38db0cdce89e1290d9c" kindref="member">ok()</ref>. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADCore/headers/RADCore.h" line="138" column="11" bodyfile="RADCore/headers/RADCore.h" bodystart="138" bodyend="138"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADCore_1_1RADResult_1a091b9ed03aaf4b94484071eb11e99f3b" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>const T &amp;</type>
+        <definition>const T&amp; RADCore::RADResult&lt; T &gt;::value</definition>
+        <argsstring>() const</argsstring>
+        <name>value</name>
+        <briefdescription>
+<para>Returns the result value; callers should check <ref refid="classRADCore_1_1RADResult_1aff1814c4166ad38db0cdce89e1290d9c" kindref="member">ok()</ref>. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADCore/headers/RADCore.h" line="140" column="17" bodyfile="RADCore/headers/RADCore.h" bodystart="140" bodyend="140"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADCore_1_1RADResult_1a6e63d9b6e66dd763a83f5167c0ce52e7" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>const <ref refid="classRADCore_1_1RADError" kindref="compound">RADError</ref> &amp;</type>
+        <definition>const RADError&amp; RADCore::RADResult&lt; T &gt;::error</definition>
+        <argsstring>() const</argsstring>
+        <name>error</name>
+        <briefdescription>
+<para>Returns the error object. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADCore/headers/RADCore.h" line="142" column="24" bodyfile="RADCore/headers/RADCore.h" bodystart="142" bodyend="142"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADCore_1_1RADResult_1a1087fb87514c58f53cda9e55fccb0920" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>T</type>
+        <definition>T RADCore::RADResult&lt; T &gt;::valueOr</definition>
+        <argsstring>(T defaultValue) const</argsstring>
+        <name>valueOr</name>
+        <param>
+          <type>T</type>
+          <declname>defaultValue</declname>
+        </param>
+        <briefdescription>
+<para>Returns value or defaultValue when failed. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADCore/headers/RADCore.h" line="144" column="11" bodyfile="RADCore/headers/RADCore.h" bodystart="144" bodyend="144"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="classRADCore_1_1RADResult_1afe79f86a4fc461063de8ca507a7d7e3b" prot="private" static="no" const="no" explicit="yes" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>RADCore::RADResult&lt; T &gt;::RADResult</definition>
+        <argsstring>(T value)</argsstring>
+        <name>RADResult</name>
+        <param>
+          <type>T</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADCore/headers/RADCore.h" line="147" column="18" bodyfile="RADCore/headers/RADCore.h" bodystart="147" bodyend="147"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADCore_1_1RADResult_1ae09bef5e41be0762ec74260c872df7a1" prot="private" static="no" const="no" explicit="yes" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>RADCore::RADResult&lt; T &gt;::RADResult</definition>
+        <argsstring>(RADError error)</argsstring>
+        <name>RADResult</name>
+        <param>
+          <type><ref refid="classRADCore_1_1RADError" kindref="compound">RADError</ref></type>
+          <declname>error</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADCore/headers/RADCore.h" line="148" column="18" bodyfile="RADCore/headers/RADCore.h" bodystart="148" bodyend="148"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Success-or-error return value for APIs that should not throw. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="RADCore/headers/RADCore.h" line="126" column="5" bodyfile="RADCore/headers/RADCore.h" bodystart="126" bodyend="152"/>
+    <listofallmembers>
+      <member refid="classRADCore_1_1RADResult_1a6e63d9b6e66dd763a83f5167c0ce52e7" prot="public" virt="non-virtual"><scope>RADCore::RADResult</scope><name>error</name></member>
+      <member refid="classRADCore_1_1RADResult_1a814c86f5800be43e2274e0d6759ef7a8" prot="private" virt="non-virtual"><scope>RADCore::RADResult</scope><name>error_</name></member>
+      <member refid="classRADCore_1_1RADResult_1ac1cc5306211cbeede1277efb4c9a418d" prot="public" virt="non-virtual"><scope>RADCore::RADResult</scope><name>failure</name></member>
+      <member refid="classRADCore_1_1RADResult_1ac444531492bdc741e732f72b6940ba3c" prot="public" virt="non-virtual"><scope>RADCore::RADResult</scope><name>hasError</name></member>
+      <member refid="classRADCore_1_1RADResult_1aff1814c4166ad38db0cdce89e1290d9c" prot="public" virt="non-virtual"><scope>RADCore::RADResult</scope><name>ok</name></member>
+      <member refid="classRADCore_1_1RADResult_1afe79f86a4fc461063de8ca507a7d7e3b" prot="private" virt="non-virtual"><scope>RADCore::RADResult</scope><name>RADResult</name></member>
+      <member refid="classRADCore_1_1RADResult_1ae09bef5e41be0762ec74260c872df7a1" prot="private" virt="non-virtual"><scope>RADCore::RADResult</scope><name>RADResult</name></member>
+      <member refid="classRADCore_1_1RADResult_1a18594ebd7e444b3c44c49037ff3f56ac" prot="public" virt="non-virtual"><scope>RADCore::RADResult</scope><name>success</name></member>
+      <member refid="classRADCore_1_1RADResult_1a2cae0593ba7964db70dcc60d7870da5c" prot="public" virt="non-virtual"><scope>RADCore::RADResult</scope><name>value</name></member>
+      <member refid="classRADCore_1_1RADResult_1a091b9ed03aaf4b94484071eb11e99f3b" prot="public" virt="non-virtual"><scope>RADCore::RADResult</scope><name>value</name></member>
+      <member refid="classRADCore_1_1RADResult_1a773350b8bd63735285c63a0dcca5f85e" prot="private" virt="non-virtual"><scope>RADCore::RADResult</scope><name>value_</name></member>
+      <member refid="classRADCore_1_1RADResult_1a1087fb87514c58f53cda9e55fccb0920" prot="public" virt="non-virtual"><scope>RADCore::RADResult</scope><name>valueOr</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

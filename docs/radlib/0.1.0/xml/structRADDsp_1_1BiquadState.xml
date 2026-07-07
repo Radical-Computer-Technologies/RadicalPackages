@@ -1,0 +1,121 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="structRADDsp_1_1BiquadState" kind="struct" language="C++" prot="public">
+    <compoundname>RADDsp::BiquadState</compoundname>
+    <includes refid="RADDsp_8h" local="no">RADDsp.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structRADDsp_1_1BiquadState_1a67ba00a7a70a0561f5ecc9bae6aea986" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float RADDsp::BiquadState::x1</definition>
+        <argsstring></argsstring>
+        <name>x1</name>
+        <initializer>= 0.0f</initializer>
+        <briefdescription>
+<para>Previous input sample. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADDsp/headers/RADDsp.h" line="132" column="15" bodyfile="RADDsp/headers/RADDsp.h" bodystart="132" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structRADDsp_1_1BiquadState_1a231394238bdfde008da5b1d070adeb75" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float RADDsp::BiquadState::x2</definition>
+        <argsstring></argsstring>
+        <name>x2</name>
+        <initializer>= 0.0f</initializer>
+        <briefdescription>
+<para>Input sample before x1. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADDsp/headers/RADDsp.h" line="134" column="15" bodyfile="RADDsp/headers/RADDsp.h" bodystart="134" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structRADDsp_1_1BiquadState_1adaeb411890581387ff9846366c7ad753" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float RADDsp::BiquadState::y1</definition>
+        <argsstring></argsstring>
+        <name>y1</name>
+        <initializer>= 0.0f</initializer>
+        <briefdescription>
+<para>Previous output sample. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADDsp/headers/RADDsp.h" line="136" column="15" bodyfile="RADDsp/headers/RADDsp.h" bodystart="136" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structRADDsp_1_1BiquadState_1a7f5af4dd167416e4fc4b4181d64e3af5" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float RADDsp::BiquadState::y2</definition>
+        <argsstring></argsstring>
+        <name>y2</name>
+        <initializer>= 0.0f</initializer>
+        <briefdescription>
+<para>Output sample before y1. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADDsp/headers/RADDsp.h" line="138" column="15" bodyfile="RADDsp/headers/RADDsp.h" bodystart="138" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structRADDsp_1_1BiquadState_1a6f878814d3d451da456472e272006949" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void RADDsp::BiquadState::reset</definition>
+        <argsstring>()</argsstring>
+        <name>reset</name>
+        <briefdescription>
+<para>Clears all delay elements. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADDsp/headers/RADDsp.h" line="141" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="structRADDsp_1_1BiquadState_1a54a30833cd05e0b1960b2bdb594402f1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>float</type>
+        <definition>float RADDsp::BiquadState::process</definition>
+        <argsstring>(float input, const BiquadCoefficients &amp;coeffs)</argsstring>
+        <name>process</name>
+        <param>
+          <type>float</type>
+          <declname>input</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structRADDsp_1_1BiquadCoefficients" kindref="compound">BiquadCoefficients</ref> &amp;</type>
+          <declname>coeffs</declname>
+        </param>
+        <briefdescription>
+<para>Processes one sample through coeffs and updates state. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADDsp/headers/RADDsp.h" line="143" column="15"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Stateful direct-form biquad delay elements. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="RADDsp/headers/RADDsp.h" line="130" column="5" bodyfile="RADDsp/headers/RADDsp.h" bodystart="130" bodyend="144"/>
+    <listofallmembers>
+      <member refid="structRADDsp_1_1BiquadState_1a54a30833cd05e0b1960b2bdb594402f1" prot="public" virt="non-virtual"><scope>RADDsp::BiquadState</scope><name>process</name></member>
+      <member refid="structRADDsp_1_1BiquadState_1a6f878814d3d451da456472e272006949" prot="public" virt="non-virtual"><scope>RADDsp::BiquadState</scope><name>reset</name></member>
+      <member refid="structRADDsp_1_1BiquadState_1a67ba00a7a70a0561f5ecc9bae6aea986" prot="public" virt="non-virtual"><scope>RADDsp::BiquadState</scope><name>x1</name></member>
+      <member refid="structRADDsp_1_1BiquadState_1a231394238bdfde008da5b1d070adeb75" prot="public" virt="non-virtual"><scope>RADDsp::BiquadState</scope><name>x2</name></member>
+      <member refid="structRADDsp_1_1BiquadState_1adaeb411890581387ff9846366c7ad753" prot="public" virt="non-virtual"><scope>RADDsp::BiquadState</scope><name>y1</name></member>
+      <member refid="structRADDsp_1_1BiquadState_1a7f5af4dd167416e4fc4b4181d64e3af5" prot="public" virt="non-virtual"><scope>RADDsp::BiquadState</scope><name>y2</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

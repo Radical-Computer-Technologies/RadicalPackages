@@ -1,0 +1,109 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="RADDisplay_8h" kind="file" language="C++">
+    <compoundname>RADDisplay.h</compoundname>
+    <includes local="no">RADCore/RADCore.h</includes>
+    <includes local="no">string</includes>
+    <includes local="no">vector</includes>
+    <incdepgraph>
+      <node id="2">
+        <label>RADCore/RADCore.h</label>
+      </node>
+      <node id="1">
+        <label>RADDisplay/headers/RADDisplay.h</label>
+        <link refid="RADDisplay_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>string</label>
+      </node>
+      <node id="4">
+        <label>vector</label>
+      </node>
+    </incdepgraph>
+    <innerclass refid="structRADDisplay_1_1DisplayPaths" prot="public">RADDisplay::DisplayPaths</innerclass>
+    <innerclass refid="structRADDisplay_1_1DisplayCapabilities" prot="public">RADDisplay::DisplayCapabilities</innerclass>
+    <innerclass refid="structRADDisplay_1_1DisplayInfo" prot="public">RADDisplay::DisplayInfo</innerclass>
+    <innerclass refid="structRADDisplay_1_1BacklightInfo" prot="public">RADDisplay::BacklightInfo</innerclass>
+    <innerclass refid="classRADDisplay_1_1DisplayManager" prot="public">RADDisplay::DisplayManager</innerclass>
+    <innernamespace refid="namespaceRADDisplay">RADDisplay</innernamespace>
+    <briefdescription>
+<para>DRM/KMS, framebuffer, backlight, orientation, and display capability helpers. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#ifndef<sp/>RADDISPLAY_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>RADDISPLAY_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="preprocessor">#pragma<sp/>once</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;RADCore/RADCore.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;string&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;vector&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight></codeline>
+<codeline lineno="16" refid="namespaceRADDisplay" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal"><ref refid="namespaceRADDisplay" kindref="compound">RADDisplay</ref><sp/>{</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight></codeline>
+<codeline lineno="19" refid="structRADDisplay_1_1DisplayPaths" refkind="compound"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structRADDisplay_1_1DisplayPaths" kindref="compound">DisplayPaths</ref><sp/>{</highlight></codeline>
+<codeline lineno="21" refid="structRADDisplay_1_1DisplayPaths_1a47267cde1fb645b6b92dcf18373266d6" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::string<sp/><ref refid="structRADDisplay_1_1DisplayPaths_1a47267cde1fb645b6b92dcf18373266d6" kindref="member">sysClassDrm</ref><sp/>=<sp/></highlight><highlight class="stringliteral">&quot;/sys/class/drm&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="23" refid="structRADDisplay_1_1DisplayPaths_1aff0941fcf749f54e600d16ccf52d6722" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::string<sp/><ref refid="structRADDisplay_1_1DisplayPaths_1aff0941fcf749f54e600d16ccf52d6722" kindref="member">sysClassBacklight</ref><sp/>=<sp/></highlight><highlight class="stringliteral">&quot;/sys/class/backlight&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="25" refid="structRADDisplay_1_1DisplayPaths_1adfe2ab7cc75fab7abf3b8488e0ea3bcb" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::string<sp/><ref refid="structRADDisplay_1_1DisplayPaths_1adfe2ab7cc75fab7abf3b8488e0ea3bcb" kindref="member">devDri</ref><sp/>=<sp/></highlight><highlight class="stringliteral">&quot;/dev/dri&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="27" refid="structRADDisplay_1_1DisplayPaths_1a20b6d74b58f9f4fc9aa19d635346eeff" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::string<sp/><ref refid="structRADDisplay_1_1DisplayPaths_1a20b6d74b58f9f4fc9aa19d635346eeff" kindref="member">devRoot</ref><sp/>=<sp/></highlight><highlight class="stringliteral">&quot;/dev&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/><sp/><sp/>};</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight></codeline>
+<codeline lineno="31" refid="structRADDisplay_1_1DisplayCapabilities" refkind="compound"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structRADDisplay_1_1DisplayCapabilities" kindref="compound">DisplayCapabilities</ref><sp/>{</highlight></codeline>
+<codeline lineno="33" refid="structRADDisplay_1_1DisplayCapabilities_1adf153c1aa08ee1fc427525ed4073b690" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="structRADDisplay_1_1DisplayCapabilities_1adf153c1aa08ee1fc427525ed4073b690" kindref="member">drm</ref><sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="35" refid="structRADDisplay_1_1DisplayCapabilities_1aed788d1377e4dcb7096ca80c1224341f" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="structRADDisplay_1_1DisplayCapabilities_1aed788d1377e4dcb7096ca80c1224341f" kindref="member">framebuffer</ref><sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="37" refid="structRADDisplay_1_1DisplayCapabilities_1a8c8e21050c33945e1f689decad5fdbbe" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="structRADDisplay_1_1DisplayCapabilities_1a8c8e21050c33945e1f689decad5fdbbe" kindref="member">wayland</ref><sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="39" refid="structRADDisplay_1_1DisplayCapabilities_1aec1e5cc9a6e62218bc5692ffc9029be1" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="structRADDisplay_1_1DisplayCapabilities_1aec1e5cc9a6e62218bc5692ffc9029be1" kindref="member">x11</ref><sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="41" refid="structRADDisplay_1_1DisplayCapabilities_1a1d35cfc6f2b7dda43ca25bcfd4b35aa3" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="structRADDisplay_1_1DisplayCapabilities_1a1d35cfc6f2b7dda43ca25bcfd4b35aa3" kindref="member">backlight</ref><sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/>};</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"></highlight></codeline>
+<codeline lineno="45" refid="structRADDisplay_1_1DisplayInfo" refkind="compound"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structRADDisplay_1_1DisplayInfo" kindref="compound">DisplayInfo</ref><sp/>{</highlight></codeline>
+<codeline lineno="47" refid="structRADDisplay_1_1DisplayInfo_1a6582e6ccae1d17087dee70377aebbd53" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::string<sp/><ref refid="structRADDisplay_1_1DisplayInfo_1a6582e6ccae1d17087dee70377aebbd53" kindref="member">name</ref>;</highlight></codeline>
+<codeline lineno="49" refid="structRADDisplay_1_1DisplayInfo_1ad358291d8ddfddc2874ede3d21f82e11" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::string<sp/><ref refid="structRADDisplay_1_1DisplayInfo_1ad358291d8ddfddc2874ede3d21f82e11" kindref="member">path</ref>;</highlight></codeline>
+<codeline lineno="51" refid="structRADDisplay_1_1DisplayInfo_1a29448a4c2a66d7965f49056e75a61f33" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::string<sp/><ref refid="structRADDisplay_1_1DisplayInfo_1a29448a4c2a66d7965f49056e75a61f33" kindref="member">status</ref>;</highlight></codeline>
+<codeline lineno="53" refid="structRADDisplay_1_1DisplayInfo_1aff6ff9be8c3d09e9e8cdb56d6a6056c6" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::string<sp/><ref refid="structRADDisplay_1_1DisplayInfo_1aff6ff9be8c3d09e9e8cdb56d6a6056c6" kindref="member">mode</ref>;</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/>};</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"></highlight></codeline>
+<codeline lineno="57" refid="structRADDisplay_1_1BacklightInfo" refkind="compound"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structRADDisplay_1_1BacklightInfo" kindref="compound">BacklightInfo</ref><sp/>{</highlight></codeline>
+<codeline lineno="59" refid="structRADDisplay_1_1BacklightInfo_1a1bab37a111241f27d6864f7352677413" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::string<sp/><ref refid="structRADDisplay_1_1BacklightInfo_1a1bab37a111241f27d6864f7352677413" kindref="member">name</ref>;</highlight></codeline>
+<codeline lineno="61" refid="structRADDisplay_1_1BacklightInfo_1a37fc20245b55d249653a964c1cfa0631" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::string<sp/><ref refid="structRADDisplay_1_1BacklightInfo_1a37fc20245b55d249653a964c1cfa0631" kindref="member">path</ref>;</highlight></codeline>
+<codeline lineno="63" refid="structRADDisplay_1_1BacklightInfo_1a80414da4121208b763ade9cc115a3bd0" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="structRADDisplay_1_1BacklightInfo_1a80414da4121208b763ade9cc115a3bd0" kindref="member">brightness</ref><sp/>=<sp/>-1;</highlight></codeline>
+<codeline lineno="65" refid="structRADDisplay_1_1BacklightInfo_1ad8577efaaf1ab58266fc75d3ee10200e" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="structRADDisplay_1_1BacklightInfo_1ad8577efaaf1ab58266fc75d3ee10200e" kindref="member">maxBrightness</ref><sp/>=<sp/>-1;</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/>};</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"></highlight></codeline>
+<codeline lineno="69" refid="namespaceRADDisplay_1a7bbf4a8899a6778aff0e634c9b43add5" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">enum<sp/>class</highlight><highlight class="normal"><sp/><ref refid="namespaceRADDisplay_1a7bbf4a8899a6778aff0e634c9b43add5" kindref="member">Orientation</ref><sp/>{</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespaceRADDisplay_1a7bbf4a8899a6778aff0e634c9b43add5abff7941a1078379bb2b1a114ff931ecb" kindref="member">Landscape0</ref>,</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespaceRADDisplay_1a7bbf4a8899a6778aff0e634c9b43add5a032705951a94c13dedab12b33c1a9631" kindref="member">Portrait90</ref>,</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespaceRADDisplay_1a7bbf4a8899a6778aff0e634c9b43add5ac2ea0166769c6fde7586c8b3d3677bdd" kindref="member">Landscape180</ref>,</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespaceRADDisplay_1a7bbf4a8899a6778aff0e634c9b43add5af710851dff8937320020731aa327efe8" kindref="member">Portrait270</ref></highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/>};</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"></highlight></codeline>
+<codeline lineno="81" refid="classRADDisplay_1_1DisplayManager" refkind="compound"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classRADDisplay_1_1DisplayManager" kindref="compound">DisplayManager</ref><sp/>{</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="84" refid="classRADDisplay_1_1DisplayManager_1a7797062580ae8a959c52d7390e5806a6" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">explicit</highlight><highlight class="normal"><sp/><ref refid="classRADDisplay_1_1DisplayManager_1a7797062580ae8a959c52d7390e5806a6" kindref="member">DisplayManager</ref>(<ref refid="structRADDisplay_1_1DisplayPaths" kindref="compound">DisplayPaths</ref><sp/><ref refid="classRADDisplay_1_1DisplayManager_1ac89d750f065c7b164daea1401e0e349b" kindref="member">paths</ref><sp/>=<sp/>{});</highlight></codeline>
+<codeline lineno="86" refid="classRADDisplay_1_1DisplayManager_1aeaf51e9c2fe71e3cd5e6825691fcbf27" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structRADDisplay_1_1DisplayCapabilities" kindref="compound">DisplayCapabilities</ref><sp/><ref refid="classRADDisplay_1_1DisplayManager_1aeaf51e9c2fe71e3cd5e6825691fcbf27" kindref="member">capabilities</ref>()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="88" refid="classRADDisplay_1_1DisplayManager_1ad3cb904157a14470b4e9f90f6798ca12" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::vector&lt;DisplayInfo&gt;<sp/><ref refid="classRADDisplay_1_1DisplayManager_1ad3cb904157a14470b4e9f90f6798ca12" kindref="member">displays</ref>()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="90" refid="classRADDisplay_1_1DisplayManager_1ad3ee2c5fe199bc5c3fe5ceddbba5959a" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::vector&lt;BacklightInfo&gt;<sp/><ref refid="classRADDisplay_1_1DisplayManager_1ad3ee2c5fe199bc5c3fe5ceddbba5959a" kindref="member">backlights</ref>()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="92" refid="classRADDisplay_1_1DisplayManager_1abc1081b36460a9e92d79c1843555deaa" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classRADDisplay_1_1DisplayManager_1abc1081b36460a9e92d79c1843555deaa" kindref="member">setBacklightBrightness</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::string&amp;<sp/>name,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>brightness,<sp/>std::string*<sp/>error<sp/>=<sp/></highlight><highlight class="keyword">nullptr</highlight><highlight class="normal">)<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="94" refid="classRADDisplay_1_1DisplayManager_1ac5d544d7de2239dbeb06e8c7a20adf5b" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/>std::string<sp/><ref refid="classRADDisplay_1_1DisplayManager_1ac5d544d7de2239dbeb06e8c7a20adf5b" kindref="member">orientationName</ref>(<ref refid="namespaceRADDisplay_1a7bbf4a8899a6778aff0e634c9b43add5" kindref="member">Orientation</ref><sp/>orientation);</highlight></codeline>
+<codeline lineno="96" refid="classRADDisplay_1_1DisplayManager_1ac89d750f065c7b164daea1401e0e349b" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structRADDisplay_1_1DisplayPaths" kindref="compound">DisplayPaths</ref>&amp;<sp/><ref refid="classRADDisplay_1_1DisplayManager_1ac89d750f065c7b164daea1401e0e349b" kindref="member">paths</ref>()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="97"><highlight class="normal"></highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structRADDisplay_1_1DisplayPaths" kindref="compound">DisplayPaths</ref><sp/>paths_;</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/><sp/><sp/>};</highlight></codeline>
+<codeline lineno="101"><highlight class="normal"></highlight></codeline>
+<codeline lineno="102"><highlight class="normal">}<sp/></highlight><highlight class="comment">//<sp/>namespace<sp/>RADDisplay</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="103"><highlight class="normal"></highlight></codeline>
+<codeline lineno="104"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+    </programlisting>
+    <location file="RADDisplay/headers/RADDisplay.h"/>
+  </compounddef>
+</doxygen>

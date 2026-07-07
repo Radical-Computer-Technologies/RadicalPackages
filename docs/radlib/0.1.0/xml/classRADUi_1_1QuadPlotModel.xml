@@ -1,0 +1,139 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="classRADUi_1_1QuadPlotModel" kind="class" language="C++" prot="public">
+    <compoundname>RADUi::QuadPlotModel</compoundname>
+    <includes refid="RADPlot_8h" local="no">RADPlot.h</includes>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classRADUi_1_1QuadPlotModel_1a04c2e06d29a0469ffd4dce5d40e6f787" prot="private" static="no" mutable="no">
+        <type>std::array&lt; std::shared_ptr&lt; <ref refid="classRADUi_1_1PlotModel" kindref="compound">PlotModel</ref> &gt;, 4 &gt;</type>
+        <definition>std::array&lt;std::shared_ptr&lt;PlotModel&gt;, 4&gt; RADUi::QuadPlotModel::panels_</definition>
+        <argsstring></argsstring>
+        <name>panels_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADUi/headers/RADPlot.h" line="250" column="20" bodyfile="RADUi/headers/RADPlot.h" bodystart="250" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classRADUi_1_1QuadPlotModel_1a686cdea326b26756fd12069d99c97c53" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>RADUi::QuadPlotModel::QuadPlotModel</definition>
+        <argsstring>()</argsstring>
+        <name>QuadPlotModel</name>
+        <briefdescription>
+<para>Creates four empty panels. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADUi/headers/RADPlot.h" line="236" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADUi_1_1QuadPlotModel_1a66aa752e23f16f28c3b5f4c8530c11f4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classRADUi_1_1PlotModel" kindref="compound">PlotModel</ref> &amp;</type>
+        <definition>PlotModel&amp; RADUi::QuadPlotModel::panel</definition>
+        <argsstring>(size_t index)</argsstring>
+        <name>panel</name>
+        <param>
+          <type>size_t</type>
+          <declname>index</declname>
+        </param>
+        <briefdescription>
+<para>Returns a mutable panel by index 0..3. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADUi/headers/RADPlot.h" line="239" column="19"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADUi_1_1QuadPlotModel_1a26c195ad368682332c906c98f967eed9" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>const <ref refid="classRADUi_1_1PlotModel" kindref="compound">PlotModel</ref> &amp;</type>
+        <definition>const PlotModel&amp; RADUi::QuadPlotModel::panel</definition>
+        <argsstring>(size_t index) const</argsstring>
+        <name>panel</name>
+        <param>
+          <type>size_t</type>
+          <declname>index</declname>
+        </param>
+        <briefdescription>
+<para>Returns a const panel by index 0..3. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADUi/headers/RADPlot.h" line="241" column="25"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADUi_1_1QuadPlotModel_1acbe93423bedba2959c26121d13ffec86" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void RADUi::QuadPlotModel::setSharedRollingXWindow</definition>
+        <argsstring>(double width)</argsstring>
+        <name>setSharedRollingXWindow</name>
+        <param>
+          <type>double</type>
+          <declname>width</declname>
+        </param>
+        <briefdescription>
+<para>Applies a shared rolling X window to all panels. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADUi/headers/RADPlot.h" line="243" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADUi_1_1QuadPlotModel_1a79900b157ef2c8bc1cd347dab1856bba" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void RADUi::QuadPlotModel::setMaxPointCount</definition>
+        <argsstring>(size_t maxPointCount)</argsstring>
+        <name>setMaxPointCount</name>
+        <param>
+          <type>size_t</type>
+          <declname>maxPointCount</declname>
+        </param>
+        <briefdescription>
+<para>Applies a shared max point count to all panels. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADUi/headers/RADPlot.h" line="245" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADUi_1_1QuadPlotModel_1acd6769657ff2a2c776d34f2bc255f22c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void RADUi::QuadPlotModel::clear</definition>
+        <argsstring>()</argsstring>
+        <name>clear</name>
+        <briefdescription>
+<para>Clears all panels. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADUi/headers/RADPlot.h" line="247" column="14"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Four-panel plot model for I/Q, quad, or dashboard-style views. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="RADUi/headers/RADPlot.h" line="233" column="5" bodyfile="RADUi/headers/RADPlot.h" bodystart="233" bodyend="251"/>
+    <listofallmembers>
+      <member refid="classRADUi_1_1QuadPlotModel_1acd6769657ff2a2c776d34f2bc255f22c" prot="public" virt="non-virtual"><scope>RADUi::QuadPlotModel</scope><name>clear</name></member>
+      <member refid="classRADUi_1_1QuadPlotModel_1a66aa752e23f16f28c3b5f4c8530c11f4" prot="public" virt="non-virtual"><scope>RADUi::QuadPlotModel</scope><name>panel</name></member>
+      <member refid="classRADUi_1_1QuadPlotModel_1a26c195ad368682332c906c98f967eed9" prot="public" virt="non-virtual"><scope>RADUi::QuadPlotModel</scope><name>panel</name></member>
+      <member refid="classRADUi_1_1QuadPlotModel_1a04c2e06d29a0469ffd4dce5d40e6f787" prot="private" virt="non-virtual"><scope>RADUi::QuadPlotModel</scope><name>panels_</name></member>
+      <member refid="classRADUi_1_1QuadPlotModel_1a686cdea326b26756fd12069d99c97c53" prot="public" virt="non-virtual"><scope>RADUi::QuadPlotModel</scope><name>QuadPlotModel</name></member>
+      <member refid="classRADUi_1_1QuadPlotModel_1a79900b157ef2c8bc1cd347dab1856bba" prot="public" virt="non-virtual"><scope>RADUi::QuadPlotModel</scope><name>setMaxPointCount</name></member>
+      <member refid="classRADUi_1_1QuadPlotModel_1acbe93423bedba2959c26121d13ffec86" prot="public" virt="non-virtual"><scope>RADUi::QuadPlotModel</scope><name>setSharedRollingXWindow</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

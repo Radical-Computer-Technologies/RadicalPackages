@@ -1,0 +1,442 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="classRADMedia_1_1AudioPlayer" kind="class" language="C++" prot="public">
+    <compoundname>RADMedia::AudioPlayer</compoundname>
+    <basecompoundref refid="classRADCore_1_1RADObject" prot="public" virt="non-virtual">RADCore::RADObject</basecompoundref>
+    <includes refid="RADMedia_8h" local="no">RADMedia.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="classRADMedia_1_1AudioPlayer_1a30b423a392111a7de9a2a18884d08886" prot="public" static="no" mutable="no">
+        <type><ref refid="classRADCore_1_1Event" kindref="compound">RADCore::Event</ref>&lt; void() &gt;</type>
+        <definition>RADCore::Event&lt;void () &gt; RADMedia::AudioPlayer::started</definition>
+        <argsstring></argsstring>
+        <name>started</name>
+        <briefdescription>
+<para>Raised when playback starts. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADMedia/headers/RADMedia.h" line="566" column="30" bodyfile="RADMedia/headers/RADMedia.h" bodystart="566" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classRADMedia_1_1AudioPlayer_1a4de36336c4f5a42db56dd6de26a8b069" prot="public" static="no" mutable="no">
+        <type><ref refid="classRADCore_1_1Event" kindref="compound">RADCore::Event</ref>&lt; void() &gt;</type>
+        <definition>RADCore::Event&lt;void () &gt; RADMedia::AudioPlayer::finished</definition>
+        <argsstring></argsstring>
+        <name>finished</name>
+        <briefdescription>
+<para>Raised when playback reaches the end. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADMedia/headers/RADMedia.h" line="568" column="30" bodyfile="RADMedia/headers/RADMedia.h" bodystart="568" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classRADMedia_1_1AudioPlayer_1a234bd7650c6e1392892bf01753ce8d3d" prot="public" static="no" mutable="no">
+        <type><ref refid="classRADCore_1_1Event" kindref="compound">RADCore::Event</ref>&lt; void() &gt;</type>
+        <definition>RADCore::Event&lt;void () &gt; RADMedia::AudioPlayer::stopped</definition>
+        <argsstring></argsstring>
+        <name>stopped</name>
+        <briefdescription>
+<para>Raised when playback is explicitly stopped. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADMedia/headers/RADMedia.h" line="570" column="30" bodyfile="RADMedia/headers/RADMedia.h" bodystart="570" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classRADMedia_1_1AudioPlayer_1ad03734a51d5eb992ec809df71a3cf5ba" prot="public" static="no" mutable="no">
+        <type><ref refid="classRADCore_1_1Event" kindref="compound">RADCore::Event</ref>&lt; void(std::string) &gt;</type>
+        <definition>RADCore::Event&lt;void (std::string) &gt; RADMedia::AudioPlayer::errorOccurred</definition>
+        <argsstring></argsstring>
+        <name>errorOccurred</name>
+        <briefdescription>
+<para>Raised when loading, format negotiation, or playback fails. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADMedia/headers/RADMedia.h" line="572" column="30" bodyfile="RADMedia/headers/RADMedia.h" bodystart="572" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classRADMedia_1_1AudioPlayer_1ad828a5e4d0e35ba275e7b17be63d8e70" prot="private" static="no" mutable="no">
+        <type>std::atomic&lt; bool &gt;</type>
+        <definition>std::atomic&lt;bool&gt; RADMedia::AudioPlayer::stopRequested_</definition>
+        <argsstring></argsstring>
+        <name>stopRequested_</name>
+        <initializer>{false}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADMedia/headers/RADMedia.h" line="595" column="21" bodyfile="RADMedia/headers/RADMedia.h" bodystart="595" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classRADMedia_1_1AudioPlayer_1a29432053a427cef300117676ee75ad81" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool RADMedia::AudioPlayer::play</definition>
+        <argsstring>(const WavFile &amp;wav, const std::string &amp;deviceId=&quot;default&quot;, std::string *error=nullptr)</argsstring>
+        <name>play</name>
+        <param>
+          <type>const <ref refid="classRADMedia_1_1WavFile" kindref="compound">WavFile</ref> &amp;</type>
+          <declname>wav</declname>
+        </param>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>deviceId</declname>
+          <defval>&quot;default&quot;</defval>
+        </param>
+        <param>
+          <type>std::string *</type>
+          <declname>error</declname>
+          <defval>nullptr</defval>
+        </param>
+        <briefdescription>
+<para>Plays an already-loaded WAV file synchronously. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADMedia/headers/RADMedia.h" line="575" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADMedia_1_1AudioPlayer_1aaf69cc266cfd62b1757c400bf7437c43" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool RADMedia::AudioPlayer::playBuffer</definition>
+        <argsstring>(const AudioBuffer &amp;buffer, const std::string &amp;deviceId=&quot;default&quot;, std::string *error=nullptr)</argsstring>
+        <name>playBuffer</name>
+        <param>
+          <type>const <ref refid="structRADMedia_1_1AudioBuffer" kindref="compound">AudioBuffer</ref> &amp;</type>
+          <declname>buffer</declname>
+        </param>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>deviceId</declname>
+          <defval>&quot;default&quot;</defval>
+        </param>
+        <param>
+          <type>std::string *</type>
+          <declname>error</declname>
+          <defval>nullptr</defval>
+        </param>
+        <briefdescription>
+<para>Plays an interleaved Float32 buffer synchronously using default low-latency settings. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADMedia/headers/RADMedia.h" line="577" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADMedia_1_1AudioPlayer_1a7f9dca2fe32eb5b13498187f5c057be0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool RADMedia::AudioPlayer::playBufferLowLatency</definition>
+        <argsstring>(const AudioBuffer &amp;buffer, const std::string &amp;deviceId=&quot;default&quot;, size_t framesPerChunk=256, unsigned int targetLatencyUsec=5000, std::string *error=nullptr)</argsstring>
+        <name>playBufferLowLatency</name>
+        <param>
+          <type>const <ref refid="structRADMedia_1_1AudioBuffer" kindref="compound">AudioBuffer</ref> &amp;</type>
+          <declname>buffer</declname>
+        </param>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>deviceId</declname>
+          <defval>&quot;default&quot;</defval>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>framesPerChunk</declname>
+          <defval>256</defval>
+        </param>
+        <param>
+          <type>unsigned int</type>
+          <declname>targetLatencyUsec</declname>
+          <defval>5000</defval>
+        </param>
+        <param>
+          <type>std::string *</type>
+          <declname>error</declname>
+          <defval>nullptr</defval>
+        </param>
+        <briefdescription>
+<para>Plays an interleaved Float32 buffer synchronously with explicit low-level buffer settings. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADMedia/headers/RADMedia.h" line="579" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADMedia_1_1AudioPlayer_1a40697813cfb44160f100e2093105d105" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool RADMedia::AudioPlayer::playFile</definition>
+        <argsstring>(const std::string &amp;path, const std::string &amp;deviceId=&quot;default&quot;, std::string *error=nullptr)</argsstring>
+        <name>playFile</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>path</declname>
+        </param>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>deviceId</declname>
+          <defval>&quot;default&quot;</defval>
+        </param>
+        <param>
+          <type>std::string *</type>
+          <declname>error</declname>
+          <defval>nullptr</defval>
+        </param>
+        <briefdescription>
+<para>Loads and plays a WAV file synchronously. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADMedia/headers/RADMedia.h" line="582" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADMedia_1_1AudioPlayer_1a491725be1f972b204bb69bbb11c60528" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void RADMedia::AudioPlayer::stop</definition>
+        <argsstring>()</argsstring>
+        <name>stop</name>
+        <briefdescription>
+<para>Requests that current playback stop. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADMedia/headers/RADMedia.h" line="584" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADMedia_1_1AudioPlayer_1a2935227926f5a347b9524cd8f3744300" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void RADMedia::AudioPlayer::playAsync</definition>
+        <argsstring>(RADCore::EventLoop &amp;loop, WavFile wav, const std::string &amp;deviceId=&quot;default&quot;)</argsstring>
+        <name>playAsync</name>
+        <param>
+          <type><ref refid="classRADCore_1_1EventLoop" kindref="compound">RADCore::EventLoop</ref> &amp;</type>
+          <declname>loop</declname>
+        </param>
+        <param>
+          <type><ref refid="classRADMedia_1_1WavFile" kindref="compound">WavFile</ref></type>
+          <declname>wav</declname>
+        </param>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>deviceId</declname>
+          <defval>&quot;default&quot;</defval>
+        </param>
+        <briefdescription>
+<para>Plays an already-loaded WAV file on a background task and emits events on loop. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADMedia/headers/RADMedia.h" line="586" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADMedia_1_1AudioPlayer_1ab67d832ea9e5fbbcc1fda89c4ad07a3b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void RADMedia::AudioPlayer::playFileAsync</definition>
+        <argsstring>(RADCore::EventLoop &amp;loop, const std::string &amp;path, const std::string &amp;deviceId=&quot;default&quot;)</argsstring>
+        <name>playFileAsync</name>
+        <param>
+          <type><ref refid="classRADCore_1_1EventLoop" kindref="compound">RADCore::EventLoop</ref> &amp;</type>
+          <declname>loop</declname>
+        </param>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>path</declname>
+        </param>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>deviceId</declname>
+          <defval>&quot;default&quot;</defval>
+        </param>
+        <briefdescription>
+<para>Loads and plays a WAV file on a background task and emits events on loop. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADMedia/headers/RADMedia.h" line="588" column="14"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="classRADMedia_1_1AudioPlayer_1a8755f3b85e16979f1d758f894298e139" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool RADMedia::AudioPlayer::playInternal</definition>
+        <argsstring>(const WavFile &amp;wav, const std::string &amp;deviceId, std::string *error, bool resetStopRequest)</argsstring>
+        <name>playInternal</name>
+        <param>
+          <type>const <ref refid="classRADMedia_1_1WavFile" kindref="compound">WavFile</ref> &amp;</type>
+          <declname>wav</declname>
+        </param>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>deviceId</declname>
+        </param>
+        <param>
+          <type>std::string *</type>
+          <declname>error</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>resetStopRequest</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADMedia/headers/RADMedia.h" line="591" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADMedia_1_1AudioPlayer_1a929258bfa73d99ad59a9b36e2dc1e039" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool RADMedia::AudioPlayer::playBufferInternal</definition>
+        <argsstring>(const AudioBuffer &amp;buffer, const std::string &amp;deviceId, size_t framesPerChunk, unsigned int targetLatencyUsec, std::string *error, bool resetStopRequest)</argsstring>
+        <name>playBufferInternal</name>
+        <param>
+          <type>const <ref refid="structRADMedia_1_1AudioBuffer" kindref="compound">AudioBuffer</ref> &amp;</type>
+          <declname>buffer</declname>
+        </param>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>deviceId</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>framesPerChunk</declname>
+        </param>
+        <param>
+          <type>unsigned int</type>
+          <declname>targetLatencyUsec</declname>
+        </param>
+        <param>
+          <type>std::string *</type>
+          <declname>error</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>resetStopRequest</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADMedia/headers/RADMedia.h" line="592" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADMedia_1_1AudioPlayer_1a433eb0457722dd1e53813fab65d4eb8e" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool RADMedia::AudioPlayer::playFileInternal</definition>
+        <argsstring>(const std::string &amp;path, const std::string &amp;deviceId, std::string *error, bool resetStopRequest)</argsstring>
+        <name>playFileInternal</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>path</declname>
+        </param>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>deviceId</declname>
+        </param>
+        <param>
+          <type>std::string *</type>
+          <declname>error</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>resetStopRequest</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADMedia/headers/RADMedia.h" line="594" column="14"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Convenience WAV/audio playback object with sync and async APIs. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>RADCore::RADObject</label>
+        <link refid="classRADCore_1_1RADObject"/>
+      </node>
+      <node id="1">
+        <label>RADMedia::AudioPlayer</label>
+        <link refid="classRADMedia_1_1AudioPlayer"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>RADCore::RADObject</label>
+        <link refid="classRADCore_1_1RADObject"/>
+      </node>
+      <node id="4">
+        <label>RADCore::Event&lt; void(std::string) &gt;</label>
+        <link refid="classRADCore_1_1Event"/>
+      </node>
+      <node id="3">
+        <label>RADCore::Event&lt; void() &gt;</label>
+        <link refid="classRADCore_1_1Event"/>
+      </node>
+      <node id="1">
+        <label>RADMedia::AudioPlayer</label>
+        <link refid="classRADMedia_1_1AudioPlayer"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="3" relation="usage">
+          <edgelabel>finished</edgelabel>
+          <edgelabel>started</edgelabel>
+          <edgelabel>stopped</edgelabel>
+        </childnode>
+        <childnode refid="4" relation="usage">
+          <edgelabel>errorOccurred</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="RADMedia/headers/RADMedia.h" line="562" column="5" bodyfile="RADMedia/headers/RADMedia.h" bodystart="562" bodyend="596"/>
+    <listofallmembers>
+      <member refid="classRADCore_1_1RADObject_1a06cdf252ffb5e2f88332ebda12a62080" prot="public" virt="non-virtual"><scope>RADMedia::AudioPlayer</scope><name>associatedEventLoop</name></member>
+      <member refid="classRADMedia_1_1AudioPlayer_1ad03734a51d5eb992ec809df71a3cf5ba" prot="public" virt="non-virtual"><scope>RADMedia::AudioPlayer</scope><name>errorOccurred</name></member>
+      <member refid="classRADMedia_1_1AudioPlayer_1a4de36336c4f5a42db56dd6de26a8b069" prot="public" virt="non-virtual"><scope>RADMedia::AudioPlayer</scope><name>finished</name></member>
+      <member refid="classRADCore_1_1RADObject_1ad2ddfd066d14be9adc2f96bfca417fc6" prot="public" virt="non-virtual"><scope>RADMedia::AudioPlayer</scope><name>lifetimeToken</name></member>
+      <member refid="classRADCore_1_1RADObject_1a1f7f7f2fb40211e28455cd74a029339a" prot="public" virt="non-virtual"><scope>RADMedia::AudioPlayer</scope><name>moveToThread</name></member>
+      <member refid="classRADMedia_1_1AudioPlayer_1a29432053a427cef300117676ee75ad81" prot="public" virt="non-virtual"><scope>RADMedia::AudioPlayer</scope><name>play</name></member>
+      <member refid="classRADMedia_1_1AudioPlayer_1a2935227926f5a347b9524cd8f3744300" prot="public" virt="non-virtual"><scope>RADMedia::AudioPlayer</scope><name>playAsync</name></member>
+      <member refid="classRADMedia_1_1AudioPlayer_1aaf69cc266cfd62b1757c400bf7437c43" prot="public" virt="non-virtual"><scope>RADMedia::AudioPlayer</scope><name>playBuffer</name></member>
+      <member refid="classRADMedia_1_1AudioPlayer_1a929258bfa73d99ad59a9b36e2dc1e039" prot="private" virt="non-virtual"><scope>RADMedia::AudioPlayer</scope><name>playBufferInternal</name></member>
+      <member refid="classRADMedia_1_1AudioPlayer_1a7f9dca2fe32eb5b13498187f5c057be0" prot="public" virt="non-virtual"><scope>RADMedia::AudioPlayer</scope><name>playBufferLowLatency</name></member>
+      <member refid="classRADMedia_1_1AudioPlayer_1a40697813cfb44160f100e2093105d105" prot="public" virt="non-virtual"><scope>RADMedia::AudioPlayer</scope><name>playFile</name></member>
+      <member refid="classRADMedia_1_1AudioPlayer_1ab67d832ea9e5fbbcc1fda89c4ad07a3b" prot="public" virt="non-virtual"><scope>RADMedia::AudioPlayer</scope><name>playFileAsync</name></member>
+      <member refid="classRADMedia_1_1AudioPlayer_1a433eb0457722dd1e53813fab65d4eb8e" prot="private" virt="non-virtual"><scope>RADMedia::AudioPlayer</scope><name>playFileInternal</name></member>
+      <member refid="classRADMedia_1_1AudioPlayer_1a8755f3b85e16979f1d758f894298e139" prot="private" virt="non-virtual"><scope>RADMedia::AudioPlayer</scope><name>playInternal</name></member>
+      <member refid="classRADCore_1_1RADObject_1a9bc3fed915f7c71232e68c2628d34708" prot="public" virt="non-virtual"><scope>RADMedia::AudioPlayer</scope><name>RADObject</name></member>
+      <member refid="classRADCore_1_1RADObject_1af3e26b970c8080418f0d6b80cad986a2" prot="public" virt="non-virtual"><scope>RADMedia::AudioPlayer</scope><name>registerLink</name></member>
+      <member refid="classRADMedia_1_1AudioPlayer_1a30b423a392111a7de9a2a18884d08886" prot="public" virt="non-virtual"><scope>RADMedia::AudioPlayer</scope><name>started</name></member>
+      <member refid="classRADMedia_1_1AudioPlayer_1a491725be1f972b204bb69bbb11c60528" prot="public" virt="non-virtual"><scope>RADMedia::AudioPlayer</scope><name>stop</name></member>
+      <member refid="classRADMedia_1_1AudioPlayer_1a234bd7650c6e1392892bf01753ce8d3d" prot="public" virt="non-virtual"><scope>RADMedia::AudioPlayer</scope><name>stopped</name></member>
+      <member refid="classRADMedia_1_1AudioPlayer_1ad828a5e4d0e35ba275e7b17be63d8e70" prot="private" virt="non-virtual"><scope>RADMedia::AudioPlayer</scope><name>stopRequested_</name></member>
+      <member refid="classRADCore_1_1RADObject_1a8b11df0b951d0db1ba99cfb851e34f31" prot="public" virt="non-virtual"><scope>RADMedia::AudioPlayer</scope><name>threadAffinity</name></member>
+      <member refid="classRADCore_1_1RADObject_1ac7ca67b41523794ae5a6b3634d6ce3b6" prot="public" virt="non-virtual"><scope>RADMedia::AudioPlayer</scope><name>threadId</name></member>
+      <member refid="classRADCore_1_1RADObject_1a7369e27a46c163ee89c63227db650ce5" prot="public" virt="virtual"><scope>RADMedia::AudioPlayer</scope><name>~RADObject</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

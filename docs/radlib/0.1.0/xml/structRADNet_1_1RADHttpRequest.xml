@@ -1,0 +1,158 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="structRADNet_1_1RADHttpRequest" kind="struct" language="C++" prot="public">
+    <compoundname>RADNet::RADHttpRequest</compoundname>
+    <includes refid="RADNet_8h" local="no">RADNet.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structRADNet_1_1RADHttpRequest_1a92b4fd04d25d0aa8430eca6029e82a77" prot="public" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string RADNet::RADHttpRequest::method</definition>
+        <argsstring></argsstring>
+        <name>method</name>
+        <initializer>= &quot;GET&quot;</initializer>
+        <briefdescription>
+<para>HTTP method such as GET, POST, PUT, DELETE. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADNet/headers/RADNet.h" line="207" column="21" bodyfile="RADNet/headers/RADNet.h" bodystart="207" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structRADNet_1_1RADHttpRequest_1a007cba3fdecea68d15d609016dde5f23" prot="public" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string RADNet::RADHttpRequest::url</definition>
+        <argsstring></argsstring>
+        <name>url</name>
+        <briefdescription>
+<para>Target URL. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADNet/headers/RADNet.h" line="209" column="21" bodyfile="RADNet/headers/RADNet.h" bodystart="209" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structRADNet_1_1RADHttpRequest_1a07625fe29d5380628232b042aac308aa" prot="public" static="no" mutable="no">
+        <type>std::map&lt; std::string, std::string &gt;</type>
+        <definition>std::map&lt;std::string, std::string&gt; RADNet::RADHttpRequest::headers</definition>
+        <argsstring></argsstring>
+        <name>headers</name>
+        <briefdescription>
+<para>Request headers. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADNet/headers/RADNet.h" line="211" column="18" bodyfile="RADNet/headers/RADNet.h" bodystart="211" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structRADNet_1_1RADHttpRequest_1ada129b5d5f112205018e16b9dfd28972" prot="public" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string RADNet::RADHttpRequest::body</definition>
+        <argsstring></argsstring>
+        <name>body</name>
+        <briefdescription>
+<para>Request body bytes/text. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADNet/headers/RADNet.h" line="213" column="21" bodyfile="RADNet/headers/RADNet.h" bodystart="213" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structRADNet_1_1RADHttpRequest_1a146c97644686653f18e54938101412ec" prot="public" static="no" mutable="no">
+        <type>long</type>
+        <definition>long RADNet::RADHttpRequest::timeoutMs</definition>
+        <argsstring></argsstring>
+        <name>timeoutMs</name>
+        <initializer>= 30000</initializer>
+        <briefdescription>
+<para>Total request timeout in milliseconds. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADNet/headers/RADNet.h" line="215" column="14" bodyfile="RADNet/headers/RADNet.h" bodystart="215" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structRADNet_1_1RADHttpRequest_1aa30968214ec2d6090800e5f79fccf2e7" prot="public" static="no" mutable="no">
+        <type>long</type>
+        <definition>long RADNet::RADHttpRequest::connectTimeoutMs</definition>
+        <argsstring></argsstring>
+        <name>connectTimeoutMs</name>
+        <initializer>= 10000</initializer>
+        <briefdescription>
+<para>Connection timeout in milliseconds. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADNet/headers/RADNet.h" line="217" column="14" bodyfile="RADNet/headers/RADNet.h" bodystart="217" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structRADNet_1_1RADHttpRequest_1aae6b8606f686c1309786fe27f275bafe" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool RADNet::RADHttpRequest::followRedirects</definition>
+        <argsstring></argsstring>
+        <name>followRedirects</name>
+        <initializer>= true</initializer>
+        <briefdescription>
+<para>Follow redirects. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADNet/headers/RADNet.h" line="219" column="14" bodyfile="RADNet/headers/RADNet.h" bodystart="219" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structRADNet_1_1RADHttpRequest_1a4796474869f996b54e11fdaf99a3a9ba" prot="public" static="no" mutable="no">
+        <type>long</type>
+        <definition>long RADNet::RADHttpRequest::maxRedirects</definition>
+        <argsstring></argsstring>
+        <name>maxRedirects</name>
+        <initializer>= 8</initializer>
+        <briefdescription>
+<para>Maximum redirects when followRedirects is true. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADNet/headers/RADNet.h" line="221" column="14" bodyfile="RADNet/headers/RADNet.h" bodystart="221" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structRADNet_1_1RADHttpRequest_1ac33ec032a7e0a1234ea7e44d81ec3739" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool RADNet::RADHttpRequest::verifyTls</definition>
+        <argsstring></argsstring>
+        <name>verifyTls</name>
+        <initializer>= true</initializer>
+        <briefdescription>
+<para>Verify TLS peers for HTTPS requests. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADNet/headers/RADNet.h" line="223" column="14" bodyfile="RADNet/headers/RADNet.h" bodystart="223" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>HTTP request options for <ref refid="classRADNet_1_1RADHttpClient_1ac0cd8f0f98604aeff6837c46c6b19c14" kindref="member">RADHttpClient::request()</ref>. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="RADNet/headers/RADNet.h" line="205" column="5" bodyfile="RADNet/headers/RADNet.h" bodystart="205" bodyend="224"/>
+    <listofallmembers>
+      <member refid="structRADNet_1_1RADHttpRequest_1ada129b5d5f112205018e16b9dfd28972" prot="public" virt="non-virtual"><scope>RADNet::RADHttpRequest</scope><name>body</name></member>
+      <member refid="structRADNet_1_1RADHttpRequest_1aa30968214ec2d6090800e5f79fccf2e7" prot="public" virt="non-virtual"><scope>RADNet::RADHttpRequest</scope><name>connectTimeoutMs</name></member>
+      <member refid="structRADNet_1_1RADHttpRequest_1aae6b8606f686c1309786fe27f275bafe" prot="public" virt="non-virtual"><scope>RADNet::RADHttpRequest</scope><name>followRedirects</name></member>
+      <member refid="structRADNet_1_1RADHttpRequest_1a07625fe29d5380628232b042aac308aa" prot="public" virt="non-virtual"><scope>RADNet::RADHttpRequest</scope><name>headers</name></member>
+      <member refid="structRADNet_1_1RADHttpRequest_1a4796474869f996b54e11fdaf99a3a9ba" prot="public" virt="non-virtual"><scope>RADNet::RADHttpRequest</scope><name>maxRedirects</name></member>
+      <member refid="structRADNet_1_1RADHttpRequest_1a92b4fd04d25d0aa8430eca6029e82a77" prot="public" virt="non-virtual"><scope>RADNet::RADHttpRequest</scope><name>method</name></member>
+      <member refid="structRADNet_1_1RADHttpRequest_1a146c97644686653f18e54938101412ec" prot="public" virt="non-virtual"><scope>RADNet::RADHttpRequest</scope><name>timeoutMs</name></member>
+      <member refid="structRADNet_1_1RADHttpRequest_1a007cba3fdecea68d15d609016dde5f23" prot="public" virt="non-virtual"><scope>RADNet::RADHttpRequest</scope><name>url</name></member>
+      <member refid="structRADNet_1_1RADHttpRequest_1ac33ec032a7e0a1234ea7e44d81ec3739" prot="public" virt="non-virtual"><scope>RADNet::RADHttpRequest</scope><name>verifyTls</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

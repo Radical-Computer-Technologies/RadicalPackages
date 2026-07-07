@@ -1,0 +1,47 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="structRADCore_1_1ConnectionRecord" kind="struct" language="C++" prot="public">
+    <compoundname>RADCore::ConnectionRecord</compoundname>
+    <includes refid="RADCore_8h" local="no">RADCore.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structRADCore_1_1ConnectionRecord_1a15731524a253b8c49840ad2e0bb0a1d6" prot="public" static="no" mutable="no">
+        <type>size_t</type>
+        <definition>size_t RADCore::ConnectionRecord::connectionId</definition>
+        <argsstring></argsstring>
+        <name>connectionId</name>
+        <briefdescription>
+<para>Event-local connection id. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADCore/headers/RADCore.h" line="897" column="16" bodyfile="RADCore/headers/RADCore.h" bodystart="897" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structRADCore_1_1ConnectionRecord_1a37b9a952570da2fda9606a24c52da101" prot="public" static="no" mutable="no">
+        <type>std::function&lt; void()&gt;</type>
+        <definition>std::function&lt;void()&gt; RADCore::ConnectionRecord::disconnectCallback</definition>
+        <argsstring></argsstring>
+        <name>disconnectCallback</name>
+        <briefdescription>
+<para>Callback that disconnects the tracked connection. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADCore/headers/RADCore.h" line="899" column="23" bodyfile="RADCore/headers/RADCore.h" bodystart="899" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para><ref refid="classRADCore_1_1Connection" kindref="compound">Connection</ref> record tracked by <ref refid="classRADCore_1_1RADObject" kindref="compound">RADObject</ref> for automatic receiver cleanup. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="RADCore/headers/RADCore.h" line="895" column="5" bodyfile="RADCore/headers/RADCore.h" bodystart="895" bodyend="900"/>
+    <listofallmembers>
+      <member refid="structRADCore_1_1ConnectionRecord_1a15731524a253b8c49840ad2e0bb0a1d6" prot="public" virt="non-virtual"><scope>RADCore::ConnectionRecord</scope><name>connectionId</name></member>
+      <member refid="structRADCore_1_1ConnectionRecord_1a37b9a952570da2fda9606a24c52da101" prot="public" virt="non-virtual"><scope>RADCore::ConnectionRecord</scope><name>disconnectCallback</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

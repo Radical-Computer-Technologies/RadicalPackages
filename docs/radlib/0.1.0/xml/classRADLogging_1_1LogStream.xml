@@ -1,0 +1,123 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="classRADLogging_1_1LogStream" kind="class" language="C++" prot="public">
+    <compoundname>RADLogging::LogStream</compoundname>
+    <includes refid="RADLogging_8h" local="no">RADLogging.h</includes>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classRADLogging_1_1LogStream_1ac7a41d9f65f44a657acef9aa02624e2c" prot="private" static="no" mutable="no">
+        <type><ref refid="namespaceRADLogging_1a8317de65c6fc04ea0c80520b60f81949" kindref="member">Level</ref></type>
+        <definition>Level RADLogging::LogStream::level_</definition>
+        <argsstring></argsstring>
+        <name>level_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADLogging/headers/RADLogging.h" line="89" column="15" bodyfile="RADLogging/headers/RADLogging.h" bodystart="89" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classRADLogging_1_1LogStream_1a06f4f982a068aedb088dd404e94e77ac" prot="private" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string RADLogging::LogStream::category_</definition>
+        <argsstring></argsstring>
+        <name>category_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADLogging/headers/RADLogging.h" line="90" column="21" bodyfile="RADLogging/headers/RADLogging.h" bodystart="90" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classRADLogging_1_1LogStream_1a61756c5b542f897ac6e13a803c7ea6bc" prot="private" static="no" mutable="no">
+        <type>std::ostringstream</type>
+        <definition>std::ostringstream RADLogging::LogStream::stream_</definition>
+        <argsstring></argsstring>
+        <name>stream_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADLogging/headers/RADLogging.h" line="91" column="28" bodyfile="RADLogging/headers/RADLogging.h" bodystart="91" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classRADLogging_1_1LogStream_1a2e36189a400a1969338ebf5ebd0da1f2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>RADLogging::LogStream::LogStream</definition>
+        <argsstring>(Level level, std::string category)</argsstring>
+        <name>LogStream</name>
+        <param>
+          <type><ref refid="namespaceRADLogging_1a8317de65c6fc04ea0c80520b60f81949" kindref="member">Level</ref></type>
+          <declname>level</declname>
+        </param>
+        <param>
+          <type>std::string</type>
+          <declname>category</declname>
+        </param>
+        <briefdescription>
+<para>Creates a stream record. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADLogging/headers/RADLogging.h" line="78" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADLogging_1_1LogStream_1a44bd49b5e110849780171f76b6dd394e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>RADLogging::LogStream::~LogStream</definition>
+        <argsstring>()</argsstring>
+        <name>~LogStream</name>
+        <briefdescription>
+<para>Emits the accumulated message. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADLogging/headers/RADLogging.h" line="80" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADLogging_1_1LogStream_1a08816b6a253d422b096dc4fb3607a239" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename T</type>
+          </param>
+        </templateparamlist>
+        <type><ref refid="classRADLogging_1_1LogStream" kindref="compound">LogStream</ref> &amp;</type>
+        <definition>LogStream&amp; RADLogging::LogStream::operator&lt;&lt;</definition>
+        <argsstring>(const T &amp;value)</argsstring>
+        <name>operator&lt;&lt;</name>
+        <param>
+          <type>const T &amp;</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+<para>Appends a value. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADLogging/headers/RADLogging.h" line="83" column="9" bodyfile="RADLogging/headers/RADLogging.h" bodystart="83" bodyend="86"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Streaming log record; emits on destruction. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="RADLogging/headers/RADLogging.h" line="75" column="5" bodyfile="RADLogging/headers/RADLogging.h" bodystart="75" bodyend="92"/>
+    <listofallmembers>
+      <member refid="classRADLogging_1_1LogStream_1a06f4f982a068aedb088dd404e94e77ac" prot="private" virt="non-virtual"><scope>RADLogging::LogStream</scope><name>category_</name></member>
+      <member refid="classRADLogging_1_1LogStream_1ac7a41d9f65f44a657acef9aa02624e2c" prot="private" virt="non-virtual"><scope>RADLogging::LogStream</scope><name>level_</name></member>
+      <member refid="classRADLogging_1_1LogStream_1a2e36189a400a1969338ebf5ebd0da1f2" prot="public" virt="non-virtual"><scope>RADLogging::LogStream</scope><name>LogStream</name></member>
+      <member refid="classRADLogging_1_1LogStream_1a08816b6a253d422b096dc4fb3607a239" prot="public" virt="non-virtual"><scope>RADLogging::LogStream</scope><name>operator&lt;&lt;</name></member>
+      <member refid="classRADLogging_1_1LogStream_1a61756c5b542f897ac6e13a803c7ea6bc" prot="private" virt="non-virtual"><scope>RADLogging::LogStream</scope><name>stream_</name></member>
+      <member refid="classRADLogging_1_1LogStream_1a44bd49b5e110849780171f76b6dd394e" prot="public" virt="non-virtual"><scope>RADLogging::LogStream</scope><name>~LogStream</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

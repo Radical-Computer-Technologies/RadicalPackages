@@ -1,0 +1,275 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="classRADNet_1_1RADProtocolServer" kind="class" language="C++" prot="public">
+    <compoundname>RADNet::RADProtocolServer</compoundname>
+    <basecompoundref refid="classRADCore_1_1RADObject" prot="public" virt="non-virtual">RADCore::RADObject</basecompoundref>
+    <includes refid="RADNet_8h" local="no">RADNet.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="classRADNet_1_1RADProtocolServer_1ac6009e866b5f4ab6ac7708cc77ccc5c6" prot="public" static="no" mutable="no">
+        <type><ref refid="classRADCore_1_1Event" kindref="compound">RADCore::Event</ref>&lt; void(std::shared_ptr&lt; <ref refid="classRADNet_1_1RADProtocolSocket" kindref="compound">RADNet::RADProtocolSocket</ref> &gt;) &gt;</type>
+        <definition>RADCore::Event&lt;void (std::shared_ptr&lt;RADNet::RADProtocolSocket&gt;) &gt; RADNet::RADProtocolServer::newConnection</definition>
+        <argsstring></argsstring>
+        <name>newConnection</name>
+        <briefdescription>
+<para>Raised when a framed client is accepted. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADNet/headers/RADNet.h" line="370" column="30" bodyfile="RADNet/headers/RADNet.h" bodystart="370" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classRADNet_1_1RADProtocolServer_1a0464714510bb45824782c9d97cf2b5bd" prot="public" static="no" mutable="no">
+        <type><ref refid="classRADCore_1_1Event" kindref="compound">RADCore::Event</ref>&lt; void(std::string) &gt;</type>
+        <definition>RADCore::Event&lt;void (std::string) &gt; RADNet::RADProtocolServer::errorOccurred</definition>
+        <argsstring></argsstring>
+        <name>errorOccurred</name>
+        <briefdescription>
+<para>Raised when listening or accepting fails. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADNet/headers/RADNet.h" line="372" column="30" bodyfile="RADNet/headers/RADNet.h" bodystart="372" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classRADNet_1_1RADProtocolServer_1ab161decb233bc796d9932cdc09622b51" prot="private" static="no" mutable="no">
+        <type><ref refid="classRADCore_1_1EventLoop" kindref="compound">RADCore::EventLoop</ref> &amp;</type>
+        <definition>RADCore::EventLoop&amp; RADNet::RADProtocolServer::loop_</definition>
+        <argsstring></argsstring>
+        <name>loop_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADNet/headers/RADNet.h" line="390" column="28" bodyfile="RADNet/headers/RADNet.h" bodystart="390" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classRADNet_1_1RADProtocolServer_1a627d3bcfb83ea07f0062272015896aa7" prot="private" static="no" mutable="no">
+        <type><ref refid="classRADNet_1_1RADTcpServer" kindref="compound">RADTcpServer</ref></type>
+        <definition>RADTcpServer RADNet::RADProtocolServer::server_</definition>
+        <argsstring></argsstring>
+        <name>server_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADNet/headers/RADNet.h" line="391" column="22" bodyfile="RADNet/headers/RADNet.h" bodystart="391" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classRADNet_1_1RADProtocolServer_1ac923a860c205acdb8199249e3f1001d1" prot="private" static="no" mutable="no">
+        <type><ref refid="classRADCore_1_1Connection" kindref="compound">RADCore::Connection</ref></type>
+        <definition>RADCore::Connection RADNet::RADProtocolServer::newConnection_</definition>
+        <argsstring></argsstring>
+        <name>newConnection_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADNet/headers/RADNet.h" line="392" column="29" bodyfile="RADNet/headers/RADNet.h" bodystart="392" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classRADNet_1_1RADProtocolServer_1a1fa223a0a9cfd37c77f51a12fb7b365b" prot="private" static="no" mutable="no">
+        <type><ref refid="classRADCore_1_1Connection" kindref="compound">RADCore::Connection</ref></type>
+        <definition>RADCore::Connection RADNet::RADProtocolServer::errorConnection_</definition>
+        <argsstring></argsstring>
+        <name>errorConnection_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADNet/headers/RADNet.h" line="393" column="29" bodyfile="RADNet/headers/RADNet.h" bodystart="393" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classRADNet_1_1RADProtocolServer_1a4f4a5f5ef1f97b37dda71e92fa24e8e6" prot="private" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t RADNet::RADProtocolServer::maxPayloadBytes_</definition>
+        <argsstring></argsstring>
+        <name>maxPayloadBytes_</name>
+        <initializer>= 16 * 1024 * 1024</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADNet/headers/RADNet.h" line="394" column="18" bodyfile="RADNet/headers/RADNet.h" bodystart="394" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classRADNet_1_1RADProtocolServer_1a8d214d7044ffd30cb326669fc2d2308e" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>RADNet::RADProtocolServer::RADProtocolServer</definition>
+        <argsstring>(RADCore::EventLoop &amp;loop)</argsstring>
+        <name>RADProtocolServer</name>
+        <param>
+          <type><ref refid="classRADCore_1_1EventLoop" kindref="compound">RADCore::EventLoop</ref> &amp;</type>
+          <declname>loop</declname>
+        </param>
+        <briefdescription>
+<para>Creates a server. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADNet/headers/RADNet.h" line="375" column="18"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADNet_1_1RADProtocolServer_1a78b98d9d82827df529fe3108e4d0ac35" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool RADNet::RADProtocolServer::listenUsingConfig</definition>
+        <argsstring>(const RADProtocolEndpointConfig &amp;config)</argsstring>
+        <name>listenUsingConfig</name>
+        <param>
+          <type>const <ref refid="structRADNet_1_1RADProtocolEndpointConfig" kindref="compound">RADProtocolEndpointConfig</ref> &amp;</type>
+          <declname>config</declname>
+        </param>
+        <briefdescription>
+<para>Starts listening using config. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADNet/headers/RADNet.h" line="377" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADNet_1_1RADProtocolServer_1a28cbde76e4a6cde8cf116f9eac017a1c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void RADNet::RADProtocolServer::close</definition>
+        <argsstring>()</argsstring>
+        <name>close</name>
+        <briefdescription>
+<para>Stops listening. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADNet/headers/RADNet.h" line="379" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADNet_1_1RADProtocolServer_1a2078d8c3a3abccb132821c10a92f8f98" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>uint16_t</type>
+        <definition>uint16_t RADNet::RADProtocolServer::localPort</definition>
+        <argsstring>() const</argsstring>
+        <name>localPort</name>
+        <briefdescription>
+<para>Returns bound local port. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADNet/headers/RADNet.h" line="381" column="18"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADNet_1_1RADProtocolServer_1a9add9b158b15458bc16ec313185fa571" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void RADNet::RADProtocolServer::handleNewConnection</definition>
+        <argsstring>(std::shared_ptr&lt; RADNet::RADTcpSocket &gt; socket)</argsstring>
+        <name>handleNewConnection</name>
+        <param>
+          <type>std::shared_ptr&lt; <ref refid="classRADNet_1_1RADTcpSocket" kindref="compound">RADNet::RADTcpSocket</ref> &gt;</type>
+          <declname>socket</declname>
+        </param>
+        <briefdescription>
+<para>Internal TCP accept handler. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADNet/headers/RADNet.h" line="385" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADNet_1_1RADProtocolServer_1aaad079d4560a0563f205ff70b0a7ce78" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void RADNet::RADProtocolServer::handleError</definition>
+        <argsstring>(std::string message)</argsstring>
+        <name>handleError</name>
+        <param>
+          <type>std::string</type>
+          <declname>message</declname>
+        </param>
+        <briefdescription>
+<para>Internal error handler. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADNet/headers/RADNet.h" line="387" column="14"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Framed protocol TCP server. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>RADCore::RADObject</label>
+        <link refid="classRADCore_1_1RADObject"/>
+      </node>
+      <node id="1">
+        <label>RADNet::RADProtocolServer</label>
+        <link refid="classRADNet_1_1RADProtocolServer"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>RADCore::RADObject</label>
+        <link refid="classRADCore_1_1RADObject"/>
+      </node>
+      <node id="3">
+        <label>RADCore::Event&lt; void(std::string) &gt;</label>
+        <link refid="classRADCore_1_1Event"/>
+      </node>
+      <node id="4">
+        <label>RADCore::Event&lt; void(std::shared_ptr&lt; RADNet::RADProtocolSocket &gt;) &gt;</label>
+        <link refid="classRADCore_1_1Event"/>
+      </node>
+      <node id="1">
+        <label>RADNet::RADProtocolServer</label>
+        <link refid="classRADNet_1_1RADProtocolServer"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="3" relation="usage">
+          <edgelabel>errorOccurred</edgelabel>
+        </childnode>
+        <childnode refid="4" relation="usage">
+          <edgelabel>newConnection</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="RADNet/headers/RADNet.h" line="366" column="5" bodyfile="RADNet/headers/RADNet.h" bodystart="366" bodyend="395"/>
+    <listofallmembers>
+      <member refid="classRADCore_1_1RADObject_1a06cdf252ffb5e2f88332ebda12a62080" prot="public" virt="non-virtual"><scope>RADNet::RADProtocolServer</scope><name>associatedEventLoop</name></member>
+      <member refid="classRADNet_1_1RADProtocolServer_1a28cbde76e4a6cde8cf116f9eac017a1c" prot="public" virt="non-virtual"><scope>RADNet::RADProtocolServer</scope><name>close</name></member>
+      <member refid="classRADNet_1_1RADProtocolServer_1a1fa223a0a9cfd37c77f51a12fb7b365b" prot="private" virt="non-virtual"><scope>RADNet::RADProtocolServer</scope><name>errorConnection_</name></member>
+      <member refid="classRADNet_1_1RADProtocolServer_1a0464714510bb45824782c9d97cf2b5bd" prot="public" virt="non-virtual"><scope>RADNet::RADProtocolServer</scope><name>errorOccurred</name></member>
+      <member refid="classRADNet_1_1RADProtocolServer_1aaad079d4560a0563f205ff70b0a7ce78" prot="public" virt="non-virtual"><scope>RADNet::RADProtocolServer</scope><name>handleError</name></member>
+      <member refid="classRADNet_1_1RADProtocolServer_1a9add9b158b15458bc16ec313185fa571" prot="public" virt="non-virtual"><scope>RADNet::RADProtocolServer</scope><name>handleNewConnection</name></member>
+      <member refid="classRADCore_1_1RADObject_1ad2ddfd066d14be9adc2f96bfca417fc6" prot="public" virt="non-virtual"><scope>RADNet::RADProtocolServer</scope><name>lifetimeToken</name></member>
+      <member refid="classRADNet_1_1RADProtocolServer_1a78b98d9d82827df529fe3108e4d0ac35" prot="public" virt="non-virtual"><scope>RADNet::RADProtocolServer</scope><name>listenUsingConfig</name></member>
+      <member refid="classRADNet_1_1RADProtocolServer_1a2078d8c3a3abccb132821c10a92f8f98" prot="public" virt="non-virtual"><scope>RADNet::RADProtocolServer</scope><name>localPort</name></member>
+      <member refid="classRADNet_1_1RADProtocolServer_1ab161decb233bc796d9932cdc09622b51" prot="private" virt="non-virtual"><scope>RADNet::RADProtocolServer</scope><name>loop_</name></member>
+      <member refid="classRADNet_1_1RADProtocolServer_1a4f4a5f5ef1f97b37dda71e92fa24e8e6" prot="private" virt="non-virtual"><scope>RADNet::RADProtocolServer</scope><name>maxPayloadBytes_</name></member>
+      <member refid="classRADCore_1_1RADObject_1a1f7f7f2fb40211e28455cd74a029339a" prot="public" virt="non-virtual"><scope>RADNet::RADProtocolServer</scope><name>moveToThread</name></member>
+      <member refid="classRADNet_1_1RADProtocolServer_1ac6009e866b5f4ab6ac7708cc77ccc5c6" prot="public" virt="non-virtual"><scope>RADNet::RADProtocolServer</scope><name>newConnection</name></member>
+      <member refid="classRADNet_1_1RADProtocolServer_1ac923a860c205acdb8199249e3f1001d1" prot="private" virt="non-virtual"><scope>RADNet::RADProtocolServer</scope><name>newConnection_</name></member>
+      <member refid="classRADCore_1_1RADObject_1a9bc3fed915f7c71232e68c2628d34708" prot="public" virt="non-virtual"><scope>RADNet::RADProtocolServer</scope><name>RADObject</name></member>
+      <member refid="classRADNet_1_1RADProtocolServer_1a8d214d7044ffd30cb326669fc2d2308e" prot="public" virt="non-virtual"><scope>RADNet::RADProtocolServer</scope><name>RADProtocolServer</name></member>
+      <member refid="classRADCore_1_1RADObject_1af3e26b970c8080418f0d6b80cad986a2" prot="public" virt="non-virtual"><scope>RADNet::RADProtocolServer</scope><name>registerLink</name></member>
+      <member refid="classRADNet_1_1RADProtocolServer_1a627d3bcfb83ea07f0062272015896aa7" prot="private" virt="non-virtual"><scope>RADNet::RADProtocolServer</scope><name>server_</name></member>
+      <member refid="classRADCore_1_1RADObject_1a8b11df0b951d0db1ba99cfb851e34f31" prot="public" virt="non-virtual"><scope>RADNet::RADProtocolServer</scope><name>threadAffinity</name></member>
+      <member refid="classRADCore_1_1RADObject_1ac7ca67b41523794ae5a6b3634d6ce3b6" prot="public" virt="non-virtual"><scope>RADNet::RADProtocolServer</scope><name>threadId</name></member>
+      <member refid="classRADCore_1_1RADObject_1a7369e27a46c163ee89c63227db650ce5" prot="public" virt="virtual"><scope>RADNet::RADProtocolServer</scope><name>~RADObject</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

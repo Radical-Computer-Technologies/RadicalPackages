@@ -1,0 +1,148 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="classRADMedia_1_1SoundFontCatalog" kind="class" language="C++" prot="public">
+    <compoundname>RADMedia::SoundFontCatalog</compoundname>
+    <includes refid="RADMedia_8h" local="no">RADMedia.h</includes>
+      <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="classRADMedia_1_1SoundFontCatalog_1a4a44a9d6cd369161878d912710233c47" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::vector&lt; std::string &gt;</type>
+        <definition>static std::vector&lt;std::string&gt; RADMedia::SoundFontCatalog::defaultSearchPaths</definition>
+        <argsstring>()</argsstring>
+        <name>defaultSearchPaths</name>
+        <briefdescription>
+<para>Returns common system/user SoundFont directories. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADMedia/headers/RADMedia.h" line="361" column="28"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADMedia_1_1SoundFontCatalog_1ae512b4456a2923dea63ae54c08141982" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>static bool RADMedia::SoundFontCatalog::supportsExtension</definition>
+        <argsstring>(const std::string &amp;path)</argsstring>
+        <name>supportsExtension</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>path</declname>
+        </param>
+        <briefdescription>
+<para>Returns true when path has a supported SoundFont extension. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADMedia/headers/RADMedia.h" line="363" column="21"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADMedia_1_1SoundFontCatalog_1a38de0a9e8e55bd8f45aa3093e13027f9" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="namespaceRADMedia_1ad996a50fab18eaac5c081b228ec9d8c9" kindref="member">SoundFontType</ref></type>
+        <definition>static SoundFontType RADMedia::SoundFontCatalog::typeForPath</definition>
+        <argsstring>(const std::string &amp;path)</argsstring>
+        <name>typeForPath</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>path</declname>
+        </param>
+        <briefdescription>
+<para>Returns SoundFont type from extension. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADMedia/headers/RADMedia.h" line="365" column="30"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADMedia_1_1SoundFontCatalog_1a1ee7291016f2344ad5ae188af6a98032" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::vector&lt; <ref refid="structRADMedia_1_1SoundFontInfo" kindref="compound">SoundFontInfo</ref> &gt;</type>
+        <definition>static std::vector&lt;SoundFontInfo&gt; RADMedia::SoundFontCatalog::scan</definition>
+        <argsstring>(const std::vector&lt; std::string &gt; &amp;paths={})</argsstring>
+        <name>scan</name>
+        <param>
+          <type>const std::vector&lt; std::string &gt; &amp;</type>
+          <declname>paths</declname>
+          <defval>{}</defval>
+        </param>
+        <briefdescription>
+<para>Scans paths for .sf2/.sf3 files. Empty paths use <ref refid="classRADMedia_1_1SoundFontCatalog_1a4a44a9d6cd369161878d912710233c47" kindref="member">defaultSearchPaths()</ref>. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADMedia/headers/RADMedia.h" line="367" column="28"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADMedia_1_1SoundFontCatalog_1a714c3d0e19b14e2c2446b49eb9541978" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::vector&lt; <ref refid="structRADMedia_1_1SoundFontPreset" kindref="compound">SoundFontPreset</ref> &gt;</type>
+        <definition>static std::vector&lt;SoundFontPreset&gt; RADMedia::SoundFontCatalog::presets</definition>
+        <argsstring>(const std::string &amp;path, std::string *error=nullptr)</argsstring>
+        <name>presets</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>path</declname>
+        </param>
+        <param>
+          <type>std::string *</type>
+          <declname>error</declname>
+          <defval>nullptr</defval>
+        </param>
+        <briefdescription>
+<para>Reads SoundFont preset names from the SF2/SF3 RIFF <computeroutput>pdta/phdr</computeroutput> chunk. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADMedia/headers/RADMedia.h" line="369" column="28"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADMedia_1_1SoundFontCatalog_1a674a5b1f71792e6e60af3bb0b97dc74c" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::vector&lt; <ref refid="structRADMedia_1_1SoundFontPreset" kindref="compound">SoundFontPreset</ref> &gt;</type>
+        <definition>static std::vector&lt;SoundFontPreset&gt; RADMedia::SoundFontCatalog::generalMidiPresets</definition>
+        <argsstring>()</argsstring>
+        <name>generalMidiPresets</name>
+        <briefdescription>
+<para>Returns the 128 General MIDI melodic program names as bank 0 presets. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADMedia/headers/RADMedia.h" line="371" column="28"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADMedia_1_1SoundFontCatalog_1ab4689cec0822581dad363e0c4fe03e86" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::string</type>
+        <definition>static std::string RADMedia::SoundFontCatalog::generalMidiPresetName</definition>
+        <argsstring>(uint16_t program)</argsstring>
+        <name>generalMidiPresetName</name>
+        <param>
+          <type>uint16_t</type>
+          <declname>program</declname>
+        </param>
+        <briefdescription>
+<para>Returns one General MIDI melodic program name, clamping program into 0-127. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADMedia/headers/RADMedia.h" line="373" column="28"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>SoundFont file discovery helpers. This does not load or link a synth engine. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="RADMedia/headers/RADMedia.h" line="358" column="5" bodyfile="RADMedia/headers/RADMedia.h" bodystart="358" bodyend="374"/>
+    <listofallmembers>
+      <member refid="classRADMedia_1_1SoundFontCatalog_1a4a44a9d6cd369161878d912710233c47" prot="public" virt="non-virtual"><scope>RADMedia::SoundFontCatalog</scope><name>defaultSearchPaths</name></member>
+      <member refid="classRADMedia_1_1SoundFontCatalog_1ab4689cec0822581dad363e0c4fe03e86" prot="public" virt="non-virtual"><scope>RADMedia::SoundFontCatalog</scope><name>generalMidiPresetName</name></member>
+      <member refid="classRADMedia_1_1SoundFontCatalog_1a674a5b1f71792e6e60af3bb0b97dc74c" prot="public" virt="non-virtual"><scope>RADMedia::SoundFontCatalog</scope><name>generalMidiPresets</name></member>
+      <member refid="classRADMedia_1_1SoundFontCatalog_1a714c3d0e19b14e2c2446b49eb9541978" prot="public" virt="non-virtual"><scope>RADMedia::SoundFontCatalog</scope><name>presets</name></member>
+      <member refid="classRADMedia_1_1SoundFontCatalog_1a1ee7291016f2344ad5ae188af6a98032" prot="public" virt="non-virtual"><scope>RADMedia::SoundFontCatalog</scope><name>scan</name></member>
+      <member refid="classRADMedia_1_1SoundFontCatalog_1ae512b4456a2923dea63ae54c08141982" prot="public" virt="non-virtual"><scope>RADMedia::SoundFontCatalog</scope><name>supportsExtension</name></member>
+      <member refid="classRADMedia_1_1SoundFontCatalog_1a38de0a9e8e55bd8f45aa3093e13027f9" prot="public" virt="non-virtual"><scope>RADMedia::SoundFontCatalog</scope><name>typeForPath</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

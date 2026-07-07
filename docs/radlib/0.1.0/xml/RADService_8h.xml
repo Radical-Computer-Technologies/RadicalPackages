@@ -1,0 +1,111 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="RADService_8h" kind="file" language="C++">
+    <compoundname>RADService.h</compoundname>
+    <includes local="no">RADCore/RADCore.h</includes>
+    <includes local="no">map</includes>
+    <includes local="no">memory</includes>
+    <includes local="no">string</includes>
+    <includes local="no">vector</includes>
+    <incdepgraph>
+      <node id="2">
+        <label>RADCore/RADCore.h</label>
+      </node>
+      <node id="5">
+        <label>string</label>
+      </node>
+      <node id="3">
+        <label>map</label>
+      </node>
+      <node id="1">
+        <label>RADService/headers/RADService.h</label>
+        <link refid="RADService_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>vector</label>
+      </node>
+      <node id="4">
+        <label>memory</label>
+      </node>
+    </incdepgraph>
+    <innerclass refid="structRADService_1_1ServiceUnit" prot="public">RADService::ServiceUnit</innerclass>
+    <innerclass refid="classRADService_1_1SingleInstanceLock" prot="public">RADService::SingleInstanceLock</innerclass>
+    <innerclass refid="classRADService_1_1ServiceManager" prot="public">RADService::ServiceManager</innerclass>
+    <innernamespace refid="namespaceRADService">RADService</innernamespace>
+    <briefdescription>
+<para>Daemon helpers, systemd unit generation, watchdog notify, and single-instance locks. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#ifndef<sp/>RADSERVICE_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>RADSERVICE_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="preprocessor">#pragma<sp/>once</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;RADCore/RADCore.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;map&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;memory&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;string&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;vector&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight></codeline>
+<codeline lineno="18" refid="namespaceRADService" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal"><ref refid="namespaceRADService" kindref="compound">RADService</ref><sp/>{</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight></codeline>
+<codeline lineno="21" refid="namespaceRADService_1ad48c24e7fb20b3de7548d5d0e40d32f4" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">enum<sp/>class</highlight><highlight class="normal"><sp/><ref refid="namespaceRADService_1ad48c24e7fb20b3de7548d5d0e40d32f4" kindref="member">RestartPolicy</ref><sp/>{</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespaceRADService_1ad48c24e7fb20b3de7548d5d0e40d32f4abafd7322c6e97d25b6299b5d6fe8920b" kindref="member">No</ref>,</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespaceRADService_1ad48c24e7fb20b3de7548d5d0e40d32f4abafe37a0acd9d474a837ffb4cdec8e9e" kindref="member">OnFailure</ref>,</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespaceRADService_1ad48c24e7fb20b3de7548d5d0e40d32f4a68eec46437c384d8dad18d5464ebc35c" kindref="member">Always</ref></highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/><sp/><sp/>};</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight></codeline>
+<codeline lineno="31" refid="structRADService_1_1ServiceUnit" refkind="compound"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structRADService_1_1ServiceUnit" kindref="compound">ServiceUnit</ref><sp/>{</highlight></codeline>
+<codeline lineno="33" refid="structRADService_1_1ServiceUnit_1aee6674b972f3ae85c8dee1cc0f791236" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::string<sp/><ref refid="structRADService_1_1ServiceUnit_1aee6674b972f3ae85c8dee1cc0f791236" kindref="member">name</ref>;</highlight></codeline>
+<codeline lineno="35" refid="structRADService_1_1ServiceUnit_1a94737bf5b1e504b73790dee378959395" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::string<sp/><ref refid="structRADService_1_1ServiceUnit_1a94737bf5b1e504b73790dee378959395" kindref="member">description</ref>;</highlight></codeline>
+<codeline lineno="37" refid="structRADService_1_1ServiceUnit_1ad7fb2ce7d9f2041b9a971e45da34b1de" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::string<sp/><ref refid="structRADService_1_1ServiceUnit_1ad7fb2ce7d9f2041b9a971e45da34b1de" kindref="member">execStart</ref>;</highlight></codeline>
+<codeline lineno="39" refid="structRADService_1_1ServiceUnit_1ada6a5ab730c97b9f74c378d9fde7a65e" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::string<sp/><ref refid="structRADService_1_1ServiceUnit_1ada6a5ab730c97b9f74c378d9fde7a65e" kindref="member">workingDirectory</ref>;</highlight></codeline>
+<codeline lineno="41" refid="structRADService_1_1ServiceUnit_1a60790e36ff2fbb73f5be56eab98ce0b7" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::map&lt;std::string,<sp/>std::string&gt;<sp/><ref refid="structRADService_1_1ServiceUnit_1a60790e36ff2fbb73f5be56eab98ce0b7" kindref="member">environment</ref>;</highlight></codeline>
+<codeline lineno="43" refid="structRADService_1_1ServiceUnit_1a12d916b3ad9fe936258455ea3674b73b" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespaceRADService_1ad48c24e7fb20b3de7548d5d0e40d32f4" kindref="member">RestartPolicy</ref><sp/><ref refid="structRADService_1_1ServiceUnit_1a12d916b3ad9fe936258455ea3674b73b" kindref="member">restart</ref><sp/>=<sp/><ref refid="namespaceRADService_1ad48c24e7fb20b3de7548d5d0e40d32f4abafe37a0acd9d474a837ffb4cdec8e9e" kindref="member">RestartPolicy::OnFailure</ref>;</highlight></codeline>
+<codeline lineno="45" refid="structRADService_1_1ServiceUnit_1acc330522f33f9624883ced302701fedc" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="structRADService_1_1ServiceUnit_1acc330522f33f9624883ced302701fedc" kindref="member">watchdogSec</ref><sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="47" refid="structRADService_1_1ServiceUnit_1adaa24ef043917e4d04f6f16a062f4b81" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::string<sp/><ref refid="structRADService_1_1ServiceUnit_1adaa24ef043917e4d04f6f16a062f4b81" kindref="member">user</ref>;</highlight></codeline>
+<codeline lineno="49" refid="structRADService_1_1ServiceUnit_1a5ec027d464418e5379c3ec17e9839568" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::string<sp/><ref refid="structRADService_1_1ServiceUnit_1a5ec027d464418e5379c3ec17e9839568" kindref="member">wantedBy</ref><sp/>=<sp/></highlight><highlight class="stringliteral">&quot;multi-user.target&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/>};</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"></highlight></codeline>
+<codeline lineno="53" refid="classRADService_1_1SingleInstanceLock" refkind="compound"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classRADService_1_1SingleInstanceLock" kindref="compound">SingleInstanceLock</ref><sp/>{</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="56" refid="classRADService_1_1SingleInstanceLock_1a4fbbed0bc53f447eeb2f7ecfd4155e98" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">explicit</highlight><highlight class="normal"><sp/><ref refid="classRADService_1_1SingleInstanceLock_1a4fbbed0bc53f447eeb2f7ecfd4155e98" kindref="member">SingleInstanceLock</ref>(std::string<sp/>path);</highlight></codeline>
+<codeline lineno="58" refid="classRADService_1_1SingleInstanceLock_1a5d5b5a5ae5041636be4499ae90b1ae40" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classRADService_1_1SingleInstanceLock_1a5d5b5a5ae5041636be4499ae90b1ae40" kindref="member">~SingleInstanceLock</ref>();</highlight></codeline>
+<codeline lineno="60" refid="classRADService_1_1SingleInstanceLock_1a403fad5beadd527ceeab4a946aa83a8b" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classRADService_1_1SingleInstanceLock_1a403fad5beadd527ceeab4a946aa83a8b" kindref="member">tryLock</ref>();</highlight></codeline>
+<codeline lineno="62" refid="classRADService_1_1SingleInstanceLock_1a9bc4a05a012f4cea3b85d65837f2001b" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classRADService_1_1SingleInstanceLock_1a9bc4a05a012f4cea3b85d65837f2001b" kindref="member">isLocked</ref>()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"></highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::unique_ptr&lt;RADCore::RADLockFile&gt;<sp/>lock_;</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/>};</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"></highlight></codeline>
+<codeline lineno="69" refid="classRADService_1_1ServiceManager" refkind="compound"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classRADService_1_1ServiceManager" kindref="compound">ServiceManager</ref><sp/>{</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="72" refid="classRADService_1_1ServiceManager_1a5553f71a468e5f39b57efae3e5eb3f34" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/>std::string<sp/><ref refid="classRADService_1_1ServiceManager_1a5553f71a468e5f39b57efae3e5eb3f34" kindref="member">generateSystemdUnit</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structRADService_1_1ServiceUnit" kindref="compound">ServiceUnit</ref>&amp;<sp/>unit);</highlight></codeline>
+<codeline lineno="74" refid="classRADService_1_1ServiceManager_1a4c2b7c5d156d04a58ed4ec4bd3e7d24a" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classRADService_1_1ServiceManager_1a4c2b7c5d156d04a58ed4ec4bd3e7d24a" kindref="member">writeSystemdUnit</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structRADService_1_1ServiceUnit" kindref="compound">ServiceUnit</ref>&amp;<sp/>unit,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::string&amp;<sp/>directory,<sp/>std::string*<sp/>error<sp/>=<sp/></highlight><highlight class="keyword">nullptr</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="76" refid="classRADService_1_1ServiceManager_1aefaaa17adb2594c7146bb6284c703817" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classRADService_1_1ServiceManager_1aefaaa17adb2594c7146bb6284c703817" kindref="member">notify</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::string&amp;<sp/>message,<sp/>std::string*<sp/>error<sp/>=<sp/></highlight><highlight class="keyword">nullptr</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="78" refid="classRADService_1_1ServiceManager_1adae59da1d42079d8312fa40cdd437bd8" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classRADService_1_1ServiceManager_1adae59da1d42079d8312fa40cdd437bd8" kindref="member">notifyReady</ref>(std::string*<sp/>error<sp/>=<sp/></highlight><highlight class="keyword">nullptr</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="80" refid="classRADService_1_1ServiceManager_1ac9eabb0a6729df50267348768be28ec8" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classRADService_1_1ServiceManager_1ac9eabb0a6729df50267348768be28ec8" kindref="member">notifyWatchdog</ref>(std::string*<sp/>error<sp/>=<sp/></highlight><highlight class="keyword">nullptr</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="82" refid="classRADService_1_1ServiceManager_1afa4e5d7b7161fb371850eb6c27e359d8" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/>std::string<sp/><ref refid="classRADService_1_1ServiceManager_1afa4e5d7b7161fb371850eb6c27e359d8" kindref="member">restartPolicyName</ref>(<ref refid="namespaceRADService_1ad48c24e7fb20b3de7548d5d0e40d32f4" kindref="member">RestartPolicy</ref><sp/>policy);</highlight></codeline>
+<codeline lineno="84" refid="classRADService_1_1ServiceManager_1a9fcb2a7ba01f25279e9486ce5db17464" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classRADService_1_1ServiceManager_1a9fcb2a7ba01f25279e9486ce5db17464" kindref="member">daemonize</ref>(std::string*<sp/>error<sp/>=<sp/></highlight><highlight class="keyword">nullptr</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/>};</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"></highlight></codeline>
+<codeline lineno="87"><highlight class="normal">}<sp/></highlight><highlight class="comment">//<sp/>namespace<sp/>RADService</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="88"><highlight class="normal"></highlight></codeline>
+<codeline lineno="89"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+    </programlisting>
+    <location file="RADService/headers/RADService.h"/>
+  </compounddef>
+</doxygen>

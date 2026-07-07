@@ -1,0 +1,115 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="RADInstaller_8h" kind="file" language="C++">
+    <compoundname>RADInstaller.h</compoundname>
+    <includes local="no">RADCore/RADCore.h</includes>
+    <includes local="no">functional</includes>
+    <includes local="no">string</includes>
+    <includes local="no">vector</includes>
+    <incdepgraph>
+      <node id="3">
+        <label>functional</label>
+      </node>
+      <node id="2">
+        <label>RADCore/RADCore.h</label>
+      </node>
+      <node id="4">
+        <label>string</label>
+      </node>
+      <node id="1">
+        <label>RADInstaller/headers/RADInstaller.h</label>
+        <link refid="RADInstaller_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>vector</label>
+      </node>
+    </incdepgraph>
+    <innerclass refid="structRADInstaller_1_1FileEntry" prot="public">RADInstaller::FileEntry</innerclass>
+    <innerclass refid="structRADInstaller_1_1DesktopEntry" prot="public">RADInstaller::DesktopEntry</innerclass>
+    <innerclass refid="structRADInstaller_1_1Component" prot="public">RADInstaller::Component</innerclass>
+    <innerclass refid="structRADInstaller_1_1Manifest" prot="public">RADInstaller::Manifest</innerclass>
+    <innerclass refid="structRADInstaller_1_1Result" prot="public">RADInstaller::Result</innerclass>
+    <innerclass refid="classRADInstaller_1_1Installer" prot="public">RADInstaller::Installer</innerclass>
+    <innernamespace refid="namespaceRADInstaller">RADInstaller</innernamespace>
+    <briefdescription>
+<para>Manifest-driven installer engine for RADLib SDKs and RADLib-built applications. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#ifndef<sp/>RADINSTALLER_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>RADINSTALLER_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="preprocessor">#pragma<sp/>once</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;RADCore/RADCore.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;functional&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;string&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;vector&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight></codeline>
+<codeline lineno="17" refid="namespaceRADInstaller" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal"><ref refid="namespaceRADInstaller" kindref="compound">RADInstaller</ref><sp/>{</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight></codeline>
+<codeline lineno="20" refid="structRADInstaller_1_1FileEntry" refkind="compound"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structRADInstaller_1_1FileEntry" kindref="compound">FileEntry</ref><sp/>{</highlight></codeline>
+<codeline lineno="22" refid="structRADInstaller_1_1FileEntry_1a577073b2fbc3a8bc437cc351b018ec0d" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::string<sp/><ref refid="structRADInstaller_1_1FileEntry_1a577073b2fbc3a8bc437cc351b018ec0d" kindref="member">source</ref>;</highlight></codeline>
+<codeline lineno="24" refid="structRADInstaller_1_1FileEntry_1a68e0f0da9b521b0875fbd6225dc8dabf" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::string<sp/><ref refid="structRADInstaller_1_1FileEntry_1a68e0f0da9b521b0875fbd6225dc8dabf" kindref="member">destination</ref>;</highlight></codeline>
+<codeline lineno="26" refid="structRADInstaller_1_1FileEntry_1af1d25f97ca196ba3dcb43ae916ef378c" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::string<sp/><ref refid="structRADInstaller_1_1FileEntry_1af1d25f97ca196ba3dcb43ae916ef378c" kindref="member">checksum</ref>;</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/><sp/><sp/>};</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight></codeline>
+<codeline lineno="30" refid="structRADInstaller_1_1DesktopEntry" refkind="compound"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structRADInstaller_1_1DesktopEntry" kindref="compound">DesktopEntry</ref><sp/>{</highlight></codeline>
+<codeline lineno="32" refid="structRADInstaller_1_1DesktopEntry_1a9255bc62a7713b85c261849aa7bf67ea" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::string<sp/><ref refid="structRADInstaller_1_1DesktopEntry_1a9255bc62a7713b85c261849aa7bf67ea" kindref="member">fileName</ref>;</highlight></codeline>
+<codeline lineno="34" refid="structRADInstaller_1_1DesktopEntry_1af70ebd0ecc0fad7d144dbb98ca7bfe4c" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::string<sp/><ref refid="structRADInstaller_1_1DesktopEntry_1af70ebd0ecc0fad7d144dbb98ca7bfe4c" kindref="member">name</ref>;</highlight></codeline>
+<codeline lineno="36" refid="structRADInstaller_1_1DesktopEntry_1a05bb643889406fcc4f9b4005383228ae" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::string<sp/><ref refid="structRADInstaller_1_1DesktopEntry_1a05bb643889406fcc4f9b4005383228ae" kindref="member">exec</ref>;</highlight></codeline>
+<codeline lineno="38" refid="structRADInstaller_1_1DesktopEntry_1a0e7845434367e3e4a52fc82c247c961d" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::string<sp/><ref refid="structRADInstaller_1_1DesktopEntry_1a0e7845434367e3e4a52fc82c247c961d" kindref="member">categories</ref><sp/>=<sp/></highlight><highlight class="stringliteral">&quot;Development;&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/>};</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"></highlight></codeline>
+<codeline lineno="42" refid="structRADInstaller_1_1Component" refkind="compound"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structRADInstaller_1_1Component" kindref="compound">Component</ref><sp/>{</highlight></codeline>
+<codeline lineno="44" refid="structRADInstaller_1_1Component_1add4a254fe653618fd84fcf339125ac9a" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::string<sp/><ref refid="structRADInstaller_1_1Component_1add4a254fe653618fd84fcf339125ac9a" kindref="member">id</ref>;</highlight></codeline>
+<codeline lineno="46" refid="structRADInstaller_1_1Component_1a04f90c262e70bdd88e264630e0e59475" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::string<sp/><ref refid="structRADInstaller_1_1Component_1a04f90c262e70bdd88e264630e0e59475" kindref="member">name</ref>;</highlight></codeline>
+<codeline lineno="48" refid="structRADInstaller_1_1Component_1a8ac73b5a15f20162b63e0d3443a3e97d" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="structRADInstaller_1_1Component_1a8ac73b5a15f20162b63e0d3443a3e97d" kindref="member">defaultSelected</ref><sp/>=<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="50" refid="structRADInstaller_1_1Component_1a466af59356cc692425b785aa7f0b26ab" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::vector&lt;FileEntry&gt;<sp/><ref refid="structRADInstaller_1_1Component_1a466af59356cc692425b785aa7f0b26ab" kindref="member">files</ref>;</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/>};</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"></highlight></codeline>
+<codeline lineno="54" refid="structRADInstaller_1_1Manifest" refkind="compound"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structRADInstaller_1_1Manifest" kindref="compound">Manifest</ref><sp/>{</highlight></codeline>
+<codeline lineno="56" refid="structRADInstaller_1_1Manifest_1a32ad4d00ead911fb1d884a29ade9ffe8" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::string<sp/><ref refid="structRADInstaller_1_1Manifest_1a32ad4d00ead911fb1d884a29ade9ffe8" kindref="member">productName</ref>;</highlight></codeline>
+<codeline lineno="58" refid="structRADInstaller_1_1Manifest_1acd100b1b83a754cfb3e225cf2675cb11" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::string<sp/><ref refid="structRADInstaller_1_1Manifest_1acd100b1b83a754cfb3e225cf2675cb11" kindref="member">version</ref>;</highlight></codeline>
+<codeline lineno="60" refid="structRADInstaller_1_1Manifest_1aa8593fa21ce866ccf5b3969b6465e00d" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::string<sp/><ref refid="structRADInstaller_1_1Manifest_1aa8593fa21ce866ccf5b3969b6465e00d" kindref="member">publisher</ref>;</highlight></codeline>
+<codeline lineno="62" refid="structRADInstaller_1_1Manifest_1ab5153ae6344d819bb8adabe0e1bbf0f9" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::string<sp/><ref refid="structRADInstaller_1_1Manifest_1ab5153ae6344d819bb8adabe0e1bbf0f9" kindref="member">license</ref>;</highlight></codeline>
+<codeline lineno="64" refid="structRADInstaller_1_1Manifest_1ad07471d9d990f5d008fb819cc6580d29" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::vector&lt;Component&gt;<sp/><ref refid="structRADInstaller_1_1Manifest_1ad07471d9d990f5d008fb819cc6580d29" kindref="member">components</ref>;</highlight></codeline>
+<codeline lineno="66" refid="structRADInstaller_1_1Manifest_1a0d71675855d2a110eb03448267e91c15" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::vector&lt;DesktopEntry&gt;<sp/><ref refid="structRADInstaller_1_1Manifest_1a0d71675855d2a110eb03448267e91c15" kindref="member">desktopEntries</ref>;</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/>};</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"></highlight></codeline>
+<codeline lineno="70" refid="structRADInstaller_1_1Result" refkind="compound"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structRADInstaller_1_1Result" kindref="compound">Result</ref><sp/>{</highlight></codeline>
+<codeline lineno="72" refid="structRADInstaller_1_1Result_1a85f63fcab325ebe3a1a53d075c812028" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="structRADInstaller_1_1Result_1a85f63fcab325ebe3a1a53d075c812028" kindref="member">ok</ref><sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="74" refid="structRADInstaller_1_1Result_1a6787ef2e4c0b9d76e88ae12008f38ab0" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::string<sp/><ref refid="structRADInstaller_1_1Result_1a6787ef2e4c0b9d76e88ae12008f38ab0" kindref="member">error</ref>;</highlight></codeline>
+<codeline lineno="76" refid="structRADInstaller_1_1Result_1a092b5e09d867c2ed92896d92c2b0d449" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::vector&lt;std::string&gt;<sp/><ref refid="structRADInstaller_1_1Result_1a092b5e09d867c2ed92896d92c2b0d449" kindref="member">installedFiles</ref>;</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/>};</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"></highlight></codeline>
+<codeline lineno="80" refid="namespaceRADInstaller_1aafeb1c4292f6f1d2193d8034fa25bc0a" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">using</highlight><highlight class="normal"><sp/><ref refid="namespaceRADInstaller_1aafeb1c4292f6f1d2193d8034fa25bc0a" kindref="member">ProgressCallback</ref><sp/>=<sp/>std::function&lt;void(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal">,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::string&amp;)&gt;;</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"></highlight></codeline>
+<codeline lineno="83" refid="classRADInstaller_1_1Installer" refkind="compound"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classRADInstaller_1_1Installer" kindref="compound">Installer</ref><sp/>{</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="86" refid="classRADInstaller_1_1Installer_1ad3e1c0ce80253b938bfcdb82e102a3dd" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/><ref refid="classRADCore_1_1RADResult" kindref="compound">RADCore::RADResult&lt;Manifest&gt;</ref><sp/><ref refid="classRADInstaller_1_1Installer_1ad3e1c0ce80253b938bfcdb82e102a3dd" kindref="member">loadManifest</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::string&amp;<sp/>path);</highlight></codeline>
+<codeline lineno="88" refid="classRADInstaller_1_1Installer_1abd2785d92edcd2d1b862583b2c5b7a65" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/><ref refid="structRADInstaller_1_1Result" kindref="compound">Result</ref><sp/><ref refid="classRADInstaller_1_1Installer_1abd2785d92edcd2d1b862583b2c5b7a65" kindref="member">install</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structRADInstaller_1_1Manifest" kindref="compound">Manifest</ref>&amp;<sp/>manifest,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::string&amp;<sp/>sourceRoot,</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::string&amp;<sp/>targetRoot,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::vector&lt;std::string&gt;&amp;<sp/>selectedComponents<sp/>=<sp/>{},</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespaceRADInstaller_1aafeb1c4292f6f1d2193d8034fa25bc0a" kindref="member">ProgressCallback</ref><sp/>progress<sp/>=<sp/>{});</highlight></codeline>
+<codeline lineno="92" refid="classRADInstaller_1_1Installer_1abb9072ee2f580dfb56bd66c54ded1d67" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/><ref refid="structRADInstaller_1_1Result" kindref="compound">Result</ref><sp/><ref refid="classRADInstaller_1_1Installer_1abb9072ee2f580dfb56bd66c54ded1d67" kindref="member">uninstall</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::string&amp;<sp/>uninstallManifestPath,<sp/><ref refid="namespaceRADInstaller_1aafeb1c4292f6f1d2193d8034fa25bc0a" kindref="member">ProgressCallback</ref><sp/>progress<sp/>=<sp/>{});</highlight></codeline>
+<codeline lineno="94" refid="classRADInstaller_1_1Installer_1ae89e0b31f5fd4235c97802345a16cc6e" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classRADInstaller_1_1Installer_1ae89e0b31f5fd4235c97802345a16cc6e" kindref="member">writeUninstallManifest</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::string&amp;<sp/>path,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structRADInstaller_1_1Manifest" kindref="compound">Manifest</ref>&amp;<sp/>manifest,</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::vector&lt;std::string&gt;&amp;<sp/>installedFiles,<sp/>std::string*<sp/>error<sp/>=<sp/></highlight><highlight class="keyword">nullptr</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/><sp/><sp/>};</highlight></codeline>
+<codeline lineno="97"><highlight class="normal"></highlight></codeline>
+<codeline lineno="98"><highlight class="normal">}<sp/></highlight><highlight class="comment">//<sp/>namespace<sp/>RADInstaller</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="99"><highlight class="normal"></highlight></codeline>
+<codeline lineno="100"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+    </programlisting>
+    <location file="RADInstaller/headers/RADInstaller.h"/>
+  </compounddef>
+</doxygen>

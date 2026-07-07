@@ -1,0 +1,155 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="structRADService_1_1ServiceUnit" kind="struct" language="C++" prot="public">
+    <compoundname>RADService::ServiceUnit</compoundname>
+    <includes refid="RADService_8h" local="no">RADService.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structRADService_1_1ServiceUnit_1aee6674b972f3ae85c8dee1cc0f791236" prot="public" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string RADService::ServiceUnit::name</definition>
+        <argsstring></argsstring>
+        <name>name</name>
+        <briefdescription>
+<para>Unit name without .service. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADService/headers/RADService.h" line="33" column="21" bodyfile="RADService/headers/RADService.h" bodystart="33" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structRADService_1_1ServiceUnit_1a94737bf5b1e504b73790dee378959395" prot="public" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string RADService::ServiceUnit::description</definition>
+        <argsstring></argsstring>
+        <name>description</name>
+        <briefdescription>
+<para>Description text. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADService/headers/RADService.h" line="35" column="21" bodyfile="RADService/headers/RADService.h" bodystart="35" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structRADService_1_1ServiceUnit_1ad7fb2ce7d9f2041b9a971e45da34b1de" prot="public" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string RADService::ServiceUnit::execStart</definition>
+        <argsstring></argsstring>
+        <name>execStart</name>
+        <briefdescription>
+<para>Executable command. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADService/headers/RADService.h" line="37" column="21" bodyfile="RADService/headers/RADService.h" bodystart="37" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structRADService_1_1ServiceUnit_1ada6a5ab730c97b9f74c378d9fde7a65e" prot="public" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string RADService::ServiceUnit::workingDirectory</definition>
+        <argsstring></argsstring>
+        <name>workingDirectory</name>
+        <briefdescription>
+<para>Optional working directory. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADService/headers/RADService.h" line="39" column="21" bodyfile="RADService/headers/RADService.h" bodystart="39" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structRADService_1_1ServiceUnit_1a60790e36ff2fbb73f5be56eab98ce0b7" prot="public" static="no" mutable="no">
+        <type>std::map&lt; std::string, std::string &gt;</type>
+        <definition>std::map&lt;std::string, std::string&gt; RADService::ServiceUnit::environment</definition>
+        <argsstring></argsstring>
+        <name>environment</name>
+        <briefdescription>
+<para>Environment key/value pairs. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADService/headers/RADService.h" line="41" column="18" bodyfile="RADService/headers/RADService.h" bodystart="41" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structRADService_1_1ServiceUnit_1a12d916b3ad9fe936258455ea3674b73b" prot="public" static="no" mutable="no">
+        <type><ref refid="namespaceRADService_1ad48c24e7fb20b3de7548d5d0e40d32f4" kindref="member">RestartPolicy</ref></type>
+        <definition>RestartPolicy RADService::ServiceUnit::restart</definition>
+        <argsstring></argsstring>
+        <name>restart</name>
+        <initializer>= <ref refid="namespaceRADService_1ad48c24e7fb20b3de7548d5d0e40d32f4abafe37a0acd9d474a837ffb4cdec8e9e" kindref="member">RestartPolicy::OnFailure</ref></initializer>
+        <briefdescription>
+<para>Restart policy. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADService/headers/RADService.h" line="43" column="23" bodyfile="RADService/headers/RADService.h" bodystart="43" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structRADService_1_1ServiceUnit_1acc330522f33f9624883ced302701fedc" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int RADService::ServiceUnit::watchdogSec</definition>
+        <argsstring></argsstring>
+        <name>watchdogSec</name>
+        <initializer>= 0</initializer>
+        <briefdescription>
+<para>Watchdog timeout seconds; 0 disables WatchdogSec. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADService/headers/RADService.h" line="45" column="13" bodyfile="RADService/headers/RADService.h" bodystart="45" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structRADService_1_1ServiceUnit_1adaa24ef043917e4d04f6f16a062f4b81" prot="public" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string RADService::ServiceUnit::user</definition>
+        <argsstring></argsstring>
+        <name>user</name>
+        <briefdescription>
+<para>User name for service execution. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADService/headers/RADService.h" line="47" column="21" bodyfile="RADService/headers/RADService.h" bodystart="47" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structRADService_1_1ServiceUnit_1a5ec027d464418e5379c3ec17e9839568" prot="public" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string RADService::ServiceUnit::wantedBy</definition>
+        <argsstring></argsstring>
+        <name>wantedBy</name>
+        <initializer>= &quot;multi-user.target&quot;</initializer>
+        <briefdescription>
+<para>WantedBy target. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADService/headers/RADService.h" line="49" column="21" bodyfile="RADService/headers/RADService.h" bodystart="49" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Systemd service unit description. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="RADService/headers/RADService.h" line="31" column="5" bodyfile="RADService/headers/RADService.h" bodystart="31" bodyend="50"/>
+    <listofallmembers>
+      <member refid="structRADService_1_1ServiceUnit_1a94737bf5b1e504b73790dee378959395" prot="public" virt="non-virtual"><scope>RADService::ServiceUnit</scope><name>description</name></member>
+      <member refid="structRADService_1_1ServiceUnit_1a60790e36ff2fbb73f5be56eab98ce0b7" prot="public" virt="non-virtual"><scope>RADService::ServiceUnit</scope><name>environment</name></member>
+      <member refid="structRADService_1_1ServiceUnit_1ad7fb2ce7d9f2041b9a971e45da34b1de" prot="public" virt="non-virtual"><scope>RADService::ServiceUnit</scope><name>execStart</name></member>
+      <member refid="structRADService_1_1ServiceUnit_1aee6674b972f3ae85c8dee1cc0f791236" prot="public" virt="non-virtual"><scope>RADService::ServiceUnit</scope><name>name</name></member>
+      <member refid="structRADService_1_1ServiceUnit_1a12d916b3ad9fe936258455ea3674b73b" prot="public" virt="non-virtual"><scope>RADService::ServiceUnit</scope><name>restart</name></member>
+      <member refid="structRADService_1_1ServiceUnit_1adaa24ef043917e4d04f6f16a062f4b81" prot="public" virt="non-virtual"><scope>RADService::ServiceUnit</scope><name>user</name></member>
+      <member refid="structRADService_1_1ServiceUnit_1a5ec027d464418e5379c3ec17e9839568" prot="public" virt="non-virtual"><scope>RADService::ServiceUnit</scope><name>wantedBy</name></member>
+      <member refid="structRADService_1_1ServiceUnit_1acc330522f33f9624883ced302701fedc" prot="public" virt="non-virtual"><scope>RADService::ServiceUnit</scope><name>watchdogSec</name></member>
+      <member refid="structRADService_1_1ServiceUnit_1ada6a5ab730c97b9f74c378d9fde7a65e" prot="public" virt="non-virtual"><scope>RADService::ServiceUnit</scope><name>workingDirectory</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

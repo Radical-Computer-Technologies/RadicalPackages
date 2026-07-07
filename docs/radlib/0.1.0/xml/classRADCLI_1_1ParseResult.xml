@@ -1,0 +1,197 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="classRADCLI_1_1ParseResult" kind="class" language="C++" prot="public">
+    <compoundname>RADCLI::ParseResult</compoundname>
+    <includes refid="RADCLI_8h" local="no">RADCLI.h</includes>
+      <sectiondef kind="friend">
+      <memberdef kind="friend" id="classRADCLI_1_1ParseResult_1a41a7521828bf3848f8977e841f18df99" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>class</type>
+        <definition>friend class CommandLineParser</definition>
+        <argsstring></argsstring>
+        <name>CommandLineParser</name>
+        <param>
+          <type><ref refid="classRADCLI_1_1CommandLineParser" kindref="compound">CommandLineParser</ref></type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADCLI/headers/RADCLI.h" line="51" column="9" bodyfile="RADCLI/headers/RADCLI.h" bodystart="51" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classRADCLI_1_1ParseResult_1a39e1b731281ff564610d2bdc8752590e" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool RADCLI::ParseResult::ok_</definition>
+        <argsstring></argsstring>
+        <name>ok_</name>
+        <initializer>= true</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADCLI/headers/RADCLI.h" line="52" column="14" bodyfile="RADCLI/headers/RADCLI.h" bodystart="52" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classRADCLI_1_1ParseResult_1ad69cce8b5dcdea53f25f9e56b73a905f" prot="private" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string RADCLI::ParseResult::error_</definition>
+        <argsstring></argsstring>
+        <name>error_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADCLI/headers/RADCLI.h" line="53" column="21" bodyfile="RADCLI/headers/RADCLI.h" bodystart="53" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classRADCLI_1_1ParseResult_1a6cb7c1bbe4426127b262fcd8cfc6f74e" prot="private" static="no" mutable="no">
+        <type>std::map&lt; std::string, std::string &gt;</type>
+        <definition>std::map&lt;std::string, std::string&gt; RADCLI::ParseResult::values_</definition>
+        <argsstring></argsstring>
+        <name>values_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADCLI/headers/RADCLI.h" line="54" column="18" bodyfile="RADCLI/headers/RADCLI.h" bodystart="54" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classRADCLI_1_1ParseResult_1af0b14bf95d169bb28c9b91d9405ff53c" prot="private" static="no" mutable="no">
+        <type>std::vector&lt; std::string &gt;</type>
+        <definition>std::vector&lt;std::string&gt; RADCLI::ParseResult::present_</definition>
+        <argsstring></argsstring>
+        <name>present_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADCLI/headers/RADCLI.h" line="55" column="21" bodyfile="RADCLI/headers/RADCLI.h" bodystart="55" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classRADCLI_1_1ParseResult_1abe24ba827ce8f87559820ec457c7b189" prot="private" static="no" mutable="no">
+        <type>std::vector&lt; std::string &gt;</type>
+        <definition>std::vector&lt;std::string&gt; RADCLI::ParseResult::positionals_</definition>
+        <argsstring></argsstring>
+        <name>positionals_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADCLI/headers/RADCLI.h" line="56" column="21" bodyfile="RADCLI/headers/RADCLI.h" bodystart="56" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classRADCLI_1_1ParseResult_1a9a361888d7f9c39b037f82735e4baf43" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool RADCLI::ParseResult::ok</definition>
+        <argsstring>() const</argsstring>
+        <name>ok</name>
+        <briefdescription>
+<para>Returns true when parsing succeeded. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADCLI/headers/RADCLI.h" line="40" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADCLI_1_1ParseResult_1ad3f9feb08d21d09d6aa4f68106b23b46" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>const std::string &amp;</type>
+        <definition>const std::string&amp; RADCLI::ParseResult::error</definition>
+        <argsstring>() const</argsstring>
+        <name>error</name>
+        <briefdescription>
+<para>Returns parser error text. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADCLI/headers/RADCLI.h" line="42" column="27"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADCLI_1_1ParseResult_1a49b66dd0ade2921288804022276639e7" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool RADCLI::ParseResult::has</definition>
+        <argsstring>(const std::string &amp;name) const</argsstring>
+        <name>has</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>name</declname>
+        </param>
+        <briefdescription>
+<para>Returns true when option was explicitly provided. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADCLI/headers/RADCLI.h" line="44" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADCLI_1_1ParseResult_1ac622ac4176beba698e48faff808cfff5" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>std::string</type>
+        <definition>std::string RADCLI::ParseResult::value</definition>
+        <argsstring>(const std::string &amp;name, const std::string &amp;defaultValue={}) const</argsstring>
+        <name>value</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>name</declname>
+        </param>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>defaultValue</declname>
+          <defval>{}</defval>
+        </param>
+        <briefdescription>
+<para>Returns option value or defaultValue. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADCLI/headers/RADCLI.h" line="46" column="21"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADCLI_1_1ParseResult_1acf603300fc6e8d5b85262687c1a55f44" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>const std::vector&lt; std::string &gt; &amp;</type>
+        <definition>const std::vector&lt;std::string&gt;&amp; RADCLI::ParseResult::positionals</definition>
+        <argsstring>() const</argsstring>
+        <name>positionals</name>
+        <briefdescription>
+<para>Returns positional arguments. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADCLI/headers/RADCLI.h" line="48" column="27"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Parsed command-line result. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="RADCLI/headers/RADCLI.h" line="37" column="5" bodyfile="RADCLI/headers/RADCLI.h" bodystart="37" bodyend="57"/>
+    <listofallmembers>
+      <member refid="classRADCLI_1_1ParseResult_1a41a7521828bf3848f8977e841f18df99" prot="private" virt="non-virtual"><scope>RADCLI::ParseResult</scope><name>CommandLineParser</name></member>
+      <member refid="classRADCLI_1_1ParseResult_1ad3f9feb08d21d09d6aa4f68106b23b46" prot="public" virt="non-virtual"><scope>RADCLI::ParseResult</scope><name>error</name></member>
+      <member refid="classRADCLI_1_1ParseResult_1ad69cce8b5dcdea53f25f9e56b73a905f" prot="private" virt="non-virtual"><scope>RADCLI::ParseResult</scope><name>error_</name></member>
+      <member refid="classRADCLI_1_1ParseResult_1a49b66dd0ade2921288804022276639e7" prot="public" virt="non-virtual"><scope>RADCLI::ParseResult</scope><name>has</name></member>
+      <member refid="classRADCLI_1_1ParseResult_1a9a361888d7f9c39b037f82735e4baf43" prot="public" virt="non-virtual"><scope>RADCLI::ParseResult</scope><name>ok</name></member>
+      <member refid="classRADCLI_1_1ParseResult_1a39e1b731281ff564610d2bdc8752590e" prot="private" virt="non-virtual"><scope>RADCLI::ParseResult</scope><name>ok_</name></member>
+      <member refid="classRADCLI_1_1ParseResult_1acf603300fc6e8d5b85262687c1a55f44" prot="public" virt="non-virtual"><scope>RADCLI::ParseResult</scope><name>positionals</name></member>
+      <member refid="classRADCLI_1_1ParseResult_1abe24ba827ce8f87559820ec457c7b189" prot="private" virt="non-virtual"><scope>RADCLI::ParseResult</scope><name>positionals_</name></member>
+      <member refid="classRADCLI_1_1ParseResult_1af0b14bf95d169bb28c9b91d9405ff53c" prot="private" virt="non-virtual"><scope>RADCLI::ParseResult</scope><name>present_</name></member>
+      <member refid="classRADCLI_1_1ParseResult_1ac622ac4176beba698e48faff808cfff5" prot="public" virt="non-virtual"><scope>RADCLI::ParseResult</scope><name>value</name></member>
+      <member refid="classRADCLI_1_1ParseResult_1a6cb7c1bbe4426127b262fcd8cfc6f74e" prot="private" virt="non-virtual"><scope>RADCLI::ParseResult</scope><name>values_</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

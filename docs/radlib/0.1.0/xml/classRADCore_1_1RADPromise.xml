@@ -1,0 +1,120 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="classRADCore_1_1RADPromise" kind="class" language="C++" prot="public">
+    <compoundname>RADCore::RADPromise</compoundname>
+    <includes refid="RADCore_8h" local="no">RADCore.h</includes>
+    <templateparamlist>
+      <param>
+        <type>typename T</type>
+      </param>
+    </templateparamlist>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classRADCore_1_1RADPromise_1ab9da32e37297953f5f658422aa3de5d7" prot="private" static="no" mutable="no">
+        <type>std::shared_ptr&lt; std::promise&lt; T &gt; &gt;</type>
+        <definition>std::shared_ptr&lt;std::promise&lt;T&gt; &gt; RADCore::RADPromise&lt; T &gt;::promise_</definition>
+        <argsstring></argsstring>
+        <name>promise_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADCore/headers/RADCore.h" line="1612" column="25" bodyfile="RADCore/headers/RADCore.h" bodystart="1612" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classRADCore_1_1RADPromise_1a2deaa6d30814b80f66c749b0ce962f08" prot="private" static="no" mutable="no">
+        <type>std::shared_ptr&lt; std::shared_future&lt; T &gt; &gt;</type>
+        <definition>std::shared_ptr&lt;std::shared_future&lt;T&gt; &gt; RADCore::RADPromise&lt; T &gt;::future_</definition>
+        <argsstring></argsstring>
+        <name>future_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADCore/headers/RADCore.h" line="1613" column="25" bodyfile="RADCore/headers/RADCore.h" bodystart="1613" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classRADCore_1_1RADPromise_1a9ae1d7daea5de003b984f2b1dcd1675c" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>RADCore::RADPromise&lt; T &gt;::RADPromise</definition>
+        <argsstring>()</argsstring>
+        <name>RADPromise</name>
+        <briefdescription>
+<para>Creates a promise/future pair. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADCore/headers/RADCore.h" line="1601" column="9" bodyfile="RADCore/headers/RADCore.h" bodystart="1601" bodyend="1603"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADCore_1_1RADPromise_1a811ed2d6925e387f1f54474cbf5bf4c9" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classRADCore_1_1RADFutureT" kindref="compound">RADFutureT</ref>&lt; T &gt;</type>
+        <definition>RADFutureT&lt;T&gt; RADCore::RADPromise&lt; T &gt;::future</definition>
+        <argsstring>() const</argsstring>
+        <name>future</name>
+        <briefdescription>
+<para>Returns the associated typed future. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADCore/headers/RADCore.h" line="1605" column="20" bodyfile="RADCore/headers/RADCore.h" bodystart="1605" bodyend="1605"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADCore_1_1RADPromise_1a954b19102cc0269ed2a1aa7c4c9dc1b5" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void RADCore::RADPromise&lt; T &gt;::setValue</definition>
+        <argsstring>(T value)</argsstring>
+        <name>setValue</name>
+        <param>
+          <type>T</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+<para>Sets the result value. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADCore/headers/RADCore.h" line="1607" column="14" bodyfile="RADCore/headers/RADCore.h" bodystart="1607" bodyend="1607"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADCore_1_1RADPromise_1adf5b43745399c0e27b34962c74543619" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void RADCore::RADPromise&lt; T &gt;::setException</definition>
+        <argsstring>(std::exception_ptr error)</argsstring>
+        <name>setException</name>
+        <param>
+          <type>std::exception_ptr</type>
+          <declname>error</declname>
+        </param>
+        <briefdescription>
+<para>Sets an exception result. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADCore/headers/RADCore.h" line="1609" column="14" bodyfile="RADCore/headers/RADCore.h" bodystart="1609" bodyend="1609"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Typed promise that creates <ref refid="classRADCore_1_1RADFutureT" kindref="compound">RADFutureT</ref>. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="RADCore/headers/RADCore.h" line="1598" column="5" bodyfile="RADCore/headers/RADCore.h" bodystart="1598" bodyend="1614"/>
+    <listofallmembers>
+      <member refid="classRADCore_1_1RADPromise_1a811ed2d6925e387f1f54474cbf5bf4c9" prot="public" virt="non-virtual"><scope>RADCore::RADPromise</scope><name>future</name></member>
+      <member refid="classRADCore_1_1RADPromise_1a2deaa6d30814b80f66c749b0ce962f08" prot="private" virt="non-virtual"><scope>RADCore::RADPromise</scope><name>future_</name></member>
+      <member refid="classRADCore_1_1RADPromise_1ab9da32e37297953f5f658422aa3de5d7" prot="private" virt="non-virtual"><scope>RADCore::RADPromise</scope><name>promise_</name></member>
+      <member refid="classRADCore_1_1RADPromise_1a9ae1d7daea5de003b984f2b1dcd1675c" prot="public" virt="non-virtual"><scope>RADCore::RADPromise</scope><name>RADPromise</name></member>
+      <member refid="classRADCore_1_1RADPromise_1adf5b43745399c0e27b34962c74543619" prot="public" virt="non-virtual"><scope>RADCore::RADPromise</scope><name>setException</name></member>
+      <member refid="classRADCore_1_1RADPromise_1a954b19102cc0269ed2a1aa7c4c9dc1b5" prot="public" virt="non-virtual"><scope>RADCore::RADPromise</scope><name>setValue</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

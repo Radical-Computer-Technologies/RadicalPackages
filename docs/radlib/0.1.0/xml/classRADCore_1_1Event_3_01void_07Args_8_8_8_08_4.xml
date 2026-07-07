@@ -1,0 +1,227 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="classRADCore_1_1Event_3_01void_07Args_8_8_8_08_4" kind="class" language="C++" prot="public">
+    <compoundname>RADCore::Event&lt; void(Args...)&gt;</compoundname>
+    <includes refid="RADCore_8h" local="no">RADCore.h</includes>
+    <innerclass refid="structRADCore_1_1Event_3_01void_07Args_8_8_8_08_4_1_1LiveHandler" prot="public">RADCore::Event&lt; void(Args...)&gt;::LiveHandler</innerclass>
+    <templateparamlist>
+      <param>
+        <type>typename...</type>
+        <declname>Args</declname>
+        <defname>Args</defname>
+      </param>
+    </templateparamlist>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classRADCore_1_1Event_3_01void_07Args_8_8_8_08_4_1a713b16af95780f92fcbeb4856eeb7e36" prot="private" static="no" mutable="no">
+        <type>std::vector&lt; LiveHandler &gt;</type>
+        <definition>std::vector&lt;LiveHandler&gt; RADCore::Event&lt; void(Args...)&gt;::handlers_</definition>
+        <argsstring></argsstring>
+        <name>handlers_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADCore/headers/RADCore.h" line="1247" column="21" bodyfile="RADCore/headers/RADCore.h" bodystart="1247" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classRADCore_1_1Event_3_01void_07Args_8_8_8_08_4_1a892b77f8477d9790e94c26bed840e253" prot="private" static="no" mutable="no">
+        <type>std::mutex</type>
+        <definition>std::mutex RADCore::Event&lt; void(Args...)&gt;::eventMutex_</definition>
+        <argsstring></argsstring>
+        <name>eventMutex_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADCore/headers/RADCore.h" line="1248" column="20" bodyfile="RADCore/headers/RADCore.h" bodystart="1248" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classRADCore_1_1Event_3_01void_07Args_8_8_8_08_4_1a13c13bcf68fa56d5aa8abd744aa55d0f" prot="private" static="no" mutable="no">
+        <type><ref refid="classRADCore_1_1EventBackend" kindref="compound">EventBackend</ref></type>
+        <definition>EventBackend RADCore::Event&lt; void(Args...)&gt;::backend_</definition>
+        <argsstring></argsstring>
+        <name>backend_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADCore/headers/RADCore.h" line="1249" column="22" bodyfile="RADCore/headers/RADCore.h" bodystart="1249" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classRADCore_1_1Event_3_01void_07Args_8_8_8_08_4_1a8a0dd54aecdf94a186e8d6ac5b77c241" prot="private" static="no" mutable="no">
+        <type>std::shared_ptr&lt; std::atomic_bool &gt;</type>
+        <definition>std::shared_ptr&lt;std::atomic_bool&gt; RADCore::Event&lt; void(Args...)&gt;::aliveToken_</definition>
+        <argsstring></argsstring>
+        <name>aliveToken_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADCore/headers/RADCore.h" line="1250" column="25" bodyfile="RADCore/headers/RADCore.h" bodystart="1250" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classRADCore_1_1Event_3_01void_07Args_8_8_8_08_4_1a8bbd4bf7e2cdd98855d215798dcef886" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>RADCore::Event&lt; void(Args...)&gt;::Event</definition>
+        <argsstring>()</argsstring>
+        <name>Event</name>
+        <briefdescription>
+<para>Creates an empty event. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADCore/headers/RADCore.h" line="1107" column="9" bodyfile="RADCore/headers/RADCore.h" bodystart="1107" bodyend="1107"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADCore_1_1Event_3_01void_07Args_8_8_8_08_4_1ad556f4287d7a73ef54762080be5bd893" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>RADCore::Event&lt; void(Args...)&gt;::~Event</definition>
+        <argsstring>()</argsstring>
+        <name>~Event</name>
+        <briefdescription>
+<para>Marks the event dead and disconnects handlers. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADCore/headers/RADCore.h" line="1110" column="9" bodyfile="RADCore/headers/RADCore.h" bodystart="1110" bodyend="1119"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADCore_1_1Event_3_01void_07Args_8_8_8_08_4_1a8ef3c00cb6392f21a594e62685533092" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename T</type>
+          </param>
+        </templateparamlist>
+        <type><ref refid="classRADCore_1_1Connection" kindref="compound">Connection</ref></type>
+        <definition>Connection RADCore::Event&lt; void(Args...)&gt;::connect</definition>
+        <argsstring>(T *receiver, void(T::*memberFunc)(Args...))</argsstring>
+        <name>connect</name>
+        <param>
+          <type>T *</type>
+          <declname>receiver</declname>
+        </param>
+        <param>
+          <type>void(T::*)(Args...)</type>
+          <declname>memberFunc</declname>
+        </param>
+        <briefdescription>
+<para>Connects this event to a <ref refid="classRADCore_1_1RADObject" kindref="compound">RADObject</ref> receiver member function. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADCore/headers/RADCore.h" line="1123" column="20" bodyfile="RADCore/headers/RADCore.h" bodystart="1123" bodyend="1173"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADCore_1_1Event_3_01void_07Args_8_8_8_08_4_1a6ee05037fba7f58e045c89f9a8f324f5" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename T</type>
+          </param>
+        </templateparamlist>
+        <type><ref refid="classRADCore_1_1Connection" kindref="compound">Connection</ref></type>
+        <definition>Connection RADCore::Event&lt; void(Args...)&gt;::connect_queued</definition>
+        <argsstring>(EventLoop &amp;loop, T *receiver, void(T::*memberFunc)(Args...))</argsstring>
+        <name>connect_queued</name>
+        <param>
+          <type><ref refid="classRADCore_1_1EventLoop" kindref="compound">EventLoop</ref> &amp;</type>
+          <declname>loop</declname>
+        </param>
+        <param>
+          <type>T *</type>
+          <declname>receiver</declname>
+        </param>
+        <param>
+          <type>void(T::*)(Args...)</type>
+          <declname>memberFunc</declname>
+        </param>
+        <briefdescription>
+<para>Connects this event to a receiver member function through loop. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADCore/headers/RADCore.h" line="1177" column="20" bodyfile="RADCore/headers/RADCore.h" bodystart="1177" bodyend="1213"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADCore_1_1Event_3_01void_07Args_8_8_8_08_4_1a2370c4cf4eb265d454daf53829864cd5" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void RADCore::Event&lt; void(Args...)&gt;::disconnect</definition>
+        <argsstring>(size_t targetId)</argsstring>
+        <name>disconnect</name>
+        <param>
+          <type>size_t</type>
+          <declname>targetId</declname>
+        </param>
+        <briefdescription>
+<para>Disconnects a handler by event-local id. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADCore/headers/RADCore.h" line="1216" column="14" bodyfile="RADCore/headers/RADCore.h" bodystart="1216" bodyend="1227"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADCore_1_1Event_3_01void_07Args_8_8_8_08_4_1a7ada25bf578d78427b095317832af2ed" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void RADCore::Event&lt; void(Args...)&gt;::raise</definition>
+        <argsstring>(Args... args)</argsstring>
+        <name>raise</name>
+        <param>
+          <type>Args...</type>
+          <declname>args</declname>
+        </param>
+        <briefdescription>
+<para>Raises the event and dispatches to connected handlers. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADCore/headers/RADCore.h" line="1230" column="14" bodyfile="RADCore/headers/RADCore.h" bodystart="1230" bodyend="1243"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="classRADCore_1_1Event_3_01void_07Args_8_8_8_08_4_1a19997734a13b671e79c6b91e9244ca36" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>size_t</type>
+        <definition>size_t RADCore::Event&lt; void(Args...)&gt;::generateUniqueId</definition>
+        <argsstring>()</argsstring>
+        <name>generateUniqueId</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADCore/headers/RADCore.h" line="1246" column="16" bodyfile="RADCore/headers/RADCore.h" bodystart="1246" bodyend="1246"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Typed event dispatcher. Use <ref refid="classRADCore_1_1Event_3_01void_07Args_8_8_8_08_4" kindref="compound">Event&lt;void(Args...)&gt;</ref> through RAD_EVENT. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="RADCore/headers/RADCore.h" line="1094" column="5" bodyfile="RADCore/headers/RADCore.h" bodystart="1094" bodyend="1251"/>
+    <listofallmembers>
+      <member refid="classRADCore_1_1Event_3_01void_07Args_8_8_8_08_4_1a8a0dd54aecdf94a186e8d6ac5b77c241" prot="private" virt="non-virtual"><scope>RADCore::Event&lt; void(Args...)&gt;</scope><name>aliveToken_</name></member>
+      <member refid="classRADCore_1_1Event_3_01void_07Args_8_8_8_08_4_1a13c13bcf68fa56d5aa8abd744aa55d0f" prot="private" virt="non-virtual"><scope>RADCore::Event&lt; void(Args...)&gt;</scope><name>backend_</name></member>
+      <member refid="classRADCore_1_1Event_3_01void_07Args_8_8_8_08_4_1a8ef3c00cb6392f21a594e62685533092" prot="public" virt="non-virtual"><scope>RADCore::Event&lt; void(Args...)&gt;</scope><name>connect</name></member>
+      <member refid="classRADCore_1_1Event_3_01void_07Args_8_8_8_08_4_1a6ee05037fba7f58e045c89f9a8f324f5" prot="public" virt="non-virtual"><scope>RADCore::Event&lt; void(Args...)&gt;</scope><name>connect_queued</name></member>
+      <member refid="classRADCore_1_1Event_3_01void_07Args_8_8_8_08_4_1a2370c4cf4eb265d454daf53829864cd5" prot="public" virt="non-virtual"><scope>RADCore::Event&lt; void(Args...)&gt;</scope><name>disconnect</name></member>
+      <member refid="classRADCore_1_1Event_3_01void_07Args_8_8_8_08_4_1a8bbd4bf7e2cdd98855d215798dcef886" prot="public" virt="non-virtual"><scope>RADCore::Event&lt; void(Args...)&gt;</scope><name>Event</name></member>
+      <member refid="classRADCore_1_1Event_3_01void_07Args_8_8_8_08_4_1a892b77f8477d9790e94c26bed840e253" prot="private" virt="non-virtual"><scope>RADCore::Event&lt; void(Args...)&gt;</scope><name>eventMutex_</name></member>
+      <member refid="classRADCore_1_1Event_3_01void_07Args_8_8_8_08_4_1a19997734a13b671e79c6b91e9244ca36" prot="private" virt="non-virtual"><scope>RADCore::Event&lt; void(Args...)&gt;</scope><name>generateUniqueId</name></member>
+      <member refid="classRADCore_1_1Event_3_01void_07Args_8_8_8_08_4_1a713b16af95780f92fcbeb4856eeb7e36" prot="private" virt="non-virtual"><scope>RADCore::Event&lt; void(Args...)&gt;</scope><name>handlers_</name></member>
+      <member refid="classRADCore_1_1Event_3_01void_07Args_8_8_8_08_4_1a7ada25bf578d78427b095317832af2ed" prot="public" virt="non-virtual"><scope>RADCore::Event&lt; void(Args...)&gt;</scope><name>raise</name></member>
+      <member refid="classRADCore_1_1Event_3_01void_07Args_8_8_8_08_4_1ad556f4287d7a73ef54762080be5bd893" prot="public" virt="non-virtual"><scope>RADCore::Event&lt; void(Args...)&gt;</scope><name>~Event</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

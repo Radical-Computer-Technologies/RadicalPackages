@@ -1,0 +1,88 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="structRADCore_1_1Internal_1_1EventBinder" kind="struct" language="C++" prot="public">
+    <compoundname>RADCore::Internal::EventBinder</compoundname>
+    <includes refid="RADCore_8h" local="no">RADCore.h</includes>
+    <templateparamlist>
+      <param>
+        <type>typename...</type>
+        <declname>Args</declname>
+        <defname>Args</defname>
+      </param>
+    </templateparamlist>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structRADCore_1_1Internal_1_1EventBinder_1a8ca07ab6c923078936b87c080d15bf2f" prot="public" static="no" mutable="no">
+        <type><ref refid="classRADCore_1_1Event" kindref="compound">Event</ref>&lt; void(Args...)&gt; &amp;</type>
+        <definition>Event&lt;void(Args...)&gt;&amp; RADCore::Internal::EventBinder&lt; Args &gt;::targetEvent</definition>
+        <argsstring></argsstring>
+        <name>targetEvent</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADCore/headers/RADCore.h" line="1907" column="32" bodyfile="RADCore/headers/RADCore.h" bodystart="1907" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structRADCore_1_1Internal_1_1EventBinder_1a46abaa1015dfcaca1745363b2d0845c2" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>RADCore::Internal::EventBinder&lt; Args &gt;::EventBinder</definition>
+        <argsstring>(Event&lt; void(Args...)&gt; &amp;ev)</argsstring>
+        <name>EventBinder</name>
+        <param>
+          <type><ref refid="classRADCore_1_1Event" kindref="compound">Event</ref>&lt; void(Args...)&gt; &amp;</type>
+          <declname>ev</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADCore/headers/RADCore.h" line="1908" column="13" bodyfile="RADCore/headers/RADCore.h" bodystart="1908" bodyend="1908"/>
+      </memberdef>
+      <memberdef kind="function" id="structRADCore_1_1Internal_1_1EventBinder_1a34c98a6353b83c4ec70f11553928c9f2" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void RADCore::Internal::EventBinder&lt; Args &gt;::operator()</definition>
+        <argsstring>(Args... args)</argsstring>
+        <name>operator()</name>
+        <param>
+          <type>Args...</type>
+          <declname>args</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADCore/headers/RADCore.h" line="1909" column="18" bodyfile="RADCore/headers/RADCore.h" bodystart="1909" bodyend="1911"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="1">
+        <label>RADCore::Internal::EventBinder&lt; Args &gt;</label>
+        <link refid="structRADCore_1_1Internal_1_1EventBinder"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>targetEvent</edgelabel>
+        </childnode>
+      </node>
+      <node id="2">
+        <label>RADCore::Event&lt; void(Args...)&gt;</label>
+        <link refid="classRADCore_1_1Event_3_01void_07Args_8_8_8_08_4"/>
+      </node>
+    </collaborationgraph>
+    <location file="RADCore/headers/RADCore.h" line="1907" column="9" bodyfile="RADCore/headers/RADCore.h" bodystart="1907" bodyend="1912"/>
+    <listofallmembers>
+      <member refid="structRADCore_1_1Internal_1_1EventBinder_1a46abaa1015dfcaca1745363b2d0845c2" prot="public" virt="non-virtual"><scope>RADCore::Internal::EventBinder</scope><name>EventBinder</name></member>
+      <member refid="structRADCore_1_1Internal_1_1EventBinder_1a34c98a6353b83c4ec70f11553928c9f2" prot="public" virt="non-virtual"><scope>RADCore::Internal::EventBinder</scope><name>operator()</name></member>
+      <member refid="structRADCore_1_1Internal_1_1EventBinder_1a8ca07ab6c923078936b87c080d15bf2f" prot="public" virt="non-virtual"><scope>RADCore::Internal::EventBinder</scope><name>targetEvent</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

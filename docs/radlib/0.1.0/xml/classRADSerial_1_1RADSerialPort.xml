@@ -1,0 +1,362 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="classRADSerial_1_1RADSerialPort" kind="class" language="C++" prot="public">
+    <compoundname>RADSerial::RADSerialPort</compoundname>
+    <basecompoundref refid="classRADCore_1_1RADIODevice" prot="public" virt="non-virtual">RADCore::RADIODevice</basecompoundref>
+    <includes refid="RADSerial_8h" local="no">RADSerial.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="classRADSerial_1_1RADSerialPort_1a4065836d69948308b8559ee5c4edc0b6" prot="public" static="no" mutable="no">
+        <type><ref refid="classRADCore_1_1Event" kindref="compound">RADCore::Event</ref>&lt; void() &gt;</type>
+        <definition>RADCore::Event&lt;void () &gt; RADSerial::RADSerialPort::opened</definition>
+        <argsstring></argsstring>
+        <name>opened</name>
+        <briefdescription>
+<para>Raised when the port is opened. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADSerial/headers/RADSerial.h" line="54" column="30" bodyfile="RADSerial/headers/RADSerial.h" bodystart="54" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classRADSerial_1_1RADSerialPort_1aaae123b03440b69b85f125b50e48bbbe" prot="public" static="no" mutable="no">
+        <type><ref refid="classRADCore_1_1Event" kindref="compound">RADCore::Event</ref>&lt; void() &gt;</type>
+        <definition>RADCore::Event&lt;void () &gt; RADSerial::RADSerialPort::closed</definition>
+        <argsstring></argsstring>
+        <name>closed</name>
+        <briefdescription>
+<para>Raised when the port is closed. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADSerial/headers/RADSerial.h" line="56" column="30" bodyfile="RADSerial/headers/RADSerial.h" bodystart="56" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classRADSerial_1_1RADSerialPort_1a048de5c670cdb0ad977270c3e33a042c" prot="private" static="no" mutable="no">
+        <type>std::shared_ptr&lt; Impl &gt;</type>
+        <definition>std::shared_ptr&lt;Impl&gt; RADSerial::RADSerialPort::pImpl_</definition>
+        <argsstring></argsstring>
+        <name>pImpl_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADSerial/headers/RADSerial.h" line="88" column="25" bodyfile="RADSerial/headers/RADSerial.h" bodystart="87" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classRADSerial_1_1RADSerialPort_1a564bd9930c5cd2907bf641bf77a2c9c0" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>RADSerial::RADSerialPort::RADSerialPort</definition>
+        <argsstring>(RADCore::EventLoop &amp;loop)</argsstring>
+        <name>RADSerialPort</name>
+        <param>
+          <type><ref refid="classRADCore_1_1EventLoop" kindref="compound">RADCore::EventLoop</ref> &amp;</type>
+          <declname>loop</declname>
+        </param>
+        <briefdescription>
+<para>Creates a serial port whose events are posted to loop. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADSerial/headers/RADSerial.h" line="59" column="18"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADSerial_1_1RADSerialPort_1a0f157bf0da01e71613136fae1584c6a1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>RADSerial::RADSerialPort::~RADSerialPort</definition>
+        <argsstring>() override</argsstring>
+        <name>~RADSerialPort</name>
+        <briefdescription>
+<para>Closes the port. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADSerial/headers/RADSerial.h" line="61" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADSerial_1_1RADSerialPort_1ad1ae5f915be9a3150aebb28773627c6e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void RADSerial::RADSerialPort::setPortName</definition>
+        <argsstring>(std::string path)</argsstring>
+        <name>setPortName</name>
+        <param>
+          <type>std::string</type>
+          <declname>path</declname>
+        </param>
+        <briefdescription>
+<para>Sets device path. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADSerial/headers/RADSerial.h" line="64" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADSerial_1_1RADSerialPort_1acefc88428b3ddb31a79cfc7eed5452ef" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>const std::string &amp;</type>
+        <definition>const std::string&amp; RADSerial::RADSerialPort::portName</definition>
+        <argsstring>() const</argsstring>
+        <name>portName</name>
+        <briefdescription>
+<para>Returns device path. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADSerial/headers/RADSerial.h" line="66" column="27"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADSerial_1_1RADSerialPort_1adee12b2372af83daea9fcde74147cb64" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void RADSerial::RADSerialPort::setConfig</definition>
+        <argsstring>(SerialConfig config)</argsstring>
+        <name>setConfig</name>
+        <param>
+          <type><ref refid="structRADSerial_1_1SerialConfig" kindref="compound">SerialConfig</ref></type>
+          <declname>config</declname>
+        </param>
+        <briefdescription>
+<para>Sets serial configuration. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADSerial/headers/RADSerial.h" line="68" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADSerial_1_1RADSerialPort_1addc8833112659075c3fc10b77026f694" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structRADSerial_1_1SerialConfig" kindref="compound">SerialConfig</ref></type>
+        <definition>SerialConfig RADSerial::RADSerialPort::config</definition>
+        <argsstring>() const</argsstring>
+        <name>config</name>
+        <briefdescription>
+<para>Returns serial configuration. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADSerial/headers/RADSerial.h" line="70" column="22"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADSerial_1_1RADSerialPort_1a6400695f7c1a13f0b71cb035a7a64d9d" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>bool</type>
+        <definition>bool RADSerial::RADSerialPort::open</definition>
+        <argsstring>(RADCore::OpenMode mode) override</argsstring>
+        <name>open</name>
+        <reimplements refid="classRADCore_1_1RADIODevice_1a011c0578dea19d3ba6112b6d3acc092d">open</reimplements>
+        <param>
+          <type><ref refid="namespaceRADCore_1aefc7037828eebd6f6c85bda2ea2b2852" kindref="member">RADCore::OpenMode</ref></type>
+          <declname>mode</declname>
+        </param>
+        <briefdescription>
+<para>Opens the serial port. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADSerial/headers/RADSerial.h" line="73" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADSerial_1_1RADSerialPort_1a3657321dee539b57346035197f2996d1" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void RADSerial::RADSerialPort::close</definition>
+        <argsstring>() override</argsstring>
+        <name>close</name>
+        <reimplements refid="classRADCore_1_1RADIODevice_1a2bb9a50ef6582fd91565a69353d6afbb">close</reimplements>
+        <briefdescription>
+<para>Closes the serial port. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADSerial/headers/RADSerial.h" line="75" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADSerial_1_1RADSerialPort_1a18e8182eb12b20a817270089896bcc95" prot="public" static="no" const="yes" explicit="no" inline="no" virt="virtual">
+        <type>bool</type>
+        <definition>bool RADSerial::RADSerialPort::isOpen</definition>
+        <argsstring>() const override</argsstring>
+        <name>isOpen</name>
+        <reimplements refid="classRADCore_1_1RADIODevice_1a8c11ea54d9c6868fbe765b3097cfeb14">isOpen</reimplements>
+        <briefdescription>
+<para>Returns true when open. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADSerial/headers/RADSerial.h" line="77" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADSerial_1_1RADSerialPort_1a46acba510fea1e4961931697865c6420" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>ssize_t</type>
+        <definition>ssize_t RADSerial::RADSerialPort::readData</definition>
+        <argsstring>(void *buffer, size_t maxBytes) override</argsstring>
+        <name>readData</name>
+        <reimplements refid="classRADCore_1_1RADIODevice_1ae51b17a6ec9132085bb6e9e5249c591a">readData</reimplements>
+        <param>
+          <type>void *</type>
+          <declname>buffer</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>maxBytes</declname>
+        </param>
+        <briefdescription>
+<para>Reads bytes from the internal async buffer. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADSerial/headers/RADSerial.h" line="79" column="17"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADSerial_1_1RADSerialPort_1ae93d0f327375ec07f4507895af2f299b" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>ssize_t</type>
+        <definition>ssize_t RADSerial::RADSerialPort::writeData</definition>
+        <argsstring>(const void *data, size_t size) override</argsstring>
+        <name>writeData</name>
+        <reimplements refid="classRADCore_1_1RADIODevice_1ac76e45e22e043402a06d61e4823433c5">writeData</reimplements>
+        <param>
+          <type>const void *</type>
+          <declname>data</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>size</declname>
+        </param>
+        <briefdescription>
+<para>Writes bytes to the serial fd. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADSerial/headers/RADSerial.h" line="81" column="17"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="classRADSerial_1_1RADSerialPort_1adf815cfaae2e74a06c3739ba6c65021b" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::vector&lt; <ref refid="structRADSerial_1_1SerialPortInfo" kindref="compound">SerialPortInfo</ref> &gt;</type>
+        <definition>static std::vector&lt;SerialPortInfo&gt; RADSerial::RADSerialPort::listPorts</definition>
+        <argsstring>()</argsstring>
+        <name>listPorts</name>
+        <briefdescription>
+<para>Returns likely serial devices under /dev. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADSerial/headers/RADSerial.h" line="84" column="28"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Linux serial port backed by termios and <ref refid="classRADCore_1_1RADIODevice" kindref="compound">RADCore::RADIODevice</ref>. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="3">
+        <label>RADCore::RADObject</label>
+        <link refid="classRADCore_1_1RADObject"/>
+      </node>
+      <node id="1">
+        <label>RADSerial::RADSerialPort</label>
+        <link refid="classRADSerial_1_1RADSerialPort"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>RADCore::RADIODevice</label>
+        <link refid="classRADCore_1_1RADIODevice"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="3">
+        <label>RADCore::RADObject</label>
+        <link refid="classRADCore_1_1RADObject"/>
+      </node>
+      <node id="5">
+        <label>RADCore::Event&lt; void(std::string) &gt;</label>
+        <link refid="classRADCore_1_1Event"/>
+      </node>
+      <node id="4">
+        <label>RADCore::Event&lt; void() &gt;</label>
+        <link refid="classRADCore_1_1Event"/>
+      </node>
+      <node id="6">
+        <label>RADCore::Event&lt; void(size_t) &gt;</label>
+        <link refid="classRADCore_1_1Event"/>
+      </node>
+      <node id="1">
+        <label>RADSerial::RADSerialPort</label>
+        <link refid="classRADSerial_1_1RADSerialPort"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="4" relation="usage">
+          <edgelabel>closed</edgelabel>
+          <edgelabel>opened</edgelabel>
+        </childnode>
+      </node>
+      <node id="2">
+        <label>RADCore::RADIODevice</label>
+        <link refid="classRADCore_1_1RADIODevice"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+        <childnode refid="4" relation="usage">
+          <edgelabel>readyRead</edgelabel>
+        </childnode>
+        <childnode refid="5" relation="usage">
+          <edgelabel>errorOccurred</edgelabel>
+        </childnode>
+        <childnode refid="6" relation="usage">
+          <edgelabel>bytesWritten</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="RADSerial/headers/RADSerial.h" line="50" column="5" bodyfile="RADSerial/headers/RADSerial.h" bodystart="50" bodyend="89"/>
+    <listofallmembers>
+      <member refid="classRADCore_1_1RADObject_1a06cdf252ffb5e2f88332ebda12a62080" prot="public" virt="non-virtual"><scope>RADSerial::RADSerialPort</scope><name>associatedEventLoop</name></member>
+      <member refid="classRADCore_1_1RADIODevice_1abc75c243e088fa3ae539276e90ddf769" prot="public" virt="non-virtual"><scope>RADSerial::RADSerialPort</scope><name>bytesWritten</name></member>
+      <member refid="classRADSerial_1_1RADSerialPort_1a3657321dee539b57346035197f2996d1" prot="public" virt="virtual"><scope>RADSerial::RADSerialPort</scope><name>close</name></member>
+      <member refid="classRADSerial_1_1RADSerialPort_1aaae123b03440b69b85f125b50e48bbbe" prot="public" virt="non-virtual"><scope>RADSerial::RADSerialPort</scope><name>closed</name></member>
+      <member refid="classRADSerial_1_1RADSerialPort_1addc8833112659075c3fc10b77026f694" prot="public" virt="non-virtual"><scope>RADSerial::RADSerialPort</scope><name>config</name></member>
+      <member refid="classRADCore_1_1RADIODevice_1ab7c511255b907eb2490fe91c6521232c" prot="public" virt="non-virtual"><scope>RADSerial::RADSerialPort</scope><name>errorOccurred</name></member>
+      <member refid="classRADSerial_1_1RADSerialPort_1a18e8182eb12b20a817270089896bcc95" prot="public" virt="virtual"><scope>RADSerial::RADSerialPort</scope><name>isOpen</name></member>
+      <member refid="classRADCore_1_1RADObject_1ad2ddfd066d14be9adc2f96bfca417fc6" prot="public" virt="non-virtual"><scope>RADSerial::RADSerialPort</scope><name>lifetimeToken</name></member>
+      <member refid="classRADSerial_1_1RADSerialPort_1adf815cfaae2e74a06c3739ba6c65021b" prot="public" virt="non-virtual"><scope>RADSerial::RADSerialPort</scope><name>listPorts</name></member>
+      <member refid="classRADCore_1_1RADObject_1a1f7f7f2fb40211e28455cd74a029339a" prot="public" virt="non-virtual"><scope>RADSerial::RADSerialPort</scope><name>moveToThread</name></member>
+      <member refid="classRADSerial_1_1RADSerialPort_1a6400695f7c1a13f0b71cb035a7a64d9d" prot="public" virt="virtual"><scope>RADSerial::RADSerialPort</scope><name>open</name></member>
+      <member refid="classRADSerial_1_1RADSerialPort_1a4065836d69948308b8559ee5c4edc0b6" prot="public" virt="non-virtual"><scope>RADSerial::RADSerialPort</scope><name>opened</name></member>
+      <member refid="classRADSerial_1_1RADSerialPort_1a048de5c670cdb0ad977270c3e33a042c" prot="private" virt="non-virtual"><scope>RADSerial::RADSerialPort</scope><name>pImpl_</name></member>
+      <member refid="classRADSerial_1_1RADSerialPort_1acefc88428b3ddb31a79cfc7eed5452ef" prot="public" virt="non-virtual"><scope>RADSerial::RADSerialPort</scope><name>portName</name></member>
+      <member refid="classRADCore_1_1RADObject_1a9bc3fed915f7c71232e68c2628d34708" prot="public" virt="non-virtual"><scope>RADSerial::RADSerialPort</scope><name>RADObject</name></member>
+      <member refid="classRADSerial_1_1RADSerialPort_1a564bd9930c5cd2907bf641bf77a2c9c0" prot="public" virt="non-virtual"><scope>RADSerial::RADSerialPort</scope><name>RADSerialPort</name></member>
+      <member refid="classRADCore_1_1RADIODevice_1a427d98f45c056913a9e150b156648f2e" prot="public" virt="non-virtual"><scope>RADSerial::RADSerialPort</scope><name>read</name></member>
+      <member refid="classRADCore_1_1RADIODevice_1a47e171d308e84d5dad6b730f34f0fbf8" prot="public" virt="non-virtual"><scope>RADSerial::RADSerialPort</scope><name>readAll</name></member>
+      <member refid="classRADSerial_1_1RADSerialPort_1a46acba510fea1e4961931697865c6420" prot="public" virt="virtual"><scope>RADSerial::RADSerialPort</scope><name>readData</name></member>
+      <member refid="classRADCore_1_1RADIODevice_1a667c135df0be382dab141d8b4c5a1ce5" prot="public" virt="non-virtual"><scope>RADSerial::RADSerialPort</scope><name>readyRead</name></member>
+      <member refid="classRADCore_1_1RADObject_1af3e26b970c8080418f0d6b80cad986a2" prot="public" virt="non-virtual"><scope>RADSerial::RADSerialPort</scope><name>registerLink</name></member>
+      <member refid="classRADSerial_1_1RADSerialPort_1adee12b2372af83daea9fcde74147cb64" prot="public" virt="non-virtual"><scope>RADSerial::RADSerialPort</scope><name>setConfig</name></member>
+      <member refid="classRADSerial_1_1RADSerialPort_1ad1ae5f915be9a3150aebb28773627c6e" prot="public" virt="non-virtual"><scope>RADSerial::RADSerialPort</scope><name>setPortName</name></member>
+      <member refid="classRADCore_1_1RADObject_1a8b11df0b951d0db1ba99cfb851e34f31" prot="public" virt="non-virtual"><scope>RADSerial::RADSerialPort</scope><name>threadAffinity</name></member>
+      <member refid="classRADCore_1_1RADObject_1ac7ca67b41523794ae5a6b3634d6ce3b6" prot="public" virt="non-virtual"><scope>RADSerial::RADSerialPort</scope><name>threadId</name></member>
+      <member refid="classRADCore_1_1RADIODevice_1a8475de4a0ca7d13b9049a73bad575a4f" prot="public" virt="non-virtual"><scope>RADSerial::RADSerialPort</scope><name>write</name></member>
+      <member refid="classRADCore_1_1RADIODevice_1a145436d6349cd9d057cb9723e2bd1c13" prot="public" virt="non-virtual"><scope>RADSerial::RADSerialPort</scope><name>write</name></member>
+      <member refid="classRADSerial_1_1RADSerialPort_1ae93d0f327375ec07f4507895af2f299b" prot="public" virt="virtual"><scope>RADSerial::RADSerialPort</scope><name>writeData</name></member>
+      <member refid="classRADCore_1_1RADIODevice_1a0c5117d5f499fc00faa821aa3194d8f7" prot="public" virt="virtual"><scope>RADSerial::RADSerialPort</scope><name>~RADIODevice</name></member>
+      <member refid="classRADCore_1_1RADObject_1a7369e27a46c163ee89c63227db650ce5" prot="public" virt="virtual"><scope>RADSerial::RADSerialPort</scope><name>~RADObject</name></member>
+      <member refid="classRADSerial_1_1RADSerialPort_1a0f157bf0da01e71613136fae1584c6a1" prot="public" virt="non-virtual"><scope>RADSerial::RADSerialPort</scope><name>~RADSerialPort</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

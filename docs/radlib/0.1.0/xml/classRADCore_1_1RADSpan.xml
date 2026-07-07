@@ -1,0 +1,210 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="classRADCore_1_1RADSpan" kind="class" language="C++" prot="public">
+    <compoundname>RADCore::RADSpan</compoundname>
+    <includes refid="RADCore_8h" local="no">RADCore.h</includes>
+    <templateparamlist>
+      <param>
+        <type>typename T</type>
+      </param>
+    </templateparamlist>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classRADCore_1_1RADSpan_1ab4eac635f31e53ca9163ae87d31b4e15" prot="private" static="no" mutable="no">
+        <type>T *</type>
+        <definition>T* RADCore::RADSpan&lt; T &gt;::data_</definition>
+        <argsstring></argsstring>
+        <name>data_</name>
+        <initializer>= nullptr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADCore/headers/RADCore.h" line="201" column="11" bodyfile="RADCore/headers/RADCore.h" bodystart="201" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classRADCore_1_1RADSpan_1ac1d91baf31fe1b4cc7246b99b88f5cdd" prot="private" static="no" mutable="no">
+        <type>size_t</type>
+        <definition>size_t RADCore::RADSpan&lt; T &gt;::size_</definition>
+        <argsstring></argsstring>
+        <name>size_</name>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADCore/headers/RADCore.h" line="202" column="16" bodyfile="RADCore/headers/RADCore.h" bodystart="202" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classRADCore_1_1RADSpan_1a2418be7cb99470a3b59fc5954b74e9d0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>RADCore::RADSpan&lt; T &gt;::RADSpan</definition>
+        <argsstring>()=default</argsstring>
+        <name>RADSpan</name>
+        <briefdescription>
+<para>Creates an empty span. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADCore/headers/RADCore.h" line="180" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADCore_1_1RADSpan_1a51d5c09dc59ccd89b91dfa9a2802ee5f" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>RADCore::RADSpan&lt; T &gt;::RADSpan</definition>
+        <argsstring>(T *data, size_t size)</argsstring>
+        <name>RADSpan</name>
+        <param>
+          <type>T *</type>
+          <declname>data</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>size</declname>
+        </param>
+        <briefdescription>
+<para>Creates a span over pointer and element count. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADCore/headers/RADCore.h" line="182" column="9" bodyfile="RADCore/headers/RADCore.h" bodystart="182" bodyend="182"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADCore_1_1RADSpan_1a77311d310291af45a6dab9c6cd3e14dc" prot="public" static="no" const="no" explicit="yes" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename Container</type>
+          </param>
+        </templateparamlist>
+        <type></type>
+        <definition>RADCore::RADSpan&lt; T &gt;::RADSpan</definition>
+        <argsstring>(Container &amp;container)</argsstring>
+        <name>RADSpan</name>
+        <param>
+          <type>Container &amp;</type>
+          <declname>container</declname>
+        </param>
+        <briefdescription>
+<para>Creates a span over a std::vector-compatible container. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADCore/headers/RADCore.h" line="185" column="18" bodyfile="RADCore/headers/RADCore.h" bodystart="185" bodyend="185"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADCore_1_1RADSpan_1a4ef0ec5006474a8f3fe87c56242eb422" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>T *</type>
+        <definition>T* RADCore::RADSpan&lt; T &gt;::data</definition>
+        <argsstring>() const</argsstring>
+        <name>data</name>
+        <briefdescription>
+<para>Returns mutable pointer to first element. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADCore/headers/RADCore.h" line="188" column="11" bodyfile="RADCore/headers/RADCore.h" bodystart="188" bodyend="188"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADCore_1_1RADSpan_1ae1a87d294a9a0f5cc7a8f9466d54a64a" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>size_t</type>
+        <definition>size_t RADCore::RADSpan&lt; T &gt;::size</definition>
+        <argsstring>() const</argsstring>
+        <name>size</name>
+        <briefdescription>
+<para>Returns element count. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADCore/headers/RADCore.h" line="190" column="16" bodyfile="RADCore/headers/RADCore.h" bodystart="190" bodyend="190"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADCore_1_1RADSpan_1ac6abdf230a9d97b59e5e14e3053848ea" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool RADCore::RADSpan&lt; T &gt;::empty</definition>
+        <argsstring>() const</argsstring>
+        <name>empty</name>
+        <briefdescription>
+<para>Returns true when the span is empty. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADCore/headers/RADCore.h" line="192" column="14" bodyfile="RADCore/headers/RADCore.h" bodystart="192" bodyend="192"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADCore_1_1RADSpan_1aeb0d170582933f7a7e4426fad4e2d05f" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>T &amp;</type>
+        <definition>T&amp; RADCore::RADSpan&lt; T &gt;::operator[]</definition>
+        <argsstring>(size_t index) const</argsstring>
+        <name>operator[]</name>
+        <param>
+          <type>size_t</type>
+          <declname>index</declname>
+        </param>
+        <briefdescription>
+<para>Returns element at index without bounds checking. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADCore/headers/RADCore.h" line="194" column="11" bodyfile="RADCore/headers/RADCore.h" bodystart="194" bodyend="194"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADCore_1_1RADSpan_1a4657392875bd5c52d0c436ade92083cc" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>T *</type>
+        <definition>T* RADCore::RADSpan&lt; T &gt;::begin</definition>
+        <argsstring>() const</argsstring>
+        <name>begin</name>
+        <briefdescription>
+<para>Returns pointer to first element. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADCore/headers/RADCore.h" line="196" column="11" bodyfile="RADCore/headers/RADCore.h" bodystart="196" bodyend="196"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADCore_1_1RADSpan_1a24f24d85b8c943ac54533cabe90143b3" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>T *</type>
+        <definition>T* RADCore::RADSpan&lt; T &gt;::end</definition>
+        <argsstring>() const</argsstring>
+        <name>end</name>
+        <briefdescription>
+<para>Returns pointer one past last element. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADCore/headers/RADCore.h" line="198" column="11" bodyfile="RADCore/headers/RADCore.h" bodystart="198" bodyend="198"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Non-owning contiguous view over T values. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="RADCore/headers/RADCore.h" line="177" column="5" bodyfile="RADCore/headers/RADCore.h" bodystart="177" bodyend="203"/>
+    <listofallmembers>
+      <member refid="classRADCore_1_1RADSpan_1a4657392875bd5c52d0c436ade92083cc" prot="public" virt="non-virtual"><scope>RADCore::RADSpan</scope><name>begin</name></member>
+      <member refid="classRADCore_1_1RADSpan_1a4ef0ec5006474a8f3fe87c56242eb422" prot="public" virt="non-virtual"><scope>RADCore::RADSpan</scope><name>data</name></member>
+      <member refid="classRADCore_1_1RADSpan_1ab4eac635f31e53ca9163ae87d31b4e15" prot="private" virt="non-virtual"><scope>RADCore::RADSpan</scope><name>data_</name></member>
+      <member refid="classRADCore_1_1RADSpan_1ac6abdf230a9d97b59e5e14e3053848ea" prot="public" virt="non-virtual"><scope>RADCore::RADSpan</scope><name>empty</name></member>
+      <member refid="classRADCore_1_1RADSpan_1a24f24d85b8c943ac54533cabe90143b3" prot="public" virt="non-virtual"><scope>RADCore::RADSpan</scope><name>end</name></member>
+      <member refid="classRADCore_1_1RADSpan_1aeb0d170582933f7a7e4426fad4e2d05f" prot="public" virt="non-virtual"><scope>RADCore::RADSpan</scope><name>operator[]</name></member>
+      <member refid="classRADCore_1_1RADSpan_1a2418be7cb99470a3b59fc5954b74e9d0" prot="public" virt="non-virtual"><scope>RADCore::RADSpan</scope><name>RADSpan</name></member>
+      <member refid="classRADCore_1_1RADSpan_1a51d5c09dc59ccd89b91dfa9a2802ee5f" prot="public" virt="non-virtual"><scope>RADCore::RADSpan</scope><name>RADSpan</name></member>
+      <member refid="classRADCore_1_1RADSpan_1a77311d310291af45a6dab9c6cd3e14dc" prot="public" virt="non-virtual"><scope>RADCore::RADSpan</scope><name>RADSpan</name></member>
+      <member refid="classRADCore_1_1RADSpan_1ae1a87d294a9a0f5cc7a8f9466d54a64a" prot="public" virt="non-virtual"><scope>RADCore::RADSpan</scope><name>size</name></member>
+      <member refid="classRADCore_1_1RADSpan_1ac1d91baf31fe1b4cc7246b99b88f5cdd" prot="private" virt="non-virtual"><scope>RADCore::RADSpan</scope><name>size_</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

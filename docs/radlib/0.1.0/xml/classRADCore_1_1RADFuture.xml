@@ -1,0 +1,132 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="classRADCore_1_1RADFuture" kind="class" language="C++" prot="public">
+    <compoundname>RADCore::RADFuture</compoundname>
+    <includes refid="RADCore_8h" local="no">RADCore.h</includes>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classRADCore_1_1RADFuture_1aebfddef0f8c684e9eff7706cf9b0401a" prot="private" static="no" mutable="no">
+        <type>std::shared_ptr&lt; std::shared_future&lt; <ref refid="classRADCore_1_1RADVariant" kindref="compound">RADVariant</ref> &gt; &gt;</type>
+        <definition>std::shared_ptr&lt;std::shared_future&lt;RADVariant&gt; &gt; RADCore::RADFuture::future_</definition>
+        <argsstring></argsstring>
+        <name>future_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADCore/headers/RADCore.h" line="1509" column="25" bodyfile="RADCore/headers/RADCore.h" bodystart="1509" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classRADCore_1_1RADFuture_1a9ed18aec8454d8f3d5a08d233592dedb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>RADCore::RADFuture::RADFuture</definition>
+        <argsstring>()</argsstring>
+        <name>RADFuture</name>
+        <briefdescription>
+<para>Creates an invalid future. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADCore/headers/RADCore.h" line="1495" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADCore_1_1RADFuture_1aaad27acb0e26c5e0f501b1aac911f179" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>RADCore::RADFuture::RADFuture</definition>
+        <argsstring>(std::shared_ptr&lt; std::shared_future&lt; RADVariant &gt;&gt; future)</argsstring>
+        <name>RADFuture</name>
+        <param>
+          <type>std::shared_ptr&lt; std::shared_future&lt; <ref refid="classRADCore_1_1RADVariant" kindref="compound">RADVariant</ref> &gt;&gt;</type>
+          <declname>future</declname>
+        </param>
+        <briefdescription>
+<para>Wraps an existing shared future. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADCore/headers/RADCore.h" line="1497" column="18"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADCore_1_1RADFuture_1a89a6e4ac4df14c1086f2d6cd77258a83" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool RADCore::RADFuture::isValid</definition>
+        <argsstring>() const</argsstring>
+        <name>isValid</name>
+        <briefdescription>
+<para>Returns true when a future is present. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADCore/headers/RADCore.h" line="1500" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADCore_1_1RADFuture_1a12f744183224b1d21c84748cc1af8097" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool RADCore::RADFuture::isFinished</definition>
+        <argsstring>() const</argsstring>
+        <name>isFinished</name>
+        <briefdescription>
+<para>Returns true when the result is ready. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADCore/headers/RADCore.h" line="1502" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADCore_1_1RADFuture_1a838f5ee79f28d1a60ec43cafac1f7476" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classRADCore_1_1RADVariant" kindref="compound">RADVariant</ref></type>
+        <definition>RADVariant RADCore::RADFuture::result</definition>
+        <argsstring>(RADVariant defaultValue={}) const</argsstring>
+        <name>result</name>
+        <param>
+          <type><ref refid="classRADCore_1_1RADVariant" kindref="compound">RADVariant</ref></type>
+          <declname>defaultValue</declname>
+          <defval>{}</defval>
+        </param>
+        <briefdescription>
+<para>Returns result or defaultValue if not ready or failed. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADCore/headers/RADCore.h" line="1504" column="20"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADCore_1_1RADFuture_1af81c850a3212b4aa8e2288be63890dc6" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void RADCore::RADFuture::wait</definition>
+        <argsstring>() const</argsstring>
+        <name>wait</name>
+        <briefdescription>
+<para>Blocks until the future is ready. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADCore/headers/RADCore.h" line="1506" column="14"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Shared future wrapper returning <ref refid="classRADCore_1_1RADVariant" kindref="compound">RADVariant</ref> results. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="RADCore/headers/RADCore.h" line="1492" column="5" bodyfile="RADCore/headers/RADCore.h" bodystart="1492" bodyend="1510"/>
+    <listofallmembers>
+      <member refid="classRADCore_1_1RADFuture_1aebfddef0f8c684e9eff7706cf9b0401a" prot="private" virt="non-virtual"><scope>RADCore::RADFuture</scope><name>future_</name></member>
+      <member refid="classRADCore_1_1RADFuture_1a12f744183224b1d21c84748cc1af8097" prot="public" virt="non-virtual"><scope>RADCore::RADFuture</scope><name>isFinished</name></member>
+      <member refid="classRADCore_1_1RADFuture_1a89a6e4ac4df14c1086f2d6cd77258a83" prot="public" virt="non-virtual"><scope>RADCore::RADFuture</scope><name>isValid</name></member>
+      <member refid="classRADCore_1_1RADFuture_1a9ed18aec8454d8f3d5a08d233592dedb" prot="public" virt="non-virtual"><scope>RADCore::RADFuture</scope><name>RADFuture</name></member>
+      <member refid="classRADCore_1_1RADFuture_1aaad27acb0e26c5e0f501b1aac911f179" prot="public" virt="non-virtual"><scope>RADCore::RADFuture</scope><name>RADFuture</name></member>
+      <member refid="classRADCore_1_1RADFuture_1a838f5ee79f28d1a60ec43cafac1f7476" prot="public" virt="non-virtual"><scope>RADCore::RADFuture</scope><name>result</name></member>
+      <member refid="classRADCore_1_1RADFuture_1af81c850a3212b4aa8e2288be63890dc6" prot="public" virt="non-virtual"><scope>RADCore::RADFuture</scope><name>wait</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

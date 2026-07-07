@@ -1,0 +1,100 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="classRADNet_1_1RADSocketReactor" kind="class" language="C++" prot="public">
+    <compoundname>RADNet::RADSocketReactor</compoundname>
+    <includes refid="RADNet_8h" local="no">RADNet.h</includes>
+      <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="classRADNet_1_1RADSocketReactor_1a076671631466a95c1e30134d704ea650" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classRADNet_1_1RADSocketReactor" kindref="compound">RADSocketReactor</ref> &amp;</type>
+        <definition>static RADSocketReactor&amp; RADNet::RADSocketReactor::instance</definition>
+        <argsstring>()</argsstring>
+        <name>instance</name>
+        <briefdescription>
+<para>Returns the singleton reactor instance. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADNet/headers/RADNet.h" line="50" column="33"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classRADNet_1_1RADSocketReactor_1af2e46485f3a5ada97a1569dda57af618" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>RADNet::RADSocketReactor::RADSocketReactor</definition>
+        <argsstring>(const RADSocketReactor &amp;)=delete</argsstring>
+        <name>RADSocketReactor</name>
+        <param>
+          <type>const <ref refid="classRADNet_1_1RADSocketReactor" kindref="compound">RADSocketReactor</ref> &amp;</type>
+        </param>
+        <briefdescription>
+<para>Reactor ownership is singleton-only. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADNet/headers/RADNet.h" line="53" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADNet_1_1RADSocketReactor_1a0e547e2b7092d4151c4b3a821f681a90" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classRADNet_1_1RADSocketReactor" kindref="compound">RADSocketReactor</ref> &amp;</type>
+        <definition>RADSocketReactor&amp; RADNet::RADSocketReactor::operator=</definition>
+        <argsstring>(const RADSocketReactor &amp;)=delete</argsstring>
+        <name>operator=</name>
+        <param>
+          <type>const <ref refid="classRADNet_1_1RADSocketReactor" kindref="compound">RADSocketReactor</ref> &amp;</type>
+        </param>
+        <briefdescription>
+<para>Reactor ownership is singleton-only. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADNet/headers/RADNet.h" line="55" column="26"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="classRADNet_1_1RADSocketReactor_1aa9e890356c9cf1b586f0d4b3550c5e89" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>RADNet::RADSocketReactor::RADSocketReactor</definition>
+        <argsstring>()</argsstring>
+        <name>RADSocketReactor</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADNet/headers/RADNet.h" line="58" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADNet_1_1RADSocketReactor_1a0c1dc1fa01013c46e317dff9cafcb582" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>RADNet::RADSocketReactor::~RADSocketReactor</definition>
+        <argsstring>()</argsstring>
+        <name>~RADSocketReactor</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADNet/headers/RADNet.h" line="59" column="9"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Process-wide epoll reactor used by <ref refid="namespaceRADNet" kindref="compound">RADNet</ref> sockets. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="RADNet/headers/RADNet.h" line="47" column="5" bodyfile="RADNet/headers/RADNet.h" bodystart="47" bodyend="60"/>
+    <listofallmembers>
+      <member refid="classRADNet_1_1RADSocketReactor_1a076671631466a95c1e30134d704ea650" prot="public" virt="non-virtual"><scope>RADNet::RADSocketReactor</scope><name>instance</name></member>
+      <member refid="classRADNet_1_1RADSocketReactor_1a0e547e2b7092d4151c4b3a821f681a90" prot="public" virt="non-virtual"><scope>RADNet::RADSocketReactor</scope><name>operator=</name></member>
+      <member refid="classRADNet_1_1RADSocketReactor_1af2e46485f3a5ada97a1569dda57af618" prot="public" virt="non-virtual"><scope>RADNet::RADSocketReactor</scope><name>RADSocketReactor</name></member>
+      <member refid="classRADNet_1_1RADSocketReactor_1aa9e890356c9cf1b586f0d4b3550c5e89" prot="private" virt="non-virtual"><scope>RADNet::RADSocketReactor</scope><name>RADSocketReactor</name></member>
+      <member refid="classRADNet_1_1RADSocketReactor_1a0c1dc1fa01013c46e317dff9cafcb582" prot="private" virt="non-virtual"><scope>RADNet::RADSocketReactor</scope><name>~RADSocketReactor</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

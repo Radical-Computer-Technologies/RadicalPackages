@@ -1,0 +1,75 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="classRADMedia_1_1AudioDecoder" kind="class" language="C++" prot="public">
+    <compoundname>RADMedia::AudioDecoder</compoundname>
+    <includes refid="RADMedia_8h" local="no">RADMedia.h</includes>
+      <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="classRADMedia_1_1AudioDecoder_1a2f55012da2a41c42953889ebd42f1a58" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>static bool RADMedia::AudioDecoder::supportsExtension</definition>
+        <argsstring>(const std::string &amp;path)</argsstring>
+        <name>supportsExtension</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>path</declname>
+        </param>
+        <briefdescription>
+<para>Returns true when path has an extension <ref refid="namespaceRADMedia" kindref="compound">RADMedia</ref> can decode. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADMedia/headers/RADMedia.h" line="436" column="21"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADMedia_1_1AudioDecoder_1a95e0651ab311e670fa49b40a18673f04" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::optional&lt; <ref refid="structRADMedia_1_1AudioBuffer" kindref="compound">AudioBuffer</ref> &gt;</type>
+        <definition>static std::optional&lt;AudioBuffer&gt; RADMedia::AudioDecoder::decodeFile</definition>
+        <argsstring>(const std::string &amp;path, std::string *error=nullptr)</argsstring>
+        <name>decodeFile</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>path</declname>
+        </param>
+        <param>
+          <type>std::string *</type>
+          <declname>error</declname>
+          <defval>nullptr</defval>
+        </param>
+        <briefdescription>
+<para>Decodes path into Float32 interleaved samples. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADMedia/headers/RADMedia.h" line="438" column="30"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADMedia_1_1AudioDecoder_1a1d3ae6ec6ff973df168436bebafad1c5" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::vector&lt; std::string &gt;</type>
+        <definition>static std::vector&lt;std::string&gt; RADMedia::AudioDecoder::supportedExtensions</definition>
+        <argsstring>()</argsstring>
+        <name>supportedExtensions</name>
+        <briefdescription>
+<para>Returns supported audio file extensions. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADMedia/headers/RADMedia.h" line="440" column="28"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Whole-file audio decoder facade. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="RADMedia/headers/RADMedia.h" line="433" column="5" bodyfile="RADMedia/headers/RADMedia.h" bodystart="433" bodyend="441"/>
+    <listofallmembers>
+      <member refid="classRADMedia_1_1AudioDecoder_1a95e0651ab311e670fa49b40a18673f04" prot="public" virt="non-virtual"><scope>RADMedia::AudioDecoder</scope><name>decodeFile</name></member>
+      <member refid="classRADMedia_1_1AudioDecoder_1a1d3ae6ec6ff973df168436bebafad1c5" prot="public" virt="non-virtual"><scope>RADMedia::AudioDecoder</scope><name>supportedExtensions</name></member>
+      <member refid="classRADMedia_1_1AudioDecoder_1a2f55012da2a41c42953889ebd42f1a58" prot="public" virt="non-virtual"><scope>RADMedia::AudioDecoder</scope><name>supportsExtension</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

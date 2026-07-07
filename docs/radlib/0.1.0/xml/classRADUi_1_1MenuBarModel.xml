@@ -1,0 +1,274 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="classRADUi_1_1MenuBarModel" kind="class" language="C++" prot="public">
+    <compoundname>RADUi::MenuBarModel</compoundname>
+    <basecompoundref refid="classRADCore_1_1RADObject" prot="public" virt="non-virtual">RADCore::RADObject</basecompoundref>
+    <includes refid="RADWidgets_8h" local="no">RADWidgets.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="classRADUi_1_1MenuBarModel_1abd32a9845a6431412140361be5fb0228" prot="public" static="no" mutable="no">
+        <type><ref refid="classRADCore_1_1Event" kindref="compound">RADCore::Event</ref>&lt; void() &gt;</type>
+        <definition>RADCore::Event&lt;void () &gt; RADUi::MenuBarModel::changed</definition>
+        <argsstring></argsstring>
+        <name>changed</name>
+        <briefdescription>
+<para>Raised when menu contents or active menu state changes. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADUi/headers/RADWidgets.h" line="95" column="30" bodyfile="RADUi/headers/RADWidgets.h" bodystart="95" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classRADUi_1_1MenuBarModel_1a744e4169d0840d05096d70ad26b236ad" prot="public" static="no" mutable="no">
+        <type><ref refid="classRADCore_1_1Event" kindref="compound">RADCore::Event</ref>&lt; void(std::string) &gt;</type>
+        <definition>RADCore::Event&lt;void (std::string) &gt; RADUi::MenuBarModel::itemTriggered</definition>
+        <argsstring></argsstring>
+        <name>itemTriggered</name>
+        <briefdescription>
+<para>Raised with <ref refid="structRADUi_1_1MenuItem_1a02183755f823c4c2bc5fd8ac8a333165" kindref="member">MenuItem::id</ref> when an item is triggered. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADUi/headers/RADWidgets.h" line="97" column="30" bodyfile="RADUi/headers/RADWidgets.h" bodystart="97" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classRADUi_1_1MenuBarModel_1a0ee8c2d05977baf5d155d942ecdfdae1" prot="private" static="no" mutable="no">
+        <type>std::vector&lt; <ref refid="structRADUi_1_1Menu" kindref="compound">Menu</ref> &gt;</type>
+        <definition>std::vector&lt;Menu&gt; RADUi::MenuBarModel::menus_</definition>
+        <argsstring></argsstring>
+        <name>menus_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADUi/headers/RADWidgets.h" line="119" column="21" bodyfile="RADUi/headers/RADWidgets.h" bodystart="119" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classRADUi_1_1MenuBarModel_1ab75b1c7fa2ff3bb02cb910c913e109d3" prot="private" static="no" mutable="no">
+        <type>std::optional&lt; size_t &gt;</type>
+        <definition>std::optional&lt;size_t&gt; RADUi::MenuBarModel::activeMenuIndex_</definition>
+        <argsstring></argsstring>
+        <name>activeMenuIndex_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADUi/headers/RADWidgets.h" line="120" column="23" bodyfile="RADUi/headers/RADWidgets.h" bodystart="120" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classRADUi_1_1MenuBarModel_1ae9f0f7ed85c6b9c96a868f3b09d0e88a" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>const std::vector&lt; <ref refid="structRADUi_1_1Menu" kindref="compound">Menu</ref> &gt; &amp;</type>
+        <definition>const std::vector&lt;Menu&gt;&amp; RADUi::MenuBarModel::menus</definition>
+        <argsstring>() const</argsstring>
+        <name>menus</name>
+        <briefdescription>
+<para>Returns all top-level menus. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADUi/headers/RADWidgets.h" line="100" column="27"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADUi_1_1MenuBarModel_1acf8135c4fb0b32267ee52564aabf521f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void RADUi::MenuBarModel::setMenus</definition>
+        <argsstring>(std::vector&lt; Menu &gt; menus)</argsstring>
+        <name>setMenus</name>
+        <param>
+          <type>std::vector&lt; <ref refid="structRADUi_1_1Menu" kindref="compound">Menu</ref> &gt;</type>
+          <declname>menus</declname>
+        </param>
+        <briefdescription>
+<para>Replaces the complete menu structure. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADUi/headers/RADWidgets.h" line="102" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADUi_1_1MenuBarModel_1a34b7ffbb36a8a55c38ce04230fe8385b" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>std::optional&lt; size_t &gt;</type>
+        <definition>std::optional&lt;size_t&gt; RADUi::MenuBarModel::activeMenuIndex</definition>
+        <argsstring>() const</argsstring>
+        <name>activeMenuIndex</name>
+        <briefdescription>
+<para>Returns the active/open top-level menu index, if any. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADUi/headers/RADWidgets.h" line="105" column="23"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADUi_1_1MenuBarModel_1a3f7c0111361583a4357644968343f001" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void RADUi::MenuBarModel::openMenu</definition>
+        <argsstring>(size_t index)</argsstring>
+        <name>openMenu</name>
+        <param>
+          <type>size_t</type>
+          <declname>index</declname>
+        </param>
+        <briefdescription>
+<para>Opens a top-level menu by index. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADUi/headers/RADWidgets.h" line="107" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADUi_1_1MenuBarModel_1ada6bccff13eaa895cebc5c75b183d8f1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void RADUi::MenuBarModel::toggleMenu</definition>
+        <argsstring>(size_t index)</argsstring>
+        <name>toggleMenu</name>
+        <param>
+          <type>size_t</type>
+          <declname>index</declname>
+        </param>
+        <briefdescription>
+<para>Opens index or closes it if already active. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADUi/headers/RADWidgets.h" line="109" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADUi_1_1MenuBarModel_1a502c7cee13b614e8c130abb217c70926" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void RADUi::MenuBarModel::close</definition>
+        <argsstring>()</argsstring>
+        <name>close</name>
+        <briefdescription>
+<para>Closes the active menu. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADUi/headers/RADWidgets.h" line="111" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADUi_1_1MenuBarModel_1a49e8afb1eb6cbaa95305a32c07bcab98" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool RADUi::MenuBarModel::triggerItem</definition>
+        <argsstring>(size_t menuIndex, size_t itemIndex)</argsstring>
+        <name>triggerItem</name>
+        <param>
+          <type>size_t</type>
+          <declname>menuIndex</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>itemIndex</declname>
+        </param>
+        <briefdescription>
+<para>Triggers an item by menu and item index. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADUi/headers/RADWidgets.h" line="114" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADUi_1_1MenuBarModel_1a53dab3680a9ce32c9192b8f947174018" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool RADUi::MenuBarModel::setItemChecked</definition>
+        <argsstring>(const std::string &amp;id, bool checked)</argsstring>
+        <name>setItemChecked</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>id</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>checked</declname>
+        </param>
+        <briefdescription>
+<para>Updates a checkable item by stable id. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADUi/headers/RADWidgets.h" line="116" column="14"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>State model for a conventional menu bar. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>RADCore::RADObject</label>
+        <link refid="classRADCore_1_1RADObject"/>
+      </node>
+      <node id="1">
+        <label>RADUi::MenuBarModel</label>
+        <link refid="classRADUi_1_1MenuBarModel"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>RADCore::RADObject</label>
+        <link refid="classRADCore_1_1RADObject"/>
+      </node>
+      <node id="4">
+        <label>RADCore::Event&lt; void(std::string) &gt;</label>
+        <link refid="classRADCore_1_1Event"/>
+      </node>
+      <node id="3">
+        <label>RADCore::Event&lt; void() &gt;</label>
+        <link refid="classRADCore_1_1Event"/>
+      </node>
+      <node id="1">
+        <label>RADUi::MenuBarModel</label>
+        <link refid="classRADUi_1_1MenuBarModel"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="3" relation="usage">
+          <edgelabel>changed</edgelabel>
+        </childnode>
+        <childnode refid="4" relation="usage">
+          <edgelabel>itemTriggered</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="RADUi/headers/RADWidgets.h" line="91" column="5" bodyfile="RADUi/headers/RADWidgets.h" bodystart="91" bodyend="121"/>
+    <listofallmembers>
+      <member refid="classRADUi_1_1MenuBarModel_1a34b7ffbb36a8a55c38ce04230fe8385b" prot="public" virt="non-virtual"><scope>RADUi::MenuBarModel</scope><name>activeMenuIndex</name></member>
+      <member refid="classRADUi_1_1MenuBarModel_1ab75b1c7fa2ff3bb02cb910c913e109d3" prot="private" virt="non-virtual"><scope>RADUi::MenuBarModel</scope><name>activeMenuIndex_</name></member>
+      <member refid="classRADCore_1_1RADObject_1a06cdf252ffb5e2f88332ebda12a62080" prot="public" virt="non-virtual"><scope>RADUi::MenuBarModel</scope><name>associatedEventLoop</name></member>
+      <member refid="classRADUi_1_1MenuBarModel_1abd32a9845a6431412140361be5fb0228" prot="public" virt="non-virtual"><scope>RADUi::MenuBarModel</scope><name>changed</name></member>
+      <member refid="classRADUi_1_1MenuBarModel_1a502c7cee13b614e8c130abb217c70926" prot="public" virt="non-virtual"><scope>RADUi::MenuBarModel</scope><name>close</name></member>
+      <member refid="classRADUi_1_1MenuBarModel_1a744e4169d0840d05096d70ad26b236ad" prot="public" virt="non-virtual"><scope>RADUi::MenuBarModel</scope><name>itemTriggered</name></member>
+      <member refid="classRADCore_1_1RADObject_1ad2ddfd066d14be9adc2f96bfca417fc6" prot="public" virt="non-virtual"><scope>RADUi::MenuBarModel</scope><name>lifetimeToken</name></member>
+      <member refid="classRADUi_1_1MenuBarModel_1ae9f0f7ed85c6b9c96a868f3b09d0e88a" prot="public" virt="non-virtual"><scope>RADUi::MenuBarModel</scope><name>menus</name></member>
+      <member refid="classRADUi_1_1MenuBarModel_1a0ee8c2d05977baf5d155d942ecdfdae1" prot="private" virt="non-virtual"><scope>RADUi::MenuBarModel</scope><name>menus_</name></member>
+      <member refid="classRADCore_1_1RADObject_1a1f7f7f2fb40211e28455cd74a029339a" prot="public" virt="non-virtual"><scope>RADUi::MenuBarModel</scope><name>moveToThread</name></member>
+      <member refid="classRADUi_1_1MenuBarModel_1a3f7c0111361583a4357644968343f001" prot="public" virt="non-virtual"><scope>RADUi::MenuBarModel</scope><name>openMenu</name></member>
+      <member refid="classRADCore_1_1RADObject_1a9bc3fed915f7c71232e68c2628d34708" prot="public" virt="non-virtual"><scope>RADUi::MenuBarModel</scope><name>RADObject</name></member>
+      <member refid="classRADCore_1_1RADObject_1af3e26b970c8080418f0d6b80cad986a2" prot="public" virt="non-virtual"><scope>RADUi::MenuBarModel</scope><name>registerLink</name></member>
+      <member refid="classRADUi_1_1MenuBarModel_1a53dab3680a9ce32c9192b8f947174018" prot="public" virt="non-virtual"><scope>RADUi::MenuBarModel</scope><name>setItemChecked</name></member>
+      <member refid="classRADUi_1_1MenuBarModel_1acf8135c4fb0b32267ee52564aabf521f" prot="public" virt="non-virtual"><scope>RADUi::MenuBarModel</scope><name>setMenus</name></member>
+      <member refid="classRADCore_1_1RADObject_1a8b11df0b951d0db1ba99cfb851e34f31" prot="public" virt="non-virtual"><scope>RADUi::MenuBarModel</scope><name>threadAffinity</name></member>
+      <member refid="classRADCore_1_1RADObject_1ac7ca67b41523794ae5a6b3634d6ce3b6" prot="public" virt="non-virtual"><scope>RADUi::MenuBarModel</scope><name>threadId</name></member>
+      <member refid="classRADUi_1_1MenuBarModel_1ada6bccff13eaa895cebc5c75b183d8f1" prot="public" virt="non-virtual"><scope>RADUi::MenuBarModel</scope><name>toggleMenu</name></member>
+      <member refid="classRADUi_1_1MenuBarModel_1a49e8afb1eb6cbaa95305a32c07bcab98" prot="public" virt="non-virtual"><scope>RADUi::MenuBarModel</scope><name>triggerItem</name></member>
+      <member refid="classRADCore_1_1RADObject_1a7369e27a46c163ee89c63227db650ce5" prot="public" virt="virtual"><scope>RADUi::MenuBarModel</scope><name>~RADObject</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

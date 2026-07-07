@@ -1,0 +1,97 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="classRADService_1_1SingleInstanceLock" kind="class" language="C++" prot="public">
+    <compoundname>RADService::SingleInstanceLock</compoundname>
+    <includes refid="RADService_8h" local="no">RADService.h</includes>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classRADService_1_1SingleInstanceLock_1a63f9fbfc0415e966dbde6b9a0fb5364b" prot="private" static="no" mutable="no">
+        <type>std::unique_ptr&lt; <ref refid="classRADCore_1_1RADLockFile" kindref="compound">RADCore::RADLockFile</ref> &gt;</type>
+        <definition>std::unique_ptr&lt;RADCore::RADLockFile&gt; RADService::SingleInstanceLock::lock_</definition>
+        <argsstring></argsstring>
+        <name>lock_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADService/headers/RADService.h" line="65" column="25" bodyfile="RADService/headers/RADService.h" bodystart="65" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classRADService_1_1SingleInstanceLock_1a4fbbed0bc53f447eeb2f7ecfd4155e98" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>RADService::SingleInstanceLock::SingleInstanceLock</definition>
+        <argsstring>(std::string path)</argsstring>
+        <name>SingleInstanceLock</name>
+        <param>
+          <type>std::string</type>
+          <declname>path</declname>
+        </param>
+        <briefdescription>
+<para>Creates a lock for path. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADService/headers/RADService.h" line="56" column="18"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADService_1_1SingleInstanceLock_1a5d5b5a5ae5041636be4499ae90b1ae40" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>RADService::SingleInstanceLock::~SingleInstanceLock</definition>
+        <argsstring>()</argsstring>
+        <name>~SingleInstanceLock</name>
+        <briefdescription>
+<para>Releases the lock. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADService/headers/RADService.h" line="58" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADService_1_1SingleInstanceLock_1a403fad5beadd527ceeab4a946aa83a8b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool RADService::SingleInstanceLock::tryLock</definition>
+        <argsstring>()</argsstring>
+        <name>tryLock</name>
+        <briefdescription>
+<para>Attempts to acquire the lock. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADService/headers/RADService.h" line="60" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADService_1_1SingleInstanceLock_1a9bc4a05a012f4cea3b85d65837f2001b" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool RADService::SingleInstanceLock::isLocked</definition>
+        <argsstring>() const</argsstring>
+        <name>isLocked</name>
+        <briefdescription>
+<para>Returns true when lock is held. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADService/headers/RADService.h" line="62" column="14"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Single-instance app lock using <ref refid="classRADCore_1_1RADLockFile" kindref="compound">RADCore::RADLockFile</ref>. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="RADService/headers/RADService.h" line="53" column="5" bodyfile="RADService/headers/RADService.h" bodystart="53" bodyend="66"/>
+    <listofallmembers>
+      <member refid="classRADService_1_1SingleInstanceLock_1a9bc4a05a012f4cea3b85d65837f2001b" prot="public" virt="non-virtual"><scope>RADService::SingleInstanceLock</scope><name>isLocked</name></member>
+      <member refid="classRADService_1_1SingleInstanceLock_1a63f9fbfc0415e966dbde6b9a0fb5364b" prot="private" virt="non-virtual"><scope>RADService::SingleInstanceLock</scope><name>lock_</name></member>
+      <member refid="classRADService_1_1SingleInstanceLock_1a4fbbed0bc53f447eeb2f7ecfd4155e98" prot="public" virt="non-virtual"><scope>RADService::SingleInstanceLock</scope><name>SingleInstanceLock</name></member>
+      <member refid="classRADService_1_1SingleInstanceLock_1a403fad5beadd527ceeab4a946aa83a8b" prot="public" virt="non-virtual"><scope>RADService::SingleInstanceLock</scope><name>tryLock</name></member>
+      <member refid="classRADService_1_1SingleInstanceLock_1a5d5b5a5ae5041636be4499ae90b1ae40" prot="public" virt="non-virtual"><scope>RADService::SingleInstanceLock</scope><name>~SingleInstanceLock</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,396 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="classRADUi_1_1VirtualTableModel" kind="class" language="C++" prot="public">
+    <compoundname>RADUi::VirtualTableModel</compoundname>
+    <basecompoundref refid="classRADCore_1_1RADObject" prot="public" virt="non-virtual">RADCore::RADObject</basecompoundref>
+    <includes refid="RADAppKit_8h" local="no">RADAppKit.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="classRADUi_1_1VirtualTableModel_1aba02624a881a24a366734f41ff6a8721" prot="public" static="no" mutable="no">
+        <type><ref refid="classRADCore_1_1Event" kindref="compound">RADCore::Event</ref>&lt; void() &gt;</type>
+        <definition>RADCore::Event&lt;void () &gt; RADUi::VirtualTableModel::changed</definition>
+        <argsstring></argsstring>
+        <name>changed</name>
+        <briefdescription>
+<para>Raised when table state changes. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADUi/headers/RADAppKit.h" line="236" column="30" bodyfile="RADUi/headers/RADAppKit.h" bodystart="236" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classRADUi_1_1VirtualTableModel_1acf735756d35c7595d0c281887c02019f" prot="public" static="no" mutable="no">
+        <type><ref refid="classRADCore_1_1Event" kindref="compound">RADCore::Event</ref>&lt; void(size_t) &gt;</type>
+        <definition>RADCore::Event&lt;void (size_t) &gt; RADUi::VirtualTableModel::rowActivated</definition>
+        <argsstring></argsstring>
+        <name>rowActivated</name>
+        <briefdescription>
+<para>Raised when a row is activated. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADUi/headers/RADAppKit.h" line="238" column="30" bodyfile="RADUi/headers/RADAppKit.h" bodystart="238" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classRADUi_1_1VirtualTableModel_1ad125a52c7c8ccfa0a76d16b674872139" prot="private" static="no" mutable="no">
+        <type>std::vector&lt; <ref refid="structRADUi_1_1TableColumn" kindref="compound">TableColumn</ref> &gt;</type>
+        <definition>std::vector&lt;TableColumn&gt; RADUi::VirtualTableModel::columns_</definition>
+        <argsstring></argsstring>
+        <name>columns_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADUi/headers/RADAppKit.h" line="270" column="21" bodyfile="RADUi/headers/RADAppKit.h" bodystart="270" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classRADUi_1_1VirtualTableModel_1aadc0cec9630cd0b6c6483720cda94c0d" prot="private" static="no" mutable="no">
+        <type>std::vector&lt; std::vector&lt; std::string &gt; &gt;</type>
+        <definition>std::vector&lt;std::vector&lt;std::string&gt; &gt; RADUi::VirtualTableModel::rows_</definition>
+        <argsstring></argsstring>
+        <name>rows_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADUi/headers/RADAppKit.h" line="271" column="21" bodyfile="RADUi/headers/RADAppKit.h" bodystart="271" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classRADUi_1_1VirtualTableModel_1a40e35e0a45a2d0a388e917c91d705436" prot="private" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string RADUi::VirtualTableModel::filter_</definition>
+        <argsstring></argsstring>
+        <name>filter_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADUi/headers/RADAppKit.h" line="272" column="21" bodyfile="RADUi/headers/RADAppKit.h" bodystart="272" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classRADUi_1_1VirtualTableModel_1a0721f5589388dbd3f0d3aac504416c7e" prot="private" static="no" mutable="no">
+        <type>std::optional&lt; size_t &gt;</type>
+        <definition>std::optional&lt;size_t&gt; RADUi::VirtualTableModel::selectedRow_</definition>
+        <argsstring></argsstring>
+        <name>selectedRow_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADUi/headers/RADAppKit.h" line="273" column="23" bodyfile="RADUi/headers/RADAppKit.h" bodystart="273" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classRADUi_1_1VirtualTableModel_1af367d0bcd76209f5ffd45354c14c3d28" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void RADUi::VirtualTableModel::setColumns</definition>
+        <argsstring>(std::vector&lt; TableColumn &gt; columns)</argsstring>
+        <name>setColumns</name>
+        <param>
+          <type>std::vector&lt; <ref refid="structRADUi_1_1TableColumn" kindref="compound">TableColumn</ref> &gt;</type>
+          <declname>columns</declname>
+        </param>
+        <briefdescription>
+<para>Sets column descriptors. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADUi/headers/RADAppKit.h" line="241" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADUi_1_1VirtualTableModel_1a1c589f4360ab701e99fa06d846616d7d" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>const std::vector&lt; <ref refid="structRADUi_1_1TableColumn" kindref="compound">TableColumn</ref> &gt; &amp;</type>
+        <definition>const std::vector&lt;TableColumn&gt;&amp; RADUi::VirtualTableModel::columns</definition>
+        <argsstring>() const</argsstring>
+        <name>columns</name>
+        <briefdescription>
+<para>Returns columns. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADUi/headers/RADAppKit.h" line="243" column="27"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADUi_1_1VirtualTableModel_1a22e92dfdec6449a7bda57c1956761854" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void RADUi::VirtualTableModel::setRows</definition>
+        <argsstring>(std::vector&lt; std::vector&lt; std::string &gt;&gt; rows)</argsstring>
+        <name>setRows</name>
+        <param>
+          <type>std::vector&lt; std::vector&lt; std::string &gt;&gt;</type>
+          <declname>rows</declname>
+        </param>
+        <briefdescription>
+<para>Sets all rows. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADUi/headers/RADAppKit.h" line="245" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADUi_1_1VirtualTableModel_1a1e87ae0d45171a3c0dddc7182503fce8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void RADUi::VirtualTableModel::appendRow</definition>
+        <argsstring>(std::vector&lt; std::string &gt; row)</argsstring>
+        <name>appendRow</name>
+        <param>
+          <type>std::vector&lt; std::string &gt;</type>
+          <declname>row</declname>
+        </param>
+        <briefdescription>
+<para>Appends one row. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADUi/headers/RADAppKit.h" line="247" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADUi_1_1VirtualTableModel_1a1cf4e51ae5e979dd1e2f513193d99cbd" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>size_t</type>
+        <definition>size_t RADUi::VirtualTableModel::rowCount</definition>
+        <argsstring>() const</argsstring>
+        <name>rowCount</name>
+        <briefdescription>
+<para>Returns unfiltered row count. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADUi/headers/RADAppKit.h" line="249" column="16"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADUi_1_1VirtualTableModel_1ab0c50e05bf824ad005bf041fbc0ac2cf" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>size_t</type>
+        <definition>size_t RADUi::VirtualTableModel::columnCount</definition>
+        <argsstring>() const</argsstring>
+        <name>columnCount</name>
+        <briefdescription>
+<para>Returns column count. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADUi/headers/RADAppKit.h" line="251" column="16"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADUi_1_1VirtualTableModel_1a288ad1d4b47f8a0650b7c100c762925f" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>std::vector&lt; size_t &gt;</type>
+        <definition>std::vector&lt;size_t&gt; RADUi::VirtualTableModel::filteredIndexes</definition>
+        <argsstring>() const</argsstring>
+        <name>filteredIndexes</name>
+        <briefdescription>
+<para>Returns filtered row indexes. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADUi/headers/RADAppKit.h" line="253" column="21"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADUi_1_1VirtualTableModel_1a6d9aa3c4b4f6a0d1297db72291f1a537" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>std::string</type>
+        <definition>std::string RADUi::VirtualTableModel::value</definition>
+        <argsstring>(size_t row, size_t column) const</argsstring>
+        <name>value</name>
+        <param>
+          <type>size_t</type>
+          <declname>row</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>column</declname>
+        </param>
+        <briefdescription>
+<para>Returns value by source row and column. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADUi/headers/RADAppKit.h" line="255" column="21"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADUi_1_1VirtualTableModel_1a4ff952ce0d7f1d9f5b13e3f30f833c5a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void RADUi::VirtualTableModel::setFilter</definition>
+        <argsstring>(std::string filter)</argsstring>
+        <name>setFilter</name>
+        <param>
+          <type>std::string</type>
+          <declname>filter</declname>
+        </param>
+        <briefdescription>
+<para>Sets filter text. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADUi/headers/RADAppKit.h" line="257" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADUi_1_1VirtualTableModel_1a5744931933e499ab334150a784c4c5d3" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>const std::string &amp;</type>
+        <definition>const std::string&amp; RADUi::VirtualTableModel::filter</definition>
+        <argsstring>() const</argsstring>
+        <name>filter</name>
+        <briefdescription>
+<para>Returns filter text. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADUi/headers/RADAppKit.h" line="259" column="27"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADUi_1_1VirtualTableModel_1a288e929c9f7825ab6046f3c422bfbad1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void RADUi::VirtualTableModel::setSelectedRow</definition>
+        <argsstring>(std::optional&lt; size_t &gt; row)</argsstring>
+        <name>setSelectedRow</name>
+        <param>
+          <type>std::optional&lt; size_t &gt;</type>
+          <declname>row</declname>
+        </param>
+        <briefdescription>
+<para>Sets selected source row. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADUi/headers/RADAppKit.h" line="261" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADUi_1_1VirtualTableModel_1a2055803a1a51e3379093abd0f4d1819d" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>std::optional&lt; size_t &gt;</type>
+        <definition>std::optional&lt;size_t&gt; RADUi::VirtualTableModel::selectedRow</definition>
+        <argsstring>() const</argsstring>
+        <name>selectedRow</name>
+        <briefdescription>
+<para>Returns selected source row. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADUi/headers/RADAppKit.h" line="263" column="23"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADUi_1_1VirtualTableModel_1a0a38b227c8e4df13c60566b5e15f7158" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool RADUi::VirtualTableModel::activateRow</definition>
+        <argsstring>(size_t row)</argsstring>
+        <name>activateRow</name>
+        <param>
+          <type>size_t</type>
+          <declname>row</declname>
+        </param>
+        <briefdescription>
+<para>Activates source row. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADUi/headers/RADAppKit.h" line="265" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADUi_1_1VirtualTableModel_1aeb7e03a77211a01a70814c758d6742b2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void RADUi::VirtualTableModel::clear</definition>
+        <argsstring>()</argsstring>
+        <name>clear</name>
+        <briefdescription>
+<para>Removes all rows. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADUi/headers/RADAppKit.h" line="267" column="14"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Virtual string table with columns, filter, and selected row. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>RADCore::RADObject</label>
+        <link refid="classRADCore_1_1RADObject"/>
+      </node>
+      <node id="1">
+        <label>RADUi::VirtualTableModel</label>
+        <link refid="classRADUi_1_1VirtualTableModel"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>RADCore::RADObject</label>
+        <link refid="classRADCore_1_1RADObject"/>
+      </node>
+      <node id="1">
+        <label>RADUi::VirtualTableModel</label>
+        <link refid="classRADUi_1_1VirtualTableModel"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="3" relation="usage">
+          <edgelabel>changed</edgelabel>
+        </childnode>
+        <childnode refid="4" relation="usage">
+          <edgelabel>rowActivated</edgelabel>
+        </childnode>
+      </node>
+      <node id="3">
+        <label>RADCore::Event&lt; void() &gt;</label>
+        <link refid="classRADCore_1_1Event"/>
+      </node>
+      <node id="4">
+        <label>RADCore::Event&lt; void(size_t) &gt;</label>
+        <link refid="classRADCore_1_1Event"/>
+      </node>
+    </collaborationgraph>
+    <location file="RADUi/headers/RADAppKit.h" line="232" column="5" bodyfile="RADUi/headers/RADAppKit.h" bodystart="232" bodyend="274"/>
+    <listofallmembers>
+      <member refid="classRADUi_1_1VirtualTableModel_1a0a38b227c8e4df13c60566b5e15f7158" prot="public" virt="non-virtual"><scope>RADUi::VirtualTableModel</scope><name>activateRow</name></member>
+      <member refid="classRADUi_1_1VirtualTableModel_1a1e87ae0d45171a3c0dddc7182503fce8" prot="public" virt="non-virtual"><scope>RADUi::VirtualTableModel</scope><name>appendRow</name></member>
+      <member refid="classRADCore_1_1RADObject_1a06cdf252ffb5e2f88332ebda12a62080" prot="public" virt="non-virtual"><scope>RADUi::VirtualTableModel</scope><name>associatedEventLoop</name></member>
+      <member refid="classRADUi_1_1VirtualTableModel_1aba02624a881a24a366734f41ff6a8721" prot="public" virt="non-virtual"><scope>RADUi::VirtualTableModel</scope><name>changed</name></member>
+      <member refid="classRADUi_1_1VirtualTableModel_1aeb7e03a77211a01a70814c758d6742b2" prot="public" virt="non-virtual"><scope>RADUi::VirtualTableModel</scope><name>clear</name></member>
+      <member refid="classRADUi_1_1VirtualTableModel_1ab0c50e05bf824ad005bf041fbc0ac2cf" prot="public" virt="non-virtual"><scope>RADUi::VirtualTableModel</scope><name>columnCount</name></member>
+      <member refid="classRADUi_1_1VirtualTableModel_1a1c589f4360ab701e99fa06d846616d7d" prot="public" virt="non-virtual"><scope>RADUi::VirtualTableModel</scope><name>columns</name></member>
+      <member refid="classRADUi_1_1VirtualTableModel_1ad125a52c7c8ccfa0a76d16b674872139" prot="private" virt="non-virtual"><scope>RADUi::VirtualTableModel</scope><name>columns_</name></member>
+      <member refid="classRADUi_1_1VirtualTableModel_1a5744931933e499ab334150a784c4c5d3" prot="public" virt="non-virtual"><scope>RADUi::VirtualTableModel</scope><name>filter</name></member>
+      <member refid="classRADUi_1_1VirtualTableModel_1a40e35e0a45a2d0a388e917c91d705436" prot="private" virt="non-virtual"><scope>RADUi::VirtualTableModel</scope><name>filter_</name></member>
+      <member refid="classRADUi_1_1VirtualTableModel_1a288ad1d4b47f8a0650b7c100c762925f" prot="public" virt="non-virtual"><scope>RADUi::VirtualTableModel</scope><name>filteredIndexes</name></member>
+      <member refid="classRADCore_1_1RADObject_1ad2ddfd066d14be9adc2f96bfca417fc6" prot="public" virt="non-virtual"><scope>RADUi::VirtualTableModel</scope><name>lifetimeToken</name></member>
+      <member refid="classRADCore_1_1RADObject_1a1f7f7f2fb40211e28455cd74a029339a" prot="public" virt="non-virtual"><scope>RADUi::VirtualTableModel</scope><name>moveToThread</name></member>
+      <member refid="classRADCore_1_1RADObject_1a9bc3fed915f7c71232e68c2628d34708" prot="public" virt="non-virtual"><scope>RADUi::VirtualTableModel</scope><name>RADObject</name></member>
+      <member refid="classRADCore_1_1RADObject_1af3e26b970c8080418f0d6b80cad986a2" prot="public" virt="non-virtual"><scope>RADUi::VirtualTableModel</scope><name>registerLink</name></member>
+      <member refid="classRADUi_1_1VirtualTableModel_1acf735756d35c7595d0c281887c02019f" prot="public" virt="non-virtual"><scope>RADUi::VirtualTableModel</scope><name>rowActivated</name></member>
+      <member refid="classRADUi_1_1VirtualTableModel_1a1cf4e51ae5e979dd1e2f513193d99cbd" prot="public" virt="non-virtual"><scope>RADUi::VirtualTableModel</scope><name>rowCount</name></member>
+      <member refid="classRADUi_1_1VirtualTableModel_1aadc0cec9630cd0b6c6483720cda94c0d" prot="private" virt="non-virtual"><scope>RADUi::VirtualTableModel</scope><name>rows_</name></member>
+      <member refid="classRADUi_1_1VirtualTableModel_1a2055803a1a51e3379093abd0f4d1819d" prot="public" virt="non-virtual"><scope>RADUi::VirtualTableModel</scope><name>selectedRow</name></member>
+      <member refid="classRADUi_1_1VirtualTableModel_1a0721f5589388dbd3f0d3aac504416c7e" prot="private" virt="non-virtual"><scope>RADUi::VirtualTableModel</scope><name>selectedRow_</name></member>
+      <member refid="classRADUi_1_1VirtualTableModel_1af367d0bcd76209f5ffd45354c14c3d28" prot="public" virt="non-virtual"><scope>RADUi::VirtualTableModel</scope><name>setColumns</name></member>
+      <member refid="classRADUi_1_1VirtualTableModel_1a4ff952ce0d7f1d9f5b13e3f30f833c5a" prot="public" virt="non-virtual"><scope>RADUi::VirtualTableModel</scope><name>setFilter</name></member>
+      <member refid="classRADUi_1_1VirtualTableModel_1a22e92dfdec6449a7bda57c1956761854" prot="public" virt="non-virtual"><scope>RADUi::VirtualTableModel</scope><name>setRows</name></member>
+      <member refid="classRADUi_1_1VirtualTableModel_1a288e929c9f7825ab6046f3c422bfbad1" prot="public" virt="non-virtual"><scope>RADUi::VirtualTableModel</scope><name>setSelectedRow</name></member>
+      <member refid="classRADCore_1_1RADObject_1a8b11df0b951d0db1ba99cfb851e34f31" prot="public" virt="non-virtual"><scope>RADUi::VirtualTableModel</scope><name>threadAffinity</name></member>
+      <member refid="classRADCore_1_1RADObject_1ac7ca67b41523794ae5a6b3634d6ce3b6" prot="public" virt="non-virtual"><scope>RADUi::VirtualTableModel</scope><name>threadId</name></member>
+      <member refid="classRADUi_1_1VirtualTableModel_1a6d9aa3c4b4f6a0d1297db72291f1a537" prot="public" virt="non-virtual"><scope>RADUi::VirtualTableModel</scope><name>value</name></member>
+      <member refid="classRADCore_1_1RADObject_1a7369e27a46c163ee89c63227db650ce5" prot="public" virt="virtual"><scope>RADUi::VirtualTableModel</scope><name>~RADObject</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

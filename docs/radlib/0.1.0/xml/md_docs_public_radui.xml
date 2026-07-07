@@ -1,0 +1,46 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="md_docs_public_radui" kind="page">
+    <compoundname>md_docs_public_radui</compoundname>
+    <title>RADUi</title>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para><ref refid="namespaceRADUi" kindref="compound">RADUi</ref> provides backend-neutral UI dispatching, reusable UI state models, Slint backend integration, plotting, terminal helpers, and an application-shell layer for desktop and embedded tools.</para>
+<sect1 id="md_docs_public_radui_1autotoc_md25">
+<title>Application Shell</title>
+<para><computeroutput><ref refid="RADAppKit_8h" kindref="compound">RADAppKit.h</ref></computeroutput> adds models for IDE-style applications:</para>
+<para><itemizedlist>
+<listitem><para><computeroutput>AppShellModel</computeroutput> combines menus, toolbars, status bars, docks, documents, commands, and notifications.</para>
+</listitem><listitem><para><computeroutput>DockLayoutModel</computeroutput> stores visible/selected panels and serializes layouts.</para>
+</listitem><listitem><para><computeroutput>DocumentWorkspaceModel</computeroutput> tracks open tabs, active tab, and modified state.</para>
+</listitem><listitem><para><computeroutput>CommandPaletteModel</computeroutput> filters and triggers commands.</para>
+</listitem><listitem><para><computeroutput>NotificationModel</computeroutput> stores toasts/status messages and action ids.</para>
+</listitem><listitem><para><computeroutput>VirtualTableModel</computeroutput>, <computeroutput>FileBrowserModel</computeroutput>, <computeroutput>LogViewModel</computeroutput>, <computeroutput>SearchBoxModel</computeroutput>, and <computeroutput>ProgressModel</computeroutput> cover common tool surfaces.</para>
+</listitem></itemizedlist>
+</para>
+</sect1>
+<sect1 id="md_docs_public_radui_1autotoc_md26">
+<title>Theme System</title>
+<para><computeroutput><ref refid="RADTheme_8h" kindref="compound">RADTheme.h</ref></computeroutput> adds <computeroutput>Theme</computeroutput>, <computeroutput>ThemeManager</computeroutput>, and JSON persistence for color, spacing, typography, radius, toolbar, status bar, and icon-name tokens.</para>
+<para>Use <computeroutput><ref refid="namespaceRADUi_1_1Slint_1a365381bdb513b75e70477c80c8a0a323" kindref="member">RADUi::Slint::bindTheme()</ref></computeroutput> to push theme changes into generated Slint components while keeping the C++ state backend-neutral.</para>
+</sect1>
+<sect1 id="md_docs_public_radui_1autotoc_md27">
+<title>Slint Backend</title>
+<para>Slint remains the first concrete backend. Slint-specific helpers live under <computeroutput><ref refid="namespaceRADUi_1_1Slint" kindref="compound">RADUi::Slint</ref></computeroutput> and should adapt generated components to backend-neutral <ref refid="namespaceRADUi" kindref="compound">RADUi</ref> models rather than storing application state directly in <computeroutput>.slint</computeroutput> files.</para>
+</sect1>
+<sect1 id="md_docs_public_radui_1autotoc_md28">
+<title>Examples</title>
+<para>The beta SDK includes developer-tool examples:</para>
+<para><itemizedlist>
+<listitem><para><computeroutput>RADStudioExample</computeroutput>: IDE-style app shell with project tree, editor, terminal, browser/docs pane, output, commands, notifications, and theme switching.</para>
+</listitem><listitem><para><computeroutput>RADUiSlintTextEditor</computeroutput>, <computeroutput>RADUiSlintTerminal</computeroutput>, and <computeroutput>RADWebBrowserExample</computeroutput>: standalone developer tools.</para>
+</listitem><listitem><para><computeroutput>RADEmbeddedDashboard</computeroutput>, <computeroutput>RADSerialMonitorUi</computeroutput>, <computeroutput>RADNetworkMonitorUi</computeroutput>, and <computeroutput>RADLogViewerUi</computeroutput>: embedded/device and diagnostics surfaces.</para>
+</listitem></itemizedlist>
+</para>
+<para>OpenGL plot acceleration is available as an experimental mode; software rendering remains the compatibility path. </para>
+</sect1>
+    </detaileddescription>
+    <location file="docs/public/radui.md"/>
+  </compounddef>
+</doxygen>

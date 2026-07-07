@@ -1,0 +1,469 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="namespaceRADCore_1_1FileSystem" kind="namespace" language="C++">
+    <compoundname>RADCore::FileSystem</compoundname>
+    <innerclass refid="structRADCore_1_1FileSystem_1_1DirectoryEntry" prot="public">RADCore::FileSystem::DirectoryEntry</innerclass>
+      <sectiondef kind="enum">
+      <memberdef kind="enum" id="namespaceRADCore_1_1FileSystem_1a56610124f6d3a7759ad9d40eb6f83fcf" prot="public" static="no" strong="yes">
+        <type></type>
+        <name>StandardPath</name>
+        <enumvalue id="namespaceRADCore_1_1FileSystem_1a56610124f6d3a7759ad9d40eb6f83fcfa8cf04a9734132302f96da8e113e80ce5" prot="public">
+          <name>Home</name>
+          <briefdescription>
+<para>User home directory. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespaceRADCore_1_1FileSystem_1a56610124f6d3a7759ad9d40eb6f83fcfa2310408a63388fe57e3a4177168a8798" prot="public">
+          <name>Desktop</name>
+          <briefdescription>
+<para>Desktop directory. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespaceRADCore_1_1FileSystem_1a56610124f6d3a7759ad9d40eb6f83fcfaf28128b38efbc6134dc40751ee21fd29" prot="public">
+          <name>Documents</name>
+          <briefdescription>
+<para>Documents directory. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespaceRADCore_1_1FileSystem_1a56610124f6d3a7759ad9d40eb6f83fcfac20c35ef53bf1b70789ce94e66800147" prot="public">
+          <name>Downloads</name>
+          <briefdescription>
+<para>Downloads directory. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespaceRADCore_1_1FileSystem_1a56610124f6d3a7759ad9d40eb6f83fcfafa535ffb25e1fd20341652f9be21e06e" prot="public">
+          <name>Config</name>
+          <briefdescription>
+<para>Configuration directory. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespaceRADCore_1_1FileSystem_1a56610124f6d3a7759ad9d40eb6f83fcfaf6068daa29dbb05a7ead1e3b5a48bbee" prot="public">
+          <name>Data</name>
+          <briefdescription>
+<para>Application data directory. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespaceRADCore_1_1FileSystem_1a56610124f6d3a7759ad9d40eb6f83fcfaab0cf104f39708eabd07b8cb67e149ba" prot="public">
+          <name>Cache</name>
+          <briefdescription>
+<para>Cache directory. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespaceRADCore_1_1FileSystem_1a56610124f6d3a7759ad9d40eb6f83fcfa9a438bd942f1f19e6a641028bcfb43ff" prot="public">
+          <name>Temp</name>
+          <briefdescription>
+<para>Temporary directory. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespaceRADCore_1_1FileSystem_1a56610124f6d3a7759ad9d40eb6f83fcfa38492e6b60e40c59a376e2151778e2c7" prot="public">
+          <name>Executable</name>
+          <briefdescription>
+<para>Running executable path. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespaceRADCore_1_1FileSystem_1a56610124f6d3a7759ad9d40eb6f83fcfa222a267cc5778206b253be35ee3ddab5" prot="public">
+          <name>Current</name>
+          <briefdescription>
+<para>Current working directory. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>Standard platform path categories. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADCore/headers/RADCore.h" line="672" column="9" bodyfile="RADCore/headers/RADCore.h" bodystart="672" bodyend="693"/>
+      </memberdef>
+      <memberdef kind="enum" id="namespaceRADCore_1_1FileSystem_1a68571f8c974e8dfd8d84fb29828fac95" prot="public" static="no" strong="yes">
+        <type></type>
+        <name>DirectoryEntryType</name>
+        <enumvalue id="namespaceRADCore_1_1FileSystem_1a68571f8c974e8dfd8d84fb29828fac95a88183b946cc5f0e8c96b2e66e1c74a7e" prot="public">
+          <name>Unknown</name>
+          <briefdescription>
+<para>Type could not be determined. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespaceRADCore_1_1FileSystem_1a68571f8c974e8dfd8d84fb29828fac95a0b27918290ff5323bea1e3b78a9cf04e" prot="public">
+          <name>File</name>
+          <briefdescription>
+<para>Regular file. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespaceRADCore_1_1FileSystem_1a68571f8c974e8dfd8d84fb29828fac95ae73cda510e8bb947f7e61089e5581494" prot="public">
+          <name>Directory</name>
+          <briefdescription>
+<para>Directory. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespaceRADCore_1_1FileSystem_1a68571f8c974e8dfd8d84fb29828fac95a026d95891ec4bf12f490fc5989af61c2" prot="public">
+          <name>Symlink</name>
+          <briefdescription>
+<para>Symbolic link. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>Directory entry type. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADCore/headers/RADCore.h" line="696" column="9" bodyfile="RADCore/headers/RADCore.h" bodystart="696" bodyend="705"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="namespaceRADCore_1_1FileSystem_1a9c9a88e2d4ff56fd174428b6778b432e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool RADCore::FileSystem::exists</definition>
+        <argsstring>(const std::string &amp;path)</argsstring>
+        <name>exists</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>path</declname>
+        </param>
+        <briefdescription>
+<para>Returns true when path exists. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADCore/headers/RADCore.h" line="722" column="14" declfile="RADCore/headers/RADCore.h" declline="722" declcolumn="14"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceRADCore_1_1FileSystem_1aec7a3a42bd39f89b2de66a72eaa37525" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool RADCore::FileSystem::isFile</definition>
+        <argsstring>(const std::string &amp;path)</argsstring>
+        <name>isFile</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>path</declname>
+        </param>
+        <briefdescription>
+<para>Returns true when path is a regular file. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADCore/headers/RADCore.h" line="724" column="14" declfile="RADCore/headers/RADCore.h" declline="724" declcolumn="14"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceRADCore_1_1FileSystem_1a0b6bef838ca47eab0c5875107c11806c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool RADCore::FileSystem::isDirectory</definition>
+        <argsstring>(const std::string &amp;path)</argsstring>
+        <name>isDirectory</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>path</declname>
+        </param>
+        <briefdescription>
+<para>Returns true when path is a directory. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADCore/headers/RADCore.h" line="726" column="14" declfile="RADCore/headers/RADCore.h" declline="726" declcolumn="14"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceRADCore_1_1FileSystem_1a97b73f1c6786fe023c9a6eea735381af" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool RADCore::FileSystem::createDirectories</definition>
+        <argsstring>(const std::string &amp;path)</argsstring>
+        <name>createDirectories</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>path</declname>
+        </param>
+        <briefdescription>
+<para>Creates path and missing parents. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADCore/headers/RADCore.h" line="728" column="14" declfile="RADCore/headers/RADCore.h" declline="728" declcolumn="14"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceRADCore_1_1FileSystem_1a6bc6992b65ca3ee5f0bda17f950733b5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool RADCore::FileSystem::remove</definition>
+        <argsstring>(const std::string &amp;path)</argsstring>
+        <name>remove</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>path</declname>
+        </param>
+        <briefdescription>
+<para>Removes file or directory path. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADCore/headers/RADCore.h" line="730" column="14" declfile="RADCore/headers/RADCore.h" declline="730" declcolumn="14"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceRADCore_1_1FileSystem_1aa2b02942fa561cd0eebdf739ebda2d51" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool RADCore::FileSystem::copyFile</definition>
+        <argsstring>(const std::string &amp;source, const std::string &amp;destination, bool overwrite=true)</argsstring>
+        <name>copyFile</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>source</declname>
+        </param>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>destination</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>overwrite</declname>
+          <defval>true</defval>
+        </param>
+        <briefdescription>
+<para>Copies a file from source to destination. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADCore/headers/RADCore.h" line="732" column="14" declfile="RADCore/headers/RADCore.h" declline="732" declcolumn="14"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceRADCore_1_1FileSystem_1ab939fca3d9da30535576cf30a4bc1c39" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::string</type>
+        <definition>std::string RADCore::FileSystem::currentPath</definition>
+        <argsstring>()</argsstring>
+        <name>currentPath</name>
+        <briefdescription>
+<para>Returns current working directory. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADCore/headers/RADCore.h" line="734" column="21" declfile="RADCore/headers/RADCore.h" declline="734" declcolumn="21"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceRADCore_1_1FileSystem_1a7fbf62f040f2e8c59767e1f4becdeb61" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::string</type>
+        <definition>std::string RADCore::FileSystem::tempDirectoryPath</definition>
+        <argsstring>()</argsstring>
+        <name>tempDirectoryPath</name>
+        <briefdescription>
+<para>Returns system temporary directory. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADCore/headers/RADCore.h" line="736" column="21" declfile="RADCore/headers/RADCore.h" declline="736" declcolumn="21"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceRADCore_1_1FileSystem_1acbbe761a22930df44cd0f8cb5d1a24f1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::string</type>
+        <definition>std::string RADCore::FileSystem::standardPath</definition>
+        <argsstring>(StandardPath path)</argsstring>
+        <name>standardPath</name>
+        <param>
+          <type><ref refid="namespaceRADCore_1_1FileSystem_1a56610124f6d3a7759ad9d40eb6f83fcf" kindref="member">StandardPath</ref></type>
+          <declname>path</declname>
+        </param>
+        <briefdescription>
+<para>Returns a standard platform path. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADCore/headers/RADCore.h" line="738" column="21" declfile="RADCore/headers/RADCore.h" declline="738" declcolumn="21"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceRADCore_1_1FileSystem_1ab3a7b1207191cf4ffc45aea948bd9b10" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::string</type>
+        <definition>std::string RADCore::FileSystem::fileName</definition>
+        <argsstring>(const std::string &amp;path)</argsstring>
+        <name>fileName</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>path</declname>
+        </param>
+        <briefdescription>
+<para>Returns filename component of path. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADCore/headers/RADCore.h" line="740" column="21" declfile="RADCore/headers/RADCore.h" declline="740" declcolumn="21"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceRADCore_1_1FileSystem_1a4dfae9b409b9f099f92f3a02f3dfc327" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::string</type>
+        <definition>std::string RADCore::FileSystem::extension</definition>
+        <argsstring>(const std::string &amp;path)</argsstring>
+        <name>extension</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>path</declname>
+        </param>
+        <briefdescription>
+<para>Returns extension component of path. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADCore/headers/RADCore.h" line="742" column="21" declfile="RADCore/headers/RADCore.h" declline="742" declcolumn="21"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceRADCore_1_1FileSystem_1ac04958b994d328738c488b4cf36bb60e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::string</type>
+        <definition>std::string RADCore::FileSystem::parentPath</definition>
+        <argsstring>(const std::string &amp;path)</argsstring>
+        <name>parentPath</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>path</declname>
+        </param>
+        <briefdescription>
+<para>Returns parent directory path. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADCore/headers/RADCore.h" line="744" column="21" declfile="RADCore/headers/RADCore.h" declline="744" declcolumn="21"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceRADCore_1_1FileSystem_1aa0269ac96615deb734f161394f67da24" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::vector&lt; <ref refid="structRADCore_1_1FileSystem_1_1DirectoryEntry" kindref="compound">DirectoryEntry</ref> &gt;</type>
+        <definition>std::vector&lt;DirectoryEntry&gt; RADCore::FileSystem::listEntries</definition>
+        <argsstring>(const std::string &amp;path, bool recursive=false)</argsstring>
+        <name>listEntries</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>path</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>recursive</declname>
+          <defval>false</defval>
+        </param>
+        <briefdescription>
+<para>Lists directory entries, recursively when requested. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADCore/headers/RADCore.h" line="746" column="21" declfile="RADCore/headers/RADCore.h" declline="746" declcolumn="21"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceRADCore_1_1FileSystem_1ab58b5431ffadda62e97f2d52e62688d0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::vector&lt; std::string &gt;</type>
+        <definition>std::vector&lt;std::string&gt; RADCore::FileSystem::listDirectory</definition>
+        <argsstring>(const std::string &amp;path)</argsstring>
+        <name>listDirectory</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>path</declname>
+        </param>
+        <briefdescription>
+<para>Lists child paths in a directory. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADCore/headers/RADCore.h" line="748" column="21" declfile="RADCore/headers/RADCore.h" declline="748" declcolumn="21"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceRADCore_1_1FileSystem_1ab0c2619dfb5568d47940eec51252a7d8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::string</type>
+        <definition>std::string RADCore::FileSystem::mimeTypeForFile</definition>
+        <argsstring>(const std::string &amp;path)</argsstring>
+        <name>mimeTypeForFile</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>path</declname>
+        </param>
+        <briefdescription>
+<para>Guesses MIME type from file contents or extension. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADCore/headers/RADCore.h" line="750" column="21" declfile="RADCore/headers/RADCore.h" declline="750" declcolumn="21"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceRADCore_1_1FileSystem_1a3bdf48e8131aa7b59a6f6e1e74e95882" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::optional&lt; std::string &gt;</type>
+        <definition>std::optional&lt;std::string&gt; RADCore::FileSystem::readTextFile</definition>
+        <argsstring>(const std::string &amp;path)</argsstring>
+        <name>readTextFile</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>path</declname>
+        </param>
+        <briefdescription>
+<para>Reads a UTF-8/text file into a string. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADCore/headers/RADCore.h" line="752" column="23" declfile="RADCore/headers/RADCore.h" declline="752" declcolumn="23"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceRADCore_1_1FileSystem_1ac08269be19ce82f3e04cc1337b524753" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool RADCore::FileSystem::writeTextFile</definition>
+        <argsstring>(const std::string &amp;path, const std::string &amp;text)</argsstring>
+        <name>writeTextFile</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>path</declname>
+        </param>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>text</declname>
+        </param>
+        <briefdescription>
+<para>Writes text to a file. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADCore/headers/RADCore.h" line="754" column="14" declfile="RADCore/headers/RADCore.h" declline="754" declcolumn="14"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Filesystem helper namespace for paths, standard locations, MIME guesses, and text files. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="RADCore/headers/RADCore.h" line="670" column="5"/>
+  </compounddef>
+</doxygen>

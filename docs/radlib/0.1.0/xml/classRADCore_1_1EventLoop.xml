@@ -1,0 +1,314 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="classRADCore_1_1EventLoop" kind="class" language="C++" prot="public">
+    <compoundname>RADCore::EventLoop</compoundname>
+    <includes refid="RADCore_8h" local="no">RADCore.h</includes>
+      <sectiondef kind="public-type">
+      <memberdef kind="typedef" id="classRADCore_1_1EventLoop_1ab34901f431f7f82c7c5f58cc1c62aa83" prot="public" static="no">
+        <type>std::function&lt; void()&gt;</type>
+        <definition>using RADCore::EventLoop::Task =  std::function&lt;void()&gt;</definition>
+        <argsstring></argsstring>
+        <name>Task</name>
+        <briefdescription>
+<para>Task callable type. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADCore/headers/RADCore.h" line="959" column="9" bodyfile="RADCore/headers/RADCore.h" bodystart="959" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="friend">
+      <memberdef kind="friend" id="classRADCore_1_1EventLoop_1a6816170c47544db0d8768edd3d61afdc" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>class</type>
+        <definition>friend class EventLoopHandle</definition>
+        <argsstring></argsstring>
+        <name>EventLoopHandle</name>
+        <param>
+          <type><ref refid="classRADCore_1_1EventLoopHandle" kindref="compound">EventLoopHandle</ref></type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADCore/headers/RADCore.h" line="1002" column="9" bodyfile="RADCore/headers/RADCore.h" bodystart="1001" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classRADCore_1_1EventLoop_1a949290e53f2cc9ae9e89d2c688414259" prot="private" static="no" mutable="no">
+        <type>std::shared_ptr&lt; Impl &gt;</type>
+        <definition>std::shared_ptr&lt;Impl&gt; RADCore::EventLoop::pImpl</definition>
+        <argsstring></argsstring>
+        <name>pImpl</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADCore/headers/RADCore.h" line="1003" column="25" bodyfile="RADCore/headers/RADCore.h" bodystart="1003" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classRADCore_1_1EventLoop_1a128801fe78f2a066a44bcc0e7baae824" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>RADCore::EventLoop::EventLoop</definition>
+        <argsstring>(LoopStrategy strategy=RADEVENT_LOCK)</argsstring>
+        <name>EventLoop</name>
+        <param>
+          <type><ref refid="namespaceRADCore_1af2f1841363b4c8e95aa265b37517f5db" kindref="member">LoopStrategy</ref></type>
+          <declname>strategy</declname>
+          <defval><ref refid="namespaceRADCore_1a015a8065c217ebb2629d983d7fb550f5" kindref="member">RADEVENT_LOCK</ref></defval>
+        </param>
+        <briefdescription>
+<para>Creates an event loop using strategy. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADCore/headers/RADCore.h" line="961" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADCore_1_1EventLoop_1a71b472ea40d4ebc9dd2b480b3eb6b871" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>RADCore::EventLoop::~EventLoop</definition>
+        <argsstring>()</argsstring>
+        <name>~EventLoop</name>
+        <briefdescription>
+<para>Stops and destroys the loop implementation. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADCore/headers/RADCore.h" line="963" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADCore_1_1EventLoop_1a281cb825b629c79fe5e1968afb099574" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void RADCore::EventLoop::post</definition>
+        <argsstring>(Priority priority, Task task)</argsstring>
+        <name>post</name>
+        <param>
+          <type><ref refid="namespaceRADCore_1a4de049d4dcbcb9966555c97284affd7c" kindref="member">Priority</ref></type>
+          <declname>priority</declname>
+        </param>
+        <param>
+          <type><ref refid="classRADCore_1_1EventLoop_1ab34901f431f7f82c7c5f58cc1c62aa83" kindref="member">Task</ref></type>
+          <declname>task</declname>
+        </param>
+        <briefdescription>
+<para>Posts task with explicit priority. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADCore/headers/RADCore.h" line="966" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADCore_1_1EventLoop_1a467aa796cc4e731e02bafa650fb127ad" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void RADCore::EventLoop::post</definition>
+        <argsstring>(Task task)</argsstring>
+        <name>post</name>
+        <param>
+          <type><ref refid="classRADCore_1_1EventLoop_1ab34901f431f7f82c7c5f58cc1c62aa83" kindref="member">Task</ref></type>
+          <declname>task</declname>
+        </param>
+        <briefdescription>
+<para>Posts task at normal priority. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADCore/headers/RADCore.h" line="968" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADCore_1_1EventLoop_1a32ea329e32a966d21f5c9a0cedd67605" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool RADCore::EventLoop::processEvents</definition>
+        <argsstring>()</argsstring>
+        <name>processEvents</name>
+        <briefdescription>
+<para>Processes currently queued events without entering the main loop. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADCore/headers/RADCore.h" line="970" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADCore_1_1EventLoop_1a58a7597add777bc7c648ccb58bc662ae" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void RADCore::EventLoop::exec</definition>
+        <argsstring>()</argsstring>
+        <name>exec</name>
+        <briefdescription>
+<para>Runs the event loop until <ref refid="classRADCore_1_1EventLoop_1ae8a1e1a8dc12ed6a70792d450feb5632" kindref="member">quit()</ref> is called. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADCore/headers/RADCore.h" line="972" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADCore_1_1EventLoop_1ae8a1e1a8dc12ed6a70792d450feb5632" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void RADCore::EventLoop::quit</definition>
+        <argsstring>()</argsstring>
+        <name>quit</name>
+        <briefdescription>
+<para>Requests the event loop to exit. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADCore/headers/RADCore.h" line="974" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADCore_1_1EventLoop_1a77c0c7070f0e3fe7c91ef7f4b94a5175" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool RADCore::EventLoop::isEventThread</definition>
+        <argsstring>() const</argsstring>
+        <name>isEventThread</name>
+        <briefdescription>
+<para>Returns true when called from the thread running <ref refid="classRADCore_1_1EventLoop_1a58a7597add777bc7c648ccb58bc662ae" kindref="member">exec()</ref>. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADCore/headers/RADCore.h" line="976" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADCore_1_1EventLoop_1a3df5096b7941d49cf695bed247e57a58" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classRADCore_1_1EventLoopHandle" kindref="compound">EventLoopHandle</ref></type>
+        <definition>EventLoopHandle RADCore::EventLoop::handle</definition>
+        <argsstring>() const</argsstring>
+        <name>handle</name>
+        <briefdescription>
+<para>Returns a weak posting handle safe to keep beyond this <ref refid="classRADCore_1_1EventLoop" kindref="compound">EventLoop</ref> object. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADCore/headers/RADCore.h" line="978" column="25"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADCore_1_1EventLoop_1a3aebc9fbd89318548c29655dbc8f83be" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool RADCore::EventLoop::postDelayed</definition>
+        <argsstring>(int delayMs, Task task)</argsstring>
+        <name>postDelayed</name>
+        <param>
+          <type>int</type>
+          <declname>delayMs</declname>
+        </param>
+        <param>
+          <type><ref refid="classRADCore_1_1EventLoop_1ab34901f431f7f82c7c5f58cc1c62aa83" kindref="member">Task</ref></type>
+          <declname>task</declname>
+        </param>
+        <briefdescription>
+<para>Posts task to this loop after delayMs milliseconds; returns false when stopped. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADCore/headers/RADCore.h" line="980" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADCore_1_1EventLoop_1a9defd38f4616bbf97a0ed4c765aeb73e" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename F</type>
+          </param>
+          <param>
+            <type>typename...</type>
+            <declname>Args</declname>
+            <defname>Args</defname>
+          </param>
+        </templateparamlist>
+        <type>void</type>
+        <definition>void RADCore::EventLoop::post</definition>
+        <argsstring>(Priority priority, F &amp;&amp;f, Args &amp;&amp;... args)</argsstring>
+        <name>post</name>
+        <param>
+          <type><ref refid="namespaceRADCore_1a4de049d4dcbcb9966555c97284affd7c" kindref="member">Priority</ref></type>
+          <declname>priority</declname>
+        </param>
+        <param>
+          <type>F &amp;&amp;</type>
+          <declname>f</declname>
+        </param>
+        <param>
+          <type>Args &amp;&amp;...</type>
+          <declname>args</declname>
+        </param>
+        <briefdescription>
+<para>Binds f and args into a task posted with priority. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADCore/headers/RADCore.h" line="984" column="14" bodyfile="RADCore/headers/RADCore.h" bodystart="984" bodyend="989"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADCore_1_1EventLoop_1a3558a3f1cf228cfde89187a853fc3d73" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename F</type>
+          </param>
+          <param>
+            <type>typename...</type>
+            <declname>Args</declname>
+            <defname>Args</defname>
+          </param>
+        </templateparamlist>
+        <type>void</type>
+        <definition>void RADCore::EventLoop::post</definition>
+        <argsstring>(F &amp;&amp;f, Args &amp;&amp;... args)</argsstring>
+        <name>post</name>
+        <param>
+          <type>F &amp;&amp;</type>
+          <declname>f</declname>
+        </param>
+        <param>
+          <type>Args &amp;&amp;...</type>
+          <declname>args</declname>
+        </param>
+        <briefdescription>
+<para>Binds f and args into a normal-priority task. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADCore/headers/RADCore.h" line="993" column="14" bodyfile="RADCore/headers/RADCore.h" bodystart="993" bodyend="998"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para><ref refid="namespaceRADCore" kindref="compound">RADCore</ref> task event loop with locked and low-latency scheduling strategies. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="RADCore/headers/RADCore.h" line="956" column="5" bodyfile="RADCore/headers/RADCore.h" bodystart="956" bodyend="1004"/>
+    <listofallmembers>
+      <member refid="classRADCore_1_1EventLoop_1a128801fe78f2a066a44bcc0e7baae824" prot="public" virt="non-virtual"><scope>RADCore::EventLoop</scope><name>EventLoop</name></member>
+      <member refid="classRADCore_1_1EventLoop_1a6816170c47544db0d8768edd3d61afdc" prot="private" virt="non-virtual"><scope>RADCore::EventLoop</scope><name>EventLoopHandle</name></member>
+      <member refid="classRADCore_1_1EventLoop_1a58a7597add777bc7c648ccb58bc662ae" prot="public" virt="non-virtual"><scope>RADCore::EventLoop</scope><name>exec</name></member>
+      <member refid="classRADCore_1_1EventLoop_1a3df5096b7941d49cf695bed247e57a58" prot="public" virt="non-virtual"><scope>RADCore::EventLoop</scope><name>handle</name></member>
+      <member refid="classRADCore_1_1EventLoop_1a77c0c7070f0e3fe7c91ef7f4b94a5175" prot="public" virt="non-virtual"><scope>RADCore::EventLoop</scope><name>isEventThread</name></member>
+      <member refid="classRADCore_1_1EventLoop_1a949290e53f2cc9ae9e89d2c688414259" prot="private" virt="non-virtual"><scope>RADCore::EventLoop</scope><name>pImpl</name></member>
+      <member refid="classRADCore_1_1EventLoop_1a281cb825b629c79fe5e1968afb099574" prot="public" virt="non-virtual"><scope>RADCore::EventLoop</scope><name>post</name></member>
+      <member refid="classRADCore_1_1EventLoop_1a467aa796cc4e731e02bafa650fb127ad" prot="public" virt="non-virtual"><scope>RADCore::EventLoop</scope><name>post</name></member>
+      <member refid="classRADCore_1_1EventLoop_1a9defd38f4616bbf97a0ed4c765aeb73e" prot="public" virt="non-virtual"><scope>RADCore::EventLoop</scope><name>post</name></member>
+      <member refid="classRADCore_1_1EventLoop_1a3558a3f1cf228cfde89187a853fc3d73" prot="public" virt="non-virtual"><scope>RADCore::EventLoop</scope><name>post</name></member>
+      <member refid="classRADCore_1_1EventLoop_1a3aebc9fbd89318548c29655dbc8f83be" prot="public" virt="non-virtual"><scope>RADCore::EventLoop</scope><name>postDelayed</name></member>
+      <member refid="classRADCore_1_1EventLoop_1a32ea329e32a966d21f5c9a0cedd67605" prot="public" virt="non-virtual"><scope>RADCore::EventLoop</scope><name>processEvents</name></member>
+      <member refid="classRADCore_1_1EventLoop_1ae8a1e1a8dc12ed6a70792d450feb5632" prot="public" virt="non-virtual"><scope>RADCore::EventLoop</scope><name>quit</name></member>
+      <member refid="classRADCore_1_1EventLoop_1ab34901f431f7f82c7c5f58cc1c62aa83" prot="public" virt="non-virtual"><scope>RADCore::EventLoop</scope><name>Task</name></member>
+      <member refid="classRADCore_1_1EventLoop_1a71b472ea40d4ebc9dd2b480b3eb6b871" prot="public" virt="non-virtual"><scope>RADCore::EventLoop</scope><name>~EventLoop</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

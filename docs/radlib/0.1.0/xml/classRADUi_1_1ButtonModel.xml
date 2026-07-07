@@ -1,0 +1,224 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="classRADUi_1_1ButtonModel" kind="class" language="C++" prot="public">
+    <compoundname>RADUi::ButtonModel</compoundname>
+    <basecompoundref refid="classRADCore_1_1RADObject" prot="public" virt="non-virtual">RADCore::RADObject</basecompoundref>
+    <includes refid="RADWidgets_8h" local="no">RADWidgets.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="classRADUi_1_1ButtonModel_1a02ec92fb00a52f48f38e1057f0b43e5b" prot="public" static="no" mutable="no">
+        <type><ref refid="classRADCore_1_1Event" kindref="compound">RADCore::Event</ref>&lt; void() &gt;</type>
+        <definition>RADCore::Event&lt;void () &gt; RADUi::ButtonModel::changed</definition>
+        <argsstring></argsstring>
+        <name>changed</name>
+        <briefdescription>
+<para>Raised when text or enabled state changes. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADUi/headers/RADWidgets.h" line="157" column="30" bodyfile="RADUi/headers/RADWidgets.h" bodystart="157" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classRADUi_1_1ButtonModel_1a5c9718312e35544dcda416c5769b736c" prot="public" static="no" mutable="no">
+        <type><ref refid="classRADCore_1_1Event" kindref="compound">RADCore::Event</ref>&lt; void() &gt;</type>
+        <definition>RADCore::Event&lt;void () &gt; RADUi::ButtonModel::clicked</definition>
+        <argsstring></argsstring>
+        <name>clicked</name>
+        <briefdescription>
+<para>Raised when <ref refid="classRADUi_1_1ButtonModel_1a819dc4452e7dedfae765b66e6eb69e50" kindref="member">click()</ref> is called while enabled. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADUi/headers/RADWidgets.h" line="159" column="30" bodyfile="RADUi/headers/RADWidgets.h" bodystart="159" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classRADUi_1_1ButtonModel_1a7868b94ecdde89c95219699baf4cd554" prot="private" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string RADUi::ButtonModel::text_</definition>
+        <argsstring></argsstring>
+        <name>text_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADUi/headers/RADWidgets.h" line="175" column="21" bodyfile="RADUi/headers/RADWidgets.h" bodystart="175" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classRADUi_1_1ButtonModel_1a23310eb6237be771a88db5757ef5990e" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool RADUi::ButtonModel::enabled_</definition>
+        <argsstring></argsstring>
+        <name>enabled_</name>
+        <initializer>= true</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADUi/headers/RADWidgets.h" line="176" column="14" bodyfile="RADUi/headers/RADWidgets.h" bodystart="176" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classRADUi_1_1ButtonModel_1aed0dd8c6ed05d73a3d6155642bd8a245" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>RADUi::ButtonModel::ButtonModel</definition>
+        <argsstring>(std::string text={})</argsstring>
+        <name>ButtonModel</name>
+        <param>
+          <type>std::string</type>
+          <declname>text</declname>
+          <defval>{}</defval>
+        </param>
+        <briefdescription>
+<para>Creates a button model with optional text. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADUi/headers/RADWidgets.h" line="162" column="18"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADUi_1_1ButtonModel_1a2cbe2a558f904b52c8160e75eecd2dca" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>const std::string &amp;</type>
+        <definition>const std::string&amp; RADUi::ButtonModel::text</definition>
+        <argsstring>() const</argsstring>
+        <name>text</name>
+        <briefdescription>
+<para>Returns button text. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADUi/headers/RADWidgets.h" line="164" column="27"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADUi_1_1ButtonModel_1a340188183c35a99fde2ed883fcbde0e7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void RADUi::ButtonModel::setText</definition>
+        <argsstring>(std::string text)</argsstring>
+        <name>setText</name>
+        <param>
+          <type>std::string</type>
+          <declname>text</declname>
+        </param>
+        <briefdescription>
+<para>Updates button text. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADUi/headers/RADWidgets.h" line="166" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADUi_1_1ButtonModel_1aa6eb30801691ef79ae29435ee3dee059" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool RADUi::ButtonModel::isEnabled</definition>
+        <argsstring>() const</argsstring>
+        <name>isEnabled</name>
+        <briefdescription>
+<para>Returns true when the button can be clicked. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADUi/headers/RADWidgets.h" line="168" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADUi_1_1ButtonModel_1a67113ec9e78b1a8659ffffcffa93f475" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void RADUi::ButtonModel::setEnabled</definition>
+        <argsstring>(bool enabled)</argsstring>
+        <name>setEnabled</name>
+        <param>
+          <type>bool</type>
+          <declname>enabled</declname>
+        </param>
+        <briefdescription>
+<para>Enables or disables the button. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADUi/headers/RADWidgets.h" line="170" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADUi_1_1ButtonModel_1a819dc4452e7dedfae765b66e6eb69e50" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void RADUi::ButtonModel::click</definition>
+        <argsstring>()</argsstring>
+        <name>click</name>
+        <briefdescription>
+<para>Emits clicked when enabled. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADUi/headers/RADWidgets.h" line="172" column="14"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Push-button state model. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>RADCore::RADObject</label>
+        <link refid="classRADCore_1_1RADObject"/>
+      </node>
+      <node id="1">
+        <label>RADUi::ButtonModel</label>
+        <link refid="classRADUi_1_1ButtonModel"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>RADCore::RADObject</label>
+        <link refid="classRADCore_1_1RADObject"/>
+      </node>
+      <node id="3">
+        <label>RADCore::Event&lt; void() &gt;</label>
+        <link refid="classRADCore_1_1Event"/>
+      </node>
+      <node id="1">
+        <label>RADUi::ButtonModel</label>
+        <link refid="classRADUi_1_1ButtonModel"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="3" relation="usage">
+          <edgelabel>changed</edgelabel>
+          <edgelabel>clicked</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="RADUi/headers/RADWidgets.h" line="153" column="5" bodyfile="RADUi/headers/RADWidgets.h" bodystart="153" bodyend="177"/>
+    <listofallmembers>
+      <member refid="classRADCore_1_1RADObject_1a06cdf252ffb5e2f88332ebda12a62080" prot="public" virt="non-virtual"><scope>RADUi::ButtonModel</scope><name>associatedEventLoop</name></member>
+      <member refid="classRADUi_1_1ButtonModel_1aed0dd8c6ed05d73a3d6155642bd8a245" prot="public" virt="non-virtual"><scope>RADUi::ButtonModel</scope><name>ButtonModel</name></member>
+      <member refid="classRADUi_1_1ButtonModel_1a02ec92fb00a52f48f38e1057f0b43e5b" prot="public" virt="non-virtual"><scope>RADUi::ButtonModel</scope><name>changed</name></member>
+      <member refid="classRADUi_1_1ButtonModel_1a819dc4452e7dedfae765b66e6eb69e50" prot="public" virt="non-virtual"><scope>RADUi::ButtonModel</scope><name>click</name></member>
+      <member refid="classRADUi_1_1ButtonModel_1a5c9718312e35544dcda416c5769b736c" prot="public" virt="non-virtual"><scope>RADUi::ButtonModel</scope><name>clicked</name></member>
+      <member refid="classRADUi_1_1ButtonModel_1a23310eb6237be771a88db5757ef5990e" prot="private" virt="non-virtual"><scope>RADUi::ButtonModel</scope><name>enabled_</name></member>
+      <member refid="classRADUi_1_1ButtonModel_1aa6eb30801691ef79ae29435ee3dee059" prot="public" virt="non-virtual"><scope>RADUi::ButtonModel</scope><name>isEnabled</name></member>
+      <member refid="classRADCore_1_1RADObject_1ad2ddfd066d14be9adc2f96bfca417fc6" prot="public" virt="non-virtual"><scope>RADUi::ButtonModel</scope><name>lifetimeToken</name></member>
+      <member refid="classRADCore_1_1RADObject_1a1f7f7f2fb40211e28455cd74a029339a" prot="public" virt="non-virtual"><scope>RADUi::ButtonModel</scope><name>moveToThread</name></member>
+      <member refid="classRADCore_1_1RADObject_1a9bc3fed915f7c71232e68c2628d34708" prot="public" virt="non-virtual"><scope>RADUi::ButtonModel</scope><name>RADObject</name></member>
+      <member refid="classRADCore_1_1RADObject_1af3e26b970c8080418f0d6b80cad986a2" prot="public" virt="non-virtual"><scope>RADUi::ButtonModel</scope><name>registerLink</name></member>
+      <member refid="classRADUi_1_1ButtonModel_1a67113ec9e78b1a8659ffffcffa93f475" prot="public" virt="non-virtual"><scope>RADUi::ButtonModel</scope><name>setEnabled</name></member>
+      <member refid="classRADUi_1_1ButtonModel_1a340188183c35a99fde2ed883fcbde0e7" prot="public" virt="non-virtual"><scope>RADUi::ButtonModel</scope><name>setText</name></member>
+      <member refid="classRADUi_1_1ButtonModel_1a2cbe2a558f904b52c8160e75eecd2dca" prot="public" virt="non-virtual"><scope>RADUi::ButtonModel</scope><name>text</name></member>
+      <member refid="classRADUi_1_1ButtonModel_1a7868b94ecdde89c95219699baf4cd554" prot="private" virt="non-virtual"><scope>RADUi::ButtonModel</scope><name>text_</name></member>
+      <member refid="classRADCore_1_1RADObject_1a8b11df0b951d0db1ba99cfb851e34f31" prot="public" virt="non-virtual"><scope>RADUi::ButtonModel</scope><name>threadAffinity</name></member>
+      <member refid="classRADCore_1_1RADObject_1ac7ca67b41523794ae5a6b3634d6ce3b6" prot="public" virt="non-virtual"><scope>RADUi::ButtonModel</scope><name>threadId</name></member>
+      <member refid="classRADCore_1_1RADObject_1a7369e27a46c163ee89c63227db650ce5" prot="public" virt="virtual"><scope>RADUi::ButtonModel</scope><name>~RADObject</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

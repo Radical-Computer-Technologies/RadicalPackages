@@ -1,0 +1,144 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="classRADDevice_1_1Watchdog" kind="class" language="C++" prot="public">
+    <compoundname>RADDevice::Watchdog</compoundname>
+    <includes refid="RADDevice_8h" local="no">RADDevice.h</includes>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classRADDevice_1_1Watchdog_1a402dc27ede28a740905a409d3d6b1599" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int RADDevice::Watchdog::fd_</definition>
+        <argsstring></argsstring>
+        <name>fd_</name>
+        <initializer>= -1</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADDevice/headers/RADDevice.h" line="185" column="13" bodyfile="RADDevice/headers/RADDevice.h" bodystart="185" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classRADDevice_1_1Watchdog_1a151817d794d91db197ed9f1cdc476d5f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>RADDevice::Watchdog::Watchdog</definition>
+        <argsstring>()</argsstring>
+        <name>Watchdog</name>
+        <briefdescription>
+<para>Creates a closed watchdog wrapper. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADDevice/headers/RADDevice.h" line="172" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADDevice_1_1Watchdog_1a1d07f36c8f9b3abea35e25f5047298eb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>RADDevice::Watchdog::~Watchdog</definition>
+        <argsstring>()</argsstring>
+        <name>~Watchdog</name>
+        <briefdescription>
+<para>Closes the descriptor. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADDevice/headers/RADDevice.h" line="174" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADDevice_1_1Watchdog_1ad9ecc8ce9b9e402c2426f2eb0ea9899c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool RADDevice::Watchdog::open</definition>
+        <argsstring>(int index=0, const DevicePaths &amp;paths={}, std::string *error=nullptr)</argsstring>
+        <name>open</name>
+        <param>
+          <type>int</type>
+          <declname>index</declname>
+          <defval>0</defval>
+        </param>
+        <param>
+          <type>const <ref refid="structRADDevice_1_1DevicePaths" kindref="compound">DevicePaths</ref> &amp;</type>
+          <declname>paths</declname>
+          <defval>{}</defval>
+        </param>
+        <param>
+          <type>std::string *</type>
+          <declname>error</declname>
+          <defval>nullptr</defval>
+        </param>
+        <briefdescription>
+<para>Opens /dev/watchdogN. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADDevice/headers/RADDevice.h" line="176" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADDevice_1_1Watchdog_1a8835f7ac3efe66fb1df29a1f4a89e00b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void RADDevice::Watchdog::close</definition>
+        <argsstring>()</argsstring>
+        <name>close</name>
+        <briefdescription>
+<para>Closes the descriptor. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADDevice/headers/RADDevice.h" line="178" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADDevice_1_1Watchdog_1ae8378353576d78214fca7f955708a960" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool RADDevice::Watchdog::keepAlive</definition>
+        <argsstring>(std::string *error=nullptr)</argsstring>
+        <name>keepAlive</name>
+        <param>
+          <type>std::string *</type>
+          <declname>error</declname>
+          <defval>nullptr</defval>
+        </param>
+        <briefdescription>
+<para>Pings the watchdog through ioctl. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADDevice/headers/RADDevice.h" line="180" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADDevice_1_1Watchdog_1a83204f942d54649903b2266fe776eb28" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool RADDevice::Watchdog::isOpen</definition>
+        <argsstring>() const</argsstring>
+        <name>isOpen</name>
+        <briefdescription>
+<para>Returns true when open. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADDevice/headers/RADDevice.h" line="182" column="14"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Linux watchdog wrapper. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="RADDevice/headers/RADDevice.h" line="169" column="5" bodyfile="RADDevice/headers/RADDevice.h" bodystart="169" bodyend="186"/>
+    <listofallmembers>
+      <member refid="classRADDevice_1_1Watchdog_1a8835f7ac3efe66fb1df29a1f4a89e00b" prot="public" virt="non-virtual"><scope>RADDevice::Watchdog</scope><name>close</name></member>
+      <member refid="classRADDevice_1_1Watchdog_1a402dc27ede28a740905a409d3d6b1599" prot="private" virt="non-virtual"><scope>RADDevice::Watchdog</scope><name>fd_</name></member>
+      <member refid="classRADDevice_1_1Watchdog_1a83204f942d54649903b2266fe776eb28" prot="public" virt="non-virtual"><scope>RADDevice::Watchdog</scope><name>isOpen</name></member>
+      <member refid="classRADDevice_1_1Watchdog_1ae8378353576d78214fca7f955708a960" prot="public" virt="non-virtual"><scope>RADDevice::Watchdog</scope><name>keepAlive</name></member>
+      <member refid="classRADDevice_1_1Watchdog_1ad9ecc8ce9b9e402c2426f2eb0ea9899c" prot="public" virt="non-virtual"><scope>RADDevice::Watchdog</scope><name>open</name></member>
+      <member refid="classRADDevice_1_1Watchdog_1a151817d794d91db197ed9f1cdc476d5f" prot="public" virt="non-virtual"><scope>RADDevice::Watchdog</scope><name>Watchdog</name></member>
+      <member refid="classRADDevice_1_1Watchdog_1a1d07f36c8f9b3abea35e25f5047298eb" prot="public" virt="non-virtual"><scope>RADDevice::Watchdog</scope><name>~Watchdog</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

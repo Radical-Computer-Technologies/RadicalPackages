@@ -1,0 +1,453 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="classRADDatabase_1_1RADSqlStatement" kind="class" language="C++" prot="public">
+    <compoundname>RADDatabase::RADSqlStatement</compoundname>
+    <includes refid="RADDatabase_8h" local="no">RADDatabase.h</includes>
+      <sectiondef kind="friend">
+      <memberdef kind="friend" id="classRADDatabase_1_1RADSqlStatement_1ab91a031e2404cd06a5a74ff9328356d7" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>class</type>
+        <definition>friend class RADSqlDatabase</definition>
+        <argsstring></argsstring>
+        <name>RADSqlDatabase</name>
+        <param>
+          <type><ref refid="classRADDatabase_1_1RADSqlDatabase" kindref="compound">RADSqlDatabase</ref></type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADDatabase/headers/RADDatabase.h" line="155" column="9" bodyfile="RADDatabase/headers/RADDatabase.h" bodystart="155" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classRADDatabase_1_1RADSqlStatement_1a6404894b41f2db9a063722e9a69a9555" prot="private" static="no" mutable="no">
+        <type>std::shared_ptr&lt; Impl &gt;</type>
+        <definition>std::shared_ptr&lt;Impl&gt; RADDatabase::RADSqlStatement::pImpl_</definition>
+        <argsstring></argsstring>
+        <name>pImpl_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADDatabase/headers/RADDatabase.h" line="158" column="25" bodyfile="RADDatabase/headers/RADDatabase.h" bodystart="158" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classRADDatabase_1_1RADSqlStatement_1a9d1f48173192c637d8c5bc1f0b77b69e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>RADDatabase::RADSqlStatement::RADSqlStatement</definition>
+        <argsstring>()</argsstring>
+        <name>RADSqlStatement</name>
+        <briefdescription>
+<para>Creates an invalid statement. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADDatabase/headers/RADDatabase.h" line="108" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADDatabase_1_1RADSqlStatement_1a7c105565509be98a252a7685a6a5a115" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>RADDatabase::RADSqlStatement::~RADSqlStatement</definition>
+        <argsstring>()</argsstring>
+        <name>~RADSqlStatement</name>
+        <briefdescription>
+<para>Finalizes the statement. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADDatabase/headers/RADDatabase.h" line="110" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADDatabase_1_1RADSqlStatement_1a823c8a8cd7693395747c6667e235d5a5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>RADDatabase::RADSqlStatement::RADSqlStatement</definition>
+        <argsstring>(const RADSqlStatement &amp;)=delete</argsstring>
+        <name>RADSqlStatement</name>
+        <param>
+          <type>const <ref refid="classRADDatabase_1_1RADSqlStatement" kindref="compound">RADSqlStatement</ref> &amp;</type>
+        </param>
+        <briefdescription>
+<para>Statement ownership is movable but not copyable. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADDatabase/headers/RADDatabase.h" line="113" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADDatabase_1_1RADSqlStatement_1a8d1ce9273692417cb981f36730c934dd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classRADDatabase_1_1RADSqlStatement" kindref="compound">RADSqlStatement</ref> &amp;</type>
+        <definition>RADSqlStatement&amp; RADDatabase::RADSqlStatement::operator=</definition>
+        <argsstring>(const RADSqlStatement &amp;)=delete</argsstring>
+        <name>operator=</name>
+        <param>
+          <type>const <ref refid="classRADDatabase_1_1RADSqlStatement" kindref="compound">RADSqlStatement</ref> &amp;</type>
+        </param>
+        <briefdescription>
+<para>Statement ownership is movable but not copyable. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADDatabase/headers/RADDatabase.h" line="115" column="25"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADDatabase_1_1RADSqlStatement_1ada6cc7fc8afc76677be49abfb7cd4716" prot="public" static="no" const="no" explicit="no" inline="no" noexcept="yes" virt="non-virtual">
+        <type></type>
+        <definition>RADDatabase::RADSqlStatement::RADSqlStatement</definition>
+        <argsstring>(RADSqlStatement &amp;&amp;other) noexcept</argsstring>
+        <name>RADSqlStatement</name>
+        <param>
+          <type><ref refid="classRADDatabase_1_1RADSqlStatement" kindref="compound">RADSqlStatement</ref> &amp;&amp;</type>
+          <declname>other</declname>
+        </param>
+        <briefdescription>
+<para>Moves statement ownership. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADDatabase/headers/RADDatabase.h" line="117" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADDatabase_1_1RADSqlStatement_1a0f0c04ffe13260511c905668fd1fc720" prot="public" static="no" const="no" explicit="no" inline="no" noexcept="yes" virt="non-virtual">
+        <type><ref refid="classRADDatabase_1_1RADSqlStatement" kindref="compound">RADSqlStatement</ref> &amp;</type>
+        <definition>RADSqlStatement&amp; RADDatabase::RADSqlStatement::operator=</definition>
+        <argsstring>(RADSqlStatement &amp;&amp;other) noexcept</argsstring>
+        <name>operator=</name>
+        <param>
+          <type><ref refid="classRADDatabase_1_1RADSqlStatement" kindref="compound">RADSqlStatement</ref> &amp;&amp;</type>
+          <declname>other</declname>
+        </param>
+        <briefdescription>
+<para>Moves statement ownership. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADDatabase/headers/RADDatabase.h" line="119" column="25"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADDatabase_1_1RADSqlStatement_1adc83294e925757add2648258c76f482a" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool RADDatabase::RADSqlStatement::isValid</definition>
+        <argsstring>() const</argsstring>
+        <name>isValid</name>
+        <briefdescription>
+<para>Returns true when a statement was prepared successfully. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADDatabase/headers/RADDatabase.h" line="122" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADDatabase_1_1RADSqlStatement_1acb92e5bab7612ce4ad152b0e1cf49aae" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>std::string</type>
+        <definition>std::string RADDatabase::RADSqlStatement::lastError</definition>
+        <argsstring>() const</argsstring>
+        <name>lastError</name>
+        <briefdescription>
+<para>Returns the last statement error. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADDatabase/headers/RADDatabase.h" line="124" column="21"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADDatabase_1_1RADSqlStatement_1a98c13e7ef92c3984213bfc9ba9219eaf" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void RADDatabase::RADSqlStatement::clearBindings</definition>
+        <argsstring>()</argsstring>
+        <name>clearBindings</name>
+        <briefdescription>
+<para>Clears all current bindings. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADDatabase/headers/RADDatabase.h" line="126" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADDatabase_1_1RADSqlStatement_1a6acac5388adba8eb1b76fee8e935c67e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void RADDatabase::RADSqlStatement::reset</definition>
+        <argsstring>()</argsstring>
+        <name>reset</name>
+        <briefdescription>
+<para>Resets statement execution state. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADDatabase/headers/RADDatabase.h" line="128" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADDatabase_1_1RADSqlStatement_1a479fdd9b4e34b1b4adad08241e4566b1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool RADDatabase::RADSqlStatement::bindNull</definition>
+        <argsstring>(int index)</argsstring>
+        <name>bindNull</name>
+        <param>
+          <type>int</type>
+          <declname>index</declname>
+        </param>
+        <briefdescription>
+<para>Binds null at 1-based index. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADDatabase/headers/RADDatabase.h" line="131" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADDatabase_1_1RADSqlStatement_1ae8b6a2b27ce5c58c0ec1169bd32c78dc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool RADDatabase::RADSqlStatement::bind</definition>
+        <argsstring>(int index, int64_t value)</argsstring>
+        <name>bind</name>
+        <param>
+          <type>int</type>
+          <declname>index</declname>
+        </param>
+        <param>
+          <type>int64_t</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+<para>Binds integer at 1-based index. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADDatabase/headers/RADDatabase.h" line="133" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADDatabase_1_1RADSqlStatement_1a11c69b1e9d87d37d82547c656586443c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool RADDatabase::RADSqlStatement::bind</definition>
+        <argsstring>(int index, double value)</argsstring>
+        <name>bind</name>
+        <param>
+          <type>int</type>
+          <declname>index</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+<para>Binds double at 1-based index. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADDatabase/headers/RADDatabase.h" line="135" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADDatabase_1_1RADSqlStatement_1ae992f4671ac8d49d22a4b4e18fa676d1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool RADDatabase::RADSqlStatement::bind</definition>
+        <argsstring>(int index, const std::string &amp;value)</argsstring>
+        <name>bind</name>
+        <param>
+          <type>int</type>
+          <declname>index</declname>
+        </param>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+<para>Binds text at 1-based index. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADDatabase/headers/RADDatabase.h" line="137" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADDatabase_1_1RADSqlStatement_1a919c10a42ca3b2332361396f872cb405" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool RADDatabase::RADSqlStatement::bind</definition>
+        <argsstring>(int index, const std::vector&lt; uint8_t &gt; &amp;value)</argsstring>
+        <name>bind</name>
+        <param>
+          <type>int</type>
+          <declname>index</declname>
+        </param>
+        <param>
+          <type>const std::vector&lt; uint8_t &gt; &amp;</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+<para>Binds bytes at 1-based index. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADDatabase/headers/RADDatabase.h" line="139" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADDatabase_1_1RADSqlStatement_1a782e2ebf94b0b4c6a777ec7ae3faf6ab" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool RADDatabase::RADSqlStatement::bind</definition>
+        <argsstring>(int index, const RADCore::RADVariant &amp;value)</argsstring>
+        <name>bind</name>
+        <param>
+          <type>int</type>
+          <declname>index</declname>
+        </param>
+        <param>
+          <type>const <ref refid="classRADCore_1_1RADVariant" kindref="compound">RADCore::RADVariant</ref> &amp;</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+<para>Binds a RADVariant at 1-based index. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADDatabase/headers/RADDatabase.h" line="141" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADDatabase_1_1RADSqlStatement_1a78f865dc644589caf2500b3a801e83a5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool RADDatabase::RADSqlStatement::step</definition>
+        <argsstring>()</argsstring>
+        <name>step</name>
+        <briefdescription>
+<para>Advances one row; returns true when a row is available. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADDatabase/headers/RADDatabase.h" line="144" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADDatabase_1_1RADSqlStatement_1ae2e609f6421510222e4c4b03f502d938" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool RADDatabase::RADSqlStatement::execute</definition>
+        <argsstring>()</argsstring>
+        <name>execute</name>
+        <briefdescription>
+<para>Executes until done for statements that do not return rows. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADDatabase/headers/RADDatabase.h" line="146" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADDatabase_1_1RADSqlStatement_1aea5eb9dc423fe6ed61a53ff5ddf13c1d" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int RADDatabase::RADSqlStatement::columnCount</definition>
+        <argsstring>() const</argsstring>
+        <name>columnCount</name>
+        <briefdescription>
+<para>Returns number of columns in the current row. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADDatabase/headers/RADDatabase.h" line="148" column="13"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADDatabase_1_1RADSqlStatement_1a49527fde83f67e2dfddcd087a95d9f3e" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>std::string</type>
+        <definition>std::string RADDatabase::RADSqlStatement::columnName</definition>
+        <argsstring>(int column) const</argsstring>
+        <name>columnName</name>
+        <param>
+          <type>int</type>
+          <declname>column</declname>
+        </param>
+        <briefdescription>
+<para>Returns column name by zero-based index. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADDatabase/headers/RADDatabase.h" line="150" column="21"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADDatabase_1_1RADSqlStatement_1a58e25aad8f3977deb56a46b86f777206" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classRADCore_1_1RADVariant" kindref="compound">RADCore::RADVariant</ref></type>
+        <definition>RADCore::RADVariant RADDatabase::RADSqlStatement::columnValue</definition>
+        <argsstring>(int column) const</argsstring>
+        <name>columnValue</name>
+        <param>
+          <type>int</type>
+          <declname>column</declname>
+        </param>
+        <briefdescription>
+<para>Returns column value by zero-based index. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADDatabase/headers/RADDatabase.h" line="152" column="29"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="classRADDatabase_1_1RADSqlStatement_1a9b7bd3afdd302d483ecc490ded0d67f4" prot="private" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>RADDatabase::RADSqlStatement::RADSqlStatement</definition>
+        <argsstring>(std::shared_ptr&lt; Impl &gt; impl)</argsstring>
+        <name>RADSqlStatement</name>
+        <param>
+          <type>std::shared_ptr&lt; Impl &gt;</type>
+          <declname>impl</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADDatabase/headers/RADDatabase.h" line="157" column="18"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Prepared SQLite statement with typed binding and row stepping. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="RADDatabase/headers/RADDatabase.h" line="105" column="5" bodyfile="RADDatabase/headers/RADDatabase.h" bodystart="105" bodyend="159"/>
+    <listofallmembers>
+      <member refid="classRADDatabase_1_1RADSqlStatement_1ae8b6a2b27ce5c58c0ec1169bd32c78dc" prot="public" virt="non-virtual"><scope>RADDatabase::RADSqlStatement</scope><name>bind</name></member>
+      <member refid="classRADDatabase_1_1RADSqlStatement_1a11c69b1e9d87d37d82547c656586443c" prot="public" virt="non-virtual"><scope>RADDatabase::RADSqlStatement</scope><name>bind</name></member>
+      <member refid="classRADDatabase_1_1RADSqlStatement_1ae992f4671ac8d49d22a4b4e18fa676d1" prot="public" virt="non-virtual"><scope>RADDatabase::RADSqlStatement</scope><name>bind</name></member>
+      <member refid="classRADDatabase_1_1RADSqlStatement_1a919c10a42ca3b2332361396f872cb405" prot="public" virt="non-virtual"><scope>RADDatabase::RADSqlStatement</scope><name>bind</name></member>
+      <member refid="classRADDatabase_1_1RADSqlStatement_1a782e2ebf94b0b4c6a777ec7ae3faf6ab" prot="public" virt="non-virtual"><scope>RADDatabase::RADSqlStatement</scope><name>bind</name></member>
+      <member refid="classRADDatabase_1_1RADSqlStatement_1a479fdd9b4e34b1b4adad08241e4566b1" prot="public" virt="non-virtual"><scope>RADDatabase::RADSqlStatement</scope><name>bindNull</name></member>
+      <member refid="classRADDatabase_1_1RADSqlStatement_1a98c13e7ef92c3984213bfc9ba9219eaf" prot="public" virt="non-virtual"><scope>RADDatabase::RADSqlStatement</scope><name>clearBindings</name></member>
+      <member refid="classRADDatabase_1_1RADSqlStatement_1aea5eb9dc423fe6ed61a53ff5ddf13c1d" prot="public" virt="non-virtual"><scope>RADDatabase::RADSqlStatement</scope><name>columnCount</name></member>
+      <member refid="classRADDatabase_1_1RADSqlStatement_1a49527fde83f67e2dfddcd087a95d9f3e" prot="public" virt="non-virtual"><scope>RADDatabase::RADSqlStatement</scope><name>columnName</name></member>
+      <member refid="classRADDatabase_1_1RADSqlStatement_1a58e25aad8f3977deb56a46b86f777206" prot="public" virt="non-virtual"><scope>RADDatabase::RADSqlStatement</scope><name>columnValue</name></member>
+      <member refid="classRADDatabase_1_1RADSqlStatement_1ae2e609f6421510222e4c4b03f502d938" prot="public" virt="non-virtual"><scope>RADDatabase::RADSqlStatement</scope><name>execute</name></member>
+      <member refid="classRADDatabase_1_1RADSqlStatement_1adc83294e925757add2648258c76f482a" prot="public" virt="non-virtual"><scope>RADDatabase::RADSqlStatement</scope><name>isValid</name></member>
+      <member refid="classRADDatabase_1_1RADSqlStatement_1acb92e5bab7612ce4ad152b0e1cf49aae" prot="public" virt="non-virtual"><scope>RADDatabase::RADSqlStatement</scope><name>lastError</name></member>
+      <member refid="classRADDatabase_1_1RADSqlStatement_1a8d1ce9273692417cb981f36730c934dd" prot="public" virt="non-virtual"><scope>RADDatabase::RADSqlStatement</scope><name>operator=</name></member>
+      <member refid="classRADDatabase_1_1RADSqlStatement_1a0f0c04ffe13260511c905668fd1fc720" prot="public" virt="non-virtual"><scope>RADDatabase::RADSqlStatement</scope><name>operator=</name></member>
+      <member refid="classRADDatabase_1_1RADSqlStatement_1a6404894b41f2db9a063722e9a69a9555" prot="private" virt="non-virtual"><scope>RADDatabase::RADSqlStatement</scope><name>pImpl_</name></member>
+      <member refid="classRADDatabase_1_1RADSqlStatement_1ab91a031e2404cd06a5a74ff9328356d7" prot="private" virt="non-virtual"><scope>RADDatabase::RADSqlStatement</scope><name>RADSqlDatabase</name></member>
+      <member refid="classRADDatabase_1_1RADSqlStatement_1a9d1f48173192c637d8c5bc1f0b77b69e" prot="public" virt="non-virtual"><scope>RADDatabase::RADSqlStatement</scope><name>RADSqlStatement</name></member>
+      <member refid="classRADDatabase_1_1RADSqlStatement_1a823c8a8cd7693395747c6667e235d5a5" prot="public" virt="non-virtual"><scope>RADDatabase::RADSqlStatement</scope><name>RADSqlStatement</name></member>
+      <member refid="classRADDatabase_1_1RADSqlStatement_1ada6cc7fc8afc76677be49abfb7cd4716" prot="public" virt="non-virtual"><scope>RADDatabase::RADSqlStatement</scope><name>RADSqlStatement</name></member>
+      <member refid="classRADDatabase_1_1RADSqlStatement_1a9b7bd3afdd302d483ecc490ded0d67f4" prot="private" virt="non-virtual"><scope>RADDatabase::RADSqlStatement</scope><name>RADSqlStatement</name></member>
+      <member refid="classRADDatabase_1_1RADSqlStatement_1a6acac5388adba8eb1b76fee8e935c67e" prot="public" virt="non-virtual"><scope>RADDatabase::RADSqlStatement</scope><name>reset</name></member>
+      <member refid="classRADDatabase_1_1RADSqlStatement_1a78f865dc644589caf2500b3a801e83a5" prot="public" virt="non-virtual"><scope>RADDatabase::RADSqlStatement</scope><name>step</name></member>
+      <member refid="classRADDatabase_1_1RADSqlStatement_1a7c105565509be98a252a7685a6a5a115" prot="public" virt="non-virtual"><scope>RADDatabase::RADSqlStatement</scope><name>~RADSqlStatement</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

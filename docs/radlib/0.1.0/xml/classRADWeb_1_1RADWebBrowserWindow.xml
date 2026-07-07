@@ -1,0 +1,1854 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="classRADWeb_1_1RADWebBrowserWindow" kind="class" language="C++" prot="public">
+    <compoundname>RADWeb::RADWebBrowserWindow</compoundname>
+    <basecompoundref refid="classRADCore_1_1RADObject" prot="public" virt="non-virtual">RADCore::RADObject</basecompoundref>
+    <includes refid="RADWeb_8h" local="no">RADWeb.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="classRADWeb_1_1RADWebBrowserWindow_1a5bfd001da32eb44f18ba41e5b0a144ae" prot="public" static="no" mutable="no">
+        <type><ref refid="classRADCore_1_1Event" kindref="compound">RADCore::Event</ref>&lt; void(std::string) &gt;</type>
+        <definition>RADCore::Event&lt;void (std::string) &gt; RADWeb::RADWebBrowserWindow::loadStarted</definition>
+        <argsstring></argsstring>
+        <name>loadStarted</name>
+        <briefdescription>
+<para>Raised when the active tab starts loading url. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADWeb/headers/RADWeb.h" line="144" column="30" bodyfile="RADWeb/headers/RADWeb.h" bodystart="144" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classRADWeb_1_1RADWebBrowserWindow_1a9c01084984c3d3e1a1e02849eb6f7fbd" prot="public" static="no" mutable="no">
+        <type><ref refid="classRADCore_1_1Event" kindref="compound">RADCore::Event</ref>&lt; void(std::string) &gt;</type>
+        <definition>RADCore::Event&lt;void (std::string) &gt; RADWeb::RADWebBrowserWindow::loadFinished</definition>
+        <argsstring></argsstring>
+        <name>loadFinished</name>
+        <briefdescription>
+<para>Raised when the active tab finishes loading url. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADWeb/headers/RADWeb.h" line="146" column="30" bodyfile="RADWeb/headers/RADWeb.h" bodystart="146" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classRADWeb_1_1RADWebBrowserWindow_1aff67c30cdd9cfd9ea14bee2684d2d805" prot="public" static="no" mutable="no">
+        <type><ref refid="classRADCore_1_1Event" kindref="compound">RADCore::Event</ref>&lt; void(std::string, std::string) &gt;</type>
+        <definition>RADCore::Event&lt;void (std::string, std::string) &gt; RADWeb::RADWebBrowserWindow::loadFailed</definition>
+        <argsstring></argsstring>
+        <name>loadFailed</name>
+        <briefdescription>
+<para>Raised with url and message when a load fails. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADWeb/headers/RADWeb.h" line="148" column="30" bodyfile="RADWeb/headers/RADWeb.h" bodystart="148" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classRADWeb_1_1RADWebBrowserWindow_1aeeb65843abce6c8a7eaf2b6e01586ce4" prot="public" static="no" mutable="no">
+        <type><ref refid="classRADCore_1_1Event" kindref="compound">RADCore::Event</ref>&lt; void(std::string) &gt;</type>
+        <definition>RADCore::Event&lt;void (std::string) &gt; RADWeb::RADWebBrowserWindow::titleChanged</definition>
+        <argsstring></argsstring>
+        <name>titleChanged</name>
+        <briefdescription>
+<para>Raised when active tab title changes. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADWeb/headers/RADWeb.h" line="150" column="30" bodyfile="RADWeb/headers/RADWeb.h" bodystart="150" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classRADWeb_1_1RADWebBrowserWindow_1aa10ff45cbea567adf66ac65939bff6b7" prot="public" static="no" mutable="no">
+        <type><ref refid="classRADCore_1_1Event" kindref="compound">RADCore::Event</ref>&lt; void(std::string) &gt;</type>
+        <definition>RADCore::Event&lt;void (std::string) &gt; RADWeb::RADWebBrowserWindow::uriChanged</definition>
+        <argsstring></argsstring>
+        <name>uriChanged</name>
+        <briefdescription>
+<para>Raised when active tab URI changes. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADWeb/headers/RADWeb.h" line="152" column="30" bodyfile="RADWeb/headers/RADWeb.h" bodystart="152" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classRADWeb_1_1RADWebBrowserWindow_1a8fdc961203b6019e56d2fdb8d39aa7c7" prot="public" static="no" mutable="no">
+        <type><ref refid="classRADCore_1_1Event" kindref="compound">RADCore::Event</ref>&lt; void(std::string) &gt;</type>
+        <definition>RADCore::Event&lt;void (std::string) &gt; RADWeb::RADWebBrowserWindow::javaScriptFinished</definition>
+        <argsstring></argsstring>
+        <name>javaScriptFinished</name>
+        <briefdescription>
+<para>Raised with result text when JavaScript evaluation succeeds. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADWeb/headers/RADWeb.h" line="154" column="30" bodyfile="RADWeb/headers/RADWeb.h" bodystart="154" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classRADWeb_1_1RADWebBrowserWindow_1a7f43926355bb227eb9c2ed5ea8f61770" prot="public" static="no" mutable="no">
+        <type><ref refid="classRADCore_1_1Event" kindref="compound">RADCore::Event</ref>&lt; void(std::string) &gt;</type>
+        <definition>RADCore::Event&lt;void (std::string) &gt; RADWeb::RADWebBrowserWindow::javaScriptFailed</definition>
+        <argsstring></argsstring>
+        <name>javaScriptFailed</name>
+        <briefdescription>
+<para>Raised with message when JavaScript evaluation fails. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADWeb/headers/RADWeb.h" line="156" column="30" bodyfile="RADWeb/headers/RADWeb.h" bodystart="156" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classRADWeb_1_1RADWebBrowserWindow_1a231e7e33ac32c26a2fda40f677592855" prot="public" static="no" mutable="no">
+        <type><ref refid="classRADCore_1_1Event" kindref="compound">RADCore::Event</ref>&lt; void(std::string) &gt;</type>
+        <definition>RADCore::Event&lt;void (std::string) &gt; RADWeb::RADWebBrowserWindow::errorOccurred</definition>
+        <argsstring></argsstring>
+        <name>errorOccurred</name>
+        <briefdescription>
+<para>Raised for browser-level setup/runtime errors. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADWeb/headers/RADWeb.h" line="158" column="30" bodyfile="RADWeb/headers/RADWeb.h" bodystart="158" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classRADWeb_1_1RADWebBrowserWindow_1a2a70a1619cb78e3408328e73e497547f" prot="public" static="no" mutable="no">
+        <type><ref refid="classRADCore_1_1Event" kindref="compound">RADCore::Event</ref>&lt; void(int) &gt;</type>
+        <definition>RADCore::Event&lt;void (int) &gt; RADWeb::RADWebBrowserWindow::tabAdded</definition>
+        <argsstring></argsstring>
+        <name>tabAdded</name>
+        <briefdescription>
+<para>Raised with tab id when a tab is added. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADWeb/headers/RADWeb.h" line="160" column="30" bodyfile="RADWeb/headers/RADWeb.h" bodystart="160" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classRADWeb_1_1RADWebBrowserWindow_1a47d67e62d1c4a1372a4f0d6f87d99ca3" prot="public" static="no" mutable="no">
+        <type><ref refid="classRADCore_1_1Event" kindref="compound">RADCore::Event</ref>&lt; void(int) &gt;</type>
+        <definition>RADCore::Event&lt;void (int) &gt; RADWeb::RADWebBrowserWindow::tabClosed</definition>
+        <argsstring></argsstring>
+        <name>tabClosed</name>
+        <briefdescription>
+<para>Raised with tab id when a tab is closed. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADWeb/headers/RADWeb.h" line="162" column="30" bodyfile="RADWeb/headers/RADWeb.h" bodystart="162" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classRADWeb_1_1RADWebBrowserWindow_1ae6584891bff644e3605d4d18ad2ee12a" prot="public" static="no" mutable="no">
+        <type><ref refid="classRADCore_1_1Event" kindref="compound">RADCore::Event</ref>&lt; void(int) &gt;</type>
+        <definition>RADCore::Event&lt;void (int) &gt; RADWeb::RADWebBrowserWindow::activeTabChanged</definition>
+        <argsstring></argsstring>
+        <name>activeTabChanged</name>
+        <briefdescription>
+<para>Raised with tab index when the active tab changes. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADWeb/headers/RADWeb.h" line="164" column="30" bodyfile="RADWeb/headers/RADWeb.h" bodystart="164" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classRADWeb_1_1RADWebBrowserWindow_1a4bc9062ef5b78e33b2b8c0becd84c60b" prot="public" static="no" mutable="no">
+        <type><ref refid="classRADCore_1_1Event" kindref="compound">RADCore::Event</ref>&lt; void(<ref refid="structRADWeb_1_1RADWebDownloadInfo" kindref="compound">RADWeb::RADWebDownloadInfo</ref>) &gt;</type>
+        <definition>RADCore::Event&lt;void (RADWeb::RADWebDownloadInfo) &gt; RADWeb::RADWebBrowserWindow::downloadStarted</definition>
+        <argsstring></argsstring>
+        <name>downloadStarted</name>
+        <briefdescription>
+<para>Raised when a download starts. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADWeb/headers/RADWeb.h" line="166" column="30" bodyfile="RADWeb/headers/RADWeb.h" bodystart="166" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classRADWeb_1_1RADWebBrowserWindow_1a7cb99d56c7360b4ae598dbf9a80f4938" prot="public" static="no" mutable="no">
+        <type><ref refid="classRADCore_1_1Event" kindref="compound">RADCore::Event</ref>&lt; void(<ref refid="structRADWeb_1_1RADWebDownloadInfo" kindref="compound">RADWeb::RADWebDownloadInfo</ref>) &gt;</type>
+        <definition>RADCore::Event&lt;void (RADWeb::RADWebDownloadInfo) &gt; RADWeb::RADWebBrowserWindow::downloadUpdated</definition>
+        <argsstring></argsstring>
+        <name>downloadUpdated</name>
+        <briefdescription>
+<para>Raised as download progress changes. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADWeb/headers/RADWeb.h" line="168" column="30" bodyfile="RADWeb/headers/RADWeb.h" bodystart="168" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classRADWeb_1_1RADWebBrowserWindow_1a2edc554b43aa1c2e0e5e7ab1abd2ffcf" prot="public" static="no" mutable="no">
+        <type><ref refid="classRADCore_1_1Event" kindref="compound">RADCore::Event</ref>&lt; void(<ref refid="structRADWeb_1_1RADWebDownloadInfo" kindref="compound">RADWeb::RADWebDownloadInfo</ref>) &gt;</type>
+        <definition>RADCore::Event&lt;void (RADWeb::RADWebDownloadInfo) &gt; RADWeb::RADWebBrowserWindow::downloadFinished</definition>
+        <argsstring></argsstring>
+        <name>downloadFinished</name>
+        <briefdescription>
+<para>Raised when a download finishes. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADWeb/headers/RADWeb.h" line="170" column="30" bodyfile="RADWeb/headers/RADWeb.h" bodystart="170" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classRADWeb_1_1RADWebBrowserWindow_1aee5d9660c452a99d3dffb0710f3d1a2c" prot="public" static="no" mutable="no">
+        <type><ref refid="classRADCore_1_1Event" kindref="compound">RADCore::Event</ref>&lt; void(int, std::string) &gt;</type>
+        <definition>RADCore::Event&lt;void (int, std::string) &gt; RADWeb::RADWebBrowserWindow::downloadFailed</definition>
+        <argsstring></argsstring>
+        <name>downloadFailed</name>
+        <briefdescription>
+<para>Raised with id and message when a download fails. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADWeb/headers/RADWeb.h" line="172" column="30" bodyfile="RADWeb/headers/RADWeb.h" bodystart="172" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classRADWeb_1_1RADWebBrowserWindow_1adec66c43f3ed648f28098c54255b7a0e" prot="public" static="no" mutable="no">
+        <type><ref refid="classRADCore_1_1Event" kindref="compound">RADCore::Event</ref>&lt; void(std::string, std::string) &gt;</type>
+        <definition>RADCore::Event&lt;void (std::string, std::string) &gt; RADWeb::RADWebBrowserWindow::permissionRequested</definition>
+        <argsstring></argsstring>
+        <name>permissionRequested</name>
+        <briefdescription>
+<para>Raised with origin and permission name when user policy is needed. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADWeb/headers/RADWeb.h" line="174" column="30" bodyfile="RADWeb/headers/RADWeb.h" bodystart="174" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classRADWeb_1_1RADWebBrowserWindow_1aa124f1b2f0f3433fcd2cf93da427e71f" prot="public" static="no" mutable="no">
+        <type><ref refid="classRADCore_1_1Event" kindref="compound">RADCore::Event</ref>&lt; void() &gt;</type>
+        <definition>RADCore::Event&lt;void () &gt; RADWeb::RADWebBrowserWindow::historyChanged</definition>
+        <argsstring></argsstring>
+        <name>historyChanged</name>
+        <briefdescription>
+<para>Raised when history entries change. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADWeb/headers/RADWeb.h" line="176" column="30" bodyfile="RADWeb/headers/RADWeb.h" bodystart="176" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classRADWeb_1_1RADWebBrowserWindow_1a5ea55e2ba3e2c6921ca28ac599bf49a9" prot="public" static="no" mutable="no">
+        <type><ref refid="classRADCore_1_1Event" kindref="compound">RADCore::Event</ref>&lt; void() &gt;</type>
+        <definition>RADCore::Event&lt;void () &gt; RADWeb::RADWebBrowserWindow::bookmarksChanged</definition>
+        <argsstring></argsstring>
+        <name>bookmarksChanged</name>
+        <briefdescription>
+<para>Raised when bookmarks change. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADWeb/headers/RADWeb.h" line="178" column="30" bodyfile="RADWeb/headers/RADWeb.h" bodystart="178" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classRADWeb_1_1RADWebBrowserWindow_1aec17b8a3ec5f5c35acf69aaeb0431a5e" prot="public" static="no" mutable="no">
+        <type><ref refid="classRADCore_1_1Event" kindref="compound">RADCore::Event</ref>&lt; void() &gt;</type>
+        <definition>RADCore::Event&lt;void () &gt; RADWeb::RADWebBrowserWindow::closed</definition>
+        <argsstring></argsstring>
+        <name>closed</name>
+        <briefdescription>
+<para>Raised when the window closes. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADWeb/headers/RADWeb.h" line="180" column="30" bodyfile="RADWeb/headers/RADWeb.h" bodystart="180" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classRADWeb_1_1RADWebBrowserWindow_1a25c750a3320e93252feb2818316d1fcb" prot="private" static="no" mutable="no">
+        <type>std::shared_ptr&lt; Impl &gt;</type>
+        <definition>std::shared_ptr&lt;Impl&gt; RADWeb::RADWebBrowserWindow::pImpl_</definition>
+        <argsstring></argsstring>
+        <name>pImpl_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADWeb/headers/RADWeb.h" line="369" column="25" bodyfile="RADWeb/headers/RADWeb.h" bodystart="368" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classRADWeb_1_1RADWebBrowserWindow_1a02dc15d7fa937ff06bcc8cf447469573" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>RADWeb::RADWebBrowserWindow::RADWebBrowserWindow</definition>
+        <argsstring>()</argsstring>
+        <name>RADWebBrowserWindow</name>
+        <briefdescription>
+<para>Creates an uninitialized browser window wrapper. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADWeb/headers/RADWeb.h" line="183" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADWeb_1_1RADWebBrowserWindow_1a6c7e8e614a7d0d20917202d9aadd520c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>RADWeb::RADWebBrowserWindow::~RADWebBrowserWindow</definition>
+        <argsstring>() override</argsstring>
+        <name>~RADWebBrowserWindow</name>
+        <briefdescription>
+<para>Destroys the browser window and native resources. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADWeb/headers/RADWeb.h" line="185" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADWeb_1_1RADWebBrowserWindow_1a986540832c81d5079cb5c4f94a7583f0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void RADWeb::RADWebBrowserWindow::setProfileDirectory</definition>
+        <argsstring>(const std::string &amp;directory)</argsstring>
+        <name>setProfileDirectory</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>directory</declname>
+        </param>
+        <briefdescription>
+<para>Sets the persistent profile directory before <ref refid="classRADWeb_1_1RADWebBrowserWindow_1a625a40f719eca7a53ee5c079186dede1" kindref="member">create()</ref>. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADWeb/headers/RADWeb.h" line="188" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADWeb_1_1RADWebBrowserWindow_1a6a8e85e2746c443446cef68d756041a1" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>const std::string &amp;</type>
+        <definition>const std::string&amp; RADWeb::RADWebBrowserWindow::profileDirectory</definition>
+        <argsstring>() const</argsstring>
+        <name>profileDirectory</name>
+        <briefdescription>
+<para>Returns the configured profile directory. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADWeb/headers/RADWeb.h" line="190" column="27"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADWeb_1_1RADWebBrowserWindow_1a73f7179d22a4f8f9132de1b76310ca0f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void RADWeb::RADWebBrowserWindow::setEphemeralProfile</definition>
+        <argsstring>(bool enabled)</argsstring>
+        <name>setEphemeralProfile</name>
+        <param>
+          <type>bool</type>
+          <declname>enabled</declname>
+        </param>
+        <briefdescription>
+<para>Enables or disables ephemeral profile mode before <ref refid="classRADWeb_1_1RADWebBrowserWindow_1a625a40f719eca7a53ee5c079186dede1" kindref="member">create()</ref>. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADWeb/headers/RADWeb.h" line="192" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADWeb_1_1RADWebBrowserWindow_1a7b0ed06869d2e6b686551e093c4381ad" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool RADWeb::RADWebBrowserWindow::ephemeralProfile</definition>
+        <argsstring>() const</argsstring>
+        <name>ephemeralProfile</name>
+        <briefdescription>
+<para>Returns true when using an ephemeral profile. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADWeb/headers/RADWeb.h" line="194" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADWeb_1_1RADWebBrowserWindow_1a625a40f719eca7a53ee5c079186dede1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool RADWeb::RADWebBrowserWindow::create</definition>
+        <argsstring>(int width=1200, int height=800, const std::string &amp;title=&quot;RADWeb Browser&quot;)</argsstring>
+        <name>create</name>
+        <param>
+          <type>int</type>
+          <declname>width</declname>
+          <defval>1200</defval>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>height</declname>
+          <defval>800</defval>
+        </param>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>title</declname>
+          <defval>&quot;RADWeb Browser&quot;</defval>
+        </param>
+        <briefdescription>
+<para>Creates the browser window with basic dimensions and title. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADWeb/headers/RADWeb.h" line="197" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADWeb_1_1RADWebBrowserWindow_1ad3df018d9112085bc555f7c7f469fa7a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool RADWeb::RADWebBrowserWindow::create</definition>
+        <argsstring>(const RADWebWindowOptions &amp;options)</argsstring>
+        <name>create</name>
+        <param>
+          <type>const <ref refid="structRADWeb_1_1RADWebWindowOptions" kindref="compound">RADWebWindowOptions</ref> &amp;</type>
+          <declname>options</declname>
+        </param>
+        <briefdescription>
+<para>Creates the browser window from a full options struct. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADWeb/headers/RADWeb.h" line="199" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADWeb_1_1RADWebBrowserWindow_1aeead2c4b020d799a0d648cb14d302ce4" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool RADWeb::RADWebBrowserWindow::isCreated</definition>
+        <argsstring>() const</argsstring>
+        <name>isCreated</name>
+        <briefdescription>
+<para>Returns true once native WebKit/GTK objects are created. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADWeb/headers/RADWeb.h" line="201" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADWeb_1_1RADWebBrowserWindow_1a315857c13f275e876dcc44bcee474a75" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void RADWeb::RADWebBrowserWindow::setNavigationBarVisible</definition>
+        <argsstring>(bool visible)</argsstring>
+        <name>setNavigationBarVisible</name>
+        <param>
+          <type>bool</type>
+          <declname>visible</declname>
+        </param>
+        <briefdescription>
+<para>Shows or hides the built-in navigation bar. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADWeb/headers/RADWeb.h" line="204" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADWeb_1_1RADWebBrowserWindow_1a23c0579e557ab94237db2bfce0221110" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool RADWeb::RADWebBrowserWindow::navigationBarVisible</definition>
+        <argsstring>() const</argsstring>
+        <name>navigationBarVisible</name>
+        <briefdescription>
+<para>Returns true when the navigation bar is visible. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADWeb/headers/RADWeb.h" line="206" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADWeb_1_1RADWebBrowserWindow_1af4142adbe91d2bf0c272f62f5b4fa7dc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int RADWeb::RADWebBrowserWindow::newTab</definition>
+        <argsstring>(const std::string &amp;url=&quot;about:blank&quot;, bool makeActive=true)</argsstring>
+        <name>newTab</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>url</declname>
+          <defval>&quot;about:blank&quot;</defval>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>makeActive</declname>
+          <defval>true</defval>
+        </param>
+        <briefdescription>
+<para>Opens url in a new tab and returns the tab id. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADWeb/headers/RADWeb.h" line="209" column="13"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADWeb_1_1RADWebBrowserWindow_1a8243063a74c2e8b277d18cc2c6c0a835" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool RADWeb::RADWebBrowserWindow::closeTab</definition>
+        <argsstring>(int index)</argsstring>
+        <name>closeTab</name>
+        <param>
+          <type>int</type>
+          <declname>index</declname>
+        </param>
+        <briefdescription>
+<para>Closes the tab at index. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADWeb/headers/RADWeb.h" line="211" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADWeb_1_1RADWebBrowserWindow_1af8feb050af4a33e17c8d85b8a45d985a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool RADWeb::RADWebBrowserWindow::duplicateTab</definition>
+        <argsstring>(int index, bool makeActive=true)</argsstring>
+        <name>duplicateTab</name>
+        <param>
+          <type>int</type>
+          <declname>index</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>makeActive</declname>
+          <defval>true</defval>
+        </param>
+        <briefdescription>
+<para>Duplicates the tab at index. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADWeb/headers/RADWeb.h" line="213" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADWeb_1_1RADWebBrowserWindow_1aff89e1a350c89263caeeeee43151b685" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool RADWeb::RADWebBrowserWindow::moveTab</definition>
+        <argsstring>(int fromIndex, int toIndex)</argsstring>
+        <name>moveTab</name>
+        <param>
+          <type>int</type>
+          <declname>fromIndex</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>toIndex</declname>
+        </param>
+        <briefdescription>
+<para>Moves a tab from one index to another. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADWeb/headers/RADWeb.h" line="215" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADWeb_1_1RADWebBrowserWindow_1a86a0fe81de825e54e137def5675dff52" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int RADWeb::RADWebBrowserWindow::tabCount</definition>
+        <argsstring>() const</argsstring>
+        <name>tabCount</name>
+        <briefdescription>
+<para>Returns the number of open tabs. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADWeb/headers/RADWeb.h" line="217" column="13"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADWeb_1_1RADWebBrowserWindow_1ae3f5034cb7d894cae6cdcc5dbcf941ff" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int RADWeb::RADWebBrowserWindow::activeTabIndex</definition>
+        <argsstring>() const</argsstring>
+        <name>activeTabIndex</name>
+        <briefdescription>
+<para>Returns the active tab index. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADWeb/headers/RADWeb.h" line="219" column="13"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADWeb_1_1RADWebBrowserWindow_1aa4b9c162b009097f8ad83bdbfe6828f8" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structRADWeb_1_1RADWebTabInfo" kindref="compound">RADWebTabInfo</ref></type>
+        <definition>RADWebTabInfo RADWeb::RADWebBrowserWindow::activeTab</definition>
+        <argsstring>() const</argsstring>
+        <name>activeTab</name>
+        <briefdescription>
+<para>Returns a snapshot of the active tab. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADWeb/headers/RADWeb.h" line="221" column="23"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADWeb_1_1RADWebBrowserWindow_1a5e51540fdf38010262a2e1ce8a836617" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>std::vector&lt; <ref refid="structRADWeb_1_1RADWebTabInfo" kindref="compound">RADWebTabInfo</ref> &gt;</type>
+        <definition>std::vector&lt;RADWebTabInfo&gt; RADWeb::RADWebBrowserWindow::tabs</definition>
+        <argsstring>() const</argsstring>
+        <name>tabs</name>
+        <briefdescription>
+<para>Returns snapshots of all tabs. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADWeb/headers/RADWeb.h" line="223" column="21"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADWeb_1_1RADWebBrowserWindow_1a67979591f926dd921948aaf05f6dd6b2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool RADWeb::RADWebBrowserWindow::setActiveTab</definition>
+        <argsstring>(int index)</argsstring>
+        <name>setActiveTab</name>
+        <param>
+          <type>int</type>
+          <declname>index</declname>
+        </param>
+        <briefdescription>
+<para>Activates the tab at index. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADWeb/headers/RADWeb.h" line="225" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADWeb_1_1RADWebBrowserWindow_1aedfaa9f308ad12f6c5ab28be5bd4cad9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void RADWeb::RADWebBrowserWindow::loadUrl</definition>
+        <argsstring>(const std::string &amp;url)</argsstring>
+        <name>loadUrl</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>url</declname>
+        </param>
+        <briefdescription>
+<para>Loads url in the active tab. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADWeb/headers/RADWeb.h" line="228" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADWeb_1_1RADWebBrowserWindow_1ae0af7cf22750adb74efb566ea4dd56b2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void RADWeb::RADWebBrowserWindow::loadUrl</definition>
+        <argsstring>(int tabIndex, const std::string &amp;url)</argsstring>
+        <name>loadUrl</name>
+        <param>
+          <type>int</type>
+          <declname>tabIndex</declname>
+        </param>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>url</declname>
+        </param>
+        <briefdescription>
+<para>Loads url in a specific tab. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADWeb/headers/RADWeb.h" line="230" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADWeb_1_1RADWebBrowserWindow_1ab372799b65369ce122ad6ee0c3fc9cbd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void RADWeb::RADWebBrowserWindow::loadHtml</definition>
+        <argsstring>(const std::string &amp;html, const std::string &amp;baseUri=&quot;about:blank&quot;)</argsstring>
+        <name>loadHtml</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>html</declname>
+        </param>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>baseUri</declname>
+          <defval>&quot;about:blank&quot;</defval>
+        </param>
+        <briefdescription>
+<para>Loads HTML into the active tab using baseUri for relative resources. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADWeb/headers/RADWeb.h" line="232" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADWeb_1_1RADWebBrowserWindow_1af43ef42549dcf736df74fb8eff5ade6e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void RADWeb::RADWebBrowserWindow::evaluateJavaScript</definition>
+        <argsstring>(const std::string &amp;script)</argsstring>
+        <name>evaluateJavaScript</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>script</declname>
+        </param>
+        <briefdescription>
+<para>Evaluates JavaScript in the active tab. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADWeb/headers/RADWeb.h" line="234" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADWeb_1_1RADWebBrowserWindow_1a92c07fc370edb180961ac4377b9273c9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void RADWeb::RADWebBrowserWindow::show</definition>
+        <argsstring>()</argsstring>
+        <name>show</name>
+        <briefdescription>
+<para>Shows the native browser window. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADWeb/headers/RADWeb.h" line="237" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADWeb_1_1RADWebBrowserWindow_1a7e3dfe3bd6604c141ce4d945a7d4b073" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void RADWeb::RADWebBrowserWindow::close</definition>
+        <argsstring>()</argsstring>
+        <name>close</name>
+        <briefdescription>
+<para>Closes the browser window. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADWeb/headers/RADWeb.h" line="239" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADWeb_1_1RADWebBrowserWindow_1a6678acdc36d1c7bb973e62668854abc3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void RADWeb::RADWebBrowserWindow::run</definition>
+        <argsstring>()</argsstring>
+        <name>run</name>
+        <briefdescription>
+<para>Runs the GTK/WebKit event loop. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADWeb/headers/RADWeb.h" line="241" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADWeb_1_1RADWebBrowserWindow_1aad2135df1c3fb1ba25de8ec49e802132" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void RADWeb::RADWebBrowserWindow::quit</definition>
+        <argsstring>()</argsstring>
+        <name>quit</name>
+        <briefdescription>
+<para>Quits the GTK/WebKit event loop. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADWeb/headers/RADWeb.h" line="243" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADWeb_1_1RADWebBrowserWindow_1ac4db6c95b3d3bfbd7197a0f52dad5e82" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool RADWeb::RADWebBrowserWindow::canGoBack</definition>
+        <argsstring>() const</argsstring>
+        <name>canGoBack</name>
+        <briefdescription>
+<para>Returns true when the active tab can go back. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADWeb/headers/RADWeb.h" line="246" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADWeb_1_1RADWebBrowserWindow_1a257e07ebb8babd90f2d347a6692ea80f" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool RADWeb::RADWebBrowserWindow::canGoForward</definition>
+        <argsstring>() const</argsstring>
+        <name>canGoForward</name>
+        <briefdescription>
+<para>Returns true when the active tab can go forward. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADWeb/headers/RADWeb.h" line="248" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADWeb_1_1RADWebBrowserWindow_1a04251808f420d8ed70b11b7f7dfc6574" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void RADWeb::RADWebBrowserWindow::goBack</definition>
+        <argsstring>()</argsstring>
+        <name>goBack</name>
+        <briefdescription>
+<para>Navigates the active tab backward. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADWeb/headers/RADWeb.h" line="250" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADWeb_1_1RADWebBrowserWindow_1a54bf41e9843a3beefe9123ce51755deb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void RADWeb::RADWebBrowserWindow::goForward</definition>
+        <argsstring>()</argsstring>
+        <name>goForward</name>
+        <briefdescription>
+<para>Navigates the active tab forward. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADWeb/headers/RADWeb.h" line="252" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADWeb_1_1RADWebBrowserWindow_1a571379fabb5c39d07f888bb268a6ecb0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void RADWeb::RADWebBrowserWindow::reload</definition>
+        <argsstring>()</argsstring>
+        <name>reload</name>
+        <briefdescription>
+<para>Reloads the active tab. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADWeb/headers/RADWeb.h" line="254" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADWeb_1_1RADWebBrowserWindow_1a5d6a79e8fb973b041104df70b8bc376e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void RADWeb::RADWebBrowserWindow::stop</definition>
+        <argsstring>()</argsstring>
+        <name>stop</name>
+        <briefdescription>
+<para>Stops loading the active tab. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADWeb/headers/RADWeb.h" line="256" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADWeb_1_1RADWebBrowserWindow_1a5ff9f85a79763cd07c4625c1078e06cd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void RADWeb::RADWebBrowserWindow::focusUrlEntry</definition>
+        <argsstring>()</argsstring>
+        <name>focusUrlEntry</name>
+        <briefdescription>
+<para>Focuses the built-in URL entry. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADWeb/headers/RADWeb.h" line="259" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADWeb_1_1RADWebBrowserWindow_1aa0ccf38fef9c0b634cae132513987a5d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void RADWeb::RADWebBrowserWindow::focusFindEntry</definition>
+        <argsstring>()</argsstring>
+        <name>focusFindEntry</name>
+        <briefdescription>
+<para>Focuses the built-in find entry. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADWeb/headers/RADWeb.h" line="261" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADWeb_1_1RADWebBrowserWindow_1a5b67a62b30758a4c368608e6b99008e4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void RADWeb::RADWebBrowserWindow::showHistory</definition>
+        <argsstring>()</argsstring>
+        <name>showHistory</name>
+        <briefdescription>
+<para>Opens the history pane. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADWeb/headers/RADWeb.h" line="263" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADWeb_1_1RADWebBrowserWindow_1a99a0b3182e263c4010b7708ca9586dfd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void RADWeb::RADWebBrowserWindow::showDownloads</definition>
+        <argsstring>()</argsstring>
+        <name>showDownloads</name>
+        <briefdescription>
+<para>Opens the downloads pane. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADWeb/headers/RADWeb.h" line="265" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADWeb_1_1RADWebBrowserWindow_1a7e5371f92292d074d9d25cb8da787541" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void RADWeb::RADWebBrowserWindow::showBookmarks</definition>
+        <argsstring>()</argsstring>
+        <name>showBookmarks</name>
+        <briefdescription>
+<para>Opens the bookmarks pane. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADWeb/headers/RADWeb.h" line="267" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADWeb_1_1RADWebBrowserWindow_1ad58844593448efe382f44134b42cec2b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void RADWeb::RADWebBrowserWindow::showSettings</definition>
+        <argsstring>()</argsstring>
+        <name>showSettings</name>
+        <briefdescription>
+<para>Opens the settings pane. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADWeb/headers/RADWeb.h" line="269" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADWeb_1_1RADWebBrowserWindow_1af2f12808acdd69a16315ad65426d6de3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void RADWeb::RADWebBrowserWindow::showDevTools</definition>
+        <argsstring>()</argsstring>
+        <name>showDevTools</name>
+        <briefdescription>
+<para>Opens WebKit developer tools for the active tab. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADWeb/headers/RADWeb.h" line="271" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADWeb_1_1RADWebBrowserWindow_1adcff0635816b0e4d2ff3736d759d1960" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void RADWeb::RADWebBrowserWindow::setZoomLevel</definition>
+        <argsstring>(double zoomLevel)</argsstring>
+        <name>setZoomLevel</name>
+        <param>
+          <type>double</type>
+          <declname>zoomLevel</declname>
+        </param>
+        <briefdescription>
+<para>Sets active tab zoom level. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADWeb/headers/RADWeb.h" line="274" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADWeb_1_1RADWebBrowserWindow_1a1b6ebbb0b562014e74bb736698c5b5e3" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>double RADWeb::RADWebBrowserWindow::zoomLevel</definition>
+        <argsstring>() const</argsstring>
+        <name>zoomLevel</name>
+        <briefdescription>
+<para>Returns active tab zoom level. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADWeb/headers/RADWeb.h" line="276" column="16"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADWeb_1_1RADWebBrowserWindow_1ae285a14cf7383d817187ad2fab3eac55" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void RADWeb::RADWebBrowserWindow::searchText</definition>
+        <argsstring>(const std::string &amp;text, bool caseSensitive=false, bool wrap=true, unsigned maxMatchCount=1000)</argsstring>
+        <name>searchText</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>text</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>caseSensitive</declname>
+          <defval>false</defval>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>wrap</declname>
+          <defval>true</defval>
+        </param>
+        <param>
+          <type>unsigned</type>
+          <declname>maxMatchCount</declname>
+          <defval>1000</defval>
+        </param>
+        <briefdescription>
+<para>Starts text search in the active page. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADWeb/headers/RADWeb.h" line="279" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADWeb_1_1RADWebBrowserWindow_1aebfa220fdd6505b8db5a270a1dddae9c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void RADWeb::RADWebBrowserWindow::searchNext</definition>
+        <argsstring>()</argsstring>
+        <name>searchNext</name>
+        <briefdescription>
+<para>Moves to the next search result. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADWeb/headers/RADWeb.h" line="281" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADWeb_1_1RADWebBrowserWindow_1ac7936547af74ea1bc14dfb026a2f41e7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void RADWeb::RADWebBrowserWindow::searchPrevious</definition>
+        <argsstring>()</argsstring>
+        <name>searchPrevious</name>
+        <briefdescription>
+<para>Moves to the previous search result. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADWeb/headers/RADWeb.h" line="283" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADWeb_1_1RADWebBrowserWindow_1a0130187726bbff4d1c7ca8b442e681e0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void RADWeb::RADWebBrowserWindow::clearSearch</definition>
+        <argsstring>()</argsstring>
+        <name>clearSearch</name>
+        <briefdescription>
+<para>Clears active search highlighting. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADWeb/headers/RADWeb.h" line="285" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADWeb_1_1RADWebBrowserWindow_1a31be97f3bc5bb99c49341e39b3ae8150" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void RADWeb::RADWebBrowserWindow::setJavaScriptEnabled</definition>
+        <argsstring>(bool enabled)</argsstring>
+        <name>setJavaScriptEnabled</name>
+        <param>
+          <type>bool</type>
+          <declname>enabled</declname>
+        </param>
+        <briefdescription>
+<para>Enables or disables JavaScript. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADWeb/headers/RADWeb.h" line="288" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADWeb_1_1RADWebBrowserWindow_1a8708931fe718bad0f21656d8d3cc763e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void RADWeb::RADWebBrowserWindow::setImagesEnabled</definition>
+        <argsstring>(bool enabled)</argsstring>
+        <name>setImagesEnabled</name>
+        <param>
+          <type>bool</type>
+          <declname>enabled</declname>
+        </param>
+        <briefdescription>
+<para>Enables or disables image loading. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADWeb/headers/RADWeb.h" line="290" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADWeb_1_1RADWebBrowserWindow_1a15bd82ff8f5b561cdeaad0a30a36a596" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void RADWeb::RADWebBrowserWindow::setDeveloperExtrasEnabled</definition>
+        <argsstring>(bool enabled)</argsstring>
+        <name>setDeveloperExtrasEnabled</name>
+        <param>
+          <type>bool</type>
+          <declname>enabled</declname>
+        </param>
+        <briefdescription>
+<para>Enables or disables developer extras. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADWeb/headers/RADWeb.h" line="292" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADWeb_1_1RADWebBrowserWindow_1a2d05fdc55fc4fd1e7651583860cd65a4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void RADWeb::RADWebBrowserWindow::setWebGlEnabled</definition>
+        <argsstring>(bool enabled)</argsstring>
+        <name>setWebGlEnabled</name>
+        <param>
+          <type>bool</type>
+          <declname>enabled</declname>
+        </param>
+        <briefdescription>
+<para>Enables or disables WebGL. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADWeb/headers/RADWeb.h" line="294" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADWeb_1_1RADWebBrowserWindow_1a49e47f4c901f40d861d75a480f9f0c65" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void RADWeb::RADWebBrowserWindow::setMediaPlaybackRequiresUserGesture</definition>
+        <argsstring>(bool required)</argsstring>
+        <name>setMediaPlaybackRequiresUserGesture</name>
+        <param>
+          <type>bool</type>
+          <declname>required</declname>
+        </param>
+        <briefdescription>
+<para>Sets whether media playback requires user gesture. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADWeb/headers/RADWeb.h" line="296" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADWeb_1_1RADWebBrowserWindow_1abcf731a7cb029227a5ff4018528e694b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void RADWeb::RADWebBrowserWindow::setHardwareAccelerationEnabled</definition>
+        <argsstring>(bool enabled)</argsstring>
+        <name>setHardwareAccelerationEnabled</name>
+        <param>
+          <type>bool</type>
+          <declname>enabled</declname>
+        </param>
+        <briefdescription>
+<para>Enables or disables hardware acceleration requests. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADWeb/headers/RADWeb.h" line="298" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADWeb_1_1RADWebBrowserWindow_1ae489ee3b964b9ebd7f49e109ff963ce9" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structRADWeb_1_1RADWebSettings" kindref="compound">RADWebSettings</ref></type>
+        <definition>RADWebSettings RADWeb::RADWebBrowserWindow::settings</definition>
+        <argsstring>() const</argsstring>
+        <name>settings</name>
+        <briefdescription>
+<para>Returns current browser settings. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADWeb/headers/RADWeb.h" line="300" column="24"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADWeb_1_1RADWebBrowserWindow_1aa108a5624966fbb64b5e9d6492690876" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void RADWeb::RADWebBrowserWindow::applySettings</definition>
+        <argsstring>(const RADWebSettings &amp;settings)</argsstring>
+        <name>applySettings</name>
+        <param>
+          <type>const <ref refid="structRADWeb_1_1RADWebSettings" kindref="compound">RADWebSettings</ref> &amp;</type>
+          <declname>settings</declname>
+        </param>
+        <briefdescription>
+<para>Applies settings to the browser/profile. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADWeb/headers/RADWeb.h" line="302" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADWeb_1_1RADWebBrowserWindow_1a565cb0ea772195873453bda42a8a794d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void RADWeb::RADWebBrowserWindow::setDownloadsDirectory</definition>
+        <argsstring>(const std::string &amp;directory)</argsstring>
+        <name>setDownloadsDirectory</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>directory</declname>
+        </param>
+        <briefdescription>
+<para>Sets directory for future downloads. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADWeb/headers/RADWeb.h" line="305" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADWeb_1_1RADWebBrowserWindow_1abdc99456a21f48851ab257debd6a6d94" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>const std::string &amp;</type>
+        <definition>const std::string&amp; RADWeb::RADWebBrowserWindow::downloadsDirectory</definition>
+        <argsstring>() const</argsstring>
+        <name>downloadsDirectory</name>
+        <briefdescription>
+<para>Returns downloads directory. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADWeb/headers/RADWeb.h" line="307" column="27"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADWeb_1_1RADWebBrowserWindow_1a00720c5f419910daed2b85612713a92f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void RADWeb::RADWebBrowserWindow::setPermissionPolicy</definition>
+        <argsstring>(RADWebPermissionPolicy policy)</argsstring>
+        <name>setPermissionPolicy</name>
+        <param>
+          <type><ref refid="namespaceRADWeb_1aa35d6276aa02e80bf2c0541f5a5fa56f" kindref="member">RADWebPermissionPolicy</ref></type>
+          <declname>policy</declname>
+        </param>
+        <briefdescription>
+<para>Sets default permission request policy. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADWeb/headers/RADWeb.h" line="310" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADWeb_1_1RADWebBrowserWindow_1a300add18bf4c5967e581e4a1b7af1c4e" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="namespaceRADWeb_1aa35d6276aa02e80bf2c0541f5a5fa56f" kindref="member">RADWebPermissionPolicy</ref></type>
+        <definition>RADWebPermissionPolicy RADWeb::RADWebBrowserWindow::permissionPolicy</definition>
+        <argsstring>() const</argsstring>
+        <name>permissionPolicy</name>
+        <briefdescription>
+<para>Returns default permission request policy. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADWeb/headers/RADWeb.h" line="312" column="32"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADWeb_1_1RADWebBrowserWindow_1ad4e356ee4ab2dd4e5b58721920ea6eca" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void RADWeb::RADWebBrowserWindow::rememberPermissionDecision</definition>
+        <argsstring>(const std::string &amp;origin, const std::string &amp;permission, bool allowed)</argsstring>
+        <name>rememberPermissionDecision</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>origin</declname>
+        </param>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>permission</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>allowed</declname>
+        </param>
+        <briefdescription>
+<para>Remembers an origin-specific permission decision. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADWeb/headers/RADWeb.h" line="314" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADWeb_1_1RADWebBrowserWindow_1a96e20a9dc8537edb55913b5304a7f638" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void RADWeb::RADWebBrowserWindow::clearPermissionDecisions</definition>
+        <argsstring>()</argsstring>
+        <name>clearPermissionDecisions</name>
+        <briefdescription>
+<para>Clears remembered permission decisions. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADWeb/headers/RADWeb.h" line="316" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADWeb_1_1RADWebBrowserWindow_1ad64449703ef9a09542402d4aef5ee75d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void RADWeb::RADWebBrowserWindow::setCookiePolicy</definition>
+        <argsstring>(RADWebCookiePolicy policy)</argsstring>
+        <name>setCookiePolicy</name>
+        <param>
+          <type><ref refid="namespaceRADWeb_1a25946d5a2d8082ac73c1923150fe4697" kindref="member">RADWebCookiePolicy</ref></type>
+          <declname>policy</declname>
+        </param>
+        <briefdescription>
+<para>Sets WebKit cookie policy. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADWeb/headers/RADWeb.h" line="319" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADWeb_1_1RADWebBrowserWindow_1a413b5b6eb661d5ed253803890f0f419d" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="namespaceRADWeb_1a25946d5a2d8082ac73c1923150fe4697" kindref="member">RADWebCookiePolicy</ref></type>
+        <definition>RADWebCookiePolicy RADWeb::RADWebBrowserWindow::cookiePolicy</definition>
+        <argsstring>() const</argsstring>
+        <name>cookiePolicy</name>
+        <briefdescription>
+<para>Returns WebKit cookie policy. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADWeb/headers/RADWeb.h" line="321" column="28"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADWeb_1_1RADWebBrowserWindow_1a9bbc943eda5c49be6ad2988c971c6a47" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void RADWeb::RADWebBrowserWindow::clearCookies</definition>
+        <argsstring>()</argsstring>
+        <name>clearCookies</name>
+        <briefdescription>
+<para>Deletes cookies for the active profile. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADWeb/headers/RADWeb.h" line="323" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADWeb_1_1RADWebBrowserWindow_1aa83c8f319332be47e9986387d00ff385" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void RADWeb::RADWebBrowserWindow::clearCache</definition>
+        <argsstring>()</argsstring>
+        <name>clearCache</name>
+        <briefdescription>
+<para>Clears WebKit cache data. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADWeb/headers/RADWeb.h" line="325" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADWeb_1_1RADWebBrowserWindow_1ac00f91bc843097983de316b8aab9f926" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void RADWeb::RADWebBrowserWindow::setSessionRestoreEnabled</definition>
+        <argsstring>(bool enabled)</argsstring>
+        <name>setSessionRestoreEnabled</name>
+        <param>
+          <type>bool</type>
+          <declname>enabled</declname>
+        </param>
+        <briefdescription>
+<para>Enables or disables session restore. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADWeb/headers/RADWeb.h" line="328" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADWeb_1_1RADWebBrowserWindow_1a379b828c560f37e47c54cb69912e84f2" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool RADWeb::RADWebBrowserWindow::sessionRestoreEnabled</definition>
+        <argsstring>() const</argsstring>
+        <name>sessionRestoreEnabled</name>
+        <briefdescription>
+<para>Returns true when session restore is enabled. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADWeb/headers/RADWeb.h" line="330" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADWeb_1_1RADWebBrowserWindow_1a38b655a2f3a9d82fe564ed2302b80331" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool RADWeb::RADWebBrowserWindow::saveSession</definition>
+        <argsstring>()</argsstring>
+        <name>saveSession</name>
+        <briefdescription>
+<para>Saves current window tabs/session state. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADWeb/headers/RADWeb.h" line="332" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADWeb_1_1RADWebBrowserWindow_1ac4b7e85f1e9d0b62dc9943a0c6b600bb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool RADWeb::RADWebBrowserWindow::restoreSession</definition>
+        <argsstring>()</argsstring>
+        <name>restoreSession</name>
+        <briefdescription>
+<para>Restores previously saved session state. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADWeb/headers/RADWeb.h" line="334" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADWeb_1_1RADWebBrowserWindow_1ae6141715a5492fbc9b8d002d34368306" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>std::vector&lt; <ref refid="structRADWeb_1_1RADWebHistoryItem" kindref="compound">RADWebHistoryItem</ref> &gt;</type>
+        <definition>std::vector&lt;RADWebHistoryItem&gt; RADWeb::RADWebBrowserWindow::history</definition>
+        <argsstring>(size_t limit=100) const</argsstring>
+        <name>history</name>
+        <param>
+          <type>size_t</type>
+          <declname>limit</declname>
+          <defval>100</defval>
+        </param>
+        <briefdescription>
+<para>Returns most recent history items up to limit. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADWeb/headers/RADWeb.h" line="337" column="21"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADWeb_1_1RADWebBrowserWindow_1a4a516fa07553009822aaacac83cd706c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void RADWeb::RADWebBrowserWindow::clearHistory</definition>
+        <argsstring>()</argsstring>
+        <name>clearHistory</name>
+        <briefdescription>
+<para>Deletes all stored history. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADWeb/headers/RADWeb.h" line="339" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADWeb_1_1RADWebBrowserWindow_1ab5bcefa2335c83917f5ac6800390de81" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool RADWeb::RADWebBrowserWindow::addBookmark</definition>
+        <argsstring>(const std::string &amp;url, const std::string &amp;title={})</argsstring>
+        <name>addBookmark</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>url</declname>
+        </param>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>title</declname>
+          <defval>{}</defval>
+        </param>
+        <briefdescription>
+<para>Adds a bookmark for url and optional title. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADWeb/headers/RADWeb.h" line="341" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADWeb_1_1RADWebBrowserWindow_1a8279c7542af2c59450e297db1c7b55cb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool RADWeb::RADWebBrowserWindow::removeBookmark</definition>
+        <argsstring>(int64_t id)</argsstring>
+        <name>removeBookmark</name>
+        <param>
+          <type>int64_t</type>
+          <declname>id</declname>
+        </param>
+        <briefdescription>
+<para>Removes a bookmark by id. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADWeb/headers/RADWeb.h" line="343" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADWeb_1_1RADWebBrowserWindow_1af915c6651bf0edaf5220307e06fc2e36" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>std::vector&lt; <ref refid="structRADWeb_1_1RADWebBookmark" kindref="compound">RADWebBookmark</ref> &gt;</type>
+        <definition>std::vector&lt;RADWebBookmark&gt; RADWeb::RADWebBrowserWindow::bookmarks</definition>
+        <argsstring>() const</argsstring>
+        <name>bookmarks</name>
+        <briefdescription>
+<para>Returns all bookmarks. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADWeb/headers/RADWeb.h" line="345" column="21"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADWeb_1_1RADWebBrowserWindow_1a724b57e997bb717bc5a98b43055de950" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>std::vector&lt; <ref refid="structRADWeb_1_1RADWebDownloadInfo" kindref="compound">RADWebDownloadInfo</ref> &gt;</type>
+        <definition>std::vector&lt;RADWebDownloadInfo&gt; RADWeb::RADWebBrowserWindow::downloads</definition>
+        <argsstring>(size_t limit=100) const</argsstring>
+        <name>downloads</name>
+        <param>
+          <type>size_t</type>
+          <declname>limit</declname>
+          <defval>100</defval>
+        </param>
+        <briefdescription>
+<para>Returns recent downloads up to limit. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADWeb/headers/RADWeb.h" line="347" column="21"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADWeb_1_1RADWebBrowserWindow_1a404b1ecaea362f5a371fcc7a7fd7e4b8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool RADWeb::RADWebBrowserWindow::cancelDownload</definition>
+        <argsstring>(int id)</argsstring>
+        <name>cancelDownload</name>
+        <param>
+          <type>int</type>
+          <declname>id</declname>
+        </param>
+        <briefdescription>
+<para>Cancels an active download by id. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADWeb/headers/RADWeb.h" line="349" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADWeb_1_1RADWebBrowserWindow_1aa5fde60c923cd5e8301dad009b623028" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool RADWeb::RADWebBrowserWindow::openDownload</definition>
+        <argsstring>(int id)</argsstring>
+        <name>openDownload</name>
+        <param>
+          <type>int</type>
+          <declname>id</declname>
+        </param>
+        <briefdescription>
+<para>Opens a downloaded file by id. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADWeb/headers/RADWeb.h" line="351" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADWeb_1_1RADWebBrowserWindow_1ab621d311f91381be13eaf9980bd69a34" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool RADWeb::RADWebBrowserWindow::openDownloadsDirectory</definition>
+        <argsstring>()</argsstring>
+        <name>openDownloadsDirectory</name>
+        <briefdescription>
+<para>Opens the downloads directory in the system file manager. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADWeb/headers/RADWeb.h" line="353" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADWeb_1_1RADWebBrowserWindow_1a95332427481a1767545316cfef1399aa" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void RADWeb::RADWebBrowserWindow::clearCompletedDownloads</definition>
+        <argsstring>()</argsstring>
+        <name>clearCompletedDownloads</name>
+        <briefdescription>
+<para>Removes completed downloads from the visible/download history list. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADWeb/headers/RADWeb.h" line="355" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADWeb_1_1RADWebBrowserWindow_1a3d39e04e2bed921b143e43278803887e" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>std::string</type>
+        <definition>std::string RADWeb::RADWebBrowserWindow::uri</definition>
+        <argsstring>() const</argsstring>
+        <name>uri</name>
+        <briefdescription>
+<para>Returns current active tab URI. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADWeb/headers/RADWeb.h" line="358" column="21"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADWeb_1_1RADWebBrowserWindow_1a088c1636605aabfddbe5907634152468" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>std::string</type>
+        <definition>std::string RADWeb::RADWebBrowserWindow::title</definition>
+        <argsstring>() const</argsstring>
+        <name>title</name>
+        <briefdescription>
+<para>Returns current active tab title. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADWeb/headers/RADWeb.h" line="360" column="21"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADWeb_1_1RADWebBrowserWindow_1aea59c465ac4582347c3f66fdd2a9cb37" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>void *</type>
+        <definition>void* RADWeb::RADWebBrowserWindow::nativeWindow</definition>
+        <argsstring>() const</argsstring>
+        <name>nativeWindow</name>
+        <briefdescription>
+<para>Returns the native GTK window pointer for advanced integration. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADWeb/headers/RADWeb.h" line="363" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADWeb_1_1RADWebBrowserWindow_1a2e8ec25018447829c6d8a7f072565f8f" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>void *</type>
+        <definition>void* RADWeb::RADWebBrowserWindow::nativeWebView</definition>
+        <argsstring>() const</argsstring>
+        <name>nativeWebView</name>
+        <briefdescription>
+<para>Returns the native WebKit web view pointer for advanced integration. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADWeb/headers/RADWeb.h" line="365" column="14"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>WebKitGTK-backed browser window with tabs, history, downloads, and settings. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>RADCore::RADObject</label>
+        <link refid="classRADCore_1_1RADObject"/>
+      </node>
+      <node id="1">
+        <label>RADWeb::RADWebBrowserWindow</label>
+        <link refid="classRADWeb_1_1RADWebBrowserWindow"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>RADCore::RADObject</label>
+        <link refid="classRADCore_1_1RADObject"/>
+      </node>
+      <node id="4">
+        <label>RADCore::Event&lt; void(int, std::string) &gt;</label>
+        <link refid="classRADCore_1_1Event"/>
+      </node>
+      <node id="1">
+        <label>RADWeb::RADWebBrowserWindow</label>
+        <link refid="classRADWeb_1_1RADWebBrowserWindow"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="3" relation="usage">
+          <edgelabel>activeTabChanged</edgelabel>
+          <edgelabel>tabAdded</edgelabel>
+          <edgelabel>tabClosed</edgelabel>
+        </childnode>
+        <childnode refid="4" relation="usage">
+          <edgelabel>downloadFailed</edgelabel>
+        </childnode>
+        <childnode refid="5" relation="usage">
+          <edgelabel>downloadFinished</edgelabel>
+          <edgelabel>downloadStarted</edgelabel>
+          <edgelabel>downloadUpdated</edgelabel>
+        </childnode>
+        <childnode refid="6" relation="usage">
+          <edgelabel>bookmarksChanged</edgelabel>
+          <edgelabel>closed</edgelabel>
+          <edgelabel>historyChanged</edgelabel>
+        </childnode>
+        <childnode refid="7" relation="usage">
+          <edgelabel>loadFailed</edgelabel>
+          <edgelabel>permissionRequested</edgelabel>
+        </childnode>
+        <childnode refid="8" relation="usage">
+          <edgelabel>errorOccurred</edgelabel>
+          <edgelabel>javaScriptFailed</edgelabel>
+          <edgelabel>javaScriptFinished</edgelabel>
+          <edgelabel>loadFinished</edgelabel>
+          <edgelabel>loadStarted</edgelabel>
+          <edgelabel>titleChanged</edgelabel>
+          <edgelabel>uriChanged</edgelabel>
+        </childnode>
+      </node>
+      <node id="8">
+        <label>RADCore::Event&lt; void(std::string) &gt;</label>
+        <link refid="classRADCore_1_1Event"/>
+      </node>
+      <node id="6">
+        <label>RADCore::Event&lt; void() &gt;</label>
+        <link refid="classRADCore_1_1Event"/>
+      </node>
+      <node id="7">
+        <label>RADCore::Event&lt; void(std::string, std::string) &gt;</label>
+        <link refid="classRADCore_1_1Event"/>
+      </node>
+      <node id="5">
+        <label>RADCore::Event&lt; void(RADWeb::RADWebDownloadInfo) &gt;</label>
+        <link refid="classRADCore_1_1Event"/>
+      </node>
+      <node id="3">
+        <label>RADCore::Event&lt; void(int) &gt;</label>
+        <link refid="classRADCore_1_1Event"/>
+      </node>
+    </collaborationgraph>
+    <location file="RADWeb/headers/RADWeb.h" line="140" column="5" bodyfile="RADWeb/headers/RADWeb.h" bodystart="140" bodyend="370"/>
+    <listofallmembers>
+      <member refid="classRADWeb_1_1RADWebBrowserWindow_1aa4b9c162b009097f8ad83bdbfe6828f8" prot="public" virt="non-virtual"><scope>RADWeb::RADWebBrowserWindow</scope><name>activeTab</name></member>
+      <member refid="classRADWeb_1_1RADWebBrowserWindow_1ae6584891bff644e3605d4d18ad2ee12a" prot="public" virt="non-virtual"><scope>RADWeb::RADWebBrowserWindow</scope><name>activeTabChanged</name></member>
+      <member refid="classRADWeb_1_1RADWebBrowserWindow_1ae3f5034cb7d894cae6cdcc5dbcf941ff" prot="public" virt="non-virtual"><scope>RADWeb::RADWebBrowserWindow</scope><name>activeTabIndex</name></member>
+      <member refid="classRADWeb_1_1RADWebBrowserWindow_1ab5bcefa2335c83917f5ac6800390de81" prot="public" virt="non-virtual"><scope>RADWeb::RADWebBrowserWindow</scope><name>addBookmark</name></member>
+      <member refid="classRADWeb_1_1RADWebBrowserWindow_1aa108a5624966fbb64b5e9d6492690876" prot="public" virt="non-virtual"><scope>RADWeb::RADWebBrowserWindow</scope><name>applySettings</name></member>
+      <member refid="classRADCore_1_1RADObject_1a06cdf252ffb5e2f88332ebda12a62080" prot="public" virt="non-virtual"><scope>RADWeb::RADWebBrowserWindow</scope><name>associatedEventLoop</name></member>
+      <member refid="classRADWeb_1_1RADWebBrowserWindow_1af915c6651bf0edaf5220307e06fc2e36" prot="public" virt="non-virtual"><scope>RADWeb::RADWebBrowserWindow</scope><name>bookmarks</name></member>
+      <member refid="classRADWeb_1_1RADWebBrowserWindow_1a5ea55e2ba3e2c6921ca28ac599bf49a9" prot="public" virt="non-virtual"><scope>RADWeb::RADWebBrowserWindow</scope><name>bookmarksChanged</name></member>
+      <member refid="classRADWeb_1_1RADWebBrowserWindow_1a404b1ecaea362f5a371fcc7a7fd7e4b8" prot="public" virt="non-virtual"><scope>RADWeb::RADWebBrowserWindow</scope><name>cancelDownload</name></member>
+      <member refid="classRADWeb_1_1RADWebBrowserWindow_1ac4db6c95b3d3bfbd7197a0f52dad5e82" prot="public" virt="non-virtual"><scope>RADWeb::RADWebBrowserWindow</scope><name>canGoBack</name></member>
+      <member refid="classRADWeb_1_1RADWebBrowserWindow_1a257e07ebb8babd90f2d347a6692ea80f" prot="public" virt="non-virtual"><scope>RADWeb::RADWebBrowserWindow</scope><name>canGoForward</name></member>
+      <member refid="classRADWeb_1_1RADWebBrowserWindow_1aa83c8f319332be47e9986387d00ff385" prot="public" virt="non-virtual"><scope>RADWeb::RADWebBrowserWindow</scope><name>clearCache</name></member>
+      <member refid="classRADWeb_1_1RADWebBrowserWindow_1a95332427481a1767545316cfef1399aa" prot="public" virt="non-virtual"><scope>RADWeb::RADWebBrowserWindow</scope><name>clearCompletedDownloads</name></member>
+      <member refid="classRADWeb_1_1RADWebBrowserWindow_1a9bbc943eda5c49be6ad2988c971c6a47" prot="public" virt="non-virtual"><scope>RADWeb::RADWebBrowserWindow</scope><name>clearCookies</name></member>
+      <member refid="classRADWeb_1_1RADWebBrowserWindow_1a4a516fa07553009822aaacac83cd706c" prot="public" virt="non-virtual"><scope>RADWeb::RADWebBrowserWindow</scope><name>clearHistory</name></member>
+      <member refid="classRADWeb_1_1RADWebBrowserWindow_1a96e20a9dc8537edb55913b5304a7f638" prot="public" virt="non-virtual"><scope>RADWeb::RADWebBrowserWindow</scope><name>clearPermissionDecisions</name></member>
+      <member refid="classRADWeb_1_1RADWebBrowserWindow_1a0130187726bbff4d1c7ca8b442e681e0" prot="public" virt="non-virtual"><scope>RADWeb::RADWebBrowserWindow</scope><name>clearSearch</name></member>
+      <member refid="classRADWeb_1_1RADWebBrowserWindow_1a7e3dfe3bd6604c141ce4d945a7d4b073" prot="public" virt="non-virtual"><scope>RADWeb::RADWebBrowserWindow</scope><name>close</name></member>
+      <member refid="classRADWeb_1_1RADWebBrowserWindow_1aec17b8a3ec5f5c35acf69aaeb0431a5e" prot="public" virt="non-virtual"><scope>RADWeb::RADWebBrowserWindow</scope><name>closed</name></member>
+      <member refid="classRADWeb_1_1RADWebBrowserWindow_1a8243063a74c2e8b277d18cc2c6c0a835" prot="public" virt="non-virtual"><scope>RADWeb::RADWebBrowserWindow</scope><name>closeTab</name></member>
+      <member refid="classRADWeb_1_1RADWebBrowserWindow_1a413b5b6eb661d5ed253803890f0f419d" prot="public" virt="non-virtual"><scope>RADWeb::RADWebBrowserWindow</scope><name>cookiePolicy</name></member>
+      <member refid="classRADWeb_1_1RADWebBrowserWindow_1a625a40f719eca7a53ee5c079186dede1" prot="public" virt="non-virtual"><scope>RADWeb::RADWebBrowserWindow</scope><name>create</name></member>
+      <member refid="classRADWeb_1_1RADWebBrowserWindow_1ad3df018d9112085bc555f7c7f469fa7a" prot="public" virt="non-virtual"><scope>RADWeb::RADWebBrowserWindow</scope><name>create</name></member>
+      <member refid="classRADWeb_1_1RADWebBrowserWindow_1aee5d9660c452a99d3dffb0710f3d1a2c" prot="public" virt="non-virtual"><scope>RADWeb::RADWebBrowserWindow</scope><name>downloadFailed</name></member>
+      <member refid="classRADWeb_1_1RADWebBrowserWindow_1a2edc554b43aa1c2e0e5e7ab1abd2ffcf" prot="public" virt="non-virtual"><scope>RADWeb::RADWebBrowserWindow</scope><name>downloadFinished</name></member>
+      <member refid="classRADWeb_1_1RADWebBrowserWindow_1a724b57e997bb717bc5a98b43055de950" prot="public" virt="non-virtual"><scope>RADWeb::RADWebBrowserWindow</scope><name>downloads</name></member>
+      <member refid="classRADWeb_1_1RADWebBrowserWindow_1abdc99456a21f48851ab257debd6a6d94" prot="public" virt="non-virtual"><scope>RADWeb::RADWebBrowserWindow</scope><name>downloadsDirectory</name></member>
+      <member refid="classRADWeb_1_1RADWebBrowserWindow_1a4bc9062ef5b78e33b2b8c0becd84c60b" prot="public" virt="non-virtual"><scope>RADWeb::RADWebBrowserWindow</scope><name>downloadStarted</name></member>
+      <member refid="classRADWeb_1_1RADWebBrowserWindow_1a7cb99d56c7360b4ae598dbf9a80f4938" prot="public" virt="non-virtual"><scope>RADWeb::RADWebBrowserWindow</scope><name>downloadUpdated</name></member>
+      <member refid="classRADWeb_1_1RADWebBrowserWindow_1af8feb050af4a33e17c8d85b8a45d985a" prot="public" virt="non-virtual"><scope>RADWeb::RADWebBrowserWindow</scope><name>duplicateTab</name></member>
+      <member refid="classRADWeb_1_1RADWebBrowserWindow_1a7b0ed06869d2e6b686551e093c4381ad" prot="public" virt="non-virtual"><scope>RADWeb::RADWebBrowserWindow</scope><name>ephemeralProfile</name></member>
+      <member refid="classRADWeb_1_1RADWebBrowserWindow_1a231e7e33ac32c26a2fda40f677592855" prot="public" virt="non-virtual"><scope>RADWeb::RADWebBrowserWindow</scope><name>errorOccurred</name></member>
+      <member refid="classRADWeb_1_1RADWebBrowserWindow_1af43ef42549dcf736df74fb8eff5ade6e" prot="public" virt="non-virtual"><scope>RADWeb::RADWebBrowserWindow</scope><name>evaluateJavaScript</name></member>
+      <member refid="classRADWeb_1_1RADWebBrowserWindow_1aa0ccf38fef9c0b634cae132513987a5d" prot="public" virt="non-virtual"><scope>RADWeb::RADWebBrowserWindow</scope><name>focusFindEntry</name></member>
+      <member refid="classRADWeb_1_1RADWebBrowserWindow_1a5ff9f85a79763cd07c4625c1078e06cd" prot="public" virt="non-virtual"><scope>RADWeb::RADWebBrowserWindow</scope><name>focusUrlEntry</name></member>
+      <member refid="classRADWeb_1_1RADWebBrowserWindow_1a04251808f420d8ed70b11b7f7dfc6574" prot="public" virt="non-virtual"><scope>RADWeb::RADWebBrowserWindow</scope><name>goBack</name></member>
+      <member refid="classRADWeb_1_1RADWebBrowserWindow_1a54bf41e9843a3beefe9123ce51755deb" prot="public" virt="non-virtual"><scope>RADWeb::RADWebBrowserWindow</scope><name>goForward</name></member>
+      <member refid="classRADWeb_1_1RADWebBrowserWindow_1ae6141715a5492fbc9b8d002d34368306" prot="public" virt="non-virtual"><scope>RADWeb::RADWebBrowserWindow</scope><name>history</name></member>
+      <member refid="classRADWeb_1_1RADWebBrowserWindow_1aa124f1b2f0f3433fcd2cf93da427e71f" prot="public" virt="non-virtual"><scope>RADWeb::RADWebBrowserWindow</scope><name>historyChanged</name></member>
+      <member refid="classRADWeb_1_1RADWebBrowserWindow_1aeead2c4b020d799a0d648cb14d302ce4" prot="public" virt="non-virtual"><scope>RADWeb::RADWebBrowserWindow</scope><name>isCreated</name></member>
+      <member refid="classRADWeb_1_1RADWebBrowserWindow_1a7f43926355bb227eb9c2ed5ea8f61770" prot="public" virt="non-virtual"><scope>RADWeb::RADWebBrowserWindow</scope><name>javaScriptFailed</name></member>
+      <member refid="classRADWeb_1_1RADWebBrowserWindow_1a8fdc961203b6019e56d2fdb8d39aa7c7" prot="public" virt="non-virtual"><scope>RADWeb::RADWebBrowserWindow</scope><name>javaScriptFinished</name></member>
+      <member refid="classRADCore_1_1RADObject_1ad2ddfd066d14be9adc2f96bfca417fc6" prot="public" virt="non-virtual"><scope>RADWeb::RADWebBrowserWindow</scope><name>lifetimeToken</name></member>
+      <member refid="classRADWeb_1_1RADWebBrowserWindow_1aff67c30cdd9cfd9ea14bee2684d2d805" prot="public" virt="non-virtual"><scope>RADWeb::RADWebBrowserWindow</scope><name>loadFailed</name></member>
+      <member refid="classRADWeb_1_1RADWebBrowserWindow_1a9c01084984c3d3e1a1e02849eb6f7fbd" prot="public" virt="non-virtual"><scope>RADWeb::RADWebBrowserWindow</scope><name>loadFinished</name></member>
+      <member refid="classRADWeb_1_1RADWebBrowserWindow_1ab372799b65369ce122ad6ee0c3fc9cbd" prot="public" virt="non-virtual"><scope>RADWeb::RADWebBrowserWindow</scope><name>loadHtml</name></member>
+      <member refid="classRADWeb_1_1RADWebBrowserWindow_1a5bfd001da32eb44f18ba41e5b0a144ae" prot="public" virt="non-virtual"><scope>RADWeb::RADWebBrowserWindow</scope><name>loadStarted</name></member>
+      <member refid="classRADWeb_1_1RADWebBrowserWindow_1aedfaa9f308ad12f6c5ab28be5bd4cad9" prot="public" virt="non-virtual"><scope>RADWeb::RADWebBrowserWindow</scope><name>loadUrl</name></member>
+      <member refid="classRADWeb_1_1RADWebBrowserWindow_1ae0af7cf22750adb74efb566ea4dd56b2" prot="public" virt="non-virtual"><scope>RADWeb::RADWebBrowserWindow</scope><name>loadUrl</name></member>
+      <member refid="classRADWeb_1_1RADWebBrowserWindow_1aff89e1a350c89263caeeeee43151b685" prot="public" virt="non-virtual"><scope>RADWeb::RADWebBrowserWindow</scope><name>moveTab</name></member>
+      <member refid="classRADCore_1_1RADObject_1a1f7f7f2fb40211e28455cd74a029339a" prot="public" virt="non-virtual"><scope>RADWeb::RADWebBrowserWindow</scope><name>moveToThread</name></member>
+      <member refid="classRADWeb_1_1RADWebBrowserWindow_1a2e8ec25018447829c6d8a7f072565f8f" prot="public" virt="non-virtual"><scope>RADWeb::RADWebBrowserWindow</scope><name>nativeWebView</name></member>
+      <member refid="classRADWeb_1_1RADWebBrowserWindow_1aea59c465ac4582347c3f66fdd2a9cb37" prot="public" virt="non-virtual"><scope>RADWeb::RADWebBrowserWindow</scope><name>nativeWindow</name></member>
+      <member refid="classRADWeb_1_1RADWebBrowserWindow_1a23c0579e557ab94237db2bfce0221110" prot="public" virt="non-virtual"><scope>RADWeb::RADWebBrowserWindow</scope><name>navigationBarVisible</name></member>
+      <member refid="classRADWeb_1_1RADWebBrowserWindow_1af4142adbe91d2bf0c272f62f5b4fa7dc" prot="public" virt="non-virtual"><scope>RADWeb::RADWebBrowserWindow</scope><name>newTab</name></member>
+      <member refid="classRADWeb_1_1RADWebBrowserWindow_1aa5fde60c923cd5e8301dad009b623028" prot="public" virt="non-virtual"><scope>RADWeb::RADWebBrowserWindow</scope><name>openDownload</name></member>
+      <member refid="classRADWeb_1_1RADWebBrowserWindow_1ab621d311f91381be13eaf9980bd69a34" prot="public" virt="non-virtual"><scope>RADWeb::RADWebBrowserWindow</scope><name>openDownloadsDirectory</name></member>
+      <member refid="classRADWeb_1_1RADWebBrowserWindow_1a300add18bf4c5967e581e4a1b7af1c4e" prot="public" virt="non-virtual"><scope>RADWeb::RADWebBrowserWindow</scope><name>permissionPolicy</name></member>
+      <member refid="classRADWeb_1_1RADWebBrowserWindow_1adec66c43f3ed648f28098c54255b7a0e" prot="public" virt="non-virtual"><scope>RADWeb::RADWebBrowserWindow</scope><name>permissionRequested</name></member>
+      <member refid="classRADWeb_1_1RADWebBrowserWindow_1a25c750a3320e93252feb2818316d1fcb" prot="private" virt="non-virtual"><scope>RADWeb::RADWebBrowserWindow</scope><name>pImpl_</name></member>
+      <member refid="classRADWeb_1_1RADWebBrowserWindow_1a6a8e85e2746c443446cef68d756041a1" prot="public" virt="non-virtual"><scope>RADWeb::RADWebBrowserWindow</scope><name>profileDirectory</name></member>
+      <member refid="classRADWeb_1_1RADWebBrowserWindow_1aad2135df1c3fb1ba25de8ec49e802132" prot="public" virt="non-virtual"><scope>RADWeb::RADWebBrowserWindow</scope><name>quit</name></member>
+      <member refid="classRADCore_1_1RADObject_1a9bc3fed915f7c71232e68c2628d34708" prot="public" virt="non-virtual"><scope>RADWeb::RADWebBrowserWindow</scope><name>RADObject</name></member>
+      <member refid="classRADWeb_1_1RADWebBrowserWindow_1a02dc15d7fa937ff06bcc8cf447469573" prot="public" virt="non-virtual"><scope>RADWeb::RADWebBrowserWindow</scope><name>RADWebBrowserWindow</name></member>
+      <member refid="classRADCore_1_1RADObject_1af3e26b970c8080418f0d6b80cad986a2" prot="public" virt="non-virtual"><scope>RADWeb::RADWebBrowserWindow</scope><name>registerLink</name></member>
+      <member refid="classRADWeb_1_1RADWebBrowserWindow_1a571379fabb5c39d07f888bb268a6ecb0" prot="public" virt="non-virtual"><scope>RADWeb::RADWebBrowserWindow</scope><name>reload</name></member>
+      <member refid="classRADWeb_1_1RADWebBrowserWindow_1ad4e356ee4ab2dd4e5b58721920ea6eca" prot="public" virt="non-virtual"><scope>RADWeb::RADWebBrowserWindow</scope><name>rememberPermissionDecision</name></member>
+      <member refid="classRADWeb_1_1RADWebBrowserWindow_1a8279c7542af2c59450e297db1c7b55cb" prot="public" virt="non-virtual"><scope>RADWeb::RADWebBrowserWindow</scope><name>removeBookmark</name></member>
+      <member refid="classRADWeb_1_1RADWebBrowserWindow_1ac4b7e85f1e9d0b62dc9943a0c6b600bb" prot="public" virt="non-virtual"><scope>RADWeb::RADWebBrowserWindow</scope><name>restoreSession</name></member>
+      <member refid="classRADWeb_1_1RADWebBrowserWindow_1a6678acdc36d1c7bb973e62668854abc3" prot="public" virt="non-virtual"><scope>RADWeb::RADWebBrowserWindow</scope><name>run</name></member>
+      <member refid="classRADWeb_1_1RADWebBrowserWindow_1a38b655a2f3a9d82fe564ed2302b80331" prot="public" virt="non-virtual"><scope>RADWeb::RADWebBrowserWindow</scope><name>saveSession</name></member>
+      <member refid="classRADWeb_1_1RADWebBrowserWindow_1aebfa220fdd6505b8db5a270a1dddae9c" prot="public" virt="non-virtual"><scope>RADWeb::RADWebBrowserWindow</scope><name>searchNext</name></member>
+      <member refid="classRADWeb_1_1RADWebBrowserWindow_1ac7936547af74ea1bc14dfb026a2f41e7" prot="public" virt="non-virtual"><scope>RADWeb::RADWebBrowserWindow</scope><name>searchPrevious</name></member>
+      <member refid="classRADWeb_1_1RADWebBrowserWindow_1ae285a14cf7383d817187ad2fab3eac55" prot="public" virt="non-virtual"><scope>RADWeb::RADWebBrowserWindow</scope><name>searchText</name></member>
+      <member refid="classRADWeb_1_1RADWebBrowserWindow_1a379b828c560f37e47c54cb69912e84f2" prot="public" virt="non-virtual"><scope>RADWeb::RADWebBrowserWindow</scope><name>sessionRestoreEnabled</name></member>
+      <member refid="classRADWeb_1_1RADWebBrowserWindow_1a67979591f926dd921948aaf05f6dd6b2" prot="public" virt="non-virtual"><scope>RADWeb::RADWebBrowserWindow</scope><name>setActiveTab</name></member>
+      <member refid="classRADWeb_1_1RADWebBrowserWindow_1ad64449703ef9a09542402d4aef5ee75d" prot="public" virt="non-virtual"><scope>RADWeb::RADWebBrowserWindow</scope><name>setCookiePolicy</name></member>
+      <member refid="classRADWeb_1_1RADWebBrowserWindow_1a15bd82ff8f5b561cdeaad0a30a36a596" prot="public" virt="non-virtual"><scope>RADWeb::RADWebBrowserWindow</scope><name>setDeveloperExtrasEnabled</name></member>
+      <member refid="classRADWeb_1_1RADWebBrowserWindow_1a565cb0ea772195873453bda42a8a794d" prot="public" virt="non-virtual"><scope>RADWeb::RADWebBrowserWindow</scope><name>setDownloadsDirectory</name></member>
+      <member refid="classRADWeb_1_1RADWebBrowserWindow_1a73f7179d22a4f8f9132de1b76310ca0f" prot="public" virt="non-virtual"><scope>RADWeb::RADWebBrowserWindow</scope><name>setEphemeralProfile</name></member>
+      <member refid="classRADWeb_1_1RADWebBrowserWindow_1abcf731a7cb029227a5ff4018528e694b" prot="public" virt="non-virtual"><scope>RADWeb::RADWebBrowserWindow</scope><name>setHardwareAccelerationEnabled</name></member>
+      <member refid="classRADWeb_1_1RADWebBrowserWindow_1a8708931fe718bad0f21656d8d3cc763e" prot="public" virt="non-virtual"><scope>RADWeb::RADWebBrowserWindow</scope><name>setImagesEnabled</name></member>
+      <member refid="classRADWeb_1_1RADWebBrowserWindow_1a31be97f3bc5bb99c49341e39b3ae8150" prot="public" virt="non-virtual"><scope>RADWeb::RADWebBrowserWindow</scope><name>setJavaScriptEnabled</name></member>
+      <member refid="classRADWeb_1_1RADWebBrowserWindow_1a49e47f4c901f40d861d75a480f9f0c65" prot="public" virt="non-virtual"><scope>RADWeb::RADWebBrowserWindow</scope><name>setMediaPlaybackRequiresUserGesture</name></member>
+      <member refid="classRADWeb_1_1RADWebBrowserWindow_1a315857c13f275e876dcc44bcee474a75" prot="public" virt="non-virtual"><scope>RADWeb::RADWebBrowserWindow</scope><name>setNavigationBarVisible</name></member>
+      <member refid="classRADWeb_1_1RADWebBrowserWindow_1a00720c5f419910daed2b85612713a92f" prot="public" virt="non-virtual"><scope>RADWeb::RADWebBrowserWindow</scope><name>setPermissionPolicy</name></member>
+      <member refid="classRADWeb_1_1RADWebBrowserWindow_1a986540832c81d5079cb5c4f94a7583f0" prot="public" virt="non-virtual"><scope>RADWeb::RADWebBrowserWindow</scope><name>setProfileDirectory</name></member>
+      <member refid="classRADWeb_1_1RADWebBrowserWindow_1ac00f91bc843097983de316b8aab9f926" prot="public" virt="non-virtual"><scope>RADWeb::RADWebBrowserWindow</scope><name>setSessionRestoreEnabled</name></member>
+      <member refid="classRADWeb_1_1RADWebBrowserWindow_1ae489ee3b964b9ebd7f49e109ff963ce9" prot="public" virt="non-virtual"><scope>RADWeb::RADWebBrowserWindow</scope><name>settings</name></member>
+      <member refid="classRADWeb_1_1RADWebBrowserWindow_1a2d05fdc55fc4fd1e7651583860cd65a4" prot="public" virt="non-virtual"><scope>RADWeb::RADWebBrowserWindow</scope><name>setWebGlEnabled</name></member>
+      <member refid="classRADWeb_1_1RADWebBrowserWindow_1adcff0635816b0e4d2ff3736d759d1960" prot="public" virt="non-virtual"><scope>RADWeb::RADWebBrowserWindow</scope><name>setZoomLevel</name></member>
+      <member refid="classRADWeb_1_1RADWebBrowserWindow_1a92c07fc370edb180961ac4377b9273c9" prot="public" virt="non-virtual"><scope>RADWeb::RADWebBrowserWindow</scope><name>show</name></member>
+      <member refid="classRADWeb_1_1RADWebBrowserWindow_1a7e5371f92292d074d9d25cb8da787541" prot="public" virt="non-virtual"><scope>RADWeb::RADWebBrowserWindow</scope><name>showBookmarks</name></member>
+      <member refid="classRADWeb_1_1RADWebBrowserWindow_1af2f12808acdd69a16315ad65426d6de3" prot="public" virt="non-virtual"><scope>RADWeb::RADWebBrowserWindow</scope><name>showDevTools</name></member>
+      <member refid="classRADWeb_1_1RADWebBrowserWindow_1a99a0b3182e263c4010b7708ca9586dfd" prot="public" virt="non-virtual"><scope>RADWeb::RADWebBrowserWindow</scope><name>showDownloads</name></member>
+      <member refid="classRADWeb_1_1RADWebBrowserWindow_1a5b67a62b30758a4c368608e6b99008e4" prot="public" virt="non-virtual"><scope>RADWeb::RADWebBrowserWindow</scope><name>showHistory</name></member>
+      <member refid="classRADWeb_1_1RADWebBrowserWindow_1ad58844593448efe382f44134b42cec2b" prot="public" virt="non-virtual"><scope>RADWeb::RADWebBrowserWindow</scope><name>showSettings</name></member>
+      <member refid="classRADWeb_1_1RADWebBrowserWindow_1a5d6a79e8fb973b041104df70b8bc376e" prot="public" virt="non-virtual"><scope>RADWeb::RADWebBrowserWindow</scope><name>stop</name></member>
+      <member refid="classRADWeb_1_1RADWebBrowserWindow_1a2a70a1619cb78e3408328e73e497547f" prot="public" virt="non-virtual"><scope>RADWeb::RADWebBrowserWindow</scope><name>tabAdded</name></member>
+      <member refid="classRADWeb_1_1RADWebBrowserWindow_1a47d67e62d1c4a1372a4f0d6f87d99ca3" prot="public" virt="non-virtual"><scope>RADWeb::RADWebBrowserWindow</scope><name>tabClosed</name></member>
+      <member refid="classRADWeb_1_1RADWebBrowserWindow_1a86a0fe81de825e54e137def5675dff52" prot="public" virt="non-virtual"><scope>RADWeb::RADWebBrowserWindow</scope><name>tabCount</name></member>
+      <member refid="classRADWeb_1_1RADWebBrowserWindow_1a5e51540fdf38010262a2e1ce8a836617" prot="public" virt="non-virtual"><scope>RADWeb::RADWebBrowserWindow</scope><name>tabs</name></member>
+      <member refid="classRADCore_1_1RADObject_1a8b11df0b951d0db1ba99cfb851e34f31" prot="public" virt="non-virtual"><scope>RADWeb::RADWebBrowserWindow</scope><name>threadAffinity</name></member>
+      <member refid="classRADCore_1_1RADObject_1ac7ca67b41523794ae5a6b3634d6ce3b6" prot="public" virt="non-virtual"><scope>RADWeb::RADWebBrowserWindow</scope><name>threadId</name></member>
+      <member refid="classRADWeb_1_1RADWebBrowserWindow_1a088c1636605aabfddbe5907634152468" prot="public" virt="non-virtual"><scope>RADWeb::RADWebBrowserWindow</scope><name>title</name></member>
+      <member refid="classRADWeb_1_1RADWebBrowserWindow_1aeeb65843abce6c8a7eaf2b6e01586ce4" prot="public" virt="non-virtual"><scope>RADWeb::RADWebBrowserWindow</scope><name>titleChanged</name></member>
+      <member refid="classRADWeb_1_1RADWebBrowserWindow_1a3d39e04e2bed921b143e43278803887e" prot="public" virt="non-virtual"><scope>RADWeb::RADWebBrowserWindow</scope><name>uri</name></member>
+      <member refid="classRADWeb_1_1RADWebBrowserWindow_1aa10ff45cbea567adf66ac65939bff6b7" prot="public" virt="non-virtual"><scope>RADWeb::RADWebBrowserWindow</scope><name>uriChanged</name></member>
+      <member refid="classRADWeb_1_1RADWebBrowserWindow_1a1b6ebbb0b562014e74bb736698c5b5e3" prot="public" virt="non-virtual"><scope>RADWeb::RADWebBrowserWindow</scope><name>zoomLevel</name></member>
+      <member refid="classRADCore_1_1RADObject_1a7369e27a46c163ee89c63227db650ce5" prot="public" virt="virtual"><scope>RADWeb::RADWebBrowserWindow</scope><name>~RADObject</name></member>
+      <member refid="classRADWeb_1_1RADWebBrowserWindow_1a6c7e8e614a7d0d20917202d9aadd520c" prot="public" virt="non-virtual"><scope>RADWeb::RADWebBrowserWindow</scope><name>~RADWebBrowserWindow</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

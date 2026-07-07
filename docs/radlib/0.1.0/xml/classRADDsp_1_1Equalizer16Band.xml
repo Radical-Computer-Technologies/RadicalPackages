@@ -1,0 +1,256 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="classRADDsp_1_1Equalizer16Band" kind="class" language="C++" prot="public">
+    <compoundname>RADDsp::Equalizer16Band</compoundname>
+    <includes refid="RADDsp_8h" local="no">RADDsp.h</includes>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classRADDsp_1_1Equalizer16Band_1a06a001d4d9bbae664194a3fd15d643dd" prot="private" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t RADDsp::Equalizer16Band::sampleRate_</definition>
+        <argsstring></argsstring>
+        <name>sampleRate_</name>
+        <initializer>= 48000</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADDsp/headers/RADDsp.h" line="204" column="18" bodyfile="RADDsp/headers/RADDsp.h" bodystart="204" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classRADDsp_1_1Equalizer16Band_1aeec290363bc8a566eff6d09adc8ca0af" prot="private" static="no" mutable="no">
+        <type>std::array&lt; <ref refid="structRADDsp_1_1EqualizerBand" kindref="compound">EqualizerBand</ref>, 16 &gt;</type>
+        <definition>std::array&lt;EqualizerBand, 16&gt; RADDsp::Equalizer16Band::bands_</definition>
+        <argsstring></argsstring>
+        <name>bands_</name>
+        <initializer>{}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADDsp/headers/RADDsp.h" line="205" column="20" bodyfile="RADDsp/headers/RADDsp.h" bodystart="205" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classRADDsp_1_1Equalizer16Band_1a5886b291f3bbcab2242bfd97da6b4497" prot="private" static="no" mutable="no">
+        <type><ref refid="classRADDsp_1_1BiquadCascade" kindref="compound">BiquadCascade</ref></type>
+        <definition>BiquadCascade RADDsp::Equalizer16Band::cascade_</definition>
+        <argsstring></argsstring>
+        <name>cascade_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADDsp/headers/RADDsp.h" line="206" column="23" bodyfile="RADDsp/headers/RADDsp.h" bodystart="206" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classRADDsp_1_1Equalizer16Band_1a20200e844286ffdce7c58113abe34590" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>RADDsp::Equalizer16Band::Equalizer16Band</definition>
+        <argsstring>(uint32_t sampleRate=48000)</argsstring>
+        <name>Equalizer16Band</name>
+        <param>
+          <type>uint32_t</type>
+          <declname>sampleRate</declname>
+          <defval>48000</defval>
+        </param>
+        <briefdescription>
+<para>Creates an equalizer for sampleRate with default band centers. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADDsp/headers/RADDsp.h" line="183" column="18"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADDsp_1_1Equalizer16Band_1a961fbfc28c659c204cf4620286c2a344" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void RADDsp::Equalizer16Band::setSampleRate</definition>
+        <argsstring>(uint32_t sampleRate)</argsstring>
+        <name>setSampleRate</name>
+        <param>
+          <type>uint32_t</type>
+          <declname>sampleRate</declname>
+        </param>
+        <briefdescription>
+<para>Sets sample rate and rebuilds coefficients. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADDsp/headers/RADDsp.h" line="185" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADDsp_1_1Equalizer16Band_1ad57dec31a81c3d964f172abe047de5b8" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>uint32_t</type>
+        <definition>uint32_t RADDsp::Equalizer16Band::sampleRate</definition>
+        <argsstring>() const</argsstring>
+        <name>sampleRate</name>
+        <briefdescription>
+<para>Returns configured sample rate. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADDsp/headers/RADDsp.h" line="187" column="18"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADDsp_1_1Equalizer16Band_1ab40203f62538f2e758d3f144a4a45df1" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>const std::array&lt; <ref refid="structRADDsp_1_1EqualizerBand" kindref="compound">EqualizerBand</ref>, 16 &gt; &amp;</type>
+        <definition>const std::array&lt;EqualizerBand, 16&gt;&amp; RADDsp::Equalizer16Band::bands</definition>
+        <argsstring>() const</argsstring>
+        <name>bands</name>
+        <briefdescription>
+<para>Returns all band settings. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADDsp/headers/RADDsp.h" line="189" column="26"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADDsp_1_1Equalizer16Band_1a39681bf63d9b902dfe8ca0fcb96efb92" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool RADDsp::Equalizer16Band::setBand</definition>
+        <argsstring>(size_t index, float frequencyHz, float gainDb, float q=1.0f)</argsstring>
+        <name>setBand</name>
+        <param>
+          <type>size_t</type>
+          <declname>index</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>frequencyHz</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>gainDb</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>q</declname>
+          <defval>1.0f</defval>
+        </param>
+        <briefdescription>
+<para>Sets one band center, gain, and Q. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADDsp/headers/RADDsp.h" line="191" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADDsp_1_1Equalizer16Band_1a397bc6f0e20852c8f7595e31652c6644" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool RADDsp::Equalizer16Band::setBandGain</definition>
+        <argsstring>(size_t index, float gainDb)</argsstring>
+        <name>setBandGain</name>
+        <param>
+          <type>size_t</type>
+          <declname>index</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>gainDb</declname>
+        </param>
+        <briefdescription>
+<para>Sets one band gain while preserving center/Q. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADDsp/headers/RADDsp.h" line="193" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADDsp_1_1Equalizer16Band_1a0067698c6dce1cdd64a7756fb764d65f" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>float</type>
+        <definition>float RADDsp::Equalizer16Band::bandGain</definition>
+        <argsstring>(size_t index) const</argsstring>
+        <name>bandGain</name>
+        <param>
+          <type>size_t</type>
+          <declname>index</declname>
+        </param>
+        <briefdescription>
+<para>Returns one band gain or 0 for invalid index. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADDsp/headers/RADDsp.h" line="195" column="15"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADDsp_1_1Equalizer16Band_1a09e2c390c80db8f55355eaa9c67e3725" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void RADDsp::Equalizer16Band::reset</definition>
+        <argsstring>()</argsstring>
+        <name>reset</name>
+        <briefdescription>
+<para>Resets all filter states. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADDsp/headers/RADDsp.h" line="197" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADDsp_1_1Equalizer16Band_1af65afec918d7997b8b11a9fca3c3b8f9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::vector&lt; float &gt;</type>
+        <definition>std::vector&lt;float&gt; RADDsp::Equalizer16Band::process</definition>
+        <argsstring>(const std::vector&lt; float &gt; &amp;samples)</argsstring>
+        <name>process</name>
+        <param>
+          <type>const std::vector&lt; float &gt; &amp;</type>
+          <declname>samples</declname>
+        </param>
+        <briefdescription>
+<para>Processes a block through the equalizer. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADDsp/headers/RADDsp.h" line="199" column="21"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="classRADDsp_1_1Equalizer16Band_1ad27cd78a4f60a71bfb0fe0b505d614b3" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void RADDsp::Equalizer16Band::rebuild</definition>
+        <argsstring>()</argsstring>
+        <name>rebuild</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADDsp/headers/RADDsp.h" line="202" column="14"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>16-band peaking-EQ built from a biquad cascade. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="RADDsp/headers/RADDsp.h" line="180" column="5" bodyfile="RADDsp/headers/RADDsp.h" bodystart="180" bodyend="207"/>
+    <listofallmembers>
+      <member refid="classRADDsp_1_1Equalizer16Band_1a0067698c6dce1cdd64a7756fb764d65f" prot="public" virt="non-virtual"><scope>RADDsp::Equalizer16Band</scope><name>bandGain</name></member>
+      <member refid="classRADDsp_1_1Equalizer16Band_1ab40203f62538f2e758d3f144a4a45df1" prot="public" virt="non-virtual"><scope>RADDsp::Equalizer16Band</scope><name>bands</name></member>
+      <member refid="classRADDsp_1_1Equalizer16Band_1aeec290363bc8a566eff6d09adc8ca0af" prot="private" virt="non-virtual"><scope>RADDsp::Equalizer16Band</scope><name>bands_</name></member>
+      <member refid="classRADDsp_1_1Equalizer16Band_1a5886b291f3bbcab2242bfd97da6b4497" prot="private" virt="non-virtual"><scope>RADDsp::Equalizer16Band</scope><name>cascade_</name></member>
+      <member refid="classRADDsp_1_1Equalizer16Band_1a20200e844286ffdce7c58113abe34590" prot="public" virt="non-virtual"><scope>RADDsp::Equalizer16Band</scope><name>Equalizer16Band</name></member>
+      <member refid="classRADDsp_1_1Equalizer16Band_1af65afec918d7997b8b11a9fca3c3b8f9" prot="public" virt="non-virtual"><scope>RADDsp::Equalizer16Band</scope><name>process</name></member>
+      <member refid="classRADDsp_1_1Equalizer16Band_1ad27cd78a4f60a71bfb0fe0b505d614b3" prot="private" virt="non-virtual"><scope>RADDsp::Equalizer16Band</scope><name>rebuild</name></member>
+      <member refid="classRADDsp_1_1Equalizer16Band_1a09e2c390c80db8f55355eaa9c67e3725" prot="public" virt="non-virtual"><scope>RADDsp::Equalizer16Band</scope><name>reset</name></member>
+      <member refid="classRADDsp_1_1Equalizer16Band_1ad57dec31a81c3d964f172abe047de5b8" prot="public" virt="non-virtual"><scope>RADDsp::Equalizer16Band</scope><name>sampleRate</name></member>
+      <member refid="classRADDsp_1_1Equalizer16Band_1a06a001d4d9bbae664194a3fd15d643dd" prot="private" virt="non-virtual"><scope>RADDsp::Equalizer16Band</scope><name>sampleRate_</name></member>
+      <member refid="classRADDsp_1_1Equalizer16Band_1a39681bf63d9b902dfe8ca0fcb96efb92" prot="public" virt="non-virtual"><scope>RADDsp::Equalizer16Band</scope><name>setBand</name></member>
+      <member refid="classRADDsp_1_1Equalizer16Band_1a397bc6f0e20852c8f7595e31652c6644" prot="public" virt="non-virtual"><scope>RADDsp::Equalizer16Band</scope><name>setBandGain</name></member>
+      <member refid="classRADDsp_1_1Equalizer16Band_1a961fbfc28c659c204cf4620286c2a344" prot="public" virt="non-virtual"><scope>RADDsp::Equalizer16Band</scope><name>setSampleRate</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

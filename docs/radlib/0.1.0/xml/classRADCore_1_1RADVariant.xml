@@ -1,0 +1,322 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="classRADCore_1_1RADVariant" kind="class" language="C++" prot="public">
+    <compoundname>RADCore::RADVariant</compoundname>
+    <includes refid="RADCore_8h" local="no">RADCore.h</includes>
+      <sectiondef kind="private-type">
+      <memberdef kind="typedef" id="classRADCore_1_1RADVariant_1aba8d837c1678283b014e4c9fa70818be" prot="private" static="no">
+        <type>std::variant&lt; std::monostate, bool, int64_t, double, std::string, std::vector&lt; uint8_t &gt; &gt;</type>
+        <definition>using RADCore::RADVariant::Storage =  std::variant&lt;std::monostate, bool, int64_t, double, std::string, std::vector&lt;uint8_t&gt; &gt;</definition>
+        <argsstring></argsstring>
+        <name>Storage</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADCore/headers/RADCore.h" line="399" column="9" bodyfile="RADCore/headers/RADCore.h" bodystart="399" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classRADCore_1_1RADVariant_1a88a6825d6be8f194caba1757cebd28d4" prot="private" static="no" mutable="no">
+        <type>Storage</type>
+        <definition>Storage RADCore::RADVariant::data_</definition>
+        <argsstring></argsstring>
+        <name>data_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADCore/headers/RADCore.h" line="400" column="17" bodyfile="RADCore/headers/RADCore.h" bodystart="400" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classRADCore_1_1RADVariant_1a8ec21f4355238dd13ac69fa6d3e65dea" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>RADCore::RADVariant::RADVariant</definition>
+        <argsstring>()</argsstring>
+        <name>RADVariant</name>
+        <briefdescription>
+<para>Creates an invalid variant. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADCore/headers/RADCore.h" line="367" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADCore_1_1RADVariant_1aa038923581ad5a2b5be646d0ef592205" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>RADCore::RADVariant::RADVariant</definition>
+        <argsstring>(bool value)</argsstring>
+        <name>RADVariant</name>
+        <param>
+          <type>bool</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+<para>Stores a boolean. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADCore/headers/RADCore.h" line="369" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADCore_1_1RADVariant_1af45bacc3e5963c443479e769a03ea134" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>RADCore::RADVariant::RADVariant</definition>
+        <argsstring>(int value)</argsstring>
+        <name>RADVariant</name>
+        <param>
+          <type>int</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+<para>Stores an integer as Int64. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADCore/headers/RADCore.h" line="371" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADCore_1_1RADVariant_1a2679cd9f4cb2ebb5022ea515aeef059e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>RADCore::RADVariant::RADVariant</definition>
+        <argsstring>(int64_t value)</argsstring>
+        <name>RADVariant</name>
+        <param>
+          <type>int64_t</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+<para>Stores a signed 64-bit integer. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADCore/headers/RADCore.h" line="373" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADCore_1_1RADVariant_1abdbe63ebcfe78c79ec045adddf16ddf0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>RADCore::RADVariant::RADVariant</definition>
+        <argsstring>(double value)</argsstring>
+        <name>RADVariant</name>
+        <param>
+          <type>double</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+<para>Stores a double. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADCore/headers/RADCore.h" line="375" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADCore_1_1RADVariant_1aa60dd9d99751388988237df69ae63563" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>RADCore::RADVariant::RADVariant</definition>
+        <argsstring>(const char *value)</argsstring>
+        <name>RADVariant</name>
+        <param>
+          <type>const char *</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+<para>Stores a C string as std::string. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADCore/headers/RADCore.h" line="377" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADCore_1_1RADVariant_1ac15539f5e7e00d5fca1b2c95b1df73f4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>RADCore::RADVariant::RADVariant</definition>
+        <argsstring>(std::string value)</argsstring>
+        <name>RADVariant</name>
+        <param>
+          <type>std::string</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+<para>Stores a string. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADCore/headers/RADCore.h" line="379" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADCore_1_1RADVariant_1ad1f298ff23b7cd90b3d7edee87b9e317" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>RADCore::RADVariant::RADVariant</definition>
+        <argsstring>(std::vector&lt; uint8_t &gt; value)</argsstring>
+        <name>RADVariant</name>
+        <param>
+          <type>std::vector&lt; uint8_t &gt;</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+<para>Stores a byte array. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADCore/headers/RADCore.h" line="381" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADCore_1_1RADVariant_1a1a17c1c133942615c6145147889c08f0" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="namespaceRADCore_1a1486d034856955c9c34bccd15a5e2016" kindref="member">VariantType</ref></type>
+        <definition>VariantType RADCore::RADVariant::type</definition>
+        <argsstring>() const</argsstring>
+        <name>type</name>
+        <briefdescription>
+<para>Returns the current variant type. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADCore/headers/RADCore.h" line="384" column="21"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADCore_1_1RADVariant_1a387325c7a837b7969e46860b1b1af1f3" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool RADCore::RADVariant::isValid</definition>
+        <argsstring>() const</argsstring>
+        <name>isValid</name>
+        <briefdescription>
+<para>Returns true when the variant stores a non-invalid value. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADCore/headers/RADCore.h" line="386" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADCore_1_1RADVariant_1a4921bf4e8b54388798517e0c4abdaa59" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool RADCore::RADVariant::toBool</definition>
+        <argsstring>(bool defaultValue=false) const</argsstring>
+        <name>toBool</name>
+        <param>
+          <type>bool</type>
+          <declname>defaultValue</declname>
+          <defval>false</defval>
+        </param>
+        <briefdescription>
+<para>Converts to bool or returns defaultValue. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADCore/headers/RADCore.h" line="388" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADCore_1_1RADVariant_1a45989f3ca6f0ab2e82fa30dd6dccba4d" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>int64_t</type>
+        <definition>int64_t RADCore::RADVariant::toInt64</definition>
+        <argsstring>(int64_t defaultValue=0) const</argsstring>
+        <name>toInt64</name>
+        <param>
+          <type>int64_t</type>
+          <declname>defaultValue</declname>
+          <defval>0</defval>
+        </param>
+        <briefdescription>
+<para>Converts to int64 or returns defaultValue. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADCore/headers/RADCore.h" line="390" column="17"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADCore_1_1RADVariant_1a261dfa4da38ba3cb1fc6ea2e5b9a3854" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>double RADCore::RADVariant::toDouble</definition>
+        <argsstring>(double defaultValue=0.0) const</argsstring>
+        <name>toDouble</name>
+        <param>
+          <type>double</type>
+          <declname>defaultValue</declname>
+          <defval>0.0</defval>
+        </param>
+        <briefdescription>
+<para>Converts to double or returns defaultValue. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADCore/headers/RADCore.h" line="392" column="16"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADCore_1_1RADVariant_1ad112d3f408628a1e32781cae403c575c" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>std::string</type>
+        <definition>std::string RADCore::RADVariant::toString</definition>
+        <argsstring>(const std::string &amp;defaultValue={}) const</argsstring>
+        <name>toString</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>defaultValue</declname>
+          <defval>{}</defval>
+        </param>
+        <briefdescription>
+<para>Converts to string or returns defaultValue. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADCore/headers/RADCore.h" line="394" column="21"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADCore_1_1RADVariant_1ac206d6cec1afbe0a6c3648ad44107b1b" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>std::vector&lt; uint8_t &gt;</type>
+        <definition>std::vector&lt;uint8_t&gt; RADCore::RADVariant::toByteArray</definition>
+        <argsstring>() const</argsstring>
+        <name>toByteArray</name>
+        <briefdescription>
+<para>Converts to a byte array where supported. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADCore/headers/RADCore.h" line="396" column="21"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Small value container used by models, futures, settings, and database rows. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="RADCore/headers/RADCore.h" line="364" column="5" bodyfile="RADCore/headers/RADCore.h" bodystart="364" bodyend="401"/>
+    <listofallmembers>
+      <member refid="classRADCore_1_1RADVariant_1a88a6825d6be8f194caba1757cebd28d4" prot="private" virt="non-virtual"><scope>RADCore::RADVariant</scope><name>data_</name></member>
+      <member refid="classRADCore_1_1RADVariant_1a387325c7a837b7969e46860b1b1af1f3" prot="public" virt="non-virtual"><scope>RADCore::RADVariant</scope><name>isValid</name></member>
+      <member refid="classRADCore_1_1RADVariant_1a8ec21f4355238dd13ac69fa6d3e65dea" prot="public" virt="non-virtual"><scope>RADCore::RADVariant</scope><name>RADVariant</name></member>
+      <member refid="classRADCore_1_1RADVariant_1aa038923581ad5a2b5be646d0ef592205" prot="public" virt="non-virtual"><scope>RADCore::RADVariant</scope><name>RADVariant</name></member>
+      <member refid="classRADCore_1_1RADVariant_1af45bacc3e5963c443479e769a03ea134" prot="public" virt="non-virtual"><scope>RADCore::RADVariant</scope><name>RADVariant</name></member>
+      <member refid="classRADCore_1_1RADVariant_1a2679cd9f4cb2ebb5022ea515aeef059e" prot="public" virt="non-virtual"><scope>RADCore::RADVariant</scope><name>RADVariant</name></member>
+      <member refid="classRADCore_1_1RADVariant_1abdbe63ebcfe78c79ec045adddf16ddf0" prot="public" virt="non-virtual"><scope>RADCore::RADVariant</scope><name>RADVariant</name></member>
+      <member refid="classRADCore_1_1RADVariant_1aa60dd9d99751388988237df69ae63563" prot="public" virt="non-virtual"><scope>RADCore::RADVariant</scope><name>RADVariant</name></member>
+      <member refid="classRADCore_1_1RADVariant_1ac15539f5e7e00d5fca1b2c95b1df73f4" prot="public" virt="non-virtual"><scope>RADCore::RADVariant</scope><name>RADVariant</name></member>
+      <member refid="classRADCore_1_1RADVariant_1ad1f298ff23b7cd90b3d7edee87b9e317" prot="public" virt="non-virtual"><scope>RADCore::RADVariant</scope><name>RADVariant</name></member>
+      <member refid="classRADCore_1_1RADVariant_1aba8d837c1678283b014e4c9fa70818be" prot="private" virt="non-virtual"><scope>RADCore::RADVariant</scope><name>Storage</name></member>
+      <member refid="classRADCore_1_1RADVariant_1a4921bf4e8b54388798517e0c4abdaa59" prot="public" virt="non-virtual"><scope>RADCore::RADVariant</scope><name>toBool</name></member>
+      <member refid="classRADCore_1_1RADVariant_1ac206d6cec1afbe0a6c3648ad44107b1b" prot="public" virt="non-virtual"><scope>RADCore::RADVariant</scope><name>toByteArray</name></member>
+      <member refid="classRADCore_1_1RADVariant_1a261dfa4da38ba3cb1fc6ea2e5b9a3854" prot="public" virt="non-virtual"><scope>RADCore::RADVariant</scope><name>toDouble</name></member>
+      <member refid="classRADCore_1_1RADVariant_1a45989f3ca6f0ab2e82fa30dd6dccba4d" prot="public" virt="non-virtual"><scope>RADCore::RADVariant</scope><name>toInt64</name></member>
+      <member refid="classRADCore_1_1RADVariant_1ad112d3f408628a1e32781cae403c575c" prot="public" virt="non-virtual"><scope>RADCore::RADVariant</scope><name>toString</name></member>
+      <member refid="classRADCore_1_1RADVariant_1a1a17c1c133942615c6145147889c08f0" prot="public" virt="non-virtual"><scope>RADCore::RADVariant</scope><name>type</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

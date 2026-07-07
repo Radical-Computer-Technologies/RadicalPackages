@@ -1,0 +1,207 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="classRADCore_1_1RADAbstractItemModel" kind="class" language="C++" prot="public" abstract="yes">
+    <compoundname>RADCore::RADAbstractItemModel</compoundname>
+    <basecompoundref refid="classRADCore_1_1RADObject" prot="public" virt="non-virtual">RADCore::RADObject</basecompoundref>
+    <derivedcompoundref refid="classRADCore_1_1RADStringListModel" prot="public" virt="non-virtual">RADCore::RADStringListModel</derivedcompoundref>
+    <includes refid="RADCore_8h" local="no">RADCore.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="classRADCore_1_1RADAbstractItemModel_1ae33df9593d6f5e0fe60c83c017909654" prot="public" static="no" mutable="no">
+        <type><ref refid="classRADCore_1_1Event" kindref="compound">RADCore::Event</ref>&lt; void() &gt;</type>
+        <definition>RADCore::Event&lt;void () &gt; RADCore::RADAbstractItemModel::modelReset</definition>
+        <argsstring></argsstring>
+        <name>modelReset</name>
+        <briefdescription>
+<para>Raised when the model is reset. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADCore/headers/RADCore.h" line="1709" column="30" bodyfile="RADCore/headers/RADCore.h" bodystart="1709" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classRADCore_1_1RADAbstractItemModel_1acce0da00cf2d393044a85ab5e7d810f3" prot="public" static="no" mutable="no">
+        <type><ref refid="classRADCore_1_1Event" kindref="compound">RADCore::Event</ref>&lt; void(size_t, size_t) &gt;</type>
+        <definition>RADCore::Event&lt;void (size_t, size_t) &gt; RADCore::RADAbstractItemModel::dataChanged</definition>
+        <argsstring></argsstring>
+        <name>dataChanged</name>
+        <briefdescription>
+<para>Raised when data at row/column changes. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADCore/headers/RADCore.h" line="1711" column="30" bodyfile="RADCore/headers/RADCore.h" bodystart="1711" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classRADCore_1_1RADAbstractItemModel_1aa2ee6b0fce79ccf0f7f405f1e36b7d58" prot="public" static="no" mutable="no">
+        <type><ref refid="classRADCore_1_1Event" kindref="compound">RADCore::Event</ref>&lt; void(size_t, size_t) &gt;</type>
+        <definition>RADCore::Event&lt;void (size_t, size_t) &gt; RADCore::RADAbstractItemModel::rowsInserted</definition>
+        <argsstring></argsstring>
+        <name>rowsInserted</name>
+        <briefdescription>
+<para>Raised when rows are inserted. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADCore/headers/RADCore.h" line="1713" column="30" bodyfile="RADCore/headers/RADCore.h" bodystart="1713" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classRADCore_1_1RADAbstractItemModel_1ad69f261fba916402602d55d8c010cd88" prot="public" static="no" mutable="no">
+        <type><ref refid="classRADCore_1_1Event" kindref="compound">RADCore::Event</ref>&lt; void(size_t, size_t) &gt;</type>
+        <definition>RADCore::Event&lt;void (size_t, size_t) &gt; RADCore::RADAbstractItemModel::rowsRemoved</definition>
+        <argsstring></argsstring>
+        <name>rowsRemoved</name>
+        <briefdescription>
+<para>Raised when rows are removed. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADCore/headers/RADCore.h" line="1715" column="30" bodyfile="RADCore/headers/RADCore.h" bodystart="1715" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classRADCore_1_1RADAbstractItemModel_1a4be008c4cf2f16d68b05f9649abe8f36" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type></type>
+        <definition>virtual RADCore::RADAbstractItemModel::~RADAbstractItemModel</definition>
+        <argsstring>()=default</argsstring>
+        <name>~RADAbstractItemModel</name>
+        <briefdescription>
+<para>Destroys model implementations through the base class. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADCore/headers/RADCore.h" line="1718" column="17"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADCore_1_1RADAbstractItemModel_1ab04109de4f8648ec2a0babef52344f2f" prot="public" static="no" const="yes" explicit="no" inline="no" virt="pure-virtual">
+        <type>size_t</type>
+        <definition>virtual size_t RADCore::RADAbstractItemModel::rowCount</definition>
+        <argsstring>() const =0</argsstring>
+        <name>rowCount</name>
+        <reimplementedby refid="classRADCore_1_1RADStringListModel_1a4e0e321eb16e704540e66efcb2400964">rowCount</reimplementedby>
+        <briefdescription>
+<para>Returns row count. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADCore/headers/RADCore.h" line="1720" column="24"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADCore_1_1RADAbstractItemModel_1aa58f49eb85e94baa07b1e2764302d66c" prot="public" static="no" const="yes" explicit="no" inline="no" virt="pure-virtual">
+        <type>size_t</type>
+        <definition>virtual size_t RADCore::RADAbstractItemModel::columnCount</definition>
+        <argsstring>() const =0</argsstring>
+        <name>columnCount</name>
+        <reimplementedby refid="classRADCore_1_1RADStringListModel_1ab8c7fb08dc845d677b52e7d7f195cae4">columnCount</reimplementedby>
+        <briefdescription>
+<para>Returns column count. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADCore/headers/RADCore.h" line="1722" column="24"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADCore_1_1RADAbstractItemModel_1afccc607d3288d8dffce70c1380ffcf6c" prot="public" static="no" const="yes" explicit="no" inline="no" virt="pure-virtual">
+        <type><ref refid="classRADCore_1_1RADVariant" kindref="compound">RADVariant</ref></type>
+        <definition>virtual RADVariant RADCore::RADAbstractItemModel::data</definition>
+        <argsstring>(size_t row, size_t column=0) const =0</argsstring>
+        <name>data</name>
+        <reimplementedby refid="classRADCore_1_1RADStringListModel_1ad82c494a2b0d3b481c1ce088e01c452b">data</reimplementedby>
+        <param>
+          <type>size_t</type>
+          <declname>row</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>column</declname>
+          <defval>0</defval>
+        </param>
+        <briefdescription>
+<para>Returns data at row/column. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADCore/headers/RADCore.h" line="1724" column="28"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Minimal abstract item model for UI/model integrations. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>RADCore::RADObject</label>
+        <link refid="classRADCore_1_1RADObject"/>
+      </node>
+      <node id="1">
+        <label>RADCore::RADAbstractItemModel</label>
+        <link refid="classRADCore_1_1RADAbstractItemModel"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>RADCore::RADStringListModel</label>
+        <link refid="classRADCore_1_1RADStringListModel"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>RADCore::RADObject</label>
+        <link refid="classRADCore_1_1RADObject"/>
+      </node>
+      <node id="1">
+        <label>RADCore::RADAbstractItemModel</label>
+        <link refid="classRADCore_1_1RADAbstractItemModel"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="3" relation="usage">
+          <edgelabel>dataChanged</edgelabel>
+          <edgelabel>rowsInserted</edgelabel>
+          <edgelabel>rowsRemoved</edgelabel>
+        </childnode>
+        <childnode refid="4" relation="usage">
+          <edgelabel>modelReset</edgelabel>
+        </childnode>
+      </node>
+      <node id="3">
+        <label>RADCore::Event&lt; void(size_t, size_t) &gt;</label>
+        <link refid="classRADCore_1_1Event"/>
+      </node>
+      <node id="4">
+        <label>RADCore::Event&lt; void() &gt;</label>
+        <link refid="classRADCore_1_1Event"/>
+      </node>
+    </collaborationgraph>
+    <location file="RADCore/headers/RADCore.h" line="1705" column="5" bodyfile="RADCore/headers/RADCore.h" bodystart="1705" bodyend="1725"/>
+    <listofallmembers>
+      <member refid="classRADCore_1_1RADObject_1a06cdf252ffb5e2f88332ebda12a62080" prot="public" virt="non-virtual"><scope>RADCore::RADAbstractItemModel</scope><name>associatedEventLoop</name></member>
+      <member refid="classRADCore_1_1RADAbstractItemModel_1aa58f49eb85e94baa07b1e2764302d66c" prot="public" virt="pure-virtual"><scope>RADCore::RADAbstractItemModel</scope><name>columnCount</name></member>
+      <member refid="classRADCore_1_1RADAbstractItemModel_1afccc607d3288d8dffce70c1380ffcf6c" prot="public" virt="pure-virtual"><scope>RADCore::RADAbstractItemModel</scope><name>data</name></member>
+      <member refid="classRADCore_1_1RADAbstractItemModel_1acce0da00cf2d393044a85ab5e7d810f3" prot="public" virt="non-virtual"><scope>RADCore::RADAbstractItemModel</scope><name>dataChanged</name></member>
+      <member refid="classRADCore_1_1RADObject_1ad2ddfd066d14be9adc2f96bfca417fc6" prot="public" virt="non-virtual"><scope>RADCore::RADAbstractItemModel</scope><name>lifetimeToken</name></member>
+      <member refid="classRADCore_1_1RADAbstractItemModel_1ae33df9593d6f5e0fe60c83c017909654" prot="public" virt="non-virtual"><scope>RADCore::RADAbstractItemModel</scope><name>modelReset</name></member>
+      <member refid="classRADCore_1_1RADObject_1a1f7f7f2fb40211e28455cd74a029339a" prot="public" virt="non-virtual"><scope>RADCore::RADAbstractItemModel</scope><name>moveToThread</name></member>
+      <member refid="classRADCore_1_1RADObject_1a9bc3fed915f7c71232e68c2628d34708" prot="public" virt="non-virtual"><scope>RADCore::RADAbstractItemModel</scope><name>RADObject</name></member>
+      <member refid="classRADCore_1_1RADObject_1af3e26b970c8080418f0d6b80cad986a2" prot="public" virt="non-virtual"><scope>RADCore::RADAbstractItemModel</scope><name>registerLink</name></member>
+      <member refid="classRADCore_1_1RADAbstractItemModel_1ab04109de4f8648ec2a0babef52344f2f" prot="public" virt="pure-virtual"><scope>RADCore::RADAbstractItemModel</scope><name>rowCount</name></member>
+      <member refid="classRADCore_1_1RADAbstractItemModel_1aa2ee6b0fce79ccf0f7f405f1e36b7d58" prot="public" virt="non-virtual"><scope>RADCore::RADAbstractItemModel</scope><name>rowsInserted</name></member>
+      <member refid="classRADCore_1_1RADAbstractItemModel_1ad69f261fba916402602d55d8c010cd88" prot="public" virt="non-virtual"><scope>RADCore::RADAbstractItemModel</scope><name>rowsRemoved</name></member>
+      <member refid="classRADCore_1_1RADObject_1a8b11df0b951d0db1ba99cfb851e34f31" prot="public" virt="non-virtual"><scope>RADCore::RADAbstractItemModel</scope><name>threadAffinity</name></member>
+      <member refid="classRADCore_1_1RADObject_1ac7ca67b41523794ae5a6b3634d6ce3b6" prot="public" virt="non-virtual"><scope>RADCore::RADAbstractItemModel</scope><name>threadId</name></member>
+      <member refid="classRADCore_1_1RADAbstractItemModel_1a4be008c4cf2f16d68b05f9649abe8f36" prot="public" virt="virtual"><scope>RADCore::RADAbstractItemModel</scope><name>~RADAbstractItemModel</name></member>
+      <member refid="classRADCore_1_1RADObject_1a7369e27a46c163ee89c63227db650ce5" prot="public" virt="virtual"><scope>RADCore::RADAbstractItemModel</scope><name>~RADObject</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

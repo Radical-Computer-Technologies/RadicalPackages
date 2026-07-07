@@ -1,0 +1,66 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="radinstaller_8md" kind="file" language="Markdown">
+    <compoundname>radinstaller.md</compoundname>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline><highlight class="normal">#<sp/>RADInstaller</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">RADInstaller<sp/>is<sp/>the<sp/>manifest-driven<sp/>install<sp/>engine<sp/>used<sp/>by<sp/>RADLib<sp/>package<sp/>and</highlight></codeline>
+<codeline><highlight class="normal">application<sp/>installers.<sp/>It<sp/>copies<sp/>selected<sp/>components<sp/>from<sp/>a<sp/>package<sp/>root<sp/>into</highlight></codeline>
+<codeline><highlight class="normal">an<sp/>install<sp/>root,<sp/>verifies<sp/>optional<sp/>payload<sp/>checksums,<sp/>rolls<sp/>back<sp/>partial</highlight></codeline>
+<codeline><highlight class="normal">installs<sp/>on<sp/>failure,<sp/>creates<sp/>desktop<sp/>entries,<sp/>and<sp/>writes<sp/>an<sp/>uninstall<sp/>manifest.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>Manifest<sp/>Shape</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Installer<sp/>manifests<sp/>are<sp/>JSON<sp/>files<sp/>with<sp/>product<sp/>metadata,<sp/>component<sp/>file<sp/>lists,</highlight></codeline>
+<codeline><highlight class="normal">and<sp/>optional<sp/>desktop<sp/>entries.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">```json</highlight></codeline>
+<codeline><highlight class="normal">{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>&quot;productName&quot;:<sp/>&quot;My<sp/>RADLib<sp/>App&quot;,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>&quot;version&quot;:<sp/>&quot;0.1.0&quot;,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>&quot;publisher&quot;:<sp/>&quot;Example&quot;,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>&quot;components&quot;:<sp/>[</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>&quot;id&quot;:<sp/>&quot;runtime&quot;,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>&quot;name&quot;:<sp/>&quot;Runtime&quot;,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>&quot;defaultSelected&quot;:<sp/>true,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>&quot;files&quot;:<sp/>[</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;source&quot;:<sp/>&quot;bin/my-app&quot;,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;destination&quot;:<sp/>&quot;usr/bin/my-app&quot;,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;checksum&quot;:<sp/>&quot;fnv1a64:0123456789abcdef&quot;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>]</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>],</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>&quot;desktopEntries&quot;:<sp/>[</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>&quot;fileName&quot;:<sp/>&quot;my-app.desktop&quot;,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>&quot;name&quot;:<sp/>&quot;My<sp/>App&quot;,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>&quot;exec&quot;:<sp/>&quot;/usr/bin/my-app&quot;,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>&quot;categories&quot;:<sp/>&quot;Development;&quot;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>]</highlight></codeline>
+<codeline><highlight class="normal">}</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>API<sp/>Flow</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Use<sp/>`RADInstaller::Installer::loadManifest()`<sp/>to<sp/>parse<sp/>JSON,<sp/>then<sp/>call</highlight></codeline>
+<codeline><highlight class="normal">`install()`<sp/>with<sp/>a<sp/>source<sp/>package<sp/>root<sp/>and<sp/>target<sp/>install<sp/>root.<sp/>Pass<sp/>explicit</highlight></codeline>
+<codeline><highlight class="normal">component<sp/>ids<sp/>to<sp/>install<sp/>a<sp/>custom<sp/>selection,<sp/>or<sp/>pass<sp/>an<sp/>empty<sp/>list<sp/>to<sp/>install</highlight></codeline>
+<codeline><highlight class="normal">components<sp/>where<sp/>`defaultSelected`<sp/>is<sp/>true.<sp/>The<sp/>generated<sp/>uninstall<sp/>manifest<sp/>is</highlight></codeline>
+<codeline><highlight class="normal">written<sp/>to<sp/>`.radinstall/uninstall.json`<sp/>under<sp/>the<sp/>target<sp/>root.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">The<sp/>`RADInstallerUiExample`<sp/>Slint<sp/>app<sp/>demonstrates<sp/>the<sp/>same<sp/>engine<sp/>from<sp/>a<sp/>GUI.</highlight></codeline>
+<codeline><highlight class="normal">RADLib<sp/>SDK<sp/>archives<sp/>include<sp/>a<sp/>`radinstall.json`<sp/>manifest,<sp/>so<sp/>the<sp/>UI<sp/>example<sp/>can</highlight></codeline>
+<codeline><highlight class="normal">install<sp/>an<sp/>unpacked<sp/>RADLib<sp/>SDK<sp/>without<sp/>requiring<sp/>RADLib<sp/>implementation<sp/>sources.</highlight></codeline>
+    </programlisting>
+    <location file="docs/public/radinstaller.md"/>
+  </compounddef>
+</doxygen>

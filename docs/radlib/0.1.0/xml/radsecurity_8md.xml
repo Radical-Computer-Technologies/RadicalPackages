@@ -1,0 +1,85 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="radsecurity_8md" kind="file" language="Markdown">
+    <compoundname>radsecurity.md</compoundname>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline><highlight class="normal">#<sp/>RADSecurity</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">RADSecurity<sp/>provides<sp/>the<sp/>trust<sp/>primitives<sp/>used<sp/>by<sp/>update<sp/>manifests,<sp/>installers,</highlight></codeline>
+<codeline><highlight class="normal">and<sp/>embedded<sp/>deployment<sp/>tools.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Use<sp/>`RADSecurity::Crypto`<sp/>for<sp/>SHA-256<sp/>hashing,<sp/>secure<sp/>random<sp/>bytes,<sp/>RSA-SHA256</highlight></codeline>
+<codeline><highlight class="normal">signing,<sp/>signature<sp/>verification,<sp/>and<sp/>file<sp/>fingerprints.<sp/>Use</highlight></codeline>
+<codeline><highlight class="normal">`readCapabilitySet()`<sp/>to<sp/>inspect<sp/>Linux<sp/>process<sp/>capability<sp/>masks<sp/>from</highlight></codeline>
+<codeline><highlight class="normal">`/proc/self/status`<sp/>without<sp/>requiring<sp/>libcap.<sp/>Use<sp/>`SandboxProfile`<sp/>to<sp/>describe<sp/>a</highlight></codeline>
+<codeline><highlight class="normal">future<sp/>launcher/sandbox<sp/>policy<sp/>in<sp/>JSON.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Use<sp/>`RADSecurity::LicenseManager`<sp/>for<sp/>offline<sp/>signed<sp/>license<sp/>checks.<sp/>RADLib</highlight></codeline>
+<codeline><highlight class="normal">license<sp/>documents<sp/>include<sp/>an<sp/>issuer<sp/>`key_id`,<sp/>a<sp/>signed<sp/>payload,<sp/>and<sp/>an</highlight></codeline>
+<codeline><highlight class="normal">RSA-SHA256<sp/>signature.<sp/>Applications<sp/>can<sp/>verify<sp/>against<sp/>one<sp/>public<sp/>issuer<sp/>key<sp/>or<sp/>a</highlight></codeline>
+<codeline><highlight class="normal">set<sp/>of<sp/>`TrustedLicenseKey`<sp/>records<sp/>when<sp/>key<sp/>rotation<sp/>is<sp/>required.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">This<sp/>runtime<sp/>license<sp/>check<sp/>complements<sp/>the<sp/>compile-time<sp/>SDK<sp/>acknowledgement</highlight></codeline>
+<codeline><highlight class="normal">macros.<sp/>The<sp/>macros<sp/>declare<sp/>which<sp/>license<sp/>tier<sp/>the<sp/>application<sp/>is<sp/>being<sp/>compiled</highlight></codeline>
+<codeline><highlight class="normal">under;<sp/>the<sp/>signed<sp/>license<sp/>file<sp/>verifies<sp/>a<sp/>specific<sp/>commercial<sp/>grant,<sp/>customer</highlight></codeline>
+<codeline><highlight class="normal">key<sp/>fingerprint,<sp/>and<sp/>node<sp/>fingerprint.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">For<sp/>auditability,<sp/>applications<sp/>should<sp/>log<sp/>or<sp/>display</highlight></codeline>
+<codeline><highlight class="normal">`RADLicense::compileAuditStamp()`<sp/>and<sp/>the<sp/>verified</highlight></codeline>
+<codeline><highlight class="normal">`LicenseCheckResult::payload.kind`,<sp/>`licenseId`,<sp/>`licensee`,<sp/>and</highlight></codeline>
+<codeline><highlight class="normal">`issuerKeyId`<sp/>where<sp/>appropriate.<sp/>A<sp/>community<sp/>build<sp/>should<sp/>visibly<sp/>report</highlight></codeline>
+<codeline><highlight class="normal">`RADLIB_LICENSE_TIER=community`;<sp/>public<sp/>beta<sp/>RADLib<sp/>binaries<sp/>should<sp/>also<sp/>report</highlight></codeline>
+<codeline><highlight class="normal">`RADLIB_EDITION=community-edition`<sp/>through<sp/>`RADCore::runtimeAuditStamp()`.<sp/>A</highlight></codeline>
+<codeline><highlight class="normal">future<sp/>paid-edition<sp/>build<sp/>should<sp/>report<sp/>`RADLIB_EDITION=paid-edition`<sp/>and<sp/>show</highlight></codeline>
+<codeline><highlight class="normal">a<sp/>valid<sp/>signed-license<sp/>status.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Example:</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">```cpp</highlight></codeline>
+<codeline><highlight class="normal">auto<sp/>digest<sp/>=<sp/>RADSecurity::Crypto::sha256File(&quot;payload.bin&quot;);</highlight></codeline>
+<codeline><highlight class="normal">auto<sp/>hex<sp/>=<sp/>RADSecurity::Crypto::toHex(digest.value());</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Node-locked<sp/>license<sp/>verification:</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">```cpp</highlight></codeline>
+<codeline><highlight class="normal">RADSecurity::LicenseCheckOptions<sp/>options;</highlight></codeline>
+<codeline><highlight class="normal">options.product<sp/>=<sp/>&quot;RADLib&quot;;</highlight></codeline>
+<codeline><highlight class="normal">options.appMajorVersion<sp/>=<sp/>0;</highlight></codeline>
+<codeline><highlight class="normal">options.requiredFeature<sp/>=<sp/>&quot;ui&quot;;</highlight></codeline>
+<codeline><highlight class="normal">options.expectedLicenseePublicKeyFingerprint<sp/>=<sp/>expectedCustomerKeyFingerprint;</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">auto<sp/>check<sp/>=<sp/>RADSecurity::LicenseManager::verifySignedLicenseFile(</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>&quot;crimson.license.json&quot;,<sp/>issuerPublicKeyPem,<sp/>options);</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">if<sp/>(!check.valid())<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>//<sp/>Decide<sp/>whether<sp/>to<sp/>disable<sp/>commercial-only<sp/>features,<sp/>show<sp/>activation<sp/>UI,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>//<sp/>or<sp/>continue<sp/>in<sp/>community/evaluation<sp/>mode.</highlight></codeline>
+<codeline><highlight class="normal">}</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">By<sp/>default,<sp/>`LicenseCheckOptions`<sp/>rejects<sp/>portable<sp/>licenses.<sp/>Set</highlight></codeline>
+<codeline><highlight class="normal">`allowPortableLicense<sp/>=<sp/>true`<sp/>only<sp/>for<sp/>community,<sp/>academic,<sp/>evaluation,<sp/>or</highlight></codeline>
+<codeline><highlight class="normal">explicitly<sp/>portable<sp/>grants.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Release<sp/>tooling<sp/>can<sp/>generate<sp/>a<sp/>signed<sp/>universal<sp/>community<sp/>license<sp/>when<sp/>the</highlight></codeline>
+<codeline><highlight class="normal">offline<sp/>issuer<sp/>private<sp/>key<sp/>is<sp/>provided:</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">```bash</highlight></codeline>
+<codeline><highlight class="normal">RADLIB_ISSUER_PRIVATE_KEY_PATH=/secure/path/radlib-issuer-private.pem<sp/>\</highlight></codeline>
+<codeline><highlight class="normal">RADLIB_ISSUER_KEY_ID=radlib-community-0.1.0<sp/>\</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>./build.py<sp/>--release-crimson</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">The<sp/>resulting<sp/>`licenses/RADLib-Community-0.1.0.license.json`<sp/>can<sp/>be<sp/>hosted<sp/>on<sp/>a</highlight></codeline>
+<codeline><highlight class="normal">public<sp/>GitHub<sp/>release<sp/>or<sp/>downloaded<sp/>from<sp/>a<sp/>website.<sp/>Commercial<sp/>license<sp/>files</highlight></codeline>
+<codeline><highlight class="normal">should<sp/>use<sp/>`createNodeLockedLicense()`<sp/>and<sp/>include<sp/>both</highlight></codeline>
+<codeline><highlight class="normal">`machineFingerprint`<sp/>and<sp/>`licenseePublicKeyFingerprint`.</highlight></codeline>
+    </programlisting>
+    <location file="docs/public/radsecurity.md"/>
+  </compounddef>
+</doxygen>

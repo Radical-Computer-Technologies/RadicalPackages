@@ -1,0 +1,233 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="classRADCore_1_1RADThread" kind="class" language="C++" prot="public">
+    <compoundname>RADCore::RADThread</compoundname>
+    <basecompoundref refid="classRADCore_1_1RADObject" prot="public" virt="non-virtual">RADCore::RADObject</basecompoundref>
+    <includes refid="RADCore_8h" local="no">RADCore.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="classRADCore_1_1RADThread_1ae3e3d09ea57aa3ab196d47fc217c00b4" prot="public" static="no" mutable="no">
+        <type><ref refid="classRADCore_1_1Event" kindref="compound">RADCore::Event</ref>&lt; void() &gt;</type>
+        <definition>RADCore::Event&lt;void () &gt; RADCore::RADThread::started</definition>
+        <argsstring></argsstring>
+        <name>started</name>
+        <briefdescription>
+<para>Raised when the thread starts running. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADCore/headers/RADCore.h" line="1877" column="30" bodyfile="RADCore/headers/RADCore.h" bodystart="1877" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classRADCore_1_1RADThread_1ad0c432c6c74f140339d2b1a47e3e3d3f" prot="public" static="no" mutable="no">
+        <type><ref refid="classRADCore_1_1Event" kindref="compound">RADCore::Event</ref>&lt; void() &gt;</type>
+        <definition>RADCore::Event&lt;void () &gt; RADCore::RADThread::finished</definition>
+        <argsstring></argsstring>
+        <name>finished</name>
+        <briefdescription>
+<para>Raised when the thread exits. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADCore/headers/RADCore.h" line="1879" column="30" bodyfile="RADCore/headers/RADCore.h" bodystart="1879" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classRADCore_1_1RADThread_1a50543eccbc6f83fb818a14e6aa46746a" prot="private" static="no" mutable="no">
+        <type>std::unique_ptr&lt; Impl &gt;</type>
+        <definition>std::unique_ptr&lt;Impl&gt; RADCore::RADThread::pImpl</definition>
+        <argsstring></argsstring>
+        <name>pImpl</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADCore/headers/RADCore.h" line="1902" column="29" bodyfile="RADCore/headers/RADCore.h" bodystart="1901" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classRADCore_1_1RADThread_1a694915c0c6d664d639da1dcb7c3dc86f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>RADCore::RADThread::RADThread</definition>
+        <argsstring>()</argsstring>
+        <name>RADThread</name>
+        <briefdescription>
+<para>Creates a stopped thread object. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADCore/headers/RADCore.h" line="1883" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADCore_1_1RADThread_1aeba70cd3b575ae01f2939c6308d5649d" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type></type>
+        <definition>virtual RADCore::RADThread::~RADThread</definition>
+        <argsstring>()</argsstring>
+        <name>~RADThread</name>
+        <briefdescription>
+<para>Quits and joins the thread when needed. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADCore/headers/RADCore.h" line="1885" column="17"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADCore_1_1RADThread_1ab47210e95d24d8c44b5f9ba70f520c7b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void RADCore::RADThread::start</definition>
+        <argsstring>(LoopStrategy strategy=LoopStrategy::RADEVENT_LOCK)</argsstring>
+        <name>start</name>
+        <param>
+          <type><ref refid="namespaceRADCore_1af2f1841363b4c8e95aa265b37517f5db" kindref="member">LoopStrategy</ref></type>
+          <declname>strategy</declname>
+          <defval><ref refid="namespaceRADCore_1af2f1841363b4c8e95aa265b37517f5dba9d9a09d2d7453ba260b882e9e94af7f2" kindref="member">LoopStrategy::RADEVENT_LOCK</ref></defval>
+        </param>
+        <briefdescription>
+<para>Starts the thread and its event loop. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADCore/headers/RADCore.h" line="1888" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADCore_1_1RADThread_1a4e44643c8bc579a5c6c41a50cbd6aa88" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void RADCore::RADThread::quit</definition>
+        <argsstring>()</argsstring>
+        <name>quit</name>
+        <briefdescription>
+<para>Requests the event loop to quit. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADCore/headers/RADCore.h" line="1890" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADCore_1_1RADThread_1aaa23dcf4fb454d06ec542e126d2a3b0c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void RADCore::RADThread::wait</definition>
+        <argsstring>()</argsstring>
+        <name>wait</name>
+        <briefdescription>
+<para>Blocks until the thread exits. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADCore/headers/RADCore.h" line="1892" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADCore_1_1RADThread_1af71c5d1079bc280328f67e48f1c59322" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classRADCore_1_1EventLoop" kindref="compound">EventLoop</ref> &amp;</type>
+        <definition>EventLoop&amp; RADCore::RADThread::eventLoop</definition>
+        <argsstring>()</argsstring>
+        <name>eventLoop</name>
+        <briefdescription>
+<para>Returns the thread&apos;s event loop after <ref refid="classRADCore_1_1RADThread_1ab47210e95d24d8c44b5f9ba70f520c7b" kindref="member">start()</ref>. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADCore/headers/RADCore.h" line="1894" column="19"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADCore_1_1RADThread_1a80fbe16312eb619b204f1fb4038ce6fe" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool RADCore::RADThread::isRunning</definition>
+        <argsstring>() const</argsstring>
+        <name>isRunning</name>
+        <briefdescription>
+<para>Returns true while the thread is running. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADCore/headers/RADCore.h" line="1896" column="14"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="protected-func">
+      <memberdef kind="function" id="classRADCore_1_1RADThread_1a7869a882ab4598218d5d3cbcd95103f2" prot="protected" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>virtual void RADCore::RADThread::run</definition>
+        <argsstring>()</argsstring>
+        <name>run</name>
+        <briefdescription>
+<para>Override to run custom work before/around the event loop. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADCore/headers/RADCore.h" line="1899" column="26"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Thread object with an owned <ref refid="namespaceRADCore" kindref="compound">RADCore</ref> <ref refid="classRADCore_1_1EventLoop" kindref="compound">EventLoop</ref>. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>RADCore::RADObject</label>
+        <link refid="classRADCore_1_1RADObject"/>
+      </node>
+      <node id="1">
+        <label>RADCore::RADThread</label>
+        <link refid="classRADCore_1_1RADThread"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>RADCore::RADObject</label>
+        <link refid="classRADCore_1_1RADObject"/>
+      </node>
+      <node id="3">
+        <label>RADCore::Event&lt; void() &gt;</label>
+        <link refid="classRADCore_1_1Event"/>
+      </node>
+      <node id="1">
+        <label>RADCore::RADThread</label>
+        <link refid="classRADCore_1_1RADThread"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="3" relation="usage">
+          <edgelabel>finished</edgelabel>
+          <edgelabel>started</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="RADCore/headers/RADCore.h" line="1873" column="5" bodyfile="RADCore/headers/RADCore.h" bodystart="1873" bodyend="1903"/>
+    <listofallmembers>
+      <member refid="classRADCore_1_1RADObject_1a06cdf252ffb5e2f88332ebda12a62080" prot="public" virt="non-virtual"><scope>RADCore::RADThread</scope><name>associatedEventLoop</name></member>
+      <member refid="classRADCore_1_1RADThread_1af71c5d1079bc280328f67e48f1c59322" prot="public" virt="non-virtual"><scope>RADCore::RADThread</scope><name>eventLoop</name></member>
+      <member refid="classRADCore_1_1RADThread_1ad0c432c6c74f140339d2b1a47e3e3d3f" prot="public" virt="non-virtual"><scope>RADCore::RADThread</scope><name>finished</name></member>
+      <member refid="classRADCore_1_1RADThread_1a80fbe16312eb619b204f1fb4038ce6fe" prot="public" virt="non-virtual"><scope>RADCore::RADThread</scope><name>isRunning</name></member>
+      <member refid="classRADCore_1_1RADObject_1ad2ddfd066d14be9adc2f96bfca417fc6" prot="public" virt="non-virtual"><scope>RADCore::RADThread</scope><name>lifetimeToken</name></member>
+      <member refid="classRADCore_1_1RADObject_1a1f7f7f2fb40211e28455cd74a029339a" prot="public" virt="non-virtual"><scope>RADCore::RADThread</scope><name>moveToThread</name></member>
+      <member refid="classRADCore_1_1RADThread_1a50543eccbc6f83fb818a14e6aa46746a" prot="private" virt="non-virtual"><scope>RADCore::RADThread</scope><name>pImpl</name></member>
+      <member refid="classRADCore_1_1RADThread_1a4e44643c8bc579a5c6c41a50cbd6aa88" prot="public" virt="non-virtual"><scope>RADCore::RADThread</scope><name>quit</name></member>
+      <member refid="classRADCore_1_1RADObject_1a9bc3fed915f7c71232e68c2628d34708" prot="public" virt="non-virtual"><scope>RADCore::RADThread</scope><name>RADObject</name></member>
+      <member refid="classRADCore_1_1RADThread_1a694915c0c6d664d639da1dcb7c3dc86f" prot="public" virt="non-virtual"><scope>RADCore::RADThread</scope><name>RADThread</name></member>
+      <member refid="classRADCore_1_1RADObject_1af3e26b970c8080418f0d6b80cad986a2" prot="public" virt="non-virtual"><scope>RADCore::RADThread</scope><name>registerLink</name></member>
+      <member refid="classRADCore_1_1RADThread_1a7869a882ab4598218d5d3cbcd95103f2" prot="protected" virt="virtual"><scope>RADCore::RADThread</scope><name>run</name></member>
+      <member refid="classRADCore_1_1RADThread_1ab47210e95d24d8c44b5f9ba70f520c7b" prot="public" virt="non-virtual"><scope>RADCore::RADThread</scope><name>start</name></member>
+      <member refid="classRADCore_1_1RADThread_1ae3e3d09ea57aa3ab196d47fc217c00b4" prot="public" virt="non-virtual"><scope>RADCore::RADThread</scope><name>started</name></member>
+      <member refid="classRADCore_1_1RADObject_1a8b11df0b951d0db1ba99cfb851e34f31" prot="public" virt="non-virtual"><scope>RADCore::RADThread</scope><name>threadAffinity</name></member>
+      <member refid="classRADCore_1_1RADObject_1ac7ca67b41523794ae5a6b3634d6ce3b6" prot="public" virt="non-virtual"><scope>RADCore::RADThread</scope><name>threadId</name></member>
+      <member refid="classRADCore_1_1RADThread_1aaa23dcf4fb454d06ec542e126d2a3b0c" prot="public" virt="non-virtual"><scope>RADCore::RADThread</scope><name>wait</name></member>
+      <member refid="classRADCore_1_1RADObject_1a7369e27a46c163ee89c63227db650ce5" prot="public" virt="virtual"><scope>RADCore::RADThread</scope><name>~RADObject</name></member>
+      <member refid="classRADCore_1_1RADThread_1aeba70cd3b575ae01f2939c6308d5649d" prot="public" virt="virtual"><scope>RADCore::RADThread</scope><name>~RADThread</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

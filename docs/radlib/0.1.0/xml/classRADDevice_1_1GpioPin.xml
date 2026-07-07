@@ -1,0 +1,213 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="classRADDevice_1_1GpioPin" kind="class" language="C++" prot="public">
+    <compoundname>RADDevice::GpioPin</compoundname>
+    <includes refid="RADDevice_8h" local="no">RADDevice.h</includes>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classRADDevice_1_1GpioPin_1a724d4c4d6d00d83c9ebcdc2f988b6b75" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int RADDevice::GpioPin::number_</definition>
+        <argsstring></argsstring>
+        <name>number_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADDevice/headers/RADDevice.h" line="124" column="13" bodyfile="RADDevice/headers/RADDevice.h" bodystart="124" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classRADDevice_1_1GpioPin_1a33cbb5eb3ea1e66c40029da1ff2c4629" prot="private" static="no" mutable="no">
+        <type><ref refid="structRADDevice_1_1DevicePaths" kindref="compound">DevicePaths</ref></type>
+        <definition>DevicePaths RADDevice::GpioPin::paths_</definition>
+        <argsstring></argsstring>
+        <name>paths_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADDevice/headers/RADDevice.h" line="125" column="21" bodyfile="RADDevice/headers/RADDevice.h" bodystart="125" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classRADDevice_1_1GpioPin_1ae09e7d993cf49f25671021eb0e1b75b8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>RADDevice::GpioPin::GpioPin</definition>
+        <argsstring>(int number, DevicePaths paths={})</argsstring>
+        <name>GpioPin</name>
+        <param>
+          <type>int</type>
+          <declname>number</declname>
+        </param>
+        <param>
+          <type><ref refid="structRADDevice_1_1DevicePaths" kindref="compound">DevicePaths</ref></type>
+          <declname>paths</declname>
+          <defval>{}</defval>
+        </param>
+        <briefdescription>
+<para>Creates a GPIO pin wrapper. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADDevice/headers/RADDevice.h" line="107" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADDevice_1_1GpioPin_1abfbd51847d251e3b99a35415f1bf4398" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool RADDevice::GpioPin::exportPin</definition>
+        <argsstring>(std::string *error=nullptr) const</argsstring>
+        <name>exportPin</name>
+        <param>
+          <type>std::string *</type>
+          <declname>error</declname>
+          <defval>nullptr</defval>
+        </param>
+        <briefdescription>
+<para>Exports the pin through sysfs. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADDevice/headers/RADDevice.h" line="109" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADDevice_1_1GpioPin_1adb665fa1ae38bcf7b569481c9a519ec3" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool RADDevice::GpioPin::unexportPin</definition>
+        <argsstring>(std::string *error=nullptr) const</argsstring>
+        <name>unexportPin</name>
+        <param>
+          <type>std::string *</type>
+          <declname>error</declname>
+          <defval>nullptr</defval>
+        </param>
+        <briefdescription>
+<para>Unexports the pin through sysfs. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADDevice/headers/RADDevice.h" line="111" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADDevice_1_1GpioPin_1ab39ce68143436279bc79e8549906e5b8" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool RADDevice::GpioPin::setDirection</definition>
+        <argsstring>(GpioDirection direction, std::string *error=nullptr) const</argsstring>
+        <name>setDirection</name>
+        <param>
+          <type><ref refid="namespaceRADDevice_1a1f04e8338cd9dd13b817689336e639d7" kindref="member">GpioDirection</ref></type>
+          <declname>direction</declname>
+        </param>
+        <param>
+          <type>std::string *</type>
+          <declname>error</declname>
+          <defval>nullptr</defval>
+        </param>
+        <briefdescription>
+<para>Sets pin direction. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADDevice/headers/RADDevice.h" line="113" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADDevice_1_1GpioPin_1a7c4b906cb1e38e10010a6265c35583d6" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool RADDevice::GpioPin::setEdge</definition>
+        <argsstring>(GpioEdge edge, std::string *error=nullptr) const</argsstring>
+        <name>setEdge</name>
+        <param>
+          <type><ref refid="namespaceRADDevice_1ac28e7b87b95c2360f005072a3836cdc9" kindref="member">GpioEdge</ref></type>
+          <declname>edge</declname>
+        </param>
+        <param>
+          <type>std::string *</type>
+          <declname>error</declname>
+          <defval>nullptr</defval>
+        </param>
+        <briefdescription>
+<para>Sets pin edge mode. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADDevice/headers/RADDevice.h" line="115" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADDevice_1_1GpioPin_1a1c111401b8e917d533d3fd8484b35592" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool RADDevice::GpioPin::writeValue</definition>
+        <argsstring>(bool high, std::string *error=nullptr) const</argsstring>
+        <name>writeValue</name>
+        <param>
+          <type>bool</type>
+          <declname>high</declname>
+        </param>
+        <param>
+          <type>std::string *</type>
+          <declname>error</declname>
+          <defval>nullptr</defval>
+        </param>
+        <briefdescription>
+<para>Writes 0 or 1. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADDevice/headers/RADDevice.h" line="117" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADDevice_1_1GpioPin_1add42a24e54d0e1ea388f99edc7e23816" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classRADCore_1_1RADResult" kindref="compound">RADCore::RADResult</ref>&lt; bool &gt;</type>
+        <definition>RADCore::RADResult&lt;bool&gt; RADDevice::GpioPin::readValue</definition>
+        <argsstring>() const</argsstring>
+        <name>readValue</name>
+        <briefdescription>
+<para>Reads current value. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADDevice/headers/RADDevice.h" line="119" column="28"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADDevice_1_1GpioPin_1adba93852c6e7a28282b704bff52cade1" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>std::string</type>
+        <definition>std::string RADDevice::GpioPin::pinPath</definition>
+        <argsstring>() const</argsstring>
+        <name>pinPath</name>
+        <briefdescription>
+<para>Returns sysfs pin directory. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADDevice/headers/RADDevice.h" line="121" column="21"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>GPIO sysfs helper. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="RADDevice/headers/RADDevice.h" line="104" column="5" bodyfile="RADDevice/headers/RADDevice.h" bodystart="104" bodyend="126"/>
+    <listofallmembers>
+      <member refid="classRADDevice_1_1GpioPin_1abfbd51847d251e3b99a35415f1bf4398" prot="public" virt="non-virtual"><scope>RADDevice::GpioPin</scope><name>exportPin</name></member>
+      <member refid="classRADDevice_1_1GpioPin_1ae09e7d993cf49f25671021eb0e1b75b8" prot="public" virt="non-virtual"><scope>RADDevice::GpioPin</scope><name>GpioPin</name></member>
+      <member refid="classRADDevice_1_1GpioPin_1a724d4c4d6d00d83c9ebcdc2f988b6b75" prot="private" virt="non-virtual"><scope>RADDevice::GpioPin</scope><name>number_</name></member>
+      <member refid="classRADDevice_1_1GpioPin_1a33cbb5eb3ea1e66c40029da1ff2c4629" prot="private" virt="non-virtual"><scope>RADDevice::GpioPin</scope><name>paths_</name></member>
+      <member refid="classRADDevice_1_1GpioPin_1adba93852c6e7a28282b704bff52cade1" prot="public" virt="non-virtual"><scope>RADDevice::GpioPin</scope><name>pinPath</name></member>
+      <member refid="classRADDevice_1_1GpioPin_1add42a24e54d0e1ea388f99edc7e23816" prot="public" virt="non-virtual"><scope>RADDevice::GpioPin</scope><name>readValue</name></member>
+      <member refid="classRADDevice_1_1GpioPin_1ab39ce68143436279bc79e8549906e5b8" prot="public" virt="non-virtual"><scope>RADDevice::GpioPin</scope><name>setDirection</name></member>
+      <member refid="classRADDevice_1_1GpioPin_1a7c4b906cb1e38e10010a6265c35583d6" prot="public" virt="non-virtual"><scope>RADDevice::GpioPin</scope><name>setEdge</name></member>
+      <member refid="classRADDevice_1_1GpioPin_1adb665fa1ae38bcf7b569481c9a519ec3" prot="public" virt="non-virtual"><scope>RADDevice::GpioPin</scope><name>unexportPin</name></member>
+      <member refid="classRADDevice_1_1GpioPin_1a1c111401b8e917d533d3fd8484b35592" prot="public" virt="non-virtual"><scope>RADDevice::GpioPin</scope><name>writeValue</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

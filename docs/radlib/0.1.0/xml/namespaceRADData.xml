@@ -1,0 +1,197 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="namespaceRADData" kind="namespace" language="C++">
+    <compoundname>RADData</compoundname>
+    <innerclass refid="classRADData_1_1RADArrayView" prot="public">RADData::RADArrayView</innerclass>
+    <innerclass refid="classRADData_1_1RADByteArray" prot="public">RADData::RADByteArray</innerclass>
+    <innerclass refid="classRADData_1_1RADMonotonicArena" prot="public">RADData::RADMonotonicArena</innerclass>
+    <innerclass refid="classRADData_1_1RADFixedPool" prot="public">RADData::RADFixedPool</innerclass>
+    <innerclass refid="classRADData_1_1RADMonotonicAllocator" prot="public">RADData::RADMonotonicAllocator</innerclass>
+    <innerclass refid="classRADData_1_1RADAlignedAllocator" prot="public">RADData::RADAlignedAllocator</innerclass>
+    <innerclass refid="classRADData_1_1RADVector" prot="public">RADData::RADVector</innerclass>
+    <innerclass refid="classRADData_1_1RADSmallVector" prot="public">RADData::RADSmallVector</innerclass>
+    <innerclass refid="classRADData_1_1RADRingBuffer" prot="public">RADData::RADRingBuffer</innerclass>
+    <innerclass refid="classRADData_1_1RADQueue" prot="public">RADData::RADQueue</innerclass>
+    <innerclass refid="classRADData_1_1RADStack" prot="public">RADData::RADStack</innerclass>
+    <innerclass refid="classRADData_1_1RADSpscQueue" prot="public">RADData::RADSpscQueue</innerclass>
+    <innerclass refid="classRADData_1_1RADFlatHashMap" prot="public">RADData::RADFlatHashMap</innerclass>
+    <innerclass refid="classRADData_1_1RADFlatHashSet" prot="public">RADData::RADFlatHashSet</innerclass>
+    <innerclass refid="classRADData_1_1RADList" prot="public">RADData::RADList</innerclass>
+    <innernamespace refid="namespaceRADData_1_1Detail">RADData::Detail</innernamespace>
+      <sectiondef kind="typedef">
+      <memberdef kind="typedef" id="namespaceRADData_1a602f473a44eb4658b52928bdff3134be" prot="public" static="no">
+        <type><ref refid="classRADData_1_1RADArrayView" kindref="compound">RADArrayView</ref>&lt; uint8_t &gt;</type>
+        <definition>using RADData::RADByteArrayView = typedef RADArrayView&lt;uint8_t&gt;</definition>
+        <argsstring></argsstring>
+        <name>RADByteArrayView</name>
+        <briefdescription>
+<para>Mutable byte view. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADDataStructures/headers/RADDataStructures.h" line="74" column="5" bodyfile="RADDataStructures/headers/RADDataStructures.h" bodystart="74" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="namespaceRADData_1a813862dc49499b42ea9cbcb99988a2b4" prot="public" static="no">
+        <type><ref refid="classRADData_1_1RADArrayView" kindref="compound">RADArrayView</ref>&lt; const uint8_t &gt;</type>
+        <definition>using RADData::RADConstByteArrayView = typedef RADArrayView&lt;const uint8_t&gt;</definition>
+        <argsstring></argsstring>
+        <name>RADConstByteArrayView</name>
+        <briefdescription>
+<para>Const byte view. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADDataStructures/headers/RADDataStructures.h" line="76" column="5" bodyfile="RADDataStructures/headers/RADDataStructures.h" bodystart="76" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="namespaceRADData_1adc31746e3f4a5ea38d2c330f46d0100e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename T</type>
+          </param>
+          <param>
+            <type>typename U</type>
+          </param>
+        </templateparamlist>
+        <type>bool</type>
+        <definition>bool RADData::operator==</definition>
+        <argsstring>(const RADMonotonicAllocator&lt; T &gt; &amp;lhs, const RADMonotonicAllocator&lt; U &gt; &amp;rhs)</argsstring>
+        <name>operator==</name>
+        <param>
+          <type>const <ref refid="classRADData_1_1RADMonotonicAllocator" kindref="compound">RADMonotonicAllocator</ref>&lt; T &gt; &amp;</type>
+          <declname>lhs</declname>
+        </param>
+        <param>
+          <type>const <ref refid="classRADData_1_1RADMonotonicAllocator" kindref="compound">RADMonotonicAllocator</ref>&lt; U &gt; &amp;</type>
+          <declname>rhs</declname>
+        </param>
+        <briefdescription>
+<para>Compares monotonic allocators by backing arena. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADDataStructures/headers/RADDataStructures.h" line="231" column="10" bodyfile="RADDataStructures/headers/RADDataStructures.h" bodystart="231" bodyend="233"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceRADData_1a5f16f18d5965238baba76856e2560435" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename T</type>
+          </param>
+          <param>
+            <type>typename U</type>
+          </param>
+        </templateparamlist>
+        <type>bool</type>
+        <definition>bool RADData::operator!=</definition>
+        <argsstring>(const RADMonotonicAllocator&lt; T &gt; &amp;lhs, const RADMonotonicAllocator&lt; U &gt; &amp;rhs)</argsstring>
+        <name>operator!=</name>
+        <param>
+          <type>const <ref refid="classRADData_1_1RADMonotonicAllocator" kindref="compound">RADMonotonicAllocator</ref>&lt; T &gt; &amp;</type>
+          <declname>lhs</declname>
+        </param>
+        <param>
+          <type>const <ref refid="classRADData_1_1RADMonotonicAllocator" kindref="compound">RADMonotonicAllocator</ref>&lt; U &gt; &amp;</type>
+          <declname>rhs</declname>
+        </param>
+        <briefdescription>
+<para>Compares monotonic allocators by backing arena. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADDataStructures/headers/RADDataStructures.h" line="237" column="10" bodyfile="RADDataStructures/headers/RADDataStructures.h" bodystart="237" bodyend="239"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceRADData_1af48210dee26aadbfbcec5f267fae44b9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename T</type>
+          </param>
+          <param>
+            <type>size_t</type>
+            <declname>A</declname>
+            <defname>A</defname>
+          </param>
+          <param>
+            <type>typename U</type>
+          </param>
+          <param>
+            <type>size_t</type>
+            <declname>B</declname>
+            <defname>B</defname>
+          </param>
+        </templateparamlist>
+        <type>bool</type>
+        <definition>bool RADData::operator==</definition>
+        <argsstring>(const RADAlignedAllocator&lt; T, A &gt; &amp;, const RADAlignedAllocator&lt; U, B &gt; &amp;)</argsstring>
+        <name>operator==</name>
+        <param>
+          <type>const <ref refid="classRADData_1_1RADAlignedAllocator" kindref="compound">RADAlignedAllocator</ref>&lt; T, A &gt; &amp;</type>
+        </param>
+        <param>
+          <type>const <ref refid="classRADData_1_1RADAlignedAllocator" kindref="compound">RADAlignedAllocator</ref>&lt; U, B &gt; &amp;</type>
+        </param>
+        <briefdescription>
+<para>Compares aligned allocators by alignment value. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADDataStructures/headers/RADDataStructures.h" line="267" column="10" bodyfile="RADDataStructures/headers/RADDataStructures.h" bodystart="267" bodyend="269"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceRADData_1a953273c777b376043cbacb1bc945b9ad" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename T</type>
+          </param>
+          <param>
+            <type>size_t</type>
+            <declname>A</declname>
+            <defname>A</defname>
+          </param>
+          <param>
+            <type>typename U</type>
+          </param>
+          <param>
+            <type>size_t</type>
+            <declname>B</declname>
+            <defname>B</defname>
+          </param>
+        </templateparamlist>
+        <type>bool</type>
+        <definition>bool RADData::operator!=</definition>
+        <argsstring>(const RADAlignedAllocator&lt; T, A &gt; &amp;lhs, const RADAlignedAllocator&lt; U, B &gt; &amp;rhs)</argsstring>
+        <name>operator!=</name>
+        <param>
+          <type>const <ref refid="classRADData_1_1RADAlignedAllocator" kindref="compound">RADAlignedAllocator</ref>&lt; T, A &gt; &amp;</type>
+          <declname>lhs</declname>
+        </param>
+        <param>
+          <type>const <ref refid="classRADData_1_1RADAlignedAllocator" kindref="compound">RADAlignedAllocator</ref>&lt; U, B &gt; &amp;</type>
+          <declname>rhs</declname>
+        </param>
+        <briefdescription>
+<para>Compares aligned allocators by alignment value. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="RADDataStructures/headers/RADDataStructures.h" line="273" column="10" bodyfile="RADDataStructures/headers/RADDataStructures.h" bodystart="273" bodyend="275"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="RADDataStructures/headers/RADDataStructures.h" line="28" column="1"/>
+  </compounddef>
+</doxygen>
