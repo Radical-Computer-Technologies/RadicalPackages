@@ -50,12 +50,27 @@ sudo apt install <package>
 
 | Package | Description | Install |
 | --- | --- | --- |
-| `radlib-runtime` | RADLib shared runtime libraries required by RADLib-based apps. | `sudo apt install radlib-runtime` |
-| `radlib-dev` | RADLib public headers and CMake package files. | `sudo apt install radlib-dev` |
+| `radlib` | Aggregate RADLib package that installs runtime, development files, docs, examples, and tools. | `sudo apt install radlib` |
+| `radlib-runtime` | Latest RADLib runtime meta-package. | `sudo apt install radlib-runtime` |
+| `radlib-runtime-0-1` | RADLib ABI 0.1 runtime meta-package. | `sudo apt install radlib-runtime-0-1` |
+| `radlib-dev` | Latest RADLib public headers and CMake package files. | `sudo apt install radlib-dev` |
+| `radlib-dev-0-1` | RADLib ABI 0.1 public headers and CMake package files. | `sudo apt install radlib-dev-0-1` |
 | `radlib-doc` | RADLib generated API documentation package. | `sudo apt install radlib-doc` |
 | `radlib-examples` | RADLib example applications and sample projects. | `sudo apt install radlib-examples` |
 | `radlib-tools` | RADLib SDK tools and protocol generator. | `sudo apt install radlib-tools` |
-| `radlib` | Aggregate RADLib package that installs runtime, development files, docs, examples, and tools. | `sudo apt install radlib` |
+
+Targeted module installs are available for lean deployments:
+
+```bash
+sudo apt install radlib-core
+sudo apt install radlib-ui
+sudo apt install radlib-media
+sudo apt install radlib-dsp
+sudo apt install radlib-fpga
+sudo apt install radlib-web
+```
+
+Use packages such as `radlib-core-0-1` directly when an application should pin the RADLib 0.1 ABI runtime line.
 
 ## Experimental Packages
 
