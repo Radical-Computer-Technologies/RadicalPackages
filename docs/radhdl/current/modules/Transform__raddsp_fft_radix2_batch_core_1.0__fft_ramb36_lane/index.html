@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>fft_ramb36_lane Datasheet</title>
+  <link rel="stylesheet" href="../../assets/radhdl-docgen.css">
+</head>
+<body>
+
+<header><div class="wrap">
+  <nav class="breadcrumb"><a href="../../index.html">RadHDL</a> / <a href="../../libraries/dsp.html">dsp</a></nav>
+  <div class="kicker">DSP / entity</div>
+  <h1>fft_ramb36_lane</h1>
+  <div class="meta">Documentation version: current / Package: Transform / Source package: raddsp_fft_radix2_batch_core_1.0</div>
+  <div class="summary"><p>Xilinx RAMB36 lane wrapper used by wide FFT memory banks.
+Packages one physical memory lane behind a simple synchronous dual-port interface for generated FFT structures.</p></div>
+</div></header>
+<main class="wrap">
+  <h2>Use Cases</h2>
+  <ul><li>Reusable FPGA DSP pipelines that need fixed-point, timing-aware implementation.</li></ul>
+  <h2>Block Diagram</h2>
+  <div class="diagram"><svg width="582" height="414" viewBox="0 0 582 414" xmlns="http://www.w3.org/2000/svg" role="img">
+<style>text{font-family:Inter,Arial,sans-serif;font-size:13px;fill:#111827}.pin{stroke:#106b62;stroke-width:2;fill:none}.interface-pin{stroke:#7b8794;stroke-width:2;fill:#e5e7eb}.box{fill:#f7f9fc;stroke:#26323f;stroke-width:2}.bubble{fill:#fff;stroke:#106b62;stroke-width:2}.clock{fill:none;stroke:#106b62;stroke-width:2}</style>
+<rect class="box" x="72" y="50" width="420" height="324" rx="4"/>
+<text x="282.0" y="84" text-anchor="middle" font-weight="700">fft_ramb36_lane</text>
+<text x="282.0" y="106" text-anchor="middle">dsp entity</text>
+<line class="pin" x1="36" y1="130" x2="72" y2="130"/>
+<text x="100" y="134">clk</text>
+<path class="clock" d="M 74 123 L 87 130 L 74 137"/>
+<line class="pin" x1="36" y1="158" x2="72" y2="158"/>
+<text x="100" y="162">a_addr</text>
+<line class="pin" x1="36" y1="186" x2="72" y2="186"/>
+<text x="100" y="190">a_din</text>
+<line class="pin" x1="36" y1="214" x2="72" y2="214"/>
+<text x="100" y="218">a_en</text>
+<line class="pin" x1="36" y1="242" x2="72" y2="242"/>
+<text x="100" y="246">a_we</text>
+<line class="pin" x1="36" y1="270" x2="72" y2="270"/>
+<text x="100" y="274">b_addr</text>
+<line class="pin" x1="36" y1="298" x2="72" y2="298"/>
+<text x="100" y="302">b_din</text>
+<line class="pin" x1="36" y1="326" x2="72" y2="326"/>
+<text x="100" y="330">b_en</text>
+<line class="pin" x1="492" y1="130" x2="528" y2="130"/>
+<text x="464" y="134" text-anchor="end">a_dout</text>
+<line class="pin" x1="492" y1="158" x2="528" y2="158"/>
+<text x="464" y="162" text-anchor="end">b_dout</text>
+</svg></div>
+  <details class="doc-section"><summary>VHDL Include And Instantiation Template</summary><div class="doc-section-body"><h3>File Header</h3><pre><code>library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+
+library dsp;
+-- Direct entity instantiation below does not require importing the entity name.
+-- Add package imports only when your surrounding design needs package types/constants, for example:
+-- use dsp.&lt;package_name&gt;.all;</code></pre><h3>Instantiation</h3><pre><code>u_fft_ramb36_lane : entity dsp.fft_ramb36_lane
+  port map (
+    clk    =&gt; &lt;clk_signal&gt;,
+    a_addr =&gt; &lt;a_addr_signal&gt;,
+    a_din  =&gt; &lt;a_din_signal&gt;,
+    a_dout =&gt; &lt;a_dout_signal&gt;,
+    a_en   =&gt; &lt;a_en_signal&gt;,
+    a_we   =&gt; &lt;a_we_signal&gt;,
+    b_addr =&gt; &lt;b_addr_signal&gt;,
+    b_din  =&gt; &lt;b_din_signal&gt;,
+    b_dout =&gt; &lt;b_dout_signal&gt;,
+    b_en   =&gt; &lt;b_en_signal&gt;
+  );</code></pre></div></details>
+  <h2>Generics</h2><p class="summary">No generics declared.</p>
+  <h2>Ports</h2><table><thead><tr><th>Name</th><th>Direction</th><th>Type</th><th>Description</th></tr></thead><tbody><tr><td>clk</td><td>in</td><td>std_logic</td><td>Clock for the associated synchronous logic and handshake domain.</td></tr><tr><td>a_addr</td><td>in</td><td>std_logic_vector(9 downto 0)</td><td>A addr interface signal.</td></tr><tr><td>a_din</td><td>in</td><td>std_logic_vector(31 downto 0)</td><td>A din interface signal.</td></tr><tr><td>a_dout</td><td>out</td><td>std_logic_vector(31 downto 0)</td><td>A dout interface signal.</td></tr><tr><td>a_en</td><td>in</td><td>std_logic</td><td>A en interface signal.</td></tr><tr><td>a_we</td><td>in</td><td>std_logic</td><td>A we interface signal.</td></tr><tr><td>b_addr</td><td>in</td><td>std_logic_vector(9 downto 0)</td><td>B addr interface signal.</td></tr><tr><td>b_din</td><td>in</td><td>std_logic_vector(31 downto 0)</td><td>B din interface signal.</td></tr><tr><td>b_dout</td><td>out</td><td>std_logic_vector(31 downto 0)</td><td>B dout interface signal.</td></tr><tr><td>b_en</td><td>in</td><td>std_logic</td><td>B en interface signal.</td></tr></tbody></table>
+  
+  <h2>Testbenches and Waveforms</h2><p class="summary">No directly associated testbench was found.</p>
+  <h2>HDL Example</h2>
+  <pre><code>entity fft_ramb36_lane is
+  generic (
+    -- Identifies the target FPGA family so wrappers can choose the correct primitive or conservative portable behavior.
+    DEVICE_FAMILY : string := &quot;ultrascale+&quot;
+  );
+  port (
+    -- Clock for the associated synchronous logic and handshake domain.
+    clk    : in  std_logic;
+    -- A addr interface signal.
+    a_addr : in  std_logic_vector(9 downto 0);
+    -- A din interface signal.
+    a_din  : in  std_logic_vector(31 downto 0);
+    -- A dout interface signal.
+    a_dout : out std_logic_vector(31 downto 0);
+    -- A en interface signal.
+    a_en   : in  std_logic;
+    -- A we interface signal.
+    a_we   : in  std_logic;
+    -- B addr interface signal.
+    b_addr : in  std_logic_vector(9 downto 0);
+    -- B din interface signal.
+    b_din  : in  std_logic_vector(31 downto 0);
+    -- B dout interface signal.
+    b_dout : out std_logic_vector(31 downto 0);
+    -- B en interface signal.
+    b_en   : in  std_logic;
+    -- B we interface signal.
+    b_we   : in  std_logic
+  );
+end entity;</code></pre>
+  <h2>Sources</h2>
+  <ul><li>dsp/hdl/iprepo/raddsp_fft_radix2_batch_core_1.0/src/fft_tdp_ram.vhd</li></ul>
+</main>
+<footer><div class="wrap">RadHDL documentation version current / Generated by radhdl-docgen 0.1.0</div></footer>
+
+</body>
+</html>
