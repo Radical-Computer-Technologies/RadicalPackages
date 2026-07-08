@@ -66,7 +66,33 @@ use ieee.numeric_std.all;
 library dsp;
 -- Direct entity instantiation below does not require importing the entity name.
 -- Add package imports only when your surrounding design needs package types/constants, for example:
--- use dsp.&lt;package_name&gt;.all;</code></pre><h3>Instantiation</h3><pre><code>u_zc_chirp_frame_detector : entity dsp.zc_chirp_frame_detector
+-- use dsp.&lt;package_name&gt;.all;</code></pre><h3>Component Declaration</h3><pre><code>component zc_chirp_frame_detector is
+  generic (
+    G_SAMPLE_WIDTH : integer := 16;
+    G_ACC_WIDTH : integer := 40;
+    G_FRAME_SAMPLES : integer := 1024;
+    G_CHIRP_LEN : integer := 512;
+    G_CHIRP_AFTER_PEAK : integer := 160
+  );
+  port (
+    clk : in std_logic;
+    rst : in std_logic;
+    frame_start : in std_logic;
+    sample_valid : in std_logic;
+    sample_i : in signed(G_SAMPLE_WIDTH - 1 downto 0);
+    sample_q : in signed(G_SAMPLE_WIDTH - 1 downto 0);
+    sample_ready : out std_logic;
+    processing : out std_logic;
+    peak_valid : out std_logic;
+    peak_index : out integer range 0 to G_FRAME_SAMPLES - 1;
+    peak_i : out signed(G_ACC_WIDTH - 1 downto 0);
+    peak_q : out signed(G_ACC_WIDTH - 1 downto 0);
+    chirp_valid : out std_logic;
+    chirp_index : out integer range 0 to G_CHIRP_LEN - 1;
+    chirp_i : out signed(G_SAMPLE_WIDTH - 1 downto 0);
+    chirp_q : out signed(G_SAMPLE_WIDTH - 1 downto 0)
+  );
+end component;</code></pre><h3>Direct Entity Instantiation</h3><pre><code>u_zc_chirp_frame_detector : entity dsp.zc_chirp_frame_detector
   generic map (
     G_SAMPLE_WIDTH     =&gt; 16,
     G_ACC_WIDTH        =&gt; 40,
@@ -96,59 +122,6 @@ library dsp;
   <h2>Ports</h2><table><thead><tr><th>Name</th><th>Direction</th><th>Type</th><th>Description</th></tr></thead><tbody><tr><td>clk</td><td>in</td><td>std_logic</td><td>Clock for the associated synchronous logic and handshake domain.</td></tr><tr><td>rst</td><td>in</td><td>std_logic</td><td>Active-high synchronous reset for this clock domain.</td></tr><tr><td>frame_start</td><td>in</td><td>std_logic</td><td>Frame start interface signal.</td></tr><tr><td>sample_valid</td><td>in</td><td>std_logic</td><td>Sample valid interface signal.</td></tr><tr><td>sample_i</td><td>in</td><td>signed(G_SAMPLE_WIDTH - 1 downto 0)</td><td>Input sample vector captured or processed by the datapath.</td></tr><tr><td>sample_q</td><td>in</td><td>signed(G_SAMPLE_WIDTH - 1 downto 0)</td><td>Sample q interface signal.</td></tr><tr><td>sample_ready</td><td>out</td><td>std_logic</td><td>Sample ready interface signal.</td></tr><tr><td>processing</td><td>out</td><td>std_logic</td><td>Processing interface signal.</td></tr><tr><td>peak_valid</td><td>out</td><td>std_logic</td><td>Peak valid interface signal.</td></tr><tr><td>peak_index</td><td>out</td><td>integer range 0 to G_FRAME_SAMPLES - 1</td><td>Peak index interface signal.</td></tr><tr><td>peak_i</td><td>out</td><td>signed(G_ACC_WIDTH - 1 downto 0)</td><td>Input peak i signal for this module.</td></tr><tr><td>peak_q</td><td>out</td><td>signed(G_ACC_WIDTH - 1 downto 0)</td><td>Peak q interface signal.</td></tr><tr><td>chirp_valid</td><td>out</td><td>std_logic</td><td>Chirp valid interface signal.</td></tr><tr><td>chirp_index</td><td>out</td><td>integer range 0 to G_CHIRP_LEN - 1</td><td>Chirp index interface signal.</td></tr><tr><td>chirp_i</td><td>out</td><td>signed(G_SAMPLE_WIDTH - 1 downto 0)</td><td>Input chirp i signal for this module.</td></tr><tr><td>chirp_q</td><td>out</td><td>signed(G_SAMPLE_WIDTH - 1 downto 0)</td><td>Chirp q interface signal.</td></tr></tbody></table>
   
   <h2>Testbenches and Waveforms</h2><table><thead><tr><th>Testbench</th><th>Source</th><th>Simulation</th><th>Artifacts</th></tr></thead><tbody><tr><td>tb_zc_chirp_frame_detector_iqcal</td><td>dsp/hdl/testbenches/tb_zc_chirp_frame_detector_iqcal.vhd</td><td>failed</td><td><a href="../../simulations/tb_zc_chirp_frame_detector_iqcal/simulation_status.json">status</a></td></tr></tbody></table><div class="status">tb_zc_chirp_frame_detector_iqcal simulation failed: /usr/bin/ghdl-mcode: cannot find entity or configuration tb_zc_chirp_frame_detector_iqcal</div>
-  <h2>HDL Example</h2>
-  <pre><code>entity zc_chirp_frame_detector is
-  generic (
-    -- Sets the bit width for G SAMPLE WIDTH values carried by this module.
-    G_SAMPLE_WIDTH      : integer := 16;
-    -- Sets the bit width for G ACC WIDTH values carried by this module.
-    G_ACC_WIDTH         : integer := 40;
-    -- Sets the width or count of samples handled by the datapath.
-    G_FRAME_SAMPLES     : integer := 1024;
-    -- Configures G CHIRP LEN for this instance.
-    G_CHIRP_LEN         : integer := 512;
-    -- Configures G CHIRP AFTER PEAK for this instance.
-    G_CHIRP_AFTER_PEAK  : integer := 160;
-    -- Identifies the target FPGA family so wrappers can choose the correct primitive or conservative portable behavior.
-    G_PRODUCT_SHIFT     : integer := 15
-  );
-  port (
-    -- Clock for the associated synchronous logic and handshake domain.
-    clk              : in  std_logic;
-    -- Active-high synchronous reset for this clock domain.
-    rst              : in  std_logic;
-    -- Frame start interface signal.
-    frame_start      : in  std_logic;
-    -- Sample valid interface signal.
-    sample_valid     : in  std_logic;
-    -- Input sample vector captured or processed by the datapath.
-    sample_i         : in  signed(G_SAMPLE_WIDTH - 1 downto 0);
-    -- Sample q interface signal.
-    sample_q         : in  signed(G_SAMPLE_WIDTH - 1 downto 0);
-    -- Sample ready interface signal.
-    sample_ready     : out std_logic;
-    -- Processing interface signal.
-    processing       : out std_logic;
-    -- Peak valid interface signal.
-    peak_valid       : out std_logic;
-    -- Peak index interface signal.
-    peak_index       : out integer range 0 to G_FRAME_SAMPLES - 1;
-    -- Input peak i signal for this module.
-    peak_i           : out signed(G_ACC_WIDTH - 1 downto 0);
-    -- Peak q interface signal.
-    peak_q           : out signed(G_ACC_WIDTH - 1 downto 0);
-    -- Chirp valid interface signal.
-    chirp_valid      : out std_logic;
-    -- Chirp index interface signal.
-    chirp_index      : out integer range 0 to G_CHIRP_LEN - 1;
-    -- Input chirp i signal for this module.
-    chirp_i          : out signed(G_SAMPLE_WIDTH - 1 downto 0);
-    -- Chirp q interface signal.
-    chirp_q          : out signed(G_SAMPLE_WIDTH - 1 downto 0);
-    -- Chirp done interface signal.
-    chirp_done       : out std_logic
-  );
-end entity;</code></pre>
   <h2>Sources</h2>
   <ul><li>dsp/hdl/iprepo/raddsp_zc_chirp_frame_detector_1.0/src/zc_chirp_frame_detector.vhd</li></ul>
 </main>

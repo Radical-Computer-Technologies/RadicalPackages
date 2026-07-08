@@ -44,7 +44,24 @@ use ieee.numeric_std.all;
 library dsp;
 -- Direct entity instantiation below does not require importing the entity name.
 -- Add package imports only when your surrounding design needs package types/constants, for example:
--- use dsp.&lt;package_name&gt;.all;</code></pre><h3>Instantiation</h3><pre><code>u_raddsp_axis_iq_magnitude_sq : entity dsp.raddsp_axis_iq_magnitude_sq
+-- use dsp.&lt;package_name&gt;.all;</code></pre><h3>Component Declaration</h3><pre><code>component raddsp_axis_iq_magnitude_sq is
+  generic (
+    VENDOR : string := &quot;xilinx&quot;;
+    DEVICE_FAMILY : string := &quot;generic&quot;;
+    DATA_WIDTH : positive := 16
+  );
+  port (
+    clk : in std_logic;
+    rst : in std_logic;
+    s_axis_tvalid : in std_logic;
+    s_axis_tready : out std_logic;
+    s_axis_tdata : in std_logic_vector((2 * DATA_WIDTH) - 1 downto 0);
+    s_axis_tlast : in std_logic;
+    m_axis_tvalid : out std_logic;
+    m_axis_tready : in std_logic;
+    m_axis_tdata : out std_logic_vector(MAG_WIDTH - 1 downto 0)
+  );
+end component;</code></pre><h3>Direct Entity Instantiation</h3><pre><code>u_raddsp_axis_iq_magnitude_sq : entity dsp.raddsp_axis_iq_magnitude_sq
   generic map (
     VENDOR        =&gt; &quot;xilinx&quot;,
     DEVICE_FAMILY =&gt; &quot;generic&quot;,
@@ -65,41 +82,6 @@ library dsp;
   <h2>Ports</h2><table><thead><tr><th>Name</th><th>Direction</th><th>Type</th><th>Description</th></tr></thead><tbody><tr><td>clk</td><td>in</td><td>std_logic</td><td>Clock for the associated synchronous logic and handshake domain.</td></tr><tr><td>rst</td><td>in</td><td>std_logic</td><td>Active-high synchronous reset for this clock domain.</td></tr><tr><td>s_axis_tvalid</td><td>in</td><td>std_logic</td><td>Input AXI-stream valid qualifier for the current sample beat.</td></tr><tr><td>s_axis_tready</td><td>out</td><td>std_logic</td><td>Input AXI-stream ready response indicating this block can accept a beat.</td></tr><tr><td>s_axis_tdata</td><td>in</td><td>std_logic_vector((2 * DATA_WIDTH) - 1 downto 0)</td><td>Input AXI-stream payload containing packed sample or feature lanes.</td></tr><tr><td>s_axis_tlast</td><td>in</td><td>std_logic</td><td>Input AXI-stream frame marker for the final beat of a frame.</td></tr><tr><td>m_axis_tvalid</td><td>out</td><td>std_logic</td><td>Output AXI-stream valid qualifier for the current result beat.</td></tr><tr><td>m_axis_tready</td><td>in</td><td>std_logic</td><td>Output AXI-stream ready input from the downstream block.</td></tr><tr><td>m_axis_tdata</td><td>out</td><td>std_logic_vector(MAG_WIDTH - 1 downto 0)</td><td>Output AXI-stream payload containing packed processed result lanes.</td></tr></tbody></table>
   
   <h2>Testbenches and Waveforms</h2><p class="summary">No directly associated testbench was found.</p>
-  <h2>HDL Example</h2>
-  <pre><code>entity raddsp_axis_iq_magnitude_sq is
-  generic (
-    -- Selects the vendor-specific implementation path, usually XILINX for DSP48/XPM-backed builds or generic for portable RTL.
-    VENDOR        : string  := &quot;xilinx&quot;;
-    -- Identifies the target FPGA family so wrappers can choose the correct primitive or conservative portable behavior.
-    DEVICE_FAMILY : string  := &quot;generic&quot;;
-    -- Sets the bit width for DATA WIDTH values carried by this module.
-    DATA_WIDTH    : positive := 16;
-    -- Sets the bit width for MAG WIDTH values carried by this module.
-    MAG_WIDTH     : positive := 32
-  );
-  port (
-    -- Clock for the associated synchronous logic and handshake domain.
-    clk           : in  std_logic;
-    -- Active-high synchronous reset for this clock domain.
-    rst           : in  std_logic;
-    -- Input AXI-stream valid qualifier for the current sample beat.
-    s_axis_tvalid : in  std_logic;
-    -- Input AXI-stream ready response indicating this block can accept a beat.
-    s_axis_tready : out std_logic;
-    -- Input AXI-stream payload containing packed sample or feature lanes.
-    s_axis_tdata  : in  std_logic_vector((2 * DATA_WIDTH) - 1 downto 0);
-    -- Input AXI-stream frame marker for the final beat of a frame.
-    s_axis_tlast  : in  std_logic;
-    -- Output AXI-stream valid qualifier for the current result beat.
-    m_axis_tvalid : out std_logic;
-    -- Output AXI-stream ready input from the downstream block.
-    m_axis_tready : in  std_logic;
-    -- Output AXI-stream payload containing packed processed result lanes.
-    m_axis_tdata  : out std_logic_vector(MAG_WIDTH - 1 downto 0);
-    -- Output AXI-stream frame marker aligned with the processed result beat.
-    m_axis_tlast  : out std_logic
-  );
-end entity;</code></pre>
   <h2>Sources</h2>
   <ul><li>dsp/hdl/iprepo/raddsp_axis_iq_magnitude_sq_1.0/src/raddsp_axis_iq_magnitude_sq.vhd</li></ul>
 </main>

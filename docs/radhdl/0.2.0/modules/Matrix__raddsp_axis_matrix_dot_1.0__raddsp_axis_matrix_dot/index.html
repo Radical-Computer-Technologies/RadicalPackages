@@ -61,7 +61,32 @@ use ieee.numeric_std.all;
 library dsp;
 -- Direct entity instantiation below does not require importing the entity name.
 -- Add package imports only when your surrounding design needs package types/constants, for example:
--- use dsp.&lt;package_name&gt;.all;</code></pre><h3>Instantiation</h3><pre><code>u_raddsp_axis_matrix_dot : entity dsp.raddsp_axis_matrix_dot
+-- use dsp.&lt;package_name&gt;.all;</code></pre><h3>Component Declaration</h3><pre><code>component raddsp_axis_matrix_dot is
+  generic (
+    VENDOR : string := &quot;xilinx&quot;;
+    DEVICE_FAMILY : string := &quot;generic&quot;;
+    DATA_WIDTH : positive := 16;
+    ACC_WIDTH : positive := 48
+  );
+  port (
+    clk : in std_logic;
+    rst : in std_logic;
+    clear_i : in std_logic;
+    s0_axis_tvalid : in std_logic;
+    s0_axis_tready : out std_logic;
+    s0_axis_tdata : in std_logic_vector(DATA_WIDTH - 1 downto 0);
+    s0_axis_tlast : in std_logic;
+    s1_axis_tvalid : in std_logic;
+    s1_axis_tready : out std_logic;
+    s1_axis_tdata : in std_logic_vector(DATA_WIDTH - 1 downto 0);
+    s1_axis_tlast : in std_logic;
+    m_axis_tvalid : out std_logic;
+    m_axis_tready : in std_logic;
+    m_axis_tdata : out std_logic_vector(ACC_WIDTH - 1 downto 0);
+    m_axis_tlast : out std_logic;
+    sample_count_o : out std_logic_vector(31 downto 0)
+  );
+end component;</code></pre><h3>Direct Entity Instantiation</h3><pre><code>u_raddsp_axis_matrix_dot : entity dsp.raddsp_axis_matrix_dot
   generic map (
     VENDOR        =&gt; &quot;xilinx&quot;,
     DEVICE_FAMILY =&gt; &quot;generic&quot;,
@@ -90,55 +115,6 @@ library dsp;
   <h2>Ports</h2><table><thead><tr><th>Name</th><th>Direction</th><th>Type</th><th>Description</th></tr></thead><tbody><tr><td>clk</td><td>in</td><td>std_logic</td><td>Clock for the associated synchronous logic and handshake domain.</td></tr><tr><td>rst</td><td>in</td><td>std_logic</td><td>Active-high synchronous reset for this clock domain.</td></tr><tr><td>clear_i</td><td>in</td><td>std_logic</td><td>Input clear i signal for this module.</td></tr><tr><td>s0_axis_tvalid</td><td>in</td><td>std_logic</td><td>S0 axis tvalid interface signal.</td></tr><tr><td>s0_axis_tready</td><td>out</td><td>std_logic</td><td>S0 axis tready interface signal.</td></tr><tr><td>s0_axis_tdata</td><td>in</td><td>std_logic_vector(DATA_WIDTH - 1 downto 0)</td><td>S0 axis tdata interface signal.</td></tr><tr><td>s0_axis_tlast</td><td>in</td><td>std_logic</td><td>S0 axis tlast interface signal.</td></tr><tr><td>s1_axis_tvalid</td><td>in</td><td>std_logic</td><td>S1 axis tvalid interface signal.</td></tr><tr><td>s1_axis_tready</td><td>out</td><td>std_logic</td><td>S1 axis tready interface signal.</td></tr><tr><td>s1_axis_tdata</td><td>in</td><td>std_logic_vector(DATA_WIDTH - 1 downto 0)</td><td>S1 axis tdata interface signal.</td></tr><tr><td>s1_axis_tlast</td><td>in</td><td>std_logic</td><td>S1 axis tlast interface signal.</td></tr><tr><td>m_axis_tvalid</td><td>out</td><td>std_logic</td><td>Output AXI-stream valid qualifier for the current result beat.</td></tr><tr><td>m_axis_tready</td><td>in</td><td>std_logic</td><td>Output AXI-stream ready input from the downstream block.</td></tr><tr><td>m_axis_tdata</td><td>out</td><td>std_logic_vector(ACC_WIDTH - 1 downto 0)</td><td>Output AXI-stream payload containing packed processed result lanes.</td></tr><tr><td>m_axis_tlast</td><td>out</td><td>std_logic</td><td>Output AXI-stream frame marker aligned with the processed result beat.</td></tr><tr><td>sample_count_o</td><td>out</td><td>std_logic_vector(31 downto 0)</td><td>Output sample vector or current sample status from the datapath.</td></tr></tbody></table>
   
   <h2>Testbenches and Waveforms</h2><table><thead><tr><th>Testbench</th><th>Source</th><th>Simulation</th><th>Artifacts</th></tr></thead><tbody><tr><td>tb_raddsp_axis_smoke</td><td>dsp/hdl/testbenches/tb_raddsp_axis_smoke.vhd</td><td>failed</td><td><a href="../../simulations/tb_raddsp_axis_smoke/simulation_status.json">status</a></td></tr></tbody></table><div class="status">tb_raddsp_axis_smoke simulation failed: /usr/bin/ghdl-mcode: cannot find entity or configuration tb_raddsp_axis_smoke</div>
-  <h2>HDL Example</h2>
-  <pre><code>entity raddsp_axis_matrix_dot is
-  generic (
-    -- Selects the vendor-specific implementation path, usually XILINX for DSP48/XPM-backed builds or generic for portable RTL.
-    VENDOR          : string  := &quot;xilinx&quot;;
-    -- Identifies the target FPGA family so wrappers can choose the correct primitive or conservative portable behavior.
-    DEVICE_FAMILY   : string  := &quot;generic&quot;;
-    -- Sets the bit width for DATA WIDTH values carried by this module.
-    DATA_WIDTH      : positive := 16;
-    -- Sets the bit width for ACC WIDTH values carried by this module.
-    ACC_WIDTH       : positive := 48;
-    -- Sets coefficient precision or coefficient count for the fixed-point DSP operation.
-    COEFF_FRAC_BITS : natural  := 15
-  );
-  port (
-    -- Clock for the associated synchronous logic and handshake domain.
-    clk             : in  std_logic;
-    -- Active-high synchronous reset for this clock domain.
-    rst             : in  std_logic;
-    -- Input clear i signal for this module.
-    clear_i         : in  std_logic;
-    -- S0 axis tvalid interface signal.
-    s0_axis_tvalid  : in  std_logic;
-    -- S0 axis tready interface signal.
-    s0_axis_tready  : out std_logic;
-    -- S0 axis tdata interface signal.
-    s0_axis_tdata   : in  std_logic_vector(DATA_WIDTH - 1 downto 0);
-    -- S0 axis tlast interface signal.
-    s0_axis_tlast   : in  std_logic;
-    -- S1 axis tvalid interface signal.
-    s1_axis_tvalid  : in  std_logic;
-    -- S1 axis tready interface signal.
-    s1_axis_tready  : out std_logic;
-    -- S1 axis tdata interface signal.
-    s1_axis_tdata   : in  std_logic_vector(DATA_WIDTH - 1 downto 0);
-    -- S1 axis tlast interface signal.
-    s1_axis_tlast   : in  std_logic;
-    -- Output AXI-stream valid qualifier for the current result beat.
-    m_axis_tvalid   : out std_logic;
-    -- Output AXI-stream ready input from the downstream block.
-    m_axis_tready   : in  std_logic;
-    -- Output AXI-stream payload containing packed processed result lanes.
-    m_axis_tdata    : out std_logic_vector(ACC_WIDTH - 1 downto 0);
-    -- Output AXI-stream frame marker aligned with the processed result beat.
-    m_axis_tlast    : out std_logic;
-    -- Output sample vector or current sample status from the datapath.
-    sample_count_o  : out std_logic_vector(31 downto 0)
-  );
-end entity;</code></pre>
   <h2>Sources</h2>
   <ul><li>dsp/hdl/iprepo/raddsp_axis_matrix_dot_1.0/src/raddsp_axis_matrix_dot.vhd</li></ul>
 </main>

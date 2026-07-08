@@ -72,7 +72,69 @@ use ieee.numeric_std.all;
 library radif;
 -- Direct entity instantiation below does not require importing the entity name.
 -- Add package imports only when your surrounding design needs package types/constants, for example:
--- use radif.&lt;package_name&gt;.all;</code></pre><h3>Instantiation</h3><pre><code>u_radif_axi4_axis_dma : entity radif.radif_axi4_axis_dma
+-- use radif.&lt;package_name&gt;.all;</code></pre><h3>Component Declaration</h3><pre><code>component radif_axi4_axis_dma is
+  generic (
+    REG_DATA_WIDTH : integer := 32;
+    REG_ADDR_WIDTH : integer := 16;
+    AXI_ADDR_WIDTH : integer := 32;
+    AXI_DATA_WIDTH : integer := 32;
+    AXIS_DATA_WIDTH : integer := 32;
+    ENABLE_MM2S : boolean := true;
+    ENABLE_S2MM : boolean := true;
+    FIFO_DEPTH : integer := 1024;
+    FIFO_FWFT : boolean := true;
+    MAX_BURST_LEN : integer := 16;
+    VENDOR_TAG : string := &quot;XILINX&quot;
+  );
+  port (
+    clk : in std_logic;
+    rstn : in std_logic;
+    reg_wr_addr : in std_logic_vector(REG_ADDR_WIDTH - 1 downto 0);
+    reg_rd_addr : in std_logic_vector(REG_ADDR_WIDTH - 1 downto 0);
+    reg_wr_en : in std_logic;
+    reg_rd_en : in std_logic;
+    reg_data_in : in std_logic_vector(REG_DATA_WIDTH - 1 downto 0);
+    reg_data_out : out std_logic_vector(REG_DATA_WIDTH - 1 downto 0);
+    reg_wr_rdy : out std_logic;
+    reg_rd_rdy : out std_logic;
+    reg_wr_valid : out std_logic;
+    reg_rd_valid : out std_logic;
+    reg_error : out std_logic;
+    irq_o : out std_logic;
+    m_axi_awaddr : out std_logic_vector(AXI_ADDR_WIDTH - 1 downto 0);
+    m_axi_awlen : out std_logic_vector(7 downto 0);
+    m_axi_awsize : out std_logic_vector(2 downto 0);
+    m_axi_awburst : out std_logic_vector(1 downto 0);
+    m_axi_awvalid : out std_logic;
+    m_axi_awready : in std_logic;
+    m_axi_wdata : out std_logic_vector(AXI_DATA_WIDTH - 1 downto 0);
+    m_axi_wstrb : out std_logic_vector((AXI_DATA_WIDTH / 8) - 1 downto 0);
+    m_axi_wlast : out std_logic;
+    m_axi_wvalid : out std_logic;
+    m_axi_wready : in std_logic;
+    m_axi_bresp : in std_logic_vector(1 downto 0);
+    m_axi_bvalid : in std_logic;
+    m_axi_bready : out std_logic;
+    m_axi_araddr : out std_logic_vector(AXI_ADDR_WIDTH - 1 downto 0);
+    m_axi_arlen : out std_logic_vector(7 downto 0);
+    m_axi_arsize : out std_logic_vector(2 downto 0);
+    m_axi_arburst : out std_logic_vector(1 downto 0);
+    m_axi_arvalid : out std_logic;
+    m_axi_arready : in std_logic;
+    m_axi_rdata : in std_logic_vector(AXI_DATA_WIDTH - 1 downto 0);
+    m_axi_rresp : in std_logic_vector(1 downto 0);
+    m_axi_rlast : in std_logic;
+    m_axi_rvalid : in std_logic;
+    m_axi_rready : out std_logic;
+    m_axis_tdata : out std_logic_vector(AXIS_DATA_WIDTH - 1 downto 0);
+    m_axis_tvalid : out std_logic;
+    m_axis_tready : in std_logic;
+    m_axis_tlast : out std_logic;
+    s_axis_tdata : in std_logic_vector(AXIS_DATA_WIDTH - 1 downto 0);
+    s_axis_tvalid : in std_logic;
+    s_axis_tready : out std_logic
+  );
+end component;</code></pre><h3>Direct Entity Instantiation</h3><pre><code>u_radif_axi4_axis_dma : entity radif.radif_axi4_axis_dma
   generic map (
     REG_DATA_WIDTH  =&gt; 32,
     REG_ADDR_WIDTH  =&gt; 16,
@@ -136,133 +198,8 @@ library radif;
   );</code></pre></div></details>
   <h2>Generics</h2><table><thead><tr><th>Name</th><th>Type</th><th>Default</th><th>Description</th></tr></thead><tbody><tr><td>REG_DATA_WIDTH</td><td>integer</td><td>32</td><td>Sets the bit width for REG DATA WIDTH values carried by this module.</td></tr><tr><td>REG_ADDR_WIDTH</td><td>integer</td><td>16</td><td>Sets the bit width for REG ADDR WIDTH values carried by this module.</td></tr><tr><td>AXI_ADDR_WIDTH</td><td>integer</td><td>32</td><td>Sets the bit width for AXI ADDR WIDTH values carried by this module.</td></tr><tr><td>AXI_DATA_WIDTH</td><td>integer</td><td>32</td><td>Sets the bit width for AXI DATA WIDTH values carried by this module.</td></tr><tr><td>AXIS_DATA_WIDTH</td><td>integer</td><td>32</td><td>Sets the bit width for AXIS DATA WIDTH values carried by this module.</td></tr><tr><td>ENABLE_MM2S</td><td>boolean</td><td>true</td><td>Configures ENABLE MM2S for this instance.</td></tr><tr><td>ENABLE_S2MM</td><td>boolean</td><td>true</td><td>Configures ENABLE S2MM for this instance.</td></tr><tr><td>FIFO_DEPTH</td><td>integer</td><td>1024</td><td>Sets the storage depth, frame length, or number of buffered samples used internally.</td></tr><tr><td>FIFO_FWFT</td><td>boolean</td><td>true</td><td>Configures FIFO FWFT for this instance.</td></tr><tr><td>MAX_BURST_LEN</td><td>integer</td><td>16</td><td>Configures MAX BURST LEN for this instance.</td></tr><tr><td>VENDOR_TAG</td><td>string</td><td>&quot;XILINX&quot;</td><td>Selects the vendor-specific implementation path, usually XILINX for DSP48/XPM-backed builds or generic for portable RTL.</td></tr></tbody></table>
   <h2>Ports</h2><table><thead><tr><th>Name</th><th>Direction</th><th>Type</th><th>Description</th></tr></thead><tbody><tr><td>clk</td><td>in</td><td>std_logic</td><td>Clock for the associated synchronous logic and handshake domain.</td></tr><tr><td>rstn</td><td>in</td><td>std_logic</td><td>Active-low reset for this clock domain.</td></tr><tr><td>reg_wr_addr</td><td>in</td><td>std_logic_vector(REG_ADDR_WIDTH - 1 downto 0)</td><td>Register write address issued to the internal RadIF register target.</td></tr><tr><td>reg_rd_addr</td><td>in</td><td>std_logic_vector(REG_ADDR_WIDTH - 1 downto 0)</td><td>Register read address issued to the internal RadIF register target.</td></tr><tr><td>reg_wr_en</td><td>in</td><td>std_logic</td><td>One-cycle write request pulse for the internal register target.</td></tr><tr><td>reg_rd_en</td><td>in</td><td>std_logic</td><td>One-cycle read request pulse for the internal register target.</td></tr><tr><td>reg_data_in</td><td>in</td><td>std_logic_vector(REG_DATA_WIDTH - 1 downto 0)</td><td>Write data presented to the internal register target.</td></tr><tr><td>reg_data_out</td><td>out</td><td>std_logic_vector(REG_DATA_WIDTH - 1 downto 0)</td><td>Read data returned by the internal register target.</td></tr><tr><td>reg_wr_rdy</td><td>out</td><td>std_logic</td><td>Write-side ready indication from the internal register target.</td></tr><tr><td>reg_rd_rdy</td><td>out</td><td>std_logic</td><td>Read-side ready indication from the internal register target.</td></tr><tr><td>reg_wr_valid</td><td>out</td><td>std_logic</td><td>Write response valid indication from the internal register target.</td></tr><tr><td>reg_rd_valid</td><td>out</td><td>std_logic</td><td>Read response valid indication from the internal register target.</td></tr><tr><td>reg_error</td><td>out</td><td>std_logic</td><td>Register target error flag converted into the external bus error response.</td></tr><tr><td>irq_o</td><td>out</td><td>std_logic</td><td>Output irq o signal generated by this module.</td></tr><tr><td>m_axi_awaddr</td><td>out</td><td>std_logic_vector(AXI_ADDR_WIDTH - 1 downto 0)</td><td>AXI master-channel signal used for memory-mapped transfer generation.</td></tr><tr><td>m_axi_awlen</td><td>out</td><td>std_logic_vector(7 downto 0)</td><td>AXI master-channel signal used for memory-mapped transfer generation.</td></tr><tr><td>m_axi_awsize</td><td>out</td><td>std_logic_vector(2 downto 0)</td><td>AXI master-channel signal used for memory-mapped transfer generation.</td></tr><tr><td>m_axi_awburst</td><td>out</td><td>std_logic_vector(1 downto 0)</td><td>AXI master-channel signal used for memory-mapped transfer generation.</td></tr><tr><td>m_axi_awvalid</td><td>out</td><td>std_logic</td><td>AXI master-channel signal used for memory-mapped transfer generation.</td></tr><tr><td>m_axi_awready</td><td>in</td><td>std_logic</td><td>AXI master-channel signal used for memory-mapped transfer generation.</td></tr><tr><td>m_axi_wdata</td><td>out</td><td>std_logic_vector(AXI_DATA_WIDTH - 1 downto 0)</td><td>AXI master-channel signal used for memory-mapped transfer generation.</td></tr><tr><td>m_axi_wstrb</td><td>out</td><td>std_logic_vector((AXI_DATA_WIDTH / 8) - 1 downto 0)</td><td>AXI master-channel signal used for memory-mapped transfer generation.</td></tr><tr><td>m_axi_wlast</td><td>out</td><td>std_logic</td><td>AXI master-channel signal used for memory-mapped transfer generation.</td></tr><tr><td>m_axi_wvalid</td><td>out</td><td>std_logic</td><td>AXI master-channel signal used for memory-mapped transfer generation.</td></tr><tr><td>m_axi_wready</td><td>in</td><td>std_logic</td><td>AXI master-channel signal used for memory-mapped transfer generation.</td></tr><tr><td>m_axi_bresp</td><td>in</td><td>std_logic_vector(1 downto 0)</td><td>AXI master-channel signal used for memory-mapped transfer generation.</td></tr><tr><td>m_axi_bvalid</td><td>in</td><td>std_logic</td><td>AXI master-channel signal used for memory-mapped transfer generation.</td></tr><tr><td>m_axi_bready</td><td>out</td><td>std_logic</td><td>AXI master-channel signal used for memory-mapped transfer generation.</td></tr><tr><td>m_axi_araddr</td><td>out</td><td>std_logic_vector(AXI_ADDR_WIDTH - 1 downto 0)</td><td>AXI master-channel signal used for memory-mapped transfer generation.</td></tr><tr><td>m_axi_arlen</td><td>out</td><td>std_logic_vector(7 downto 0)</td><td>AXI master-channel signal used for memory-mapped transfer generation.</td></tr><tr><td>m_axi_arsize</td><td>out</td><td>std_logic_vector(2 downto 0)</td><td>AXI master-channel signal used for memory-mapped transfer generation.</td></tr><tr><td>m_axi_arburst</td><td>out</td><td>std_logic_vector(1 downto 0)</td><td>AXI master-channel signal used for memory-mapped transfer generation.</td></tr><tr><td>m_axi_arvalid</td><td>out</td><td>std_logic</td><td>AXI master-channel signal used for memory-mapped transfer generation.</td></tr><tr><td>m_axi_arready</td><td>in</td><td>std_logic</td><td>AXI master-channel signal used for memory-mapped transfer generation.</td></tr><tr><td>m_axi_rdata</td><td>in</td><td>std_logic_vector(AXI_DATA_WIDTH - 1 downto 0)</td><td>AXI master-channel signal used for memory-mapped transfer generation.</td></tr><tr><td>m_axi_rresp</td><td>in</td><td>std_logic_vector(1 downto 0)</td><td>AXI master-channel signal used for memory-mapped transfer generation.</td></tr><tr><td>m_axi_rlast</td><td>in</td><td>std_logic</td><td>AXI master-channel signal used for memory-mapped transfer generation.</td></tr><tr><td>m_axi_rvalid</td><td>in</td><td>std_logic</td><td>AXI master-channel signal used for memory-mapped transfer generation.</td></tr><tr><td>m_axi_rready</td><td>out</td><td>std_logic</td><td>AXI master-channel signal used for memory-mapped transfer generation.</td></tr><tr><td>m_axis_tdata</td><td>out</td><td>std_logic_vector(AXIS_DATA_WIDTH - 1 downto 0)</td><td>Output AXI-stream payload containing packed processed result lanes.</td></tr><tr><td>m_axis_tvalid</td><td>out</td><td>std_logic</td><td>Output AXI-stream valid qualifier for the current result beat.</td></tr><tr><td>m_axis_tready</td><td>in</td><td>std_logic</td><td>Output AXI-stream ready input from the downstream block.</td></tr><tr><td>m_axis_tlast</td><td>out</td><td>std_logic</td><td>Output AXI-stream frame marker aligned with the processed result beat.</td></tr><tr><td>s_axis_tdata</td><td>in</td><td>std_logic_vector(AXIS_DATA_WIDTH - 1 downto 0)</td><td>Input AXI-stream payload containing packed sample or feature lanes.</td></tr><tr><td>s_axis_tvalid</td><td>in</td><td>std_logic</td><td>Input AXI-stream valid qualifier for the current sample beat.</td></tr><tr><td>s_axis_tready</td><td>out</td><td>std_logic</td><td>Input AXI-stream ready response indicating this block can accept a beat.</td></tr></tbody></table>
-  
+  <h2>Register Maps</h2><h3>radif_axi4_axis_dma</h3><p class="meta">Source: projects/dsp_timing_smoke/address_map/dsp_axi_smoke.map.json Base: 0x2000</p><p>Register subset used by accelerator dma0 (axi_dma) in radhdl_dsp_axi_smoke.</p><table><thead><tr><th>Register</th><th>Address</th><th>Offset</th><th>Access</th><th>Reset</th><th>Description</th></tr></thead><tbody><tr><td>control</td><td>0x2000</td><td>0x0000</td><td>rw</td><td></td><td>bit0 MM2S enable, bit1 MM2S circular, bit8 S2MM enable, bit9 S2MM circular</td></tr><tr><td>status_clear</td><td>0x2004</td><td>0x0004</td><td>rw</td><td></td><td>write-one-to-clear DMA status bits</td></tr><tr><td>mm2s_base_lo</td><td>0x2008</td><td>0x0008</td><td>rw</td><td></td><td>Read/write control or configuration address register for the dma region.</td></tr><tr><td>mm2s_base_hi</td><td>0x200C</td><td>0x000C</td><td>rw</td><td></td><td>Read/write control or configuration address register for the dma region.</td></tr><tr><td>mm2s_end_lo</td><td>0x2010</td><td>0x0010</td><td>rw</td><td></td><td>Read/write control or configuration address register for the dma region.</td></tr><tr><td>mm2s_end_hi</td><td>0x2014</td><td>0x0014</td><td>rw</td><td></td><td>Read/write control or configuration address register for the dma region.</td></tr><tr><td>mm2s_length_bytes</td><td>0x2018</td><td>0x0018</td><td>rw</td><td></td><td>Read/write control or configuration transfer length register for the dma region.</td></tr><tr><td>s2mm_base_lo</td><td>0x201C</td><td>0x001C</td><td>rw</td><td></td><td>Read/write control or configuration address register for the dma region.</td></tr><tr><td>s2mm_base_hi</td><td>0x2020</td><td>0x0020</td><td>rw</td><td></td><td>Read/write control or configuration address register for the dma region.</td></tr><tr><td>s2mm_end_lo</td><td>0x2024</td><td>0x0024</td><td>rw</td><td></td><td>Read/write control or configuration address register for the dma region.</td></tr><tr><td>s2mm_end_hi</td><td>0x2028</td><td>0x0028</td><td>rw</td><td></td><td>Read/write control or configuration address register for the dma region.</td></tr><tr><td>s2mm_length_bytes</td><td>0x202C</td><td>0x002C</td><td>rw</td><td></td><td>Read/write control or configuration transfer length register for the dma region.</td></tr><tr><td>mm2s_current_lo</td><td>0x2030</td><td>0x0030</td><td>ro</td><td></td><td>Read-only status or measurement register for mm2s current lo in the dma region.</td></tr><tr><td>s2mm_current_lo</td><td>0x2034</td><td>0x0034</td><td>ro</td><td></td><td>Read-only status or measurement register for s2mm current lo in the dma region.</td></tr></tbody></table><div class="reg-card"><h4>control</h4><div class="reg-meta">Address 0x2000 / Offset 0x0000 / Access rw</div><p>bit0 MM2S enable, bit1 MM2S circular, bit8 S2MM enable, bit9 S2MM circular</p><div class="reg-ruler" style="grid-template-columns: repeat(32, minmax(18px, 1fr));"><span>31</span><span>30</span><span>29</span><span>28</span><span>27</span><span>26</span><span>25</span><span>24</span><span>23</span><span>22</span><span>21</span><span>20</span><span>19</span><span>18</span><span>17</span><span>16</span><span>15</span><span>14</span><span>13</span><span>12</span><span>11</span><span>10</span><span>9</span><span>8</span><span>7</span><span>6</span><span>5</span><span>4</span><span>3</span><span>2</span><span>1</span><span>0</span></div><div class="reg-bits" style="grid-template-columns: repeat(32, minmax(18px, 1fr));"><div class="reg-field reserved" style="grid-column: 1 / span 22;">reserved [31:10]</div><div class="reg-field" style="grid-column: 23 / span 1;">S2MM circular</div><div class="reg-field" style="grid-column: 24 / span 1;">S2MM enable</div><div class="reg-field reserved" style="grid-column: 25 / span 6;">reserved [7:2]</div><div class="reg-field" style="grid-column: 31 / span 1;">MM2S circular</div><div class="reg-field" style="grid-column: 32 / span 1;">MM2S enable</div></div></div><div class="reg-card"><h4>status_clear</h4><div class="reg-meta">Address 0x2004 / Offset 0x0004 / Access rw</div><p>write-one-to-clear DMA status bits</p><div class="reg-ruler" style="grid-template-columns: repeat(32, minmax(18px, 1fr));"><span>31</span><span>30</span><span>29</span><span>28</span><span>27</span><span>26</span><span>25</span><span>24</span><span>23</span><span>22</span><span>21</span><span>20</span><span>19</span><span>18</span><span>17</span><span>16</span><span>15</span><span>14</span><span>13</span><span>12</span><span>11</span><span>10</span><span>9</span><span>8</span><span>7</span><span>6</span><span>5</span><span>4</span><span>3</span><span>2</span><span>1</span><span>0</span></div><div class="reg-bits" style="grid-template-columns: repeat(32, minmax(18px, 1fr));"><div class="reg-field" style="grid-column: 1 / span 32;">value [31:0]</div></div></div><div class="reg-card"><h4>mm2s_base_lo</h4><div class="reg-meta">Address 0x2008 / Offset 0x0008 / Access rw</div><p>Read/write control or configuration address register for the dma region.</p><div class="reg-ruler" style="grid-template-columns: repeat(32, minmax(18px, 1fr));"><span>31</span><span>30</span><span>29</span><span>28</span><span>27</span><span>26</span><span>25</span><span>24</span><span>23</span><span>22</span><span>21</span><span>20</span><span>19</span><span>18</span><span>17</span><span>16</span><span>15</span><span>14</span><span>13</span><span>12</span><span>11</span><span>10</span><span>9</span><span>8</span><span>7</span><span>6</span><span>5</span><span>4</span><span>3</span><span>2</span><span>1</span><span>0</span></div><div class="reg-bits" style="grid-template-columns: repeat(32, minmax(18px, 1fr));"><div class="reg-field" style="grid-column: 1 / span 32;">value [31:0]</div></div></div><div class="reg-card"><h4>mm2s_base_hi</h4><div class="reg-meta">Address 0x200C / Offset 0x000C / Access rw</div><p>Read/write control or configuration address register for the dma region.</p><div class="reg-ruler" style="grid-template-columns: repeat(32, minmax(18px, 1fr));"><span>31</span><span>30</span><span>29</span><span>28</span><span>27</span><span>26</span><span>25</span><span>24</span><span>23</span><span>22</span><span>21</span><span>20</span><span>19</span><span>18</span><span>17</span><span>16</span><span>15</span><span>14</span><span>13</span><span>12</span><span>11</span><span>10</span><span>9</span><span>8</span><span>7</span><span>6</span><span>5</span><span>4</span><span>3</span><span>2</span><span>1</span><span>0</span></div><div class="reg-bits" style="grid-template-columns: repeat(32, minmax(18px, 1fr));"><div class="reg-field" style="grid-column: 1 / span 32;">value [31:0]</div></div></div><div class="reg-card"><h4>mm2s_end_lo</h4><div class="reg-meta">Address 0x2010 / Offset 0x0010 / Access rw</div><p>Read/write control or configuration address register for the dma region.</p><div class="reg-ruler" style="grid-template-columns: repeat(32, minmax(18px, 1fr));"><span>31</span><span>30</span><span>29</span><span>28</span><span>27</span><span>26</span><span>25</span><span>24</span><span>23</span><span>22</span><span>21</span><span>20</span><span>19</span><span>18</span><span>17</span><span>16</span><span>15</span><span>14</span><span>13</span><span>12</span><span>11</span><span>10</span><span>9</span><span>8</span><span>7</span><span>6</span><span>5</span><span>4</span><span>3</span><span>2</span><span>1</span><span>0</span></div><div class="reg-bits" style="grid-template-columns: repeat(32, minmax(18px, 1fr));"><div class="reg-field" style="grid-column: 1 / span 32;">value [31:0]</div></div></div><div class="reg-card"><h4>mm2s_end_hi</h4><div class="reg-meta">Address 0x2014 / Offset 0x0014 / Access rw</div><p>Read/write control or configuration address register for the dma region.</p><div class="reg-ruler" style="grid-template-columns: repeat(32, minmax(18px, 1fr));"><span>31</span><span>30</span><span>29</span><span>28</span><span>27</span><span>26</span><span>25</span><span>24</span><span>23</span><span>22</span><span>21</span><span>20</span><span>19</span><span>18</span><span>17</span><span>16</span><span>15</span><span>14</span><span>13</span><span>12</span><span>11</span><span>10</span><span>9</span><span>8</span><span>7</span><span>6</span><span>5</span><span>4</span><span>3</span><span>2</span><span>1</span><span>0</span></div><div class="reg-bits" style="grid-template-columns: repeat(32, minmax(18px, 1fr));"><div class="reg-field" style="grid-column: 1 / span 32;">value [31:0]</div></div></div><div class="reg-card"><h4>mm2s_length_bytes</h4><div class="reg-meta">Address 0x2018 / Offset 0x0018 / Access rw</div><p>Read/write control or configuration transfer length register for the dma region.</p><div class="reg-ruler" style="grid-template-columns: repeat(32, minmax(18px, 1fr));"><span>31</span><span>30</span><span>29</span><span>28</span><span>27</span><span>26</span><span>25</span><span>24</span><span>23</span><span>22</span><span>21</span><span>20</span><span>19</span><span>18</span><span>17</span><span>16</span><span>15</span><span>14</span><span>13</span><span>12</span><span>11</span><span>10</span><span>9</span><span>8</span><span>7</span><span>6</span><span>5</span><span>4</span><span>3</span><span>2</span><span>1</span><span>0</span></div><div class="reg-bits" style="grid-template-columns: repeat(32, minmax(18px, 1fr));"><div class="reg-field" style="grid-column: 1 / span 32;">value [31:0]</div></div></div><div class="reg-card"><h4>s2mm_base_lo</h4><div class="reg-meta">Address 0x201C / Offset 0x001C / Access rw</div><p>Read/write control or configuration address register for the dma region.</p><div class="reg-ruler" style="grid-template-columns: repeat(32, minmax(18px, 1fr));"><span>31</span><span>30</span><span>29</span><span>28</span><span>27</span><span>26</span><span>25</span><span>24</span><span>23</span><span>22</span><span>21</span><span>20</span><span>19</span><span>18</span><span>17</span><span>16</span><span>15</span><span>14</span><span>13</span><span>12</span><span>11</span><span>10</span><span>9</span><span>8</span><span>7</span><span>6</span><span>5</span><span>4</span><span>3</span><span>2</span><span>1</span><span>0</span></div><div class="reg-bits" style="grid-template-columns: repeat(32, minmax(18px, 1fr));"><div class="reg-field" style="grid-column: 1 / span 32;">value [31:0]</div></div></div><div class="reg-card"><h4>s2mm_base_hi</h4><div class="reg-meta">Address 0x2020 / Offset 0x0020 / Access rw</div><p>Read/write control or configuration address register for the dma region.</p><div class="reg-ruler" style="grid-template-columns: repeat(32, minmax(18px, 1fr));"><span>31</span><span>30</span><span>29</span><span>28</span><span>27</span><span>26</span><span>25</span><span>24</span><span>23</span><span>22</span><span>21</span><span>20</span><span>19</span><span>18</span><span>17</span><span>16</span><span>15</span><span>14</span><span>13</span><span>12</span><span>11</span><span>10</span><span>9</span><span>8</span><span>7</span><span>6</span><span>5</span><span>4</span><span>3</span><span>2</span><span>1</span><span>0</span></div><div class="reg-bits" style="grid-template-columns: repeat(32, minmax(18px, 1fr));"><div class="reg-field" style="grid-column: 1 / span 32;">value [31:0]</div></div></div><div class="reg-card"><h4>s2mm_end_lo</h4><div class="reg-meta">Address 0x2024 / Offset 0x0024 / Access rw</div><p>Read/write control or configuration address register for the dma region.</p><div class="reg-ruler" style="grid-template-columns: repeat(32, minmax(18px, 1fr));"><span>31</span><span>30</span><span>29</span><span>28</span><span>27</span><span>26</span><span>25</span><span>24</span><span>23</span><span>22</span><span>21</span><span>20</span><span>19</span><span>18</span><span>17</span><span>16</span><span>15</span><span>14</span><span>13</span><span>12</span><span>11</span><span>10</span><span>9</span><span>8</span><span>7</span><span>6</span><span>5</span><span>4</span><span>3</span><span>2</span><span>1</span><span>0</span></div><div class="reg-bits" style="grid-template-columns: repeat(32, minmax(18px, 1fr));"><div class="reg-field" style="grid-column: 1 / span 32;">value [31:0]</div></div></div><div class="reg-card"><h4>s2mm_end_hi</h4><div class="reg-meta">Address 0x2028 / Offset 0x0028 / Access rw</div><p>Read/write control or configuration address register for the dma region.</p><div class="reg-ruler" style="grid-template-columns: repeat(32, minmax(18px, 1fr));"><span>31</span><span>30</span><span>29</span><span>28</span><span>27</span><span>26</span><span>25</span><span>24</span><span>23</span><span>22</span><span>21</span><span>20</span><span>19</span><span>18</span><span>17</span><span>16</span><span>15</span><span>14</span><span>13</span><span>12</span><span>11</span><span>10</span><span>9</span><span>8</span><span>7</span><span>6</span><span>5</span><span>4</span><span>3</span><span>2</span><span>1</span><span>0</span></div><div class="reg-bits" style="grid-template-columns: repeat(32, minmax(18px, 1fr));"><div class="reg-field" style="grid-column: 1 / span 32;">value [31:0]</div></div></div><div class="reg-card"><h4>s2mm_length_bytes</h4><div class="reg-meta">Address 0x202C / Offset 0x002C / Access rw</div><p>Read/write control or configuration transfer length register for the dma region.</p><div class="reg-ruler" style="grid-template-columns: repeat(32, minmax(18px, 1fr));"><span>31</span><span>30</span><span>29</span><span>28</span><span>27</span><span>26</span><span>25</span><span>24</span><span>23</span><span>22</span><span>21</span><span>20</span><span>19</span><span>18</span><span>17</span><span>16</span><span>15</span><span>14</span><span>13</span><span>12</span><span>11</span><span>10</span><span>9</span><span>8</span><span>7</span><span>6</span><span>5</span><span>4</span><span>3</span><span>2</span><span>1</span><span>0</span></div><div class="reg-bits" style="grid-template-columns: repeat(32, minmax(18px, 1fr));"><div class="reg-field" style="grid-column: 1 / span 32;">value [31:0]</div></div></div><div class="reg-card"><h4>mm2s_current_lo</h4><div class="reg-meta">Address 0x2030 / Offset 0x0030 / Access ro</div><p>Read-only status or measurement register for mm2s current lo in the dma region.</p><div class="reg-ruler" style="grid-template-columns: repeat(32, minmax(18px, 1fr));"><span>31</span><span>30</span><span>29</span><span>28</span><span>27</span><span>26</span><span>25</span><span>24</span><span>23</span><span>22</span><span>21</span><span>20</span><span>19</span><span>18</span><span>17</span><span>16</span><span>15</span><span>14</span><span>13</span><span>12</span><span>11</span><span>10</span><span>9</span><span>8</span><span>7</span><span>6</span><span>5</span><span>4</span><span>3</span><span>2</span><span>1</span><span>0</span></div><div class="reg-bits" style="grid-template-columns: repeat(32, minmax(18px, 1fr));"><div class="reg-field" style="grid-column: 1 / span 32;">value [31:0]</div></div></div><div class="reg-card"><h4>s2mm_current_lo</h4><div class="reg-meta">Address 0x2034 / Offset 0x0034 / Access ro</div><p>Read-only status or measurement register for s2mm current lo in the dma region.</p><div class="reg-ruler" style="grid-template-columns: repeat(32, minmax(18px, 1fr));"><span>31</span><span>30</span><span>29</span><span>28</span><span>27</span><span>26</span><span>25</span><span>24</span><span>23</span><span>22</span><span>21</span><span>20</span><span>19</span><span>18</span><span>17</span><span>16</span><span>15</span><span>14</span><span>13</span><span>12</span><span>11</span><span>10</span><span>9</span><span>8</span><span>7</span><span>6</span><span>5</span><span>4</span><span>3</span><span>2</span><span>1</span><span>0</span></div><div class="reg-bits" style="grid-template-columns: repeat(32, minmax(18px, 1fr));"><div class="reg-field" style="grid-column: 1 / span 32;">value [31:0]</div></div></div>
   <h2>Testbenches and Waveforms</h2><table><thead><tr><th>Testbench</th><th>Source</th><th>Simulation</th><th>Artifacts</th></tr></thead><tbody><tr><td>tb_radif_axi4_axis_dma</td><td>interfaces/hdl/radif/testbenches/tb_radif_axi4_axis_dma.vhd</td><td>failed</td><td><a href="../../simulations/tb_radif_axi4_axis_dma/simulation_status.json">status</a></td></tr><tr><td>tb_radif_interfaces_smoke</td><td>interfaces/hdl/radif/testbenches/tb_radif_interfaces_smoke.vhd</td><td>passed</td><td><a href="../../simulations/tb_radif_interfaces_smoke/simulation_status.json">status</a>, <a href="../../simulations/tb_radif_interfaces_smoke/tb_radif_interfaces_smoke.vcd">vcd</a></td></tr></tbody></table><div class="status">tb_radif_axi4_axis_dma simulation failed: interfaces/hdl/radif/src/radif_axi4_axis_dma.vhd:454:3:warning: instance &quot;u_mm2s_fifo&quot; of component &quot;xpm_fifo_sync&quot; is not bound [-Wbinding]</div><div class="wave"><table><thead><tr><th>Signal</th><th>Samples</th></tr></thead><tbody><tr><td>clk</td><td>0:0 | 5000000:1 | 10000000:0 | 15000000:1 | 20000000:0 | 25000000:1 | 30000000:0 | 35000000:1 | 40000000:0 | 45000000:1 | 50000000:0 | 55000000:1 | 60000000:0 | 65000000:1 | 70000000:0 | 75000000:1</td></tr><tr><td>rstn</td><td>0:0 | 50000000:1</td></tr><tr><td>spi_sclk</td><td>0:0</td></tr><tr><td>spi_cs_n</td><td>0:1</td></tr><tr><td>spi_mosi</td><td>0:0</td></tr><tr><td>spi_miso</td><td>0:0</td></tr><tr><td>spi_oen</td><td>0:1</td></tr><tr><td>qspi_sclk</td><td>0:0</td></tr><tr><td>qspi_cs_n</td><td>0:1</td></tr><tr><td>qspi_io_i[3:0]</td><td>0:0000</td></tr><tr><td>qspi_io_o[3:0]</td><td>0:0000</td></tr><tr><td>qspi_oen[3:0]</td><td>0:1111</td></tr><tr><td>i2c_scl</td><td>0:1</td></tr><tr><td>i2c_sda</td><td>0:1</td></tr><tr><td>i2c_oen</td><td>0:1</td></tr><tr><td>spi_wr_addr[15:0]</td><td>0:0000000000000000</td></tr></tbody></table></div>
-  <h2>HDL Example</h2>
-  <pre><code>entity radif_axi4_axis_dma is
-  generic (
-    -- Sets the bit width for REG DATA WIDTH values carried by this module.
-    REG_DATA_WIDTH     : integer := 32;
-    -- Sets the bit width for REG ADDR WIDTH values carried by this module.
-    REG_ADDR_WIDTH     : integer := 16;
-    -- Sets the bit width for AXI ADDR WIDTH values carried by this module.
-    AXI_ADDR_WIDTH     : integer := 32;
-    -- Sets the bit width for AXI DATA WIDTH values carried by this module.
-    AXI_DATA_WIDTH     : integer := 32;
-    -- Sets the bit width for AXIS DATA WIDTH values carried by this module.
-    AXIS_DATA_WIDTH    : integer := 32;
-    -- Configures ENABLE MM2S for this instance.
-    ENABLE_MM2S        : boolean := true;
-    -- Configures ENABLE S2MM for this instance.
-    ENABLE_S2MM        : boolean := true;
-    -- Sets the storage depth, frame length, or number of buffered samples used internally.
-    FIFO_DEPTH         : integer := 1024;
-    -- Configures FIFO FWFT for this instance.
-    FIFO_FWFT          : boolean := true;
-    -- Configures MAX BURST LEN for this instance.
-    MAX_BURST_LEN      : integer := 16;
-    -- Selects the vendor-specific implementation path, usually XILINX for DSP48/XPM-backed builds or generic for portable RTL.
-    VENDOR_TAG         : string  := &quot;XILINX&quot;;
-    -- Identifies the target FPGA family so wrappers can choose the correct primitive or conservative portable behavior.
-    PRODUCT_SERIES_TAG : string  := &quot;GENERIC&quot;
-  );
-  port (
-    -- Clock for the associated synchronous logic and handshake domain.
-    clk             : in  std_logic;
-    -- Active-low reset for this clock domain.
-    rstn            : in  std_logic;
-    -- Register write address issued to the internal RadIF register target.
-    reg_wr_addr     : in  std_logic_vector(REG_ADDR_WIDTH - 1 downto 0);
-    -- Register read address issued to the internal RadIF register target.
-    reg_rd_addr     : in  std_logic_vector(REG_ADDR_WIDTH - 1 downto 0);
-    -- One-cycle write request pulse for the internal register target.
-    reg_wr_en       : in  std_logic;
-    -- One-cycle read request pulse for the internal register target.
-    reg_rd_en       : in  std_logic;
-    -- Write data presented to the internal register target.
-    reg_data_in     : in  std_logic_vector(REG_DATA_WIDTH - 1 downto 0);
-    -- Read data returned by the internal register target.
-    reg_data_out    : out std_logic_vector(REG_DATA_WIDTH - 1 downto 0);
-    -- Write-side ready indication from the internal register target.
-    reg_wr_rdy      : out std_logic;
-    -- Read-side ready indication from the internal register target.
-    reg_rd_rdy      : out std_logic;
-    -- Write response valid indication from the internal register target.
-    reg_wr_valid    : out std_logic;
-    -- Read response valid indication from the internal register target.
-    reg_rd_valid    : out std_logic;
-    -- Register target error flag converted into the external bus error response.
-    reg_error       : out std_logic;
-    -- Output irq o signal generated by this module.
-    irq_o           : out std_logic;
-    -- AXI master-channel signal used for memory-mapped transfer generation.
-    m_axi_awaddr    : out std_logic_vector(AXI_ADDR_WIDTH - 1 downto 0);
-    -- AXI master-channel signal used for memory-mapped transfer generation.
-    m_axi_awlen     : out std_logic_vector(7 downto 0);
-    -- AXI master-channel signal used for memory-mapped transfer generation.
-    m_axi_awsize    : out std_logic_vector(2 downto 0);
-    -- AXI master-channel signal used for memory-mapped transfer generation.
-    m_axi_awburst   : out std_logic_vector(1 downto 0);
-    -- AXI master-channel signal used for memory-mapped transfer generation.
-    m_axi_awvalid   : out std_logic;
-    -- AXI master-channel signal used for memory-mapped transfer generation.
-    m_axi_awready   : in  std_logic;
-    -- AXI master-channel signal used for memory-mapped transfer generation.
-    m_axi_wdata     : out std_logic_vector(AXI_DATA_WIDTH - 1 downto 0);
-    -- AXI master-channel signal used for memory-mapped transfer generation.
-    m_axi_wstrb     : out std_logic_vector((AXI_DATA_WIDTH / 8) - 1 downto 0);
-    -- AXI master-channel signal used for memory-mapped transfer generation.
-    m_axi_wlast     : out std_logic;
-    -- AXI master-channel signal used for memory-mapped transfer generation.
-    m_axi_wvalid    : out std_logic;
-    -- AXI master-channel signal used for memory-mapped transfer generation.
-    m_axi_wready    : in  std_logic;
-    -- AXI master-channel signal used for memory-mapped transfer generation.
-    m_axi_bresp     : in  std_logic_vector(1 downto 0);
-    -- AXI master-channel signal used for memory-mapped transfer generation.
-    m_axi_bvalid    : in  std_logic;
-    -- AXI master-channel signal used for memory-mapped transfer generation.
-    m_axi_bready    : out std_logic;
-    -- AXI master-channel signal used for memory-mapped transfer generation.
-    m_axi_araddr    : out std_logic_vector(AXI_ADDR_WIDTH - 1 downto 0);
-    -- AXI master-channel signal used for memory-mapped transfer generation.
-    m_axi_arlen     : out std_logic_vector(7 downto 0);
-    -- AXI master-channel signal used for memory-mapped transfer generation.
-    m_axi_arsize    : out std_logic_vector(2 downto 0);
-    -- AXI master-channel signal used for memory-mapped transfer generation.
-    m_axi_arburst   : out std_logic_vector(1 downto 0);
-    -- AXI master-channel signal used for memory-mapped transfer generation.
-    m_axi_arvalid   : out std_logic;
-    -- AXI master-channel signal used for memory-mapped transfer generation.
-    m_axi_arready   : in  std_logic;
-    -- AXI master-channel signal used for memory-mapped transfer generation.
-    m_axi_rdata     : in  std_logic_vector(AXI_DATA_WIDTH - 1 downto 0);
-    -- AXI master-channel signal used for memory-mapped transfer generation.
-    m_axi_rresp     : in  std_logic_vector(1 downto 0);
-    -- AXI master-channel signal used for memory-mapped transfer generation.
-    m_axi_rlast     : in  std_logic;
-    -- AXI master-channel signal used for memory-mapped transfer generation.
-    m_axi_rvalid    : in  std_logic;
-    -- AXI master-channel signal used for memory-mapped transfer generation.
-    m_axi_rready    : out std_logic;
-    -- Output AXI-stream payload containing packed processed result lanes.
-    m_axis_tdata    : out std_logic_vector(AXIS_DATA_WIDTH - 1 downto 0);
-    -- Output AXI-stream valid qualifier for the current result beat.
-    m_axis_tvalid   : out std_logic;
-    -- Output AXI-stream ready input from the downstream block.
-    m_axis_tready   : in  std_logic;
-    -- Output AXI-stream frame marker aligned with the processed result beat.
-    m_axis_tlast    : out std_logic;
-    -- Input AXI-stream payload containing packed sample or feature lanes.
-    s_axis_tdata    : in  std_logic_vector(AXIS_DATA_WIDTH - 1 downto 0);
-    -- Input AXI-stream valid qualifier for the current sample beat.
-    s_axis_tvalid   : in  std_logic;
-    -- Input AXI-stream ready response indicating this block can accept a beat.
-    s_axis_tready   : out std_logic;
-    -- Input AXI-stream frame marker for the final beat of a frame.
-    s_axis_tlast    : in  std_logic
-  );
-end entity;</code></pre>
   <h2>Sources</h2>
   <ul><li>interfaces/hdl/radif/src/radif_axi4_axis_dma.vhd</li></ul>
 </main>

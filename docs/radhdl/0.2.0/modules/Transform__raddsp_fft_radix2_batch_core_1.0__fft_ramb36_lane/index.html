@@ -54,7 +54,20 @@ use ieee.numeric_std.all;
 library dsp;
 -- Direct entity instantiation below does not require importing the entity name.
 -- Add package imports only when your surrounding design needs package types/constants, for example:
--- use dsp.&lt;package_name&gt;.all;</code></pre><h3>Instantiation</h3><pre><code>u_fft_ramb36_lane : entity dsp.fft_ramb36_lane
+-- use dsp.&lt;package_name&gt;.all;</code></pre><h3>Component Declaration</h3><pre><code>component fft_ramb36_lane is
+  port (
+    clk : in std_logic;
+    a_addr : in std_logic_vector(9 downto 0);
+    a_din : in std_logic_vector(31 downto 0);
+    a_dout : out std_logic_vector(31 downto 0);
+    a_en : in std_logic;
+    a_we : in std_logic;
+    b_addr : in std_logic_vector(9 downto 0);
+    b_din : in std_logic_vector(31 downto 0);
+    b_dout : out std_logic_vector(31 downto 0);
+    b_en : in std_logic
+  );
+end component;</code></pre><h3>Direct Entity Instantiation</h3><pre><code>u_fft_ramb36_lane : entity dsp.fft_ramb36_lane
   port map (
     clk    =&gt; &lt;clk_signal&gt;,
     a_addr =&gt; &lt;a_addr_signal&gt;,
@@ -71,37 +84,6 @@ library dsp;
   <h2>Ports</h2><table><thead><tr><th>Name</th><th>Direction</th><th>Type</th><th>Description</th></tr></thead><tbody><tr><td>clk</td><td>in</td><td>std_logic</td><td>Clock for the associated synchronous logic and handshake domain.</td></tr><tr><td>a_addr</td><td>in</td><td>std_logic_vector(9 downto 0)</td><td>A addr interface signal.</td></tr><tr><td>a_din</td><td>in</td><td>std_logic_vector(31 downto 0)</td><td>A din interface signal.</td></tr><tr><td>a_dout</td><td>out</td><td>std_logic_vector(31 downto 0)</td><td>A dout interface signal.</td></tr><tr><td>a_en</td><td>in</td><td>std_logic</td><td>A en interface signal.</td></tr><tr><td>a_we</td><td>in</td><td>std_logic</td><td>A we interface signal.</td></tr><tr><td>b_addr</td><td>in</td><td>std_logic_vector(9 downto 0)</td><td>B addr interface signal.</td></tr><tr><td>b_din</td><td>in</td><td>std_logic_vector(31 downto 0)</td><td>B din interface signal.</td></tr><tr><td>b_dout</td><td>out</td><td>std_logic_vector(31 downto 0)</td><td>B dout interface signal.</td></tr><tr><td>b_en</td><td>in</td><td>std_logic</td><td>B en interface signal.</td></tr></tbody></table>
   
   <h2>Testbenches and Waveforms</h2><p class="summary">No directly associated testbench was found.</p>
-  <h2>HDL Example</h2>
-  <pre><code>entity fft_ramb36_lane is
-  generic (
-    -- Identifies the target FPGA family so wrappers can choose the correct primitive or conservative portable behavior.
-    DEVICE_FAMILY : string := &quot;ultrascale+&quot;
-  );
-  port (
-    -- Clock for the associated synchronous logic and handshake domain.
-    clk    : in  std_logic;
-    -- A addr interface signal.
-    a_addr : in  std_logic_vector(9 downto 0);
-    -- A din interface signal.
-    a_din  : in  std_logic_vector(31 downto 0);
-    -- A dout interface signal.
-    a_dout : out std_logic_vector(31 downto 0);
-    -- A en interface signal.
-    a_en   : in  std_logic;
-    -- A we interface signal.
-    a_we   : in  std_logic;
-    -- B addr interface signal.
-    b_addr : in  std_logic_vector(9 downto 0);
-    -- B din interface signal.
-    b_din  : in  std_logic_vector(31 downto 0);
-    -- B dout interface signal.
-    b_dout : out std_logic_vector(31 downto 0);
-    -- B en interface signal.
-    b_en   : in  std_logic;
-    -- B we interface signal.
-    b_we   : in  std_logic
-  );
-end entity;</code></pre>
   <h2>Sources</h2>
   <ul><li>dsp/hdl/iprepo/raddsp_fft_radix2_batch_core_1.0/src/fft_tdp_ram.vhd</li></ul>
 </main>

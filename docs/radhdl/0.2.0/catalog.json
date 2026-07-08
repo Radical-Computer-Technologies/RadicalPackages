@@ -10166,7 +10166,455 @@
           }
         }
       ],
-      "register_maps": []
+      "register_maps": [
+        {
+          "name": "raddsp_axis_radfft_ddr",
+          "path": "dsp/hdl/raddsp/register_maps/raddsp_axis_radfft_ddr.map.json",
+          "base": "0x0000",
+          "description": "Software-visible control block for launching DDR-to-FFT, FFT-to-DDR, AXI-stream-to-DDR, and DDR-to-AXI-stream transfers.",
+          "data_width": 32,
+          "registers": [
+            {
+              "name": "control",
+              "offset": "0x0000",
+              "access": "rw",
+              "address": "0x0000",
+              "reset": "",
+              "width": 32,
+              "region": "raddsp_axis_radfft_ddr",
+              "description": "bit 0: start command; bits 5 downto 4: operation mode; bit 8: interrupt enable; bit 31: clear sticky status flags",
+              "fields": [
+                {
+                  "name": "start command",
+                  "msb": 0,
+                  "lsb": 0
+                },
+                {
+                  "name": "operation mode",
+                  "msb": 5,
+                  "lsb": 4
+                },
+                {
+                  "name": "interrupt enable",
+                  "msb": 8,
+                  "lsb": 8
+                },
+                {
+                  "name": "clear sticky status flags",
+                  "msb": 31,
+                  "lsb": 31
+                }
+              ]
+            },
+            {
+              "name": "status",
+              "offset": "0x0004",
+              "access": "ro",
+              "address": "0x0004",
+              "reset": "",
+              "width": 32,
+              "region": "raddsp_axis_radfft_ddr",
+              "description": "bit 0: busy; bit 1: done; bit 2: error; bit 3: unsupported configuration",
+              "fields": [
+                {
+                  "name": "busy",
+                  "msb": 0,
+                  "lsb": 0
+                },
+                {
+                  "name": "done",
+                  "msb": 1,
+                  "lsb": 1
+                },
+                {
+                  "name": "error",
+                  "msb": 2,
+                  "lsb": 2
+                },
+                {
+                  "name": "unsupported configuration",
+                  "msb": 3,
+                  "lsb": 3
+                }
+              ]
+            },
+            {
+              "name": "base_addr_lo",
+              "offset": "0x0008",
+              "access": "rw",
+              "address": "0x0008",
+              "reset": "",
+              "width": 32,
+              "region": "raddsp_axis_radfft_ddr",
+              "description": "Low 32 bits of the primary DDR source/base address.",
+              "fields": []
+            },
+            {
+              "name": "base_addr_hi",
+              "offset": "0x000C",
+              "access": "rw",
+              "address": "0x000C",
+              "reset": "",
+              "width": 32,
+              "region": "raddsp_axis_radfft_ddr",
+              "description": "High address bits of the primary DDR source/base address when the configured AXI address width exceeds 32 bits.",
+              "fields": []
+            },
+            {
+              "name": "out_addr_lo",
+              "offset": "0x0010",
+              "access": "rw",
+              "address": "0x0010",
+              "reset": "",
+              "width": 32,
+              "region": "raddsp_axis_radfft_ddr",
+              "description": "Low 32 bits of the output DDR address. A zero value selects in-place output for supported operations.",
+              "fields": []
+            },
+            {
+              "name": "out_addr_hi",
+              "offset": "0x0014",
+              "access": "rw",
+              "address": "0x0014",
+              "reset": "",
+              "width": 32,
+              "region": "raddsp_axis_radfft_ddr",
+              "description": "High address bits of the output DDR address when the configured AXI address width exceeds 32 bits.",
+              "fields": []
+            },
+            {
+              "name": "length_bytes",
+              "offset": "0x0018",
+              "access": "rw",
+              "address": "0x0018",
+              "reset": "",
+              "width": 32,
+              "region": "raddsp_axis_radfft_ddr",
+              "description": "Transfer length in bytes. FFT operations require this to match the active frame size.",
+              "fields": []
+            },
+            {
+              "name": "region_bytes",
+              "offset": "0x001C",
+              "access": "rw",
+              "address": "0x001C",
+              "reset": "",
+              "width": 32,
+              "region": "raddsp_axis_radfft_ddr",
+              "description": "DDR region size used for range planning and default frame-region handling.",
+              "fields": []
+            },
+            {
+              "name": "fft_points",
+              "offset": "0x0020",
+              "access": "rw",
+              "address": "0x0020",
+              "reset": "",
+              "width": 32,
+              "region": "raddsp_axis_radfft_ddr",
+              "description": "bits 7 downto 0: log2 FFT point count; bits 23 downto 16: AXI bytes per beat on readback",
+              "fields": [
+                {
+                  "name": "log2 FFT point count",
+                  "msb": 7,
+                  "lsb": 0
+                },
+                {
+                  "name": "AXI bytes per beat on readback",
+                  "msb": 23,
+                  "lsb": 16
+                }
+              ]
+            },
+            {
+              "name": "burst_beats",
+              "offset": "0x0024",
+              "access": "rw",
+              "address": "0x0024",
+              "reset": "",
+              "width": 32,
+              "region": "raddsp_axis_radfft_ddr",
+              "description": "bits 7 downto 0: requested AXI burst length in beats, clamped internally to the configured maximum",
+              "fields": [
+                {
+                  "name": "requested AXI burst length in beats",
+                  "msb": 7,
+                  "lsb": 0
+                }
+              ]
+            },
+            {
+              "name": "write_current",
+              "offset": "0x0028",
+              "access": "ro",
+              "address": "0x0028",
+              "reset": "",
+              "width": 32,
+              "region": "raddsp_axis_radfft_ddr",
+              "description": "Current low 32-bit AXI write address for active or recently completed stream-to-DDR activity.",
+              "fields": []
+            },
+            {
+              "name": "read_current",
+              "offset": "0x002C",
+              "access": "ro",
+              "address": "0x002C",
+              "reset": "",
+              "width": 32,
+              "region": "raddsp_axis_radfft_ddr",
+              "description": "Current low 32-bit AXI read address for active or recently completed DDR-to-stream or FFT input activity.",
+              "fields": []
+            },
+            {
+              "name": "twiddle_addr_lo",
+              "offset": "0x0030",
+              "access": "rw",
+              "address": "0x0030",
+              "reset": "",
+              "width": 32,
+              "region": "raddsp_axis_radfft_ddr",
+              "description": "Low 32 bits of the DDR address containing FFT twiddle-table data.",
+              "fields": []
+            },
+            {
+              "name": "twiddle_addr_hi",
+              "offset": "0x0034",
+              "access": "rw",
+              "address": "0x0034",
+              "reset": "",
+              "width": 32,
+              "region": "raddsp_axis_radfft_ddr",
+              "description": "High address bits of the FFT twiddle-table DDR address when the configured AXI address width exceeds 32 bits.",
+              "fields": []
+            },
+            {
+              "name": "fft_config",
+              "offset": "0x0038",
+              "access": "rw",
+              "address": "0x0038",
+              "reset": "",
+              "width": 32,
+              "region": "raddsp_axis_radfft_ddr",
+              "description": "bit 0: radix-4 enable; bit 4: reserved radix mode; bit 5: reserved parallel mode; bit 6: cross-correlation mode; bits 10 downto 8: input width code; bits 14 downto 12: output width code; bits 17 downto 16: lane-count code",
+              "fields": [
+                {
+                  "name": "radix-4 enable",
+                  "msb": 0,
+                  "lsb": 0
+                },
+                {
+                  "name": "reserved radix mode",
+                  "msb": 4,
+                  "lsb": 4
+                },
+                {
+                  "name": "reserved parallel mode",
+                  "msb": 5,
+                  "lsb": 5
+                },
+                {
+                  "name": "cross-correlation mode",
+                  "msb": 6,
+                  "lsb": 6
+                },
+                {
+                  "name": "input width code",
+                  "msb": 10,
+                  "lsb": 8
+                },
+                {
+                  "name": "output width code",
+                  "msb": 14,
+                  "lsb": 12
+                },
+                {
+                  "name": "lane-count code",
+                  "msb": 17,
+                  "lsb": 16
+                }
+              ]
+            },
+            {
+              "name": "magic",
+              "offset": "0x003C",
+              "access": "ro",
+              "address": "0x003C",
+              "reset": "",
+              "width": 32,
+              "region": "raddsp_axis_radfft_ddr",
+              "description": "Read-only signature value 0x52464444 identifying the RadFFT DDR register block.",
+              "fields": []
+            },
+            {
+              "name": "fft_limits",
+              "offset": "0x0040",
+              "access": "ro",
+              "address": "0x0040",
+              "reset": "",
+              "width": 32,
+              "region": "raddsp_axis_radfft_ddr",
+              "description": "bits 7 downto 0: maximum log2 FFT points; bits 15 downto 8: maximum input width; bits 23 downto 16: maximum output width; bits 31 downto 24: twiddle width",
+              "fields": [
+                {
+                  "name": "maximum log2 FFT points",
+                  "msb": 7,
+                  "lsb": 0
+                },
+                {
+                  "name": "maximum input width",
+                  "msb": 15,
+                  "lsb": 8
+                },
+                {
+                  "name": "maximum output width",
+                  "msb": 23,
+                  "lsb": 16
+                },
+                {
+                  "name": "twiddle width",
+                  "msb": 31,
+                  "lsb": 24
+                }
+              ]
+            },
+            {
+              "name": "capabilities",
+              "offset": "0x0044",
+              "access": "ro",
+              "address": "0x0044",
+              "reset": "",
+              "width": 32,
+              "region": "raddsp_axis_radfft_ddr",
+              "description": "bit 0: radix-2 support; bit 1: radix-4 support; bit 2: DDR FFT support; bit 3: cross-correlation support; bits 15 downto 8: maximum multiplier lanes; bits 23 downto 16: AXI bytes per beat; bits 31 downto 24: maximum burst beats",
+              "fields": [
+                {
+                  "name": "radix-2 support",
+                  "msb": 0,
+                  "lsb": 0
+                },
+                {
+                  "name": "radix-4 support",
+                  "msb": 1,
+                  "lsb": 1
+                },
+                {
+                  "name": "DDR FFT support",
+                  "msb": 2,
+                  "lsb": 2
+                },
+                {
+                  "name": "cross-correlation support",
+                  "msb": 3,
+                  "lsb": 3
+                },
+                {
+                  "name": "maximum multiplier lanes",
+                  "msb": 15,
+                  "lsb": 8
+                },
+                {
+                  "name": "AXI bytes per beat",
+                  "msb": 23,
+                  "lsb": 16
+                },
+                {
+                  "name": "maximum burst beats",
+                  "msb": 31,
+                  "lsb": 24
+                }
+              ]
+            },
+            {
+              "name": "batch_count",
+              "offset": "0x0048",
+              "access": "rw",
+              "address": "0x0048",
+              "reset": "",
+              "width": 32,
+              "region": "raddsp_axis_radfft_ddr",
+              "description": "Number of frames to process. A written value of zero is coerced to one.",
+              "fields": []
+            },
+            {
+              "name": "src_stride_bytes",
+              "offset": "0x004C",
+              "access": "rw",
+              "address": "0x004C",
+              "reset": "",
+              "width": 32,
+              "region": "raddsp_axis_radfft_ddr",
+              "description": "Byte stride between source frames for batched FFT operation. Zero selects the active frame size.",
+              "fields": []
+            },
+            {
+              "name": "dst_stride_bytes",
+              "offset": "0x0050",
+              "access": "rw",
+              "address": "0x0050",
+              "reset": "",
+              "width": 32,
+              "region": "raddsp_axis_radfft_ddr",
+              "description": "Byte stride between destination frames for batched FFT operation. Zero selects the active frame size.",
+              "fields": []
+            },
+            {
+              "name": "batch_done_count",
+              "offset": "0x0054",
+              "access": "ro",
+              "address": "0x0054",
+              "reset": "",
+              "width": 32,
+              "region": "raddsp_axis_radfft_ddr",
+              "description": "Number of frames completed in the current or most recent batched operation.",
+              "fields": []
+            },
+            {
+              "name": "corr_b_addr_lo",
+              "offset": "0x0058",
+              "access": "rw",
+              "address": "0x0058",
+              "reset": "",
+              "width": 32,
+              "region": "raddsp_axis_radfft_ddr",
+              "description": "Low 32 bits of the secondary input address used by cross-correlation mode.",
+              "fields": []
+            },
+            {
+              "name": "corr_b_addr_hi",
+              "offset": "0x005C",
+              "access": "rw",
+              "address": "0x005C",
+              "reset": "",
+              "width": 32,
+              "region": "raddsp_axis_radfft_ddr",
+              "description": "High address bits of the secondary cross-correlation input address when the configured AXI address width exceeds 32 bits.",
+              "fields": []
+            },
+            {
+              "name": "corr_scratch_addr_lo",
+              "offset": "0x0060",
+              "access": "rw",
+              "address": "0x0060",
+              "reset": "",
+              "width": 32,
+              "region": "raddsp_axis_radfft_ddr",
+              "description": "Low 32 bits of the scratch/output workspace address used during cross-correlation processing.",
+              "fields": []
+            },
+            {
+              "name": "corr_scratch_addr_hi",
+              "offset": "0x0064",
+              "access": "rw",
+              "address": "0x0064",
+              "reset": "",
+              "width": 32,
+              "region": "raddsp_axis_radfft_ddr",
+              "description": "High address bits of the cross-correlation scratch workspace address when the configured AXI address width exceeds 32 bits.",
+              "fields": []
+            }
+          ]
+        }
+      ]
     },
     {
       "name": "raddsp_axis_radfft_iterative",
@@ -14859,7 +15307,192 @@
           }
         }
       ],
-      "register_maps": []
+      "register_maps": [
+        {
+          "name": "radif_axi4_axis_dma",
+          "path": "projects/dsp_timing_smoke/address_map/dsp_axi_smoke.map.json",
+          "base": "0x2000",
+          "description": "Register subset used by accelerator dma0 (axi_dma) in radhdl_dsp_axi_smoke.",
+          "data_width": 32,
+          "registers": [
+            {
+              "name": "control",
+              "offset": "0x0000",
+              "access": "rw",
+              "address": "0x2000",
+              "reset": "",
+              "width": 32,
+              "region": "dma",
+              "description": "bit0 MM2S enable, bit1 MM2S circular, bit8 S2MM enable, bit9 S2MM circular",
+              "fields": [
+                {
+                  "name": "MM2S enable",
+                  "msb": 0,
+                  "lsb": 0
+                },
+                {
+                  "name": "MM2S circular",
+                  "msb": 1,
+                  "lsb": 1
+                },
+                {
+                  "name": "S2MM enable",
+                  "msb": 8,
+                  "lsb": 8
+                },
+                {
+                  "name": "S2MM circular",
+                  "msb": 9,
+                  "lsb": 9
+                }
+              ]
+            },
+            {
+              "name": "status_clear",
+              "offset": "0x0004",
+              "access": "rw",
+              "address": "0x2004",
+              "reset": "",
+              "width": 32,
+              "region": "dma",
+              "description": "write-one-to-clear DMA status bits",
+              "fields": []
+            },
+            {
+              "name": "mm2s_base_lo",
+              "offset": "0x0008",
+              "access": "rw",
+              "address": "0x2008",
+              "reset": "",
+              "width": 32,
+              "region": "dma",
+              "description": "Read/write control or configuration address register for the dma region.",
+              "fields": []
+            },
+            {
+              "name": "mm2s_base_hi",
+              "offset": "0x000C",
+              "access": "rw",
+              "address": "0x200C",
+              "reset": "",
+              "width": 32,
+              "region": "dma",
+              "description": "Read/write control or configuration address register for the dma region.",
+              "fields": []
+            },
+            {
+              "name": "mm2s_end_lo",
+              "offset": "0x0010",
+              "access": "rw",
+              "address": "0x2010",
+              "reset": "",
+              "width": 32,
+              "region": "dma",
+              "description": "Read/write control or configuration address register for the dma region.",
+              "fields": []
+            },
+            {
+              "name": "mm2s_end_hi",
+              "offset": "0x0014",
+              "access": "rw",
+              "address": "0x2014",
+              "reset": "",
+              "width": 32,
+              "region": "dma",
+              "description": "Read/write control or configuration address register for the dma region.",
+              "fields": []
+            },
+            {
+              "name": "mm2s_length_bytes",
+              "offset": "0x0018",
+              "access": "rw",
+              "address": "0x2018",
+              "reset": "",
+              "width": 32,
+              "region": "dma",
+              "description": "Read/write control or configuration transfer length register for the dma region.",
+              "fields": []
+            },
+            {
+              "name": "s2mm_base_lo",
+              "offset": "0x001C",
+              "access": "rw",
+              "address": "0x201C",
+              "reset": "",
+              "width": 32,
+              "region": "dma",
+              "description": "Read/write control or configuration address register for the dma region.",
+              "fields": []
+            },
+            {
+              "name": "s2mm_base_hi",
+              "offset": "0x0020",
+              "access": "rw",
+              "address": "0x2020",
+              "reset": "",
+              "width": 32,
+              "region": "dma",
+              "description": "Read/write control or configuration address register for the dma region.",
+              "fields": []
+            },
+            {
+              "name": "s2mm_end_lo",
+              "offset": "0x0024",
+              "access": "rw",
+              "address": "0x2024",
+              "reset": "",
+              "width": 32,
+              "region": "dma",
+              "description": "Read/write control or configuration address register for the dma region.",
+              "fields": []
+            },
+            {
+              "name": "s2mm_end_hi",
+              "offset": "0x0028",
+              "access": "rw",
+              "address": "0x2028",
+              "reset": "",
+              "width": 32,
+              "region": "dma",
+              "description": "Read/write control or configuration address register for the dma region.",
+              "fields": []
+            },
+            {
+              "name": "s2mm_length_bytes",
+              "offset": "0x002C",
+              "access": "rw",
+              "address": "0x202C",
+              "reset": "",
+              "width": 32,
+              "region": "dma",
+              "description": "Read/write control or configuration transfer length register for the dma region.",
+              "fields": []
+            },
+            {
+              "name": "mm2s_current_lo",
+              "offset": "0x0030",
+              "access": "ro",
+              "address": "0x2030",
+              "reset": "",
+              "width": 32,
+              "region": "dma",
+              "description": "Read-only status or measurement register for mm2s current lo in the dma region.",
+              "fields": []
+            },
+            {
+              "name": "s2mm_current_lo",
+              "offset": "0x0034",
+              "access": "ro",
+              "address": "0x2034",
+              "reset": "",
+              "width": 32,
+              "region": "dma",
+              "description": "Read-only status or measurement register for s2mm current lo in the dma region.",
+              "fields": []
+            }
+          ]
+        }
+      ]
     },
     {
       "name": "radif_axi_lite_to_reg",
@@ -27235,7 +27868,455 @@
           }
         }
       ],
-      "register_maps": []
+      "register_maps": [
+        {
+          "name": "raddsp_axis_radfft_ddr",
+          "path": "dsp/hdl/raddsp/register_maps/raddsp_axis_radfft_ddr.map.json",
+          "base": "0x0000",
+          "description": "Software-visible control block for launching DDR-to-FFT, FFT-to-DDR, AXI-stream-to-DDR, and DDR-to-AXI-stream transfers.",
+          "data_width": 32,
+          "registers": [
+            {
+              "name": "control",
+              "offset": "0x0000",
+              "access": "rw",
+              "address": "0x0000",
+              "reset": "",
+              "width": 32,
+              "region": "raddsp_axis_radfft_ddr",
+              "description": "bit 0: start command; bits 5 downto 4: operation mode; bit 8: interrupt enable; bit 31: clear sticky status flags",
+              "fields": [
+                {
+                  "name": "start command",
+                  "msb": 0,
+                  "lsb": 0
+                },
+                {
+                  "name": "operation mode",
+                  "msb": 5,
+                  "lsb": 4
+                },
+                {
+                  "name": "interrupt enable",
+                  "msb": 8,
+                  "lsb": 8
+                },
+                {
+                  "name": "clear sticky status flags",
+                  "msb": 31,
+                  "lsb": 31
+                }
+              ]
+            },
+            {
+              "name": "status",
+              "offset": "0x0004",
+              "access": "ro",
+              "address": "0x0004",
+              "reset": "",
+              "width": 32,
+              "region": "raddsp_axis_radfft_ddr",
+              "description": "bit 0: busy; bit 1: done; bit 2: error; bit 3: unsupported configuration",
+              "fields": [
+                {
+                  "name": "busy",
+                  "msb": 0,
+                  "lsb": 0
+                },
+                {
+                  "name": "done",
+                  "msb": 1,
+                  "lsb": 1
+                },
+                {
+                  "name": "error",
+                  "msb": 2,
+                  "lsb": 2
+                },
+                {
+                  "name": "unsupported configuration",
+                  "msb": 3,
+                  "lsb": 3
+                }
+              ]
+            },
+            {
+              "name": "base_addr_lo",
+              "offset": "0x0008",
+              "access": "rw",
+              "address": "0x0008",
+              "reset": "",
+              "width": 32,
+              "region": "raddsp_axis_radfft_ddr",
+              "description": "Low 32 bits of the primary DDR source/base address.",
+              "fields": []
+            },
+            {
+              "name": "base_addr_hi",
+              "offset": "0x000C",
+              "access": "rw",
+              "address": "0x000C",
+              "reset": "",
+              "width": 32,
+              "region": "raddsp_axis_radfft_ddr",
+              "description": "High address bits of the primary DDR source/base address when the configured AXI address width exceeds 32 bits.",
+              "fields": []
+            },
+            {
+              "name": "out_addr_lo",
+              "offset": "0x0010",
+              "access": "rw",
+              "address": "0x0010",
+              "reset": "",
+              "width": 32,
+              "region": "raddsp_axis_radfft_ddr",
+              "description": "Low 32 bits of the output DDR address. A zero value selects in-place output for supported operations.",
+              "fields": []
+            },
+            {
+              "name": "out_addr_hi",
+              "offset": "0x0014",
+              "access": "rw",
+              "address": "0x0014",
+              "reset": "",
+              "width": 32,
+              "region": "raddsp_axis_radfft_ddr",
+              "description": "High address bits of the output DDR address when the configured AXI address width exceeds 32 bits.",
+              "fields": []
+            },
+            {
+              "name": "length_bytes",
+              "offset": "0x0018",
+              "access": "rw",
+              "address": "0x0018",
+              "reset": "",
+              "width": 32,
+              "region": "raddsp_axis_radfft_ddr",
+              "description": "Transfer length in bytes. FFT operations require this to match the active frame size.",
+              "fields": []
+            },
+            {
+              "name": "region_bytes",
+              "offset": "0x001C",
+              "access": "rw",
+              "address": "0x001C",
+              "reset": "",
+              "width": 32,
+              "region": "raddsp_axis_radfft_ddr",
+              "description": "DDR region size used for range planning and default frame-region handling.",
+              "fields": []
+            },
+            {
+              "name": "fft_points",
+              "offset": "0x0020",
+              "access": "rw",
+              "address": "0x0020",
+              "reset": "",
+              "width": 32,
+              "region": "raddsp_axis_radfft_ddr",
+              "description": "bits 7 downto 0: log2 FFT point count; bits 23 downto 16: AXI bytes per beat on readback",
+              "fields": [
+                {
+                  "name": "log2 FFT point count",
+                  "msb": 7,
+                  "lsb": 0
+                },
+                {
+                  "name": "AXI bytes per beat on readback",
+                  "msb": 23,
+                  "lsb": 16
+                }
+              ]
+            },
+            {
+              "name": "burst_beats",
+              "offset": "0x0024",
+              "access": "rw",
+              "address": "0x0024",
+              "reset": "",
+              "width": 32,
+              "region": "raddsp_axis_radfft_ddr",
+              "description": "bits 7 downto 0: requested AXI burst length in beats, clamped internally to the configured maximum",
+              "fields": [
+                {
+                  "name": "requested AXI burst length in beats",
+                  "msb": 7,
+                  "lsb": 0
+                }
+              ]
+            },
+            {
+              "name": "write_current",
+              "offset": "0x0028",
+              "access": "ro",
+              "address": "0x0028",
+              "reset": "",
+              "width": 32,
+              "region": "raddsp_axis_radfft_ddr",
+              "description": "Current low 32-bit AXI write address for active or recently completed stream-to-DDR activity.",
+              "fields": []
+            },
+            {
+              "name": "read_current",
+              "offset": "0x002C",
+              "access": "ro",
+              "address": "0x002C",
+              "reset": "",
+              "width": 32,
+              "region": "raddsp_axis_radfft_ddr",
+              "description": "Current low 32-bit AXI read address for active or recently completed DDR-to-stream or FFT input activity.",
+              "fields": []
+            },
+            {
+              "name": "twiddle_addr_lo",
+              "offset": "0x0030",
+              "access": "rw",
+              "address": "0x0030",
+              "reset": "",
+              "width": 32,
+              "region": "raddsp_axis_radfft_ddr",
+              "description": "Low 32 bits of the DDR address containing FFT twiddle-table data.",
+              "fields": []
+            },
+            {
+              "name": "twiddle_addr_hi",
+              "offset": "0x0034",
+              "access": "rw",
+              "address": "0x0034",
+              "reset": "",
+              "width": 32,
+              "region": "raddsp_axis_radfft_ddr",
+              "description": "High address bits of the FFT twiddle-table DDR address when the configured AXI address width exceeds 32 bits.",
+              "fields": []
+            },
+            {
+              "name": "fft_config",
+              "offset": "0x0038",
+              "access": "rw",
+              "address": "0x0038",
+              "reset": "",
+              "width": 32,
+              "region": "raddsp_axis_radfft_ddr",
+              "description": "bit 0: radix-4 enable; bit 4: reserved radix mode; bit 5: reserved parallel mode; bit 6: cross-correlation mode; bits 10 downto 8: input width code; bits 14 downto 12: output width code; bits 17 downto 16: lane-count code",
+              "fields": [
+                {
+                  "name": "radix-4 enable",
+                  "msb": 0,
+                  "lsb": 0
+                },
+                {
+                  "name": "reserved radix mode",
+                  "msb": 4,
+                  "lsb": 4
+                },
+                {
+                  "name": "reserved parallel mode",
+                  "msb": 5,
+                  "lsb": 5
+                },
+                {
+                  "name": "cross-correlation mode",
+                  "msb": 6,
+                  "lsb": 6
+                },
+                {
+                  "name": "input width code",
+                  "msb": 10,
+                  "lsb": 8
+                },
+                {
+                  "name": "output width code",
+                  "msb": 14,
+                  "lsb": 12
+                },
+                {
+                  "name": "lane-count code",
+                  "msb": 17,
+                  "lsb": 16
+                }
+              ]
+            },
+            {
+              "name": "magic",
+              "offset": "0x003C",
+              "access": "ro",
+              "address": "0x003C",
+              "reset": "",
+              "width": 32,
+              "region": "raddsp_axis_radfft_ddr",
+              "description": "Read-only signature value 0x52464444 identifying the RadFFT DDR register block.",
+              "fields": []
+            },
+            {
+              "name": "fft_limits",
+              "offset": "0x0040",
+              "access": "ro",
+              "address": "0x0040",
+              "reset": "",
+              "width": 32,
+              "region": "raddsp_axis_radfft_ddr",
+              "description": "bits 7 downto 0: maximum log2 FFT points; bits 15 downto 8: maximum input width; bits 23 downto 16: maximum output width; bits 31 downto 24: twiddle width",
+              "fields": [
+                {
+                  "name": "maximum log2 FFT points",
+                  "msb": 7,
+                  "lsb": 0
+                },
+                {
+                  "name": "maximum input width",
+                  "msb": 15,
+                  "lsb": 8
+                },
+                {
+                  "name": "maximum output width",
+                  "msb": 23,
+                  "lsb": 16
+                },
+                {
+                  "name": "twiddle width",
+                  "msb": 31,
+                  "lsb": 24
+                }
+              ]
+            },
+            {
+              "name": "capabilities",
+              "offset": "0x0044",
+              "access": "ro",
+              "address": "0x0044",
+              "reset": "",
+              "width": 32,
+              "region": "raddsp_axis_radfft_ddr",
+              "description": "bit 0: radix-2 support; bit 1: radix-4 support; bit 2: DDR FFT support; bit 3: cross-correlation support; bits 15 downto 8: maximum multiplier lanes; bits 23 downto 16: AXI bytes per beat; bits 31 downto 24: maximum burst beats",
+              "fields": [
+                {
+                  "name": "radix-2 support",
+                  "msb": 0,
+                  "lsb": 0
+                },
+                {
+                  "name": "radix-4 support",
+                  "msb": 1,
+                  "lsb": 1
+                },
+                {
+                  "name": "DDR FFT support",
+                  "msb": 2,
+                  "lsb": 2
+                },
+                {
+                  "name": "cross-correlation support",
+                  "msb": 3,
+                  "lsb": 3
+                },
+                {
+                  "name": "maximum multiplier lanes",
+                  "msb": 15,
+                  "lsb": 8
+                },
+                {
+                  "name": "AXI bytes per beat",
+                  "msb": 23,
+                  "lsb": 16
+                },
+                {
+                  "name": "maximum burst beats",
+                  "msb": 31,
+                  "lsb": 24
+                }
+              ]
+            },
+            {
+              "name": "batch_count",
+              "offset": "0x0048",
+              "access": "rw",
+              "address": "0x0048",
+              "reset": "",
+              "width": 32,
+              "region": "raddsp_axis_radfft_ddr",
+              "description": "Number of frames to process. A written value of zero is coerced to one.",
+              "fields": []
+            },
+            {
+              "name": "src_stride_bytes",
+              "offset": "0x004C",
+              "access": "rw",
+              "address": "0x004C",
+              "reset": "",
+              "width": 32,
+              "region": "raddsp_axis_radfft_ddr",
+              "description": "Byte stride between source frames for batched FFT operation. Zero selects the active frame size.",
+              "fields": []
+            },
+            {
+              "name": "dst_stride_bytes",
+              "offset": "0x0050",
+              "access": "rw",
+              "address": "0x0050",
+              "reset": "",
+              "width": 32,
+              "region": "raddsp_axis_radfft_ddr",
+              "description": "Byte stride between destination frames for batched FFT operation. Zero selects the active frame size.",
+              "fields": []
+            },
+            {
+              "name": "batch_done_count",
+              "offset": "0x0054",
+              "access": "ro",
+              "address": "0x0054",
+              "reset": "",
+              "width": 32,
+              "region": "raddsp_axis_radfft_ddr",
+              "description": "Number of frames completed in the current or most recent batched operation.",
+              "fields": []
+            },
+            {
+              "name": "corr_b_addr_lo",
+              "offset": "0x0058",
+              "access": "rw",
+              "address": "0x0058",
+              "reset": "",
+              "width": 32,
+              "region": "raddsp_axis_radfft_ddr",
+              "description": "Low 32 bits of the secondary input address used by cross-correlation mode.",
+              "fields": []
+            },
+            {
+              "name": "corr_b_addr_hi",
+              "offset": "0x005C",
+              "access": "rw",
+              "address": "0x005C",
+              "reset": "",
+              "width": 32,
+              "region": "raddsp_axis_radfft_ddr",
+              "description": "High address bits of the secondary cross-correlation input address when the configured AXI address width exceeds 32 bits.",
+              "fields": []
+            },
+            {
+              "name": "corr_scratch_addr_lo",
+              "offset": "0x0060",
+              "access": "rw",
+              "address": "0x0060",
+              "reset": "",
+              "width": 32,
+              "region": "raddsp_axis_radfft_ddr",
+              "description": "Low 32 bits of the scratch/output workspace address used during cross-correlation processing.",
+              "fields": []
+            },
+            {
+              "name": "corr_scratch_addr_hi",
+              "offset": "0x0064",
+              "access": "rw",
+              "address": "0x0064",
+              "reset": "",
+              "width": 32,
+              "region": "raddsp_axis_radfft_ddr",
+              "description": "High address bits of the cross-correlation scratch workspace address when the configured AXI address width exceeds 32 bits.",
+              "fields": []
+            }
+          ]
+        }
+      ]
     },
     {
       "name": "raddsp_axis_radfft_iterative",
@@ -32390,7 +33471,192 @@
           }
         }
       ],
-      "register_maps": []
+      "register_maps": [
+        {
+          "name": "radif_axi4_axis_dma",
+          "path": "projects/dsp_timing_smoke/address_map/dsp_axi_smoke.map.json",
+          "base": "0x2000",
+          "description": "Register subset used by accelerator dma0 (axi_dma) in radhdl_dsp_axi_smoke.",
+          "data_width": 32,
+          "registers": [
+            {
+              "name": "control",
+              "offset": "0x0000",
+              "access": "rw",
+              "address": "0x2000",
+              "reset": "",
+              "width": 32,
+              "region": "dma",
+              "description": "bit0 MM2S enable, bit1 MM2S circular, bit8 S2MM enable, bit9 S2MM circular",
+              "fields": [
+                {
+                  "name": "MM2S enable",
+                  "msb": 0,
+                  "lsb": 0
+                },
+                {
+                  "name": "MM2S circular",
+                  "msb": 1,
+                  "lsb": 1
+                },
+                {
+                  "name": "S2MM enable",
+                  "msb": 8,
+                  "lsb": 8
+                },
+                {
+                  "name": "S2MM circular",
+                  "msb": 9,
+                  "lsb": 9
+                }
+              ]
+            },
+            {
+              "name": "status_clear",
+              "offset": "0x0004",
+              "access": "rw",
+              "address": "0x2004",
+              "reset": "",
+              "width": 32,
+              "region": "dma",
+              "description": "write-one-to-clear DMA status bits",
+              "fields": []
+            },
+            {
+              "name": "mm2s_base_lo",
+              "offset": "0x0008",
+              "access": "rw",
+              "address": "0x2008",
+              "reset": "",
+              "width": 32,
+              "region": "dma",
+              "description": "Read/write control or configuration address register for the dma region.",
+              "fields": []
+            },
+            {
+              "name": "mm2s_base_hi",
+              "offset": "0x000C",
+              "access": "rw",
+              "address": "0x200C",
+              "reset": "",
+              "width": 32,
+              "region": "dma",
+              "description": "Read/write control or configuration address register for the dma region.",
+              "fields": []
+            },
+            {
+              "name": "mm2s_end_lo",
+              "offset": "0x0010",
+              "access": "rw",
+              "address": "0x2010",
+              "reset": "",
+              "width": 32,
+              "region": "dma",
+              "description": "Read/write control or configuration address register for the dma region.",
+              "fields": []
+            },
+            {
+              "name": "mm2s_end_hi",
+              "offset": "0x0014",
+              "access": "rw",
+              "address": "0x2014",
+              "reset": "",
+              "width": 32,
+              "region": "dma",
+              "description": "Read/write control or configuration address register for the dma region.",
+              "fields": []
+            },
+            {
+              "name": "mm2s_length_bytes",
+              "offset": "0x0018",
+              "access": "rw",
+              "address": "0x2018",
+              "reset": "",
+              "width": 32,
+              "region": "dma",
+              "description": "Read/write control or configuration transfer length register for the dma region.",
+              "fields": []
+            },
+            {
+              "name": "s2mm_base_lo",
+              "offset": "0x001C",
+              "access": "rw",
+              "address": "0x201C",
+              "reset": "",
+              "width": 32,
+              "region": "dma",
+              "description": "Read/write control or configuration address register for the dma region.",
+              "fields": []
+            },
+            {
+              "name": "s2mm_base_hi",
+              "offset": "0x0020",
+              "access": "rw",
+              "address": "0x2020",
+              "reset": "",
+              "width": 32,
+              "region": "dma",
+              "description": "Read/write control or configuration address register for the dma region.",
+              "fields": []
+            },
+            {
+              "name": "s2mm_end_lo",
+              "offset": "0x0024",
+              "access": "rw",
+              "address": "0x2024",
+              "reset": "",
+              "width": 32,
+              "region": "dma",
+              "description": "Read/write control or configuration address register for the dma region.",
+              "fields": []
+            },
+            {
+              "name": "s2mm_end_hi",
+              "offset": "0x0028",
+              "access": "rw",
+              "address": "0x2028",
+              "reset": "",
+              "width": 32,
+              "region": "dma",
+              "description": "Read/write control or configuration address register for the dma region.",
+              "fields": []
+            },
+            {
+              "name": "s2mm_length_bytes",
+              "offset": "0x002C",
+              "access": "rw",
+              "address": "0x202C",
+              "reset": "",
+              "width": 32,
+              "region": "dma",
+              "description": "Read/write control or configuration transfer length register for the dma region.",
+              "fields": []
+            },
+            {
+              "name": "mm2s_current_lo",
+              "offset": "0x0030",
+              "access": "ro",
+              "address": "0x2030",
+              "reset": "",
+              "width": 32,
+              "region": "dma",
+              "description": "Read-only status or measurement register for mm2s current lo in the dma region.",
+              "fields": []
+            },
+            {
+              "name": "s2mm_current_lo",
+              "offset": "0x0034",
+              "access": "ro",
+              "address": "0x2034",
+              "reset": "",
+              "width": 32,
+              "region": "dma",
+              "description": "Read-only status or measurement register for s2mm current lo in the dma region.",
+              "fields": []
+            }
+          ]
+        }
+      ]
     },
     {
       "name": "radif_axi_lite_to_reg",
@@ -38244,6 +39510,453 @@
   ],
   "register_maps": [
     {
+      "name": "raddsp_axis_radfft_ddr",
+      "path": "dsp/hdl/raddsp/register_maps/raddsp_axis_radfft_ddr.map.json",
+      "base": "0x0000",
+      "description": "Software-visible control block for launching DDR-to-FFT, FFT-to-DDR, AXI-stream-to-DDR, and DDR-to-AXI-stream transfers.",
+      "data_width": 32,
+      "registers": [
+        {
+          "name": "control",
+          "offset": "0x0000",
+          "access": "rw",
+          "address": "0x0000",
+          "reset": "",
+          "width": 32,
+          "region": "raddsp_axis_radfft_ddr",
+          "description": "bit 0: start command; bits 5 downto 4: operation mode; bit 8: interrupt enable; bit 31: clear sticky status flags",
+          "fields": [
+            {
+              "name": "start command",
+              "msb": 0,
+              "lsb": 0
+            },
+            {
+              "name": "operation mode",
+              "msb": 5,
+              "lsb": 4
+            },
+            {
+              "name": "interrupt enable",
+              "msb": 8,
+              "lsb": 8
+            },
+            {
+              "name": "clear sticky status flags",
+              "msb": 31,
+              "lsb": 31
+            }
+          ]
+        },
+        {
+          "name": "status",
+          "offset": "0x0004",
+          "access": "ro",
+          "address": "0x0004",
+          "reset": "",
+          "width": 32,
+          "region": "raddsp_axis_radfft_ddr",
+          "description": "bit 0: busy; bit 1: done; bit 2: error; bit 3: unsupported configuration",
+          "fields": [
+            {
+              "name": "busy",
+              "msb": 0,
+              "lsb": 0
+            },
+            {
+              "name": "done",
+              "msb": 1,
+              "lsb": 1
+            },
+            {
+              "name": "error",
+              "msb": 2,
+              "lsb": 2
+            },
+            {
+              "name": "unsupported configuration",
+              "msb": 3,
+              "lsb": 3
+            }
+          ]
+        },
+        {
+          "name": "base_addr_lo",
+          "offset": "0x0008",
+          "access": "rw",
+          "address": "0x0008",
+          "reset": "",
+          "width": 32,
+          "region": "raddsp_axis_radfft_ddr",
+          "description": "Low 32 bits of the primary DDR source/base address.",
+          "fields": []
+        },
+        {
+          "name": "base_addr_hi",
+          "offset": "0x000C",
+          "access": "rw",
+          "address": "0x000C",
+          "reset": "",
+          "width": 32,
+          "region": "raddsp_axis_radfft_ddr",
+          "description": "High address bits of the primary DDR source/base address when the configured AXI address width exceeds 32 bits.",
+          "fields": []
+        },
+        {
+          "name": "out_addr_lo",
+          "offset": "0x0010",
+          "access": "rw",
+          "address": "0x0010",
+          "reset": "",
+          "width": 32,
+          "region": "raddsp_axis_radfft_ddr",
+          "description": "Low 32 bits of the output DDR address. A zero value selects in-place output for supported operations.",
+          "fields": []
+        },
+        {
+          "name": "out_addr_hi",
+          "offset": "0x0014",
+          "access": "rw",
+          "address": "0x0014",
+          "reset": "",
+          "width": 32,
+          "region": "raddsp_axis_radfft_ddr",
+          "description": "High address bits of the output DDR address when the configured AXI address width exceeds 32 bits.",
+          "fields": []
+        },
+        {
+          "name": "length_bytes",
+          "offset": "0x0018",
+          "access": "rw",
+          "address": "0x0018",
+          "reset": "",
+          "width": 32,
+          "region": "raddsp_axis_radfft_ddr",
+          "description": "Transfer length in bytes. FFT operations require this to match the active frame size.",
+          "fields": []
+        },
+        {
+          "name": "region_bytes",
+          "offset": "0x001C",
+          "access": "rw",
+          "address": "0x001C",
+          "reset": "",
+          "width": 32,
+          "region": "raddsp_axis_radfft_ddr",
+          "description": "DDR region size used for range planning and default frame-region handling.",
+          "fields": []
+        },
+        {
+          "name": "fft_points",
+          "offset": "0x0020",
+          "access": "rw",
+          "address": "0x0020",
+          "reset": "",
+          "width": 32,
+          "region": "raddsp_axis_radfft_ddr",
+          "description": "bits 7 downto 0: log2 FFT point count; bits 23 downto 16: AXI bytes per beat on readback",
+          "fields": [
+            {
+              "name": "log2 FFT point count",
+              "msb": 7,
+              "lsb": 0
+            },
+            {
+              "name": "AXI bytes per beat on readback",
+              "msb": 23,
+              "lsb": 16
+            }
+          ]
+        },
+        {
+          "name": "burst_beats",
+          "offset": "0x0024",
+          "access": "rw",
+          "address": "0x0024",
+          "reset": "",
+          "width": 32,
+          "region": "raddsp_axis_radfft_ddr",
+          "description": "bits 7 downto 0: requested AXI burst length in beats, clamped internally to the configured maximum",
+          "fields": [
+            {
+              "name": "requested AXI burst length in beats",
+              "msb": 7,
+              "lsb": 0
+            }
+          ]
+        },
+        {
+          "name": "write_current",
+          "offset": "0x0028",
+          "access": "ro",
+          "address": "0x0028",
+          "reset": "",
+          "width": 32,
+          "region": "raddsp_axis_radfft_ddr",
+          "description": "Current low 32-bit AXI write address for active or recently completed stream-to-DDR activity.",
+          "fields": []
+        },
+        {
+          "name": "read_current",
+          "offset": "0x002C",
+          "access": "ro",
+          "address": "0x002C",
+          "reset": "",
+          "width": 32,
+          "region": "raddsp_axis_radfft_ddr",
+          "description": "Current low 32-bit AXI read address for active or recently completed DDR-to-stream or FFT input activity.",
+          "fields": []
+        },
+        {
+          "name": "twiddle_addr_lo",
+          "offset": "0x0030",
+          "access": "rw",
+          "address": "0x0030",
+          "reset": "",
+          "width": 32,
+          "region": "raddsp_axis_radfft_ddr",
+          "description": "Low 32 bits of the DDR address containing FFT twiddle-table data.",
+          "fields": []
+        },
+        {
+          "name": "twiddle_addr_hi",
+          "offset": "0x0034",
+          "access": "rw",
+          "address": "0x0034",
+          "reset": "",
+          "width": 32,
+          "region": "raddsp_axis_radfft_ddr",
+          "description": "High address bits of the FFT twiddle-table DDR address when the configured AXI address width exceeds 32 bits.",
+          "fields": []
+        },
+        {
+          "name": "fft_config",
+          "offset": "0x0038",
+          "access": "rw",
+          "address": "0x0038",
+          "reset": "",
+          "width": 32,
+          "region": "raddsp_axis_radfft_ddr",
+          "description": "bit 0: radix-4 enable; bit 4: reserved radix mode; bit 5: reserved parallel mode; bit 6: cross-correlation mode; bits 10 downto 8: input width code; bits 14 downto 12: output width code; bits 17 downto 16: lane-count code",
+          "fields": [
+            {
+              "name": "radix-4 enable",
+              "msb": 0,
+              "lsb": 0
+            },
+            {
+              "name": "reserved radix mode",
+              "msb": 4,
+              "lsb": 4
+            },
+            {
+              "name": "reserved parallel mode",
+              "msb": 5,
+              "lsb": 5
+            },
+            {
+              "name": "cross-correlation mode",
+              "msb": 6,
+              "lsb": 6
+            },
+            {
+              "name": "input width code",
+              "msb": 10,
+              "lsb": 8
+            },
+            {
+              "name": "output width code",
+              "msb": 14,
+              "lsb": 12
+            },
+            {
+              "name": "lane-count code",
+              "msb": 17,
+              "lsb": 16
+            }
+          ]
+        },
+        {
+          "name": "magic",
+          "offset": "0x003C",
+          "access": "ro",
+          "address": "0x003C",
+          "reset": "",
+          "width": 32,
+          "region": "raddsp_axis_radfft_ddr",
+          "description": "Read-only signature value 0x52464444 identifying the RadFFT DDR register block.",
+          "fields": []
+        },
+        {
+          "name": "fft_limits",
+          "offset": "0x0040",
+          "access": "ro",
+          "address": "0x0040",
+          "reset": "",
+          "width": 32,
+          "region": "raddsp_axis_radfft_ddr",
+          "description": "bits 7 downto 0: maximum log2 FFT points; bits 15 downto 8: maximum input width; bits 23 downto 16: maximum output width; bits 31 downto 24: twiddle width",
+          "fields": [
+            {
+              "name": "maximum log2 FFT points",
+              "msb": 7,
+              "lsb": 0
+            },
+            {
+              "name": "maximum input width",
+              "msb": 15,
+              "lsb": 8
+            },
+            {
+              "name": "maximum output width",
+              "msb": 23,
+              "lsb": 16
+            },
+            {
+              "name": "twiddle width",
+              "msb": 31,
+              "lsb": 24
+            }
+          ]
+        },
+        {
+          "name": "capabilities",
+          "offset": "0x0044",
+          "access": "ro",
+          "address": "0x0044",
+          "reset": "",
+          "width": 32,
+          "region": "raddsp_axis_radfft_ddr",
+          "description": "bit 0: radix-2 support; bit 1: radix-4 support; bit 2: DDR FFT support; bit 3: cross-correlation support; bits 15 downto 8: maximum multiplier lanes; bits 23 downto 16: AXI bytes per beat; bits 31 downto 24: maximum burst beats",
+          "fields": [
+            {
+              "name": "radix-2 support",
+              "msb": 0,
+              "lsb": 0
+            },
+            {
+              "name": "radix-4 support",
+              "msb": 1,
+              "lsb": 1
+            },
+            {
+              "name": "DDR FFT support",
+              "msb": 2,
+              "lsb": 2
+            },
+            {
+              "name": "cross-correlation support",
+              "msb": 3,
+              "lsb": 3
+            },
+            {
+              "name": "maximum multiplier lanes",
+              "msb": 15,
+              "lsb": 8
+            },
+            {
+              "name": "AXI bytes per beat",
+              "msb": 23,
+              "lsb": 16
+            },
+            {
+              "name": "maximum burst beats",
+              "msb": 31,
+              "lsb": 24
+            }
+          ]
+        },
+        {
+          "name": "batch_count",
+          "offset": "0x0048",
+          "access": "rw",
+          "address": "0x0048",
+          "reset": "",
+          "width": 32,
+          "region": "raddsp_axis_radfft_ddr",
+          "description": "Number of frames to process. A written value of zero is coerced to one.",
+          "fields": []
+        },
+        {
+          "name": "src_stride_bytes",
+          "offset": "0x004C",
+          "access": "rw",
+          "address": "0x004C",
+          "reset": "",
+          "width": 32,
+          "region": "raddsp_axis_radfft_ddr",
+          "description": "Byte stride between source frames for batched FFT operation. Zero selects the active frame size.",
+          "fields": []
+        },
+        {
+          "name": "dst_stride_bytes",
+          "offset": "0x0050",
+          "access": "rw",
+          "address": "0x0050",
+          "reset": "",
+          "width": 32,
+          "region": "raddsp_axis_radfft_ddr",
+          "description": "Byte stride between destination frames for batched FFT operation. Zero selects the active frame size.",
+          "fields": []
+        },
+        {
+          "name": "batch_done_count",
+          "offset": "0x0054",
+          "access": "ro",
+          "address": "0x0054",
+          "reset": "",
+          "width": 32,
+          "region": "raddsp_axis_radfft_ddr",
+          "description": "Number of frames completed in the current or most recent batched operation.",
+          "fields": []
+        },
+        {
+          "name": "corr_b_addr_lo",
+          "offset": "0x0058",
+          "access": "rw",
+          "address": "0x0058",
+          "reset": "",
+          "width": 32,
+          "region": "raddsp_axis_radfft_ddr",
+          "description": "Low 32 bits of the secondary input address used by cross-correlation mode.",
+          "fields": []
+        },
+        {
+          "name": "corr_b_addr_hi",
+          "offset": "0x005C",
+          "access": "rw",
+          "address": "0x005C",
+          "reset": "",
+          "width": 32,
+          "region": "raddsp_axis_radfft_ddr",
+          "description": "High address bits of the secondary cross-correlation input address when the configured AXI address width exceeds 32 bits.",
+          "fields": []
+        },
+        {
+          "name": "corr_scratch_addr_lo",
+          "offset": "0x0060",
+          "access": "rw",
+          "address": "0x0060",
+          "reset": "",
+          "width": 32,
+          "region": "raddsp_axis_radfft_ddr",
+          "description": "Low 32 bits of the scratch/output workspace address used during cross-correlation processing.",
+          "fields": []
+        },
+        {
+          "name": "corr_scratch_addr_hi",
+          "offset": "0x0064",
+          "access": "rw",
+          "address": "0x0064",
+          "reset": "",
+          "width": 32,
+          "region": "raddsp_axis_radfft_ddr",
+          "description": "High address bits of the cross-correlation scratch workspace address when the configured AXI address width exceeds 32 bits.",
+          "fields": []
+        }
+      ]
+    },
+    {
       "name": "control",
       "path": "projects/dsp_timing_smoke/address_map/dsp_axi_smoke.map.json",
       "base": "0x0000",
@@ -38700,6 +40413,190 @@
       "path": "projects/dsp_timing_smoke/address_map/dsp_axi_smoke.map.json",
       "base": "0x2000",
       "description": "AXI4-Lite register map for the RadHDL DSP timing-smoke project.",
+      "data_width": 32,
+      "registers": [
+        {
+          "name": "control",
+          "offset": "0x0000",
+          "access": "rw",
+          "address": "0x2000",
+          "reset": "",
+          "width": 32,
+          "region": "dma",
+          "description": "bit0 MM2S enable, bit1 MM2S circular, bit8 S2MM enable, bit9 S2MM circular",
+          "fields": [
+            {
+              "name": "MM2S enable",
+              "msb": 0,
+              "lsb": 0
+            },
+            {
+              "name": "MM2S circular",
+              "msb": 1,
+              "lsb": 1
+            },
+            {
+              "name": "S2MM enable",
+              "msb": 8,
+              "lsb": 8
+            },
+            {
+              "name": "S2MM circular",
+              "msb": 9,
+              "lsb": 9
+            }
+          ]
+        },
+        {
+          "name": "status_clear",
+          "offset": "0x0004",
+          "access": "rw",
+          "address": "0x2004",
+          "reset": "",
+          "width": 32,
+          "region": "dma",
+          "description": "write-one-to-clear DMA status bits",
+          "fields": []
+        },
+        {
+          "name": "mm2s_base_lo",
+          "offset": "0x0008",
+          "access": "rw",
+          "address": "0x2008",
+          "reset": "",
+          "width": 32,
+          "region": "dma",
+          "description": "Read/write control or configuration address register for the dma region.",
+          "fields": []
+        },
+        {
+          "name": "mm2s_base_hi",
+          "offset": "0x000C",
+          "access": "rw",
+          "address": "0x200C",
+          "reset": "",
+          "width": 32,
+          "region": "dma",
+          "description": "Read/write control or configuration address register for the dma region.",
+          "fields": []
+        },
+        {
+          "name": "mm2s_end_lo",
+          "offset": "0x0010",
+          "access": "rw",
+          "address": "0x2010",
+          "reset": "",
+          "width": 32,
+          "region": "dma",
+          "description": "Read/write control or configuration address register for the dma region.",
+          "fields": []
+        },
+        {
+          "name": "mm2s_end_hi",
+          "offset": "0x0014",
+          "access": "rw",
+          "address": "0x2014",
+          "reset": "",
+          "width": 32,
+          "region": "dma",
+          "description": "Read/write control or configuration address register for the dma region.",
+          "fields": []
+        },
+        {
+          "name": "mm2s_length_bytes",
+          "offset": "0x0018",
+          "access": "rw",
+          "address": "0x2018",
+          "reset": "",
+          "width": 32,
+          "region": "dma",
+          "description": "Read/write control or configuration transfer length register for the dma region.",
+          "fields": []
+        },
+        {
+          "name": "s2mm_base_lo",
+          "offset": "0x001C",
+          "access": "rw",
+          "address": "0x201C",
+          "reset": "",
+          "width": 32,
+          "region": "dma",
+          "description": "Read/write control or configuration address register for the dma region.",
+          "fields": []
+        },
+        {
+          "name": "s2mm_base_hi",
+          "offset": "0x0020",
+          "access": "rw",
+          "address": "0x2020",
+          "reset": "",
+          "width": 32,
+          "region": "dma",
+          "description": "Read/write control or configuration address register for the dma region.",
+          "fields": []
+        },
+        {
+          "name": "s2mm_end_lo",
+          "offset": "0x0024",
+          "access": "rw",
+          "address": "0x2024",
+          "reset": "",
+          "width": 32,
+          "region": "dma",
+          "description": "Read/write control or configuration address register for the dma region.",
+          "fields": []
+        },
+        {
+          "name": "s2mm_end_hi",
+          "offset": "0x0028",
+          "access": "rw",
+          "address": "0x2028",
+          "reset": "",
+          "width": 32,
+          "region": "dma",
+          "description": "Read/write control or configuration address register for the dma region.",
+          "fields": []
+        },
+        {
+          "name": "s2mm_length_bytes",
+          "offset": "0x002C",
+          "access": "rw",
+          "address": "0x202C",
+          "reset": "",
+          "width": 32,
+          "region": "dma",
+          "description": "Read/write control or configuration transfer length register for the dma region.",
+          "fields": []
+        },
+        {
+          "name": "mm2s_current_lo",
+          "offset": "0x0030",
+          "access": "ro",
+          "address": "0x2030",
+          "reset": "",
+          "width": 32,
+          "region": "dma",
+          "description": "Read-only status or measurement register for mm2s current lo in the dma region.",
+          "fields": []
+        },
+        {
+          "name": "s2mm_current_lo",
+          "offset": "0x0034",
+          "access": "ro",
+          "address": "0x2034",
+          "reset": "",
+          "width": 32,
+          "region": "dma",
+          "description": "Read-only status or measurement register for s2mm current lo in the dma region.",
+          "fields": []
+        }
+      ]
+    },
+    {
+      "name": "radif_axi4_axis_dma",
+      "path": "projects/dsp_timing_smoke/address_map/dsp_axi_smoke.map.json",
+      "base": "0x2000",
+      "description": "Register subset used by accelerator dma0 (axi_dma) in radhdl_dsp_axi_smoke.",
       "data_width": 32,
       "registers": [
         {

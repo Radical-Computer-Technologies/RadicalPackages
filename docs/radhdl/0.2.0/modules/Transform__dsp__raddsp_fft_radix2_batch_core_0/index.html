@@ -65,7 +65,26 @@ use ieee.numeric_std.all;
 library dsp;
 -- Direct entity instantiation below does not require importing the entity name.
 -- Add package imports only when your surrounding design needs package types/constants, for example:
--- use dsp.&lt;package_name&gt;.all;</code></pre><h3>Instantiation</h3><pre><code>u_raddsp_fft_radix2_batch_core_0 : entity dsp.raddsp_fft_radix2_batch_core_0
+-- use dsp.&lt;package_name&gt;.all;</code></pre><h3>Component Declaration</h3><pre><code>component raddsp_fft_radix2_batch_core_0 is
+  port (
+    clk : in STD_LOGIC;
+    rst : in STD_LOGIC;
+    start_frame : in STD_LOGIC;
+    sample_valid : in STD_LOGIC;
+    sample_re : in STD_LOGIC_VECTOR(31 DOWNTO 0);
+    sample_im : in STD_LOGIC_VECTOR(31 DOWNTO 0);
+    sample_ready : out STD_LOGIC;
+    twiddle_addr : out STD_LOGIC_VECTOR(31 DOWNTO 0);
+    twiddle_re : in STD_LOGIC_VECTOR(31 DOWNTO 0);
+    twiddle_im : in STD_LOGIC_VECTOR(31 DOWNTO 0);
+    busy : out STD_LOGIC;
+    done : out STD_LOGIC;
+    output_valid : out STD_LOGIC;
+    output_index : out STD_LOGIC_VECTOR(31 DOWNTO 0);
+    output_re : out STD_LOGIC_VECTOR(31 DOWNTO 0);
+    output_im : out STD_LOGIC_VECTOR(31 DOWNTO 0)
+  );
+end component;</code></pre><h3>Direct Entity Instantiation</h3><pre><code>u_raddsp_fft_radix2_batch_core_0 : entity dsp.raddsp_fft_radix2_batch_core_0
   port map (
     clk          =&gt; &lt;clk_signal&gt;,
     rst          =&gt; &lt;rst_signal&gt;,
@@ -88,27 +107,6 @@ library dsp;
   <h2>Ports</h2><table><thead><tr><th>Name</th><th>Direction</th><th>Type</th><th>Description</th></tr></thead><tbody><tr><td>clk</td><td>in</td><td>STD_LOGIC</td><td></td></tr><tr><td>rst</td><td>in</td><td>STD_LOGIC</td><td></td></tr><tr><td>start_frame</td><td>in</td><td>STD_LOGIC</td><td></td></tr><tr><td>sample_valid</td><td>in</td><td>STD_LOGIC</td><td></td></tr><tr><td>sample_re</td><td>in</td><td>STD_LOGIC_VECTOR(31 DOWNTO 0)</td><td></td></tr><tr><td>sample_im</td><td>in</td><td>STD_LOGIC_VECTOR(31 DOWNTO 0)</td><td></td></tr><tr><td>sample_ready</td><td>out</td><td>STD_LOGIC</td><td></td></tr><tr><td>twiddle_addr</td><td>out</td><td>STD_LOGIC_VECTOR(31 DOWNTO 0)</td><td></td></tr><tr><td>twiddle_re</td><td>in</td><td>STD_LOGIC_VECTOR(31 DOWNTO 0)</td><td></td></tr><tr><td>twiddle_im</td><td>in</td><td>STD_LOGIC_VECTOR(31 DOWNTO 0)</td><td></td></tr><tr><td>busy</td><td>out</td><td>STD_LOGIC</td><td></td></tr><tr><td>done</td><td>out</td><td>STD_LOGIC</td><td></td></tr><tr><td>output_valid</td><td>out</td><td>STD_LOGIC</td><td></td></tr><tr><td>output_index</td><td>out</td><td>STD_LOGIC_VECTOR(31 DOWNTO 0)</td><td></td></tr><tr><td>output_re</td><td>out</td><td>STD_LOGIC_VECTOR(31 DOWNTO 0)</td><td></td></tr><tr><td>output_im</td><td>out</td><td>STD_LOGIC_VECTOR(31 DOWNTO 0)</td><td></td></tr></tbody></table>
   
   <h2>Testbenches and Waveforms</h2><p class="summary">No directly associated testbench was found.</p>
-  <h2>HDL Example</h2>
-  <pre><code>ENTITY raddsp_fft_radix2_batch_core_0 IS
-  PORT (
-    clk : IN STD_LOGIC;
-    rst : IN STD_LOGIC;
-    start_frame : IN STD_LOGIC;
-    sample_valid : IN STD_LOGIC;
-    sample_re : IN STD_LOGIC_VECTOR(31 DOWNTO 0);
-    sample_im : IN STD_LOGIC_VECTOR(31 DOWNTO 0);
-    sample_ready : OUT STD_LOGIC;
-    twiddle_addr : OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
-    twiddle_re : IN STD_LOGIC_VECTOR(31 DOWNTO 0);
-    twiddle_im : IN STD_LOGIC_VECTOR(31 DOWNTO 0);
-    busy : OUT STD_LOGIC;
-    done : OUT STD_LOGIC;
-    output_valid : OUT STD_LOGIC;
-    output_index : OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
-    output_re : OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
-    output_im : OUT STD_LOGIC_VECTOR(31 DOWNTO 0)
-  );
-END raddsp_fft_radix2_batch_core_0;</code></pre>
   <h2>Sources</h2>
   <ul><li>dsp/hdl/xci/raddsp_fft_radix2_batch_core_0/synth/raddsp_fft_radix2_batch_core_0.vhd</li></ul>
 </main>

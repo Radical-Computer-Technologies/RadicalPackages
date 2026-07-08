@@ -52,7 +52,23 @@ use ieee.numeric_std.all;
 library dsp;
 -- Direct entity instantiation below does not require importing the entity name.
 -- Add package imports only when your surrounding design needs package types/constants, for example:
--- use dsp.&lt;package_name&gt;.all;</code></pre><h3>Instantiation</h3><pre><code>u_cordic_atan2 : entity dsp.cordic_atan2
+-- use dsp.&lt;package_name&gt;.all;</code></pre><h3>Component Declaration</h3><pre><code>component cordic_atan2 is
+  generic (
+    G_INPUT_WIDTH : integer := 16;
+    G_PHASE_WIDTH : integer := 32
+  );
+  port (
+    clk : in std_logic;
+    rst : in std_logic;
+    input_valid : in std_logic;
+    x_in : in signed(G_INPUT_WIDTH - 1 downto 0);
+    y_in : in signed(G_INPUT_WIDTH - 1 downto 0);
+    input_ready : out std_logic;
+    busy : out std_logic;
+    phase_valid : out std_logic;
+    phase_out : out signed(G_PHASE_WIDTH - 1 downto 0)
+  );
+end component;</code></pre><h3>Direct Entity Instantiation</h3><pre><code>u_cordic_atan2 : entity dsp.cordic_atan2
   generic map (
     G_INPUT_WIDTH =&gt; 16,
     G_PHASE_WIDTH =&gt; 32
@@ -72,37 +88,6 @@ library dsp;
   <h2>Ports</h2><table><thead><tr><th>Name</th><th>Direction</th><th>Type</th><th>Description</th></tr></thead><tbody><tr><td>clk</td><td>in</td><td>std_logic</td><td>Clock for the associated synchronous logic and handshake domain.</td></tr><tr><td>rst</td><td>in</td><td>std_logic</td><td>Active-high synchronous reset for this clock domain.</td></tr><tr><td>input_valid</td><td>in</td><td>std_logic</td><td>Input valid interface signal.</td></tr><tr><td>x_in</td><td>in</td><td>signed(G_INPUT_WIDTH - 1 downto 0)</td><td>X in interface signal.</td></tr><tr><td>y_in</td><td>in</td><td>signed(G_INPUT_WIDTH - 1 downto 0)</td><td>Y in interface signal.</td></tr><tr><td>input_ready</td><td>out</td><td>std_logic</td><td>Input ready interface signal.</td></tr><tr><td>busy</td><td>out</td><td>std_logic</td><td>Busy interface signal.</td></tr><tr><td>phase_valid</td><td>out</td><td>std_logic</td><td>Phase valid interface signal.</td></tr><tr><td>phase_out</td><td>out</td><td>signed(G_PHASE_WIDTH - 1 downto 0)</td><td>Phase out interface signal.</td></tr></tbody></table>
   
   <h2>Testbenches and Waveforms</h2><table><thead><tr><th>Testbench</th><th>Source</th><th>Simulation</th><th>Artifacts</th></tr></thead><tbody><tr><td>tb_cordic_atan2</td><td>dsp/hdl/testbenches/tb_cordic_atan2.vhd</td><td>passed</td><td><a href="../../simulations/tb_cordic_atan2/simulation_status.json">status</a>, <a href="../../simulations/tb_cordic_atan2/tb_cordic_atan2.vcd">vcd</a></td></tr></tbody></table><div class="wave"><table><thead><tr><th>Signal</th><th>Samples</th></tr></thead><tbody><tr><td>clk</td><td>0:0 | 5000000:1 | 10000000:0 | 15000000:1 | 20000000:0 | 25000000:1 | 30000000:0 | 35000000:1 | 40000000:0 | 45000000:1 | 50000000:0 | 55000000:1 | 60000000:0 | 65000000:1 | 70000000:0 | 75000000:1</td></tr><tr><td>rst</td><td>0:1 | 55000000:0</td></tr><tr><td>input_valid</td><td>0:0 | 65000000:1 | 75000000:0 | 325000000:1 | 335000000:0 | 585000000:1 | 595000000:0 | 845000000:1 | 855000000:0 | 1105000000:1 | 1115000000:0 | 1365000000:1 | 1375000000:0 | 1625000000:1 | 1635000000:0 | 1885000000:1</td></tr><tr><td>x_in[15:0]</td><td>0:0000000000000000 | 65000000:0010011100010000 | 585000000:0000000000000000 | 845000000:1101000100100000 | 1365000000:0000000000000000 | 1625000000:0001111101000000 | 1885000000:1110110001111000 | 2145000000:0000110011001100 | 2405000000:1111001100110100</td></tr><tr><td>y_in[15:0]</td><td>0:0000000000000000 | 325000000:0010011100010000 | 585000000:0010111011100000 | 1105000000:1101000100100000 | 1365000000:1101100011110000 | 1625000000:1111000001100000 | 1885000000:0010001100101000 | 2145000000:1111001100110100 | 2405000000:1111100000110000</td></tr><tr><td>input_ready</td><td>0:1</td></tr><tr><td>busy</td><td>0:0 | 75000000:1 | 325000000:0 | 335000000:1 | 585000000:0 | 595000000:1 | 845000000:0 | 855000000:1 | 1105000000:0 | 1115000000:1 | 1365000000:0 | 1375000000:1 | 1625000000:0 | 1635000000:1 | 1885000000:0 | 1895000000:1</td></tr><tr><td>phase_valid</td><td>0:0 | 315000000:1 | 325000000:0 | 575000000:1 | 585000000:0 | 835000000:1 | 845000000:0 | 1095000000:1 | 1105000000:0 | 1355000000:1 | 1365000000:0 | 1615000000:1 | 1625000000:0 | 1875000000:1 | 1885000000:0 | 2135000000:1</td></tr><tr><td>phase_out[31:0]</td><td>0:00000000000000000000000000000000 | 315000000:00000000000000001100010100101001 | 325000000:00000000000000000000000000000000 | 575000000:00100000000000000111101101000111 | 585000000:00000000000000000000000000000000 | 835000000:01000000000000001000000000100111 | 845000000:00000000000000000000000000000000 | 1095000000:01100000000000000111101010100010 | 1105000000:00000000000000000000000000000000 | 1355000000:10100000000000000111101010100100 | 1365000000:00000000000000000000000000000000 | 1615000000:11000000000000001100010100101001 | 1625000000:00000000000000000000000000000000 | 1875000000:11101101000110101000001001110011 | 1885000000:00000000000000000000000000000000 | 2135000000:01010100101010010100100000011110</td></tr></tbody></table></div>
-  <h2>HDL Example</h2>
-  <pre><code>entity cordic_atan2 is
-  generic (
-    -- Sets the bit width for G INPUT WIDTH values carried by this module.
-    G_INPUT_WIDTH  : integer := 16;
-    -- Sets the bit width for G PHASE WIDTH values carried by this module.
-    G_PHASE_WIDTH  : integer := 32;
-    -- Configures G ITERATIONS for this instance.
-    G_ITERATIONS   : integer := 24
-  );
-  port (
-    -- Clock for the associated synchronous logic and handshake domain.
-    clk         : in  std_logic;
-    -- Active-high synchronous reset for this clock domain.
-    rst         : in  std_logic;
-    -- Input valid interface signal.
-    input_valid : in  std_logic;
-    -- X in interface signal.
-    x_in        : in  signed(G_INPUT_WIDTH - 1 downto 0);
-    -- Y in interface signal.
-    y_in        : in  signed(G_INPUT_WIDTH - 1 downto 0);
-    -- Input ready interface signal.
-    input_ready : out std_logic;
-    -- Busy interface signal.
-    busy        : out std_logic;
-    -- Phase valid interface signal.
-    phase_valid : out std_logic;
-    -- Phase out interface signal.
-    phase_out   : out signed(G_PHASE_WIDTH - 1 downto 0)
-  );
-end entity;</code></pre>
   <h2>Sources</h2>
   <ul><li>dsp/hdl/iprepo/raddsp_cordic_atan2_1.0/src/cordic_atan2.vhd</li></ul>
 </main>

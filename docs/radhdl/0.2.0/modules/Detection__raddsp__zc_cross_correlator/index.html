@@ -58,7 +58,27 @@ use ieee.numeric_std.all;
 library raddsp;
 -- Direct entity instantiation below does not require importing the entity name.
 -- Add package imports only when your surrounding design needs package types/constants, for example:
--- use raddsp.&lt;package_name&gt;.all;</code></pre><h3>Instantiation</h3><pre><code>u_zc_cross_correlator : entity raddsp.zc_cross_correlator
+-- use raddsp.&lt;package_name&gt;.all;</code></pre><h3>Component Declaration</h3><pre><code>component zc_cross_correlator is
+  generic (
+    DEVICE_FAMILY : string := &quot;7series&quot;;
+    G_SAMPLE_WIDTH : integer := 16;
+    G_ACC_WIDTH : integer := 40
+  );
+  port (
+    clk : in std_logic;
+    rst : in std_logic;
+    block_start : in std_logic;
+    sample_valid : in std_logic;
+    sample_i : in signed(G_SAMPLE_WIDTH - 1 downto 0);
+    sample_q : in signed(G_SAMPLE_WIDTH - 1 downto 0);
+    sample_ready : out std_logic;
+    busy : out std_logic;
+    corr_valid : out std_logic;
+    corr_i : out signed(G_ACC_WIDTH - 1 downto 0);
+    corr_q : out signed(G_ACC_WIDTH - 1 downto 0);
+    corr_mag_sq : out unsigned((2 * G_ACC_WIDTH) - 1 downto 0)
+  );
+end component;</code></pre><h3>Direct Entity Instantiation</h3><pre><code>u_zc_cross_correlator : entity raddsp.zc_cross_correlator
   generic map (
     DEVICE_FAMILY  =&gt; &quot;7series&quot;,
     G_SAMPLE_WIDTH =&gt; 16,
@@ -82,45 +102,6 @@ library raddsp;
   <h2>Ports</h2><table><thead><tr><th>Name</th><th>Direction</th><th>Type</th><th>Description</th></tr></thead><tbody><tr><td>clk</td><td>in</td><td>std_logic</td><td>Clock for the associated synchronous logic and handshake domain.</td></tr><tr><td>rst</td><td>in</td><td>std_logic</td><td>Active-high synchronous reset for this clock domain.</td></tr><tr><td>block_start</td><td>in</td><td>std_logic</td><td>Block start interface signal.</td></tr><tr><td>sample_valid</td><td>in</td><td>std_logic</td><td>Sample valid interface signal.</td></tr><tr><td>sample_i</td><td>in</td><td>signed(G_SAMPLE_WIDTH - 1 downto 0)</td><td>Input sample vector captured or processed by the datapath.</td></tr><tr><td>sample_q</td><td>in</td><td>signed(G_SAMPLE_WIDTH - 1 downto 0)</td><td>Sample q interface signal.</td></tr><tr><td>sample_ready</td><td>out</td><td>std_logic</td><td>Sample ready interface signal.</td></tr><tr><td>busy</td><td>out</td><td>std_logic</td><td>Busy interface signal.</td></tr><tr><td>corr_valid</td><td>out</td><td>std_logic</td><td>Corr valid interface signal.</td></tr><tr><td>corr_i</td><td>out</td><td>signed(G_ACC_WIDTH - 1 downto 0)</td><td>Input corr i signal for this module.</td></tr><tr><td>corr_q</td><td>out</td><td>signed(G_ACC_WIDTH - 1 downto 0)</td><td>Corr q interface signal.</td></tr><tr><td>corr_mag_sq</td><td>out</td><td>unsigned((2 * G_ACC_WIDTH) - 1 downto 0)</td><td>Corr mag sq interface signal.</td></tr></tbody></table>
   
   <h2>Testbenches and Waveforms</h2><p class="summary">No directly associated testbench was found.</p>
-  <h2>HDL Example</h2>
-  <pre><code>entity zc_cross_correlator is
-  generic (
-    -- Identifies the target FPGA family so wrappers can choose the correct primitive or conservative portable behavior.
-    DEVICE_FAMILY : string := &quot;7series&quot;;
-    -- Sets the bit width for G SAMPLE WIDTH values carried by this module.
-    G_SAMPLE_WIDTH : integer := 16;
-    -- Sets the bit width for G ACC WIDTH values carried by this module.
-    G_ACC_WIDTH    : integer := 40;
-    -- Identifies the target FPGA family so wrappers can choose the correct primitive or conservative portable behavior.
-    G_PRODUCT_SHIFT : integer := 15
-  );
-  port (
-    -- Clock for the associated synchronous logic and handshake domain.
-    clk          : in  std_logic;
-    -- Active-high synchronous reset for this clock domain.
-    rst          : in  std_logic;
-    -- Block start interface signal.
-    block_start  : in  std_logic;
-    -- Sample valid interface signal.
-    sample_valid : in  std_logic;
-    -- Input sample vector captured or processed by the datapath.
-    sample_i     : in  signed(G_SAMPLE_WIDTH - 1 downto 0);
-    -- Sample q interface signal.
-    sample_q     : in  signed(G_SAMPLE_WIDTH - 1 downto 0);
-    -- Sample ready interface signal.
-    sample_ready : out std_logic;
-    -- Busy interface signal.
-    busy         : out std_logic;
-    -- Corr valid interface signal.
-    corr_valid   : out std_logic;
-    -- Input corr i signal for this module.
-    corr_i       : out signed(G_ACC_WIDTH - 1 downto 0);
-    -- Corr q interface signal.
-    corr_q       : out signed(G_ACC_WIDTH - 1 downto 0);
-    -- Corr mag sq interface signal.
-    corr_mag_sq  : out unsigned((2 * G_ACC_WIDTH) - 1 downto 0)
-  );
-end entity;</code></pre>
   <h2>Sources</h2>
   <ul><li>dsp/hdl/raddsp/src/zc_cross_correlator.vhd</li></ul>
 </main>

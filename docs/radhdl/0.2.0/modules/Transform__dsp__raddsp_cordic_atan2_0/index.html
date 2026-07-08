@@ -51,7 +51,19 @@ use ieee.numeric_std.all;
 library dsp;
 -- Direct entity instantiation below does not require importing the entity name.
 -- Add package imports only when your surrounding design needs package types/constants, for example:
--- use dsp.&lt;package_name&gt;.all;</code></pre><h3>Instantiation</h3><pre><code>u_raddsp_cordic_atan2_0 : entity dsp.raddsp_cordic_atan2_0
+-- use dsp.&lt;package_name&gt;.all;</code></pre><h3>Component Declaration</h3><pre><code>component raddsp_cordic_atan2_0 is
+  port (
+    clk : in STD_LOGIC;
+    rst : in STD_LOGIC;
+    input_valid : in STD_LOGIC;
+    x_in : in STD_LOGIC_VECTOR(31 DOWNTO 0);
+    y_in : in STD_LOGIC_VECTOR(31 DOWNTO 0);
+    input_ready : out STD_LOGIC;
+    busy : out STD_LOGIC;
+    phase_valid : out STD_LOGIC;
+    phase_out : out STD_LOGIC_VECTOR(31 DOWNTO 0)
+  );
+end component;</code></pre><h3>Direct Entity Instantiation</h3><pre><code>u_raddsp_cordic_atan2_0 : entity dsp.raddsp_cordic_atan2_0
   port map (
     clk         =&gt; &lt;clk_signal&gt;,
     rst         =&gt; &lt;rst_signal&gt;,
@@ -67,20 +79,6 @@ library dsp;
   <h2>Ports</h2><table><thead><tr><th>Name</th><th>Direction</th><th>Type</th><th>Description</th></tr></thead><tbody><tr><td>clk</td><td>in</td><td>STD_LOGIC</td><td></td></tr><tr><td>rst</td><td>in</td><td>STD_LOGIC</td><td></td></tr><tr><td>input_valid</td><td>in</td><td>STD_LOGIC</td><td></td></tr><tr><td>x_in</td><td>in</td><td>STD_LOGIC_VECTOR(31 DOWNTO 0)</td><td></td></tr><tr><td>y_in</td><td>in</td><td>STD_LOGIC_VECTOR(31 DOWNTO 0)</td><td></td></tr><tr><td>input_ready</td><td>out</td><td>STD_LOGIC</td><td></td></tr><tr><td>busy</td><td>out</td><td>STD_LOGIC</td><td></td></tr><tr><td>phase_valid</td><td>out</td><td>STD_LOGIC</td><td></td></tr><tr><td>phase_out</td><td>out</td><td>STD_LOGIC_VECTOR(31 DOWNTO 0)</td><td></td></tr></tbody></table>
   
   <h2>Testbenches and Waveforms</h2><p class="summary">No directly associated testbench was found.</p>
-  <h2>HDL Example</h2>
-  <pre><code>ENTITY raddsp_cordic_atan2_0 IS
-  PORT (
-    clk : IN STD_LOGIC;
-    rst : IN STD_LOGIC;
-    input_valid : IN STD_LOGIC;
-    x_in : IN STD_LOGIC_VECTOR(31 DOWNTO 0);
-    y_in : IN STD_LOGIC_VECTOR(31 DOWNTO 0);
-    input_ready : OUT STD_LOGIC;
-    busy : OUT STD_LOGIC;
-    phase_valid : OUT STD_LOGIC;
-    phase_out : OUT STD_LOGIC_VECTOR(31 DOWNTO 0)
-  );
-END raddsp_cordic_atan2_0;</code></pre>
   <h2>Sources</h2>
   <ul><li>dsp/hdl/xci/raddsp_cordic_atan2_0/synth/raddsp_cordic_atan2_0.vhd</li></ul>
 </main>

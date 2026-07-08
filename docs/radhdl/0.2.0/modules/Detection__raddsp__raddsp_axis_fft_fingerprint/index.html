@@ -47,7 +47,47 @@ use ieee.numeric_std.all;
 library raddsp;
 -- Direct entity instantiation below does not require importing the entity name.
 -- Add package imports only when your surrounding design needs package types/constants, for example:
--- use raddsp.&lt;package_name&gt;.all;</code></pre><h3>Instantiation</h3><pre><code>u_raddsp_axis_fft_fingerprint : entity raddsp.raddsp_axis_fft_fingerprint
+-- use raddsp.&lt;package_name&gt;.all;</code></pre><h3>Component Declaration</h3><pre><code>component raddsp_axis_fft_fingerprint is
+  generic (
+    VENDOR : string := &quot;xilinx&quot;;
+    DEVICE_FAMILY : string := &quot;generic&quot;;
+    FFT_DATA_WIDTH : positive := 16;
+    HASH_WIDTH : positive := 64;
+    BIN_INDEX_WIDTH : positive := 16;
+    AXI_ADDR_WIDTH : positive := 8;
+    AXI_DATA_WIDTH : positive := 32
+  );
+  port (
+    clk : in std_logic;
+    rst : in std_logic;
+    s_axis_tvalid : in std_logic;
+    s_axis_tready : out std_logic;
+    s_axis_tdata : in std_logic_vector((2 * FFT_DATA_WIDTH) - 1 downto 0);
+    s_axis_tlast : in std_logic;
+    m_axis_tvalid : out std_logic;
+    m_axis_tready : in std_logic;
+    m_axis_tdata : out std_logic_vector(HASH_WIDTH + 64 - 1 downto 0);
+    m_axis_tlast : out std_logic;
+    s_axi_awaddr : in std_logic_vector(AXI_ADDR_WIDTH - 1 downto 0);
+    s_axi_awprot : in std_logic_vector(2 downto 0);
+    s_axi_awvalid : in std_logic;
+    s_axi_awready : out std_logic;
+    s_axi_wdata : in std_logic_vector(AXI_DATA_WIDTH - 1 downto 0);
+    s_axi_wstrb : in std_logic_vector((AXI_DATA_WIDTH / 8) - 1 downto 0);
+    s_axi_wvalid : in std_logic;
+    s_axi_wready : out std_logic;
+    s_axi_bresp : out std_logic_vector(1 downto 0);
+    s_axi_bvalid : out std_logic;
+    s_axi_bready : in std_logic;
+    s_axi_araddr : in std_logic_vector(AXI_ADDR_WIDTH - 1 downto 0);
+    s_axi_arprot : in std_logic_vector(2 downto 0);
+    s_axi_arvalid : in std_logic;
+    s_axi_arready : out std_logic;
+    s_axi_rdata : out std_logic_vector(AXI_DATA_WIDTH - 1 downto 0);
+    s_axi_rresp : out std_logic_vector(1 downto 0);
+    s_axi_rvalid : out std_logic
+  );
+end component;</code></pre><h3>Direct Entity Instantiation</h3><pre><code>u_raddsp_axis_fft_fingerprint : entity raddsp.raddsp_axis_fft_fingerprint
   generic map (
     VENDOR          =&gt; &quot;xilinx&quot;,
     DEVICE_FAMILY   =&gt; &quot;generic&quot;,
@@ -91,90 +131,6 @@ library raddsp;
   <h2>Ports</h2><table><thead><tr><th>Name</th><th>Direction</th><th>Type</th><th>Description</th></tr></thead><tbody><tr><td>clk</td><td>in</td><td>std_logic</td><td>Clock for the associated synchronous logic and handshake domain.</td></tr><tr><td>rst</td><td>in</td><td>std_logic</td><td>Active-high synchronous reset for this clock domain.</td></tr><tr><td>s_axis_tvalid</td><td>in</td><td>std_logic</td><td>Input AXI-stream valid qualifier for the current sample beat.</td></tr><tr><td>s_axis_tready</td><td>out</td><td>std_logic</td><td>Input AXI-stream ready response indicating this block can accept a beat.</td></tr><tr><td>s_axis_tdata</td><td>in</td><td>std_logic_vector((2 * FFT_DATA_WIDTH) - 1 downto 0)</td><td>Input AXI-stream payload containing packed sample or feature lanes.</td></tr><tr><td>s_axis_tlast</td><td>in</td><td>std_logic</td><td>Input AXI-stream frame marker for the final beat of a frame.</td></tr><tr><td>m_axis_tvalid</td><td>out</td><td>std_logic</td><td>Output AXI-stream valid qualifier for the current result beat.</td></tr><tr><td>m_axis_tready</td><td>in</td><td>std_logic</td><td>Output AXI-stream ready input from the downstream block.</td></tr><tr><td>m_axis_tdata</td><td>out</td><td>std_logic_vector(HASH_WIDTH + 64 - 1 downto 0)</td><td>Output AXI-stream payload containing packed processed result lanes.</td></tr><tr><td>m_axis_tlast</td><td>out</td><td>std_logic</td><td>Output AXI-stream frame marker aligned with the processed result beat.</td></tr><tr><td>s_axi_awaddr</td><td>in</td><td>std_logic_vector(AXI_ADDR_WIDTH - 1 downto 0)</td><td>AXI4-Lite slave-channel signal used for host register access.</td></tr><tr><td>s_axi_awprot</td><td>in</td><td>std_logic_vector(2 downto 0)</td><td>AXI4-Lite slave-channel signal used for host register access.</td></tr><tr><td>s_axi_awvalid</td><td>in</td><td>std_logic</td><td>AXI4-Lite slave-channel signal used for host register access.</td></tr><tr><td>s_axi_awready</td><td>out</td><td>std_logic</td><td>AXI4-Lite slave-channel signal used for host register access.</td></tr><tr><td>s_axi_wdata</td><td>in</td><td>std_logic_vector(AXI_DATA_WIDTH - 1 downto 0)</td><td>AXI4-Lite slave-channel signal used for host register access.</td></tr><tr><td>s_axi_wstrb</td><td>in</td><td>std_logic_vector((AXI_DATA_WIDTH / 8) - 1 downto 0)</td><td>AXI4-Lite slave-channel signal used for host register access.</td></tr><tr><td>s_axi_wvalid</td><td>in</td><td>std_logic</td><td>AXI4-Lite slave-channel signal used for host register access.</td></tr><tr><td>s_axi_wready</td><td>out</td><td>std_logic</td><td>AXI4-Lite slave-channel signal used for host register access.</td></tr><tr><td>s_axi_bresp</td><td>out</td><td>std_logic_vector(1 downto 0)</td><td>AXI4-Lite slave-channel signal used for host register access.</td></tr><tr><td>s_axi_bvalid</td><td>out</td><td>std_logic</td><td>AXI4-Lite slave-channel signal used for host register access.</td></tr><tr><td>s_axi_bready</td><td>in</td><td>std_logic</td><td>AXI4-Lite slave-channel signal used for host register access.</td></tr><tr><td>s_axi_araddr</td><td>in</td><td>std_logic_vector(AXI_ADDR_WIDTH - 1 downto 0)</td><td>AXI4-Lite slave-channel signal used for host register access.</td></tr><tr><td>s_axi_arprot</td><td>in</td><td>std_logic_vector(2 downto 0)</td><td>AXI4-Lite slave-channel signal used for host register access.</td></tr><tr><td>s_axi_arvalid</td><td>in</td><td>std_logic</td><td>AXI4-Lite slave-channel signal used for host register access.</td></tr><tr><td>s_axi_arready</td><td>out</td><td>std_logic</td><td>AXI4-Lite slave-channel signal used for host register access.</td></tr><tr><td>s_axi_rdata</td><td>out</td><td>std_logic_vector(AXI_DATA_WIDTH - 1 downto 0)</td><td>AXI4-Lite slave-channel signal used for host register access.</td></tr><tr><td>s_axi_rresp</td><td>out</td><td>std_logic_vector(1 downto 0)</td><td>AXI4-Lite slave-channel signal used for host register access.</td></tr><tr><td>s_axi_rvalid</td><td>out</td><td>std_logic</td><td>AXI4-Lite slave-channel signal used for host register access.</td></tr></tbody></table>
   
   <h2>Testbenches and Waveforms</h2><table><thead><tr><th>Testbench</th><th>Source</th><th>Simulation</th><th>Artifacts</th></tr></thead><tbody><tr><td>tb_raddsp_axis_fingerprint</td><td>dsp/hdl/testbenches/tb_raddsp_axis_fingerprint.vhd</td><td>failed</td><td><a href="../../simulations/tb_raddsp_axis_fingerprint/simulation_status.json">status</a></td></tr><tr><td>tb_raddsp_axis_fingerprint_audio</td><td>dsp/hdl/testbenches/tb_raddsp_axis_fingerprint_audio.vhd</td><td>failed</td><td><a href="../../simulations/tb_raddsp_axis_fingerprint_audio/simulation_status.json">status</a></td></tr></tbody></table><div class="status">tb_raddsp_axis_fingerprint simulation failed: /usr/bin/ghdl-mcode: cannot find entity or configuration tb_raddsp_axis_fingerprint</div><div class="status">tb_raddsp_axis_fingerprint_audio simulation failed: /usr/bin/ghdl-mcode: cannot find entity or configuration tb_raddsp_axis_fingerprint_audio</div>
-  <h2>HDL Example</h2>
-  <pre><code>entity raddsp_axis_fft_fingerprint is
-  generic (
-    -- Selects the vendor-specific implementation path, usually XILINX for DSP48/XPM-backed builds or generic for portable RTL.
-    VENDOR             : string := &quot;xilinx&quot;;
-    -- Identifies the target FPGA family so wrappers can choose the correct primitive or conservative portable behavior.
-    DEVICE_FAMILY      : string := &quot;generic&quot;;
-    -- Sets the bit width for FFT DATA WIDTH values carried by this module.
-    FFT_DATA_WIDTH     : positive := 16;
-    -- Sets the bit width for HASH WIDTH values carried by this module.
-    HASH_WIDTH         : positive := 64;
-    -- Sets the bit width for BIN INDEX WIDTH values carried by this module.
-    BIN_INDEX_WIDTH    : positive := 16;
-    -- Sets the bit width for AXI ADDR WIDTH values carried by this module.
-    AXI_ADDR_WIDTH     : positive := 8;
-    -- Sets the bit width for AXI DATA WIDTH values carried by this module.
-    AXI_DATA_WIDTH     : positive := 32;
-    -- Configures DEFAULT FRAME BINS for this instance.
-    DEFAULT_FRAME_BINS : positive := 1024
-  );
-  port (
-    -- Clock for the associated synchronous logic and handshake domain.
-    clk           : in  std_logic;
-    -- Active-high synchronous reset for this clock domain.
-    rst           : in  std_logic;
-
-    -- Input AXI-stream valid qualifier for the current sample beat.
-    s_axis_tvalid : in  std_logic;
-    -- Input AXI-stream ready response indicating this block can accept a beat.
-    s_axis_tready : out std_logic;
-    -- Input AXI-stream payload containing packed sample or feature lanes.
-    s_axis_tdata  : in  std_logic_vector((2 * FFT_DATA_WIDTH) - 1 downto 0);
-    -- Input AXI-stream frame marker for the final beat of a frame.
-    s_axis_tlast  : in  std_logic;
-
-    -- Output AXI-stream valid qualifier for the current result beat.
-    m_axis_tvalid : out std_logic;
-    -- Output AXI-stream ready input from the downstream block.
-    m_axis_tready : in  std_logic;
-    -- Output AXI-stream payload containing packed processed result lanes.
-    m_axis_tdata  : out std_logic_vector(HASH_WIDTH + 64 - 1 downto 0);
-    -- Output AXI-stream frame marker aligned with the processed result beat.
-    m_axis_tlast  : out std_logic;
-
-    -- AXI4-Lite slave-channel signal used for host register access.
-    s_axi_awaddr  : in  std_logic_vector(AXI_ADDR_WIDTH - 1 downto 0);
-    -- AXI4-Lite slave-channel signal used for host register access.
-    s_axi_awprot  : in  std_logic_vector(2 downto 0);
-    -- AXI4-Lite slave-channel signal used for host register access.
-    s_axi_awvalid : in  std_logic;
-    -- AXI4-Lite slave-channel signal used for host register access.
-    s_axi_awready : out std_logic;
-    -- AXI4-Lite slave-channel signal used for host register access.
-    s_axi_wdata   : in  std_logic_vector(AXI_DATA_WIDTH - 1 downto 0);
-    -- AXI4-Lite slave-channel signal used for host register access.
-    s_axi_wstrb   : in  std_logic_vector((AXI_DATA_WIDTH / 8) - 1 downto 0);
-    -- AXI4-Lite slave-channel signal used for host register access.
-    s_axi_wvalid  : in  std_logic;
-    -- AXI4-Lite slave-channel signal used for host register access.
-    s_axi_wready  : out std_logic;
-    -- AXI4-Lite slave-channel signal used for host register access.
-    s_axi_bresp   : out std_logic_vector(1 downto 0);
-    -- AXI4-Lite slave-channel signal used for host register access.
-    s_axi_bvalid  : out std_logic;
-    -- AXI4-Lite slave-channel signal used for host register access.
-    s_axi_bready  : in  std_logic;
-    -- AXI4-Lite slave-channel signal used for host register access.
-    s_axi_araddr  : in  std_logic_vector(AXI_ADDR_WIDTH - 1 downto 0);
-    -- AXI4-Lite slave-channel signal used for host register access.
-    s_axi_arprot  : in  std_logic_vector(2 downto 0);
-    -- AXI4-Lite slave-channel signal used for host register access.
-    s_axi_arvalid : in  std_logic;
-    -- AXI4-Lite slave-channel signal used for host register access.
-    s_axi_arready : out std_logic;
-    -- AXI4-Lite slave-channel signal used for host register access.
-    s_axi_rdata   : out std_logic_vector(AXI_DATA_WIDTH - 1 downto 0);
-    -- AXI4-Lite slave-channel signal used for host register access.
-    s_axi_rresp   : out std_logic_vector(1 downto 0);
-    -- AXI4-Lite slave-channel signal used for host register access.
-    s_axi_rvalid  : out std_logic;
-    -- AXI4-Lite slave-channel signal used for host register access.
-    s_axi_rready  : in  std_logic
-  );
-end entity;</code></pre>
   <h2>Sources</h2>
   <ul><li>dsp/hdl/raddsp/src/raddsp_axis_fft_fingerprint.vhd</li></ul>
 </main>
