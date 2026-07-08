@@ -20,6 +20,7 @@ rm -rf "$RADHDL_DOC_OUTPUT"
 mkdir -p "$RADHDL_DOC_OUTPUT"
 
 DOCGEN_ARGS=(build --radhdl "$RADHDL_SOURCE_DIR" --out "$RADHDL_DOC_OUTPUT")
+DOCGEN_ARGS+=(--theme "${RADHDL_DOCGEN_THEME:-dark}")
 if [[ "${RADHDL_DOCGEN_RUN_SIMS:-0}" == "1" ]]; then
   DOCGEN_ARGS+=(--run-sims)
 fi
