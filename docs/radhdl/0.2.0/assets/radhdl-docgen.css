@@ -43,9 +43,15 @@ pre { overflow: auto; padding: 14px; border-radius: 6px; background: var(--code)
 .reg-field.reserved { color: var(--muted); background: var(--reserved); }
 .field-table td:first-child { font-weight: 700; white-space: nowrap; }
 .status { border-left: 4px solid #d59b35; background: var(--panel); padding: 10px 12px; margin: 10px 0; }
-.wave { width: 100%; overflow-x: auto; border: 1px solid var(--line); border-radius: 6px; padding: 10px; background: var(--soft); }
+.testbench-section { border: 1px solid var(--line); border-radius: 6px; background: var(--card); margin: 12px 0; }
+.testbench-section > summary { cursor: pointer; padding: 10px 12px; font-weight: 700; }
+.testbench-body { padding: 0 12px 12px; }
+.wave { width: 100%; border: 1px solid var(--line); border-radius: 6px; padding: 10px; background: var(--soft); margin: 12px 0; --wave-zoom: 1; }
 .wave h4 { margin: 0 0 8px; }
-.wave svg { display: block; min-width: 980px; width: 100%; height: auto; }
+.wave-controls { display: flex; align-items: center; gap: 8px; margin: 0 0 8px; color: var(--muted); font-size: 13px; }
+.wave-controls input { width: 180px; accent-color: var(--accent); }
+.wave-viewport { overflow: auto; max-height: 560px; border: 1px solid var(--line); border-radius: 4px; background: var(--card); resize: vertical; }
+.wave svg { display: block; width: calc(1120px * var(--wave-zoom)); max-width: none; height: auto; }
 .wave-axis { stroke: var(--line); stroke-width: 1; }
 .wave-grid { stroke: var(--line); stroke-width: 1; opacity: .65; }
 .wave-label { fill: var(--ink); font: 12px ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; }
@@ -53,6 +59,11 @@ pre { overflow: auto; padding: 14px; border-radius: 6px; background: var(--code)
 .wave-trace { fill: none; stroke: var(--accent); stroke-width: 2.2; stroke-linejoin: round; stroke-linecap: round; }
 .wave-bus { fill: rgba(98, 214, 199, .12); stroke: var(--accent); stroke-width: 1.2; }
 .wave-bus-text { fill: var(--ink); font: 11px ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; }
+.wave-interface { fill: rgba(139, 211, 255, .13); stroke: #8bd3ff; stroke-width: 1.2; }
+.wave-interface-text { fill: var(--ink); font: 12px ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-weight: 700; }
 .wave-unknown { stroke: #d59b35; }
+.wave-group { border: 1px solid var(--line); border-radius: 6px; background: var(--card); margin: 10px 0; }
+.wave-group > summary { cursor: pointer; padding: 8px 10px; font-weight: 700; }
+.wave-group-body { padding: 0 10px 10px; }
 nav.breadcrumb { font-size: 13px; color: var(--muted); margin-bottom: 14px; }
 footer { margin-top: 42px; border-top: 1px solid var(--line); color: var(--muted); font-size: 13px; }
