@@ -1,5 +1,5 @@
 $date
-  Wed Jul  8 14:45:08 2026
+  Wed Jul  8 15:26:18 2026
 $end
 $version
   GHDL v0
@@ -343,66 +343,130 @@ $var reg 1 7$ s2_w_done $end
 $scope module gen_xilinx_vendor $end
 $upscope $end
 $scope module u_mm2s_fifo $end
+$var reg 1 8$ almost_empty $end
+$var reg 1 9$ almost_full $end
+$var reg 1 :$ data_valid $end
+$var reg 1 ;$ dbiterr $end
+$var reg 33 <$ dout[32:0] $end
+$var reg 1 =$ empty $end
+$var reg 1 >$ full $end
+$var reg 1 ?$ overflow $end
+$var reg 1 @$ prog_empty $end
+$var reg 1 A$ prog_full $end
+$var reg 11 B$ rd_data_count[10:0] $end
+$var reg 1 C$ rd_rst_busy $end
+$var reg 1 D$ sbiterr $end
+$var reg 1 E$ underflow $end
+$var reg 1 F$ wr_ack $end
+$var reg 11 G$ wr_data_count[10:0] $end
+$var reg 1 H$ wr_rst_busy $end
+$var reg 33 I$ din[32:0] $end
+$var reg 1 J$ injectdbiterr $end
+$var reg 1 K$ injectsbiterr $end
+$var reg 1 L$ rd_en $end
+$var reg 1 M$ rst $end
+$var reg 1 N$ sleep $end
+$var reg 1 O$ wr_clk $end
+$var reg 1 P$ wr_en $end
+$comment mem is not handled $end
+$var integer 32 Q$ wr_ptr $end
+$var integer 32 R$ rd_ptr $end
+$var integer 32 S$ count $end
+$var reg 1 T$ data_valid_r $end
+$var reg 1 U$ overflow_r $end
+$var reg 1 V$ underflow_r $end
 $upscope $end
 $scope module u_s2mm_fifo $end
+$var reg 1 W$ almost_empty $end
+$var reg 1 X$ almost_full $end
+$var reg 1 Y$ data_valid $end
+$var reg 1 Z$ dbiterr $end
+$var reg 33 [$ dout[32:0] $end
+$var reg 1 \$ empty $end
+$var reg 1 ]$ full $end
+$var reg 1 ^$ overflow $end
+$var reg 1 _$ prog_empty $end
+$var reg 1 `$ prog_full $end
+$var reg 11 a$ rd_data_count[10:0] $end
+$var reg 1 b$ rd_rst_busy $end
+$var reg 1 c$ sbiterr $end
+$var reg 1 d$ underflow $end
+$var reg 1 e$ wr_ack $end
+$var reg 11 f$ wr_data_count[10:0] $end
+$var reg 1 g$ wr_rst_busy $end
+$var reg 33 h$ din[32:0] $end
+$var reg 1 i$ injectdbiterr $end
+$var reg 1 j$ injectsbiterr $end
+$var reg 1 k$ rd_en $end
+$var reg 1 l$ rst $end
+$var reg 1 m$ sleep $end
+$var reg 1 n$ wr_clk $end
+$var reg 1 o$ wr_en $end
+$comment mem is not handled $end
+$var integer 32 p$ wr_ptr $end
+$var integer 32 q$ rd_ptr $end
+$var integer 32 r$ count $end
+$var reg 1 s$ data_valid_r $end
+$var reg 1 t$ overflow_r $end
+$var reg 1 u$ underflow_r $end
 $upscope $end
 $upscope $end
 $scope module u_spi_axi $end
-$var reg 1 8$ clk $end
-$var reg 1 9$ rstn $end
-$var reg 1 :$ spi_sclk_i $end
-$var reg 1 ;$ spi_cs_n_i $end
-$var reg 1 <$ spi_mosi_i $end
-$var reg 1 =$ spi_miso_o $end
-$var reg 1 >$ spi_miso_oen $end
-$var reg 32 ?$ m_axi_awaddr[31:0] $end
-$var reg 8 @$ m_axi_awlen[7:0] $end
-$var reg 3 A$ m_axi_awsize[2:0] $end
-$var reg 2 B$ m_axi_awburst[1:0] $end
-$var reg 1 C$ m_axi_awvalid $end
-$var reg 1 D$ m_axi_awready $end
-$var reg 32 E$ m_axi_wdata[31:0] $end
-$var reg 4 F$ m_axi_wstrb[3:0] $end
-$var reg 1 G$ m_axi_wlast $end
-$var reg 1 H$ m_axi_wvalid $end
-$var reg 1 I$ m_axi_wready $end
-$var reg 2 J$ m_axi_bresp[1:0] $end
-$var reg 1 K$ m_axi_bvalid $end
-$var reg 1 L$ m_axi_bready $end
-$var reg 32 M$ m_axi_araddr[31:0] $end
-$var reg 8 N$ m_axi_arlen[7:0] $end
-$var reg 3 O$ m_axi_arsize[2:0] $end
-$var reg 2 P$ m_axi_arburst[1:0] $end
-$var reg 1 Q$ m_axi_arvalid $end
-$var reg 1 R$ m_axi_arready $end
-$var reg 32 S$ m_axi_rdata[31:0] $end
-$var reg 2 T$ m_axi_rresp[1:0] $end
-$var reg 1 U$ m_axi_rlast $end
-$var reg 1 V$ m_axi_rvalid $end
-$var reg 1 W$ m_axi_rready $end
-$var reg 1 X$ sclk_meta $end
-$var reg 1 Y$ sclk_sync $end
-$var reg 1 Z$ sclk_prev $end
-$var reg 1 [$ cs_meta $end
-$var reg 1 \$ cs_sync $end
-$var reg 1 ]$ mosi_meta $end
-$var reg 1 ^$ mosi_sync $end
-$var reg 8 _$ rx_shift[7:0] $end
-$var reg 8 `$ tx_shift[7:0] $end
-$var reg 3 a$ bit_count[2:0] $end
+$var reg 1 v$ clk $end
+$var reg 1 w$ rstn $end
+$var reg 1 x$ spi_sclk_i $end
+$var reg 1 y$ spi_cs_n_i $end
+$var reg 1 z$ spi_mosi_i $end
+$var reg 1 {$ spi_miso_o $end
+$var reg 1 |$ spi_miso_oen $end
+$var reg 32 }$ m_axi_awaddr[31:0] $end
+$var reg 8 !% m_axi_awlen[7:0] $end
+$var reg 3 "% m_axi_awsize[2:0] $end
+$var reg 2 #% m_axi_awburst[1:0] $end
+$var reg 1 $% m_axi_awvalid $end
+$var reg 1 %% m_axi_awready $end
+$var reg 32 &% m_axi_wdata[31:0] $end
+$var reg 4 '% m_axi_wstrb[3:0] $end
+$var reg 1 (% m_axi_wlast $end
+$var reg 1 )% m_axi_wvalid $end
+$var reg 1 *% m_axi_wready $end
+$var reg 2 +% m_axi_bresp[1:0] $end
+$var reg 1 ,% m_axi_bvalid $end
+$var reg 1 -% m_axi_bready $end
+$var reg 32 .% m_axi_araddr[31:0] $end
+$var reg 8 /% m_axi_arlen[7:0] $end
+$var reg 3 0% m_axi_arsize[2:0] $end
+$var reg 2 1% m_axi_arburst[1:0] $end
+$var reg 1 2% m_axi_arvalid $end
+$var reg 1 3% m_axi_arready $end
+$var reg 32 4% m_axi_rdata[31:0] $end
+$var reg 2 5% m_axi_rresp[1:0] $end
+$var reg 1 6% m_axi_rlast $end
+$var reg 1 7% m_axi_rvalid $end
+$var reg 1 8% m_axi_rready $end
+$var reg 1 9% sclk_meta $end
+$var reg 1 :% sclk_sync $end
+$var reg 1 ;% sclk_prev $end
+$var reg 1 <% cs_meta $end
+$var reg 1 =% cs_sync $end
+$var reg 1 >% mosi_meta $end
+$var reg 1 ?% mosi_sync $end
+$var reg 8 @% rx_shift[7:0] $end
+$var reg 8 A% tx_shift[7:0] $end
+$var reg 3 B% bit_count[2:0] $end
 $comment state is not handled $end
-$var reg 8 b$ op_r[7:0] $end
-$var reg 32 c$ addr_r[31:0] $end
-$var reg 32 d$ wdata_r[31:0] $end
-$var reg 32 e$ rdata_r[31:0] $end
-$var integer 32 f$ byte_index $end
-$var integer 32 g$ tx_index $end
-$var reg 8 h$ status_r[7:0] $end
-$var reg 1 i$ awvalid_r $end
-$var reg 1 j$ wvalid_r $end
-$var reg 1 k$ bready_r $end
-$var reg 1 l$ arvalid_r $end
-$var reg 1 m$ rready_r $end
+$var reg 8 C% op_r[7:0] $end
+$var reg 32 D% addr_r[31:0] $end
+$var reg 32 E% wdata_r[31:0] $end
+$var reg 32 F% rdata_r[31:0] $end
+$var integer 32 G% byte_index $end
+$var integer 32 H% tx_index $end
+$var reg 8 I% status_r[7:0] $end
+$var reg 1 J% awvalid_r $end
+$var reg 1 K% wvalid_r $end
+$var reg 1 L% bready_r $end
+$var reg 1 M% arvalid_r $end
+$var reg 1 N% rready_r $end
 $scope module gen_xilinx_vendor $end
 $upscope $end
 $upscope $end
@@ -686,24 +750,24 @@ b00000000000000000000000000000000 t#
 0y#
 b00000000000000000000000000000000 z#
 b000000000000000000000000000000000 {#
-bUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUU |#
+b000000000000000000000000000000000 |#
 0}#
 0!$
-U"$
-U#$
-U$$
+1"$
+0#$
+0$$
 1%$
 0&$
 b00000000000000000000000000000000 '$
 0($
 0)$
 b000000000000000000000000000000000 *$
-bUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUU +$
+b000000000000000000000000000000000 +$
 0,$
 0-$
-U.$
-U/$
-U0$
+1.$
+0/$
+00$
 11$
 02$
 b00000000000000000000000000000000 3$
@@ -711,123 +775,203 @@ b00000000000000000000000000000000 3$
 05$
 06$
 07$
-08$
+18$
 09$
 0:$
-1;$
-0<$
-0=$
-1>$
-b00000000000000000000000000000000 ?$
-b00000000 @$
-b010 A$
-b01 B$
-0C$
-1D$
-b00000000000000000000000000000000 E$
-b1111 F$
-1G$
-0H$
-1I$
-b00 J$
+0;$
+b000000000000000000000000000000000 <$
+1=$
+0>$
+0?$
+1@$
+0A$
+b00000000000 B$
+1C$
+0D$
+0E$
+0F$
+b00000000000 G$
+1H$
+b000000000000000000000000000000000 I$
+0J$
 0K$
 0L$
-b00000000000000000000000000000000 M$
-b00000000 N$
-b010 O$
-b01 P$
-0Q$
-1R$
-b10100101101001010101101001011010 S$
-b00 T$
-1U$
+1M$
+0N$
+0O$
+0P$
+b0 Q$
+b0 R$
+b0 S$
+0T$
+0U$
 0V$
-0W$
+1W$
 0X$
 0Y$
 0Z$
-1[$
+b000000000000000000000000000000000 [$
 1\$
 0]$
 0^$
-b00000000 _$
-b00000000 `$
-b000 a$
-b00000000 b$
-b00000000000000000000000000000000 c$
-b00000000000000000000000000000000 d$
-b00000000000000000000000000000000 e$
-b0 f$
-b0 g$
-b00000000 h$
+1_$
+0`$
+b00000000000 a$
+1b$
+0c$
+0d$
+0e$
+b00000000000 f$
+1g$
+b000000000000000000000000000000000 h$
 0i$
 0j$
 0k$
-0l$
+1l$
 0m$
+0n$
+0o$
+b0 p$
+b0 q$
+b0 r$
+0s$
+0t$
+0u$
+0v$
+0w$
+0x$
+1y$
+0z$
+0{$
+1|$
+b00000000000000000000000000000000 }$
+b00000000 !%
+b010 "%
+b01 #%
+0$%
+1%%
+b00000000000000000000000000000000 &%
+b1111 '%
+1(%
+0)%
+1*%
+b00 +%
+0,%
+0-%
+b00000000000000000000000000000000 .%
+b00000000 /%
+b010 0%
+b01 1%
+02%
+13%
+b10100101101001010101101001011010 4%
+b00 5%
+16%
+07%
+08%
+09%
+0:%
+0;%
+1<%
+1=%
+0>%
+0?%
+b00000000 @%
+b00000000 A%
+b000 B%
+b00000000 C%
+b00000000000000000000000000000000 D%
+b00000000000000000000000000000000 E%
+b00000000000000000000000000000000 F%
+b0 G%
+b0 H%
+b00000000 I%
+0J%
+0K%
+0L%
+0M%
+0N%
 #5000000
 1!
 1x
 1B"
 1k"
 13#
-18$
+1O$
+1n$
+1v$
 #10000000
 0!
 0x
 0B"
 0k"
 03#
-08$
+0O$
+0n$
+0v$
 #15000000
 1!
 1x
 1B"
 1k"
 13#
-18$
+1O$
+1n$
+1v$
 #20000000
 0!
 0x
 0B"
 0k"
 03#
-08$
+0O$
+0n$
+0v$
 #25000000
 1!
 1x
 1B"
 1k"
 13#
-18$
+1O$
+1n$
+1v$
 #30000000
 0!
 0x
 0B"
 0k"
 03#
-08$
+0O$
+0n$
+0v$
 #35000000
 1!
 1x
 1B"
 1k"
 13#
-18$
+1O$
+1n$
+1v$
 #40000000
 0!
 0x
 0B"
 0k"
 03#
-08$
+0O$
+0n$
+0v$
 #45000000
 1!
 1x
 1B"
 1k"
 13#
-18$
+1O$
+1n$
+1v$
 #50000000
 0!
 1"
@@ -841,139 +985,185 @@ b00000000 h$
 14#
 0%$
 01$
-08$
-19$
+0C$
+0H$
+0M$
+0O$
+0b$
+0g$
+0l$
+0n$
+0v$
+1w$
 #55000000
 1!
 1x
 1B"
 1k"
 13#
-b000000000000000000000000UUUU0000 c#
-18$
+b00000000000000000000000001010000 c#
+1O$
+1n$
+1v$
 #60000000
 0!
 0x
 0B"
 0k"
 03#
-08$
+0O$
+0n$
+0v$
 #65000000
 1!
 1x
 1B"
 1k"
 13#
-18$
+1O$
+1n$
+1v$
 #70000000
 0!
 0x
 0B"
 0k"
 03#
-08$
+0O$
+0n$
+0v$
 #75000000
 1!
 1x
 1B"
 1k"
 13#
-18$
+1O$
+1n$
+1v$
 #80000000
 0!
 0x
 0B"
 0k"
 03#
-08$
+0O$
+0n$
+0v$
 #85000000
 1!
 1x
 1B"
 1k"
 13#
-18$
+1O$
+1n$
+1v$
 #90000000
 0!
 0x
 0B"
 0k"
 03#
-08$
+0O$
+0n$
+0v$
 #95000000
 1!
 1x
 1B"
 1k"
 13#
-18$
+1O$
+1n$
+1v$
 #100000000
 0!
 0x
 0B"
 0k"
 03#
-08$
+0O$
+0n$
+0v$
 #105000000
 1!
 1x
 1B"
 1k"
 13#
-18$
+1O$
+1n$
+1v$
 #110000000
 0!
 0x
 0B"
 0k"
 03#
-08$
+0O$
+0n$
+0v$
 #115000000
 1!
 1x
 1B"
 1k"
 13#
-18$
+1O$
+1n$
+1v$
 #120000000
 0!
 0x
 0B"
 0k"
 03#
-08$
+0O$
+0n$
+0v$
 #125000000
 1!
 1x
 1B"
 1k"
 13#
-18$
+1O$
+1n$
+1v$
 #130000000
 0!
 0x
 0B"
 0k"
 03#
-08$
+0O$
+0n$
+0v$
 #135000000
 1!
 1x
 1B"
 1k"
 13#
-18$
+1O$
+1n$
+1v$
 #140000000
 0!
 0x
 0B"
 0k"
 03#
-08$
+0O$
+0n$
+0v$
 #145000000
 1!
 1x
 1B"
 1k"
 13#
-18$
+1O$
+1n$
+1v$

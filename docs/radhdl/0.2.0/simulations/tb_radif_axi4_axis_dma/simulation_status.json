@@ -1,13 +1,14 @@
 {
   "backend": "ghdl",
   "testbench": "tb_radif_axi4_axis_dma",
-  "status": "failed",
+  "status": "passed",
   "libraries": [
     "radif"
   ],
   "analyzed": {
     "radif": [
       "interfaces/hdl/radif/src/radif_pkg.vhd",
+      "interfaces/hdl/radif/sim/xpm_fifo_sync.vhd",
       "interfaces/hdl/radif/src/radif_axi4_axis_dma.vhd",
       "interfaces/hdl/radif/src/radif_axi_lite_to_reg.vhd",
       "interfaces/hdl/radif/src/radif_i2c_slave_to_reg.vhd",
@@ -22,7 +23,7 @@
       "interfaces/hdl/radif/testbenches/tb_radif_axi4_axis_dma.vhd"
     ]
   },
-  "returncode": 1,
-  "stdout": "interfaces/hdl/radif/testbenches/tb_radif_axi4_axis_dma.vhd:148:5:@555ns:(assertion failure): MM2S read address failed\n/usr/bin/ghdl-mcode:error: assertion failed\nin process .tb_radif_axi4_axis_dma(sim).P1\n  from: process work.tb_radif_axi4_axis_dma(sim).P1 at tb_radif_axi4_axis_dma.vhd:150\n/usr/bin/ghdl-mcode:error: simulation failed\n",
-  "stderr": "interfaces/hdl/radif/src/radif_axi4_axis_dma.vhd:454:3:warning: instance \"u_mm2s_fifo\" of component \"xpm_fifo_sync\" is not bound [-Wbinding]\ninterfaces/hdl/radif/src/radif_axi4_axis_dma.vhd:132:14:warning: (in default configuration of radif_axi4_axis_dma(rtl))\ninterfaces/hdl/radif/src/radif_axi4_axis_dma.vhd:494:3:warning: instance \"u_s2mm_fifo\" of component \"xpm_fifo_sync\" is not bound [-Wbinding]\ninterfaces/hdl/radif/src/radif_axi4_axis_dma.vhd:132:14:warning: (in default configuration of radif_axi4_axis_dma(rtl))\n"
+  "vcd": "simulations/tb_radif_axi4_axis_dma/tb_radif_axi4_axis_dma.vcd",
+  "stdout": "interfaces/hdl/radif/testbenches/tb_radif_axi4_axis_dma.vhd:205:5:@355ns:(report note): PASS tb_radif_axi4_axis_dma\nsimulation finished @355ns\n",
+  "stderr": ""
 }
