@@ -26,15 +26,15 @@ Multiplies each sample lane by an independent programmable coefficient, scales b
 <text x="282.0" y="84" text-anchor="middle" font-weight="700">raddsp_axis_gain</text>
 <text x="282.0" y="106" text-anchor="middle">raddsp entity</text>
 <line class="pin" x1="36" y1="130" x2="72" y2="130"/>
-<text x="100" y="134">clk</text>
-<path class="clock" d="M 74 123 L 87 130 L 74 137"/>
+<text x="100" y="134">S_AXIS</text>
+<rect class="interface-pin" x="28" y="121" width="18" height="18" rx="2"/>
 <line class="pin" x1="36" y1="158" x2="72" y2="158"/>
-<text x="100" y="162">rst</text>
+<text x="100" y="162">clk</text>
+<path class="clock" d="M 74 151 L 87 158 L 74 165"/>
 <line class="pin" x1="36" y1="186" x2="72" y2="186"/>
-<text x="100" y="190">gain_i</text>
+<text x="100" y="190">rst</text>
 <line class="pin" x1="36" y1="214" x2="72" y2="214"/>
-<text x="100" y="218">S_AXIS</text>
-<rect class="interface-pin" x="28" y="205" width="18" height="18" rx="2"/>
+<text x="100" y="218">gain_i</text>
 <line class="pin" x1="492" y1="130" x2="528" y2="130"/>
 <text x="464" y="134" text-anchor="end">M_AXIS</text>
 <rect class="interface-pin" x="518" y="121" width="18" height="18" rx="2"/>
@@ -55,16 +55,16 @@ library raddsp;
     COEFF_FRAC_BITS : natural := 15
   );
   port (
-    clk : in std_logic;
-    rst : in std_logic;
-    gain_i : in std_logic_vector((CHANNEL_COUNT * COEFF_WIDTH) - 1 downto 0);
+    m_axis_tvalid : out std_logic;
+    m_axis_tready : in std_logic;
+    m_axis_tdata : out std_logic_vector((CHANNEL_COUNT * DATA_WIDTH) - 1 downto 0);
     s_axis_tvalid : in std_logic;
     s_axis_tready : out std_logic;
     s_axis_tdata : in std_logic_vector((CHANNEL_COUNT * DATA_WIDTH) - 1 downto 0);
     s_axis_tlast : in std_logic;
-    m_axis_tvalid : out std_logic;
-    m_axis_tready : in std_logic;
-    m_axis_tdata : out std_logic_vector((CHANNEL_COUNT * DATA_WIDTH) - 1 downto 0)
+    clk : in std_logic;
+    rst : in std_logic;
+    gain_i : in std_logic_vector((CHANNEL_COUNT * COEFF_WIDTH) - 1 downto 0)
   );
 end component;</code></pre><h3>Direct Entity Instantiation</h3><pre><code>u_raddsp_axis_gain : entity raddsp.raddsp_axis_gain
   generic map (
@@ -75,19 +75,19 @@ end component;</code></pre><h3>Direct Entity Instantiation</h3><pre><code>u_radd
     COEFF_FRAC_BITS =&gt; 15
   )
   port map (
-    clk           =&gt; &lt;clk_signal&gt;,
-    rst           =&gt; &lt;rst_signal&gt;,
-    gain_i        =&gt; &lt;gain_i_signal&gt;,
+    m_axis_tvalid =&gt; &lt;m_axis_tvalid_signal&gt;,
+    m_axis_tready =&gt; &lt;m_axis_tready_signal&gt;,
+    m_axis_tdata  =&gt; &lt;m_axis_tdata_signal&gt;,
     s_axis_tvalid =&gt; &lt;s_axis_tvalid_signal&gt;,
     s_axis_tready =&gt; &lt;s_axis_tready_signal&gt;,
     s_axis_tdata  =&gt; &lt;s_axis_tdata_signal&gt;,
     s_axis_tlast  =&gt; &lt;s_axis_tlast_signal&gt;,
-    m_axis_tvalid =&gt; &lt;m_axis_tvalid_signal&gt;,
-    m_axis_tready =&gt; &lt;m_axis_tready_signal&gt;,
-    m_axis_tdata  =&gt; &lt;m_axis_tdata_signal&gt;
+    clk           =&gt; &lt;clk_signal&gt;,
+    rst           =&gt; &lt;rst_signal&gt;,
+    gain_i        =&gt; &lt;gain_i_signal&gt;
   );</code></pre></div></details>
   <h2>Generics</h2><table><thead><tr><th>Name</th><th>Type</th><th>Default</th><th>Description</th></tr></thead><tbody><tr><td>VENDOR</td><td>string</td><td>&quot;xilinx&quot;</td><td>Selects the vendor-specific implementation path, usually XILINX for DSP48/XPM-backed builds or generic for portable RTL.</td></tr><tr><td>DEVICE_FAMILY</td><td>string</td><td>&quot;generic&quot;</td><td>Identifies the target FPGA family so wrappers can choose the correct primitive or conservative portable behavior.</td></tr><tr><td>DATA_WIDTH</td><td>positive</td><td>16</td><td>Sets the bit width for DATA WIDTH values carried by this module.</td></tr><tr><td>COEFF_WIDTH</td><td>positive</td><td>18</td><td>Sets the bit width for COEFF WIDTH values carried by this module.</td></tr><tr><td>COEFF_FRAC_BITS</td><td>natural</td><td>15</td><td>Sets coefficient precision or coefficient count for the fixed-point DSP operation.</td></tr></tbody></table>
-  <h2>Ports</h2><table><thead><tr><th>Name</th><th>Direction</th><th>Type</th><th>Description</th></tr></thead><tbody><tr><td>clk</td><td>in</td><td>std_logic</td><td>Clock for the associated synchronous logic and handshake domain.</td></tr><tr><td>rst</td><td>in</td><td>std_logic</td><td>Active-high synchronous reset for this clock domain.</td></tr><tr><td>gain_i</td><td>in</td><td>std_logic_vector((CHANNEL_COUNT * COEFF_WIDTH) - 1 downto 0)</td><td>Packed fixed-point gain coefficient input, one coefficient per channel.</td></tr><tr><td>s_axis_tvalid</td><td>in</td><td>std_logic</td><td>Input AXI-stream valid qualifier for the current sample beat.</td></tr><tr><td>s_axis_tready</td><td>out</td><td>std_logic</td><td>Input AXI-stream ready response indicating this block can accept a beat.</td></tr><tr><td>s_axis_tdata</td><td>in</td><td>std_logic_vector((CHANNEL_COUNT * DATA_WIDTH) - 1 downto 0)</td><td>Input AXI-stream payload containing packed sample or feature lanes.</td></tr><tr><td>s_axis_tlast</td><td>in</td><td>std_logic</td><td>Input AXI-stream frame marker for the final beat of a frame.</td></tr><tr><td>m_axis_tvalid</td><td>out</td><td>std_logic</td><td>Output AXI-stream valid qualifier for the current result beat.</td></tr><tr><td>m_axis_tready</td><td>in</td><td>std_logic</td><td>Output AXI-stream ready input from the downstream block.</td></tr><tr><td>m_axis_tdata</td><td>out</td><td>std_logic_vector((CHANNEL_COUNT * DATA_WIDTH) - 1 downto 0)</td><td>Output AXI-stream payload containing packed processed result lanes.</td></tr></tbody></table>
+  <h2>Ports</h2><table><thead><tr><th>Name</th><th>Direction</th><th>Type</th><th>Description</th></tr></thead><tbody><tr><td>m_axis_tvalid</td><td>out</td><td>std_logic</td><td>Output AXI-stream valid qualifier for the current result beat.</td></tr><tr><td>m_axis_tready</td><td>in</td><td>std_logic</td><td>Output AXI-stream ready input from the downstream block.</td></tr><tr><td>m_axis_tdata</td><td>out</td><td>std_logic_vector((CHANNEL_COUNT * DATA_WIDTH) - 1 downto 0)</td><td>Output AXI-stream payload containing packed processed result lanes.</td></tr><tr><td>s_axis_tvalid</td><td>in</td><td>std_logic</td><td>Input AXI-stream valid qualifier for the current sample beat.</td></tr><tr><td>s_axis_tready</td><td>out</td><td>std_logic</td><td>Input AXI-stream ready response indicating this block can accept a beat.</td></tr><tr><td>s_axis_tdata</td><td>in</td><td>std_logic_vector((CHANNEL_COUNT * DATA_WIDTH) - 1 downto 0)</td><td>Input AXI-stream payload containing packed sample or feature lanes.</td></tr><tr><td>s_axis_tlast</td><td>in</td><td>std_logic</td><td>Input AXI-stream frame marker for the final beat of a frame.</td></tr><tr><td>clk</td><td>in</td><td>std_logic</td><td>Clock for the associated synchronous logic and handshake domain.</td></tr><tr><td>rst</td><td>in</td><td>std_logic</td><td>Active-high synchronous reset for this clock domain.</td></tr><tr><td>gain_i</td><td>in</td><td>std_logic_vector((CHANNEL_COUNT * COEFF_WIDTH) - 1 downto 0)</td><td>Packed fixed-point gain coefficient input, one coefficient per channel.</td></tr></tbody></table>
   
   <h2>Testbenches and Waveforms</h2><table><thead><tr><th>Testbench</th><th>Source</th><th>Simulation</th><th>Artifacts</th></tr></thead><tbody><tr><td>tb_raddsp_axis_smoke</td><td>dsp/hdl/testbenches/tb_raddsp_axis_smoke.vhd</td><td>failed</td><td><a href="../../simulations/tb_raddsp_axis_smoke/simulation_status.json">status</a></td></tr></tbody></table><div class="status">tb_raddsp_axis_smoke simulation failed: /usr/bin/ghdl-mcode: cannot find entity or configuration tb_raddsp_axis_smoke</div>
   <h2>Sources</h2>

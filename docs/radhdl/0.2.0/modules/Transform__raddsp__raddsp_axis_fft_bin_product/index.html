@@ -26,24 +26,24 @@ Multiplies selected complex frequency bins to support fingerprinting, correlatio
 <text x="282.0" y="84" text-anchor="middle" font-weight="700">raddsp_axis_fft_bin_product</text>
 <text x="282.0" y="106" text-anchor="middle">raddsp entity</text>
 <line class="pin" x1="36" y1="130" x2="72" y2="130"/>
-<text x="100" y="134">clk</text>
-<path class="clock" d="M 74 123 L 87 130 L 74 137"/>
+<text x="100" y="134">s0_axis_tvalid</text>
 <line class="pin" x1="36" y1="158" x2="72" y2="158"/>
-<text x="100" y="162">rst</text>
+<text x="100" y="162">s0_axis_tdata</text>
 <line class="pin" x1="36" y1="186" x2="72" y2="186"/>
-<text x="100" y="190">correlate_i</text>
+<text x="100" y="190">s0_axis_tlast</text>
 <line class="pin" x1="36" y1="214" x2="72" y2="214"/>
-<text x="100" y="218">s0_axis_tvalid</text>
+<text x="100" y="218">s1_axis_tvalid</text>
 <line class="pin" x1="36" y1="242" x2="72" y2="242"/>
-<text x="100" y="246">s0_axis_tdata</text>
+<text x="100" y="246">s1_axis_tdata</text>
 <line class="pin" x1="36" y1="270" x2="72" y2="270"/>
-<text x="100" y="274">s0_axis_tlast</text>
+<text x="100" y="274">s1_axis_tlast</text>
 <line class="pin" x1="36" y1="298" x2="72" y2="298"/>
-<text x="100" y="302">s1_axis_tvalid</text>
+<text x="100" y="302">clk</text>
+<path class="clock" d="M 74 291 L 87 298 L 74 305"/>
 <line class="pin" x1="36" y1="326" x2="72" y2="326"/>
-<text x="100" y="330">s1_axis_tdata</text>
+<text x="100" y="330">rst</text>
 <line class="pin" x1="36" y1="354" x2="72" y2="354"/>
-<text x="100" y="358">s1_axis_tlast</text>
+<text x="100" y="358">correlate_i</text>
 <line class="pin" x1="492" y1="130" x2="528" y2="130"/>
 <text x="464" y="134" text-anchor="end">s0_axis_tready</text>
 <line class="pin" x1="492" y1="158" x2="528" y2="158"/>
@@ -67,9 +67,6 @@ library raddsp;
     COEFF_FRAC_BITS : natural := 15
   );
   port (
-    clk : in std_logic;
-    rst : in std_logic;
-    correlate_i : in std_logic;
     s0_axis_tvalid : in std_logic;
     s0_axis_tready : out std_logic;
     s0_axis_tdata : in std_logic_vector((2 * DATA_WIDTH) - 1 downto 0);
@@ -80,7 +77,10 @@ library raddsp;
     s1_axis_tlast : in std_logic;
     m_axis_tvalid : out std_logic;
     m_axis_tready : in std_logic;
-    m_axis_tdata : out std_logic_vector((2 * DATA_WIDTH) - 1 downto 0)
+    m_axis_tdata : out std_logic_vector((2 * DATA_WIDTH) - 1 downto 0);
+    clk : in std_logic;
+    rst : in std_logic;
+    correlate_i : in std_logic
   );
 end component;</code></pre><h3>Direct Entity Instantiation</h3><pre><code>u_raddsp_axis_fft_bin_product : entity raddsp.raddsp_axis_fft_bin_product
   generic map (
@@ -90,9 +90,6 @@ end component;</code></pre><h3>Direct Entity Instantiation</h3><pre><code>u_radd
     COEFF_FRAC_BITS =&gt; 15
   )
   port map (
-    clk            =&gt; &lt;clk_signal&gt;,
-    rst            =&gt; &lt;rst_signal&gt;,
-    correlate_i    =&gt; &lt;correlate_i_signal&gt;,
     s0_axis_tvalid =&gt; &lt;s0_axis_tvalid_signal&gt;,
     s0_axis_tready =&gt; &lt;s0_axis_tready_signal&gt;,
     s0_axis_tdata  =&gt; &lt;s0_axis_tdata_signal&gt;,
@@ -103,10 +100,13 @@ end component;</code></pre><h3>Direct Entity Instantiation</h3><pre><code>u_radd
     s1_axis_tlast  =&gt; &lt;s1_axis_tlast_signal&gt;,
     m_axis_tvalid  =&gt; &lt;m_axis_tvalid_signal&gt;,
     m_axis_tready  =&gt; &lt;m_axis_tready_signal&gt;,
-    m_axis_tdata   =&gt; &lt;m_axis_tdata_signal&gt;
+    m_axis_tdata   =&gt; &lt;m_axis_tdata_signal&gt;,
+    clk            =&gt; &lt;clk_signal&gt;,
+    rst            =&gt; &lt;rst_signal&gt;,
+    correlate_i    =&gt; &lt;correlate_i_signal&gt;
   );</code></pre></div></details>
   <h2>Generics</h2><table><thead><tr><th>Name</th><th>Type</th><th>Default</th><th>Description</th></tr></thead><tbody><tr><td>VENDOR</td><td>string</td><td>&quot;xilinx&quot;</td><td>Selects the vendor-specific implementation path, usually XILINX for DSP48/XPM-backed builds or generic for portable RTL.</td></tr><tr><td>DEVICE_FAMILY</td><td>string</td><td>&quot;generic&quot;</td><td>Identifies the target FPGA family so wrappers can choose the correct primitive or conservative portable behavior.</td></tr><tr><td>DATA_WIDTH</td><td>positive</td><td>16</td><td>Sets the bit width for DATA WIDTH values carried by this module.</td></tr><tr><td>COEFF_FRAC_BITS</td><td>natural</td><td>15</td><td>Sets coefficient precision or coefficient count for the fixed-point DSP operation.</td></tr></tbody></table>
-  <h2>Ports</h2><table><thead><tr><th>Name</th><th>Direction</th><th>Type</th><th>Description</th></tr></thead><tbody><tr><td>clk</td><td>in</td><td>std_logic</td><td>Clock for the associated synchronous logic and handshake domain.</td></tr><tr><td>rst</td><td>in</td><td>std_logic</td><td>Active-high synchronous reset for this clock domain.</td></tr><tr><td>correlate_i</td><td>in</td><td>std_logic</td><td>Input correlate i signal for this module.</td></tr><tr><td>s0_axis_tvalid</td><td>in</td><td>std_logic</td><td>S0 axis tvalid interface signal.</td></tr><tr><td>s0_axis_tready</td><td>out</td><td>std_logic</td><td>S0 axis tready interface signal.</td></tr><tr><td>s0_axis_tdata</td><td>in</td><td>std_logic_vector((2 * DATA_WIDTH) - 1 downto 0)</td><td>S0 axis tdata interface signal.</td></tr><tr><td>s0_axis_tlast</td><td>in</td><td>std_logic</td><td>S0 axis tlast interface signal.</td></tr><tr><td>s1_axis_tvalid</td><td>in</td><td>std_logic</td><td>S1 axis tvalid interface signal.</td></tr><tr><td>s1_axis_tready</td><td>out</td><td>std_logic</td><td>S1 axis tready interface signal.</td></tr><tr><td>s1_axis_tdata</td><td>in</td><td>std_logic_vector((2 * DATA_WIDTH) - 1 downto 0)</td><td>S1 axis tdata interface signal.</td></tr><tr><td>s1_axis_tlast</td><td>in</td><td>std_logic</td><td>S1 axis tlast interface signal.</td></tr><tr><td>m_axis_tvalid</td><td>out</td><td>std_logic</td><td>Output AXI-stream valid qualifier for the current result beat.</td></tr><tr><td>m_axis_tready</td><td>in</td><td>std_logic</td><td>Output AXI-stream ready input from the downstream block.</td></tr><tr><td>m_axis_tdata</td><td>out</td><td>std_logic_vector((2 * DATA_WIDTH) - 1 downto 0)</td><td>Output AXI-stream payload containing packed processed result lanes.</td></tr></tbody></table>
+  <h2>Ports</h2><table><thead><tr><th>Name</th><th>Direction</th><th>Type</th><th>Description</th></tr></thead><tbody><tr><td>s0_axis_tvalid</td><td>in</td><td>std_logic</td><td>S0 axis tvalid interface signal.</td></tr><tr><td>s0_axis_tready</td><td>out</td><td>std_logic</td><td>S0 axis tready interface signal.</td></tr><tr><td>s0_axis_tdata</td><td>in</td><td>std_logic_vector((2 * DATA_WIDTH) - 1 downto 0)</td><td>S0 axis tdata interface signal.</td></tr><tr><td>s0_axis_tlast</td><td>in</td><td>std_logic</td><td>S0 axis tlast interface signal.</td></tr><tr><td>s1_axis_tvalid</td><td>in</td><td>std_logic</td><td>S1 axis tvalid interface signal.</td></tr><tr><td>s1_axis_tready</td><td>out</td><td>std_logic</td><td>S1 axis tready interface signal.</td></tr><tr><td>s1_axis_tdata</td><td>in</td><td>std_logic_vector((2 * DATA_WIDTH) - 1 downto 0)</td><td>S1 axis tdata interface signal.</td></tr><tr><td>s1_axis_tlast</td><td>in</td><td>std_logic</td><td>S1 axis tlast interface signal.</td></tr><tr><td>m_axis_tvalid</td><td>out</td><td>std_logic</td><td>Output AXI-stream valid qualifier for the current result beat.</td></tr><tr><td>m_axis_tready</td><td>in</td><td>std_logic</td><td>Output AXI-stream ready input from the downstream block.</td></tr><tr><td>m_axis_tdata</td><td>out</td><td>std_logic_vector((2 * DATA_WIDTH) - 1 downto 0)</td><td>Output AXI-stream payload containing packed processed result lanes.</td></tr><tr><td>clk</td><td>in</td><td>std_logic</td><td>Clock for the associated synchronous logic and handshake domain.</td></tr><tr><td>rst</td><td>in</td><td>std_logic</td><td>Active-high synchronous reset for this clock domain.</td></tr><tr><td>correlate_i</td><td>in</td><td>std_logic</td><td>Input correlate i signal for this module.</td></tr></tbody></table>
   
   <h2>Testbenches and Waveforms</h2><p class="summary">No directly associated testbench was found.</p>
   <h2>Sources</h2>

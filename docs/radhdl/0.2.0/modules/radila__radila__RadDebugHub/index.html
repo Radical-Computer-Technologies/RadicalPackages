@@ -26,18 +26,18 @@ Provides register access and coordination points for debug blocks that need host
 <text x="282.0" y="84" text-anchor="middle" font-weight="700">RadDebugHub</text>
 <text x="282.0" y="106" text-anchor="middle">radila entity</text>
 <line class="pin" x1="36" y1="130" x2="72" y2="130"/>
-<text x="100" y="134">sample_clk</text>
-<path class="clock" d="M 74 123 L 87 130 L 74 137"/>
+<text x="100" y="134">S_AXI</text>
+<rect class="interface-pin" x="28" y="121" width="18" height="18" rx="2"/>
 <line class="pin" x1="36" y1="158" x2="72" y2="158"/>
-<text x="100" y="162">sample_rstn</text>
-<circle class="bubble" cx="84" cy="158" r="5"/>
+<text x="100" y="162">sample_clk</text>
+<path class="clock" d="M 74 151 L 87 158 L 74 165"/>
 <line class="pin" x1="36" y1="186" x2="72" y2="186"/>
-<text x="100" y="190">sample_i</text>
+<text x="100" y="190">sample_rstn</text>
+<circle class="bubble" cx="84" cy="186" r="5"/>
 <line class="pin" x1="36" y1="214" x2="72" y2="214"/>
-<text x="100" y="218">event_i</text>
+<text x="100" y="218">sample_i</text>
 <line class="pin" x1="36" y1="242" x2="72" y2="242"/>
-<text x="100" y="246">S_AXI</text>
-<rect class="interface-pin" x="28" y="233" width="18" height="18" rx="2"/>
+<text x="100" y="246">event_i</text>
 <line class="pin" x1="492" y1="130" x2="528" y2="130"/>
 <text x="464" y="134" text-anchor="end">irq_o</text>
 </svg></div>
@@ -61,11 +61,6 @@ library radila;
     PRODUCT_SERIES_TAG : string := &quot;7SERIES&quot;
   );
   port (
-    sample_clk : in std_logic;
-    sample_rstn : in std_logic;
-    sample_i : in std_logic_vector(SAMPLE_WIDTH - 1 downto 0);
-    event_i : in std_logic_vector(EVENT_WIDTH - 1 downto 0);
-    irq_o : out std_logic;
     S_AXI_ACLK : in std_logic;
     S_AXI_ARESETN : in std_logic;
     S_AXI_AWADDR : in std_logic_vector(C_S_AXI_ADDR_WIDTH - 1 downto 0);
@@ -85,7 +80,12 @@ library radila;
     S_AXI_ARREADY : out std_logic;
     S_AXI_RDATA : out std_logic_vector(C_S_AXI_DATA_WIDTH - 1 downto 0);
     S_AXI_RRESP : out std_logic_vector(1 downto 0);
-    S_AXI_RVALID : out std_logic
+    S_AXI_RVALID : out std_logic;
+    sample_clk : in std_logic;
+    sample_rstn : in std_logic;
+    sample_i : in std_logic_vector(SAMPLE_WIDTH - 1 downto 0);
+    event_i : in std_logic_vector(EVENT_WIDTH - 1 downto 0);
+    irq_o : out std_logic
   );
 end component;</code></pre><h3>Direct Entity Instantiation</h3><pre><code>u_raddebughub : entity radila.RadDebugHub
   generic map (
@@ -100,11 +100,6 @@ end component;</code></pre><h3>Direct Entity Instantiation</h3><pre><code>u_radd
     PRODUCT_SERIES_TAG =&gt; &quot;7SERIES&quot;
   )
   port map (
-    sample_clk    =&gt; &lt;sample_clk_signal&gt;,
-    sample_rstn   =&gt; &lt;sample_rstn_signal&gt;,
-    sample_i      =&gt; &lt;sample_i_signal&gt;,
-    event_i       =&gt; &lt;event_i_signal&gt;,
-    irq_o         =&gt; &lt;irq_o_signal&gt;,
     S_AXI_ACLK    =&gt; &lt;s_axi_aclk_signal&gt;,
     S_AXI_ARESETN =&gt; &lt;s_axi_aresetn_signal&gt;,
     S_AXI_AWADDR  =&gt; &lt;s_axi_awaddr_signal&gt;,
@@ -124,10 +119,15 @@ end component;</code></pre><h3>Direct Entity Instantiation</h3><pre><code>u_radd
     S_AXI_ARREADY =&gt; &lt;s_axi_arready_signal&gt;,
     S_AXI_RDATA   =&gt; &lt;s_axi_rdata_signal&gt;,
     S_AXI_RRESP   =&gt; &lt;s_axi_rresp_signal&gt;,
-    S_AXI_RVALID  =&gt; &lt;s_axi_rvalid_signal&gt;
+    S_AXI_RVALID  =&gt; &lt;s_axi_rvalid_signal&gt;,
+    sample_clk    =&gt; &lt;sample_clk_signal&gt;,
+    sample_rstn   =&gt; &lt;sample_rstn_signal&gt;,
+    sample_i      =&gt; &lt;sample_i_signal&gt;,
+    event_i       =&gt; &lt;event_i_signal&gt;,
+    irq_o         =&gt; &lt;irq_o_signal&gt;
   );</code></pre></div></details>
   <h2>Generics</h2><table><thead><tr><th>Name</th><th>Type</th><th>Default</th><th>Description</th></tr></thead><tbody><tr><td>C_S_AXI_DATA_WIDTH</td><td>integer</td><td>32</td><td>Sets the bit width for C S AXI DATA WIDTH values carried by this module.</td></tr><tr><td>C_S_AXI_ADDR_WIDTH</td><td>integer</td><td>6</td><td>Sets the bit width for C S AXI ADDR WIDTH values carried by this module.</td></tr><tr><td>SAMPLE_WIDTH</td><td>integer</td><td>32</td><td>Sets the bit width for SAMPLE WIDTH values carried by this module.</td></tr><tr><td>EVENT_WIDTH</td><td>integer</td><td>8</td><td>Sets the bit width for EVENT WIDTH values carried by this module.</td></tr><tr><td>DEPTH</td><td>integer</td><td>1024</td><td>Sets the storage depth, frame length, or number of buffered samples used internally.</td></tr><tr><td>ADDR_WIDTH</td><td>integer</td><td>10</td><td>Sets the bit width for ADDR WIDTH values carried by this module.</td></tr><tr><td>CMD_LANES</td><td>integer</td><td>4</td><td>Sets the number of parallel sample lanes processed per handshake beat.</td></tr><tr><td>VENDOR_TAG</td><td>string</td><td>&quot;XILINX&quot;</td><td>Selects the vendor-specific implementation path, usually XILINX for DSP48/XPM-backed builds or generic for portable RTL.</td></tr><tr><td>PRODUCT_SERIES_TAG</td><td>string</td><td>&quot;7SERIES&quot;</td><td>Identifies the target FPGA family so wrappers can choose the correct primitive or conservative portable behavior.</td></tr></tbody></table>
-  <h2>Ports</h2><table><thead><tr><th>Name</th><th>Direction</th><th>Type</th><th>Description</th></tr></thead><tbody><tr><td>sample_clk</td><td>in</td><td>std_logic</td><td>Clock for the associated synchronous logic and handshake domain.</td></tr><tr><td>sample_rstn</td><td>in</td><td>std_logic</td><td>Active-low reset for this clock domain.</td></tr><tr><td>sample_i</td><td>in</td><td>std_logic_vector(SAMPLE_WIDTH - 1 downto 0)</td><td>Input sample vector captured or processed by the datapath.</td></tr><tr><td>event_i</td><td>in</td><td>std_logic_vector(EVENT_WIDTH - 1 downto 0)</td><td>Event or trigger metadata associated with the current sample stream.</td></tr><tr><td>irq_o</td><td>out</td><td>std_logic</td><td>Output irq o signal generated by this module.</td></tr><tr><td>S_AXI_ACLK</td><td>in</td><td>std_logic</td><td>AXI4-Lite slave-channel signal used for host register access.</td></tr><tr><td>S_AXI_ARESETN</td><td>in</td><td>std_logic</td><td>AXI4-Lite slave-channel signal used for host register access.</td></tr><tr><td>S_AXI_AWADDR</td><td>in</td><td>std_logic_vector(C_S_AXI_ADDR_WIDTH - 1 downto 0)</td><td>AXI4-Lite slave-channel signal used for host register access.</td></tr><tr><td>S_AXI_AWPROT</td><td>in</td><td>std_logic_vector(2 downto 0)</td><td>AXI4-Lite slave-channel signal used for host register access.</td></tr><tr><td>S_AXI_AWVALID</td><td>in</td><td>std_logic</td><td>AXI4-Lite slave-channel signal used for host register access.</td></tr><tr><td>S_AXI_AWREADY</td><td>out</td><td>std_logic</td><td>AXI4-Lite slave-channel signal used for host register access.</td></tr><tr><td>S_AXI_WDATA</td><td>in</td><td>std_logic_vector(C_S_AXI_DATA_WIDTH - 1 downto 0)</td><td>AXI4-Lite slave-channel signal used for host register access.</td></tr><tr><td>S_AXI_WSTRB</td><td>in</td><td>std_logic_vector((C_S_AXI_DATA_WIDTH / 8) - 1 downto 0)</td><td>AXI4-Lite slave-channel signal used for host register access.</td></tr><tr><td>S_AXI_WVALID</td><td>in</td><td>std_logic</td><td>AXI4-Lite slave-channel signal used for host register access.</td></tr><tr><td>S_AXI_WREADY</td><td>out</td><td>std_logic</td><td>AXI4-Lite slave-channel signal used for host register access.</td></tr><tr><td>S_AXI_BRESP</td><td>out</td><td>std_logic_vector(1 downto 0)</td><td>AXI4-Lite slave-channel signal used for host register access.</td></tr><tr><td>S_AXI_BVALID</td><td>out</td><td>std_logic</td><td>AXI4-Lite slave-channel signal used for host register access.</td></tr><tr><td>S_AXI_BREADY</td><td>in</td><td>std_logic</td><td>AXI4-Lite slave-channel signal used for host register access.</td></tr><tr><td>S_AXI_ARADDR</td><td>in</td><td>std_logic_vector(C_S_AXI_ADDR_WIDTH - 1 downto 0)</td><td>AXI4-Lite slave-channel signal used for host register access.</td></tr><tr><td>S_AXI_ARPROT</td><td>in</td><td>std_logic_vector(2 downto 0)</td><td>AXI4-Lite slave-channel signal used for host register access.</td></tr><tr><td>S_AXI_ARVALID</td><td>in</td><td>std_logic</td><td>AXI4-Lite slave-channel signal used for host register access.</td></tr><tr><td>S_AXI_ARREADY</td><td>out</td><td>std_logic</td><td>AXI4-Lite slave-channel signal used for host register access.</td></tr><tr><td>S_AXI_RDATA</td><td>out</td><td>std_logic_vector(C_S_AXI_DATA_WIDTH - 1 downto 0)</td><td>AXI4-Lite slave-channel signal used for host register access.</td></tr><tr><td>S_AXI_RRESP</td><td>out</td><td>std_logic_vector(1 downto 0)</td><td>AXI4-Lite slave-channel signal used for host register access.</td></tr><tr><td>S_AXI_RVALID</td><td>out</td><td>std_logic</td><td>AXI4-Lite slave-channel signal used for host register access.</td></tr></tbody></table>
+  <h2>Ports</h2><table><thead><tr><th>Name</th><th>Direction</th><th>Type</th><th>Description</th></tr></thead><tbody><tr><td>S_AXI_ACLK</td><td>in</td><td>std_logic</td><td>AXI4-Lite slave-channel signal used for host register access.</td></tr><tr><td>S_AXI_ARESETN</td><td>in</td><td>std_logic</td><td>AXI4-Lite slave-channel signal used for host register access.</td></tr><tr><td>S_AXI_AWADDR</td><td>in</td><td>std_logic_vector(C_S_AXI_ADDR_WIDTH - 1 downto 0)</td><td>AXI4-Lite slave-channel signal used for host register access.</td></tr><tr><td>S_AXI_AWPROT</td><td>in</td><td>std_logic_vector(2 downto 0)</td><td>AXI4-Lite slave-channel signal used for host register access.</td></tr><tr><td>S_AXI_AWVALID</td><td>in</td><td>std_logic</td><td>AXI4-Lite slave-channel signal used for host register access.</td></tr><tr><td>S_AXI_AWREADY</td><td>out</td><td>std_logic</td><td>AXI4-Lite slave-channel signal used for host register access.</td></tr><tr><td>S_AXI_WDATA</td><td>in</td><td>std_logic_vector(C_S_AXI_DATA_WIDTH - 1 downto 0)</td><td>AXI4-Lite slave-channel signal used for host register access.</td></tr><tr><td>S_AXI_WSTRB</td><td>in</td><td>std_logic_vector((C_S_AXI_DATA_WIDTH / 8) - 1 downto 0)</td><td>AXI4-Lite slave-channel signal used for host register access.</td></tr><tr><td>S_AXI_WVALID</td><td>in</td><td>std_logic</td><td>AXI4-Lite slave-channel signal used for host register access.</td></tr><tr><td>S_AXI_WREADY</td><td>out</td><td>std_logic</td><td>AXI4-Lite slave-channel signal used for host register access.</td></tr><tr><td>S_AXI_BRESP</td><td>out</td><td>std_logic_vector(1 downto 0)</td><td>AXI4-Lite slave-channel signal used for host register access.</td></tr><tr><td>S_AXI_BVALID</td><td>out</td><td>std_logic</td><td>AXI4-Lite slave-channel signal used for host register access.</td></tr><tr><td>S_AXI_BREADY</td><td>in</td><td>std_logic</td><td>AXI4-Lite slave-channel signal used for host register access.</td></tr><tr><td>S_AXI_ARADDR</td><td>in</td><td>std_logic_vector(C_S_AXI_ADDR_WIDTH - 1 downto 0)</td><td>AXI4-Lite slave-channel signal used for host register access.</td></tr><tr><td>S_AXI_ARPROT</td><td>in</td><td>std_logic_vector(2 downto 0)</td><td>AXI4-Lite slave-channel signal used for host register access.</td></tr><tr><td>S_AXI_ARVALID</td><td>in</td><td>std_logic</td><td>AXI4-Lite slave-channel signal used for host register access.</td></tr><tr><td>S_AXI_ARREADY</td><td>out</td><td>std_logic</td><td>AXI4-Lite slave-channel signal used for host register access.</td></tr><tr><td>S_AXI_RDATA</td><td>out</td><td>std_logic_vector(C_S_AXI_DATA_WIDTH - 1 downto 0)</td><td>AXI4-Lite slave-channel signal used for host register access.</td></tr><tr><td>S_AXI_RRESP</td><td>out</td><td>std_logic_vector(1 downto 0)</td><td>AXI4-Lite slave-channel signal used for host register access.</td></tr><tr><td>S_AXI_RVALID</td><td>out</td><td>std_logic</td><td>AXI4-Lite slave-channel signal used for host register access.</td></tr><tr><td>sample_clk</td><td>in</td><td>std_logic</td><td>Clock for the associated synchronous logic and handshake domain.</td></tr><tr><td>sample_rstn</td><td>in</td><td>std_logic</td><td>Active-low reset for this clock domain.</td></tr><tr><td>sample_i</td><td>in</td><td>std_logic_vector(SAMPLE_WIDTH - 1 downto 0)</td><td>Input sample vector captured or processed by the datapath.</td></tr><tr><td>event_i</td><td>in</td><td>std_logic_vector(EVENT_WIDTH - 1 downto 0)</td><td>Event or trigger metadata associated with the current sample stream.</td></tr><tr><td>irq_o</td><td>out</td><td>std_logic</td><td>Output irq o signal generated by this module.</td></tr></tbody></table>
   
   <h2>Testbenches and Waveforms</h2><table><thead><tr><th>Testbench</th><th>Source</th><th>Simulation</th><th>Artifacts</th></tr></thead><tbody><tr><td>tb_radila_core</td><td>debug/radila/hdl/radila/testbenches/tb_radila_core.vhd</td><td>failed</td><td><a href="../../simulations/tb_radila_core/simulation_status.json">status</a></td></tr></tbody></table><div class="status">tb_radila_core simulation failed: /usr/bin/ghdl-mcode: cannot find entity or configuration tb_radila_core</div>
   <h2>Sources</h2>
