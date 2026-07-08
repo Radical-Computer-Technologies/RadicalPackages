@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>RadILA Datasheet</title>
+  <link rel="stylesheet" href="../../assets/radhdl-docgen.css">
+</head>
+<body>
+
+<header><div class="wrap">
+  <nav class="breadcrumb"><a href="../../index.html">RadHDL</a> / <a href="../../libraries/radila.html">radila</a></nav>
+  <div class="kicker">Debug / entity</div>
+  <h1>RadILA</h1>
+  <div class="summary"><p>Integrated logic analyzer capture core for RadHDL debug builds.
+Samples an application bus in the sample clock domain, captures event metadata, and exposes captured data through an AXI-facing read path.</p></div>
+</div></header>
+<main class="wrap">
+  <h2>Use Cases</h2>
+  <ul><li>Debug and observability hooks for generated FPGA systems.</li></ul>
+  <h2>Block Diagram</h2>
+  <div class="diagram"><svg width="860" height="332" viewBox="0 0 860 332" xmlns="http://www.w3.org/2000/svg" role="img">
+<style>text{font-family:Inter,Arial,sans-serif;font-size:13px;fill:#111827}.pin{stroke:#106b62;stroke-width:2}.box{fill:#f7f9fc;stroke:#26323f;stroke-width:2}</style>
+<rect class="box" x="270" y="50" width="320" height="242" rx="4"/>
+<text x="430.0" y="84" text-anchor="middle" font-weight="700">RadILA</text>
+<text x="430.0" y="106" text-anchor="middle">radila entity</text>
+<line class="pin" x1="90" y1="130" x2="270" y2="130"/>
+<text x="84" y="134" text-anchor="end">sample_clk</text>
+<line class="pin" x1="90" y1="158" x2="270" y2="158"/>
+<text x="84" y="162" text-anchor="end">sample_rstn</text>
+<line class="pin" x1="90" y1="186" x2="270" y2="186"/>
+<text x="84" y="190" text-anchor="end">axi_clk</text>
+<line class="pin" x1="90" y1="214" x2="270" y2="214"/>
+<text x="84" y="218" text-anchor="end">axi_rstn</text>
+<line class="pin" x1="90" y1="242" x2="270" y2="242"/>
+<text x="84" y="246" text-anchor="end">sample_i</text>
+<line class="pin" x1="90" y1="270" x2="270" y2="270"/>
+<text x="84" y="274" text-anchor="end">event_i</text>
+<line class="pin" x1="90" y1="298" x2="270" y2="298"/>
+<text x="84" y="302" text-anchor="end">cmd_data_i</text>
+<line class="pin" x1="90" y1="326" x2="270" y2="326"/>
+<text x="84" y="330" text-anchor="end">cmd_toggle_i</text>
+<line class="pin" x1="90" y1="354" x2="270" y2="354"/>
+<text x="84" y="358" text-anchor="end">rd_index_i</text>
+<line class="pin" x1="590" y1="130" x2="770" y2="130"/>
+<text x="776" y="134">cmd_ack_toggle_o</text>
+<line class="pin" x1="590" y1="158" x2="770" y2="158"/>
+<text x="776" y="162">rd_data_o</text>
+<line class="pin" x1="590" y1="186" x2="770" y2="186"/>
+<text x="776" y="190">sample_now_o</text>
+<line class="pin" x1="590" y1="214" x2="770" y2="214"/>
+<text x="776" y="218">event_now_o</text>
+<line class="pin" x1="590" y1="242" x2="770" y2="242"/>
+<text x="776" y="246">armed_o</text>
+<line class="pin" x1="590" y1="270" x2="770" y2="270"/>
+<text x="776" y="274">capturing_o</text>
+<line class="pin" x1="590" y1="298" x2="770" y2="298"/>
+<text x="776" y="302">done_o</text>
+<line class="pin" x1="590" y1="326" x2="770" y2="326"/>
+<text x="776" y="330">overflow_o</text>
+<line class="pin" x1="590" y1="354" x2="770" y2="354"/>
+<text x="776" y="358">count_o</text>
+</svg></div>
+  <h2>Generics</h2><table><thead><tr><th>Name</th><th>Type</th><th>Default</th><th>Description</th></tr></thead><tbody><tr><td>SAMPLE_WIDTH</td><td>integer</td><td>32</td><td>Sets the bit width for SAMPLE WIDTH values carried by this module.</td></tr><tr><td>EVENT_WIDTH</td><td>integer</td><td>8</td><td>Sets the bit width for EVENT WIDTH values carried by this module.</td></tr><tr><td>DEPTH</td><td>integer</td><td>1024</td><td>Sets the storage depth, frame length, or number of buffered samples used internally.</td></tr><tr><td>ADDR_WIDTH</td><td>integer</td><td>10</td><td>Sets the bit width for ADDR WIDTH values carried by this module.</td></tr><tr><td>CMD_LANES</td><td>integer</td><td>4</td><td>Sets the number of parallel sample lanes processed per handshake beat.</td></tr><tr><td>VENDOR_TAG</td><td>string</td><td>&quot;XILINX&quot;</td><td>Selects the vendor-specific implementation path, usually XILINX for DSP48/XPM-backed builds or generic for portable RTL.</td></tr></tbody></table>
+  <h2>Ports</h2><table><thead><tr><th>Name</th><th>Direction</th><th>Type</th><th>Description</th></tr></thead><tbody><tr><td>sample_clk</td><td>in</td><td>std_logic</td><td>Clock for the associated synchronous logic and handshake domain.</td></tr><tr><td>sample_rstn</td><td>in</td><td>std_logic</td><td>Active-low reset for this clock domain.</td></tr><tr><td>axi_clk</td><td>in</td><td>std_logic</td><td>Clock for the associated synchronous logic and handshake domain.</td></tr><tr><td>axi_rstn</td><td>in</td><td>std_logic</td><td>Active-low reset for this clock domain.</td></tr><tr><td>sample_i</td><td>in</td><td>std_logic_vector(SAMPLE_WIDTH - 1 downto 0)</td><td>Input sample vector captured or processed by the datapath.</td></tr><tr><td>event_i</td><td>in</td><td>std_logic_vector(EVENT_WIDTH - 1 downto 0)</td><td>Event or trigger metadata associated with the current sample stream.</td></tr><tr><td>cmd_data_i</td><td>in</td><td>std_logic_vector(CMD_LANES - 1 downto 0)</td><td>Command/control input used to configure or trigger the block.</td></tr><tr><td>cmd_toggle_i</td><td>in</td><td>std_logic</td><td>Command/control input used to configure or trigger the block.</td></tr><tr><td>cmd_ack_toggle_o</td><td>out</td><td>std_logic</td><td>Command/control acknowledgement or status output.</td></tr><tr><td>rd_index_i</td><td>in</td><td>unsigned(ADDR_WIDTH - 1 downto 0)</td><td>Readback control or data signal for host-visible captured state.</td></tr><tr><td>rd_data_o</td><td>out</td><td>std_logic_vector(SAMPLE_WIDTH - 1 downto 0)</td><td>Readback control or data signal for host-visible captured state.</td></tr><tr><td>sample_now_o</td><td>out</td><td>std_logic_vector(SAMPLE_WIDTH - 1 downto 0)</td><td>Output sample vector or current sample status from the datapath.</td></tr><tr><td>event_now_o</td><td>out</td><td>std_logic_vector(EVENT_WIDTH - 1 downto 0)</td><td>Event or trigger metadata associated with the current sample stream.</td></tr><tr><td>armed_o</td><td>out</td><td>std_logic</td><td>Output armed o signal generated by this module.</td></tr><tr><td>capturing_o</td><td>out</td><td>std_logic</td><td>Output capturing o signal generated by this module.</td></tr><tr><td>done_o</td><td>out</td><td>std_logic</td><td>Output done o signal generated by this module.</td></tr><tr><td>overflow_o</td><td>out</td><td>std_logic</td><td>Output overflow o signal generated by this module.</td></tr><tr><td>count_o</td><td>out</td><td>unsigned(ADDR_WIDTH downto 0)</td><td>Output count o signal generated by this module.</td></tr></tbody></table>
+  
+  <h2>Testbenches and Waveforms</h2><table><thead><tr><th>Testbench</th><th>Source</th><th>Simulation</th></tr></thead><tbody><tr><td>tb_radila_core</td><td>debug/radila/hdl/radila/testbenches/tb_radila_core.vhd</td><td>not-run</td></tr></tbody></table>
+  <h2>HDL Example</h2>
+  <pre><code>entity RadILA is
+  generic (
+    -- Sets the bit width for SAMPLE WIDTH values carried by this module.
+    SAMPLE_WIDTH : integer := 32;
+    -- Sets the bit width for EVENT WIDTH values carried by this module.
+    EVENT_WIDTH  : integer := 8;
+    -- Sets the storage depth, frame length, or number of buffered samples used internally.
+    DEPTH        : integer := 1024;
+    -- Sets the bit width for ADDR WIDTH values carried by this module.
+    ADDR_WIDTH   : integer := 10;
+    -- Sets the number of parallel sample lanes processed per handshake beat.
+    CMD_LANES    : integer := 4;
+    -- Selects the vendor-specific implementation path, usually XILINX for DSP48/XPM-backed builds or generic for portable RTL.
+    VENDOR_TAG   : string  := &quot;XILINX&quot;;
+    -- Identifies the target FPGA family so wrappers can choose the correct primitive or conservative portable behavior.
+    PRODUCT_SERIES_TAG : string := &quot;7SERIES&quot;
+  );
+  port (
+    -- Clock for the associated synchronous logic and handshake domain.
+    sample_clk       : in  std_logic;
+    -- Active-low reset for this clock domain.
+    sample_rstn      : in  std_logic;
+    -- Clock for the associated synchronous logic and handshake domain.
+    axi_clk          : in  std_logic;
+    -- Active-low reset for this clock domain.
+    axi_rstn         : in  std_logic;
+    -- Input sample vector captured or processed by the datapath.
+    sample_i         : in  std_logic_vector(SAMPLE_WIDTH - 1 downto 0);
+    -- Event or trigger metadata associated with the current sample stream.
+    event_i          : in  std_logic_vector(EVENT_WIDTH - 1 downto 0);
+    -- Command/control input used to configure or trigger the block.
+    cmd_data_i       : in  std_logic_vector(CMD_LANES - 1 downto 0);
+    -- Command/control input used to configure or trigger the block.
+    cmd_toggle_i     : in  std_logic;
+    -- Command/control acknowledgement or status output.
+    cmd_ack_toggle_o : out std_logic;
+    -- Readback control or data signal for host-visible captured state.
+    rd_index_i       : in  unsigned(ADDR_WIDTH - 1 downto 0);
+    -- Readback control or data signal for host-visible captured state.
+    rd_data_o        : out std_logic_vector(SAMPLE_WIDTH - 1 downto 0);
+    -- Output sample vector or current sample status from the datapath.
+    sample_now_o     : out std_logic_vector(SAMPLE_WIDTH - 1 downto 0);
+    -- Event or trigger metadata associated with the current sample stream.
+    event_now_o      : out std_logic_vector(EVENT_WIDTH - 1 downto 0);
+    -- Output armed o signal generated by this module.
+    armed_o          : out std_logic;
+    -- Output capturing o signal generated by this module.
+    capturing_o      : out std_logic;
+    -- Output done o signal generated by this module.
+    done_o           : out std_logic;
+    -- Output overflow o signal generated by this module.
+    overflow_o       : out std_logic;
+    -- Output count o signal generated by this module.
+    count_o          : out unsigned(ADDR_WIDTH downto 0)
+  );
+end entity;</code></pre>
+  <h2>Sources</h2>
+  <ul><li>debug/radila/hdl/radila/radila_core.vhd</li></ul>
+</main>
+<footer><div class="wrap">Generated by radhdl-docgen 0.1.0</div></footer>
+
+</body>
+</html>

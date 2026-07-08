@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>raddsp_fft_radix2_batch_core Datasheet</title>
+  <link rel="stylesheet" href="../../assets/radhdl-docgen.css">
+</head>
+<body>
+
+<header><div class="wrap">
+  <nav class="breadcrumb"><a href="../../index.html">RadHDL</a> / <a href="../../libraries/dsp.html">dsp</a></nav>
+  <div class="kicker">DSP / entity</div>
+  <h1>raddsp_fft_radix2_batch_core</h1>
+  <div class="summary"><p>No source description has been written for this module yet.</p></div>
+</div></header>
+<main class="wrap">
+  <h2>Use Cases</h2>
+  <ul><li>Reusable FPGA DSP pipelines that need fixed-point, timing-aware implementation.</li></ul>
+  <h2>Block Diagram</h2>
+  <div class="diagram"><svg width="860" height="304" viewBox="0 0 860 304" xmlns="http://www.w3.org/2000/svg" role="img">
+<style>text{font-family:Inter,Arial,sans-serif;font-size:13px;fill:#111827}.pin{stroke:#106b62;stroke-width:2}.box{fill:#f7f9fc;stroke:#26323f;stroke-width:2}</style>
+<rect class="box" x="270" y="50" width="320" height="214" rx="4"/>
+<text x="430.0" y="84" text-anchor="middle" font-weight="700">raddsp_fft_radix2_batch_core</text>
+<text x="430.0" y="106" text-anchor="middle">dsp entity</text>
+<line class="pin" x1="90" y1="130" x2="270" y2="130"/>
+<text x="84" y="134" text-anchor="end">clk</text>
+<line class="pin" x1="90" y1="158" x2="270" y2="158"/>
+<text x="84" y="162" text-anchor="end">rst</text>
+<line class="pin" x1="90" y1="186" x2="270" y2="186"/>
+<text x="84" y="190" text-anchor="end">start_frame</text>
+<line class="pin" x1="90" y1="214" x2="270" y2="214"/>
+<text x="84" y="218" text-anchor="end">sample_valid</text>
+<line class="pin" x1="90" y1="242" x2="270" y2="242"/>
+<text x="84" y="246" text-anchor="end">sample_re</text>
+<line class="pin" x1="90" y1="270" x2="270" y2="270"/>
+<text x="84" y="274" text-anchor="end">sample_im</text>
+<line class="pin" x1="90" y1="298" x2="270" y2="298"/>
+<text x="84" y="302" text-anchor="end">twiddle_re</text>
+<line class="pin" x1="90" y1="326" x2="270" y2="326"/>
+<text x="84" y="330" text-anchor="end">twiddle_im</text>
+<line class="pin" x1="590" y1="130" x2="770" y2="130"/>
+<text x="776" y="134">sample_ready</text>
+<line class="pin" x1="590" y1="158" x2="770" y2="158"/>
+<text x="776" y="162">twiddle_addr</text>
+<line class="pin" x1="590" y1="186" x2="770" y2="186"/>
+<text x="776" y="190">busy</text>
+<line class="pin" x1="590" y1="214" x2="770" y2="214"/>
+<text x="776" y="218">done</text>
+<line class="pin" x1="590" y1="242" x2="770" y2="242"/>
+<text x="776" y="246">output_valid</text>
+<line class="pin" x1="590" y1="270" x2="770" y2="270"/>
+<text x="776" y="274">output_index</text>
+<line class="pin" x1="590" y1="298" x2="770" y2="298"/>
+<text x="776" y="302">output_re</text>
+<line class="pin" x1="590" y1="326" x2="770" y2="326"/>
+<text x="776" y="330">output_im</text>
+</svg></div>
+  <h2>Generics</h2><table><thead><tr><th>Name</th><th>Type</th><th>Default</th><th>Description</th></tr></thead><tbody><tr><td>VENDOR</td><td>string</td><td>&quot;xilinx&quot;</td><td></td></tr><tr><td>DEVICE_FAMILY</td><td>string</td><td>&quot;ultrascale+&quot;</td><td></td></tr><tr><td>G_POINTS</td><td>positive</td><td>16</td><td></td></tr><tr><td>G_MAX_POINTS</td><td>positive</td><td>2048</td><td></td></tr><tr><td>G_INPUT_WIDTH</td><td>positive</td><td>16</td><td></td></tr><tr><td>G_TWIDDLE_WIDTH</td><td>positive</td><td>16</td><td></td></tr><tr><td>G_OUTPUT_WIDTH</td><td>positive</td><td>32</td><td></td></tr></tbody></table>
+  <h2>Ports</h2><table><thead><tr><th>Name</th><th>Direction</th><th>Type</th><th>Description</th></tr></thead><tbody><tr><td>clk</td><td>in</td><td>std_logic</td><td></td></tr><tr><td>rst</td><td>in</td><td>std_logic</td><td></td></tr><tr><td>start_frame</td><td>in</td><td>std_logic</td><td></td></tr><tr><td>sample_valid</td><td>in</td><td>std_logic</td><td></td></tr><tr><td>sample_re</td><td>in</td><td>std_logic_vector(31 downto 0)</td><td></td></tr><tr><td>sample_im</td><td>in</td><td>std_logic_vector(31 downto 0)</td><td></td></tr><tr><td>sample_ready</td><td>out</td><td>std_logic</td><td></td></tr><tr><td>twiddle_addr</td><td>out</td><td>std_logic_vector(31 downto 0)</td><td></td></tr><tr><td>twiddle_re</td><td>in</td><td>std_logic_vector(31 downto 0)</td><td></td></tr><tr><td>twiddle_im</td><td>in</td><td>std_logic_vector(31 downto 0)</td><td></td></tr><tr><td>busy</td><td>out</td><td>std_logic</td><td></td></tr><tr><td>done</td><td>out</td><td>std_logic</td><td></td></tr><tr><td>output_valid</td><td>out</td><td>std_logic</td><td></td></tr><tr><td>output_index</td><td>out</td><td>std_logic_vector(31 downto 0)</td><td></td></tr><tr><td>output_re</td><td>out</td><td>std_logic_vector(31 downto 0)</td><td></td></tr><tr><td>output_im</td><td>out</td><td>std_logic_vector(31 downto 0)</td><td></td></tr></tbody></table>
+  
+  <h2>Testbenches and Waveforms</h2><p class="summary">No directly associated testbench was found.</p>
+  <h2>HDL Example</h2>
+  <pre><code>entity raddsp_fft_radix2_batch_core is
+  generic (
+    VENDOR              : string  := &quot;xilinx&quot;;
+    DEVICE_FAMILY       : string  := &quot;ultrascale+&quot;;
+    G_POINTS            : positive := 16;
+    G_MAX_POINTS        : positive := 2048;
+    G_INPUT_WIDTH       : positive := 16;
+    G_TWIDDLE_WIDTH     : positive := 16;
+    G_OUTPUT_WIDTH      : positive := 32;
+    G_SCALE_EACH_STAGE  : boolean := true
+  );
+  port (
+    clk          : in  std_logic;
+    rst          : in  std_logic;
+    start_frame  : in  std_logic;
+    sample_valid : in  std_logic;
+    sample_re    : in  std_logic_vector(31 downto 0);
+    sample_im    : in  std_logic_vector(31 downto 0);
+    sample_ready : out std_logic;
+    twiddle_addr : out std_logic_vector(31 downto 0);
+    twiddle_re   : in  std_logic_vector(31 downto 0);
+    twiddle_im   : in  std_logic_vector(31 downto 0);
+    busy         : out std_logic;
+    done         : out std_logic;
+    output_valid : out std_logic;
+    output_index : out std_logic_vector(31 downto 0);
+    output_re    : out std_logic_vector(31 downto 0);
+    output_im    : out std_logic_vector(31 downto 0)
+  );
+end entity;</code></pre>
+  <h2>Sources</h2>
+  <ul><li>dsp/hdl/xci/raddsp_fft_radix2_batch_core_0/src/raddsp_fft_radix2_batch_core.vhd</li></ul>
+</main>
+<footer><div class="wrap">Generated by radhdl-docgen 0.1.0</div></footer>
+
+</body>
+</html>

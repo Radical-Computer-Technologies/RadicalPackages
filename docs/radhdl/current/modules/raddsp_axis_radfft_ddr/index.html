@@ -1,0 +1,314 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>raddsp_axis_radfft_ddr Datasheet</title>
+  <link rel="stylesheet" href="../../assets/radhdl-docgen.css">
+</head>
+<body>
+
+<header><div class="wrap">
+  <nav class="breadcrumb"><a href="../../index.html">RadHDL</a> / <a href="../../libraries/raddsp.html">raddsp</a></nav>
+  <div class="kicker">DSP / entity</div>
+  <h1>raddsp_axis_radfft_ddr</h1>
+  <div class="summary"><p>DDR-backed AXI-stream RadFFT accelerator.
+Uses external memory through AXI-style control/data paths for large FFT frames that exceed local block RAM budgets.</p></div>
+</div></header>
+<main class="wrap">
+  <h2>Use Cases</h2>
+  <ul><li>AXI-Stream datapath integration where module boundaries need explicit ready/valid behavior.</li><li>Reusable FPGA DSP pipelines that need fixed-point, timing-aware implementation.</li><li>Memory-mapped control/status integration with software-visible register maps.</li></ul>
+  <h2>Block Diagram</h2>
+  <div class="diagram"><svg width="860" height="864" viewBox="0 0 860 864" xmlns="http://www.w3.org/2000/svg" role="img">
+<style>text{font-family:Inter,Arial,sans-serif;font-size:13px;fill:#111827}.pin{stroke:#106b62;stroke-width:2}.box{fill:#f7f9fc;stroke:#26323f;stroke-width:2}</style>
+<rect class="box" x="270" y="50" width="320" height="774" rx="4"/>
+<text x="430.0" y="84" text-anchor="middle" font-weight="700">raddsp_axis_radfft_ddr</text>
+<text x="430.0" y="106" text-anchor="middle">raddsp entity</text>
+<line class="pin" x1="90" y1="130" x2="270" y2="130"/>
+<text x="84" y="134" text-anchor="end">clk</text>
+<line class="pin" x1="90" y1="158" x2="270" y2="158"/>
+<text x="84" y="162" text-anchor="end">rstn</text>
+<line class="pin" x1="90" y1="186" x2="270" y2="186"/>
+<text x="84" y="190" text-anchor="end">s_axi_awaddr</text>
+<line class="pin" x1="90" y1="214" x2="270" y2="214"/>
+<text x="84" y="218" text-anchor="end">s_axi_awprot</text>
+<line class="pin" x1="90" y1="242" x2="270" y2="242"/>
+<text x="84" y="246" text-anchor="end">s_axi_awvalid</text>
+<line class="pin" x1="90" y1="270" x2="270" y2="270"/>
+<text x="84" y="274" text-anchor="end">s_axi_wdata</text>
+<line class="pin" x1="90" y1="298" x2="270" y2="298"/>
+<text x="84" y="302" text-anchor="end">s_axi_wstrb</text>
+<line class="pin" x1="90" y1="326" x2="270" y2="326"/>
+<text x="84" y="330" text-anchor="end">s_axi_wvalid</text>
+<line class="pin" x1="90" y1="354" x2="270" y2="354"/>
+<text x="84" y="358" text-anchor="end">s_axi_bready</text>
+<line class="pin" x1="90" y1="382" x2="270" y2="382"/>
+<text x="84" y="386" text-anchor="end">s_axi_araddr</text>
+<line class="pin" x1="90" y1="410" x2="270" y2="410"/>
+<text x="84" y="414" text-anchor="end">s_axi_arprot</text>
+<line class="pin" x1="90" y1="438" x2="270" y2="438"/>
+<text x="84" y="442" text-anchor="end">s_axi_arvalid</text>
+<line class="pin" x1="90" y1="466" x2="270" y2="466"/>
+<text x="84" y="470" text-anchor="end">s_axi_rready</text>
+<line class="pin" x1="90" y1="494" x2="270" y2="494"/>
+<text x="84" y="498" text-anchor="end">m_axi_awready</text>
+<line class="pin" x1="90" y1="522" x2="270" y2="522"/>
+<text x="84" y="526" text-anchor="end">m_axi_wready</text>
+<line class="pin" x1="90" y1="550" x2="270" y2="550"/>
+<text x="84" y="554" text-anchor="end">m_axi_bresp</text>
+<line class="pin" x1="90" y1="578" x2="270" y2="578"/>
+<text x="84" y="582" text-anchor="end">m_axi_bvalid</text>
+<line class="pin" x1="90" y1="606" x2="270" y2="606"/>
+<text x="84" y="610" text-anchor="end">m_axi_arready</text>
+<line class="pin" x1="90" y1="634" x2="270" y2="634"/>
+<text x="84" y="638" text-anchor="end">m_axi_rdata</text>
+<line class="pin" x1="90" y1="662" x2="270" y2="662"/>
+<text x="84" y="666" text-anchor="end">m_axi_rresp</text>
+<line class="pin" x1="90" y1="690" x2="270" y2="690"/>
+<text x="84" y="694" text-anchor="end">m_axi_rlast</text>
+<line class="pin" x1="90" y1="718" x2="270" y2="718"/>
+<text x="84" y="722" text-anchor="end">m_axi_rvalid</text>
+<line class="pin" x1="90" y1="746" x2="270" y2="746"/>
+<text x="84" y="750" text-anchor="end">s_axis_tdata</text>
+<line class="pin" x1="90" y1="774" x2="270" y2="774"/>
+<text x="84" y="778" text-anchor="end">s_axis_tvalid</text>
+<line class="pin" x1="90" y1="802" x2="270" y2="802"/>
+<text x="84" y="806" text-anchor="end">s_axis_tlast</text>
+<line class="pin" x1="90" y1="830" x2="270" y2="830"/>
+<text x="84" y="834" text-anchor="end">m_axis_tready</text>
+<line class="pin" x1="590" y1="130" x2="770" y2="130"/>
+<text x="776" y="134">s_axi_awready</text>
+<line class="pin" x1="590" y1="158" x2="770" y2="158"/>
+<text x="776" y="162">s_axi_wready</text>
+<line class="pin" x1="590" y1="186" x2="770" y2="186"/>
+<text x="776" y="190">s_axi_bresp</text>
+<line class="pin" x1="590" y1="214" x2="770" y2="214"/>
+<text x="776" y="218">s_axi_bvalid</text>
+<line class="pin" x1="590" y1="242" x2="770" y2="242"/>
+<text x="776" y="246">s_axi_arready</text>
+<line class="pin" x1="590" y1="270" x2="770" y2="270"/>
+<text x="776" y="274">s_axi_rdata</text>
+<line class="pin" x1="590" y1="298" x2="770" y2="298"/>
+<text x="776" y="302">s_axi_rresp</text>
+<line class="pin" x1="590" y1="326" x2="770" y2="326"/>
+<text x="776" y="330">s_axi_rvalid</text>
+<line class="pin" x1="590" y1="354" x2="770" y2="354"/>
+<text x="776" y="358">m_axi_awaddr</text>
+<line class="pin" x1="590" y1="382" x2="770" y2="382"/>
+<text x="776" y="386">m_axi_awlen</text>
+<line class="pin" x1="590" y1="410" x2="770" y2="410"/>
+<text x="776" y="414">m_axi_awsize</text>
+<line class="pin" x1="590" y1="438" x2="770" y2="438"/>
+<text x="776" y="442">m_axi_awburst</text>
+<line class="pin" x1="590" y1="466" x2="770" y2="466"/>
+<text x="776" y="470">m_axi_awvalid</text>
+<line class="pin" x1="590" y1="494" x2="770" y2="494"/>
+<text x="776" y="498">m_axi_wdata</text>
+<line class="pin" x1="590" y1="522" x2="770" y2="522"/>
+<text x="776" y="526">m_axi_wstrb</text>
+<line class="pin" x1="590" y1="550" x2="770" y2="550"/>
+<text x="776" y="554">m_axi_wlast</text>
+<line class="pin" x1="590" y1="578" x2="770" y2="578"/>
+<text x="776" y="582">m_axi_wvalid</text>
+<line class="pin" x1="590" y1="606" x2="770" y2="606"/>
+<text x="776" y="610">m_axi_bready</text>
+<line class="pin" x1="590" y1="634" x2="770" y2="634"/>
+<text x="776" y="638">m_axi_araddr</text>
+<line class="pin" x1="590" y1="662" x2="770" y2="662"/>
+<text x="776" y="666">m_axi_arlen</text>
+<line class="pin" x1="590" y1="690" x2="770" y2="690"/>
+<text x="776" y="694">m_axi_arsize</text>
+<line class="pin" x1="590" y1="718" x2="770" y2="718"/>
+<text x="776" y="722">m_axi_arburst</text>
+<line class="pin" x1="590" y1="746" x2="770" y2="746"/>
+<text x="776" y="750">m_axi_arvalid</text>
+<line class="pin" x1="590" y1="774" x2="770" y2="774"/>
+<text x="776" y="778">m_axi_rready</text>
+<line class="pin" x1="590" y1="802" x2="770" y2="802"/>
+<text x="776" y="806">s_axis_tready</text>
+<line class="pin" x1="590" y1="830" x2="770" y2="830"/>
+<text x="776" y="834">m_axis_tdata</text>
+<line class="pin" x1="590" y1="858" x2="770" y2="858"/>
+<text x="776" y="862">m_axis_tvalid</text>
+<line class="pin" x1="590" y1="886" x2="770" y2="886"/>
+<text x="776" y="890">m_axis_tlast</text>
+</svg></div>
+  <h2>Generics</h2><table><thead><tr><th>Name</th><th>Type</th><th>Default</th><th>Description</th></tr></thead><tbody><tr><td>VENDOR</td><td>string</td><td>&quot;xilinx&quot;</td><td>Selects the vendor-specific implementation path, usually XILINX for DSP48/XPM-backed builds or generic for portable RTL.</td></tr><tr><td>DEVICE_FAMILY</td><td>string</td><td>&quot;ultrascaleplus&quot;</td><td>Identifies the target FPGA family so wrappers can choose the correct primitive or conservative portable behavior.</td></tr><tr><td>G_AXI_ADDR_WIDTH</td><td>positive</td><td>32</td><td>Sets the bit width for G AXI ADDR WIDTH values carried by this module.</td></tr><tr><td>G_AXI_DATA_WIDTH</td><td>positive</td><td>64</td><td>Sets the bit width for G AXI DATA WIDTH values carried by this module.</td></tr><tr><td>G_AXIS_DATA_WIDTH</td><td>positive</td><td>64</td><td>Sets the bit width for G AXIS DATA WIDTH values carried by this module.</td></tr><tr><td>G_AXI_LITE_ADDR_WIDTH</td><td>positive</td><td>16</td><td>Sets the bit width for G AXI LITE ADDR WIDTH values carried by this module.</td></tr><tr><td>G_FIFO_DEPTH</td><td>positive</td><td>1024</td><td>Sets the storage depth, frame length, or number of buffered samples used internally.</td></tr><tr><td>G_FIFO_FWFT</td><td>boolean</td><td>true</td><td>Configures G FIFO FWFT for this instance.</td></tr><tr><td>G_MAX_BURST_BEATS</td><td>positive</td><td>64</td><td>Configures G MAX BURST BEATS for this instance.</td></tr><tr><td>G_FFT_POINTS</td><td>positive</td><td>1024</td><td>Sets the transform, frame, or vector size used by the datapath.</td></tr><tr><td>G_FFT_RADIX</td><td>positive</td><td>2</td><td>Sets the transform, frame, or vector size used by the datapath.</td></tr><tr><td>G_FFT_INPUT_WIDTH</td><td>positive</td><td>32</td><td>Sets the bit width for G FFT INPUT WIDTH values carried by this module.</td></tr><tr><td>G_FFT_TWIDDLE_WIDTH</td><td>positive</td><td>16</td><td>Sets the bit width for G FFT TWIDDLE WIDTH values carried by this module.</td></tr><tr><td>G_FFT_OUTPUT_WIDTH</td><td>positive</td><td>32</td><td>Sets the bit width for G FFT OUTPUT WIDTH values carried by this module.</td></tr><tr><td>G_FFT_SCALE_EACH_STAGE</td><td>boolean</td><td>true</td><td>Sets the transform, frame, or vector size used by the datapath.</td></tr><tr><td>G_FFT_MEMORY_STYLE</td><td>string</td><td>&quot;block&quot;</td><td>Sets the transform, frame, or vector size used by the datapath.</td></tr><tr><td>G_FFT_TWIDDLE_INIT_FILE</td><td>string</td><td>&quot;../../mem/radfft_twiddle_1024_16_fft.mem&quot;</td><td>Sets the transform, frame, or vector size used by the datapath.</td></tr><tr><td>G_FFT_INVERSE</td><td>boolean</td><td>false</td><td>Sets the transform, frame, or vector size used by the datapath.</td></tr><tr><td>G_MAX_MULTIPLIER_LANES</td><td>positive</td><td>16</td><td>Sets the number of parallel sample lanes processed per handshake beat.</td></tr><tr><td>G_XCORR_ENABLE</td><td>boolean</td><td>true</td><td>Configures G XCORR ENABLE for this instance.</td></tr><tr><td>G_XCORR_FRAME_DEPTH</td><td>positive</td><td>16384</td><td>Sets the storage depth, frame length, or number of buffered samples used internally.</td></tr><tr><td>G_XCORR_MEMORY_STYLE</td><td>string</td><td>&quot;block&quot;</td><td>Configures G XCORR MEMORY STYLE for this instance.</td></tr></tbody></table>
+  <h2>Ports</h2><table><thead><tr><th>Name</th><th>Direction</th><th>Type</th><th>Description</th></tr></thead><tbody><tr><td>clk</td><td>in</td><td>std_logic</td><td>Clock for the associated synchronous logic and handshake domain.</td></tr><tr><td>rstn</td><td>in</td><td>std_logic</td><td>Active-low reset for this clock domain.</td></tr><tr><td>s_axi_awaddr</td><td>in</td><td>std_logic_vector(G_AXI_LITE_ADDR_WIDTH - 1 downto 0)</td><td>AXI4-Lite slave-channel signal used for host register access.</td></tr><tr><td>s_axi_awprot</td><td>in</td><td>std_logic_vector(2 downto 0)</td><td>AXI4-Lite slave-channel signal used for host register access.</td></tr><tr><td>s_axi_awvalid</td><td>in</td><td>std_logic</td><td>AXI4-Lite slave-channel signal used for host register access.</td></tr><tr><td>s_axi_awready</td><td>out</td><td>std_logic</td><td>AXI4-Lite slave-channel signal used for host register access.</td></tr><tr><td>s_axi_wdata</td><td>in</td><td>std_logic_vector(31 downto 0)</td><td>AXI4-Lite slave-channel signal used for host register access.</td></tr><tr><td>s_axi_wstrb</td><td>in</td><td>std_logic_vector(3 downto 0)</td><td>AXI4-Lite slave-channel signal used for host register access.</td></tr><tr><td>s_axi_wvalid</td><td>in</td><td>std_logic</td><td>AXI4-Lite slave-channel signal used for host register access.</td></tr><tr><td>s_axi_wready</td><td>out</td><td>std_logic</td><td>AXI4-Lite slave-channel signal used for host register access.</td></tr><tr><td>s_axi_bresp</td><td>out</td><td>std_logic_vector(1 downto 0)</td><td>AXI4-Lite slave-channel signal used for host register access.</td></tr><tr><td>s_axi_bvalid</td><td>out</td><td>std_logic</td><td>AXI4-Lite slave-channel signal used for host register access.</td></tr><tr><td>s_axi_bready</td><td>in</td><td>std_logic</td><td>AXI4-Lite slave-channel signal used for host register access.</td></tr><tr><td>s_axi_araddr</td><td>in</td><td>std_logic_vector(G_AXI_LITE_ADDR_WIDTH - 1 downto 0)</td><td>AXI4-Lite slave-channel signal used for host register access.</td></tr><tr><td>s_axi_arprot</td><td>in</td><td>std_logic_vector(2 downto 0)</td><td>AXI4-Lite slave-channel signal used for host register access.</td></tr><tr><td>s_axi_arvalid</td><td>in</td><td>std_logic</td><td>AXI4-Lite slave-channel signal used for host register access.</td></tr><tr><td>s_axi_arready</td><td>out</td><td>std_logic</td><td>AXI4-Lite slave-channel signal used for host register access.</td></tr><tr><td>s_axi_rdata</td><td>out</td><td>std_logic_vector(31 downto 0)</td><td>AXI4-Lite slave-channel signal used for host register access.</td></tr><tr><td>s_axi_rresp</td><td>out</td><td>std_logic_vector(1 downto 0)</td><td>AXI4-Lite slave-channel signal used for host register access.</td></tr><tr><td>s_axi_rvalid</td><td>out</td><td>std_logic</td><td>AXI4-Lite slave-channel signal used for host register access.</td></tr><tr><td>s_axi_rready</td><td>in</td><td>std_logic</td><td>AXI4-Lite slave-channel signal used for host register access.</td></tr><tr><td>m_axi_awaddr</td><td>out</td><td>std_logic_vector(G_AXI_ADDR_WIDTH - 1 downto 0)</td><td>AXI master-channel signal used for memory-mapped transfer generation.</td></tr><tr><td>m_axi_awlen</td><td>out</td><td>std_logic_vector(7 downto 0)</td><td>AXI master-channel signal used for memory-mapped transfer generation.</td></tr><tr><td>m_axi_awsize</td><td>out</td><td>std_logic_vector(2 downto 0)</td><td>AXI master-channel signal used for memory-mapped transfer generation.</td></tr><tr><td>m_axi_awburst</td><td>out</td><td>std_logic_vector(1 downto 0)</td><td>AXI master-channel signal used for memory-mapped transfer generation.</td></tr><tr><td>m_axi_awvalid</td><td>out</td><td>std_logic</td><td>AXI master-channel signal used for memory-mapped transfer generation.</td></tr><tr><td>m_axi_awready</td><td>in</td><td>std_logic</td><td>AXI master-channel signal used for memory-mapped transfer generation.</td></tr><tr><td>m_axi_wdata</td><td>out</td><td>std_logic_vector(G_AXI_DATA_WIDTH - 1 downto 0)</td><td>AXI master-channel signal used for memory-mapped transfer generation.</td></tr><tr><td>m_axi_wstrb</td><td>out</td><td>std_logic_vector((G_AXI_DATA_WIDTH / 8) - 1 downto 0)</td><td>AXI master-channel signal used for memory-mapped transfer generation.</td></tr><tr><td>m_axi_wlast</td><td>out</td><td>std_logic</td><td>AXI master-channel signal used for memory-mapped transfer generation.</td></tr><tr><td>m_axi_wvalid</td><td>out</td><td>std_logic</td><td>AXI master-channel signal used for memory-mapped transfer generation.</td></tr><tr><td>m_axi_wready</td><td>in</td><td>std_logic</td><td>AXI master-channel signal used for memory-mapped transfer generation.</td></tr><tr><td>m_axi_bresp</td><td>in</td><td>std_logic_vector(1 downto 0)</td><td>AXI master-channel signal used for memory-mapped transfer generation.</td></tr><tr><td>m_axi_bvalid</td><td>in</td><td>std_logic</td><td>AXI master-channel signal used for memory-mapped transfer generation.</td></tr><tr><td>m_axi_bready</td><td>out</td><td>std_logic</td><td>AXI master-channel signal used for memory-mapped transfer generation.</td></tr><tr><td>m_axi_araddr</td><td>out</td><td>std_logic_vector(G_AXI_ADDR_WIDTH - 1 downto 0)</td><td>AXI master-channel signal used for memory-mapped transfer generation.</td></tr><tr><td>m_axi_arlen</td><td>out</td><td>std_logic_vector(7 downto 0)</td><td>AXI master-channel signal used for memory-mapped transfer generation.</td></tr><tr><td>m_axi_arsize</td><td>out</td><td>std_logic_vector(2 downto 0)</td><td>AXI master-channel signal used for memory-mapped transfer generation.</td></tr><tr><td>m_axi_arburst</td><td>out</td><td>std_logic_vector(1 downto 0)</td><td>AXI master-channel signal used for memory-mapped transfer generation.</td></tr><tr><td>m_axi_arvalid</td><td>out</td><td>std_logic</td><td>AXI master-channel signal used for memory-mapped transfer generation.</td></tr><tr><td>m_axi_arready</td><td>in</td><td>std_logic</td><td>AXI master-channel signal used for memory-mapped transfer generation.</td></tr><tr><td>m_axi_rdata</td><td>in</td><td>std_logic_vector(G_AXI_DATA_WIDTH - 1 downto 0)</td><td>AXI master-channel signal used for memory-mapped transfer generation.</td></tr><tr><td>m_axi_rresp</td><td>in</td><td>std_logic_vector(1 downto 0)</td><td>AXI master-channel signal used for memory-mapped transfer generation.</td></tr><tr><td>m_axi_rlast</td><td>in</td><td>std_logic</td><td>AXI master-channel signal used for memory-mapped transfer generation.</td></tr><tr><td>m_axi_rvalid</td><td>in</td><td>std_logic</td><td>AXI master-channel signal used for memory-mapped transfer generation.</td></tr><tr><td>m_axi_rready</td><td>out</td><td>std_logic</td><td>AXI master-channel signal used for memory-mapped transfer generation.</td></tr><tr><td>s_axis_tdata</td><td>in</td><td>std_logic_vector(G_AXIS_DATA_WIDTH - 1 downto 0)</td><td>Input AXI-stream payload containing packed sample or feature lanes.</td></tr><tr><td>s_axis_tvalid</td><td>in</td><td>std_logic</td><td>Input AXI-stream valid qualifier for the current sample beat.</td></tr><tr><td>s_axis_tready</td><td>out</td><td>std_logic</td><td>Input AXI-stream ready response indicating this block can accept a beat.</td></tr><tr><td>s_axis_tlast</td><td>in</td><td>std_logic</td><td>Input AXI-stream frame marker for the final beat of a frame.</td></tr><tr><td>m_axis_tdata</td><td>out</td><td>std_logic_vector(G_AXIS_DATA_WIDTH - 1 downto 0)</td><td>Output AXI-stream payload containing packed processed result lanes.</td></tr><tr><td>m_axis_tvalid</td><td>out</td><td>std_logic</td><td>Output AXI-stream valid qualifier for the current result beat.</td></tr><tr><td>m_axis_tready</td><td>in</td><td>std_logic</td><td>Output AXI-stream ready input from the downstream block.</td></tr><tr><td>m_axis_tlast</td><td>out</td><td>std_logic</td><td>Output AXI-stream frame marker aligned with the processed result beat.</td></tr></tbody></table>
+  
+  <h2>Testbenches and Waveforms</h2><table><thead><tr><th>Testbench</th><th>Source</th><th>Simulation</th></tr></thead><tbody><tr><td>tb_raddsp_axis_radfft_ddr</td><td>dsp/hdl/testbenches/tb_raddsp_axis_radfft_ddr.vhd</td><td>not-run</td></tr><tr><td>tb_raddsp_axis_radfft_ddr_xcorr_1024</td><td>dsp/hdl/testbenches/tb_raddsp_axis_radfft_ddr_xcorr_1024.vhd</td><td>not-run</td></tr></tbody></table>
+  <h2>HDL Example</h2>
+  <pre><code>entity raddsp_axis_radfft_ddr is
+  generic (
+    -- Selects the vendor-specific implementation path, usually XILINX for DSP48/XPM-backed builds or generic for portable RTL.
+    VENDOR                : string := &quot;xilinx&quot;;
+    -- Identifies the target FPGA family so wrappers can choose the correct primitive or conservative portable behavior.
+    DEVICE_FAMILY         : string := &quot;ultrascaleplus&quot;;
+    -- Sets the bit width for G AXI ADDR WIDTH values carried by this module.
+    G_AXI_ADDR_WIDTH      : positive := 32;
+    -- Sets the bit width for G AXI DATA WIDTH values carried by this module.
+    G_AXI_DATA_WIDTH      : positive := 64;
+    -- Sets the bit width for G AXIS DATA WIDTH values carried by this module.
+    G_AXIS_DATA_WIDTH     : positive := 64;
+    -- Sets the bit width for G AXI LITE ADDR WIDTH values carried by this module.
+    G_AXI_LITE_ADDR_WIDTH : positive := 16;
+    -- Sets the storage depth, frame length, or number of buffered samples used internally.
+    G_FIFO_DEPTH          : positive := 1024;
+    -- Configures G FIFO FWFT for this instance.
+    G_FIFO_FWFT           : boolean := true;
+    -- Configures G MAX BURST BEATS for this instance.
+    G_MAX_BURST_BEATS     : positive := 64;
+    -- Sets the transform, frame, or vector size used by the datapath.
+    G_FFT_POINTS          : positive := 1024;
+    -- Sets the transform, frame, or vector size used by the datapath.
+    G_FFT_RADIX           : positive := 2;
+    -- Sets the bit width for G FFT INPUT WIDTH values carried by this module.
+    G_FFT_INPUT_WIDTH     : positive := 32;
+    -- Sets the bit width for G FFT TWIDDLE WIDTH values carried by this module.
+    G_FFT_TWIDDLE_WIDTH   : positive := 16;
+    -- Sets the bit width for G FFT OUTPUT WIDTH values carried by this module.
+    G_FFT_OUTPUT_WIDTH    : positive := 32;
+    -- Sets the transform, frame, or vector size used by the datapath.
+    G_FFT_SCALE_EACH_STAGE : boolean := true;
+    -- Sets the transform, frame, or vector size used by the datapath.
+    G_FFT_MEMORY_STYLE    : string := &quot;block&quot;;
+    -- Sets the transform, frame, or vector size used by the datapath.
+    G_FFT_TWIDDLE_INIT_FILE : string := &quot;../../mem/radfft_twiddle_1024_16_fft.mem&quot;;
+    -- Sets the transform, frame, or vector size used by the datapath.
+    G_FFT_INVERSE         : boolean := false;
+    -- Sets the number of parallel sample lanes processed per handshake beat.
+    G_MAX_MULTIPLIER_LANES : positive := 16;
+    -- Configures G XCORR ENABLE for this instance.
+    G_XCORR_ENABLE        : boolean := true;
+    -- Sets the storage depth, frame length, or number of buffered samples used internally.
+    G_XCORR_FRAME_DEPTH   : positive := 16384;
+    -- Configures G XCORR MEMORY STYLE for this instance.
+    G_XCORR_MEMORY_STYLE  : string := &quot;block&quot;;
+    -- Configures G DEFAULT REGION BYTES for this instance.
+    G_DEFAULT_REGION_BYTES : natural := 67108864
+  );
+  port (
+    -- Clock for the associated synchronous logic and handshake domain.
+    clk            : in  std_logic;
+    -- Active-low reset for this clock domain.
+    rstn           : in  std_logic;
+
+    -- AXI4-Lite slave-channel signal used for host register access.
+    s_axi_awaddr   : in  std_logic_vector(G_AXI_LITE_ADDR_WIDTH - 1 downto 0);
+    -- AXI4-Lite slave-channel signal used for host register access.
+    s_axi_awprot   : in  std_logic_vector(2 downto 0);
+    -- AXI4-Lite slave-channel signal used for host register access.
+    s_axi_awvalid  : in  std_logic;
+    -- AXI4-Lite slave-channel signal used for host register access.
+    s_axi_awready  : out std_logic;
+    -- AXI4-Lite slave-channel signal used for host register access.
+    s_axi_wdata    : in  std_logic_vector(31 downto 0);
+    -- AXI4-Lite slave-channel signal used for host register access.
+    s_axi_wstrb    : in  std_logic_vector(3 downto 0);
+    -- AXI4-Lite slave-channel signal used for host register access.
+    s_axi_wvalid   : in  std_logic;
+    -- AXI4-Lite slave-channel signal used for host register access.
+    s_axi_wready   : out std_logic;
+    -- AXI4-Lite slave-channel signal used for host register access.
+    s_axi_bresp    : out std_logic_vector(1 downto 0);
+    -- AXI4-Lite slave-channel signal used for host register access.
+    s_axi_bvalid   : out std_logic;
+    -- AXI4-Lite slave-channel signal used for host register access.
+    s_axi_bready   : in  std_logic;
+    -- AXI4-Lite slave-channel signal used for host register access.
+    s_axi_araddr   : in  std_logic_vector(G_AXI_LITE_ADDR_WIDTH - 1 downto 0);
+    -- AXI4-Lite slave-channel signal used for host register access.
+    s_axi_arprot   : in  std_logic_vector(2 downto 0);
+    -- AXI4-Lite slave-channel signal used for host register access.
+    s_axi_arvalid  : in  std_logic;
+    -- AXI4-Lite slave-channel signal used for host register access.
+    s_axi_arready  : out std_logic;
+    -- AXI4-Lite slave-channel signal used for host register access.
+    s_axi_rdata    : out std_logic_vector(31 downto 0);
+    -- AXI4-Lite slave-channel signal used for host register access.
+    s_axi_rresp    : out std_logic_vector(1 downto 0);
+    -- AXI4-Lite slave-channel signal used for host register access.
+    s_axi_rvalid   : out std_logic;
+    -- AXI4-Lite slave-channel signal used for host register access.
+    s_axi_rready   : in  std_logic;
+
+    -- AXI master-channel signal used for memory-mapped transfer generation.
+    m_axi_awaddr   : out std_logic_vector(G_AXI_ADDR_WIDTH - 1 downto 0);
+    -- AXI master-channel signal used for memory-mapped transfer generation.
+    m_axi_awlen    : out std_logic_vector(7 downto 0);
+    -- AXI master-channel signal used for memory-mapped transfer generation.
+    m_axi_awsize   : out std_logic_vector(2 downto 0);
+    -- AXI master-channel signal used for memory-mapped transfer generation.
+    m_axi_awburst  : out std_logic_vector(1 downto 0);
+    -- AXI master-channel signal used for memory-mapped transfer generation.
+    m_axi_awvalid  : out std_logic;
+    -- AXI master-channel signal used for memory-mapped transfer generation.
+    m_axi_awready  : in  std_logic;
+    -- AXI master-channel signal used for memory-mapped transfer generation.
+    m_axi_wdata    : out std_logic_vector(G_AXI_DATA_WIDTH - 1 downto 0);
+    -- AXI master-channel signal used for memory-mapped transfer generation.
+    m_axi_wstrb    : out std_logic_vector((G_AXI_DATA_WIDTH / 8) - 1 downto 0);
+    -- AXI master-channel signal used for memory-mapped transfer generation.
+    m_axi_wlast    : out std_logic;
+    -- AXI master-channel signal used for memory-mapped transfer generation.
+    m_axi_wvalid   : out std_logic;
+    -- AXI master-channel signal used for memory-mapped transfer generation.
+    m_axi_wready   : in  std_logic;
+    -- AXI master-channel signal used for memory-mapped transfer generation.
+    m_axi_bresp    : in  std_logic_vector(1 downto 0);
+    -- AXI master-channel signal used for memory-mapped transfer generation.
+    m_axi_bvalid   : in  std_logic;
+    -- AXI master-channel signal used for memory-mapped transfer generation.
+    m_axi_bready   : out std_logic;
+
+    -- AXI master-channel signal used for memory-mapped transfer generation.
+    m_axi_araddr   : out std_logic_vector(G_AXI_ADDR_WIDTH - 1 downto 0);
+    -- AXI master-channel signal used for memory-mapped transfer generation.
+    m_axi_arlen    : out std_logic_vector(7 downto 0);
+    -- AXI master-channel signal used for memory-mapped transfer generation.
+    m_axi_arsize   : out std_logic_vector(2 downto 0);
+    -- AXI master-channel signal used for memory-mapped transfer generation.
+    m_axi_arburst  : out std_logic_vector(1 downto 0);
+    -- AXI master-channel signal used for memory-mapped transfer generation.
+    m_axi_arvalid  : out std_logic;
+    -- AXI master-channel signal used for memory-mapped transfer generation.
+    m_axi_arready  : in  std_logic;
+    -- AXI master-channel signal used for memory-mapped transfer generation.
+    m_axi_rdata    : in  std_logic_vector(G_AXI_DATA_WIDTH - 1 downto 0);
+    -- AXI master-channel signal used for memory-mapped transfer generation.
+    m_axi_rresp    : in  std_logic_vector(1 downto 0);
+    -- AXI master-channel signal used for memory-mapped transfer generation.
+    m_axi_rlast    : in  std_logic;
+    -- AXI master-channel signal used for memory-mapped transfer generation.
+    m_axi_rvalid   : in  std_logic;
+    -- AXI master-channel signal used for memory-mapped transfer generation.
+    m_axi_rready   : out std_logic;
+
+    -- Input AXI-stream payload containing packed sample or feature lanes.
+    s_axis_tdata   : in  std_logic_vector(G_AXIS_DATA_WIDTH - 1 downto 0);
+    -- Input AXI-stream valid qualifier for the current sample beat.
+    s_axis_tvalid  : in  std_logic;
+    -- Input AXI-stream ready response indicating this block can accept a beat.
+    s_axis_tready  : out std_logic;
+    -- Input AXI-stream frame marker for the final beat of a frame.
+    s_axis_tlast   : in  std_logic;
+    -- Output AXI-stream payload containing packed processed result lanes.
+    m_axis_tdata   : out std_logic_vector(G_AXIS_DATA_WIDTH - 1 downto 0);
+    -- Output AXI-stream valid qualifier for the current result beat.
+    m_axis_tvalid  : out std_logic;
+    -- Output AXI-stream ready input from the downstream block.
+    m_axis_tready  : in  std_logic;
+    -- Output AXI-stream frame marker aligned with the processed result beat.
+    m_axis_tlast   : out std_logic;
+
+    -- Output irq o signal generated by this module.
+    irq_o          : out std_logic
+  );
+end entity;</code></pre>
+  <h2>Sources</h2>
+  <ul><li>dsp/hdl/raddsp/src/raddsp_axis_radfft_ddr.vhd</li></ul>
+</main>
+<footer><div class="wrap">Generated by radhdl-docgen 0.1.0</div></footer>
+
+</body>
+</html>

@@ -4,14 +4,31 @@ set -euo pipefail
 ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 RADHDL_SOURCE_DIR="${1:-$ROOT/../RadHDL}"
 RADHDL_DOC_VERSION="${2:-${RADHDL_DOC_VERSION:-current}}"
-RADHDL_SOURCE_BUILD_DIR="$ROOT/docs_src/radhdl"
 RADHDL_DOC_OUTPUT="$ROOT/docs/radhdl/$RADHDL_DOC_VERSION"
+RADHDL_DOCGEN="${RADHDL_DOCGEN:-$RADHDL_SOURCE_DIR/scripts/radhdl_docgen.py}"
 
-python3 "$ROOT/scripts/update_radhdl_docs.py" "$RADHDL_SOURCE_DIR" --source-dir "$RADHDL_SOURCE_BUILD_DIR"
+if [[ ! -x "$RADHDL_DOCGEN" && ! -f "$RADHDL_DOCGEN" ]]; then
+  if command -v radhdl-docgen >/dev/null 2>&1; then
+    RADHDL_DOCGEN="$(command -v radhdl-docgen)"
+  else
+    echo "radhdl-docgen not found. Set RADHDL_DOCGEN or install radbuild-radhdl." >&2
+    exit 1
+  fi
+fi
 
 rm -rf "$RADHDL_DOC_OUTPUT"
 mkdir -p "$RADHDL_DOC_OUTPUT"
-sphinx-build -b html -d "$RADHDL_SOURCE_BUILD_DIR/.doctrees" "$RADHDL_SOURCE_BUILD_DIR" "$RADHDL_DOC_OUTPUT"
+
+DOCGEN_ARGS=(build --radhdl "$RADHDL_SOURCE_DIR" --out "$RADHDL_DOC_OUTPUT")
+if [[ "${RADHDL_DOCGEN_RUN_SIMS:-0}" == "1" ]]; then
+  DOCGEN_ARGS+=(--run-sims)
+fi
+
+if [[ "$RADHDL_DOCGEN" == *.py ]]; then
+  python3 "$RADHDL_DOCGEN" "${DOCGEN_ARGS[@]}"
+else
+  "$RADHDL_DOCGEN" "${DOCGEN_ARGS[@]}"
+fi
 
 cat > "$ROOT/docs/radhdl/index.html" <<'HTML'
 <!doctype html>
