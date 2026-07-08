@@ -14,6 +14,15 @@ h3 { margin-top: 24px; }
 .card { border: 1px solid var(--line); border-radius: 6px; padding: 14px; background: var(--card); }
 .card strong { display: block; margin-bottom: 4px; }
 .meta { color: var(--muted); font-size: 13px; }
+.datasheet-browser { border: 1px solid var(--line); border-radius: 6px; background: var(--card); padding: 14px; }
+.datasheet-search { width: 100%; max-width: 460px; border: 1px solid var(--line); border-radius: 6px; background: var(--soft); color: var(--ink); padding: 9px 11px; margin-bottom: 12px; }
+.datasheet-section, .package-group { border: 1px solid var(--line); border-radius: 6px; margin: 8px 0; background: var(--soft); }
+.datasheet-section > summary, .package-group > summary { cursor: pointer; padding: 8px 10px; font-weight: 700; }
+.package-group { margin: 8px 10px; background: var(--card); }
+.datasheet-list { max-height: 260px; overflow-y: auto; padding: 4px 10px 10px; }
+.datasheet-link-row { display: flex; justify-content: space-between; gap: 12px; padding: 5px 0; border-top: 1px solid var(--line); font-size: 14px; }
+.datasheet-link-row:first-child { border-top: 0; }
+.datasheet-link-row .meta { white-space: nowrap; }
 table { width: 100%; border-collapse: collapse; margin: 12px 0 18px; font-size: 14px; }
 th, td { border: 1px solid var(--line); padding: 8px 10px; vertical-align: top; text-align: left; }
 th { background: var(--panel); font-weight: 700; }

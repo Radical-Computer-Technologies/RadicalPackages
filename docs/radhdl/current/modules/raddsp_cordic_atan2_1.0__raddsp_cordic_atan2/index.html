@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>raddsp_cordic_atan2 Datasheet</title>
+  <link rel="stylesheet" href="../../assets/radhdl-docgen.css">
+</head>
+<body>
+
+<header><div class="wrap">
+  <nav class="breadcrumb"><a href="../../index.html">RadHDL</a> / <a href="../../libraries/dsp.html">dsp</a></nav>
+  <div class="kicker">DSP / entity</div>
+  <h1>raddsp_cordic_atan2</h1>
+  <div class="summary"><p>AXI-stream wrapper around the fixed-point CORDIC atan2 engine.
+Presents phase-estimation as a ready/valid streaming block for RadDSP dataflow pipelines.</p></div>
+</div></header>
+<main class="wrap">
+  <h2>Use Cases</h2>
+  <ul><li>Reusable FPGA DSP pipelines that need fixed-point, timing-aware implementation.</li></ul>
+  <h2>Block Diagram</h2>
+  <div class="diagram"><svg width="582" height="330" viewBox="0 0 582 330" xmlns="http://www.w3.org/2000/svg" role="img">
+<style>text{font-family:Inter,Arial,sans-serif;font-size:13px;fill:#111827}.pin{stroke:#106b62;stroke-width:2;fill:none}.interface-pin{stroke:#7b8794;stroke-width:2;fill:#e5e7eb}.box{fill:#f7f9fc;stroke:#26323f;stroke-width:2}.bubble{fill:#fff;stroke:#106b62;stroke-width:2}.clock{fill:none;stroke:#106b62;stroke-width:2}</style>
+<rect class="box" x="72" y="50" width="420" height="240" rx="4"/>
+<text x="282.0" y="84" text-anchor="middle" font-weight="700">raddsp_cordic_atan2</text>
+<text x="282.0" y="106" text-anchor="middle">dsp entity</text>
+<line class="pin" x1="36" y1="130" x2="72" y2="130"/>
+<text x="100" y="134">clk</text>
+<path class="clock" d="M 74 123 L 87 130 L 74 137"/>
+<line class="pin" x1="36" y1="158" x2="72" y2="158"/>
+<text x="100" y="162">rst</text>
+<line class="pin" x1="36" y1="186" x2="72" y2="186"/>
+<text x="100" y="190">input_valid</text>
+<line class="pin" x1="36" y1="214" x2="72" y2="214"/>
+<text x="100" y="218">x_in</text>
+<line class="pin" x1="36" y1="242" x2="72" y2="242"/>
+<text x="100" y="246">y_in</text>
+<line class="pin" x1="492" y1="130" x2="528" y2="130"/>
+<text x="464" y="134" text-anchor="end">input_ready</text>
+<line class="pin" x1="492" y1="158" x2="528" y2="158"/>
+<text x="464" y="162" text-anchor="end">busy</text>
+<line class="pin" x1="492" y1="186" x2="528" y2="186"/>
+<text x="464" y="190" text-anchor="end">phase_valid</text>
+<line class="pin" x1="492" y1="214" x2="528" y2="214"/>
+<text x="464" y="218" text-anchor="end">phase_out</text>
+</svg></div>
+  <h2>Generics</h2><table><thead><tr><th>Name</th><th>Type</th><th>Default</th><th>Description</th></tr></thead><tbody><tr><td>G_INPUT_WIDTH</td><td>positive</td><td>16</td><td>Sets the bit width for G INPUT WIDTH values carried by this module.</td></tr><tr><td>G_PHASE_WIDTH</td><td>positive</td><td>32</td><td>Sets the bit width for G PHASE WIDTH values carried by this module.</td></tr></tbody></table>
+  <h2>Ports</h2><table><thead><tr><th>Name</th><th>Direction</th><th>Type</th><th>Description</th></tr></thead><tbody><tr><td>clk</td><td>in</td><td>std_logic</td><td>Clock for the associated synchronous logic and handshake domain.</td></tr><tr><td>rst</td><td>in</td><td>std_logic</td><td>Active-high synchronous reset for this clock domain.</td></tr><tr><td>input_valid</td><td>in</td><td>std_logic</td><td>Input valid interface signal.</td></tr><tr><td>x_in</td><td>in</td><td>std_logic_vector(G_INPUT_WIDTH - 1 downto 0)</td><td>X in interface signal.</td></tr><tr><td>y_in</td><td>in</td><td>std_logic_vector(G_INPUT_WIDTH - 1 downto 0)</td><td>Y in interface signal.</td></tr><tr><td>input_ready</td><td>out</td><td>std_logic</td><td>Input ready interface signal.</td></tr><tr><td>busy</td><td>out</td><td>std_logic</td><td>Busy interface signal.</td></tr><tr><td>phase_valid</td><td>out</td><td>std_logic</td><td>Phase valid interface signal.</td></tr><tr><td>phase_out</td><td>out</td><td>std_logic_vector(G_PHASE_WIDTH - 1 downto 0)</td><td>Phase out interface signal.</td></tr></tbody></table>
+  
+  <h2>Testbenches and Waveforms</h2><p class="summary">No directly associated testbench was found.</p>
+  <h2>HDL Example</h2>
+  <pre><code>entity raddsp_cordic_atan2 is
+  generic (
+    -- Sets the bit width for G INPUT WIDTH values carried by this module.
+    G_INPUT_WIDTH : positive := 16;
+    -- Sets the bit width for G PHASE WIDTH values carried by this module.
+    G_PHASE_WIDTH : positive := 32;
+    -- Configures G ITERATIONS for this instance.
+    G_ITERATIONS  : positive := 24
+  );
+  port (
+    -- Clock for the associated synchronous logic and handshake domain.
+    clk          : in  std_logic;
+    -- Active-high synchronous reset for this clock domain.
+    rst          : in  std_logic;
+    -- Input valid interface signal.
+    input_valid  : in  std_logic;
+    -- X in interface signal.
+    x_in         : in  std_logic_vector(G_INPUT_WIDTH - 1 downto 0);
+    -- Y in interface signal.
+    y_in         : in  std_logic_vector(G_INPUT_WIDTH - 1 downto 0);
+    -- Input ready interface signal.
+    input_ready  : out std_logic;
+    -- Busy interface signal.
+    busy         : out std_logic;
+    -- Phase valid interface signal.
+    phase_valid  : out std_logic;
+    -- Phase out interface signal.
+    phase_out    : out std_logic_vector(G_PHASE_WIDTH - 1 downto 0)
+  );
+end entity;</code></pre>
+  <h2>Sources</h2>
+  <ul><li>dsp/hdl/iprepo/raddsp_cordic_atan2_1.0/src/raddsp_cordic_atan2.vhd</li></ul>
+</main>
+<footer><div class="wrap">Generated by radhdl-docgen 0.1.0</div></footer>
+
+</body>
+</html>

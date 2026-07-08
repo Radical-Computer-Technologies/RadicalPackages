@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>raddsp_axis_radfft_parallel8 Datasheet</title>
+  <link rel="stylesheet" href="../../assets/radhdl-docgen.css">
+</head>
+<body>
+
+<header><div class="wrap">
+  <nav class="breadcrumb"><a href="../../index.html">RadHDL</a> / <a href="../../libraries/raddsp.html">raddsp</a></nav>
+  <div class="kicker">DSP / entity</div>
+  <h1>raddsp_axis_radfft_parallel8</h1>
+  <div class="summary"><p>Eight-lane parallel AXI-stream RadFFT engine.
+Processes multiple samples per cycle for high-throughput spectral pipelines on larger FPGA devices.</p></div>
+</div></header>
+<main class="wrap">
+  <h2>Use Cases</h2>
+  <ul><li>AXI-Stream datapath integration where module boundaries need explicit ready/valid behavior.</li><li>Reusable FPGA DSP pipelines that need fixed-point, timing-aware implementation.</li><li>Memory-mapped control/status integration with software-visible register maps.</li></ul>
+  <h2>Block Diagram</h2>
+  <div class="diagram"><svg width="582" height="470" viewBox="0 0 582 470" xmlns="http://www.w3.org/2000/svg" role="img">
+<style>text{font-family:Inter,Arial,sans-serif;font-size:13px;fill:#111827}.pin{stroke:#106b62;stroke-width:2;fill:none}.interface-pin{stroke:#7b8794;stroke-width:2;fill:#e5e7eb}.box{fill:#f7f9fc;stroke:#26323f;stroke-width:2}.bubble{fill:#fff;stroke:#106b62;stroke-width:2}.clock{fill:none;stroke:#106b62;stroke-width:2}</style>
+<rect class="box" x="72" y="50" width="420" height="380" rx="4"/>
+<text x="282.0" y="84" text-anchor="middle" font-weight="700">raddsp_axis_radfft_parallel8</text>
+<text x="282.0" y="106" text-anchor="middle">raddsp entity</text>
+<line class="pin" x1="36" y1="130" x2="72" y2="130"/>
+<text x="100" y="134">clk</text>
+<path class="clock" d="M 74 123 L 87 130 L 74 137"/>
+<line class="pin" x1="36" y1="158" x2="72" y2="158"/>
+<text x="100" y="162">rst</text>
+<line class="pin" x1="36" y1="186" x2="72" y2="186"/>
+<text x="100" y="190">S_AXIS</text>
+<rect class="interface-pin" x="28" y="177" width="18" height="18" rx="2"/>
+<line class="pin" x1="36" y1="214" x2="72" y2="214"/>
+<text x="100" y="218">runtime_inverse_i</text>
+<line class="pin" x1="36" y1="242" x2="72" y2="242"/>
+<text x="100" y="246">active_point_log2_i</text>
+<line class="pin" x1="36" y1="270" x2="72" y2="270"/>
+<text x="100" y="274">active_radix4_i</text>
+<line class="pin" x1="36" y1="298" x2="72" y2="298"/>
+<text x="100" y="302">active_input_width_i</text>
+<line class="pin" x1="36" y1="326" x2="72" y2="326"/>
+<text x="100" y="330">active_output_width_i</text>
+<line class="pin" x1="36" y1="354" x2="72" y2="354"/>
+<text x="100" y="358">twiddle_re_i</text>
+<line class="pin" x1="36" y1="382" x2="72" y2="382"/>
+<text x="100" y="386">twiddle_im_i</text>
+<line class="pin" x1="492" y1="130" x2="528" y2="130"/>
+<text x="464" y="134" text-anchor="end">M_AXIS</text>
+<rect class="interface-pin" x="518" y="121" width="18" height="18" rx="2"/>
+<line class="pin" x1="492" y1="158" x2="528" y2="158"/>
+<text x="464" y="162" text-anchor="end">twiddle_addr_o</text>
+<line class="pin" x1="492" y1="186" x2="528" y2="186"/>
+<text x="464" y="190" text-anchor="end">busy_o</text>
+</svg></div>
+  <h2>Generics</h2><table><thead><tr><th>Name</th><th>Type</th><th>Default</th><th>Description</th></tr></thead><tbody><tr><td>VENDOR</td><td>string</td><td>&quot;xilinx&quot;</td><td>Selects the vendor-specific implementation path, usually XILINX for DSP48/XPM-backed builds or generic for portable RTL.</td></tr><tr><td>DEVICE_FAMILY</td><td>string</td><td>&quot;ultrascaleplus&quot;</td><td>Identifies the target FPGA family so wrappers can choose the correct primitive or conservative portable behavior.</td></tr><tr><td>G_POINTS</td><td>positive</td><td>1024</td><td>Sets the transform, frame, or vector size used by the datapath.</td></tr><tr><td>G_MAX_POINTS</td><td>positive</td><td>1024</td><td>Sets the transform, frame, or vector size used by the datapath.</td></tr><tr><td>G_INVERSE_FFT</td><td>boolean</td><td>false</td><td>Sets the transform, frame, or vector size used by the datapath.</td></tr><tr><td>G_INPUT_WIDTH</td><td>positive</td><td>32</td><td>Sets the bit width for G INPUT WIDTH values carried by this module.</td></tr><tr><td>G_TWIDDLE_WIDTH</td><td>positive</td><td>16</td><td>Sets the bit width for G TWIDDLE WIDTH values carried by this module.</td></tr><tr><td>G_OUTPUT_WIDTH</td><td>positive</td><td>32</td><td>Sets the bit width for G OUTPUT WIDTH values carried by this module.</td></tr><tr><td>G_SCALE_EACH_STAGE</td><td>boolean</td><td>true</td><td>Configures G SCALE EACH STAGE for this instance.</td></tr></tbody></table>
+  <h2>Ports</h2><table><thead><tr><th>Name</th><th>Direction</th><th>Type</th><th>Description</th></tr></thead><tbody><tr><td>clk</td><td>in</td><td>std_logic</td><td>Clock for the associated synchronous logic and handshake domain.</td></tr><tr><td>rst</td><td>in</td><td>std_logic</td><td>Active-high synchronous reset for this clock domain.</td></tr><tr><td>s_axis_tvalid</td><td>in</td><td>std_logic</td><td>Input AXI-stream valid qualifier for the current sample beat.</td></tr><tr><td>s_axis_tready</td><td>out</td><td>std_logic</td><td>Input AXI-stream ready response indicating this block can accept a beat.</td></tr><tr><td>s_axis_tdata</td><td>in</td><td>std_logic_vector((2 * G_INPUT_WIDTH) - 1 downto 0)</td><td>Input AXI-stream payload containing packed sample or feature lanes.</td></tr><tr><td>s_axis_tlast</td><td>in</td><td>std_logic</td><td>Input AXI-stream frame marker for the final beat of a frame.</td></tr><tr><td>m_axis_tvalid</td><td>out</td><td>std_logic</td><td>Output AXI-stream valid qualifier for the current result beat.</td></tr><tr><td>m_axis_tready</td><td>in</td><td>std_logic</td><td>Output AXI-stream ready input from the downstream block.</td></tr><tr><td>m_axis_tdata</td><td>out</td><td>std_logic_vector((2 * G_OUTPUT_WIDTH) - 1 downto 0)</td><td>Output AXI-stream payload containing packed processed result lanes.</td></tr><tr><td>m_axis_tlast</td><td>out</td><td>std_logic</td><td>Output AXI-stream frame marker aligned with the processed result beat.</td></tr><tr><td>runtime_inverse_i</td><td>in</td><td>std_logic := &#x27;0&#x27;</td><td>Input runtime inverse i signal for this module.</td></tr><tr><td>active_point_log2_i</td><td>in</td><td>std_logic_vector(7 downto 0) := (others =&gt; &#x27;0&#x27;)</td><td>Input active point log2 i signal for this module.</td></tr><tr><td>active_radix4_i</td><td>in</td><td>std_logic := &#x27;0&#x27;</td><td>Input active radix4 i signal for this module.</td></tr><tr><td>active_input_width_i</td><td>in</td><td>std_logic_vector(7 downto 0) := (others =&gt; &#x27;0&#x27;)</td><td>Input active input width i signal for this module.</td></tr><tr><td>active_output_width_i</td><td>in</td><td>std_logic_vector(7 downto 0) := (others =&gt; &#x27;0&#x27;)</td><td>Input active output width i signal for this module.</td></tr><tr><td>twiddle_addr_o</td><td>out</td><td>std_logic_vector(31 downto 0)</td><td>Output twiddle addr o signal generated by this module.</td></tr><tr><td>twiddle_re_i</td><td>in</td><td>std_logic_vector(G_TWIDDLE_WIDTH - 1 downto 0)</td><td>Input twiddle re i signal for this module.</td></tr><tr><td>twiddle_im_i</td><td>in</td><td>std_logic_vector(G_TWIDDLE_WIDTH - 1 downto 0)</td><td>Input twiddle im i signal for this module.</td></tr><tr><td>busy_o</td><td>out</td><td>std_logic</td><td>Output busy o signal generated by this module.</td></tr></tbody></table>
+  
+  <h2>Testbenches and Waveforms</h2><p class="summary">No directly associated testbench was found.</p>
+  <h2>HDL Example</h2>
+  <pre><code>entity raddsp_axis_radfft_parallel8 is
+  generic (
+    -- Selects the vendor-specific implementation path, usually XILINX for DSP48/XPM-backed builds or generic for portable RTL.
+    VENDOR               : string := &quot;xilinx&quot;;
+    -- Identifies the target FPGA family so wrappers can choose the correct primitive or conservative portable behavior.
+    DEVICE_FAMILY        : string := &quot;ultrascaleplus&quot;;
+    -- Sets the transform, frame, or vector size used by the datapath.
+    G_POINTS             : positive := 1024;
+    -- Sets the transform, frame, or vector size used by the datapath.
+    G_MAX_POINTS         : positive := 1024;
+    -- Sets the transform, frame, or vector size used by the datapath.
+    G_INVERSE_FFT        : boolean := false;
+    -- Sets the bit width for G INPUT WIDTH values carried by this module.
+    G_INPUT_WIDTH        : positive := 32;
+    -- Sets the bit width for G TWIDDLE WIDTH values carried by this module.
+    G_TWIDDLE_WIDTH      : positive := 16;
+    -- Sets the bit width for G OUTPUT WIDTH values carried by this module.
+    G_OUTPUT_WIDTH       : positive := 32;
+    -- Configures G SCALE EACH STAGE for this instance.
+    G_SCALE_EACH_STAGE   : boolean := true;
+    -- Sets the number of parallel sample lanes processed per handshake beat.
+    G_MULTIPLIER_LANES   : positive := 8
+  );
+  port (
+    -- Clock for the associated synchronous logic and handshake domain.
+    clk            : in  std_logic;
+    -- Active-high synchronous reset for this clock domain.
+    rst            : in  std_logic;
+    -- Input AXI-stream valid qualifier for the current sample beat.
+    s_axis_tvalid  : in  std_logic;
+    -- Input AXI-stream ready response indicating this block can accept a beat.
+    s_axis_tready  : out std_logic;
+    -- Input AXI-stream payload containing packed sample or feature lanes.
+    s_axis_tdata   : in  std_logic_vector((2 * G_INPUT_WIDTH) - 1 downto 0);
+    -- Input AXI-stream frame marker for the final beat of a frame.
+    s_axis_tlast   : in  std_logic;
+    -- Output AXI-stream valid qualifier for the current result beat.
+    m_axis_tvalid  : out std_logic;
+    -- Output AXI-stream ready input from the downstream block.
+    m_axis_tready  : in  std_logic;
+    -- Output AXI-stream payload containing packed processed result lanes.
+    m_axis_tdata   : out std_logic_vector((2 * G_OUTPUT_WIDTH) - 1 downto 0);
+    -- Output AXI-stream frame marker aligned with the processed result beat.
+    m_axis_tlast   : out std_logic;
+    -- Input runtime inverse i signal for this module.
+    runtime_inverse_i : in std_logic := &#x27;0&#x27;;
+    -- Input active point log2 i signal for this module.
+    active_point_log2_i : in std_logic_vector(7 downto 0) := (others =&gt; &#x27;0&#x27;);
+    -- Input active radix4 i signal for this module.
+    active_radix4_i     : in std_logic := &#x27;0&#x27;;
+    -- Input active input width i signal for this module.
+    active_input_width_i : in std_logic_vector(7 downto 0) := (others =&gt; &#x27;0&#x27;);
+    -- Input active output width i signal for this module.
+    active_output_width_i : in std_logic_vector(7 downto 0) := (others =&gt; &#x27;0&#x27;);
+    -- Output twiddle addr o signal generated by this module.
+    twiddle_addr_o : out std_logic_vector(31 downto 0);
+    -- Input twiddle re i signal for this module.
+    twiddle_re_i   : in  std_logic_vector(G_TWIDDLE_WIDTH - 1 downto 0);
+    -- Input twiddle im i signal for this module.
+    twiddle_im_i   : in  std_logic_vector(G_TWIDDLE_WIDTH - 1 downto 0);
+    -- Output busy o signal generated by this module.
+    busy_o         : out std_logic;
+    -- Output frame done o signal generated by this module.
+    frame_done_o   : out std_logic
+  );
+end entity;</code></pre>
+  <h2>Sources</h2>
+  <ul><li>dsp/hdl/raddsp/src/raddsp_axis_radfft_parallel8.vhd</li></ul>
+</main>
+<footer><div class="wrap">Generated by radhdl-docgen 0.1.0</div></footer>
+
+</body>
+</html>
