@@ -1,0 +1,35 @@
+RadHDL Documentation
+====================
+
+RadHDL is the HDL library layer distributed with RadBuild through the ``radbuild-radhdl`` Debian package. The package installs the catalog and source assets at ``/usr/share/radbuild/radhdl`` so RadBuild, VSCode, and generated documentation can use a stable source root.
+
+Current Snapshot
+----------------
+
+- Source root used for this build: RadHDL checkout or packaged ``/usr/share/radbuild/radhdl`` tree.
+- VHDL files with declarations: **116**
+- Entity declarations: **99**
+- Package declarations: **19**
+- Markdown source docs: **15**
+- Address-map artifacts: **2**
+
+Library Areas
+-------------
+
+- :doc:`dsp`: 80 VHDL files with declarations.
+- :doc:`interfaces`: 10 VHDL files with declarations.
+- :doc:`debug`: 3 VHDL files with declarations.
+- :doc:`projects`: 4 VHDL files with declarations.
+- :doc:`testbenches`: 19 VHDL files with declarations.
+
+.. toctree::
+   :maxdepth: 2
+
+   dsp
+   interfaces
+   debug
+   projects
+   testbenches
+   autodoc
+   source-files
+

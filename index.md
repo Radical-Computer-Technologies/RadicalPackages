@@ -80,6 +80,7 @@ sudo apt update</code></div>
       <div class="links">
         <a class="link-card" href="docs/radlib/0.1.0/api/"><strong>RADLib 0.1.0</strong><span>Stable API documentation</span></a>
         <a class="link-card" href="docs/radlib/api/"><strong>Current RADLib</strong><span>Latest generated API docs</span></a>
+        <a class="link-card" href="docs/radhdl/current/"><strong>RadHDL Current</strong><span>HDL library inventory and VHDL autodoc</span></a>
         <a class="link-card" href="docs/radlib/"><strong>Docs Index</strong><span>Version chooser</span></a>
       </div>
     </article>

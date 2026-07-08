@@ -97,6 +97,7 @@ Experimental packages are allowed to move faster than stable. RADBard and RadBui
 
 - [RADLib 0.1.0 API Documentation](docs/radlib/0.1.0/api/)
 - [Current RADLib API Documentation](docs/radlib/api/)
+- [Current RadHDL Documentation](docs/radhdl/current/)
 
 RADLib Doxygen output is versioned so stable and experimental APIs can be compared directly. Use `docs/radlib/0.1.0/` for stable `0.1.0` and `docs/radlib/0.1.1/` for the experimental `0.1.1` line once published.
 

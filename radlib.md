@@ -92,6 +92,7 @@ sudo apt install radlib-media radlib-fpga radlib-web</code></div>
       <div class="links">
         <a class="link-card" href="docs/radlib/0.1.0/api/"><strong>RADLib 0.1.0 API</strong><span>Stable generated API docs</span></a>
         <a class="link-card" href="docs/radlib/api/"><strong>Current API</strong><span>Latest generated API docs</span></a>
+        <a class="link-card" href="docs/radhdl/current/"><strong>RadHDL HDL Docs</strong><span>Current HDL library inventory and VHDL autodoc</span></a>
       </div>
     </article>
 
