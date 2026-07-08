@@ -15,6 +15,7 @@
   <div class="meta">Documentation version: 0.2.0 / Package: Transform / Source package: raddsp</div>
   <div class="summary"><p>AXI-stream wrapper around the fixed-point CORDIC atan2 engine.
 Presents phase-estimation as a ready/valid streaming block for RadDSP dataflow pipelines.</p></div>
+  
 </div></header>
 <main class="wrap">
   <h2>Use Cases</h2>
@@ -87,7 +88,7 @@ end component;</code></pre><h3>Direct Entity Instantiation</h3><pre><code>u_radd
   <h2>Generics</h2><table><thead><tr><th>Name</th><th>Type</th><th>Default</th><th>Description</th></tr></thead><tbody><tr><td>G_INPUT_WIDTH</td><td>positive</td><td>16</td><td>Sets the bit width for G INPUT WIDTH values carried by this module.</td></tr><tr><td>G_PHASE_WIDTH</td><td>positive</td><td>32</td><td>Sets the bit width for G PHASE WIDTH values carried by this module.</td></tr></tbody></table>
   <h2>Ports</h2><table><thead><tr><th>Name</th><th>Direction</th><th>Type</th><th>Description</th></tr></thead><tbody><tr><td>clk</td><td>in</td><td>std_logic</td><td>Clock for the associated synchronous logic and handshake domain.</td></tr><tr><td>rst</td><td>in</td><td>std_logic</td><td>Active-high synchronous reset for this clock domain.</td></tr><tr><td>input_valid</td><td>in</td><td>std_logic</td><td>Input valid interface signal.</td></tr><tr><td>x_in</td><td>in</td><td>std_logic_vector(G_INPUT_WIDTH - 1 downto 0)</td><td>X in interface signal.</td></tr><tr><td>y_in</td><td>in</td><td>std_logic_vector(G_INPUT_WIDTH - 1 downto 0)</td><td>Y in interface signal.</td></tr><tr><td>input_ready</td><td>out</td><td>std_logic</td><td>Input ready interface signal.</td></tr><tr><td>busy</td><td>out</td><td>std_logic</td><td>Busy interface signal.</td></tr><tr><td>phase_valid</td><td>out</td><td>std_logic</td><td>Phase valid interface signal.</td></tr><tr><td>phase_out</td><td>out</td><td>std_logic_vector(G_PHASE_WIDTH - 1 downto 0)</td><td>Phase out interface signal.</td></tr></tbody></table>
   
-  <h2>Testbenches</h2><p class="summary">No directly associated testbench was found.</p>
+  <h2 id="testbenches">Testbenches</h2><p class="summary">No directly associated testbench was found.</p>
   <h2>Sources</h2>
   <ul><li>dsp/hdl/raddsp/wrappers/raddsp_cordic_atan2.vhd</li></ul>
 </main>

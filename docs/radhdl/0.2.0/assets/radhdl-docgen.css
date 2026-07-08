@@ -23,6 +23,11 @@ h3 { margin-top: 24px; }
 .datasheet-link-row { display: flex; justify-content: space-between; gap: 12px; padding: 5px 0; border-top: 1px solid var(--line); font-size: 14px; }
 .datasheet-link-row:first-child { border-top: 0; }
 .datasheet-link-row .meta { white-space: nowrap; }
+.quick-links { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
+.pill { display: inline-flex; align-items: center; gap: 6px; border: 1px solid var(--line); border-radius: 999px; background: var(--soft); color: var(--link); padding: 5px 10px; font-size: 13px; font-weight: 700; }
+.pill:hover { text-decoration: none; border-color: var(--accent); }
+.register-index .datasheet-list { max-height: 340px; }
+.register-index .datasheet-link-row { align-items: baseline; }
 .doc-section { border: 1px solid var(--line); border-radius: 6px; background: var(--card); margin: 12px 0; }
 .doc-section > summary { cursor: pointer; padding: 10px 12px; font-weight: 700; color: var(--ink); }
 .doc-section-body { padding: 0 12px 12px; }

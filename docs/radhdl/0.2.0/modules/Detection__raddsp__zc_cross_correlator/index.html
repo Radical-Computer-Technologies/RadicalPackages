@@ -15,6 +15,7 @@
   <div class="meta">Documentation version: 0.2.0 / Package: Detection / Source package: raddsp</div>
   <div class="summary"><p>Streaming Zadoff-Chu cross-correlator primitive.
 Computes correlation energy between an incoming complex stream and a stored reference sequence.</p></div>
+  
 </div></header>
 <main class="wrap">
   <h2>Use Cases</h2>
@@ -101,7 +102,7 @@ end component;</code></pre><h3>Direct Entity Instantiation</h3><pre><code>u_zc_c
   <h2>Generics</h2><table><thead><tr><th>Name</th><th>Type</th><th>Default</th><th>Description</th></tr></thead><tbody><tr><td>DEVICE_FAMILY</td><td>string</td><td>&quot;7series&quot;</td><td>Identifies the target FPGA family so wrappers can choose the correct primitive or conservative portable behavior.</td></tr><tr><td>G_SAMPLE_WIDTH</td><td>integer</td><td>16</td><td>Sets the bit width for G SAMPLE WIDTH values carried by this module.</td></tr><tr><td>G_ACC_WIDTH</td><td>integer</td><td>40</td><td>Sets the bit width for G ACC WIDTH values carried by this module.</td></tr></tbody></table>
   <h2>Ports</h2><table><thead><tr><th>Name</th><th>Direction</th><th>Type</th><th>Description</th></tr></thead><tbody><tr><td>clk</td><td>in</td><td>std_logic</td><td>Clock for the associated synchronous logic and handshake domain.</td></tr><tr><td>rst</td><td>in</td><td>std_logic</td><td>Active-high synchronous reset for this clock domain.</td></tr><tr><td>block_start</td><td>in</td><td>std_logic</td><td>Block start interface signal.</td></tr><tr><td>sample_valid</td><td>in</td><td>std_logic</td><td>Sample valid interface signal.</td></tr><tr><td>sample_i</td><td>in</td><td>signed(G_SAMPLE_WIDTH - 1 downto 0)</td><td>Input sample vector captured or processed by the datapath.</td></tr><tr><td>sample_q</td><td>in</td><td>signed(G_SAMPLE_WIDTH - 1 downto 0)</td><td>Sample q interface signal.</td></tr><tr><td>sample_ready</td><td>out</td><td>std_logic</td><td>Sample ready interface signal.</td></tr><tr><td>busy</td><td>out</td><td>std_logic</td><td>Busy interface signal.</td></tr><tr><td>corr_valid</td><td>out</td><td>std_logic</td><td>Corr valid interface signal.</td></tr><tr><td>corr_i</td><td>out</td><td>signed(G_ACC_WIDTH - 1 downto 0)</td><td>Input corr i signal for this module.</td></tr><tr><td>corr_q</td><td>out</td><td>signed(G_ACC_WIDTH - 1 downto 0)</td><td>Corr q interface signal.</td></tr><tr><td>corr_mag_sq</td><td>out</td><td>unsigned((2 * G_ACC_WIDTH) - 1 downto 0)</td><td>Corr mag sq interface signal.</td></tr></tbody></table>
   
-  <h2>Testbenches</h2><p class="summary">No directly associated testbench was found.</p>
+  <h2 id="testbenches">Testbenches</h2><p class="summary">No directly associated testbench was found.</p>
   <h2>Sources</h2>
   <ul><li>dsp/hdl/raddsp/src/zc_cross_correlator.vhd</li></ul>
 </main>
