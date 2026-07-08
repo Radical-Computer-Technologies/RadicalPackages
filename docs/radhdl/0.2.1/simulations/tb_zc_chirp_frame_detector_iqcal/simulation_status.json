@@ -1,0 +1,62 @@
+{
+  "backend": "ghdl",
+  "testbench": "tb_zc_chirp_frame_detector_iqcal",
+  "status": "passed",
+  "libraries": [
+    "raddsp"
+  ],
+  "analyzed": {
+    "xpm": [
+      "sim/xpm/xpm_memory_models.vhd"
+    ],
+    "raddsp": [
+      "dsp/hdl/raddsp/src/cordic_atan_pkg.vhd",
+      "dsp/hdl/raddsp/src/raddsp_axis_pkg.vhd",
+      "dsp/hdl/raddsp/src/raddsp_fft_twiddle_pkg.vhd",
+      "dsp/hdl/raddsp/src/zc_reference_pkg.vhd",
+      "dsp/hdl/raddsp/sim/raddsp_xilinx_dsp48_mul.vhd",
+      "dsp/hdl/raddsp/sim/xpm_fifo_sync.vhd",
+      "dsp/hdl/raddsp/src/cordic_atan2.vhd",
+      "dsp/hdl/raddsp/src/fft_radix2_batch_core.vhd",
+      "dsp/hdl/raddsp/src/fft_tdp_ram.vhd",
+      "dsp/hdl/raddsp/src/raddsp_axis_biquad.vhd",
+      "dsp/hdl/raddsp/src/raddsp_axis_dds.vhd",
+      "dsp/hdl/raddsp/src/raddsp_axis_fft_bin_product.vhd",
+      "dsp/hdl/raddsp/src/raddsp_axis_fft_fingerprint.vhd",
+      "dsp/hdl/raddsp/src/raddsp_axis_fingerprint_matcher.vhd",
+      "dsp/hdl/raddsp/src/raddsp_axis_fir.vhd",
+      "dsp/hdl/raddsp/src/raddsp_axis_fixed_to_float.vhd",
+      "dsp/hdl/raddsp/src/raddsp_axis_float_to_fixed.vhd",
+      "dsp/hdl/raddsp/src/raddsp_axis_frame_stats.vhd",
+      "dsp/hdl/raddsp/src/raddsp_axis_gain.vhd",
+      "dsp/hdl/raddsp/src/raddsp_axis_iq_magnitude_sq.vhd",
+      "dsp/hdl/raddsp/src/raddsp_axis_matrix_dot.vhd",
+      "dsp/hdl/raddsp/src/raddsp_axis_matrix_elementwise.vhd",
+      "dsp/hdl/raddsp/src/raddsp_axis_mix2.vhd",
+      "dsp/hdl/raddsp/src/raddsp_axis_one_pole_lowpass.vhd",
+      "dsp/hdl/raddsp/src/raddsp_axis_radfft_batch.vhd",
+      "dsp/hdl/raddsp/src/raddsp_axis_radfft_parallel8.vhd",
+      "dsp/hdl/raddsp/src/raddsp_fft_twiddle_rom.vhd",
+      "dsp/hdl/raddsp/src/raddsp_xilinx_dsp48_square_seq.vhd",
+      "dsp/hdl/raddsp/src/raddsp_xilinx_dsp48_wide_mul.vhd",
+      "dsp/hdl/raddsp/src/zc_chirp_frame_detector.vhd",
+      "dsp/hdl/raddsp/src/zc_cross_correlator.vhd",
+      "dsp/hdl/raddsp/src/zc_peak_detector.vhd",
+      "dsp/hdl/raddsp/src/raddsp_axis_radfft_iterative.vhd",
+      "dsp/hdl/raddsp/src/raddsp_axis_radfft_radix2_tdp.vhd",
+      "dsp/hdl/raddsp/src/raddsp_axis_radfft_radix4_tdp.vhd",
+      "dsp/hdl/raddsp/src/raddsp_axis_radfft_streaming.vhd",
+      "dsp/hdl/raddsp/src/raddsp_axis_radfft.vhd",
+      "dsp/hdl/raddsp/src/raddsp_axis_radfft_ddr.vhd"
+    ],
+    "work": [
+      "dsp/hdl/testbenches/iqcal_capture_pkg.vhd",
+      "dsp/hdl/raddsp/sim/raddsp_xilinx_dsp48_mul.vhd",
+      "dsp/hdl/raddsp/sim/xpm_fifo_sync.vhd",
+      "dsp/hdl/testbenches/tb_zc_chirp_frame_detector_iqcal.vhd"
+    ]
+  },
+  "vcd": "simulations/tb_zc_chirp_frame_detector_iqcal/tb_zc_chirp_frame_detector_iqcal.vcd",
+  "stdout": "/usr/bin/ghdl-mcode:info: simulation stopped by --stop-time @100us\n",
+  "stderr": ""
+}

@@ -1,0 +1,62 @@
+{
+  "backend": "ghdl",
+  "testbench": "tb_raddsp_axis_radfft",
+  "status": "failed",
+  "libraries": [
+    "raddsp"
+  ],
+  "analyzed": {
+    "xpm": [
+      "sim/xpm/xpm_memory_models.vhd"
+    ],
+    "raddsp": [
+      "dsp/hdl/raddsp/src/cordic_atan_pkg.vhd",
+      "dsp/hdl/raddsp/src/raddsp_axis_pkg.vhd",
+      "dsp/hdl/raddsp/src/raddsp_fft_twiddle_pkg.vhd",
+      "dsp/hdl/raddsp/src/zc_reference_pkg.vhd",
+      "dsp/hdl/raddsp/sim/raddsp_xilinx_dsp48_mul.vhd",
+      "dsp/hdl/raddsp/sim/xpm_fifo_sync.vhd",
+      "dsp/hdl/raddsp/src/cordic_atan2.vhd",
+      "dsp/hdl/raddsp/src/fft_radix2_batch_core.vhd",
+      "dsp/hdl/raddsp/src/fft_tdp_ram.vhd",
+      "dsp/hdl/raddsp/src/raddsp_axis_biquad.vhd",
+      "dsp/hdl/raddsp/src/raddsp_axis_dds.vhd",
+      "dsp/hdl/raddsp/src/raddsp_axis_fft_bin_product.vhd",
+      "dsp/hdl/raddsp/src/raddsp_axis_fft_fingerprint.vhd",
+      "dsp/hdl/raddsp/src/raddsp_axis_fingerprint_matcher.vhd",
+      "dsp/hdl/raddsp/src/raddsp_axis_fir.vhd",
+      "dsp/hdl/raddsp/src/raddsp_axis_fixed_to_float.vhd",
+      "dsp/hdl/raddsp/src/raddsp_axis_float_to_fixed.vhd",
+      "dsp/hdl/raddsp/src/raddsp_axis_frame_stats.vhd",
+      "dsp/hdl/raddsp/src/raddsp_axis_gain.vhd",
+      "dsp/hdl/raddsp/src/raddsp_axis_iq_magnitude_sq.vhd",
+      "dsp/hdl/raddsp/src/raddsp_axis_matrix_dot.vhd",
+      "dsp/hdl/raddsp/src/raddsp_axis_matrix_elementwise.vhd",
+      "dsp/hdl/raddsp/src/raddsp_axis_mix2.vhd",
+      "dsp/hdl/raddsp/src/raddsp_axis_one_pole_lowpass.vhd",
+      "dsp/hdl/raddsp/src/raddsp_axis_radfft_batch.vhd",
+      "dsp/hdl/raddsp/src/raddsp_axis_radfft_parallel8.vhd",
+      "dsp/hdl/raddsp/src/raddsp_fft_twiddle_rom.vhd",
+      "dsp/hdl/raddsp/src/raddsp_xilinx_dsp48_square_seq.vhd",
+      "dsp/hdl/raddsp/src/raddsp_xilinx_dsp48_wide_mul.vhd",
+      "dsp/hdl/raddsp/src/zc_chirp_frame_detector.vhd",
+      "dsp/hdl/raddsp/src/zc_cross_correlator.vhd",
+      "dsp/hdl/raddsp/src/zc_peak_detector.vhd",
+      "dsp/hdl/raddsp/src/raddsp_axis_radfft_iterative.vhd",
+      "dsp/hdl/raddsp/src/raddsp_axis_radfft_radix2_tdp.vhd",
+      "dsp/hdl/raddsp/src/raddsp_axis_radfft_radix4_tdp.vhd",
+      "dsp/hdl/raddsp/src/raddsp_axis_radfft_streaming.vhd",
+      "dsp/hdl/raddsp/src/raddsp_axis_radfft.vhd",
+      "dsp/hdl/raddsp/src/raddsp_axis_radfft_ddr.vhd"
+    ],
+    "work": [
+      "dsp/hdl/testbenches/iqcal_capture_pkg.vhd",
+      "dsp/hdl/raddsp/sim/raddsp_xilinx_dsp48_mul.vhd",
+      "dsp/hdl/raddsp/sim/xpm_fifo_sync.vhd",
+      "dsp/hdl/testbenches/tb_raddsp_axis_radfft.vhd"
+    ]
+  },
+  "returncode": 2,
+  "stdout": "",
+  "stderr": "\n******************** GHDL Bug occurred ***************************\nPlease report this bug on https://github.com/ghdl/ghdl/issues\nGHDL release: 1.0.0 (Ubuntu 1.0.0+dfsg-6) [Dunoon edition]\nCompiled with GNAT Version: 10.3.1 20211117\nTarget: x86_64-linux-gnu\n/tmp/radhdl-ghdl-ag6qo6r5/\nCommand line:\n/usr/bin/ghdl-mcode -e --std=08 --ieee=synopsys -P/tmp/radhdl-ghdl-ag6qo6r5 --workdir=/tmp/radhdl-ghdl-ag6qo6r5 tb_raddsp_axis_radfft\nException TYPES.INTERNAL_ERROR raised\nException information:\nraised TYPES.INTERNAL_ERROR : trans.adb:553\nCall stack traceback locations:\n0x596cb898813d 0x596cb898851b 0x596cb8988797 0x596cb8b1dfc8 0x596cb8b2cd6d 0x596cb8b2ce25 0x596cb8b36bde 0x596cb8b55aa7 0x596cb8b55d5f 0x596cb8b56257 0x596cb8b566b1 0x596cb8b63330 0x596cb8b6281c 0x596cb8baaa78 0x596cb8baab9f 0x596cb8bab1f8 0x596cb8bab98a 0x596cb8bad596 0x596cb8bad6eb 0x596cb8bb0b0f 0x596cb8bb53f8 0x596cb8bb523b 0x596cb8bb54e5 0x596cb8bb523b 0x596cb8bb54e5 0x596cb8b794fa 0x596cb8b6ceac 0x596cb8b7dd8c 0x596cb8b780a0 0x596cb8bbdb55 0x596cb8afeaf5 0x596cb8a3469e 0x596cb8bc14b3 0x596cb87ecb07 0x738855229d8e 0x738855229e3e 0x596cb87eb243 0xfffffffffffffffe\n******************************************************************\n"
+}

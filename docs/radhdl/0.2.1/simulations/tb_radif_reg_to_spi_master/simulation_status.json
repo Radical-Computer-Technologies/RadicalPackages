@@ -1,0 +1,36 @@
+{
+  "backend": "ghdl",
+  "testbench": "tb_radif_reg_to_spi_master",
+  "status": "passed",
+  "libraries": [
+    "radif"
+  ],
+  "analyzed": {
+    "xpm": [
+      "sim/xpm/xpm_memory_models.vhd"
+    ],
+    "radif": [
+      "interfaces/hdl/radif/src/radif_pkg.vhd",
+      "interfaces/hdl/radif/sim/xpm_fifo_sync.vhd",
+      "interfaces/hdl/radif/src/radif_axi4_axis_dma.vhd",
+      "interfaces/hdl/radif/src/radif_axi_lite_to_reg.vhd",
+      "interfaces/hdl/radif/src/radif_i2c_slave_to_reg.vhd",
+      "interfaces/hdl/radif/src/radif_i2s_axis.vhd",
+      "interfaces/hdl/radif/src/radif_qspi_slave_to_reg.vhd",
+      "interfaces/hdl/radif/src/radif_reg_bank.vhd",
+      "interfaces/hdl/radif/src/radif_reg_interconnect.vhd",
+      "interfaces/hdl/radif/src/radif_reg_to_i2c_master.vhd",
+      "interfaces/hdl/radif/src/radif_reg_to_spi_master.vhd",
+      "interfaces/hdl/radif/src/radif_smi16_to_reg.vhd",
+      "interfaces/hdl/radif/src/radif_spi_axi_master.vhd",
+      "interfaces/hdl/radif/src/radif_spi_slave_to_reg.vhd"
+    ],
+    "work": [
+      "interfaces/hdl/radif/sim/xpm_fifo_sync.vhd",
+      "interfaces/hdl/radif/testbenches/tb_radif_reg_to_spi_master.vhd"
+    ]
+  },
+  "vcd": "simulations/tb_radif_reg_to_spi_master/tb_radif_reg_to_spi_master.vcd",
+  "stdout": "interfaces/hdl/radif/testbenches/tb_radif_reg_to_spi_master.vhd:103:5:@485ns:(report note): PASS tb_radif_reg_to_spi_master\nsimulation finished @485ns\n",
+  "stderr": ""
+}

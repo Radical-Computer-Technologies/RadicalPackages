@@ -1,0 +1,472 @@
+$date
+  Wed Jul  8 16:38:10 2026
+$end
+$version
+  GHDL v0
+$end
+$timescale
+  1 fs
+$end
+$scope module standard $end
+$upscope $end
+$scope module textio $end
+$upscope $end
+$scope module std_logic_1164 $end
+$upscope $end
+$scope module numeric_std $end
+$upscope $end
+$scope module env $end
+$upscope $end
+$scope module radif_pkg $end
+$upscope $end
+$scope module tb_radif_reg_interconnect $end
+$var reg 1 ! clk $end
+$var reg 1 " rstn $end
+$var reg 16 # wr_addr[15:0] $end
+$var reg 16 $ rd_addr[15:0] $end
+$var reg 1 % wr_en $end
+$var reg 1 & rd_en $end
+$var reg 32 ' data_in[31:0] $end
+$var reg 32 ( data_out[31:0] $end
+$var reg 1 ) wr_rdy $end
+$var reg 1 * rd_rdy $end
+$var reg 1 + wr_valid $end
+$var reg 1 , rd_valid $end
+$var reg 1 - error $end
+$var reg 32 . s_wr_addr[31:0] $end
+$var reg 32 / s_rd_addr[31:0] $end
+$var reg 2 0 s_wr_en[1:0] $end
+$var reg 2 1 s_rd_en[1:0] $end
+$var reg 64 2 s_data_in[63:0] $end
+$var reg 64 3 s_data_out[63:0] $end
+$var reg 2 4 s_wr_rdy[1:0] $end
+$var reg 2 5 s_rd_rdy[1:0] $end
+$var reg 2 6 s_wr_valid[1:0] $end
+$var reg 2 7 s_rd_valid[1:0] $end
+$var reg 2 8 s_error[1:0] $end
+$comment ro0 is not handled $end
+$comment ro1 is not handled $end
+$comment rw0 is not handled $end
+$comment rw1 is not handled $end
+$scope module dut $end
+$var reg 1 9 clk $end
+$var reg 1 : rstn $end
+$var reg 16 ; wr_addr_i[15:0] $end
+$var reg 16 < rd_addr_i[15:0] $end
+$var reg 1 = wr_en_i $end
+$var reg 1 > rd_en_i $end
+$var reg 32 ? data_in_i[31:0] $end
+$var reg 32 @ data_out_o[31:0] $end
+$var reg 1 A wr_rdy_o $end
+$var reg 1 B rd_rdy_o $end
+$var reg 1 C wr_valid_o $end
+$var reg 1 D rd_valid_o $end
+$var reg 1 E error_o $end
+$var reg 32 F s_wr_addr_o[31:0] $end
+$var reg 32 G s_rd_addr_o[31:0] $end
+$var reg 2 H s_wr_en_o[1:0] $end
+$var reg 2 I s_rd_en_o[1:0] $end
+$var reg 64 J s_data_in_o[63:0] $end
+$var reg 64 K s_data_out_i[63:0] $end
+$var reg 2 L s_wr_rdy_i[1:0] $end
+$var reg 2 M s_rd_rdy_i[1:0] $end
+$var reg 2 N s_wr_valid_i[1:0] $end
+$var reg 2 O s_rd_valid_i[1:0] $end
+$var reg 2 P s_error_i[1:0] $end
+$var integer 32 Q wr_sel $end
+$var integer 32 R rd_sel $end
+$var reg 1 S wr_hit $end
+$var reg 1 T rd_hit $end
+$var integer 32 U wr_resp_sel_r $end
+$var integer 32 V rd_resp_sel_r $end
+$var reg 1 W wr_miss_r $end
+$var reg 1 X rd_miss_r $end
+$scope module gen_xilinx_vendor $end
+$upscope $end
+$upscope $end
+$scope module bank0 $end
+$var reg 1 Y clk $end
+$var reg 1 Z rstn $end
+$var reg 16 [ wr_addr[15:0] $end
+$var reg 16 \ rd_addr[15:0] $end
+$var reg 1 ] wr_en $end
+$var reg 1 ^ rd_en $end
+$var reg 32 _ data_in[31:0] $end
+$var reg 32 ` data_out[31:0] $end
+$comment read_only_regs_i is not handled $end
+$comment read_write_regs_o is not handled $end
+$var reg 1 a wr_rdy $end
+$var reg 1 b rd_rdy $end
+$var reg 1 c wr_valid $end
+$var reg 1 d rd_valid $end
+$var reg 1 e error $end
+$comment regs is not handled $end
+$var reg 32 f rd_data_r[31:0] $end
+$var reg 1 g wr_v_r $end
+$var reg 1 h rd_v_r $end
+$var reg 1 i err_r $end
+$scope module gen_xilinx_vendor $end
+$upscope $end
+$upscope $end
+$scope module bank1 $end
+$var reg 1 j clk $end
+$var reg 1 k rstn $end
+$var reg 16 l wr_addr[15:0] $end
+$var reg 16 m rd_addr[15:0] $end
+$var reg 1 n wr_en $end
+$var reg 1 o rd_en $end
+$var reg 32 p data_in[31:0] $end
+$var reg 32 q data_out[31:0] $end
+$comment read_only_regs_i is not handled $end
+$comment read_write_regs_o is not handled $end
+$var reg 1 r wr_rdy $end
+$var reg 1 s rd_rdy $end
+$var reg 1 t wr_valid $end
+$var reg 1 u rd_valid $end
+$var reg 1 v error $end
+$comment regs is not handled $end
+$var reg 32 w rd_data_r[31:0] $end
+$var reg 1 x wr_v_r $end
+$var reg 1 y rd_v_r $end
+$var reg 1 z err_r $end
+$scope module gen_xilinx_vendor $end
+$upscope $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+#0
+0!
+0"
+b0000000000000000 #
+b0000000000000000 $
+0%
+0&
+b00000000000000000000000000000000 '
+b00000000000000000000000000000000 (
+1)
+1*
+0+
+0,
+0-
+b11110000000000000000000000000000 .
+b11110000000000000000000000000000 /
+b00 0
+b00 1
+b0000000000000000000000000000000000000000000000000000000000000000 2
+b0000000000000000000000000000000000000000000000000000000000000000 3
+b11 4
+b11 5
+b00 6
+b00 7
+b00 8
+09
+0:
+b0000000000000000 ;
+b0000000000000000 <
+0=
+0>
+b00000000000000000000000000000000 ?
+b00000000000000000000000000000000 @
+1A
+1B
+0C
+0D
+0E
+b11110000000000000000000000000000 F
+b11110000000000000000000000000000 G
+b00 H
+b00 I
+b0000000000000000000000000000000000000000000000000000000000000000 J
+b0000000000000000000000000000000000000000000000000000000000000000 K
+b11 L
+b11 M
+b00 N
+b00 O
+b00 P
+b0 Q
+b0 R
+1S
+1T
+b0 U
+b0 V
+0W
+0X
+0Y
+0Z
+b0000000000000000 [
+b0000000000000000 \
+0]
+0^
+b00000000000000000000000000000000 _
+b00000000000000000000000000000000 `
+1a
+1b
+0c
+0d
+0e
+b00000000000000000000000000000000 f
+0g
+0h
+0i
+0j
+0k
+b1111000000000000 l
+b1111000000000000 m
+0n
+0o
+b00000000000000000000000000000000 p
+b00000000000000000000000000000000 q
+1r
+1s
+0t
+0u
+0v
+b00000000000000000000000000000000 w
+0x
+0y
+0z
+#5000000
+1!
+19
+1Y
+1j
+#10000000
+0!
+09
+0Y
+0j
+#15000000
+1!
+19
+1Y
+1j
+#20000000
+0!
+09
+0Y
+0j
+#25000000
+1!
+1"
+19
+1:
+1Y
+1Z
+1j
+1k
+#30000000
+0!
+09
+0Y
+0j
+#35000000
+1!
+b0001000000000100 #
+1%
+b00010010001101000101011001111000 '
+b00000000000001000001000000000100 .
+b10 0
+b0001001000110100010101100111100000010010001101000101011001111000 2
+19
+b0001000000000100 ;
+1=
+b00010010001101000101011001111000 ?
+b00000000000001000001000000000100 F
+b10 H
+b0001001000110100010101100111100000010010001101000101011001111000 J
+b1 Q
+1Y
+b0001000000000100 [
+0]
+b00010010001101000101011001111000 _
+1j
+b0000000000000100 l
+1n
+b00010010001101000101011001111000 p
+#40000000
+0!
+09
+0Y
+0j
+#45000000
+1!
+0%
+1+
+b00 0
+b10 6
+19
+0=
+1C
+b00 H
+b10 N
+b1 U
+1Y
+1j
+0n
+1t
+1x
+#50000000
+0!
+09
+0Y
+0j
+#55000000
+1!
+b0001000000000100 $
+1&
+0+
+b00000000000001000001000000000100 /
+b10 1
+b00 6
+19
+b0001000000000100 <
+1>
+0C
+b00000000000001000001000000000100 G
+b10 I
+b00 N
+b1 R
+1Y
+b0001000000000100 \
+0^
+1j
+b0000000000000100 m
+1o
+0t
+0x
+#60000000
+0!
+09
+0Y
+0j
+#65000000
+1!
+0&
+b00010010001101000101011001111000 (
+1,
+b00 1
+b0001001000110100010101100111100000000000000000000000000000000000 3
+b10 7
+19
+0>
+b00010010001101000101011001111000 @
+1D
+b00 I
+b0001001000110100010101100111100000000000000000000000000000000000 K
+b10 O
+b1 V
+1Y
+1j
+0o
+b00010010001101000101011001111000 q
+1u
+b00010010001101000101011001111000 w
+1y
+#70000000
+0!
+09
+0Y
+0j
+#75000000
+1!
+b0001000000010000 $
+1&
+0,
+b00000000000100000001000000010000 /
+b10 1
+b00 7
+19
+b0001000000010000 <
+1>
+0D
+b00000000000100000001000000010000 G
+b10 I
+b00 O
+1Y
+b0001000000010000 \
+1j
+b0000000000010000 m
+1o
+0u
+0y
+#80000000
+0!
+09
+0Y
+0j
+#85000000
+1!
+0&
+b10111011101110110000000000000000 (
+1,
+b00 1
+b1011101110111011000000000000000000000000000000000000000000000000 3
+b10 7
+19
+0>
+b10111011101110110000000000000000 @
+1D
+b00 I
+b1011101110111011000000000000000000000000000000000000000000000000 K
+b10 O
+1Y
+1j
+0o
+b10111011101110110000000000000000 q
+1u
+b10111011101110110000000000000000 w
+1y
+#90000000
+0!
+09
+0Y
+0j
+#95000000
+1!
+b0011000000000000 $
+1&
+0,
+b00100000000000000011000000000000 /
+b00 1
+b00 7
+19
+b0011000000000000 <
+1>
+0D
+b00100000000000000011000000000000 G
+b00 I
+b00 O
+b0 R
+0T
+1Y
+b0011000000000000 \
+1j
+b0010000000000000 m
+0o
+0u
+0y
+#100000000
+0!
+09
+0Y
+0j
+#105000000
+1!
+0&
+b00000000000000000000000000000000 (
+1,
+1-
+19
+0>
+b00000000000000000000000000000000 @
+1D
+1E
+b0 V
+1X
+1Y
+1j
+#110000000
+0!
+09
+0Y
+0j
