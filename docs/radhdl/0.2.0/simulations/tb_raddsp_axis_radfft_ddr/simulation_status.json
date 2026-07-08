@@ -6,115 +6,57 @@
     "raddsp"
   ],
   "analyzed": {
+    "xpm": [
+      "sim/xpm/xpm_memory_models.vhd"
+    ],
     "raddsp": [
       "dsp/hdl/raddsp/src/cordic_atan_pkg.vhd",
       "dsp/hdl/raddsp/src/raddsp_axis_pkg.vhd",
       "dsp/hdl/raddsp/src/raddsp_fft_twiddle_pkg.vhd",
       "dsp/hdl/raddsp/src/zc_reference_pkg.vhd",
+      "dsp/hdl/raddsp/sim/raddsp_xilinx_dsp48_mul.vhd",
+      "dsp/hdl/raddsp/sim/xpm_fifo_sync.vhd",
       "dsp/hdl/raddsp/src/cordic_atan2.vhd",
       "dsp/hdl/raddsp/src/fft_radix2_batch_core.vhd",
+      "dsp/hdl/raddsp/src/fft_tdp_ram.vhd",
+      "dsp/hdl/raddsp/src/raddsp_axis_biquad.vhd",
+      "dsp/hdl/raddsp/src/raddsp_axis_dds.vhd",
+      "dsp/hdl/raddsp/src/raddsp_axis_fft_bin_product.vhd",
       "dsp/hdl/raddsp/src/raddsp_axis_fft_fingerprint.vhd",
+      "dsp/hdl/raddsp/src/raddsp_axis_fingerprint_matcher.vhd",
+      "dsp/hdl/raddsp/src/raddsp_axis_fir.vhd",
       "dsp/hdl/raddsp/src/raddsp_axis_fixed_to_float.vhd",
       "dsp/hdl/raddsp/src/raddsp_axis_float_to_fixed.vhd",
+      "dsp/hdl/raddsp/src/raddsp_axis_frame_stats.vhd",
+      "dsp/hdl/raddsp/src/raddsp_axis_gain.vhd",
+      "dsp/hdl/raddsp/src/raddsp_axis_iq_magnitude_sq.vhd",
+      "dsp/hdl/raddsp/src/raddsp_axis_matrix_dot.vhd",
+      "dsp/hdl/raddsp/src/raddsp_axis_matrix_elementwise.vhd",
       "dsp/hdl/raddsp/src/raddsp_axis_mix2.vhd",
+      "dsp/hdl/raddsp/src/raddsp_axis_one_pole_lowpass.vhd",
       "dsp/hdl/raddsp/src/raddsp_axis_radfft_batch.vhd",
-      "dsp/hdl/raddsp/src/raddsp_axis_radfft_parallel8.vhd"
+      "dsp/hdl/raddsp/src/raddsp_axis_radfft_parallel8.vhd",
+      "dsp/hdl/raddsp/src/raddsp_fft_twiddle_rom.vhd",
+      "dsp/hdl/raddsp/src/raddsp_xilinx_dsp48_square_seq.vhd",
+      "dsp/hdl/raddsp/src/raddsp_xilinx_dsp48_wide_mul.vhd",
+      "dsp/hdl/raddsp/src/zc_chirp_frame_detector.vhd",
+      "dsp/hdl/raddsp/src/zc_cross_correlator.vhd",
+      "dsp/hdl/raddsp/src/zc_peak_detector.vhd",
+      "dsp/hdl/raddsp/src/raddsp_axis_radfft_iterative.vhd",
+      "dsp/hdl/raddsp/src/raddsp_axis_radfft_radix2_tdp.vhd",
+      "dsp/hdl/raddsp/src/raddsp_axis_radfft_radix4_tdp.vhd",
+      "dsp/hdl/raddsp/src/raddsp_axis_radfft_streaming.vhd",
+      "dsp/hdl/raddsp/src/raddsp_axis_radfft.vhd",
+      "dsp/hdl/raddsp/src/raddsp_axis_radfft_ddr.vhd"
     ],
     "work": [
-      "dsp/hdl/testbenches/iqcal_capture_pkg.vhd"
+      "dsp/hdl/testbenches/iqcal_capture_pkg.vhd",
+      "dsp/hdl/raddsp/sim/raddsp_xilinx_dsp48_mul.vhd",
+      "dsp/hdl/raddsp/sim/xpm_fifo_sync.vhd",
+      "dsp/hdl/testbenches/tb_raddsp_axis_radfft_ddr.vhd"
     ]
   },
-  "analysis_skipped": {
-    "raddsp": [
-      {
-        "path": "dsp/hdl/raddsp/src/raddsp_axis_biquad.vhd",
-        "reason": "dsp/hdl/raddsp/src/raddsp_axis_biquad.vhd:198:32: unit \"raddsp_xilinx_dsp48_mul\" not found in library \"raddsp\"\ndsp/hdl/raddsp/src/raddsp_axis_biquad.vhd:346:30: unit \"raddsp_xilinx_dsp48_mul\" not found in library \"raddsp\""
-      },
-      {
-        "path": "dsp/hdl/raddsp/src/raddsp_axis_fft_bin_product.vhd",
-        "reason": "dsp/hdl/raddsp/src/raddsp_axis_fft_bin_product.vhd:122:27: unit \"raddsp_xilinx_dsp48_mul\" not found in library \"raddsp\"\ndsp/hdl/raddsp/src/raddsp_axis_fft_bin_product.vhd:128:27: unit \"raddsp_xilinx_dsp48_mul\" not found in library \"raddsp\"\ndsp/hdl/raddsp/src/raddsp_axis_fft_bin_product.vhd:134:27: unit \"raddsp_xilinx_dsp48_mul\" not found in library \"raddsp\"\ndsp/hdl/raddsp/src/raddsp_axis_fft_bin_product.vhd:140:27: unit \"raddsp_xilinx_dsp48_mul\" not found in library \"raddsp\"\ndsp/hdl/raddsp/src/raddsp_axis_fft_bin_product.vhd:255:30: unit \"raddsp_xilinx_dsp48_mul\" not found in library \"raddsp\""
-      },
-      {
-        "path": "dsp/hdl/raddsp/src/raddsp_axis_fir.vhd",
-        "reason": "dsp/hdl/raddsp/src/raddsp_axis_fir.vhd:181:32: unit \"raddsp_xilinx_dsp48_mul\" not found in library \"raddsp\""
-      },
-      {
-        "path": "dsp/hdl/raddsp/src/raddsp_axis_frame_stats.vhd",
-        "reason": "dsp/hdl/raddsp/src/raddsp_axis_frame_stats.vhd:96:29: unit \"raddsp_xilinx_dsp48_mul\" not found in library \"raddsp\""
-      },
-      {
-        "path": "dsp/hdl/raddsp/src/raddsp_axis_gain.vhd",
-        "reason": "dsp/hdl/raddsp/src/raddsp_axis_gain.vhd:108:32: unit \"raddsp_xilinx_dsp48_mul\" not found in library \"raddsp\""
-      },
-      {
-        "path": "dsp/hdl/raddsp/src/raddsp_axis_iq_magnitude_sq.vhd",
-        "reason": "dsp/hdl/raddsp/src/raddsp_axis_iq_magnitude_sq.vhd:75:31: unit \"raddsp_xilinx_dsp48_mul\" not found in library \"raddsp\"\ndsp/hdl/raddsp/src/raddsp_axis_iq_magnitude_sq.vhd:87:31: unit \"raddsp_xilinx_dsp48_mul\" not found in library \"raddsp\""
-      },
-      {
-        "path": "dsp/hdl/raddsp/src/raddsp_axis_matrix_dot.vhd",
-        "reason": "dsp/hdl/raddsp/src/raddsp_axis_matrix_dot.vhd:92:30: unit \"raddsp_xilinx_dsp48_mul\" not found in library \"raddsp\""
-      },
-      {
-        "path": "dsp/hdl/raddsp/src/raddsp_axis_matrix_elementwise.vhd",
-        "reason": "dsp/hdl/raddsp/src/raddsp_axis_matrix_elementwise.vhd:86:30: unit \"raddsp_xilinx_dsp48_mul\" not found in library \"raddsp\""
-      },
-      {
-        "path": "dsp/hdl/raddsp/src/raddsp_axis_one_pole_lowpass.vhd",
-        "reason": "dsp/hdl/raddsp/src/raddsp_axis_one_pole_lowpass.vhd:138:30: unit \"raddsp_xilinx_dsp48_mul\" not found in library \"raddsp\""
-      },
-      {
-        "path": "dsp/hdl/raddsp/src/raddsp_axis_radfft.vhd",
-        "reason": "dsp/hdl/raddsp/src/raddsp_axis_radfft.vhd:119:24: unit \"raddsp_axis_radfft_radix2_tdp\" not found in library \"raddsp\"\ndsp/hdl/raddsp/src/raddsp_axis_radfft.vhd:158:24: unit \"raddsp_axis_radfft_radix4_tdp\" not found in library \"raddsp\"\ndsp/hdl/raddsp/src/raddsp_axis_radfft.vhd:196:24: unit \"raddsp_axis_radfft_streaming\" not found in library \"raddsp\""
-      },
-      {
-        "path": "dsp/hdl/raddsp/src/raddsp_axis_radfft_ddr.vhd",
-        "reason": "dsp/hdl/raddsp/src/raddsp_axis_radfft_ddr.vhd:662:10: direction of the range mismatch\ndsp/hdl/raddsp/src/raddsp_axis_radfft_ddr.vhd:676:12: direction of the range mismatch\ndsp/hdl/raddsp/src/raddsp_axis_radfft_ddr.vhd:810:27: unit \"fft_tdp_ram\" not found in library \"raddsp\"\ndsp/hdl/raddsp/src/raddsp_axis_radfft_ddr.vhd:830:29: unit \"raddsp_axis_radfft_radix2_tdp\" not found in library \"raddsp\"\ndsp/hdl/raddsp/src/raddsp_axis_radfft_ddr.vhd:942:35: unit \"raddsp_xilinx_dsp48_wide_mul\" not found in library \"raddsp\""
-      },
-      {
-        "path": "dsp/hdl/raddsp/src/raddsp_axis_radfft_iterative.vhd",
-        "reason": "dsp/hdl/raddsp/src/raddsp_axis_radfft_iterative.vhd:259:25: unit \"raddsp_xilinx_dsp48_wide_mul\" not found in library \"raddsp\"\ndsp/hdl/raddsp/src/raddsp_axis_radfft_iterative.vhd:263:25: unit \"raddsp_xilinx_dsp48_wide_mul\" not found in library \"raddsp\"\ndsp/hdl/raddsp/src/raddsp_axis_radfft_iterative.vhd:267:25: unit \"raddsp_xilinx_dsp48_wide_mul\" not found in library \"raddsp\"\ndsp/hdl/raddsp/src/raddsp_axis_radfft_iterative.vhd:271:25: unit \"raddsp_xilinx_dsp48_wide_mul\" not found in library \"raddsp\""
-      },
-      {
-        "path": "dsp/hdl/raddsp/src/raddsp_axis_radfft_radix2_tdp.vhd",
-        "reason": "dsp/hdl/raddsp/src/raddsp_axis_radfft_radix2_tdp.vhd:365:22: unit \"fft_tdp_ram\" not found in library \"raddsp\"\ndsp/hdl/raddsp/src/raddsp_axis_radfft_radix2_tdp.vhd:393:32: unit \"raddsp_fft_twiddle_rom\" not found in library \"raddsp\"\ndsp/hdl/raddsp/src/raddsp_axis_radfft_radix2_tdp.vhd:412:25: unit \"raddsp_xilinx_dsp48_wide_mul\" not found in library \"raddsp\"\ndsp/hdl/raddsp/src/raddsp_axis_radfft_radix2_tdp.vhd:416:25: unit \"raddsp_xilinx_dsp48_wide_mul\" not found in library \"raddsp\"\ndsp/hdl/raddsp/src/raddsp_axis_radfft_radix2_tdp.vhd:420:25: unit \"raddsp_xilinx_dsp48_wide_mul\" not found in library \"raddsp\"\ndsp/hdl/raddsp/src/raddsp_axis_radfft_radix2_tdp.vhd:424:25: unit \"raddsp_xilinx_dsp48_wide_mul\" not found in library \"raddsp\""
-      },
-      {
-        "path": "dsp/hdl/raddsp/src/raddsp_axis_radfft_radix4_tdp.vhd",
-        "reason": "dsp/hdl/raddsp/src/raddsp_axis_radfft_radix4_tdp.vhd:317:22: unit \"fft_tdp_ram\" not found in library \"raddsp\"\ndsp/hdl/raddsp/src/raddsp_axis_radfft_radix4_tdp.vhd:345:32: unit \"raddsp_fft_twiddle_rom\" not found in library \"raddsp\"\ndsp/hdl/raddsp/src/raddsp_axis_radfft_radix4_tdp.vhd:364:25: unit \"raddsp_xilinx_dsp48_wide_mul\" not found in library \"raddsp\"\ndsp/hdl/raddsp/src/raddsp_axis_radfft_radix4_tdp.vhd:368:25: unit \"raddsp_xilinx_dsp48_wide_mul\" not found in library \"raddsp\"\ndsp/hdl/raddsp/src/raddsp_axis_radfft_radix4_tdp.vhd:372:25: unit \"raddsp_xilinx_dsp48_wide_mul\" not found in library \"raddsp\"\ndsp/hdl/raddsp/src/raddsp_axis_radfft_radix4_tdp.vhd:376:25: unit \"raddsp_xilinx_dsp48_wide_mul\" not found in library \"raddsp\""
-      },
-      {
-        "path": "dsp/hdl/raddsp/src/raddsp_axis_radfft_streaming.vhd",
-        "reason": "dsp/hdl/raddsp/src/raddsp_axis_radfft_streaming.vhd:222:27: unit \"raddsp_xilinx_dsp48_wide_mul\" not found in library \"raddsp\"\ndsp/hdl/raddsp/src/raddsp_axis_radfft_streaming.vhd:226:27: unit \"raddsp_xilinx_dsp48_wide_mul\" not found in library \"raddsp\"\ndsp/hdl/raddsp/src/raddsp_axis_radfft_streaming.vhd:230:27: unit \"raddsp_xilinx_dsp48_wide_mul\" not found in library \"raddsp\"\ndsp/hdl/raddsp/src/raddsp_axis_radfft_streaming.vhd:234:27: unit \"raddsp_xilinx_dsp48_wide_mul\" not found in library \"raddsp\""
-      },
-      {
-        "path": "dsp/hdl/raddsp/src/raddsp_xilinx_dsp48_square_seq.vhd",
-        "reason": "dsp/hdl/raddsp/src/raddsp_xilinx_dsp48_square_seq.vhd:83:24: unit \"raddsp_xilinx_dsp48_mul\" not found in library \"raddsp\""
-      },
-      {
-        "path": "dsp/hdl/raddsp/src/raddsp_xilinx_dsp48_wide_mul.vhd",
-        "reason": "dsp/hdl/raddsp/src/raddsp_xilinx_dsp48_wide_mul.vhd:107:26: unit \"raddsp_xilinx_dsp48_mul\" not found in library \"raddsp\""
-      },
-      {
-        "path": "dsp/hdl/raddsp/src/zc_chirp_frame_detector.vhd",
-        "reason": "dsp/hdl/raddsp/src/zc_chirp_frame_detector.vhd:177:27: unit \"raddsp_xilinx_dsp48_mul\" not found in library \"raddsp\"\ndsp/hdl/raddsp/src/zc_chirp_frame_detector.vhd:185:27: unit \"raddsp_xilinx_dsp48_mul\" not found in library \"raddsp\"\ndsp/hdl/raddsp/src/zc_chirp_frame_detector.vhd:193:27: unit \"raddsp_xilinx_dsp48_mul\" not found in library \"raddsp\"\ndsp/hdl/raddsp/src/zc_chirp_frame_detector.vhd:201:27: unit \"raddsp_xilinx_dsp48_mul\" not found in library \"raddsp\"\ndsp/hdl/raddsp/src/zc_chirp_frame_detector.vhd:209:31: unit \"raddsp_xilinx_dsp48_square_seq\" not found in library \"raddsp\""
-      },
-      {
-        "path": "dsp/hdl/raddsp/src/zc_cross_correlator.vhd",
-        "reason": "dsp/hdl/raddsp/src/zc_cross_correlator.vhd:126:27: unit \"raddsp_xilinx_dsp48_mul\" not found in library \"raddsp\"\ndsp/hdl/raddsp/src/zc_cross_correlator.vhd:134:27: unit \"raddsp_xilinx_dsp48_mul\" not found in library \"raddsp\"\ndsp/hdl/raddsp/src/zc_cross_correlator.vhd:142:27: unit \"raddsp_xilinx_dsp48_mul\" not found in library \"raddsp\"\ndsp/hdl/raddsp/src/zc_cross_correlator.vhd:150:27: unit \"raddsp_xilinx_dsp48_mul\" not found in library \"raddsp\"\ndsp/hdl/raddsp/src/zc_cross_correlator.vhd:158:31: unit \"raddsp_xilinx_dsp48_square_seq\" not found in library \"raddsp\""
-      },
-      {
-        "path": "dsp/hdl/raddsp/src/zc_peak_detector.vhd",
-        "reason": "dsp/hdl/raddsp/src/zc_peak_detector.vhd:140:27: unit \"raddsp_xilinx_dsp48_mul\" not found in library \"raddsp\"\ndsp/hdl/raddsp/src/zc_peak_detector.vhd:148:27: unit \"raddsp_xilinx_dsp48_mul\" not found in library \"raddsp\"\ndsp/hdl/raddsp/src/zc_peak_detector.vhd:156:27: unit \"raddsp_xilinx_dsp48_mul\" not found in library \"raddsp\"\ndsp/hdl/raddsp/src/zc_peak_detector.vhd:164:27: unit \"raddsp_xilinx_dsp48_mul\" not found in library \"raddsp\"\ndsp/hdl/raddsp/src/zc_peak_detector.vhd:172:31: unit \"raddsp_xilinx_dsp48_square_seq\" not found in library \"raddsp\""
-      }
-    ],
-    "work": [
-      {
-        "path": "dsp/hdl/testbenches/tb_raddsp_axis_radfft_ddr.vhd",
-        "reason": "dsp/hdl/testbenches/tb_raddsp_axis_radfft_ddr.vhd:92:59: reference to signal \"mem\" violate pure rule for function \"word_addr\"\ndsp/hdl/testbenches/tb_raddsp_axis_radfft_ddr.vhd:92:59:note: (you can use -frelaxed to turn this error into a warning)\ndsp/hdl/testbenches/tb_raddsp_axis_radfft_ddr.vhd:120:25: unit \"raddsp_axis_radfft_ddr\" not found in library \"raddsp\""
-      }
-    ]
-  },
-  "returncode": 1,
+  "returncode": 2,
   "stdout": "",
-  "stderr": "/usr/bin/ghdl-mcode: cannot find entity or configuration tb_raddsp_axis_radfft_ddr\n"
+  "stderr": "\n******************** GHDL Bug occurred ***************************\nPlease report this bug on https://github.com/ghdl/ghdl/issues\nGHDL release: 1.0.0 (Ubuntu 1.0.0+dfsg-6) [Dunoon edition]\nCompiled with GNAT Version: 10.3.1 20211117\nTarget: x86_64-linux-gnu\n/tmp/radhdl-ghdl-djuw448r/\nCommand line:\n/usr/bin/ghdl-mcode -e --std=08 --ieee=synopsys -P/tmp/radhdl-ghdl-djuw448r --workdir=/tmp/radhdl-ghdl-djuw448r tb_raddsp_axis_radfft_ddr\nException TYPES.INTERNAL_ERROR raised\nException information:\nraised TYPES.INTERNAL_ERROR : trans.adb:553\nCall stack traceback locations:\n0x56abd8cc913d 0x56abd8cc951b 0x56abd8cc9797 0x56abd8e5efc8 0x56abd8e6dd6d 0x56abd8e6de25 0x56abd8e77bde 0x56abd8e96aa7 0x56abd8e96d5f 0x56abd8e97257 0x56abd8e976b1 0x56abd8ea4330 0x56abd8ea381c 0x56abd8eeba78 0x56abd8eebb9f 0x56abd8eec1f8 0x56abd8eec98a 0x56abd8eee596 0x56abd8eee6eb 0x56abd8ef1b0f 0x56abd8ef63f8 0x56abd8ef623b 0x56abd8ef64e5 0x56abd8ef623b 0x56abd8ef64e5 0x56abd8eba4fa 0x56abd8eadeac 0x56abd8ebed8c 0x56abd8eb90a0 0x56abd8efeb55 0x56abd8e3faf5 0x56abd8d7569e 0x56abd8f024b3 0x56abd8b2db07 0x7ef4fd429d8e 0x7ef4fd429e3e 0x56abd8b2c243 0xfffffffffffffffe\n******************************************************************\n"
 }

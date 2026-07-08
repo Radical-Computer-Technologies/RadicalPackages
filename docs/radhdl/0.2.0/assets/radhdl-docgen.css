@@ -59,6 +59,10 @@ pre { overflow: auto; padding: 14px; border-radius: 6px; background: var(--code)
 .wave svg { display: block; width: calc(1120px * var(--wave-zoom)); max-width: none; height: auto; }
 .wave-axis { stroke: var(--line); stroke-width: 1; }
 .wave-grid { stroke: var(--line); stroke-width: 1; opacity: .65; }
+.wave-grid.clock-grid { opacity: .45; }
+.wave-grid.fallback-grid { stroke-dasharray: 4 4; }
+.wave-hover-line { stroke: #ffd84d; stroke-width: 2; opacity: 0; pointer-events: none; }
+.wave-hover-label { fill: #ffd84d; font: 12px ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; opacity: 0; pointer-events: none; }
 .wave-label { fill: var(--ink); font: 12px ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; }
 .wave-time { fill: var(--muted); font: 11px ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; }
 .wave-trace { fill: none; stroke: var(--accent); stroke-width: 2.2; stroke-linejoin: round; stroke-linecap: round; }

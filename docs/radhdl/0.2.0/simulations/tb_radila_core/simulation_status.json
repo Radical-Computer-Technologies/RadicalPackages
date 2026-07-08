@@ -1,29 +1,27 @@
 {
   "backend": "ghdl",
   "testbench": "tb_radila_core",
-  "status": "failed",
+  "status": "passed",
   "libraries": [
     "radila"
   ],
   "analyzed": {
-    "radila": [],
-    "work": []
-  },
-  "analysis_skipped": {
+    "xpm": [
+      "sim/xpm/xpm_memory_models.vhd"
+    ],
     "radila": [
-      {
-        "path": "debug/radila/hdl/radila/radila_axi_top.vhd",
-        "reason": "debug/radila/hdl/radila/radila_axi_top.vhd:84:33: unit \"raddebughub\" not found in library \"radila\""
-      }
+      "debug/radila/hdl/radila/radila_core.vhd",
+      "debug/radila/hdl/radila/raddebughub_axi.vhd",
+      "debug/radila/hdl/radila/radila_axi_top.vhd"
     ],
     "work": [
-      {
-        "path": "debug/radila/hdl/radila/testbenches/tb_radila_core.vhd",
-        "reason": "debug/radila/hdl/radila/testbenches/tb_radila_core.vhd:46:21: unit \"raddebughub\" not found in library \"work\""
-      }
+      "debug/radila/hdl/radila/radila_core.vhd",
+      "debug/radila/hdl/radila/raddebughub_axi.vhd",
+      "debug/radila/hdl/radila/radila_axi_top.vhd",
+      "debug/radila/hdl/radila/testbenches/tb_radila_core.vhd"
     ]
   },
-  "returncode": 1,
-  "stdout": "",
-  "stderr": "/usr/bin/ghdl-mcode: cannot find entity or configuration tb_radila_core\n"
+  "vcd": "simulations/tb_radila_core/tb_radila_core.vcd",
+  "stdout": "../../src/ieee2008/numeric_std-body.vhdl:3089:7:@0ms:(assertion warning): NUMERIC_STD.TO_UNSIGNED: vector truncated\n../../src/ieee2008/numeric_std-body.vhdl:3089:7:@0ms:(assertion warning): NUMERIC_STD.TO_UNSIGNED: vector truncated\n../../src/ieee2008/numeric_std-body.vhdl:3089:7:@3500ps:(assertion warning): NUMERIC_STD.TO_UNSIGNED: vector truncated\n../../src/ieee2008/numeric_std-body.vhdl:3089:7:@5ns:(assertion warning): NUMERIC_STD.TO_UNSIGNED: vector truncated\n../../src/ieee2008/numeric_std-body.vhdl:3089:7:@10500ps:(assertion warning): NUMERIC_STD.TO_UNSIGNED: vector truncated\n../../src/ieee2008/numeric_std-body.vhdl:3089:7:@15ns:(assertion warning): NUMERIC_STD.TO_UNSIGNED: vector truncated\n../../src/ieee2008/numeric_std-body.vhdl:3089:7:@17500ps:(assertion warning): NUMERIC_STD.TO_UNSIGNED: vector truncated\n../../src/ieee2008/numeric_std-body.vhdl:3089:7:@24500ps:(assertion warning): NUMERIC_STD.TO_UNSIGNED: vector truncated\n../../src/ieee2008/numeric_std-body.vhdl:3089:7:@25ns:(assertion warning): NUMERIC_STD.TO_UNSIGNED: vector truncated\n../../src/ieee2008/numeric_std-body.vhdl:3089:7:@31500ps:(assertion warning): NUMERIC_STD.TO_UNSIGNED: vector truncated\n../../src/ieee2008/numeric_std-body.vhdl:3089:7:@35ns:(assertion warning): NUMERIC_STD.TO_UNSIGNED: vector truncated\n../../src/ieee2008/numeric_std-body.vhdl:3089:7:@38500ps:(assertion warning): NUMERIC_STD.TO_UNSIGNED: vector truncated\n../../src/ieee2008/numeric_std-body.vhdl:3089:7:@45ns:(assertion warning): NUMERIC_STD.TO_UNSIGNED: vector truncated\n../../src/ieee2008/numeric_std-body.vhdl:3089:7:@45500ps:(assertion warning): NUMERIC_STD.TO_UNSIGNED: vector truncated\n../../src/ieee2008/numeric_std-body.vhdl:3089:7:@52500ps:(assertion warning): NUMERIC_STD.TO_UNSIGNED: vector truncated\n../../src/ieee2008/numeric_std-body.vhdl:3089:7:@55ns:(assertion warning): NUMERIC_STD.TO_UNSIGNED: vector truncated\n../../src/ieee2008/numeric_std-body.vhdl:3089:7:@59500ps:(assertion warning): NUMERIC_STD.TO_UNSIGNED: vector truncated\n../../src/ieee2008/numeric_std-body.vhdl:3089:7:@65ns:(assertion warning): NUMERIC_STD.TO_UNSIGNED: vector truncated\n../../src/ieee2008/numeric_std-body.vhdl:3089:7:@66500ps:(assertion warning): NUMERIC_STD.TO_UNSIGNED: vector truncated\n../../src/ieee2008/numeric_std-body.vhdl:3089:7:@73500ps:(assertion warning): NUMERIC_STD.TO_UNSIGNED: vector truncated\n../../src/ieee2008/numeric_std-body.vhdl:3089:7:@75ns:(assertion warning): NUMERIC_STD.TO_UNSIGNED: vector truncated\n../../src/ieee2008/numeric_std-body.vhdl:3089:7:@80500ps:(assertion warning): NUMERIC_STD.TO_UNSIGNED: vector truncated\n../../src/ieee2008/numeric_std-body.vhdl:3089:7:@85ns:(assertion warning): NUMERIC_STD.TO_UNSIGNED: vector truncated\n../../src/ieee2008/numeric_std-body.vhdl:3089:7:@87500ps:(assertion warning): NUMERIC_STD.TO_UNSIGNED: vector truncated\n../../src/ieee2008/numeric_std-body.vhdl:3089:7:@94500ps:(assertion warning): NUMERIC_STD.TO_UNSIGNED: vector truncated\n../../src/ieee2008/numeric_std-body.vhdl:3089:7:@95ns:(assertion warning): NUMERIC_STD.TO_UNSIGNED: vector truncated\n../../src/ieee2008/numeric_std-body.vhdl:3089:7:@7801500ps:(assertion warning): NUMERIC_STD.TO_UNSIGNED: vector truncated\ndebug/radila/hdl/radila/testbenches/tb_radila_core.vhd:195:5:@7845ns:(report note): tb_radila_core passed\nsimulation finished @7845ns\n",
+  "stderr": ""
 }
