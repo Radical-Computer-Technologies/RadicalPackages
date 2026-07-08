@@ -9,7 +9,7 @@
 <body>
 
 <header><div class="wrap">
-  <nav class="breadcrumb"><a href="../../index.html">RadHDL</a> / <a href="../../libraries/radif.html">radif</a></nav>
+  <nav class="breadcrumb"><a href="../../index.html">RadHDL</a> / <a href="../../libraries/radhdl.html">radhdl</a></nav>
   <div class="kicker">Interfaces / entity</div>
   <h1>radif_spi_axi_master</h1>
   <div class="meta">Documentation version: 0.2.0 / Package: radif / Source package: radif</div>
@@ -25,7 +25,7 @@ Accepts SPI command traffic and issues AXI-style memory transactions for systems
 <style>text{font-family:Inter,Arial,sans-serif;font-size:13px;fill:#111827}.pin{stroke:#106b62;stroke-width:2;fill:none}.interface-pin{stroke:#7b8794;stroke-width:2;fill:#e5e7eb}.box{fill:#f7f9fc;stroke:#26323f;stroke-width:2}.bubble{fill:#fff;stroke:#106b62;stroke-width:2}.clock{fill:none;stroke:#106b62;stroke-width:2}</style>
 <rect class="box" x="72" y="50" width="420" height="240" rx="4"/>
 <text x="282.0" y="84" text-anchor="middle" font-weight="700">radif_spi_axi_master</text>
-<text x="282.0" y="106" text-anchor="middle">radif entity</text>
+<text x="282.0" y="106" text-anchor="middle">radhdl entity</text>
 <line class="pin" x1="36" y1="130" x2="72" y2="130"/>
 <text x="100" y="134">clk</text>
 <path class="clock" d="M 74 123 L 87 130 L 74 137"/>
@@ -50,10 +50,10 @@ Accepts SPI command traffic and issues AXI-style memory transactions for systems
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
 
-library radif;
+library radhdl;
 -- Direct entity instantiation below does not require importing the entity name.
--- Add package imports only when your surrounding design needs package types/constants, for example:
--- use radif.&lt;package_name&gt;.all;</code></pre><h3>Component Declaration</h3><pre><code>component radif_spi_axi_master is
+use radhdl.interfaces.all;
+-- Narrower alternative: use radhdl.interfaces_spi.all;</code></pre><h3>Component Declaration</h3><pre><code>component radif_spi_axi_master is
   generic (
     AXI_DATA_WIDTH : integer := 32;
     AXI_ADDR_WIDTH : integer := 32;
@@ -94,7 +94,7 @@ library radif;
     spi_miso_o : out std_logic;
     spi_miso_oen : out std_logic
   );
-end component;</code></pre><h3>Direct Entity Instantiation</h3><pre><code>u_radif_spi_axi_master : entity radif.radif_spi_axi_master
+end component;</code></pre><h3>Direct Entity Instantiation</h3><pre><code>u_radif_spi_axi_master : entity radhdl.radif_spi_axi_master
   generic map (
     AXI_DATA_WIDTH =&gt; 32,
     AXI_ADDR_WIDTH =&gt; 32,

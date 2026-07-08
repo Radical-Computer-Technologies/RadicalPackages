@@ -9,7 +9,7 @@
 <body>
 
 <header><div class="wrap">
-  <nav class="breadcrumb"><a href="../../index.html">RadHDL</a> / <a href="../../libraries/radif.html">radif</a></nav>
+  <nav class="breadcrumb"><a href="../../index.html">RadHDL</a> / <a href="../../libraries/radhdl.html">radhdl</a></nav>
   <div class="kicker">Interfaces / entity</div>
   <h1>radif_axi4_axis_dma</h1>
   <div class="meta">Documentation version: 0.2.0 / Package: radif / Source package: radif</div>
@@ -25,7 +25,7 @@ Moves register-controlled memory bursts into and out of streaming datapaths with
 <style>text{font-family:Inter,Arial,sans-serif;font-size:13px;fill:#111827}.pin{stroke:#106b62;stroke-width:2;fill:none}.interface-pin{stroke:#7b8794;stroke-width:2;fill:#e5e7eb}.box{fill:#f7f9fc;stroke:#26323f;stroke-width:2}.bubble{fill:#fff;stroke:#106b62;stroke-width:2}.clock{fill:none;stroke:#106b62;stroke-width:2}</style>
 <rect class="box" x="72" y="50" width="420" height="352" rx="4"/>
 <text x="282.0" y="84" text-anchor="middle" font-weight="700">radif_axi4_axis_dma</text>
-<text x="282.0" y="106" text-anchor="middle">radif entity</text>
+<text x="282.0" y="106" text-anchor="middle">radhdl entity</text>
 <line class="pin" x1="36" y1="130" x2="72" y2="130"/>
 <text x="100" y="134">S_AXIS</text>
 <rect class="interface-pin" x="28" y="121" width="18" height="18" rx="2"/>
@@ -70,10 +70,10 @@ Moves register-controlled memory bursts into and out of streaming datapaths with
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
 
-library radif;
+library radhdl;
 -- Direct entity instantiation below does not require importing the entity name.
--- Add package imports only when your surrounding design needs package types/constants, for example:
--- use radif.&lt;package_name&gt;.all;</code></pre><h3>Component Declaration</h3><pre><code>component radif_axi4_axis_dma is
+use radhdl.interfaces.all;
+-- Narrower alternative: use radhdl.interfaces_axi.all;</code></pre><h3>Component Declaration</h3><pre><code>component radif_axi4_axis_dma is
   generic (
     REG_DATA_WIDTH : integer := 32;
     REG_ADDR_WIDTH : integer := 16;
@@ -135,7 +135,7 @@ library radif;
     reg_error : out std_logic;
     irq_o : out std_logic
   );
-end component;</code></pre><h3>Direct Entity Instantiation</h3><pre><code>u_radif_axi4_axis_dma : entity radif.radif_axi4_axis_dma
+end component;</code></pre><h3>Direct Entity Instantiation</h3><pre><code>u_radif_axi4_axis_dma : entity radhdl.radif_axi4_axis_dma
   generic map (
     REG_DATA_WIDTH  =&gt; 32,
     REG_ADDR_WIDTH  =&gt; 16,

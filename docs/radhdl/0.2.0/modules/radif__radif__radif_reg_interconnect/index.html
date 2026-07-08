@@ -9,7 +9,7 @@
 <body>
 
 <header><div class="wrap">
-  <nav class="breadcrumb"><a href="../../index.html">RadHDL</a> / <a href="../../libraries/radif.html">radif</a></nav>
+  <nav class="breadcrumb"><a href="../../index.html">RadHDL</a> / <a href="../../libraries/radhdl.html">radhdl</a></nav>
   <div class="kicker">Interfaces / entity</div>
   <h1>radif_reg_interconnect</h1>
   <div class="meta">Documentation version: 0.2.0 / Package: radif / Source package: radif</div>
@@ -25,7 +25,7 @@ Decodes address ranges, forwards transactions, and returns the selected peripher
 <style>text{font-family:Inter,Arial,sans-serif;font-size:13px;fill:#111827}.pin{stroke:#106b62;stroke-width:2;fill:none}.interface-pin{stroke:#7b8794;stroke-width:2;fill:#e5e7eb}.box{fill:#f7f9fc;stroke:#26323f;stroke-width:2}.bubble{fill:#fff;stroke:#106b62;stroke-width:2}.clock{fill:none;stroke:#106b62;stroke-width:2}</style>
 <rect class="box" x="72" y="50" width="420" height="464" rx="4"/>
 <text x="282.0" y="84" text-anchor="middle" font-weight="700">radif_reg_interconnect</text>
-<text x="282.0" y="106" text-anchor="middle">radif entity</text>
+<text x="282.0" y="106" text-anchor="middle">radhdl entity</text>
 <line class="pin" x1="36" y1="130" x2="72" y2="130"/>
 <text x="100" y="134">clk</text>
 <path class="clock" d="M 74 123 L 87 130 L 74 137"/>
@@ -81,10 +81,10 @@ Decodes address ranges, forwards transactions, and returns the selected peripher
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
 
-library radif;
+library radhdl;
 -- Direct entity instantiation below does not require importing the entity name.
--- Add package imports only when your surrounding design needs package types/constants, for example:
--- use radif.&lt;package_name&gt;.all;</code></pre><h3>Component Declaration</h3><pre><code>component radif_reg_interconnect is
+use radhdl.interfaces.all;
+-- Narrower alternative: use radhdl.interfaces_regbank.all;</code></pre><h3>Component Declaration</h3><pre><code>component radif_reg_interconnect is
   generic (
     DATA_WIDTH : integer := 32;
     ADDR_WIDTH : integer := 16;
@@ -119,7 +119,7 @@ library radif;
     s_rd_valid_i : in std_logic_vector(SLAVE_COUNT - 1 downto 0);
     s_error_i : in std_logic_vector(SLAVE_COUNT - 1 downto 0)
   );
-end component;</code></pre><h3>Direct Entity Instantiation</h3><pre><code>u_radif_reg_interconnect : entity radif.radif_reg_interconnect
+end component;</code></pre><h3>Direct Entity Instantiation</h3><pre><code>u_radif_reg_interconnect : entity radhdl.radif_reg_interconnect
   generic map (
     DATA_WIDTH       =&gt; 32,
     ADDR_WIDTH       =&gt; 16,
