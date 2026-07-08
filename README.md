@@ -82,11 +82,15 @@ Current module package names include `radlib-core`, `radlib-ui`, `radlib-net`, `
 
 ## Experimental Packages
 
-Experimental packages are allowed to move faster than stable. RADBard lives here while it is still beta, and RADLib `0.1.1` development packages should be published here until promoted.
+Experimental packages are allowed to move faster than stable. RADBard and RadBuild live here while they are still beta, and RADLib `0.1.1` development packages should be published here until promoted.
 
 | Package | Description | Install |
 | --- | --- | --- |
 | `radbard` | RADBard music and audio composition suite beta. | `sudo apt install radbard` |
+| `radbuild` | Graph-based embedded-system build framework CLI. | `sudo apt install radbuild` |
+| `radbuild-server` | Optional RadBuild server, client, worker, and review DB tools. | `sudo apt install radbuild-server` |
+| `radbuild-vscode-support` | VSCode extension source and compiled support files for RadBuild. | `sudo apt install radbuild-vscode-support` |
+| `radbuild-doc` | RadBuild documentation package. | `sudo apt install radbuild-doc` |
 
 ## Documentation
 
@@ -120,7 +124,8 @@ Publish Debian packages:
 ```bash
 scripts/update_debian_repo.sh \
   ../RADLib/build/package/deb/out/*.deb \
-  ../RADBard/release/radbard-0.1.0-x86_64.deb
+  ../RADBard/release/radbard-0.1.0-x86_64.deb \
+  ../RadBuild/dist/debian/*.deb
 ```
 
 Regenerate RADLib Doxygen documentation:

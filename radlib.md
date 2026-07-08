@@ -6,6 +6,7 @@
     <div class="nav-links">
       <a href="radlib.html">RADLib</a>
       <a href="radbard.html">RADBard</a>
+      <a href="radbuild.html">RadBuild</a>
       <a href="docs/radlib/">Docs</a>
       <a href="debian/pool/main/">Pool</a>
     </div>

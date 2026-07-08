@@ -6,6 +6,7 @@
     <div class="nav-links">
       <a href="radlib.html">RADLib</a>
       <a href="radbard.html">RADBard</a>
+      <a href="radbuild.html">RadBuild</a>
       <a href="docs/radlib/">Docs</a>
       <a href="debian/pool/main/">Pool</a>
     </div>
@@ -20,8 +21,8 @@
     </p>
     <div class="status-row">
       <span class="pill"><strong>Stable:</strong> RADLib 0.1.0</span>
-      <span class="pill"><strong>Experimental:</strong> RADBard beta, future RADLib 0.1.1</span>
-      <span class="pill"><strong>Architectures:</strong> amd64, arm64</span>
+      <span class="pill"><strong>Experimental:</strong> RADBard beta, RadBuild 0.2.0, future RADLib 0.1.1</span>
+      <span class="pill"><strong>Architectures:</strong> amd64, arm64, all</span>
     </div>
   </section>
 
@@ -65,6 +66,10 @@ sudo apt update</code></div>
     <a class="link-card" href="radbard.html">
       <strong>RADBard Packages</strong>
       <span>Experimental music composition suite package information.</span>
+    </a>
+    <a class="link-card" href="radbuild.html">
+      <strong>RadBuild Packages</strong>
+      <span>Graph build framework, server, VSCode support, and docs packages.</span>
     </a>
   </section>
 
