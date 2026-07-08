@@ -35,11 +35,24 @@ pre { overflow: auto; padding: 14px; border-radius: 6px; background: var(--code)
 .reg-card { border: 1px solid var(--line); border-radius: 6px; padding: 12px; margin: 12px 0; background: var(--card); }
 .reg-card h4 { margin: 0 0 6px; }
 .reg-meta { color: var(--muted); font-size: 13px; margin-bottom: 8px; }
-.reg-ruler, .reg-bits { display: grid; grid-template-columns: repeat(32, minmax(18px, 1fr)); }
+.reg-slice { margin: 10px 0 14px; overflow-x: auto; }
+.reg-slice-title { color: var(--muted); font-size: 13px; font-weight: 700; margin: 0 0 4px; text-transform: uppercase; }
+.reg-ruler, .reg-bits { display: grid; min-width: 768px; }
 .reg-ruler span { font-size: 10px; color: var(--muted); text-align: center; border: 1px solid var(--line); border-bottom: 0; padding: 2px 0; background: var(--ruler); }
-.reg-field { min-height: 38px; border: 1px solid var(--line); padding: 4px 6px; font-size: 12px; background: var(--soft); overflow-wrap: anywhere; }
+.reg-field { min-height: 46px; border: 1px solid var(--line); padding: 5px 6px; font-size: 12px; line-height: 1.15; text-align: center; background: var(--soft); overflow-wrap: anywhere; display: flex; align-items: center; justify-content: center; }
 .reg-field.reserved { color: var(--muted); background: var(--reserved); }
+.field-table td:first-child { font-weight: 700; white-space: nowrap; }
 .status { border-left: 4px solid #d59b35; background: var(--panel); padding: 10px 12px; margin: 10px 0; }
 .wave { width: 100%; overflow-x: auto; border: 1px solid var(--line); border-radius: 6px; padding: 10px; background: var(--soft); }
+.wave h4 { margin: 0 0 8px; }
+.wave svg { display: block; min-width: 980px; width: 100%; height: auto; }
+.wave-axis { stroke: var(--line); stroke-width: 1; }
+.wave-grid { stroke: var(--line); stroke-width: 1; opacity: .65; }
+.wave-label { fill: var(--ink); font: 12px ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; }
+.wave-time { fill: var(--muted); font: 11px ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; }
+.wave-trace { fill: none; stroke: var(--accent); stroke-width: 2.2; stroke-linejoin: round; stroke-linecap: round; }
+.wave-bus { fill: rgba(98, 214, 199, .12); stroke: var(--accent); stroke-width: 1.2; }
+.wave-bus-text { fill: var(--ink); font: 11px ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; }
+.wave-unknown { stroke: #d59b35; }
 nav.breadcrumb { font-size: 13px; color: var(--muted); margin-bottom: 14px; }
 footer { margin-top: 42px; border-top: 1px solid var(--line); color: var(--muted); font-size: 13px; }

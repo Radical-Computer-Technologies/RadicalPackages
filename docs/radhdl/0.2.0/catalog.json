@@ -6745,21 +6745,29 @@
               "fields": [
                 {
                   "name": "start command",
+                  "display_name": "START CMD",
+                  "description": "Starts the selected operation.",
                   "msb": 0,
                   "lsb": 0
                 },
                 {
                   "name": "operation mode",
+                  "display_name": "OPERATION MODE",
+                  "description": "Selects the operating mode.",
                   "msb": 5,
                   "lsb": 4
                 },
                 {
                   "name": "interrupt enable",
+                  "display_name": "IRQ EN",
+                  "description": "Enables interrupt generation for the associated event.",
                   "msb": 8,
                   "lsb": 8
                 },
                 {
                   "name": "clear sticky status flags",
+                  "display_name": "CLEAR STICKY STAT FLAGS",
+                  "description": "Clears the associated sticky status flag(s).",
                   "msb": 31,
                   "lsb": 31
                 }
@@ -6777,21 +6785,29 @@
               "fields": [
                 {
                   "name": "busy",
+                  "display_name": "BUSY",
+                  "description": "Indicates that the block is actively processing.",
                   "msb": 0,
                   "lsb": 0
                 },
                 {
                   "name": "done",
+                  "display_name": "DONE",
+                  "description": "Indicates that the selected operation completed.",
                   "msb": 1,
                   "lsb": 1
                 },
                 {
                   "name": "error",
+                  "display_name": "ERROR",
+                  "description": "Indicates that the block detected an error condition.",
                   "msb": 2,
                   "lsb": 2
                 },
                 {
                   "name": "unsupported configuration",
+                  "display_name": "UNSUPPORTED CFG",
+                  "description": "Unsupported configuration.",
                   "msb": 3,
                   "lsb": 3
                 }
@@ -6875,11 +6891,15 @@
               "fields": [
                 {
                   "name": "log2 FFT point count",
+                  "display_name": "LOG2 FFT POINT COUNT",
+                  "description": "Log2 FFT point count.",
                   "msb": 7,
                   "lsb": 0
                 },
                 {
                   "name": "AXI bytes per beat on readback",
+                  "display_name": "AXI BYTES PER BEAT ON READBACK",
+                  "description": "AXI bytes per beat on readback.",
                   "msb": 23,
                   "lsb": 16
                 }
@@ -6897,6 +6917,8 @@
               "fields": [
                 {
                   "name": "requested AXI burst length in beats",
+                  "display_name": "REQUESTED AXI BURST LENGTH IN BEATS",
+                  "description": "Requested AXI burst length in beats.",
                   "msb": 7,
                   "lsb": 0
                 }
@@ -6958,36 +6980,50 @@
               "fields": [
                 {
                   "name": "radix-4 enable",
+                  "display_name": "RADIX 4 EN",
+                  "description": "Radix 4 enable.",
                   "msb": 0,
                   "lsb": 0
                 },
                 {
                   "name": "reserved radix mode",
+                  "display_name": "RSVD RADIX MODE",
+                  "description": "Selects the operating mode.",
                   "msb": 4,
                   "lsb": 4
                 },
                 {
                   "name": "reserved parallel mode",
+                  "display_name": "RSVD PARALLEL MODE",
+                  "description": "Selects the operating mode.",
                   "msb": 5,
                   "lsb": 5
                 },
                 {
                   "name": "cross-correlation mode",
+                  "display_name": "CROSS CORRELATION MODE",
+                  "description": "Selects the operating mode.",
                   "msb": 6,
                   "lsb": 6
                 },
                 {
                   "name": "input width code",
+                  "display_name": "INPUT WIDTH CODE",
+                  "description": "Input width code.",
                   "msb": 10,
                   "lsb": 8
                 },
                 {
                   "name": "output width code",
+                  "display_name": "OUTPUT WIDTH CODE",
+                  "description": "Output width code.",
                   "msb": 14,
                   "lsb": 12
                 },
                 {
                   "name": "lane-count code",
+                  "display_name": "LANE COUNT CODE",
+                  "description": "Lane count code.",
                   "msb": 17,
                   "lsb": 16
                 }
@@ -7016,21 +7052,29 @@
               "fields": [
                 {
                   "name": "maximum log2 FFT points",
+                  "display_name": "MAXIMUM LOG2 FFT POINTS",
+                  "description": "Maximum log2 FFT points.",
                   "msb": 7,
                   "lsb": 0
                 },
                 {
                   "name": "maximum input width",
+                  "display_name": "MAXIMUM INPUT WIDTH",
+                  "description": "Maximum input width.",
                   "msb": 15,
                   "lsb": 8
                 },
                 {
                   "name": "maximum output width",
+                  "display_name": "MAXIMUM OUTPUT WIDTH",
+                  "description": "Maximum output width.",
                   "msb": 23,
                   "lsb": 16
                 },
                 {
                   "name": "twiddle width",
+                  "display_name": "TWIDDLE WIDTH",
+                  "description": "Twiddle width.",
                   "msb": 31,
                   "lsb": 24
                 }
@@ -7048,36 +7092,50 @@
               "fields": [
                 {
                   "name": "radix-2 support",
+                  "display_name": "RADIX 2 SUPPORT",
+                  "description": "Radix 2 support.",
                   "msb": 0,
                   "lsb": 0
                 },
                 {
                   "name": "radix-4 support",
+                  "display_name": "RADIX 4 SUPPORT",
+                  "description": "Radix 4 support.",
                   "msb": 1,
                   "lsb": 1
                 },
                 {
                   "name": "DDR FFT support",
+                  "display_name": "DDR FFT SUPPORT",
+                  "description": "DDR FFT support.",
                   "msb": 2,
                   "lsb": 2
                 },
                 {
                   "name": "cross-correlation support",
+                  "display_name": "CROSS CORRELATION SUPPORT",
+                  "description": "Cross correlation support.",
                   "msb": 3,
                   "lsb": 3
                 },
                 {
                   "name": "maximum multiplier lanes",
+                  "display_name": "MAXIMUM MULTIPLIER LANES",
+                  "description": "Maximum multiplier lanes.",
                   "msb": 15,
                   "lsb": 8
                 },
                 {
                   "name": "AXI bytes per beat",
+                  "display_name": "AXI BYTES PER BEAT",
+                  "description": "AXI bytes per beat.",
                   "msb": 23,
                   "lsb": 16
                 },
                 {
                   "name": "maximum burst beats",
+                  "display_name": "MAXIMUM BURST BEATS",
+                  "description": "Maximum burst beats.",
                   "msb": 31,
                   "lsb": 24
                 }
@@ -10254,21 +10312,29 @@
               "fields": [
                 {
                   "name": "MM2S enable",
+                  "display_name": "MM2S EN",
+                  "description": "Enables MM2S transfer(s).",
                   "msb": 0,
                   "lsb": 0
                 },
                 {
                   "name": "MM2S circular",
+                  "display_name": "MM2S CIRC",
+                  "description": "Enables MM2S circular address wrapping.",
                   "msb": 1,
                   "lsb": 1
                 },
                 {
                   "name": "S2MM enable",
+                  "display_name": "S2MM EN",
+                  "description": "Enables S2MM transfer(s).",
                   "msb": 8,
                   "lsb": 8
                 },
                 {
                   "name": "S2MM circular",
+                  "display_name": "S2MM CIRC",
+                  "description": "Enables S2MM circular address wrapping.",
                   "msb": 9,
                   "lsb": 9
                 }
@@ -19209,21 +19275,29 @@
               "fields": [
                 {
                   "name": "start command",
+                  "display_name": "START CMD",
+                  "description": "Starts the selected operation.",
                   "msb": 0,
                   "lsb": 0
                 },
                 {
                   "name": "operation mode",
+                  "display_name": "OPERATION MODE",
+                  "description": "Selects the operating mode.",
                   "msb": 5,
                   "lsb": 4
                 },
                 {
                   "name": "interrupt enable",
+                  "display_name": "IRQ EN",
+                  "description": "Enables interrupt generation for the associated event.",
                   "msb": 8,
                   "lsb": 8
                 },
                 {
                   "name": "clear sticky status flags",
+                  "display_name": "CLEAR STICKY STAT FLAGS",
+                  "description": "Clears the associated sticky status flag(s).",
                   "msb": 31,
                   "lsb": 31
                 }
@@ -19241,21 +19315,29 @@
               "fields": [
                 {
                   "name": "busy",
+                  "display_name": "BUSY",
+                  "description": "Indicates that the block is actively processing.",
                   "msb": 0,
                   "lsb": 0
                 },
                 {
                   "name": "done",
+                  "display_name": "DONE",
+                  "description": "Indicates that the selected operation completed.",
                   "msb": 1,
                   "lsb": 1
                 },
                 {
                   "name": "error",
+                  "display_name": "ERROR",
+                  "description": "Indicates that the block detected an error condition.",
                   "msb": 2,
                   "lsb": 2
                 },
                 {
                   "name": "unsupported configuration",
+                  "display_name": "UNSUPPORTED CFG",
+                  "description": "Unsupported configuration.",
                   "msb": 3,
                   "lsb": 3
                 }
@@ -19339,11 +19421,15 @@
               "fields": [
                 {
                   "name": "log2 FFT point count",
+                  "display_name": "LOG2 FFT POINT COUNT",
+                  "description": "Log2 FFT point count.",
                   "msb": 7,
                   "lsb": 0
                 },
                 {
                   "name": "AXI bytes per beat on readback",
+                  "display_name": "AXI BYTES PER BEAT ON READBACK",
+                  "description": "AXI bytes per beat on readback.",
                   "msb": 23,
                   "lsb": 16
                 }
@@ -19361,6 +19447,8 @@
               "fields": [
                 {
                   "name": "requested AXI burst length in beats",
+                  "display_name": "REQUESTED AXI BURST LENGTH IN BEATS",
+                  "description": "Requested AXI burst length in beats.",
                   "msb": 7,
                   "lsb": 0
                 }
@@ -19422,36 +19510,50 @@
               "fields": [
                 {
                   "name": "radix-4 enable",
+                  "display_name": "RADIX 4 EN",
+                  "description": "Radix 4 enable.",
                   "msb": 0,
                   "lsb": 0
                 },
                 {
                   "name": "reserved radix mode",
+                  "display_name": "RSVD RADIX MODE",
+                  "description": "Selects the operating mode.",
                   "msb": 4,
                   "lsb": 4
                 },
                 {
                   "name": "reserved parallel mode",
+                  "display_name": "RSVD PARALLEL MODE",
+                  "description": "Selects the operating mode.",
                   "msb": 5,
                   "lsb": 5
                 },
                 {
                   "name": "cross-correlation mode",
+                  "display_name": "CROSS CORRELATION MODE",
+                  "description": "Selects the operating mode.",
                   "msb": 6,
                   "lsb": 6
                 },
                 {
                   "name": "input width code",
+                  "display_name": "INPUT WIDTH CODE",
+                  "description": "Input width code.",
                   "msb": 10,
                   "lsb": 8
                 },
                 {
                   "name": "output width code",
+                  "display_name": "OUTPUT WIDTH CODE",
+                  "description": "Output width code.",
                   "msb": 14,
                   "lsb": 12
                 },
                 {
                   "name": "lane-count code",
+                  "display_name": "LANE COUNT CODE",
+                  "description": "Lane count code.",
                   "msb": 17,
                   "lsb": 16
                 }
@@ -19480,21 +19582,29 @@
               "fields": [
                 {
                   "name": "maximum log2 FFT points",
+                  "display_name": "MAXIMUM LOG2 FFT POINTS",
+                  "description": "Maximum log2 FFT points.",
                   "msb": 7,
                   "lsb": 0
                 },
                 {
                   "name": "maximum input width",
+                  "display_name": "MAXIMUM INPUT WIDTH",
+                  "description": "Maximum input width.",
                   "msb": 15,
                   "lsb": 8
                 },
                 {
                   "name": "maximum output width",
+                  "display_name": "MAXIMUM OUTPUT WIDTH",
+                  "description": "Maximum output width.",
                   "msb": 23,
                   "lsb": 16
                 },
                 {
                   "name": "twiddle width",
+                  "display_name": "TWIDDLE WIDTH",
+                  "description": "Twiddle width.",
                   "msb": 31,
                   "lsb": 24
                 }
@@ -19512,36 +19622,50 @@
               "fields": [
                 {
                   "name": "radix-2 support",
+                  "display_name": "RADIX 2 SUPPORT",
+                  "description": "Radix 2 support.",
                   "msb": 0,
                   "lsb": 0
                 },
                 {
                   "name": "radix-4 support",
+                  "display_name": "RADIX 4 SUPPORT",
+                  "description": "Radix 4 support.",
                   "msb": 1,
                   "lsb": 1
                 },
                 {
                   "name": "DDR FFT support",
+                  "display_name": "DDR FFT SUPPORT",
+                  "description": "DDR FFT support.",
                   "msb": 2,
                   "lsb": 2
                 },
                 {
                   "name": "cross-correlation support",
+                  "display_name": "CROSS CORRELATION SUPPORT",
+                  "description": "Cross correlation support.",
                   "msb": 3,
                   "lsb": 3
                 },
                 {
                   "name": "maximum multiplier lanes",
+                  "display_name": "MAXIMUM MULTIPLIER LANES",
+                  "description": "Maximum multiplier lanes.",
                   "msb": 15,
                   "lsb": 8
                 },
                 {
                   "name": "AXI bytes per beat",
+                  "display_name": "AXI BYTES PER BEAT",
+                  "description": "AXI bytes per beat.",
                   "msb": 23,
                   "lsb": 16
                 },
                 {
                   "name": "maximum burst beats",
+                  "display_name": "MAXIMUM BURST BEATS",
+                  "description": "Maximum burst beats.",
                   "msb": 31,
                   "lsb": 24
                 }
@@ -23150,21 +23274,29 @@
               "fields": [
                 {
                   "name": "MM2S enable",
+                  "display_name": "MM2S EN",
+                  "description": "Enables MM2S transfer(s).",
                   "msb": 0,
                   "lsb": 0
                 },
                 {
                   "name": "MM2S circular",
+                  "display_name": "MM2S CIRC",
+                  "description": "Enables MM2S circular address wrapping.",
                   "msb": 1,
                   "lsb": 1
                 },
                 {
                   "name": "S2MM enable",
+                  "display_name": "S2MM EN",
+                  "description": "Enables S2MM transfer(s).",
                   "msb": 8,
                   "lsb": 8
                 },
                 {
                   "name": "S2MM circular",
+                  "display_name": "S2MM CIRC",
+                  "description": "Enables S2MM circular address wrapping.",
                   "msb": 9,
                   "lsb": 9
                 }
@@ -25942,16 +26074,22 @@
               "fields": [
                 {
                   "name": "enable",
+                  "display_name": "EN",
+                  "description": "Enable.",
                   "msb": 0,
                   "lsb": 0
                 },
                 {
                   "name": "soft reset",
+                  "display_name": "SOFT RESET",
+                  "description": "Soft reset.",
                   "msb": 1,
                   "lsb": 1
                 },
                 {
                   "name": "clear",
+                  "display_name": "CLEAR",
+                  "description": "Clears the associated sticky status flag(s).",
                   "msb": 2,
                   "lsb": 2
                 }
@@ -26394,21 +26532,29 @@
               "fields": [
                 {
                   "name": "MM2S enable",
+                  "display_name": "MM2S EN",
+                  "description": "Enables MM2S transfer(s).",
                   "msb": 0,
                   "lsb": 0
                 },
                 {
                   "name": "MM2S circular",
+                  "display_name": "MM2S CIRC",
+                  "description": "Enables MM2S circular address wrapping.",
                   "msb": 1,
                   "lsb": 1
                 },
                 {
                   "name": "S2MM enable",
+                  "display_name": "S2MM EN",
+                  "description": "Enables S2MM transfer(s).",
                   "msb": 8,
                   "lsb": 8
                 },
                 {
                   "name": "S2MM circular",
+                  "display_name": "S2MM CIRC",
+                  "description": "Enables S2MM circular address wrapping.",
                   "msb": 9,
                   "lsb": 9
                 }
@@ -29187,21 +29333,29 @@
           "fields": [
             {
               "name": "start command",
+              "display_name": "START CMD",
+              "description": "Starts the selected operation.",
               "msb": 0,
               "lsb": 0
             },
             {
               "name": "operation mode",
+              "display_name": "OPERATION MODE",
+              "description": "Selects the operating mode.",
               "msb": 5,
               "lsb": 4
             },
             {
               "name": "interrupt enable",
+              "display_name": "IRQ EN",
+              "description": "Enables interrupt generation for the associated event.",
               "msb": 8,
               "lsb": 8
             },
             {
               "name": "clear sticky status flags",
+              "display_name": "CLEAR STICKY STAT FLAGS",
+              "description": "Clears the associated sticky status flag(s).",
               "msb": 31,
               "lsb": 31
             }
@@ -29219,21 +29373,29 @@
           "fields": [
             {
               "name": "busy",
+              "display_name": "BUSY",
+              "description": "Indicates that the block is actively processing.",
               "msb": 0,
               "lsb": 0
             },
             {
               "name": "done",
+              "display_name": "DONE",
+              "description": "Indicates that the selected operation completed.",
               "msb": 1,
               "lsb": 1
             },
             {
               "name": "error",
+              "display_name": "ERROR",
+              "description": "Indicates that the block detected an error condition.",
               "msb": 2,
               "lsb": 2
             },
             {
               "name": "unsupported configuration",
+              "display_name": "UNSUPPORTED CFG",
+              "description": "Unsupported configuration.",
               "msb": 3,
               "lsb": 3
             }
@@ -29317,11 +29479,15 @@
           "fields": [
             {
               "name": "log2 FFT point count",
+              "display_name": "LOG2 FFT POINT COUNT",
+              "description": "Log2 FFT point count.",
               "msb": 7,
               "lsb": 0
             },
             {
               "name": "AXI bytes per beat on readback",
+              "display_name": "AXI BYTES PER BEAT ON READBACK",
+              "description": "AXI bytes per beat on readback.",
               "msb": 23,
               "lsb": 16
             }
@@ -29339,6 +29505,8 @@
           "fields": [
             {
               "name": "requested AXI burst length in beats",
+              "display_name": "REQUESTED AXI BURST LENGTH IN BEATS",
+              "description": "Requested AXI burst length in beats.",
               "msb": 7,
               "lsb": 0
             }
@@ -29400,36 +29568,50 @@
           "fields": [
             {
               "name": "radix-4 enable",
+              "display_name": "RADIX 4 EN",
+              "description": "Radix 4 enable.",
               "msb": 0,
               "lsb": 0
             },
             {
               "name": "reserved radix mode",
+              "display_name": "RSVD RADIX MODE",
+              "description": "Selects the operating mode.",
               "msb": 4,
               "lsb": 4
             },
             {
               "name": "reserved parallel mode",
+              "display_name": "RSVD PARALLEL MODE",
+              "description": "Selects the operating mode.",
               "msb": 5,
               "lsb": 5
             },
             {
               "name": "cross-correlation mode",
+              "display_name": "CROSS CORRELATION MODE",
+              "description": "Selects the operating mode.",
               "msb": 6,
               "lsb": 6
             },
             {
               "name": "input width code",
+              "display_name": "INPUT WIDTH CODE",
+              "description": "Input width code.",
               "msb": 10,
               "lsb": 8
             },
             {
               "name": "output width code",
+              "display_name": "OUTPUT WIDTH CODE",
+              "description": "Output width code.",
               "msb": 14,
               "lsb": 12
             },
             {
               "name": "lane-count code",
+              "display_name": "LANE COUNT CODE",
+              "description": "Lane count code.",
               "msb": 17,
               "lsb": 16
             }
@@ -29458,21 +29640,29 @@
           "fields": [
             {
               "name": "maximum log2 FFT points",
+              "display_name": "MAXIMUM LOG2 FFT POINTS",
+              "description": "Maximum log2 FFT points.",
               "msb": 7,
               "lsb": 0
             },
             {
               "name": "maximum input width",
+              "display_name": "MAXIMUM INPUT WIDTH",
+              "description": "Maximum input width.",
               "msb": 15,
               "lsb": 8
             },
             {
               "name": "maximum output width",
+              "display_name": "MAXIMUM OUTPUT WIDTH",
+              "description": "Maximum output width.",
               "msb": 23,
               "lsb": 16
             },
             {
               "name": "twiddle width",
+              "display_name": "TWIDDLE WIDTH",
+              "description": "Twiddle width.",
               "msb": 31,
               "lsb": 24
             }
@@ -29490,36 +29680,50 @@
           "fields": [
             {
               "name": "radix-2 support",
+              "display_name": "RADIX 2 SUPPORT",
+              "description": "Radix 2 support.",
               "msb": 0,
               "lsb": 0
             },
             {
               "name": "radix-4 support",
+              "display_name": "RADIX 4 SUPPORT",
+              "description": "Radix 4 support.",
               "msb": 1,
               "lsb": 1
             },
             {
               "name": "DDR FFT support",
+              "display_name": "DDR FFT SUPPORT",
+              "description": "DDR FFT support.",
               "msb": 2,
               "lsb": 2
             },
             {
               "name": "cross-correlation support",
+              "display_name": "CROSS CORRELATION SUPPORT",
+              "description": "Cross correlation support.",
               "msb": 3,
               "lsb": 3
             },
             {
               "name": "maximum multiplier lanes",
+              "display_name": "MAXIMUM MULTIPLIER LANES",
+              "description": "Maximum multiplier lanes.",
               "msb": 15,
               "lsb": 8
             },
             {
               "name": "AXI bytes per beat",
+              "display_name": "AXI BYTES PER BEAT",
+              "description": "AXI bytes per beat.",
               "msb": 23,
               "lsb": 16
             },
             {
               "name": "maximum burst beats",
+              "display_name": "MAXIMUM BURST BEATS",
+              "description": "Maximum burst beats.",
               "msb": 31,
               "lsb": 24
             }
@@ -29634,16 +29838,22 @@
           "fields": [
             {
               "name": "enable",
+              "display_name": "EN",
+              "description": "Enable.",
               "msb": 0,
               "lsb": 0
             },
             {
               "name": "soft reset",
+              "display_name": "SOFT RESET",
+              "description": "Soft reset.",
               "msb": 1,
               "lsb": 1
             },
             {
               "name": "clear",
+              "display_name": "CLEAR",
+              "description": "Clears the associated sticky status flag(s).",
               "msb": 2,
               "lsb": 2
             }
@@ -30086,21 +30296,29 @@
           "fields": [
             {
               "name": "MM2S enable",
+              "display_name": "MM2S EN",
+              "description": "Enables MM2S transfer(s).",
               "msb": 0,
               "lsb": 0
             },
             {
               "name": "MM2S circular",
+              "display_name": "MM2S CIRC",
+              "description": "Enables MM2S circular address wrapping.",
               "msb": 1,
               "lsb": 1
             },
             {
               "name": "S2MM enable",
+              "display_name": "S2MM EN",
+              "description": "Enables S2MM transfer(s).",
               "msb": 8,
               "lsb": 8
             },
             {
               "name": "S2MM circular",
+              "display_name": "S2MM CIRC",
+              "description": "Enables S2MM circular address wrapping.",
               "msb": 9,
               "lsb": 9
             }
@@ -30270,21 +30488,29 @@
           "fields": [
             {
               "name": "MM2S enable",
+              "display_name": "MM2S EN",
+              "description": "Enables MM2S transfer(s).",
               "msb": 0,
               "lsb": 0
             },
             {
               "name": "MM2S circular",
+              "display_name": "MM2S CIRC",
+              "description": "Enables MM2S circular address wrapping.",
               "msb": 1,
               "lsb": 1
             },
             {
               "name": "S2MM enable",
+              "display_name": "S2MM EN",
+              "description": "Enables S2MM transfer(s).",
               "msb": 8,
               "lsb": 8
             },
             {
               "name": "S2MM circular",
+              "display_name": "S2MM CIRC",
+              "description": "Enables S2MM circular address wrapping.",
               "msb": 9,
               "lsb": 9
             }
