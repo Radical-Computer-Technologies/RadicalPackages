@@ -3,7 +3,7 @@ set -euo pipefail
 
 ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 RADHDL_SOURCE_DIR="${1:-$ROOT/../RadHDL}"
-RADHDL_DOC_VERSION="${2:-${RADHDL_DOC_VERSION:-current}}"
+RADHDL_DOC_VERSION="${2:-${RADHDL_DOC_VERSION:-0.2.0}}"
 RADHDL_DOC_OUTPUT="$ROOT/docs/radhdl/$RADHDL_DOC_VERSION"
 RADHDL_DOCGEN="${RADHDL_DOCGEN:-$RADHDL_SOURCE_DIR/scripts/radhdl_docgen.py}"
 
@@ -48,9 +48,8 @@ cat > "$ROOT/docs/radhdl/index.html" <<'HTML'
   <nav class="nav">
     <a class="brand" href="../../">Radical Packages</a>
     <div class="nav-links">
+      <a href="../../packages.html">Packages</a>
       <a href="../">Docs</a>
-      <a href="../../radbuild.html">RadBuild</a>
-      <a href="../../debian/pool/main/">Pool</a>
     </div>
   </nav>
   <section class="hero">
@@ -60,9 +59,19 @@ cat > "$ROOT/docs/radhdl/index.html" <<'HTML'
   </section>
   <details class="doc-group">
     <summary>RadHDL Versions</summary>
-    <div class="links">
-      <a class="link-card" href="current/"><strong>RadHDL current</strong><span>HDL module datasheets, register maps, and simulation evidence</span></a>
-    </div>
+    <details class="doc-release">
+      <summary>Stable</summary>
+      <p class="doc-note">No stable RadHDL documentation has been published yet.</p>
+    </details>
+    <details class="doc-release">
+      <summary>Experimental</summary>
+      <details class="doc-release">
+        <summary>RadHDL 0 - Crimson</summary>
+        <div class="links">
+          <a class="link-card" href="0.2.0/"><strong>RadHDL 0.2.0</strong><span>Experimental HDL module datasheets, register maps, and simulation evidence</span></a>
+        </div>
+      </details>
+    </details>
   </details>
 </main>
 </body>

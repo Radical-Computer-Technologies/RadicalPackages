@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>radif_reg_bank Datasheet</title>
+  <link rel="stylesheet" href="../../assets/radhdl-docgen.css">
+</head>
+<body>
+
+<header><div class="wrap">
+  <nav class="breadcrumb"><a href="../../index.html">RadHDL</a> / <a href="../../libraries/radif.html">radif</a></nav>
+  <div class="kicker">Interfaces / entity</div>
+  <h1>radif_reg_bank</h1>
+  <div class="meta">Documentation version: 0.2.0 / Package: radif / Source package: radif</div>
+  <div class="summary"><p>Configurable RadIF register bank with software-visible storage.
+Provides ready/valid read and write responses for a parameterized set of memory-mapped control/status registers.</p></div>
+</div></header>
+<main class="wrap">
+  <h2>Use Cases</h2>
+  <ul><li>Memory-mapped control/status integration with software-visible register maps.</li></ul>
+  <h2>Block Diagram</h2>
+  <div class="diagram"><svg width="582" height="414" viewBox="0 0 582 414" xmlns="http://www.w3.org/2000/svg" role="img">
+<style>text{font-family:Inter,Arial,sans-serif;font-size:13px;fill:#111827}.pin{stroke:#106b62;stroke-width:2;fill:none}.interface-pin{stroke:#7b8794;stroke-width:2;fill:#e5e7eb}.box{fill:#f7f9fc;stroke:#26323f;stroke-width:2}.bubble{fill:#fff;stroke:#106b62;stroke-width:2}.clock{fill:none;stroke:#106b62;stroke-width:2}</style>
+<rect class="box" x="72" y="50" width="420" height="324" rx="4"/>
+<text x="282.0" y="84" text-anchor="middle" font-weight="700">radif_reg_bank</text>
+<text x="282.0" y="106" text-anchor="middle">radif entity</text>
+<line class="pin" x1="36" y1="130" x2="72" y2="130"/>
+<text x="100" y="134">clk</text>
+<path class="clock" d="M 74 123 L 87 130 L 74 137"/>
+<line class="pin" x1="36" y1="158" x2="72" y2="158"/>
+<text x="100" y="162">rstn</text>
+<circle class="bubble" cx="84" cy="158" r="5"/>
+<line class="pin" x1="36" y1="186" x2="72" y2="186"/>
+<text x="100" y="190">wr_addr</text>
+<line class="pin" x1="36" y1="214" x2="72" y2="214"/>
+<text x="100" y="218">rd_addr</text>
+<line class="pin" x1="36" y1="242" x2="72" y2="242"/>
+<text x="100" y="246">wr_en</text>
+<line class="pin" x1="36" y1="270" x2="72" y2="270"/>
+<text x="100" y="274">rd_en</text>
+<line class="pin" x1="36" y1="298" x2="72" y2="298"/>
+<text x="100" y="302">data_in</text>
+<line class="pin" x1="36" y1="326" x2="72" y2="326"/>
+<text x="100" y="330">read_only_regs_i</text>
+<line class="pin" x1="492" y1="130" x2="528" y2="130"/>
+<text x="464" y="134" text-anchor="end">data_out</text>
+<line class="pin" x1="492" y1="158" x2="528" y2="158"/>
+<text x="464" y="162" text-anchor="end">read_write_regs_o</text>
+<line class="pin" x1="492" y1="186" x2="528" y2="186"/>
+<text x="464" y="190" text-anchor="end">wr_rdy</text>
+<line class="pin" x1="492" y1="214" x2="528" y2="214"/>
+<text x="464" y="218" text-anchor="end">rd_rdy</text>
+<line class="pin" x1="492" y1="242" x2="528" y2="242"/>
+<text x="464" y="246" text-anchor="end">wr_valid</text>
+<line class="pin" x1="492" y1="270" x2="528" y2="270"/>
+<text x="464" y="274" text-anchor="end">rd_valid</text>
+</svg></div>
+  <details class="doc-section"><summary>VHDL Include And Instantiation Template</summary><div class="doc-section-body"><h3>File Header</h3><pre><code>library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+
+library radif;
+-- Direct entity instantiation below does not require importing the entity name.
+-- Add package imports only when your surrounding design needs package types/constants, for example:
+-- use radif.&lt;package_name&gt;.all;</code></pre><h3>Instantiation</h3><pre><code>u_radif_reg_bank : entity radif.radif_reg_bank
+  generic map (
+    DATA_WIDTH           =&gt; 32,
+    ADDR_WIDTH           =&gt; 16,
+    READ_ONLY_REG_COUNT  =&gt; 8,
+    READ_WRITE_REG_COUNT =&gt; 64,
+    VENDOR_TAG           =&gt; &quot;XILINX&quot;
+  )
+  port map (
+    clk               =&gt; &lt;clk_signal&gt;,
+    rstn              =&gt; &lt;rstn_signal&gt;,
+    wr_addr           =&gt; &lt;wr_addr_signal&gt;,
+    rd_addr           =&gt; &lt;rd_addr_signal&gt;,
+    wr_en             =&gt; &lt;wr_en_signal&gt;,
+    rd_en             =&gt; &lt;rd_en_signal&gt;,
+    data_in           =&gt; &lt;data_in_signal&gt;,
+    data_out          =&gt; &lt;data_out_signal&gt;,
+    read_only_regs_i  =&gt; &lt;read_only_regs_i_signal&gt;,
+    read_write_regs_o =&gt; &lt;read_write_regs_o_signal&gt;,
+    wr_rdy            =&gt; &lt;wr_rdy_signal&gt;,
+    rd_rdy            =&gt; &lt;rd_rdy_signal&gt;,
+    wr_valid          =&gt; &lt;wr_valid_signal&gt;,
+    rd_valid          =&gt; &lt;rd_valid_signal&gt;
+  );</code></pre></div></details>
+  <h2>Generics</h2><table><thead><tr><th>Name</th><th>Type</th><th>Default</th><th>Description</th></tr></thead><tbody><tr><td>DATA_WIDTH</td><td>integer</td><td>32</td><td>Sets the bit width for DATA WIDTH values carried by this module.</td></tr><tr><td>ADDR_WIDTH</td><td>integer</td><td>16</td><td>Sets the bit width for ADDR WIDTH values carried by this module.</td></tr><tr><td>READ_ONLY_REG_COUNT</td><td>integer</td><td>8</td><td>Configures READ ONLY REG COUNT for this instance.</td></tr><tr><td>READ_WRITE_REG_COUNT</td><td>integer</td><td>64</td><td>Configures READ WRITE REG COUNT for this instance.</td></tr><tr><td>VENDOR_TAG</td><td>string</td><td>&quot;XILINX&quot;</td><td>Selects the vendor-specific implementation path, usually XILINX for DSP48/XPM-backed builds or generic for portable RTL.</td></tr></tbody></table>
+  <h2>Ports</h2><table><thead><tr><th>Name</th><th>Direction</th><th>Type</th><th>Description</th></tr></thead><tbody><tr><td>clk</td><td>in</td><td>std_logic</td><td>Clock for the associated synchronous logic and handshake domain.</td></tr><tr><td>rstn</td><td>in</td><td>std_logic</td><td>Active-low reset for this clock domain.</td></tr><tr><td>wr_addr</td><td>in</td><td>std_logic_vector(ADDR_WIDTH - 1 downto 0)</td><td>Wr addr interface signal.</td></tr><tr><td>rd_addr</td><td>in</td><td>std_logic_vector(ADDR_WIDTH - 1 downto 0)</td><td>Readback control or data signal for host-visible captured state.</td></tr><tr><td>wr_en</td><td>in</td><td>std_logic</td><td>Wr en interface signal.</td></tr><tr><td>rd_en</td><td>in</td><td>std_logic</td><td>Readback control or data signal for host-visible captured state.</td></tr><tr><td>data_in</td><td>in</td><td>std_logic_vector(DATA_WIDTH - 1 downto 0)</td><td>Data in interface signal.</td></tr><tr><td>data_out</td><td>out</td><td>std_logic_vector(DATA_WIDTH - 1 downto 0)</td><td>Data out interface signal.</td></tr><tr><td>read_only_regs_i</td><td>in</td><td>radif_reg_array_t(0 to READ_ONLY_REG_COUNT - 1)(DATA_WIDTH - 1 downto 0)</td><td>Input read only regs i signal for this module.</td></tr><tr><td>read_write_regs_o</td><td>out</td><td>radif_reg_array_t(0 to READ_WRITE_REG_COUNT - 1)(DATA_WIDTH - 1 downto 0)</td><td>Output read write regs o signal generated by this module.</td></tr><tr><td>wr_rdy</td><td>out</td><td>std_logic</td><td>Wr rdy interface signal.</td></tr><tr><td>rd_rdy</td><td>out</td><td>std_logic</td><td>Readback control or data signal for host-visible captured state.</td></tr><tr><td>wr_valid</td><td>out</td><td>std_logic</td><td>Wr valid interface signal.</td></tr><tr><td>rd_valid</td><td>out</td><td>std_logic</td><td>Readback control or data signal for host-visible captured state.</td></tr></tbody></table>
+  
+  <h2>Testbenches and Waveforms</h2><table><thead><tr><th>Testbench</th><th>Source</th><th>Simulation</th><th>Artifacts</th></tr></thead><tbody><tr><td>tb_radif_axi_lite_to_reg</td><td>interfaces/hdl/radif/testbenches/tb_radif_axi_lite_to_reg.vhd</td><td>passed</td><td><a href="../../simulations/tb_radif_axi_lite_to_reg/simulation_status.json">status</a>, <a href="../../simulations/tb_radif_axi_lite_to_reg/tb_radif_axi_lite_to_reg.vcd">vcd</a></td></tr><tr><td>tb_radif_reg_bank</td><td>interfaces/hdl/radif/testbenches/tb_radif_reg_bank.vhd</td><td>passed</td><td><a href="../../simulations/tb_radif_reg_bank/simulation_status.json">status</a>, <a href="../../simulations/tb_radif_reg_bank/tb_radif_reg_bank.vcd">vcd</a></td></tr><tr><td>tb_radif_reg_interconnect</td><td>interfaces/hdl/radif/testbenches/tb_radif_reg_interconnect.vhd</td><td>passed</td><td><a href="../../simulations/tb_radif_reg_interconnect/simulation_status.json">status</a>, <a href="../../simulations/tb_radif_reg_interconnect/tb_radif_reg_interconnect.vcd">vcd</a></td></tr><tr><td>tb_radif_smi16_to_reg</td><td>interfaces/hdl/radif/testbenches/tb_radif_smi16_to_reg.vhd</td><td>passed</td><td><a href="../../simulations/tb_radif_smi16_to_reg/simulation_status.json">status</a>, <a href="../../simulations/tb_radif_smi16_to_reg/tb_radif_smi16_to_reg.vcd">vcd</a></td></tr></tbody></table><div class="wave"><table><thead><tr><th>Signal</th><th>Samples</th></tr></thead><tbody><tr><td>clk</td><td>0:0 | 5000000:1 | 10000000:0 | 15000000:1 | 20000000:0 | 25000000:1 | 30000000:0 | 35000000:1 | 40000000:0 | 45000000:1 | 50000000:0 | 55000000:1 | 60000000:0 | 65000000:1 | 70000000:0 | 75000000:1</td></tr><tr><td>rstn</td><td>0:0 | 40000000:1</td></tr><tr><td>awaddr[15:0]</td><td>0:0000000000000000 | 45000000:0000000000000100</td></tr><tr><td>awprot[2:0]</td><td>0:000</td></tr><tr><td>awvalid</td><td>0:0 | 45000000:1 | 65000000:0</td></tr><tr><td>awready</td><td>0:0 | 55000000:1 | 65000000:0</td></tr><tr><td>wdata[31:0]</td><td>0:00000000000000000000000000000000 | 45000000:11001010111111101011101010111110</td></tr><tr><td>wstrb[3:0]</td><td>0:1111</td></tr><tr><td>wvalid</td><td>0:0 | 45000000:1 | 65000000:0</td></tr><tr><td>wready</td><td>0:0 | 55000000:1 | 65000000:0</td></tr><tr><td>bresp[1:0]</td><td>0:00</td></tr><tr><td>bvalid</td><td>0:0 | 75000000:1 | 85000000:0</td></tr><tr><td>bready</td><td>0:0 | 65000000:1 | 85000000:0</td></tr><tr><td>araddr[15:0]</td><td>0:0000000000000000 | 85000000:0000000000000100</td></tr><tr><td>arprot[2:0]</td><td>0:000</td></tr><tr><td>arvalid</td><td>0:0 | 85000000:1 | 105000000:0</td></tr></tbody></table></div><div class="wave"><table><thead><tr><th>Signal</th><th>Samples</th></tr></thead><tbody><tr><td>clk</td><td>0:0 | 5000000:1 | 10000000:0 | 15000000:1 | 20000000:0 | 25000000:1 | 30000000:0 | 35000000:1 | 40000000:0 | 45000000:1 | 50000000:0 | 55000000:1 | 60000000:0 | 65000000:1 | 70000000:0 | 75000000:1</td></tr><tr><td>rstn</td><td>0:0 | 40000000:1</td></tr><tr><td>wr_addr[15:0]</td><td>0:0000000000000000 | 45000000:0000000000001000 | 105000000:0000000000010000 | 125000000:0000000000100000</td></tr><tr><td>rd_addr[15:0]</td><td>0:0000000000000000 | 65000000:0000000000001000 | 85000000:0000000000010000</td></tr><tr><td>wr_en</td><td>0:0 | 45000000:1 | 55000000:0 | 105000000:1 | 115000000:0 | 125000000:1 | 135000000:0</td></tr><tr><td>rd_en</td><td>0:0 | 65000000:1 | 75000000:0 | 85000000:1 | 95000000:0</td></tr><tr><td>din[31:0]</td><td>0:00000000000000000000000000000000 | 45000000:00010010001101000101011001111000 | 105000000:11011110101011011011111011101111</td></tr><tr><td>dout[31:0]</td><td>0:00000000000000000000000000000000 | 75000000:00010010001101000101011001111000 | 95000000:10100101101001010000000000000001</td></tr><tr><td>wr_rdy</td><td>0:1</td></tr><tr><td>rd_rdy</td><td>0:1</td></tr><tr><td>wr_valid</td><td>0:0 | 55000000:1 | 65000000:0 | 115000000:1 | 125000000:0 | 135000000:1</td></tr><tr><td>rd_valid</td><td>0:0 | 75000000:1 | 85000000:0 | 95000000:1 | 105000000:0</td></tr><tr><td>error</td><td>0:0 | 115000000:1 | 125000000:0 | 135000000:1</td></tr></tbody></table></div><div class="wave"><table><thead><tr><th>Signal</th><th>Samples</th></tr></thead><tbody><tr><td>clk</td><td>0:0 | 5000000:1 | 10000000:0 | 15000000:1 | 20000000:0 | 25000000:1 | 30000000:0 | 35000000:1 | 40000000:0 | 45000000:1 | 50000000:0 | 55000000:1 | 60000000:0 | 65000000:1 | 70000000:0 | 75000000:1</td></tr><tr><td>rstn</td><td>0:0 | 25000000:1</td></tr><tr><td>wr_addr[15:0]</td><td>0:0000000000000000 | 35000000:0001000000000100</td></tr><tr><td>rd_addr[15:0]</td><td>0:0000000000000000 | 55000000:0001000000000100 | 75000000:0001000000010000 | 95000000:0011000000000000</td></tr><tr><td>wr_en</td><td>0:0 | 35000000:1 | 45000000:0</td></tr><tr><td>rd_en</td><td>0:0 | 55000000:1 | 65000000:0 | 75000000:1 | 85000000:0 | 95000000:1 | 105000000:0</td></tr><tr><td>data_in[31:0]</td><td>0:00000000000000000000000000000000 | 35000000:00010010001101000101011001111000</td></tr><tr><td>data_out[31:0]</td><td>0:00000000000000000000000000000000 | 65000000:00010010001101000101011001111000 | 85000000:10111011101110110000000000000000 | 105000000:00000000000000000000000000000000</td></tr><tr><td>wr_rdy</td><td>0:1</td></tr><tr><td>rd_rdy</td><td>0:1</td></tr><tr><td>wr_valid</td><td>0:0 | 45000000:1 | 55000000:0</td></tr><tr><td>rd_valid</td><td>0:0 | 65000000:1 | 75000000:0 | 85000000:1 | 95000000:0 | 105000000:1</td></tr><tr><td>error</td><td>0:0 | 105000000:1</td></tr><tr><td>s_wr_addr[31:0]</td><td>0:11110000000000000000000000000000 | 35000000:00000000000001000001000000000100</td></tr><tr><td>s_rd_addr[31:0]</td><td>0:11110000000000000000000000000000 | 55000000:00000000000001000001000000000100 | 75000000:00000000000100000001000000010000 | 95000000:00100000000000000011000000000000</td></tr><tr><td>s_wr_en[1:0]</td><td>0:00 | 35000000:10 | 45000000:00</td></tr></tbody></table></div><div class="wave"><table><thead><tr><th>Signal</th><th>Samples</th></tr></thead><tbody><tr><td>clk</td><td>0:0 | 5000000:1 | 10000000:0 | 15000000:1 | 20000000:0 | 25000000:1 | 30000000:0 | 35000000:1 | 40000000:0 | 45000000:1 | 50000000:0 | 55000000:1 | 60000000:0 | 65000000:1 | 70000000:0 | 75000000:1</td></tr><tr><td>rstn</td><td>0:0 | 50000000:1</td></tr><tr><td>cs_n</td><td>0:1 | 100000000:0 | 150000000:1 | 200000000:0 | 250000000:1 | 300000000:0 | 350000000:1 | 400000000:0 | 450000000:1 | 600000000:0 | 680000000:1 | 720000000:0 | 800000000:1 | 840000000:0 | 920000000:1 | 960000000:0</td></tr><tr><td>rd_n</td><td>0:1 | 600000000:0 | 680000000:1 | 720000000:0 | 800000000:1 | 840000000:0 | 920000000:1 | 960000000:0 | 1040000000:1</td></tr><tr><td>wr_n</td><td>0:1 | 100000000:0 | 150000000:1 | 200000000:0 | 250000000:1 | 300000000:0 | 350000000:1 | 400000000:0 | 450000000:1</td></tr><tr><td>smi_addr[7:0]</td><td>0:00000000 | 200000000:00000001 | 300000000:00000010 | 400000000:00000011 | 600000000:00000000 | 720000000:00000001 | 840000000:00000010 | 960000000:00000011</td></tr><tr><td>smi_din[15:0]</td><td>0:0000000000000000 | 100000000:0001000100100010 | 200000000:0011001101000100 | 300000000:0101010101100110 | 400000000:0111011110001000</td></tr><tr><td>smi_dout[15:0]</td><td>0:0000000000000000 | 645000000:0001000100100010 | 745000000:0011001101000100 | 865000000:0101010101100110 | 985000000:0111011110001000</td></tr><tr><td>smi_oen</td><td>0:1 | 615000000:0 | 695000000:1 | 735000000:0 | 815000000:1 | 855000000:0 | 935000000:1 | 975000000:0 | 1055000000:1</td></tr><tr><td>smi_ack</td><td>0:0 | 125000000:1 | 135000000:0 | 225000000:1 | 235000000:0 | 325000000:1 | 335000000:0 | 445000000:1 | 455000000:0 | 645000000:1 | 655000000:0 | 745000000:1 | 755000000:0 | 865000000:1 | 875000000:0 | 985000000:1</td></tr><tr><td>wr_addr[15:0]</td><td>0:0000000000000000</td></tr><tr><td>rd_addr[15:0]</td><td>0:0000000000000000</td></tr><tr><td>wr_en</td><td>0:0 | 425000000:1 | 435000000:0</td></tr><tr><td>rd_en</td><td>0:0 | 625000000:1 | 635000000:0</td></tr><tr><td>reg_din[63:0]</td><td>0:0000000000000000000000000000000000000000000000000000000000000000 | 125000000:0000000000000000000000000000000000000000000000000001000100100010 | 225000000:0000000000000000000000000000000000110011010001000001000100100010 | 325000000:0000000000000000010101010110011000110011010001000001000100100010 | 425000000:0111011110001000010101010110011000110011010001000001000100100010</td></tr><tr><td>reg_dout[63:0]</td><td>0:0000000000000000000000000000000000000000000000000000000000000000 | 635000000:0111011110001000010101010110011000110011010001000001000100100010</td></tr></tbody></table></div>
+  <h2>HDL Example</h2>
+  <pre><code>entity radif_reg_bank is
+  generic (
+    -- Sets the bit width for DATA WIDTH values carried by this module.
+    DATA_WIDTH         : integer := 32;
+    -- Sets the bit width for ADDR WIDTH values carried by this module.
+    ADDR_WIDTH         : integer := 16;
+    -- Configures READ ONLY REG COUNT for this instance.
+    READ_ONLY_REG_COUNT  : integer := 8;
+    -- Configures READ WRITE REG COUNT for this instance.
+    READ_WRITE_REG_COUNT : integer := 64;
+    -- Selects the vendor-specific implementation path, usually XILINX for DSP48/XPM-backed builds or generic for portable RTL.
+    VENDOR_TAG         : string  := &quot;XILINX&quot;;
+    -- Identifies the target FPGA family so wrappers can choose the correct primitive or conservative portable behavior.
+    PRODUCT_SERIES_TAG : string  := &quot;GENERIC&quot;
+  );
+  port (
+    -- Clock for the associated synchronous logic and handshake domain.
+    clk        : in  std_logic;
+    -- Active-low reset for this clock domain.
+    rstn       : in  std_logic;
+    -- Wr addr interface signal.
+    wr_addr    : in  std_logic_vector(ADDR_WIDTH - 1 downto 0);
+    -- Readback control or data signal for host-visible captured state.
+    rd_addr    : in  std_logic_vector(ADDR_WIDTH - 1 downto 0);
+    -- Wr en interface signal.
+    wr_en      : in  std_logic;
+    -- Readback control or data signal for host-visible captured state.
+    rd_en      : in  std_logic;
+    -- Data in interface signal.
+    data_in    : in  std_logic_vector(DATA_WIDTH - 1 downto 0);
+    -- Data out interface signal.
+    data_out   : out std_logic_vector(DATA_WIDTH - 1 downto 0);
+    -- Input read only regs i signal for this module.
+    read_only_regs_i  : in  radif_reg_array_t(0 to READ_ONLY_REG_COUNT - 1)(DATA_WIDTH - 1 downto 0);
+    -- Output read write regs o signal generated by this module.
+    read_write_regs_o : out radif_reg_array_t(0 to READ_WRITE_REG_COUNT - 1)(DATA_WIDTH - 1 downto 0);
+    -- Wr rdy interface signal.
+    wr_rdy     : out std_logic;
+    -- Readback control or data signal for host-visible captured state.
+    rd_rdy     : out std_logic;
+    -- Wr valid interface signal.
+    wr_valid   : out std_logic;
+    -- Readback control or data signal for host-visible captured state.
+    rd_valid   : out std_logic;
+    -- Error interface signal.
+    error      : out std_logic
+  );
+end entity;</code></pre>
+  <h2>Sources</h2>
+  <ul><li>interfaces/hdl/radif/src/radif_reg_bank.vhd</li></ul>
+</main>
+<footer><div class="wrap">RadHDL documentation version 0.2.0 / Generated by radhdl-docgen 0.1.0</div></footer>
+
+</body>
+</html>

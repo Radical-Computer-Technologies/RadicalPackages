@@ -4,11 +4,8 @@
   <nav class="nav">
     <a class="brand" href="./">Radical Packages</a>
     <div class="nav-links">
-      <a href="radlib.html">RADLib</a>
-      <a href="radbard.html">RADBard</a>
-      <a href="radbuild.html">RadBuild</a>
-      <a href="docs/radlib/">Docs</a>
-      <a href="debian/pool/main/">Pool</a>
+      <a href="packages.html">Packages</a>
+      <a href="docs/">Docs</a>
     </div>
   </nav>
 
@@ -54,21 +51,18 @@ sudo apt install radbard</code></div>
     </table>
   </section>
 
-  <section class="grid">
-    <article class="card">
-      <h2>Package Metadata</h2>
+  <details class="doc-group">
+    <summary>Repository Metadata</summary>
       <div class="links">
         <a class="link-card" href="debian/dists/experimental/main/binary-amd64/Packages"><strong>Experimental amd64</strong><span>Package index</span></a>
         <a class="link-card" href="debian/pool/main/r/radbard/"><strong>Package Pool</strong><span>Published RADBard .deb files</span></a>
       </div>
-    </article>
+  </details>
 
-    <article class="card">
+  <section class="card">
       <h2>Related Packages</h2>
       <div class="links">
         <a class="link-card" href="radlib.html"><strong>RADLib</strong><span>Required runtime package line</span></a>
-        <a class="link-card" href="docs/radlib/0.1.0/api/"><strong>RADLib Docs</strong><span>Stable API reference</span></a>
       </div>
-    </article>
   </section>
 </main>

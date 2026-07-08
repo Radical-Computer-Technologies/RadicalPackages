@@ -4,11 +4,8 @@
   <nav class="nav">
     <a class="brand" href="./">Radical Packages</a>
     <div class="nav-links">
-      <a href="radlib.html">RADLib</a>
-      <a href="radbard.html">RADBard</a>
-      <a href="radbuild.html">RadBuild</a>
+      <a href="packages.html">Packages</a>
       <a href="docs/">Docs</a>
-      <a href="debian/pool/main/">Pool</a>
     </div>
   </nav>
 
@@ -29,7 +26,7 @@
   <section class="grid">
     <article class="card">
       <h2>Stable Repository</h2>
-      <p>Use stable for the current RADLib 0.1.0 release line.</p>
+      <p>Use stable for the RADLib 0.1.0 release line.</p>
       <div class="command"><code>sudo tee /etc/apt/sources.list.d/radical-computer-technologies.sources &gt;/dev/null &lt;&lt;'EOF'
 Types: deb
 URIs: https://radical-computer-technologies.github.io/RadicalPackages/debian/
@@ -58,45 +55,60 @@ sudo apt update</code></div>
     </article>
   </section>
 
-  <section class="grid">
-    <a class="link-card" href="radlib.html">
-      <strong>RADLib Packages</strong>
-      <span>Runtime, development, module, docs, examples, and tool package list.</span>
-    </a>
-    <a class="link-card" href="radbard.html">
-      <strong>RADBard Packages</strong>
-      <span>Experimental music composition suite package information.</span>
-    </a>
-    <a class="link-card" href="radbuild.html">
-      <strong>RadBuild Packages</strong>
-      <span>Graph build framework, server, VSCode support, and docs packages.</span>
-    </a>
-  </section>
-
-  <section class="grid">
-    <article class="card">
-      <h2>Documentation</h2>
-      <p>RADLib API docs are versioned so stable and experimental APIs can be compared directly.</p>
-      <div class="links">
-        <a class="link-card" href="docs/radlib/0.1.0/api/"><strong>RADLib 0.1.0</strong><span>Stable API documentation</span></a>
-        <a class="link-card" href="docs/radlib/api/"><strong>Current RADLib</strong><span>Latest generated API docs</span></a>
-        <a class="link-card" href="docs/radhdl/current/"><strong>RadHDL Current</strong><span>HDL library inventory and VHDL autodoc</span></a>
-        <a class="link-card" href="docs/"><strong>Docs Index</strong><span>Version chooser</span></a>
-      </div>
-    </article>
-
-    <article class="card">
-      <h2>Package Indexes</h2>
-      <p>Direct package metadata links for repository verification and manual inspection.</p>
-      <div class="links">
-        <a class="link-card" href="debian/dists/stable/main/binary-amd64/Packages"><strong>Stable amd64</strong><span>Debian Packages file</span></a>
-        <a class="link-card" href="debian/dists/stable/main/binary-arm64/Packages"><strong>Stable arm64</strong><span>Debian Packages file</span></a>
-        <a class="link-card" href="debian/pool/main/"><strong>Package Pool</strong><span>Published .deb files</span></a>
-      </div>
-    </article>
+  <section class="card">
+    <h2>Packages</h2>
+    <p>Search published package groups, then open the product package page for install commands and repository metadata.</p>
+    <input class="search-input" id="home-package-search" type="search" placeholder="Search packages by product, package name, channel, or purpose" aria-label="Search packages">
+    <details class="doc-group package-search-group" data-search-group>
+      <summary>Stable</summary>
+      <details class="doc-release" data-search-item data-search-text="radlib stable 0.1.0 runtime development modules documentation examples tools amd64 arm64">
+        <summary>RADLib 0 - Crimson</summary>
+        <div class="links">
+          <a class="link-card" href="radlib.html"><strong>RADLib Packages</strong><span>Runtime, development, module, docs, examples, and tool packages.</span></a>
+        </div>
+      </details>
+    </details>
+    <details class="doc-group package-search-group" data-search-group>
+      <summary>Experimental</summary>
+      <details class="doc-release" data-search-item data-search-text="radbuild experimental 0.2.0 cli server vscode radhdl docs graph build framework">
+        <summary>RadBuild 0 - Crimson</summary>
+        <div class="links">
+          <a class="link-card" href="radbuild.html"><strong>RadBuild Packages</strong><span>Graph build framework, server, VSCode support, RadHDL package, and docs.</span></a>
+        </div>
+      </details>
+      <details class="doc-release" data-search-item data-search-text="radbard experimental 0.1.0 beta music audio composition daw editor">
+        <summary>RADBard 0 - Crimson</summary>
+        <div class="links">
+          <a class="link-card" href="radbard.html"><strong>RADBard Packages</strong><span>Experimental music and audio composition suite package.</span></a>
+        </div>
+      </details>
+    </details>
+    <div class="links">
+      <a class="link-card" href="packages.html"><strong>Packages Page</strong><span>Full searchable package catalog.</span></a>
+    </div>
   </section>
 
   <p class="note">
     <code>Trusted: yes</code> is temporary for the unsigned beta repository. Replace this with signed repository metadata before broad public release.
   </p>
 </main>
+
+<script>
+(() => {
+  const input = document.getElementById("home-package-search");
+  const items = Array.from(document.querySelectorAll("[data-search-item]"));
+  if (!input) return;
+  input.addEventListener("input", () => {
+    const query = input.value.trim().toLowerCase();
+    items.forEach((item) => {
+      const match = !query || item.dataset.searchText.includes(query);
+      item.hidden = !match;
+      if (query && match) {
+        item.open = true;
+        const parent = item.closest("[data-search-group]");
+        if (parent) parent.open = true;
+      }
+    });
+  });
+})();
+</script>

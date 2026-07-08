@@ -4,11 +4,8 @@
   <nav class="nav">
     <a class="brand" href="./">Radical Packages</a>
     <div class="nav-links">
-      <a href="radlib.html">RADLib</a>
-      <a href="radbard.html">RADBard</a>
-      <a href="radbuild.html">RadBuild</a>
-      <a href="docs/radlib/">Docs</a>
-      <a href="debian/pool/main/">Pool</a>
+      <a href="packages.html">Packages</a>
+      <a href="docs/">Docs</a>
     </div>
   </nav>
 
@@ -86,22 +83,12 @@ sudo apt install radlib-media radlib-fpga radlib-web</code></div>
     </div>
   </section>
 
-  <section class="grid">
-    <article class="card">
-      <h2>Documentation</h2>
-      <div class="links">
-        <a class="link-card" href="docs/radlib/0.1.0/api/"><strong>RADLib 0.1.0 API</strong><span>Stable generated API docs</span></a>
-        <a class="link-card" href="docs/radlib/api/"><strong>Current API</strong><span>Latest generated API docs</span></a>
-        <a class="link-card" href="docs/radhdl/current/"><strong>RadHDL HDL Docs</strong><span>Current HDL library inventory and VHDL autodoc</span></a>
-      </div>
-    </article>
-
-    <article class="card">
-      <h2>Package Metadata</h2>
+  <details class="doc-group">
+    <summary>Repository Metadata</summary>
       <div class="links">
         <a class="link-card" href="debian/dists/stable/main/binary-amd64/Packages"><strong>Stable amd64</strong><span>Package index</span></a>
         <a class="link-card" href="debian/dists/stable/main/binary-arm64/Packages"><strong>Stable arm64</strong><span>Package index</span></a>
+        <a class="link-card" href="debian/pool/main/r/radlib/"><strong>radlib Pool</strong><span>Published aggregate .deb files</span></a>
       </div>
-    </article>
-  </section>
+  </details>
 </main>

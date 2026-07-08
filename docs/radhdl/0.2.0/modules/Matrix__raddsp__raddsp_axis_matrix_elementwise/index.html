@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>raddsp_axis_matrix_elementwise Datasheet</title>
+  <link rel="stylesheet" href="../../assets/radhdl-docgen.css">
+</head>
+<body>
+
+<header><div class="wrap">
+  <nav class="breadcrumb"><a href="../../index.html">RadHDL</a> / <a href="../../libraries/raddsp.html">raddsp</a></nav>
+  <div class="kicker">DSP / entity</div>
+  <h1>raddsp_axis_matrix_elementwise</h1>
+  <div class="meta">Documentation version: 0.2.0 / Package: Matrix / Source package: raddsp</div>
+  <div class="summary"><p>AXI-stream elementwise matrix arithmetic block.
+Applies lane-wise arithmetic across matrix-shaped streams for preprocessing and transform pipelines.</p></div>
+</div></header>
+<main class="wrap">
+  <h2>Use Cases</h2>
+  <ul><li>AXI-Stream datapath integration where module boundaries need explicit ready/valid behavior.</li><li>Reusable FPGA DSP pipelines that need fixed-point, timing-aware implementation.</li><li>Memory-mapped control/status integration with software-visible register maps.</li></ul>
+  <h2>Block Diagram</h2>
+  <div class="diagram"><svg width="582" height="442" viewBox="0 0 582 442" xmlns="http://www.w3.org/2000/svg" role="img">
+<style>text{font-family:Inter,Arial,sans-serif;font-size:13px;fill:#111827}.pin{stroke:#106b62;stroke-width:2;fill:none}.interface-pin{stroke:#7b8794;stroke-width:2;fill:#e5e7eb}.box{fill:#f7f9fc;stroke:#26323f;stroke-width:2}.bubble{fill:#fff;stroke:#106b62;stroke-width:2}.clock{fill:none;stroke:#106b62;stroke-width:2}</style>
+<rect class="box" x="72" y="50" width="420" height="352" rx="4"/>
+<text x="282.0" y="84" text-anchor="middle" font-weight="700">raddsp_axis_matrix_elementwise</text>
+<text x="282.0" y="106" text-anchor="middle">raddsp entity</text>
+<line class="pin" x1="36" y1="130" x2="72" y2="130"/>
+<text x="100" y="134">clk</text>
+<path class="clock" d="M 74 123 L 87 130 L 74 137"/>
+<line class="pin" x1="36" y1="158" x2="72" y2="158"/>
+<text x="100" y="162">rst</text>
+<line class="pin" x1="36" y1="186" x2="72" y2="186"/>
+<text x="100" y="190">op_i</text>
+<line class="pin" x1="36" y1="214" x2="72" y2="214"/>
+<text x="100" y="218">s0_axis_tvalid</text>
+<line class="pin" x1="36" y1="242" x2="72" y2="242"/>
+<text x="100" y="246">s0_axis_tdata</text>
+<line class="pin" x1="36" y1="270" x2="72" y2="270"/>
+<text x="100" y="274">s0_axis_tlast</text>
+<line class="pin" x1="36" y1="298" x2="72" y2="298"/>
+<text x="100" y="302">s1_axis_tvalid</text>
+<line class="pin" x1="36" y1="326" x2="72" y2="326"/>
+<text x="100" y="330">s1_axis_tdata</text>
+<line class="pin" x1="36" y1="354" x2="72" y2="354"/>
+<text x="100" y="358">s1_axis_tlast</text>
+<line class="pin" x1="492" y1="130" x2="528" y2="130"/>
+<text x="464" y="134" text-anchor="end">s0_axis_tready</text>
+<line class="pin" x1="492" y1="158" x2="528" y2="158"/>
+<text x="464" y="162" text-anchor="end">s1_axis_tready</text>
+<line class="pin" x1="492" y1="186" x2="528" y2="186"/>
+<text x="464" y="190" text-anchor="end">M_AXIS</text>
+<rect class="interface-pin" x="518" y="177" width="18" height="18" rx="2"/>
+</svg></div>
+  <details class="doc-section"><summary>VHDL Include And Instantiation Template</summary><div class="doc-section-body"><h3>File Header</h3><pre><code>library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+
+library raddsp;
+-- Direct entity instantiation below does not require importing the entity name.
+-- Add package imports only when your surrounding design needs package types/constants, for example:
+-- use raddsp.&lt;package_name&gt;.all;</code></pre><h3>Instantiation</h3><pre><code>u_raddsp_axis_matrix_elementwise : entity raddsp.raddsp_axis_matrix_elementwise
+  generic map (
+    VENDOR        =&gt; &quot;xilinx&quot;,
+    DEVICE_FAMILY =&gt; &quot;generic&quot;,
+    DATA_WIDTH    =&gt; 16
+  )
+  port map (
+    clk            =&gt; &lt;clk_signal&gt;,
+    rst            =&gt; &lt;rst_signal&gt;,
+    op_i           =&gt; &lt;op_i_signal&gt;,
+    s0_axis_tvalid =&gt; &lt;s0_axis_tvalid_signal&gt;,
+    s0_axis_tready =&gt; &lt;s0_axis_tready_signal&gt;,
+    s0_axis_tdata  =&gt; &lt;s0_axis_tdata_signal&gt;,
+    s0_axis_tlast  =&gt; &lt;s0_axis_tlast_signal&gt;,
+    s1_axis_tvalid =&gt; &lt;s1_axis_tvalid_signal&gt;,
+    s1_axis_tready =&gt; &lt;s1_axis_tready_signal&gt;,
+    s1_axis_tdata  =&gt; &lt;s1_axis_tdata_signal&gt;,
+    s1_axis_tlast  =&gt; &lt;s1_axis_tlast_signal&gt;,
+    m_axis_tvalid  =&gt; &lt;m_axis_tvalid_signal&gt;,
+    m_axis_tready  =&gt; &lt;m_axis_tready_signal&gt;,
+    m_axis_tdata   =&gt; &lt;m_axis_tdata_signal&gt;
+  );</code></pre></div></details>
+  <h2>Generics</h2><table><thead><tr><th>Name</th><th>Type</th><th>Default</th><th>Description</th></tr></thead><tbody><tr><td>VENDOR</td><td>string</td><td>&quot;xilinx&quot;</td><td>Selects the vendor-specific implementation path, usually XILINX for DSP48/XPM-backed builds or generic for portable RTL.</td></tr><tr><td>DEVICE_FAMILY</td><td>string</td><td>&quot;generic&quot;</td><td>Identifies the target FPGA family so wrappers can choose the correct primitive or conservative portable behavior.</td></tr><tr><td>DATA_WIDTH</td><td>positive</td><td>16</td><td>Sets the bit width for DATA WIDTH values carried by this module.</td></tr></tbody></table>
+  <h2>Ports</h2><table><thead><tr><th>Name</th><th>Direction</th><th>Type</th><th>Description</th></tr></thead><tbody><tr><td>clk</td><td>in</td><td>std_logic</td><td>Clock for the associated synchronous logic and handshake domain.</td></tr><tr><td>rst</td><td>in</td><td>std_logic</td><td>Active-high synchronous reset for this clock domain.</td></tr><tr><td>op_i</td><td>in</td><td>std_logic_vector(1 downto 0)</td><td>Input op i signal for this module.</td></tr><tr><td>s0_axis_tvalid</td><td>in</td><td>std_logic</td><td>S0 axis tvalid interface signal.</td></tr><tr><td>s0_axis_tready</td><td>out</td><td>std_logic</td><td>S0 axis tready interface signal.</td></tr><tr><td>s0_axis_tdata</td><td>in</td><td>std_logic_vector(DATA_WIDTH - 1 downto 0)</td><td>S0 axis tdata interface signal.</td></tr><tr><td>s0_axis_tlast</td><td>in</td><td>std_logic</td><td>S0 axis tlast interface signal.</td></tr><tr><td>s1_axis_tvalid</td><td>in</td><td>std_logic</td><td>S1 axis tvalid interface signal.</td></tr><tr><td>s1_axis_tready</td><td>out</td><td>std_logic</td><td>S1 axis tready interface signal.</td></tr><tr><td>s1_axis_tdata</td><td>in</td><td>std_logic_vector(DATA_WIDTH - 1 downto 0)</td><td>S1 axis tdata interface signal.</td></tr><tr><td>s1_axis_tlast</td><td>in</td><td>std_logic</td><td>S1 axis tlast interface signal.</td></tr><tr><td>m_axis_tvalid</td><td>out</td><td>std_logic</td><td>Output AXI-stream valid qualifier for the current result beat.</td></tr><tr><td>m_axis_tready</td><td>in</td><td>std_logic</td><td>Output AXI-stream ready input from the downstream block.</td></tr><tr><td>m_axis_tdata</td><td>out</td><td>std_logic_vector(DATA_WIDTH - 1 downto 0)</td><td>Output AXI-stream payload containing packed processed result lanes.</td></tr></tbody></table>
+  
+  <h2>Testbenches and Waveforms</h2><table><thead><tr><th>Testbench</th><th>Source</th><th>Simulation</th><th>Artifacts</th></tr></thead><tbody><tr><td>tb_raddsp_axis_smoke</td><td>dsp/hdl/testbenches/tb_raddsp_axis_smoke.vhd</td><td>failed</td><td><a href="../../simulations/tb_raddsp_axis_smoke/simulation_status.json">status</a></td></tr></tbody></table><div class="status">tb_raddsp_axis_smoke simulation failed: /usr/bin/ghdl-mcode: cannot find entity or configuration tb_raddsp_axis_smoke</div>
+  <h2>HDL Example</h2>
+  <pre><code>entity raddsp_axis_matrix_elementwise is
+  generic (
+    -- Selects the vendor-specific implementation path, usually XILINX for DSP48/XPM-backed builds or generic for portable RTL.
+    VENDOR          : string  := &quot;xilinx&quot;;
+    -- Identifies the target FPGA family so wrappers can choose the correct primitive or conservative portable behavior.
+    DEVICE_FAMILY   : string  := &quot;generic&quot;;
+    -- Sets the bit width for DATA WIDTH values carried by this module.
+    DATA_WIDTH      : positive := 16;
+    -- Sets coefficient precision or coefficient count for the fixed-point DSP operation.
+    COEFF_FRAC_BITS : natural  := 15
+  );
+  port (
+    -- Clock for the associated synchronous logic and handshake domain.
+    clk             : in  std_logic;
+    -- Active-high synchronous reset for this clock domain.
+    rst             : in  std_logic;
+    -- Input op i signal for this module.
+    op_i            : in  std_logic_vector(1 downto 0);
+    -- S0 axis tvalid interface signal.
+    s0_axis_tvalid  : in  std_logic;
+    -- S0 axis tready interface signal.
+    s0_axis_tready  : out std_logic;
+    -- S0 axis tdata interface signal.
+    s0_axis_tdata   : in  std_logic_vector(DATA_WIDTH - 1 downto 0);
+    -- S0 axis tlast interface signal.
+    s0_axis_tlast   : in  std_logic;
+    -- S1 axis tvalid interface signal.
+    s1_axis_tvalid  : in  std_logic;
+    -- S1 axis tready interface signal.
+    s1_axis_tready  : out std_logic;
+    -- S1 axis tdata interface signal.
+    s1_axis_tdata   : in  std_logic_vector(DATA_WIDTH - 1 downto 0);
+    -- S1 axis tlast interface signal.
+    s1_axis_tlast   : in  std_logic;
+    -- Output AXI-stream valid qualifier for the current result beat.
+    m_axis_tvalid   : out std_logic;
+    -- Output AXI-stream ready input from the downstream block.
+    m_axis_tready   : in  std_logic;
+    -- Output AXI-stream payload containing packed processed result lanes.
+    m_axis_tdata    : out std_logic_vector(DATA_WIDTH - 1 downto 0);
+    -- Output AXI-stream frame marker aligned with the processed result beat.
+    m_axis_tlast    : out std_logic
+  );
+end entity;</code></pre>
+  <h2>Sources</h2>
+  <ul><li>dsp/hdl/raddsp/src/raddsp_axis_matrix_elementwise.vhd</li></ul>
+</main>
+<footer><div class="wrap">RadHDL documentation version 0.2.0 / Generated by radhdl-docgen 0.1.0</div></footer>
+
+</body>
+</html>

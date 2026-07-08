@@ -95,11 +95,11 @@ Experimental packages are allowed to move faster than stable. RADBard and RadBui
 
 ## Documentation
 
+- [Documentation Index](docs/)
 - [RADLib 0.1.0 API Documentation](docs/radlib/0.1.0/api/)
-- [Current RADLib API Documentation](docs/radlib/api/)
-- [Current RadHDL Documentation](docs/radhdl/current/)
+- [RadHDL 0.2.0 Documentation](docs/radhdl/0.2.0/)
 
-RADLib Doxygen output is versioned so stable and experimental APIs can be compared directly. Use `docs/radlib/0.1.0/` for stable `0.1.0` and `docs/radlib/0.1.1/` for the experimental `0.1.1` line once published.
+Documentation is organized by product, release channel, and major version family. Use exact version paths such as `docs/radlib/0.1.0/` and `docs/radhdl/0.2.0/`; newer exact versions supersede older versions without a `current` alias.
 
 ## Repository Layout
 
@@ -113,7 +113,7 @@ debian/
   suites/
 docs/
   radlib/0.1.0/api/
-  radlib/0.1.1/api/
+  radhdl/0.2.0/
 scripts/
   update_debian_repo.sh
   update_radlib_docs.sh

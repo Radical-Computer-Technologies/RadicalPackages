@@ -4,11 +4,8 @@
   <nav class="nav">
     <a class="brand" href="./">Radical Packages</a>
     <div class="nav-links">
-      <a href="radlib.html">RADLib</a>
-      <a href="radbard.html">RADBard</a>
-      <a href="radbuild.html">RadBuild</a>
-      <a href="docs/radlib/">Docs</a>
-      <a href="debian/pool/main/">Pool</a>
+      <a href="packages.html">Packages</a>
+      <a href="docs/">Docs</a>
     </div>
   </nav>
 
@@ -59,33 +56,21 @@ sudo apt install radbuild-radhdl radbuild-server radbuild-vscode-support radbuil
     </table>
   </section>
 
-  <section class="grid">
-    <article class="card">
-      <h2>Package Metadata</h2>
+  <details class="doc-group">
+    <summary>Repository Metadata</summary>
       <div class="links">
         <a class="link-card" href="debian/dists/experimental/main/binary-all/Packages"><strong>Experimental all</strong><span>Package index</span></a>
         <a class="link-card" href="debian/pool/main/r/radbuild/"><strong>radbuild Pool</strong><span>Published CLI package</span></a>
         <a class="link-card" href="debian/pool/main/r/radbuild-radhdl/"><strong>radbuild-radhdl Pool</strong><span>Published RadHDL package</span></a>
         <a class="link-card" href="debian/pool/main/r/radbuild-server/"><strong>radbuild-server Pool</strong><span>Published server package</span></a>
       </div>
-    </article>
+  </details>
 
-    <article class="card">
+  <section class="card">
       <h2>Related Packages</h2>
       <div class="links">
         <a class="link-card" href="radlib.html"><strong>RADLib</strong><span>Runtime libraries consumed by target systems</span></a>
         <a class="link-card" href="radbard.html"><strong>RADBard</strong><span>Experimental application package track</span></a>
       </div>
-    </article>
-  </section>
-
-  <section class="card">
-    <h2>HDL Documentation Track</h2>
-    <p>
-      The <code>radbuild-radhdl</code> package gives RadBuild and VSCode a known RadHDL install root at
-      <code>/usr/share/radbuild/radhdl</code>. The next documentation track is to generate HTML-friendly
-      HDL library docs from that package with TerosHDL or compatible VHDL documentation tooling and publish
-      them through this site.
-    </p>
   </section>
 </main>

@@ -171,6 +171,11 @@ h3 {
   padding: 13px;
 }
 
+.package-link {
+  display: block;
+  text-decoration: none;
+}
+
 .package code {
   color: var(--accent);
   font-weight: 700;
@@ -222,6 +227,43 @@ h3 {
 
 .doc-group .links {
   padding: 0 18px 18px;
+}
+
+.doc-release {
+  border-top: 1px solid var(--line);
+}
+
+.doc-release summary {
+  cursor: pointer;
+  padding: 12px 18px;
+  color: var(--text);
+  font-weight: 700;
+}
+
+.doc-note {
+  color: var(--muted);
+  margin: 0;
+  padding: 0 18px 18px;
+}
+
+.search-input {
+  box-sizing: border-box;
+  width: 100%;
+  margin: 10px 0 4px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #05070a;
+  color: var(--text);
+  font: inherit;
+  padding: 13px 14px;
+}
+
+.search-input::placeholder {
+  color: #718096;
+}
+
+[hidden] {
+  display: none !important;
 }
 
 .note {
