@@ -88,6 +88,7 @@ Experimental packages are allowed to move faster than stable. RADBard and RadBui
 | --- | --- | --- |
 | `radbard` | RADBard music and audio composition suite beta. | `sudo apt install radbard` |
 | `radbuild` | Graph-based embedded-system build framework CLI. | `sudo apt install radbuild` |
+| `radbuild-radhdl` | Packaged RadHDL catalog and source assets for RadBuild. | `sudo apt install radbuild-radhdl` |
 | `radbuild-server` | Optional RadBuild server, client, worker, and review DB tools. | `sudo apt install radbuild-server` |
 | `radbuild-vscode-support` | VSCode extension source and compiled support files for RadBuild. | `sudo apt install radbuild-vscode-support` |
 | `radbuild-doc` | RadBuild documentation package. | `sudo apt install radbuild-doc` |
