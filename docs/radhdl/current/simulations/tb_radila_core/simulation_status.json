@@ -1,0 +1,29 @@
+{
+  "backend": "ghdl",
+  "testbench": "tb_radila_core",
+  "status": "failed",
+  "libraries": [
+    "radila"
+  ],
+  "analyzed": {
+    "radila": [],
+    "work": []
+  },
+  "analysis_skipped": {
+    "radila": [
+      {
+        "path": "debug/radila/hdl/radila/radila_axi_top.vhd",
+        "reason": "/media/jvincent/Kingspec512/repos/RadHDL/debug/radila/hdl/radila/radila_axi_top.vhd:84:33: unit \"raddebughub\" not found in library \"radila\""
+      }
+    ],
+    "work": [
+      {
+        "path": "debug/radila/hdl/radila/testbenches/tb_radila_core.vhd",
+        "reason": "/media/jvincent/Kingspec512/repos/RadHDL/debug/radila/hdl/radila/testbenches/tb_radila_core.vhd:46:21: unit \"raddebughub\" not found in library \"work\""
+      }
+    ]
+  },
+  "returncode": 1,
+  "stdout": "",
+  "stderr": "/usr/bin/ghdl-mcode: cannot find entity or configuration tb_radila_core\n"
+}

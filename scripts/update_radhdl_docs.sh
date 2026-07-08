@@ -23,6 +23,9 @@ DOCGEN_ARGS=(build --radhdl "$RADHDL_SOURCE_DIR" --out "$RADHDL_DOC_OUTPUT")
 if [[ "${RADHDL_DOCGEN_RUN_SIMS:-0}" == "1" ]]; then
   DOCGEN_ARGS+=(--run-sims)
 fi
+if [[ -n "${RADHDL_DOCGEN_STOP_TIME:-}" ]]; then
+  DOCGEN_ARGS+=(--stop-time "$RADHDL_DOCGEN_STOP_TIME")
+fi
 
 if [[ "$RADHDL_DOCGEN" == *.py ]]; then
   python3 "$RADHDL_DOCGEN" "${DOCGEN_ARGS[@]}"

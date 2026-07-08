@@ -20,37 +20,38 @@ Implements a lightweight recursive smoothing stage for control, envelope, and sl
   <ul><li>AXI-Stream datapath integration where module boundaries need explicit ready/valid behavior.</li><li>Reusable FPGA DSP pipelines that need fixed-point, timing-aware implementation.</li><li>Memory-mapped control/status integration with software-visible register maps.</li></ul>
   <h2>Block Diagram</h2>
   <div class="diagram"><svg width="860" height="304" viewBox="0 0 860 304" xmlns="http://www.w3.org/2000/svg" role="img">
-<style>text{font-family:Inter,Arial,sans-serif;font-size:13px;fill:#111827}.pin{stroke:#106b62;stroke-width:2}.box{fill:#f7f9fc;stroke:#26323f;stroke-width:2}</style>
-<rect class="box" x="270" y="50" width="320" height="214" rx="4"/>
+<style>text{font-family:Inter,Arial,sans-serif;font-size:13px;fill:#111827}.pin{stroke:#106b62;stroke-width:2;fill:none}.box{fill:#f7f9fc;stroke:#26323f;stroke-width:2}.bubble{fill:#fff;stroke:#106b62;stroke-width:2}.clock{fill:none;stroke:#106b62;stroke-width:2}</style>
+<rect class="box" x="230" y="50" width="400" height="214" rx="4"/>
 <text x="430.0" y="84" text-anchor="middle" font-weight="700">raddsp_axis_one_pole_lowpass</text>
 <text x="430.0" y="106" text-anchor="middle">raddsp entity</text>
-<line class="pin" x1="90" y1="130" x2="270" y2="130"/>
-<text x="84" y="134" text-anchor="end">clk</text>
-<line class="pin" x1="90" y1="158" x2="270" y2="158"/>
-<text x="84" y="162" text-anchor="end">rst</text>
-<line class="pin" x1="90" y1="186" x2="270" y2="186"/>
-<text x="84" y="190" text-anchor="end">clear_i</text>
-<line class="pin" x1="90" y1="214" x2="270" y2="214"/>
-<text x="84" y="218" text-anchor="end">alpha_i</text>
-<line class="pin" x1="90" y1="242" x2="270" y2="242"/>
-<text x="84" y="246" text-anchor="end">s_axis_tvalid</text>
-<line class="pin" x1="90" y1="270" x2="270" y2="270"/>
-<text x="84" y="274" text-anchor="end">s_axis_tdata</text>
-<line class="pin" x1="90" y1="298" x2="270" y2="298"/>
-<text x="84" y="302" text-anchor="end">s_axis_tlast</text>
-<line class="pin" x1="90" y1="326" x2="270" y2="326"/>
-<text x="84" y="330" text-anchor="end">m_axis_tready</text>
-<line class="pin" x1="590" y1="130" x2="770" y2="130"/>
-<text x="776" y="134">s_axis_tready</text>
-<line class="pin" x1="590" y1="158" x2="770" y2="158"/>
-<text x="776" y="162">m_axis_tvalid</text>
-<line class="pin" x1="590" y1="186" x2="770" y2="186"/>
-<text x="776" y="190">m_axis_tdata</text>
+<line class="pin" x1="194" y1="130" x2="230" y2="130"/>
+<text x="258" y="134">clk</text>
+<path class="clock" d="M 232 123 L 245 130 L 232 137"/>
+<line class="pin" x1="194" y1="158" x2="230" y2="158"/>
+<text x="258" y="162">rst</text>
+<line class="pin" x1="194" y1="186" x2="230" y2="186"/>
+<text x="258" y="190">clear_i</text>
+<line class="pin" x1="194" y1="214" x2="230" y2="214"/>
+<text x="258" y="218">alpha_i</text>
+<line class="pin" x1="194" y1="242" x2="230" y2="242"/>
+<text x="258" y="246">s_axis_tvalid</text>
+<line class="pin" x1="194" y1="270" x2="230" y2="270"/>
+<text x="258" y="274">s_axis_tdata</text>
+<line class="pin" x1="194" y1="298" x2="230" y2="298"/>
+<text x="258" y="302">s_axis_tlast</text>
+<line class="pin" x1="194" y1="326" x2="230" y2="326"/>
+<text x="258" y="330">m_axis_tready</text>
+<line class="pin" x1="630" y1="130" x2="666" y2="130"/>
+<text x="602" y="134" text-anchor="end">s_axis_tready</text>
+<line class="pin" x1="630" y1="158" x2="666" y2="158"/>
+<text x="602" y="162" text-anchor="end">m_axis_tvalid</text>
+<line class="pin" x1="630" y1="186" x2="666" y2="186"/>
+<text x="602" y="190" text-anchor="end">m_axis_tdata</text>
 </svg></div>
   <h2>Generics</h2><table><thead><tr><th>Name</th><th>Type</th><th>Default</th><th>Description</th></tr></thead><tbody><tr><td>VENDOR</td><td>string</td><td>&quot;xilinx&quot;</td><td>Selects the vendor-specific implementation path, usually XILINX for DSP48/XPM-backed builds or generic for portable RTL.</td></tr><tr><td>DEVICE_FAMILY</td><td>string</td><td>&quot;generic&quot;</td><td>Identifies the target FPGA family so wrappers can choose the correct primitive or conservative portable behavior.</td></tr><tr><td>DATA_WIDTH</td><td>positive</td><td>16</td><td>Sets the bit width for DATA WIDTH values carried by this module.</td></tr><tr><td>COEFF_WIDTH</td><td>positive</td><td>18</td><td>Sets the bit width for COEFF WIDTH values carried by this module.</td></tr><tr><td>COEFF_FRAC_BITS</td><td>natural</td><td>15</td><td>Sets coefficient precision or coefficient count for the fixed-point DSP operation.</td></tr></tbody></table>
   <h2>Ports</h2><table><thead><tr><th>Name</th><th>Direction</th><th>Type</th><th>Description</th></tr></thead><tbody><tr><td>clk</td><td>in</td><td>std_logic</td><td>Clock for the associated synchronous logic and handshake domain.</td></tr><tr><td>rst</td><td>in</td><td>std_logic</td><td>Active-high synchronous reset for this clock domain.</td></tr><tr><td>clear_i</td><td>in</td><td>std_logic</td><td>Input clear i signal for this module.</td></tr><tr><td>alpha_i</td><td>in</td><td>std_logic_vector(COEFF_WIDTH - 1 downto 0)</td><td>Input alpha i signal for this module.</td></tr><tr><td>s_axis_tvalid</td><td>in</td><td>std_logic</td><td>Input AXI-stream valid qualifier for the current sample beat.</td></tr><tr><td>s_axis_tready</td><td>out</td><td>std_logic</td><td>Input AXI-stream ready response indicating this block can accept a beat.</td></tr><tr><td>s_axis_tdata</td><td>in</td><td>std_logic_vector(DATA_WIDTH - 1 downto 0)</td><td>Input AXI-stream payload containing packed sample or feature lanes.</td></tr><tr><td>s_axis_tlast</td><td>in</td><td>std_logic</td><td>Input AXI-stream frame marker for the final beat of a frame.</td></tr><tr><td>m_axis_tvalid</td><td>out</td><td>std_logic</td><td>Output AXI-stream valid qualifier for the current result beat.</td></tr><tr><td>m_axis_tready</td><td>in</td><td>std_logic</td><td>Output AXI-stream ready input from the downstream block.</td></tr><tr><td>m_axis_tdata</td><td>out</td><td>std_logic_vector(DATA_WIDTH - 1 downto 0)</td><td>Output AXI-stream payload containing packed processed result lanes.</td></tr></tbody></table>
   
-  <h2>Testbenches and Waveforms</h2><table><thead><tr><th>Testbench</th><th>Source</th><th>Simulation</th></tr></thead><tbody><tr><td>tb_raddsp_axis_smoke</td><td>dsp/hdl/testbenches/tb_raddsp_axis_smoke.vhd</td><td>not-run</td></tr></tbody></table>
+  <h2>Testbenches and Waveforms</h2><table><thead><tr><th>Testbench</th><th>Source</th><th>Simulation</th><th>Artifacts</th></tr></thead><tbody><tr><td>tb_raddsp_axis_smoke</td><td>dsp/hdl/testbenches/tb_raddsp_axis_smoke.vhd</td><td>failed</td><td><a href="../../simulations/tb_raddsp_axis_smoke/simulation_status.json">status</a></td></tr></tbody></table><div class="status">tb_raddsp_axis_smoke simulation failed: /usr/bin/ghdl-mcode: cannot find entity or configuration tb_raddsp_axis_smoke</div>
   <h2>HDL Example</h2>
   <pre><code>entity raddsp_axis_one_pole_lowpass is
   generic (

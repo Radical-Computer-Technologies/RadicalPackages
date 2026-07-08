@@ -1,0 +1,120 @@
+{
+  "backend": "ghdl",
+  "testbench": "tb_raddsp_axis_radfft",
+  "status": "failed",
+  "libraries": [
+    "raddsp"
+  ],
+  "analyzed": {
+    "raddsp": [
+      "dsp/hdl/raddsp/src/cordic_atan_pkg.vhd",
+      "dsp/hdl/raddsp/src/raddsp_axis_pkg.vhd",
+      "dsp/hdl/raddsp/src/raddsp_fft_twiddle_pkg.vhd",
+      "dsp/hdl/raddsp/src/zc_reference_pkg.vhd",
+      "dsp/hdl/raddsp/src/cordic_atan2.vhd",
+      "dsp/hdl/raddsp/src/fft_radix2_batch_core.vhd",
+      "dsp/hdl/raddsp/src/raddsp_axis_fft_fingerprint.vhd",
+      "dsp/hdl/raddsp/src/raddsp_axis_fixed_to_float.vhd",
+      "dsp/hdl/raddsp/src/raddsp_axis_float_to_fixed.vhd",
+      "dsp/hdl/raddsp/src/raddsp_axis_mix2.vhd",
+      "dsp/hdl/raddsp/src/raddsp_axis_radfft_batch.vhd",
+      "dsp/hdl/raddsp/src/raddsp_axis_radfft_parallel8.vhd"
+    ],
+    "work": [
+      "dsp/hdl/testbenches/iqcal_capture_pkg.vhd"
+    ]
+  },
+  "analysis_skipped": {
+    "raddsp": [
+      {
+        "path": "dsp/hdl/raddsp/src/raddsp_axis_biquad.vhd",
+        "reason": "/media/jvincent/Kingspec512/repos/RadHDL/dsp/hdl/raddsp/src/raddsp_axis_biquad.vhd:198:32: unit \"raddsp_xilinx_dsp48_mul\" not found in library \"raddsp\"\n/media/jvincent/Kingspec512/repos/RadHDL/dsp/hdl/raddsp/src/raddsp_axis_biquad.vhd:346:30: unit \"raddsp_xilinx_dsp48_mul\" not found in library \"raddsp\""
+      },
+      {
+        "path": "dsp/hdl/raddsp/src/raddsp_axis_fft_bin_product.vhd",
+        "reason": "/media/jvincent/Kingspec512/repos/RadHDL/dsp/hdl/raddsp/src/raddsp_axis_fft_bin_product.vhd:122:27: unit \"raddsp_xilinx_dsp48_mul\" not found in library \"raddsp\"\n/media/jvincent/Kingspec512/repos/RadHDL/dsp/hdl/raddsp/src/raddsp_axis_fft_bin_product.vhd:128:27: unit \"raddsp_xilinx_dsp48_mul\" not found in library \"raddsp\"\n/media/jvincent/Kingspec512/repos/RadHDL/dsp/hdl/raddsp/src/raddsp_axis_fft_bin_product.vhd:134:27: unit \"raddsp_xilinx_dsp48_mul\" not found in library \"raddsp\"\n/media/jvincent/Kingspec512/repos/RadHDL/dsp/hdl/raddsp/src/raddsp_axis_fft_bin_product.vhd:140:27: unit \"raddsp_xilinx_dsp48_mul\" not found in library \"raddsp\"\n/media/jvincent/Kingspec512/repos/RadHDL/dsp/hdl/raddsp/src/raddsp_axis_fft_bin_product.vhd:255:30: unit \"raddsp_xilinx_dsp48_mul\" not found in library \"raddsp\""
+      },
+      {
+        "path": "dsp/hdl/raddsp/src/raddsp_axis_fir.vhd",
+        "reason": "/media/jvincent/Kingspec512/repos/RadHDL/dsp/hdl/raddsp/src/raddsp_axis_fir.vhd:181:32: unit \"raddsp_xilinx_dsp48_mul\" not found in library \"raddsp\""
+      },
+      {
+        "path": "dsp/hdl/raddsp/src/raddsp_axis_frame_stats.vhd",
+        "reason": "/media/jvincent/Kingspec512/repos/RadHDL/dsp/hdl/raddsp/src/raddsp_axis_frame_stats.vhd:96:29: unit \"raddsp_xilinx_dsp48_mul\" not found in library \"raddsp\""
+      },
+      {
+        "path": "dsp/hdl/raddsp/src/raddsp_axis_gain.vhd",
+        "reason": "/media/jvincent/Kingspec512/repos/RadHDL/dsp/hdl/raddsp/src/raddsp_axis_gain.vhd:108:32: unit \"raddsp_xilinx_dsp48_mul\" not found in library \"raddsp\""
+      },
+      {
+        "path": "dsp/hdl/raddsp/src/raddsp_axis_iq_magnitude_sq.vhd",
+        "reason": "/media/jvincent/Kingspec512/repos/RadHDL/dsp/hdl/raddsp/src/raddsp_axis_iq_magnitude_sq.vhd:75:31: unit \"raddsp_xilinx_dsp48_mul\" not found in library \"raddsp\"\n/media/jvincent/Kingspec512/repos/RadHDL/dsp/hdl/raddsp/src/raddsp_axis_iq_magnitude_sq.vhd:87:31: unit \"raddsp_xilinx_dsp48_mul\" not found in library \"raddsp\""
+      },
+      {
+        "path": "dsp/hdl/raddsp/src/raddsp_axis_matrix_dot.vhd",
+        "reason": "/media/jvincent/Kingspec512/repos/RadHDL/dsp/hdl/raddsp/src/raddsp_axis_matrix_dot.vhd:92:30: unit \"raddsp_xilinx_dsp48_mul\" not found in library \"raddsp\""
+      },
+      {
+        "path": "dsp/hdl/raddsp/src/raddsp_axis_matrix_elementwise.vhd",
+        "reason": "/media/jvincent/Kingspec512/repos/RadHDL/dsp/hdl/raddsp/src/raddsp_axis_matrix_elementwise.vhd:86:30: unit \"raddsp_xilinx_dsp48_mul\" not found in library \"raddsp\""
+      },
+      {
+        "path": "dsp/hdl/raddsp/src/raddsp_axis_one_pole_lowpass.vhd",
+        "reason": "/media/jvincent/Kingspec512/repos/RadHDL/dsp/hdl/raddsp/src/raddsp_axis_one_pole_lowpass.vhd:138:30: unit \"raddsp_xilinx_dsp48_mul\" not found in library \"raddsp\""
+      },
+      {
+        "path": "dsp/hdl/raddsp/src/raddsp_axis_radfft.vhd",
+        "reason": "/media/jvincent/Kingspec512/repos/RadHDL/dsp/hdl/raddsp/src/raddsp_axis_radfft.vhd:119:24: unit \"raddsp_axis_radfft_radix2_tdp\" not found in library \"raddsp\"\n/media/jvincent/Kingspec512/repos/RadHDL/dsp/hdl/raddsp/src/raddsp_axis_radfft.vhd:158:24: unit \"raddsp_axis_radfft_radix4_tdp\" not found in library \"raddsp\"\n/media/jvincent/Kingspec512/repos/RadHDL/dsp/hdl/raddsp/src/raddsp_axis_radfft.vhd:196:24: unit \"raddsp_axis_radfft_streaming\" not found in library \"raddsp\""
+      },
+      {
+        "path": "dsp/hdl/raddsp/src/raddsp_axis_radfft_ddr.vhd",
+        "reason": "/media/jvincent/Kingspec512/repos/RadHDL/dsp/hdl/raddsp/src/raddsp_axis_radfft_ddr.vhd:662:10: direction of the range mismatch\n/media/jvincent/Kingspec512/repos/RadHDL/dsp/hdl/raddsp/src/raddsp_axis_radfft_ddr.vhd:676:12: direction of the range mismatch\n/media/jvincent/Kingspec512/repos/RadHDL/dsp/hdl/raddsp/src/raddsp_axis_radfft_ddr.vhd:810:27: unit \"fft_tdp_ram\" not found in library \"raddsp\"\n/media/jvincent/Kingspec512/repos/RadHDL/dsp/hdl/raddsp/src/raddsp_axis_radfft_ddr.vhd:830:29: unit \"raddsp_axis_radfft_radix2_tdp\" not found in library \"raddsp\"\n/media/jvincent/Kingspec512/repos/RadHDL/dsp/hdl/raddsp/src/raddsp_axis_radfft_ddr.vhd:942:35: unit \"raddsp_xilinx_dsp48_wide_mul\" not found in library \"raddsp\""
+      },
+      {
+        "path": "dsp/hdl/raddsp/src/raddsp_axis_radfft_iterative.vhd",
+        "reason": "/media/jvincent/Kingspec512/repos/RadHDL/dsp/hdl/raddsp/src/raddsp_axis_radfft_iterative.vhd:259:25: unit \"raddsp_xilinx_dsp48_wide_mul\" not found in library \"raddsp\"\n/media/jvincent/Kingspec512/repos/RadHDL/dsp/hdl/raddsp/src/raddsp_axis_radfft_iterative.vhd:263:25: unit \"raddsp_xilinx_dsp48_wide_mul\" not found in library \"raddsp\"\n/media/jvincent/Kingspec512/repos/RadHDL/dsp/hdl/raddsp/src/raddsp_axis_radfft_iterative.vhd:267:25: unit \"raddsp_xilinx_dsp48_wide_mul\" not found in library \"raddsp\"\n/media/jvincent/Kingspec512/repos/RadHDL/dsp/hdl/raddsp/src/raddsp_axis_radfft_iterative.vhd:271:25: unit \"raddsp_xilinx_dsp48_wide_mul\" not found in library \"raddsp\""
+      },
+      {
+        "path": "dsp/hdl/raddsp/src/raddsp_axis_radfft_radix2_tdp.vhd",
+        "reason": "/media/jvincent/Kingspec512/repos/RadHDL/dsp/hdl/raddsp/src/raddsp_axis_radfft_radix2_tdp.vhd:365:22: unit \"fft_tdp_ram\" not found in library \"raddsp\"\n/media/jvincent/Kingspec512/repos/RadHDL/dsp/hdl/raddsp/src/raddsp_axis_radfft_radix2_tdp.vhd:393:32: unit \"raddsp_fft_twiddle_rom\" not found in library \"raddsp\"\n/media/jvincent/Kingspec512/repos/RadHDL/dsp/hdl/raddsp/src/raddsp_axis_radfft_radix2_tdp.vhd:412:25: unit \"raddsp_xilinx_dsp48_wide_mul\" not found in library \"raddsp\"\n/media/jvincent/Kingspec512/repos/RadHDL/dsp/hdl/raddsp/src/raddsp_axis_radfft_radix2_tdp.vhd:416:25: unit \"raddsp_xilinx_dsp48_wide_mul\" not found in library \"raddsp\"\n/media/jvincent/Kingspec512/repos/RadHDL/dsp/hdl/raddsp/src/raddsp_axis_radfft_radix2_tdp.vhd:420:25: unit \"raddsp_xilinx_dsp48_wide_mul\" not found in library \"raddsp\"\n/media/jvincent/Kingspec512/repos/RadHDL/dsp/hdl/raddsp/src/raddsp_axis_radfft_radix2_tdp.vhd:424:25: unit \"raddsp_xilinx_dsp48_wide_mul\" not found in library \"raddsp\""
+      },
+      {
+        "path": "dsp/hdl/raddsp/src/raddsp_axis_radfft_radix4_tdp.vhd",
+        "reason": "/media/jvincent/Kingspec512/repos/RadHDL/dsp/hdl/raddsp/src/raddsp_axis_radfft_radix4_tdp.vhd:317:22: unit \"fft_tdp_ram\" not found in library \"raddsp\"\n/media/jvincent/Kingspec512/repos/RadHDL/dsp/hdl/raddsp/src/raddsp_axis_radfft_radix4_tdp.vhd:345:32: unit \"raddsp_fft_twiddle_rom\" not found in library \"raddsp\"\n/media/jvincent/Kingspec512/repos/RadHDL/dsp/hdl/raddsp/src/raddsp_axis_radfft_radix4_tdp.vhd:364:25: unit \"raddsp_xilinx_dsp48_wide_mul\" not found in library \"raddsp\"\n/media/jvincent/Kingspec512/repos/RadHDL/dsp/hdl/raddsp/src/raddsp_axis_radfft_radix4_tdp.vhd:368:25: unit \"raddsp_xilinx_dsp48_wide_mul\" not found in library \"raddsp\"\n/media/jvincent/Kingspec512/repos/RadHDL/dsp/hdl/raddsp/src/raddsp_axis_radfft_radix4_tdp.vhd:372:25: unit \"raddsp_xilinx_dsp48_wide_mul\" not found in library \"raddsp\"\n/media/jvincent/Kingspec512/repos/RadHDL/dsp/hdl/raddsp/src/raddsp_axis_radfft_radix4_tdp.vhd:376:25: unit \"raddsp_xilinx_dsp48_wide_mul\" not found in library \"raddsp\""
+      },
+      {
+        "path": "dsp/hdl/raddsp/src/raddsp_axis_radfft_streaming.vhd",
+        "reason": "/media/jvincent/Kingspec512/repos/RadHDL/dsp/hdl/raddsp/src/raddsp_axis_radfft_streaming.vhd:222:27: unit \"raddsp_xilinx_dsp48_wide_mul\" not found in library \"raddsp\"\n/media/jvincent/Kingspec512/repos/RadHDL/dsp/hdl/raddsp/src/raddsp_axis_radfft_streaming.vhd:226:27: unit \"raddsp_xilinx_dsp48_wide_mul\" not found in library \"raddsp\"\n/media/jvincent/Kingspec512/repos/RadHDL/dsp/hdl/raddsp/src/raddsp_axis_radfft_streaming.vhd:230:27: unit \"raddsp_xilinx_dsp48_wide_mul\" not found in library \"raddsp\"\n/media/jvincent/Kingspec512/repos/RadHDL/dsp/hdl/raddsp/src/raddsp_axis_radfft_streaming.vhd:234:27: unit \"raddsp_xilinx_dsp48_wide_mul\" not found in library \"raddsp\""
+      },
+      {
+        "path": "dsp/hdl/raddsp/src/raddsp_xilinx_dsp48_square_seq.vhd",
+        "reason": "/media/jvincent/Kingspec512/repos/RadHDL/dsp/hdl/raddsp/src/raddsp_xilinx_dsp48_square_seq.vhd:83:24: unit \"raddsp_xilinx_dsp48_mul\" not found in library \"raddsp\""
+      },
+      {
+        "path": "dsp/hdl/raddsp/src/raddsp_xilinx_dsp48_wide_mul.vhd",
+        "reason": "/media/jvincent/Kingspec512/repos/RadHDL/dsp/hdl/raddsp/src/raddsp_xilinx_dsp48_wide_mul.vhd:107:26: unit \"raddsp_xilinx_dsp48_mul\" not found in library \"raddsp\""
+      },
+      {
+        "path": "dsp/hdl/raddsp/src/zc_chirp_frame_detector.vhd",
+        "reason": "/media/jvincent/Kingspec512/repos/RadHDL/dsp/hdl/raddsp/src/zc_chirp_frame_detector.vhd:177:27: unit \"raddsp_xilinx_dsp48_mul\" not found in library \"raddsp\"\n/media/jvincent/Kingspec512/repos/RadHDL/dsp/hdl/raddsp/src/zc_chirp_frame_detector.vhd:185:27: unit \"raddsp_xilinx_dsp48_mul\" not found in library \"raddsp\"\n/media/jvincent/Kingspec512/repos/RadHDL/dsp/hdl/raddsp/src/zc_chirp_frame_detector.vhd:193:27: unit \"raddsp_xilinx_dsp48_mul\" not found in library \"raddsp\"\n/media/jvincent/Kingspec512/repos/RadHDL/dsp/hdl/raddsp/src/zc_chirp_frame_detector.vhd:201:27: unit \"raddsp_xilinx_dsp48_mul\" not found in library \"raddsp\"\n/media/jvincent/Kingspec512/repos/RadHDL/dsp/hdl/raddsp/src/zc_chirp_frame_detector.vhd:209:31: unit \"raddsp_xilinx_dsp48_square_seq\" not found in library \"raddsp\""
+      },
+      {
+        "path": "dsp/hdl/raddsp/src/zc_cross_correlator.vhd",
+        "reason": "/media/jvincent/Kingspec512/repos/RadHDL/dsp/hdl/raddsp/src/zc_cross_correlator.vhd:126:27: unit \"raddsp_xilinx_dsp48_mul\" not found in library \"raddsp\"\n/media/jvincent/Kingspec512/repos/RadHDL/dsp/hdl/raddsp/src/zc_cross_correlator.vhd:134:27: unit \"raddsp_xilinx_dsp48_mul\" not found in library \"raddsp\"\n/media/jvincent/Kingspec512/repos/RadHDL/dsp/hdl/raddsp/src/zc_cross_correlator.vhd:142:27: unit \"raddsp_xilinx_dsp48_mul\" not found in library \"raddsp\"\n/media/jvincent/Kingspec512/repos/RadHDL/dsp/hdl/raddsp/src/zc_cross_correlator.vhd:150:27: unit \"raddsp_xilinx_dsp48_mul\" not found in library \"raddsp\"\n/media/jvincent/Kingspec512/repos/RadHDL/dsp/hdl/raddsp/src/zc_cross_correlator.vhd:158:31: unit \"raddsp_xilinx_dsp48_square_seq\" not found in library \"raddsp\""
+      },
+      {
+        "path": "dsp/hdl/raddsp/src/zc_peak_detector.vhd",
+        "reason": "/media/jvincent/Kingspec512/repos/RadHDL/dsp/hdl/raddsp/src/zc_peak_detector.vhd:140:27: unit \"raddsp_xilinx_dsp48_mul\" not found in library \"raddsp\"\n/media/jvincent/Kingspec512/repos/RadHDL/dsp/hdl/raddsp/src/zc_peak_detector.vhd:148:27: unit \"raddsp_xilinx_dsp48_mul\" not found in library \"raddsp\"\n/media/jvincent/Kingspec512/repos/RadHDL/dsp/hdl/raddsp/src/zc_peak_detector.vhd:156:27: unit \"raddsp_xilinx_dsp48_mul\" not found in library \"raddsp\"\n/media/jvincent/Kingspec512/repos/RadHDL/dsp/hdl/raddsp/src/zc_peak_detector.vhd:164:27: unit \"raddsp_xilinx_dsp48_mul\" not found in library \"raddsp\"\n/media/jvincent/Kingspec512/repos/RadHDL/dsp/hdl/raddsp/src/zc_peak_detector.vhd:172:31: unit \"raddsp_xilinx_dsp48_square_seq\" not found in library \"raddsp\""
+      }
+    ],
+    "work": [
+      {
+        "path": "dsp/hdl/testbenches/tb_raddsp_axis_radfft.vhd",
+        "reason": "/media/jvincent/Kingspec512/repos/RadHDL/dsp/hdl/testbenches/tb_raddsp_axis_radfft.vhd:105:29: unit \"raddsp_axis_radfft\" not found in library \"raddsp\"\n/media/jvincent/Kingspec512/repos/RadHDL/dsp/hdl/testbenches/tb_raddsp_axis_radfft.vhd:126:29: unit \"raddsp_axis_radfft\" not found in library \"raddsp\"\n/media/jvincent/Kingspec512/repos/RadHDL/dsp/hdl/testbenches/tb_raddsp_axis_radfft.vhd:147:30: unit \"raddsp_axis_radfft\" not found in library \"raddsp\"\n/media/jvincent/Kingspec512/repos/RadHDL/dsp/hdl/testbenches/tb_raddsp_axis_radfft.vhd:167:32: unit \"raddsp_axis_radfft\" not found in library \"raddsp\""
+      }
+    ]
+  },
+  "returncode": 1,
+  "stdout": "",
+  "stderr": "/usr/bin/ghdl-mcode: cannot find entity or configuration tb_raddsp_axis_radfft\n"
+}

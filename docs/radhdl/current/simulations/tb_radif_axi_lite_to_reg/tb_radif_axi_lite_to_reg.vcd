@@ -1,0 +1,429 @@
+$date
+  Wed Jul  8 12:42:22 2026
+$end
+$version
+  GHDL v0
+$end
+$timescale
+  1 fs
+$end
+$scope module standard $end
+$upscope $end
+$scope module textio $end
+$upscope $end
+$scope module std_logic_1164 $end
+$upscope $end
+$scope module numeric_std $end
+$upscope $end
+$scope module radif_pkg $end
+$upscope $end
+$scope module env $end
+$upscope $end
+$scope module tb_radif_axi_lite_to_reg $end
+$var reg 1 ! clk $end
+$var reg 1 " rstn $end
+$var reg 16 # awaddr[15:0] $end
+$var reg 3 $ awprot[2:0] $end
+$var reg 1 % awvalid $end
+$var reg 1 & awready $end
+$var reg 32 ' wdata[31:0] $end
+$var reg 4 ( wstrb[3:0] $end
+$var reg 1 ) wvalid $end
+$var reg 1 * wready $end
+$var reg 2 + bresp[1:0] $end
+$var reg 1 , bvalid $end
+$var reg 1 - bready $end
+$var reg 16 . araddr[15:0] $end
+$var reg 3 / arprot[2:0] $end
+$var reg 1 0 arvalid $end
+$var reg 1 1 arready $end
+$var reg 32 2 rdata[31:0] $end
+$var reg 2 3 rresp[1:0] $end
+$var reg 1 4 rvalid $end
+$var reg 1 5 rready $end
+$var reg 16 6 wr_addr[15:0] $end
+$var reg 16 7 rd_addr[15:0] $end
+$var reg 1 8 wr_en $end
+$var reg 1 9 rd_en $end
+$var reg 32 : reg_din[31:0] $end
+$var reg 32 ; reg_dout[31:0] $end
+$var reg 1 < wr_rdy $end
+$var reg 1 = rd_rdy $end
+$var reg 1 > wr_valid $end
+$var reg 1 ? rd_valid $end
+$var reg 1 @ reg_error $end
+$comment ro_regs is not handled $end
+$comment rw_regs is not handled $end
+$scope module u_axi $end
+$var reg 1 A clk $end
+$var reg 1 B rstn $end
+$var reg 16 C s_axi_awaddr[15:0] $end
+$var reg 3 D s_axi_awprot[2:0] $end
+$var reg 1 E s_axi_awvalid $end
+$var reg 1 F s_axi_awready $end
+$var reg 32 G s_axi_wdata[31:0] $end
+$var reg 4 H s_axi_wstrb[3:0] $end
+$var reg 1 I s_axi_wvalid $end
+$var reg 1 J s_axi_wready $end
+$var reg 2 K s_axi_bresp[1:0] $end
+$var reg 1 L s_axi_bvalid $end
+$var reg 1 M s_axi_bready $end
+$var reg 16 N s_axi_araddr[15:0] $end
+$var reg 3 O s_axi_arprot[2:0] $end
+$var reg 1 P s_axi_arvalid $end
+$var reg 1 Q s_axi_arready $end
+$var reg 32 R s_axi_rdata[31:0] $end
+$var reg 2 S s_axi_rresp[1:0] $end
+$var reg 1 T s_axi_rvalid $end
+$var reg 1 U s_axi_rready $end
+$var reg 16 V reg_wr_addr[15:0] $end
+$var reg 16 W reg_rd_addr[15:0] $end
+$var reg 1 X reg_wr_en $end
+$var reg 1 Y reg_rd_en $end
+$var reg 32 Z reg_data_in[31:0] $end
+$var reg 32 [ reg_data_out[31:0] $end
+$var reg 1 \ reg_wr_rdy $end
+$var reg 1 ] reg_rd_rdy $end
+$var reg 1 ^ reg_wr_valid $end
+$var reg 1 _ reg_rd_valid $end
+$var reg 1 ` reg_error $end
+$comment wr_state is not handled $end
+$comment rd_state is not handled $end
+$var reg 1 a awready_r $end
+$var reg 1 b wready_r $end
+$var reg 1 c bvalid_r $end
+$var reg 1 d arready_r $end
+$var reg 1 e rvalid_r $end
+$var reg 2 f bresp_r[1:0] $end
+$var reg 2 g rresp_r[1:0] $end
+$var reg 32 h rdata_r[31:0] $end
+$var reg 16 i reg_wr_addr_r[15:0] $end
+$var reg 16 j reg_rd_addr_r[15:0] $end
+$var reg 32 k reg_wdata_r[31:0] $end
+$var reg 1 l wr_pulse $end
+$var reg 1 m rd_pulse $end
+$scope module gen_xilinx_vendor $end
+$upscope $end
+$upscope $end
+$scope module u_regs $end
+$var reg 1 n clk $end
+$var reg 1 o rstn $end
+$var reg 16 p wr_addr[15:0] $end
+$var reg 16 q rd_addr[15:0] $end
+$var reg 1 r wr_en $end
+$var reg 1 s rd_en $end
+$var reg 32 t data_in[31:0] $end
+$var reg 32 u data_out[31:0] $end
+$comment read_only_regs_i is not handled $end
+$comment read_write_regs_o is not handled $end
+$var reg 1 v wr_rdy $end
+$var reg 1 w rd_rdy $end
+$var reg 1 x wr_valid $end
+$var reg 1 y rd_valid $end
+$var reg 1 z error $end
+$comment regs is not handled $end
+$var reg 32 { rd_data_r[31:0] $end
+$var reg 1 | wr_v_r $end
+$var reg 1 } rd_v_r $end
+$var reg 1 !" err_r $end
+$scope module gen_xilinx_vendor $end
+$upscope $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+#0
+0!
+0"
+b0000000000000000 #
+b000 $
+0%
+0&
+b00000000000000000000000000000000 '
+b1111 (
+0)
+0*
+b00 +
+0,
+0-
+b0000000000000000 .
+b000 /
+00
+01
+b00000000000000000000000000000000 2
+b00 3
+04
+05
+b0000000000000000 6
+b0000000000000000 7
+08
+09
+b00000000000000000000000000000000 :
+b00000000000000000000000000000000 ;
+1<
+1=
+0>
+0?
+0@
+0A
+0B
+b0000000000000000 C
+b000 D
+0E
+0F
+b00000000000000000000000000000000 G
+b1111 H
+0I
+0J
+b00 K
+0L
+0M
+b0000000000000000 N
+b000 O
+0P
+0Q
+b00000000000000000000000000000000 R
+b00 S
+0T
+0U
+b0000000000000000 V
+b0000000000000000 W
+0X
+0Y
+b00000000000000000000000000000000 Z
+b00000000000000000000000000000000 [
+1\
+1]
+0^
+0_
+0`
+0a
+0b
+0c
+0d
+0e
+b00 f
+b00 g
+b00000000000000000000000000000000 h
+b0000000000000000 i
+b0000000000000000 j
+b00000000000000000000000000000000 k
+0l
+0m
+0n
+0o
+b0000000000000000 p
+b0000000000000000 q
+0r
+0s
+b00000000000000000000000000000000 t
+b00000000000000000000000000000000 u
+1v
+1w
+0x
+0y
+0z
+b00000000000000000000000000000000 {
+0|
+0}
+0!"
+#5000000
+1!
+1A
+1n
+#10000000
+0!
+0A
+0n
+#15000000
+1!
+1A
+1n
+#20000000
+0!
+0A
+0n
+#25000000
+1!
+1A
+1n
+#30000000
+0!
+0A
+0n
+#35000000
+1!
+1A
+1n
+#40000000
+0!
+1"
+0A
+1B
+0n
+1o
+#45000000
+1!
+b0000000000000100 #
+1%
+b11001010111111101011101010111110 '
+1)
+1A
+b0000000000000100 C
+1E
+b11001010111111101011101010111110 G
+1I
+1n
+#50000000
+0!
+0A
+0n
+#55000000
+1!
+1&
+1*
+b0000000000000100 6
+18
+b11001010111111101011101010111110 :
+1A
+1F
+1J
+b0000000000000100 V
+1X
+b11001010111111101011101010111110 Z
+1a
+1b
+b0000000000000100 i
+b11001010111111101011101010111110 k
+1l
+1n
+b0000000000000100 p
+1r
+b11001010111111101011101010111110 t
+#60000000
+0!
+0A
+0n
+#65000000
+1!
+0%
+0&
+0)
+0*
+1-
+08
+1>
+1A
+0E
+0F
+0I
+0J
+1M
+0X
+1^
+0a
+0b
+0l
+1n
+0r
+1x
+1|
+#70000000
+0!
+0A
+0n
+#75000000
+1!
+1,
+0>
+1A
+1L
+0^
+1c
+1n
+0x
+0|
+#80000000
+0!
+0A
+0n
+#85000000
+1!
+0,
+0-
+b0000000000000100 .
+10
+1A
+0L
+0M
+b0000000000000100 N
+1P
+0c
+1n
+#90000000
+0!
+0A
+0n
+#95000000
+1!
+11
+b0000000000000100 7
+19
+1A
+1Q
+b0000000000000100 W
+1Y
+1d
+b0000000000000100 j
+1m
+1n
+b0000000000000100 q
+1s
+#100000000
+0!
+0A
+0n
+#105000000
+1!
+00
+01
+15
+09
+b11001010111111101011101010111110 ;
+1?
+1A
+0P
+0Q
+1U
+0Y
+b11001010111111101011101010111110 [
+1_
+0d
+0m
+1n
+0s
+b11001010111111101011101010111110 u
+1y
+b11001010111111101011101010111110 {
+1}
+#110000000
+0!
+0A
+0n
+#115000000
+1!
+b11001010111111101011101010111110 2
+14
+0?
+1A
+b11001010111111101011101010111110 R
+1T
+0_
+1e
+b11001010111111101011101010111110 h
+1n
+0y
+0}
+#120000000
+0!
+0A
+0n
