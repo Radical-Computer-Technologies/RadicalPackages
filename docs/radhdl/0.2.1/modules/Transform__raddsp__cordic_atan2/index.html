@@ -56,7 +56,8 @@ use radhdl.dsp.all;
 -- Narrower alternative: use radhdl.dsp_transform.all;</code></pre><h3>Component Declaration</h3><pre><code>component cordic_atan2 is
   generic (
     G_INPUT_WIDTH : integer := 16;
-    G_PHASE_WIDTH : integer := 32
+    G_PHASE_WIDTH : integer := 32;
+    G_ITERATIONS : integer := 24
   );
   port (
     clk : in std_logic;
@@ -72,7 +73,8 @@ use radhdl.dsp.all;
 end component;</code></pre><h3>Direct Entity Instantiation</h3><pre><code>u_cordic_atan2 : entity radhdl.cordic_atan2
   generic map (
     G_INPUT_WIDTH =&gt; 16,
-    G_PHASE_WIDTH =&gt; 32
+    G_PHASE_WIDTH =&gt; 32,
+    G_ITERATIONS  =&gt; 24
   )
   port map (
     clk         =&gt; &lt;clk_signal&gt;,
@@ -85,7 +87,7 @@ end component;</code></pre><h3>Direct Entity Instantiation</h3><pre><code>u_cord
     phase_valid =&gt; &lt;phase_valid_signal&gt;,
     phase_out   =&gt; &lt;phase_out_signal&gt;
   );</code></pre></div></details>
-  <h2>Generics</h2><table><thead><tr><th>Name</th><th>Type</th><th>Default</th><th>Description</th></tr></thead><tbody><tr><td>G_INPUT_WIDTH</td><td>integer</td><td>16</td><td>Sets the bit width for G INPUT WIDTH values carried by this module.</td></tr><tr><td>G_PHASE_WIDTH</td><td>integer</td><td>32</td><td>Sets the bit width for G PHASE WIDTH values carried by this module.</td></tr></tbody></table>
+  <h2>Generics</h2><table><thead><tr><th>Name</th><th>Type</th><th>Default</th><th>Description</th></tr></thead><tbody><tr><td>G_INPUT_WIDTH</td><td>integer</td><td>16</td><td>Sets the bit width for G INPUT WIDTH values carried by this module.</td></tr><tr><td>G_PHASE_WIDTH</td><td>integer</td><td>32</td><td>Sets the bit width for G PHASE WIDTH values carried by this module.</td></tr><tr><td>G_ITERATIONS</td><td>integer</td><td>24</td><td>Configures G ITERATIONS for this instance.</td></tr></tbody></table>
   <h2>Ports</h2><table><thead><tr><th>Name</th><th>Direction</th><th>Type</th><th>Description</th></tr></thead><tbody><tr><td>clk</td><td>in</td><td>std_logic</td><td>Clock for the associated synchronous logic and handshake domain.</td></tr><tr><td>rst</td><td>in</td><td>std_logic</td><td>Active-high synchronous reset for this clock domain.</td></tr><tr><td>input_valid</td><td>in</td><td>std_logic</td><td>Input valid interface signal.</td></tr><tr><td>x_in</td><td>in</td><td>signed(G_INPUT_WIDTH - 1 downto 0)</td><td>X in interface signal.</td></tr><tr><td>y_in</td><td>in</td><td>signed(G_INPUT_WIDTH - 1 downto 0)</td><td>Y in interface signal.</td></tr><tr><td>input_ready</td><td>out</td><td>std_logic</td><td>Input ready interface signal.</td></tr><tr><td>busy</td><td>out</td><td>std_logic</td><td>Busy interface signal.</td></tr><tr><td>phase_valid</td><td>out</td><td>std_logic</td><td>Phase valid interface signal.</td></tr><tr><td>phase_out</td><td>out</td><td>signed(G_PHASE_WIDTH - 1 downto 0)</td><td>Phase out interface signal.</td></tr></tbody></table>
   
   

@@ -68,6 +68,7 @@ cat > "$ROOT/docs/radhdl/index.html" <<'HTML'
       <details class="doc-release">
         <summary>RadHDL 0 - Crimson</summary>
         <div class="links">
+          <a class="link-card" href="0.2.1/"><strong>RadHDL 0.2.1</strong><span>Experimental HDL module datasheets, register maps, and simulation evidence</span></a>
           <a class="link-card" href="0.2.0/"><strong>RadHDL 0.2.0</strong><span>Experimental HDL module datasheets, register maps, and simulation evidence</span></a>
         </div>
       </details>

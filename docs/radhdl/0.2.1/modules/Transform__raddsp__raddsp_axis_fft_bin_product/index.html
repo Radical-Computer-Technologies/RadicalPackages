@@ -65,7 +65,8 @@ use radhdl.dsp.all;
     VENDOR : string := &quot;xilinx&quot;;
     DEVICE_FAMILY : string := &quot;generic&quot;;
     DATA_WIDTH : positive := 16;
-    COEFF_FRAC_BITS : natural := 15
+    COEFF_FRAC_BITS : natural := 15;
+    IMPLEMENTATION : string := &quot;latency_optimized&quot;
   );
   port (
     s0_axis_tvalid : in std_logic;
@@ -79,6 +80,7 @@ use radhdl.dsp.all;
     m_axis_tvalid : out std_logic;
     m_axis_tready : in std_logic;
     m_axis_tdata : out std_logic_vector((2 * DATA_WIDTH) - 1 downto 0);
+    m_axis_tlast : out std_logic;
     clk : in std_logic;
     rst : in std_logic;
     correlate_i : in std_logic
@@ -88,7 +90,8 @@ end component;</code></pre><h3>Direct Entity Instantiation</h3><pre><code>u_radd
     VENDOR          =&gt; &quot;xilinx&quot;,
     DEVICE_FAMILY   =&gt; &quot;generic&quot;,
     DATA_WIDTH      =&gt; 16,
-    COEFF_FRAC_BITS =&gt; 15
+    COEFF_FRAC_BITS =&gt; 15,
+    IMPLEMENTATION  =&gt; &quot;latency_optimized&quot;
   )
   port map (
     s0_axis_tvalid =&gt; &lt;s0_axis_tvalid_signal&gt;,
@@ -102,13 +105,14 @@ end component;</code></pre><h3>Direct Entity Instantiation</h3><pre><code>u_radd
     m_axis_tvalid  =&gt; &lt;m_axis_tvalid_signal&gt;,
     m_axis_tready  =&gt; &lt;m_axis_tready_signal&gt;,
     m_axis_tdata   =&gt; &lt;m_axis_tdata_signal&gt;,
+    m_axis_tlast   =&gt; &lt;m_axis_tlast_signal&gt;,
     clk            =&gt; &lt;clk_signal&gt;,
     rst            =&gt; &lt;rst_signal&gt;,
     correlate_i    =&gt; &lt;correlate_i_signal&gt;
   );</code></pre></div></details>
-  <h2>Generics</h2><table><thead><tr><th>Name</th><th>Type</th><th>Default</th><th>Description</th></tr></thead><tbody><tr><td>VENDOR</td><td>string</td><td>&quot;xilinx&quot;</td><td>Selects the vendor-specific implementation path, usually XILINX for DSP48/XPM-backed builds or generic for portable RTL.</td></tr><tr><td>DEVICE_FAMILY</td><td>string</td><td>&quot;generic&quot;</td><td>Identifies the target FPGA family so wrappers can choose the correct primitive or conservative portable behavior.</td></tr><tr><td>DATA_WIDTH</td><td>positive</td><td>16</td><td>Sets the bit width for DATA WIDTH values carried by this module.</td></tr><tr><td>COEFF_FRAC_BITS</td><td>natural</td><td>15</td><td>Sets coefficient precision or coefficient count for the fixed-point DSP operation.</td></tr></tbody></table>
-  <h2>Ports</h2><table><thead><tr><th>Name</th><th>Direction</th><th>Type</th><th>Description</th></tr></thead><tbody><tr><td>s0_axis_tvalid</td><td>in</td><td>std_logic</td><td>S0 axis tvalid interface signal.</td></tr><tr><td>s0_axis_tready</td><td>out</td><td>std_logic</td><td>S0 axis tready interface signal.</td></tr><tr><td>s0_axis_tdata</td><td>in</td><td>std_logic_vector((2 * DATA_WIDTH) - 1 downto 0)</td><td>S0 axis tdata interface signal.</td></tr><tr><td>s0_axis_tlast</td><td>in</td><td>std_logic</td><td>S0 axis tlast interface signal.</td></tr><tr><td>s1_axis_tvalid</td><td>in</td><td>std_logic</td><td>S1 axis tvalid interface signal.</td></tr><tr><td>s1_axis_tready</td><td>out</td><td>std_logic</td><td>S1 axis tready interface signal.</td></tr><tr><td>s1_axis_tdata</td><td>in</td><td>std_logic_vector((2 * DATA_WIDTH) - 1 downto 0)</td><td>S1 axis tdata interface signal.</td></tr><tr><td>s1_axis_tlast</td><td>in</td><td>std_logic</td><td>S1 axis tlast interface signal.</td></tr><tr><td>m_axis_tvalid</td><td>out</td><td>std_logic</td><td>Output AXI-stream valid qualifier for the current result beat.</td></tr><tr><td>m_axis_tready</td><td>in</td><td>std_logic</td><td>Output AXI-stream ready input from the downstream block.</td></tr><tr><td>m_axis_tdata</td><td>out</td><td>std_logic_vector((2 * DATA_WIDTH) - 1 downto 0)</td><td>Output AXI-stream payload containing packed processed result lanes.</td></tr><tr><td>clk</td><td>in</td><td>std_logic</td><td>Clock for the associated synchronous logic and handshake domain.</td></tr><tr><td>rst</td><td>in</td><td>std_logic</td><td>Active-high synchronous reset for this clock domain.</td></tr><tr><td>correlate_i</td><td>in</td><td>std_logic</td><td>Input correlate i signal for this module.</td></tr></tbody></table>
-  <h2 id="register-interfaces">Register Interfaces</h2><p>No fixed register map was found; this section documents the exposed register/control interface ports.</p><table><thead><tr><th>Interface</th><th>Directions</th><th>Signals</th><th>Representative ports</th></tr></thead><tbody><tr><td>M_AXIS</td><td>in, out</td><td>3</td><td>m_axis_tvalid, m_axis_tready, m_axis_tdata</td></tr></tbody></table>
+  <h2>Generics</h2><table><thead><tr><th>Name</th><th>Type</th><th>Default</th><th>Description</th></tr></thead><tbody><tr><td>VENDOR</td><td>string</td><td>&quot;xilinx&quot;</td><td>Selects the vendor-specific implementation path, usually XILINX for DSP48/XPM-backed builds or generic for portable RTL.</td></tr><tr><td>DEVICE_FAMILY</td><td>string</td><td>&quot;generic&quot;</td><td>Identifies the target FPGA family so wrappers can choose the correct primitive or conservative portable behavior.</td></tr><tr><td>DATA_WIDTH</td><td>positive</td><td>16</td><td>Sets the bit width for DATA WIDTH values carried by this module.</td></tr><tr><td>COEFF_FRAC_BITS</td><td>natural</td><td>15</td><td>Sets coefficient precision or coefficient count for the fixed-point DSP operation.</td></tr><tr><td>IMPLEMENTATION</td><td>string</td><td>&quot;latency_optimized&quot;</td><td>Configures IMPLEMENTATION for this instance.</td></tr></tbody></table>
+  <h2>Ports</h2><table><thead><tr><th>Name</th><th>Direction</th><th>Type</th><th>Description</th></tr></thead><tbody><tr><td>s0_axis_tvalid</td><td>in</td><td>std_logic</td><td>S0 axis tvalid interface signal.</td></tr><tr><td>s0_axis_tready</td><td>out</td><td>std_logic</td><td>S0 axis tready interface signal.</td></tr><tr><td>s0_axis_tdata</td><td>in</td><td>std_logic_vector((2 * DATA_WIDTH) - 1 downto 0)</td><td>S0 axis tdata interface signal.</td></tr><tr><td>s0_axis_tlast</td><td>in</td><td>std_logic</td><td>S0 axis tlast interface signal.</td></tr><tr><td>s1_axis_tvalid</td><td>in</td><td>std_logic</td><td>S1 axis tvalid interface signal.</td></tr><tr><td>s1_axis_tready</td><td>out</td><td>std_logic</td><td>S1 axis tready interface signal.</td></tr><tr><td>s1_axis_tdata</td><td>in</td><td>std_logic_vector((2 * DATA_WIDTH) - 1 downto 0)</td><td>S1 axis tdata interface signal.</td></tr><tr><td>s1_axis_tlast</td><td>in</td><td>std_logic</td><td>S1 axis tlast interface signal.</td></tr><tr><td>m_axis_tvalid</td><td>out</td><td>std_logic</td><td>Output AXI-stream valid qualifier for the current result beat.</td></tr><tr><td>m_axis_tready</td><td>in</td><td>std_logic</td><td>Output AXI-stream ready input from the downstream block.</td></tr><tr><td>m_axis_tdata</td><td>out</td><td>std_logic_vector((2 * DATA_WIDTH) - 1 downto 0)</td><td>Output AXI-stream payload containing packed processed result lanes.</td></tr><tr><td>m_axis_tlast</td><td>out</td><td>std_logic</td><td>Output AXI-stream frame marker aligned with the processed result beat.</td></tr><tr><td>clk</td><td>in</td><td>std_logic</td><td>Clock for the associated synchronous logic and handshake domain.</td></tr><tr><td>rst</td><td>in</td><td>std_logic</td><td>Active-high synchronous reset for this clock domain.</td></tr><tr><td>correlate_i</td><td>in</td><td>std_logic</td><td>Input correlate i signal for this module.</td></tr></tbody></table>
+  <h2 id="register-interfaces">Register Interfaces</h2><p>No fixed register map was found; this section documents the exposed register/control interface ports.</p><table><thead><tr><th>Interface</th><th>Directions</th><th>Signals</th><th>Representative ports</th></tr></thead><tbody><tr><td>M_AXIS</td><td>in, out</td><td>4</td><td>m_axis_tvalid, m_axis_tready, m_axis_tdata, m_axis_tlast</td></tr></tbody></table>
   
   <h2 id="testbenches">Testbenches</h2><p class="summary">No directly associated testbench was found.</p>
   <h2>Sources</h2>

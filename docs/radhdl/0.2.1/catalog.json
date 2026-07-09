@@ -73,6 +73,13 @@
           "data_type": "string",
           "default": "\"7SERIES\"",
           "description": "Identifies the target FPGA family so wrappers can choose the correct primitive or conservative portable behavior."
+        },
+        {
+          "name": "G_DEBUG_BUS",
+          "direction": "",
+          "data_type": "string",
+          "default": "\"AXI_LITE\"",
+          "description": "Configures G DEBUG BUS for this instance."
         }
       ],
       "ports": [
@@ -250,6 +257,13 @@
           "data_type": "std_logic",
           "default": "",
           "description": "AXI4-Lite slave-channel signal used for host register access."
+        },
+        {
+          "name": "S_AXI_RREADY",
+          "direction": "in",
+          "data_type": "std_logic",
+          "default": "",
+          "description": "AXI4-Lite slave-channel signal used for host register access."
         }
       ],
       "sources": [
@@ -366,6 +380,13 @@
           "data_type": "string",
           "default": "\"7SERIES\"",
           "description": "Identifies the target FPGA family so wrappers can choose the correct primitive or conservative portable behavior."
+        },
+        {
+          "name": "G_DEBUG_BUS",
+          "direction": "",
+          "data_type": "string",
+          "default": "\"AXI_LITE\"",
+          "description": "Configures G DEBUG BUS for this instance."
         }
       ],
       "ports": [
@@ -529,6 +550,13 @@
           "data_type": "std_logic",
           "default": "",
           "description": "S00 axi rvalid interface signal."
+        },
+        {
+          "name": "s00_axi_rready",
+          "direction": "in",
+          "data_type": "std_logic",
+          "default": "",
+          "description": "S00 axi rready interface signal."
         }
       ],
       "sources": [
@@ -586,6 +614,13 @@
           "data_type": "string",
           "default": "\"XILINX\"",
           "description": "Selects the vendor-specific implementation path, usually XILINX for DSP48/XPM-backed builds or generic for portable RTL."
+        },
+        {
+          "name": "PRODUCT_SERIES_TAG",
+          "direction": "",
+          "data_type": "string",
+          "default": "\"7SERIES\"",
+          "description": "Identifies the target FPGA family so wrappers can choose the correct primitive or conservative portable behavior."
         }
       ],
       "ports": [
@@ -781,6 +816,13 @@
           "data_type": "integer",
           "default": "32",
           "description": "Sets the bit width for G PHASE WIDTH values carried by this module."
+        },
+        {
+          "name": "G_ITERATIONS",
+          "direction": "",
+          "data_type": "integer",
+          "default": "24",
+          "description": "Configures G ITERATIONS for this instance."
         }
       ],
       "ports": [
@@ -996,6 +1038,13 @@
           "data_type": "boolean",
           "default": "true",
           "description": "Configures G SCALE EACH STAGE for this instance."
+        },
+        {
+          "name": "G_MEMORY_STYLE",
+          "direction": "",
+          "data_type": "string",
+          "default": "\"block\"",
+          "description": "Configures G MEMORY STYLE for this instance."
         }
       ],
       "ports": [
@@ -1110,6 +1159,13 @@
           "data_type": "integer",
           "default": "",
           "description": "Output re interface signal."
+        },
+        {
+          "name": "output_im",
+          "direction": "out",
+          "data_type": "integer",
+          "default": "",
+          "description": "Output im interface signal."
         }
       ],
       "sources": [
@@ -1153,6 +1209,13 @@
           "data_type": "integer",
           "default": "5",
           "description": "Sets the bit width for ADDR WIDTH values carried by this module."
+        },
+        {
+          "name": "DEPTH",
+          "direction": "",
+          "data_type": "integer",
+          "default": "32",
+          "description": "Sets the storage depth, frame length, or number of buffered samples used internally."
         }
       ],
       "ports": [
@@ -1211,6 +1274,13 @@
           "data_type": "std_logic_vector(DATA_WIDTH - 1 downto 0)",
           "default": "",
           "description": "B dout interface signal."
+        },
+        {
+          "name": "b_we",
+          "direction": "in",
+          "data_type": "std_logic",
+          "default": "",
+          "description": "B we interface signal."
         }
       ],
       "sources": [
@@ -1268,6 +1338,13 @@
           "data_type": "string",
           "default": "\"parallel\"",
           "description": "Configures IMPLEMENTATION for this instance."
+        },
+        {
+          "name": "DSP_LANES",
+          "direction": "",
+          "data_type": "positive",
+          "default": "1",
+          "description": "Sets the number of parallel sample lanes processed per handshake beat."
         }
       ],
       "ports": [
@@ -1375,6 +1452,13 @@
           "data_type": "std_logic_vector(DATA_WIDTH - 1 downto 0)",
           "default": "",
           "description": "Output AXI-stream payload containing packed processed result lanes."
+        },
+        {
+          "name": "m_axis_tlast",
+          "direction": "out",
+          "data_type": "std_logic",
+          "default": "",
+          "description": "Output AXI-stream frame marker aligned with the processed result beat."
         }
       ],
       "sources": [
@@ -1509,6 +1593,13 @@
           "data_type": "natural",
           "default": "0",
           "description": "Sets the transform, frame, or vector size used by the datapath."
+        },
+        {
+          "name": "MEM_INIT_FILE",
+          "direction": "",
+          "data_type": "string",
+          "default": "\"dsp/hdl/raddsp/mem/sine_q15_16.mem\"",
+          "description": "Configures MEM INIT FILE for this instance."
         }
       ],
       "ports": [
@@ -1659,6 +1750,13 @@
           "data_type": "natural",
           "default": "15",
           "description": "Sets coefficient precision or coefficient count for the fixed-point DSP operation."
+        },
+        {
+          "name": "IMPLEMENTATION",
+          "direction": "",
+          "data_type": "string",
+          "default": "\"latency_optimized\"",
+          "description": "Configures IMPLEMENTATION for this instance."
         }
       ],
       "ports": [
@@ -1759,6 +1857,13 @@
           "data_type": "std_logic_vector((2 * DATA_WIDTH) - 1 downto 0)",
           "default": "",
           "description": "Output AXI-stream payload containing packed processed result lanes."
+        },
+        {
+          "name": "m_axis_tlast",
+          "direction": "out",
+          "data_type": "std_logic",
+          "default": "",
+          "description": "Output AXI-stream frame marker aligned with the processed result beat."
         }
       ],
       "sources": [
@@ -1823,6 +1928,13 @@
           "data_type": "positive",
           "default": "32",
           "description": "Sets the bit width for AXI DATA WIDTH values carried by this module."
+        },
+        {
+          "name": "DEFAULT_FRAME_BINS",
+          "direction": "",
+          "data_type": "positive",
+          "default": "1024",
+          "description": "Configures DEFAULT FRAME BINS for this instance."
         }
       ],
       "ports": [
@@ -2018,6 +2130,13 @@
         {
           "name": "s_axi_rvalid",
           "direction": "out",
+          "data_type": "std_logic",
+          "default": "",
+          "description": "AXI4-Lite slave-channel signal used for host register access."
+        },
+        {
+          "name": "s_axi_rready",
+          "direction": "in",
           "data_type": "std_logic",
           "default": "",
           "description": "AXI4-Lite slave-channel signal used for host register access."
@@ -2416,6 +2535,13 @@
           "data_type": "positive",
           "default": "32",
           "description": "Sets the bit width for AXI DATA WIDTH values carried by this module."
+        },
+        {
+          "name": "MEMORY_STYLE",
+          "direction": "",
+          "data_type": "string",
+          "default": "\"block\"",
+          "description": "Configures MEMORY STYLE for this instance."
         }
       ],
       "ports": [
@@ -2618,6 +2744,13 @@
         {
           "name": "s_axi_rvalid",
           "direction": "out",
+          "data_type": "std_logic",
+          "default": "",
+          "description": "AXI4-Lite slave-channel signal used for host register access."
+        },
+        {
+          "name": "s_axi_rready",
+          "direction": "in",
           "data_type": "std_logic",
           "default": "",
           "description": "AXI4-Lite slave-channel signal used for host register access."
@@ -3005,6 +3138,13 @@
           "data_type": "string",
           "default": "\"parallel\"",
           "description": "Configures IMPLEMENTATION for this instance."
+        },
+        {
+          "name": "DSP_LANES",
+          "direction": "",
+          "data_type": "positive",
+          "default": "1",
+          "description": "Sets the number of parallel sample lanes processed per handshake beat."
         }
       ],
       "ports": [
@@ -3084,6 +3224,13 @@
           "data_type": "std_logic_vector(DATA_WIDTH - 1 downto 0)",
           "default": "",
           "description": "Output AXI-stream payload containing packed processed result lanes."
+        },
+        {
+          "name": "m_axis_tlast",
+          "direction": "out",
+          "data_type": "std_logic",
+          "default": "",
+          "description": "Output AXI-stream frame marker aligned with the processed result beat."
         }
       ],
       "sources": [
@@ -3204,6 +3351,13 @@
           "data_type": "natural",
           "default": "15",
           "description": "Sets the number of fractional bits used when scaling fixed-point arithmetic results."
+        },
+        {
+          "name": "CHANNEL_COUNT",
+          "direction": "",
+          "data_type": "positive",
+          "default": "1",
+          "description": "Sets the number of parallel sample lanes processed per handshake beat."
         }
       ],
       "ports": [
@@ -3269,6 +3423,13 @@
           "data_type": "std_logic_vector((CHANNEL_COUNT * 32) - 1 downto 0)",
           "default": "",
           "description": "Output AXI-stream payload containing packed processed result lanes."
+        },
+        {
+          "name": "m_axis_tlast",
+          "direction": "out",
+          "data_type": "std_logic",
+          "default": "",
+          "description": "Output AXI-stream frame marker aligned with the processed result beat."
         }
       ],
       "sources": [
@@ -3385,6 +3546,13 @@
           "data_type": "natural",
           "default": "15",
           "description": "Sets the number of fractional bits used when scaling fixed-point arithmetic results."
+        },
+        {
+          "name": "CHANNEL_COUNT",
+          "direction": "",
+          "data_type": "positive",
+          "default": "1",
+          "description": "Sets the number of parallel sample lanes processed per handshake beat."
         }
       ],
       "ports": [
@@ -3450,6 +3618,13 @@
           "data_type": "std_logic_vector((CHANNEL_COUNT * FIXED_WIDTH) - 1 downto 0)",
           "default": "",
           "description": "Output AXI-stream payload containing packed processed result lanes."
+        },
+        {
+          "name": "m_axis_tlast",
+          "direction": "out",
+          "data_type": "std_logic",
+          "default": "",
+          "description": "Output AXI-stream frame marker aligned with the processed result beat."
         }
       ],
       "sources": [
@@ -3566,6 +3741,13 @@
           "data_type": "positive",
           "default": "32",
           "description": "Sets the bit width for COUNT WIDTH values carried by this module."
+        },
+        {
+          "name": "POWER_WIDTH",
+          "direction": "",
+          "data_type": "positive",
+          "default": "64",
+          "description": "Sets the bit width for POWER WIDTH values carried by this module."
         }
       ],
       "ports": [
@@ -3723,6 +3905,13 @@
           "data_type": "natural",
           "default": "15",
           "description": "Sets coefficient precision or coefficient count for the fixed-point DSP operation."
+        },
+        {
+          "name": "CHANNEL_COUNT",
+          "direction": "",
+          "data_type": "positive",
+          "default": "1",
+          "description": "Sets the number of parallel sample lanes processed per handshake beat."
         }
       ],
       "ports": [
@@ -3795,6 +3984,13 @@
           "data_type": "std_logic_vector((CHANNEL_COUNT * DATA_WIDTH) - 1 downto 0)",
           "default": "",
           "description": "Output AXI-stream payload containing packed processed result lanes."
+        },
+        {
+          "name": "m_axis_tlast",
+          "direction": "out",
+          "data_type": "std_logic",
+          "default": "",
+          "description": "Output AXI-stream frame marker aligned with the processed result beat."
         }
       ],
       "sources": [
@@ -3908,6 +4104,13 @@
           "data_type": "positive",
           "default": "16",
           "description": "Sets the bit width for DATA WIDTH values carried by this module."
+        },
+        {
+          "name": "MAG_WIDTH",
+          "direction": "",
+          "data_type": "positive",
+          "default": "32",
+          "description": "Sets the bit width for MAG WIDTH values carried by this module."
         }
       ],
       "ports": [
@@ -3973,6 +4176,13 @@
           "data_type": "std_logic_vector(MAG_WIDTH - 1 downto 0)",
           "default": "",
           "description": "Output AXI-stream payload containing packed processed result lanes."
+        },
+        {
+          "name": "m_axis_tlast",
+          "direction": "out",
+          "data_type": "std_logic",
+          "default": "",
+          "description": "Output AXI-stream frame marker aligned with the processed result beat."
         }
       ],
       "sources": [
@@ -4016,6 +4226,13 @@
           "data_type": "positive",
           "default": "48",
           "description": "Sets the bit width for ACC WIDTH values carried by this module."
+        },
+        {
+          "name": "COEFF_FRAC_BITS",
+          "direction": "",
+          "data_type": "natural",
+          "default": "15",
+          "description": "Sets coefficient precision or coefficient count for the fixed-point DSP operation."
         }
       ],
       "ports": [
@@ -4243,6 +4460,13 @@
           "data_type": "positive",
           "default": "16",
           "description": "Sets the bit width for DATA WIDTH values carried by this module."
+        },
+        {
+          "name": "COEFF_FRAC_BITS",
+          "direction": "",
+          "data_type": "natural",
+          "default": "15",
+          "description": "Sets coefficient precision or coefficient count for the fixed-point DSP operation."
         }
       ],
       "ports": [
@@ -4343,6 +4567,13 @@
           "data_type": "std_logic_vector(DATA_WIDTH - 1 downto 0)",
           "default": "",
           "description": "Output AXI-stream payload containing packed processed result lanes."
+        },
+        {
+          "name": "m_axis_tlast",
+          "direction": "out",
+          "data_type": "std_logic",
+          "default": "",
+          "description": "Output AXI-stream frame marker aligned with the processed result beat."
         }
       ],
       "sources": [
@@ -4449,6 +4680,13 @@
           "data_type": "string",
           "default": "\"generic\"",
           "description": "Identifies the target FPGA family so wrappers can choose the correct primitive or conservative portable behavior."
+        },
+        {
+          "name": "DATA_WIDTH",
+          "direction": "",
+          "data_type": "positive",
+          "default": "16",
+          "description": "Sets the bit width for DATA WIDTH values carried by this module."
         }
       ],
       "ports": [
@@ -4542,6 +4780,13 @@
           "data_type": "std_logic_vector(DATA_WIDTH - 1 downto 0)",
           "default": "",
           "description": "Output AXI-stream payload containing packed processed result lanes."
+        },
+        {
+          "name": "m_axis_tlast",
+          "direction": "out",
+          "data_type": "std_logic",
+          "default": "",
+          "description": "Output AXI-stream frame marker aligned with the processed result beat."
         }
       ],
       "sources": [
@@ -4592,6 +4837,13 @@
           "data_type": "natural",
           "default": "15",
           "description": "Sets coefficient precision or coefficient count for the fixed-point DSP operation."
+        },
+        {
+          "name": "IMPLEMENTATION",
+          "direction": "",
+          "data_type": "string",
+          "default": "\"parallel\"",
+          "description": "Configures IMPLEMENTATION for this instance."
         }
       ],
       "ports": [
@@ -4671,6 +4923,13 @@
           "data_type": "std_logic_vector(DATA_WIDTH - 1 downto 0)",
           "default": "",
           "description": "Output AXI-stream payload containing packed processed result lanes."
+        },
+        {
+          "name": "m_axis_tlast",
+          "direction": "out",
+          "data_type": "std_logic",
+          "default": "",
+          "description": "Output AXI-stream frame marker aligned with the processed result beat."
         }
       ],
       "sources": [
@@ -4882,6 +5141,13 @@
           "data_type": "positive",
           "default": "8",
           "description": "Sets the number of parallel sample lanes processed per handshake beat."
+        },
+        {
+          "name": "G_MEMORY_WORD_SAMPLES",
+          "direction": "",
+          "data_type": "positive",
+          "default": "1",
+          "description": "Sets the width or count of samples handled by the datapath."
         }
       ],
       "ports": [
@@ -4989,6 +5255,13 @@
           "data_type": "std_logic",
           "default": "",
           "description": "Output busy o signal generated by this module."
+        },
+        {
+          "name": "frame_done_o",
+          "direction": "out",
+          "data_type": "std_logic",
+          "default": "",
+          "description": "Output frame done o signal generated by this module."
         }
       ],
       "sources": [
@@ -5064,7 +5337,7 @@
             },
             "returncode": 2,
             "stdout": "",
-            "stderr": "\n******************** GHDL Bug occurred ***************************\nPlease report this bug on https://github.com/ghdl/ghdl/issues\nGHDL release: 1.0.0 (Ubuntu 1.0.0+dfsg-6) [Dunoon edition]\nCompiled with GNAT Version: 10.3.1 20211117\nTarget: x86_64-linux-gnu\n/tmp/radhdl-ghdl-f9blzion/\nCommand line:\n/usr/bin/ghdl-mcode -e --std=08 --ieee=synopsys -P/tmp/radhdl-ghdl-f9blzion --workdir=/tmp/radhdl-ghdl-f9blzion tb_raddsp_axis_radfft\nException TYPES.INTERNAL_ERROR raised\nException information:\nraised TYPES.INTERNAL_ERROR : trans.adb:553\nCall stack traceback locations:\n0x6282202ac13d 0x6282202ac51b 0x6282202ac797 0x628220441fc8 0x628220450d6d 0x628220450e25 0x62822045abde 0x628220479aa7 0x628220479d5f 0x62822047a257 0x62822047a6b1 0x628220487330 0x62822048681c 0x6282204cea78 0x6282204ceb9f 0x6282204cf1f8 0x6282204cf98a 0x6282204d1596 0x6282204d16eb 0x6282204d4b0f 0x6282204d93f8 0x6282204d923b 0x6282204d94e5 0x6282204d923b 0x6282204d94e5 0x62822049d4fa 0x628220490eac 0x6282204a1d8c 0x62822049c0a0 0x6282204e1b55 0x628220422af5 0x62822035869e 0x6282204e54b3 0x628220110b07 0x767af1029d8e 0x767af1029e3e 0x62822010f243 0xfffffffffffffffe\n******************************************************************\n"
+            "stderr": "\n******************** GHDL Bug occurred ***************************\nPlease report this bug on https://github.com/ghdl/ghdl/issues\nGHDL release: 1.0.0 (Ubuntu 1.0.0+dfsg-6) [Dunoon edition]\nCompiled with GNAT Version: 10.3.1 20211117\nTarget: x86_64-linux-gnu\n/tmp/radhdl-ghdl-kx_sbxd0/\nCommand line:\n/usr/bin/ghdl-mcode -e --std=08 --ieee=synopsys -P/tmp/radhdl-ghdl-kx_sbxd0 --workdir=/tmp/radhdl-ghdl-kx_sbxd0 tb_raddsp_axis_radfft\nException TYPES.INTERNAL_ERROR raised\nException information:\nraised TYPES.INTERNAL_ERROR : trans.adb:553\nCall stack traceback locations:\n0x60b45cb2613d 0x60b45cb2651b 0x60b45cb26797 0x60b45ccbbfc8 0x60b45cccad6d 0x60b45cccae25 0x60b45ccd4bde 0x60b45ccf3aa7 0x60b45ccf3d5f 0x60b45ccf4257 0x60b45ccf46b1 0x60b45cd01330 0x60b45cd0081c 0x60b45cd48a78 0x60b45cd48b9f 0x60b45cd491f8 0x60b45cd4998a 0x60b45cd4b596 0x60b45cd4b6eb 0x60b45cd4eb0f 0x60b45cd533f8 0x60b45cd5323b 0x60b45cd534e5 0x60b45cd5323b 0x60b45cd534e5 0x60b45cd174fa 0x60b45cd0aeac 0x60b45cd1bd8c 0x60b45cd160a0 0x60b45cd5bb55 0x60b45cc9caf5 0x60b45cbd269e 0x60b45cd5f4b3 0x60b45c98ab07 0x7e3f96e29d8e 0x7e3f96e29e3e 0x60b45c989243 0xfffffffffffffffe\n******************************************************************\n"
           }
         },
         {
@@ -5137,7 +5410,7 @@
             },
             "returncode": 2,
             "stdout": "",
-            "stderr": "\n******************** GHDL Bug occurred ***************************\nPlease report this bug on https://github.com/ghdl/ghdl/issues\nGHDL release: 1.0.0 (Ubuntu 1.0.0+dfsg-6) [Dunoon edition]\nCompiled with GNAT Version: 10.3.1 20211117\nTarget: x86_64-linux-gnu\n/tmp/radhdl-ghdl-li4_np78/\nCommand line:\n/usr/bin/ghdl-mcode -e --std=08 --ieee=synopsys -P/tmp/radhdl-ghdl-li4_np78 --workdir=/tmp/radhdl-ghdl-li4_np78 tb_raddsp_axis_radfft_ddr\nException TYPES.INTERNAL_ERROR raised\nException information:\nraised TYPES.INTERNAL_ERROR : trans.adb:553\nCall stack traceback locations:\n0x652fbde3313d 0x652fbde3351b 0x652fbde33797 0x652fbdfc8fc8 0x652fbdfd7d6d 0x652fbdfd7e25 0x652fbdfe1bde 0x652fbe000aa7 0x652fbe000d5f 0x652fbe001257 0x652fbe0016b1 0x652fbe00e330 0x652fbe00d81c 0x652fbe055a78 0x652fbe055b9f 0x652fbe0561f8 0x652fbe05698a 0x652fbe058596 0x652fbe0586eb 0x652fbe05bb0f 0x652fbe0603f8 0x652fbe06023b 0x652fbe0604e5 0x652fbe06023b 0x652fbe0604e5 0x652fbe0244fa 0x652fbe017eac 0x652fbe028d8c 0x652fbe0230a0 0x652fbe068b55 0x652fbdfa9af5 0x652fbdedf69e 0x652fbe06c4b3 0x652fbdc97b07 0x7251eda29d8e 0x7251eda29e3e 0x652fbdc96243 0xfffffffffffffffe\n******************************************************************\n"
+            "stderr": "\n******************** GHDL Bug occurred ***************************\nPlease report this bug on https://github.com/ghdl/ghdl/issues\nGHDL release: 1.0.0 (Ubuntu 1.0.0+dfsg-6) [Dunoon edition]\nCompiled with GNAT Version: 10.3.1 20211117\nTarget: x86_64-linux-gnu\n/tmp/radhdl-ghdl-b903t0x1/\nCommand line:\n/usr/bin/ghdl-mcode -e --std=08 --ieee=synopsys -P/tmp/radhdl-ghdl-b903t0x1 --workdir=/tmp/radhdl-ghdl-b903t0x1 tb_raddsp_axis_radfft_ddr\nException TYPES.INTERNAL_ERROR raised\nException information:\nraised TYPES.INTERNAL_ERROR : trans.adb:553\nCall stack traceback locations:\n0x569090b5513d 0x569090b5551b 0x569090b55797 0x569090ceafc8 0x569090cf9d6d 0x569090cf9e25 0x569090d03bde 0x569090d22aa7 0x569090d22d5f 0x569090d23257 0x569090d236b1 0x569090d30330 0x569090d2f81c 0x569090d77a78 0x569090d77b9f 0x569090d781f8 0x569090d7898a 0x569090d7a596 0x569090d7a6eb 0x569090d7db0f 0x569090d823f8 0x569090d8223b 0x569090d824e5 0x569090d8223b 0x569090d824e5 0x569090d464fa 0x569090d39eac 0x569090d4ad8c 0x569090d450a0 0x569090d8ab55 0x569090ccbaf5 0x569090c0169e 0x569090d8e4b3 0x5690909b9b07 0x7ac9b0c29d8e 0x7ac9b0c29e3e 0x5690909b8243 0xfffffffffffffffe\n******************************************************************\n"
           }
         },
         {
@@ -5209,7 +5482,7 @@
             },
             "returncode": 2,
             "stdout": "",
-            "stderr": "\n******************** GHDL Bug occurred ***************************\nPlease report this bug on https://github.com/ghdl/ghdl/issues\nGHDL release: 1.0.0 (Ubuntu 1.0.0+dfsg-6) [Dunoon edition]\nCompiled with GNAT Version: 10.3.1 20211117\nTarget: x86_64-linux-gnu\n/tmp/radhdl-ghdl-6fdeyej7/\nCommand line:\n/usr/bin/ghdl-mcode -e --std=08 --ieee=synopsys -P/tmp/radhdl-ghdl-6fdeyej7 --workdir=/tmp/radhdl-ghdl-6fdeyej7 tb_raddsp_axis_radfft_ddr_xcorr_1024\nException TYPES.INTERNAL_ERROR raised\nException information:\nraised TYPES.INTERNAL_ERROR : trans.adb:553\nCall stack traceback locations:\n0x5a61bc4a913d 0x5a61bc4a951b 0x5a61bc4a9797 0x5a61bc63efc8 0x5a61bc64dd6d 0x5a61bc64de25 0x5a61bc657bde 0x5a61bc676aa7 0x5a61bc676d5f 0x5a61bc677257 0x5a61bc6776b1 0x5a61bc684330 0x5a61bc68381c 0x5a61bc6cba78 0x5a61bc6cbb9f 0x5a61bc6cc1f8 0x5a61bc6cc98a 0x5a61bc6ce596 0x5a61bc6ce6eb 0x5a61bc6d1b0f 0x5a61bc6d63f8 0x5a61bc6d623b 0x5a61bc6d64e5 0x5a61bc6d623b 0x5a61bc6d64e5 0x5a61bc69a4fa 0x5a61bc68deac 0x5a61bc69ed8c 0x5a61bc6990a0 0x5a61bc6deb55 0x5a61bc61faf5 0x5a61bc55569e 0x5a61bc6e24b3 0x5a61bc30db07 0x7ed438e29d8e 0x7ed438e29e3e 0x5a61bc30c243 0xfffffffffffffffe\n******************************************************************\n"
+            "stderr": "\n******************** GHDL Bug occurred ***************************\nPlease report this bug on https://github.com/ghdl/ghdl/issues\nGHDL release: 1.0.0 (Ubuntu 1.0.0+dfsg-6) [Dunoon edition]\nCompiled with GNAT Version: 10.3.1 20211117\nTarget: x86_64-linux-gnu\n/tmp/radhdl-ghdl-j_ggcy0x/\nCommand line:\n/usr/bin/ghdl-mcode -e --std=08 --ieee=synopsys -P/tmp/radhdl-ghdl-j_ggcy0x --workdir=/tmp/radhdl-ghdl-j_ggcy0x tb_raddsp_axis_radfft_ddr_xcorr_1024\nException TYPES.INTERNAL_ERROR raised\nException information:\nraised TYPES.INTERNAL_ERROR : trans.adb:553\nCall stack traceback locations:\n0x644bd3a7113d 0x644bd3a7151b 0x644bd3a71797 0x644bd3c06fc8 0x644bd3c15d6d 0x644bd3c15e25 0x644bd3c1fbde 0x644bd3c3eaa7 0x644bd3c3ed5f 0x644bd3c3f257 0x644bd3c3f6b1 0x644bd3c4c330 0x644bd3c4b81c 0x644bd3c93a78 0x644bd3c93b9f 0x644bd3c941f8 0x644bd3c9498a 0x644bd3c96596 0x644bd3c966eb 0x644bd3c99b0f 0x644bd3c9e3f8 0x644bd3c9e23b 0x644bd3c9e4e5 0x644bd3c9e23b 0x644bd3c9e4e5 0x644bd3c624fa 0x644bd3c55eac 0x644bd3c66d8c 0x644bd3c610a0 0x644bd3ca6b55 0x644bd3be7af5 0x644bd3b1d69e 0x644bd3caa4b3 0x644bd38d5b07 0x794d9e029d8e 0x794d9e029e3e 0x644bd38d4243 0xfffffffffffffffe\n******************************************************************\n"
           }
         }
       ],
@@ -5292,6 +5565,13 @@
           "data_type": "boolean",
           "default": "true",
           "description": "Configures G SCALE EACH STAGE for this instance."
+        },
+        {
+          "name": "G_MEMORY_STYLE",
+          "direction": "",
+          "data_type": "string",
+          "default": "\"block\"",
+          "description": "Configures G MEMORY STYLE for this instance."
         }
       ],
       "ports": [
@@ -5392,6 +5672,13 @@
           "data_type": "std_logic",
           "default": "",
           "description": "Output busy o signal generated by this module."
+        },
+        {
+          "name": "frame_done_o",
+          "direction": "out",
+          "data_type": "std_logic",
+          "default": "",
+          "description": "Output frame done o signal generated by this module."
         }
       ],
       "sources": [
@@ -5561,6 +5848,13 @@
           "data_type": "string",
           "default": "\"block\"",
           "description": "Configures G XCORR MEMORY STYLE for this instance."
+        },
+        {
+          "name": "G_DEFAULT_REGION_BYTES",
+          "direction": "",
+          "data_type": "natural",
+          "default": "67108864",
+          "description": "Configures G DEFAULT REGION BYTES for this instance."
         }
       ],
       "ports": [
@@ -5941,6 +6235,13 @@
           "data_type": "std_logic",
           "default": "",
           "description": "Output AXI-stream frame marker aligned with the processed result beat."
+        },
+        {
+          "name": "irq_o",
+          "direction": "out",
+          "data_type": "std_logic",
+          "default": "",
+          "description": "Output irq o signal generated by this module."
         }
       ],
       "sources": [
@@ -6017,7 +6318,7 @@
             },
             "returncode": 2,
             "stdout": "",
-            "stderr": "\n******************** GHDL Bug occurred ***************************\nPlease report this bug on https://github.com/ghdl/ghdl/issues\nGHDL release: 1.0.0 (Ubuntu 1.0.0+dfsg-6) [Dunoon edition]\nCompiled with GNAT Version: 10.3.1 20211117\nTarget: x86_64-linux-gnu\n/tmp/radhdl-ghdl-li4_np78/\nCommand line:\n/usr/bin/ghdl-mcode -e --std=08 --ieee=synopsys -P/tmp/radhdl-ghdl-li4_np78 --workdir=/tmp/radhdl-ghdl-li4_np78 tb_raddsp_axis_radfft_ddr\nException TYPES.INTERNAL_ERROR raised\nException information:\nraised TYPES.INTERNAL_ERROR : trans.adb:553\nCall stack traceback locations:\n0x652fbde3313d 0x652fbde3351b 0x652fbde33797 0x652fbdfc8fc8 0x652fbdfd7d6d 0x652fbdfd7e25 0x652fbdfe1bde 0x652fbe000aa7 0x652fbe000d5f 0x652fbe001257 0x652fbe0016b1 0x652fbe00e330 0x652fbe00d81c 0x652fbe055a78 0x652fbe055b9f 0x652fbe0561f8 0x652fbe05698a 0x652fbe058596 0x652fbe0586eb 0x652fbe05bb0f 0x652fbe0603f8 0x652fbe06023b 0x652fbe0604e5 0x652fbe06023b 0x652fbe0604e5 0x652fbe0244fa 0x652fbe017eac 0x652fbe028d8c 0x652fbe0230a0 0x652fbe068b55 0x652fbdfa9af5 0x652fbdedf69e 0x652fbe06c4b3 0x652fbdc97b07 0x7251eda29d8e 0x7251eda29e3e 0x652fbdc96243 0xfffffffffffffffe\n******************************************************************\n"
+            "stderr": "\n******************** GHDL Bug occurred ***************************\nPlease report this bug on https://github.com/ghdl/ghdl/issues\nGHDL release: 1.0.0 (Ubuntu 1.0.0+dfsg-6) [Dunoon edition]\nCompiled with GNAT Version: 10.3.1 20211117\nTarget: x86_64-linux-gnu\n/tmp/radhdl-ghdl-b903t0x1/\nCommand line:\n/usr/bin/ghdl-mcode -e --std=08 --ieee=synopsys -P/tmp/radhdl-ghdl-b903t0x1 --workdir=/tmp/radhdl-ghdl-b903t0x1 tb_raddsp_axis_radfft_ddr\nException TYPES.INTERNAL_ERROR raised\nException information:\nraised TYPES.INTERNAL_ERROR : trans.adb:553\nCall stack traceback locations:\n0x569090b5513d 0x569090b5551b 0x569090b55797 0x569090ceafc8 0x569090cf9d6d 0x569090cf9e25 0x569090d03bde 0x569090d22aa7 0x569090d22d5f 0x569090d23257 0x569090d236b1 0x569090d30330 0x569090d2f81c 0x569090d77a78 0x569090d77b9f 0x569090d781f8 0x569090d7898a 0x569090d7a596 0x569090d7a6eb 0x569090d7db0f 0x569090d823f8 0x569090d8223b 0x569090d824e5 0x569090d8223b 0x569090d824e5 0x569090d464fa 0x569090d39eac 0x569090d4ad8c 0x569090d450a0 0x569090d8ab55 0x569090ccbaf5 0x569090c0169e 0x569090d8e4b3 0x5690909b9b07 0x7ac9b0c29d8e 0x7ac9b0c29e3e 0x5690909b8243 0xfffffffffffffffe\n******************************************************************\n"
           }
         },
         {
@@ -6089,7 +6390,7 @@
             },
             "returncode": 2,
             "stdout": "",
-            "stderr": "\n******************** GHDL Bug occurred ***************************\nPlease report this bug on https://github.com/ghdl/ghdl/issues\nGHDL release: 1.0.0 (Ubuntu 1.0.0+dfsg-6) [Dunoon edition]\nCompiled with GNAT Version: 10.3.1 20211117\nTarget: x86_64-linux-gnu\n/tmp/radhdl-ghdl-6fdeyej7/\nCommand line:\n/usr/bin/ghdl-mcode -e --std=08 --ieee=synopsys -P/tmp/radhdl-ghdl-6fdeyej7 --workdir=/tmp/radhdl-ghdl-6fdeyej7 tb_raddsp_axis_radfft_ddr_xcorr_1024\nException TYPES.INTERNAL_ERROR raised\nException information:\nraised TYPES.INTERNAL_ERROR : trans.adb:553\nCall stack traceback locations:\n0x5a61bc4a913d 0x5a61bc4a951b 0x5a61bc4a9797 0x5a61bc63efc8 0x5a61bc64dd6d 0x5a61bc64de25 0x5a61bc657bde 0x5a61bc676aa7 0x5a61bc676d5f 0x5a61bc677257 0x5a61bc6776b1 0x5a61bc684330 0x5a61bc68381c 0x5a61bc6cba78 0x5a61bc6cbb9f 0x5a61bc6cc1f8 0x5a61bc6cc98a 0x5a61bc6ce596 0x5a61bc6ce6eb 0x5a61bc6d1b0f 0x5a61bc6d63f8 0x5a61bc6d623b 0x5a61bc6d64e5 0x5a61bc6d623b 0x5a61bc6d64e5 0x5a61bc69a4fa 0x5a61bc68deac 0x5a61bc69ed8c 0x5a61bc6990a0 0x5a61bc6deb55 0x5a61bc61faf5 0x5a61bc55569e 0x5a61bc6e24b3 0x5a61bc30db07 0x7ed438e29d8e 0x7ed438e29e3e 0x5a61bc30c243 0xfffffffffffffffe\n******************************************************************\n"
+            "stderr": "\n******************** GHDL Bug occurred ***************************\nPlease report this bug on https://github.com/ghdl/ghdl/issues\nGHDL release: 1.0.0 (Ubuntu 1.0.0+dfsg-6) [Dunoon edition]\nCompiled with GNAT Version: 10.3.1 20211117\nTarget: x86_64-linux-gnu\n/tmp/radhdl-ghdl-j_ggcy0x/\nCommand line:\n/usr/bin/ghdl-mcode -e --std=08 --ieee=synopsys -P/tmp/radhdl-ghdl-j_ggcy0x --workdir=/tmp/radhdl-ghdl-j_ggcy0x tb_raddsp_axis_radfft_ddr_xcorr_1024\nException TYPES.INTERNAL_ERROR raised\nException information:\nraised TYPES.INTERNAL_ERROR : trans.adb:553\nCall stack traceback locations:\n0x644bd3a7113d 0x644bd3a7151b 0x644bd3a71797 0x644bd3c06fc8 0x644bd3c15d6d 0x644bd3c15e25 0x644bd3c1fbde 0x644bd3c3eaa7 0x644bd3c3ed5f 0x644bd3c3f257 0x644bd3c3f6b1 0x644bd3c4c330 0x644bd3c4b81c 0x644bd3c93a78 0x644bd3c93b9f 0x644bd3c941f8 0x644bd3c9498a 0x644bd3c96596 0x644bd3c966eb 0x644bd3c99b0f 0x644bd3c9e3f8 0x644bd3c9e23b 0x644bd3c9e4e5 0x644bd3c9e23b 0x644bd3c9e4e5 0x644bd3c624fa 0x644bd3c55eac 0x644bd3c66d8c 0x644bd3c610a0 0x644bd3ca6b55 0x644bd3be7af5 0x644bd3b1d69e 0x644bd3caa4b3 0x644bd38d5b07 0x794d9e029d8e 0x794d9e029e3e 0x644bd38d4243 0xfffffffffffffffe\n******************************************************************\n"
           }
         }
       ],
@@ -6692,6 +6993,13 @@
           "data_type": "positive",
           "default": "1",
           "description": "Sets the number of parallel sample lanes processed per handshake beat."
+        },
+        {
+          "name": "G_MAX_MULTIPLIER_LANES",
+          "direction": "",
+          "data_type": "positive",
+          "default": "8",
+          "description": "Sets the number of parallel sample lanes processed per handshake beat."
         }
       ],
       "ports": [
@@ -6792,6 +7100,13 @@
           "data_type": "std_logic",
           "default": "",
           "description": "Output busy o signal generated by this module."
+        },
+        {
+          "name": "frame_done_o",
+          "direction": "out",
+          "data_type": "std_logic",
+          "default": "",
+          "description": "Output frame done o signal generated by this module."
         }
       ],
       "sources": [
@@ -6870,6 +7185,13 @@
           "data_type": "boolean",
           "default": "true",
           "description": "Configures G SCALE EACH STAGE for this instance."
+        },
+        {
+          "name": "G_MULTIPLIER_LANES",
+          "direction": "",
+          "data_type": "positive",
+          "default": "8",
+          "description": "Sets the number of parallel sample lanes processed per handshake beat."
         }
       ],
       "ports": [
@@ -7005,6 +7327,13 @@
           "data_type": "std_logic",
           "default": "",
           "description": "Output busy o signal generated by this module."
+        },
+        {
+          "name": "frame_done_o",
+          "direction": "out",
+          "data_type": "std_logic",
+          "default": "",
+          "description": "Output frame done o signal generated by this module."
         }
       ],
       "sources": [
@@ -7111,6 +7440,13 @@
           "data_type": "boolean",
           "default": "false",
           "description": "Configures G EXTERNAL TWIDDLES for this instance."
+        },
+        {
+          "name": "G_MEMORY_WORD_SAMPLES",
+          "direction": "",
+          "data_type": "positive",
+          "default": "4",
+          "description": "Sets the width or count of samples handled by the datapath."
         }
       ],
       "ports": [
@@ -7246,6 +7582,13 @@
           "data_type": "std_logic",
           "default": "",
           "description": "Output busy o signal generated by this module."
+        },
+        {
+          "name": "frame_done_o",
+          "direction": "out",
+          "data_type": "std_logic",
+          "default": "",
+          "description": "Output frame done o signal generated by this module."
         }
       ],
       "sources": [
@@ -7352,6 +7695,13 @@
           "data_type": "boolean",
           "default": "false",
           "description": "Configures G EXTERNAL TWIDDLES for this instance."
+        },
+        {
+          "name": "G_MEMORY_WORD_SAMPLES",
+          "direction": "",
+          "data_type": "positive",
+          "default": "4",
+          "description": "Sets the width or count of samples handled by the datapath."
         }
       ],
       "ports": [
@@ -7452,6 +7802,13 @@
           "data_type": "std_logic",
           "default": "",
           "description": "Output busy o signal generated by this module."
+        },
+        {
+          "name": "frame_done_o",
+          "direction": "out",
+          "data_type": "std_logic",
+          "default": "",
+          "description": "Output frame done o signal generated by this module."
         }
       ],
       "sources": [
@@ -7558,6 +7915,13 @@
           "data_type": "positive",
           "default": "1",
           "description": "Sets the number of parallel sample lanes processed per handshake beat."
+        },
+        {
+          "name": "G_MAX_MULTIPLIER_LANES",
+          "direction": "",
+          "data_type": "positive",
+          "default": "8",
+          "description": "Sets the number of parallel sample lanes processed per handshake beat."
         }
       ],
       "ports": [
@@ -7658,6 +8022,13 @@
           "data_type": "std_logic",
           "default": "",
           "description": "Output busy o signal generated by this module."
+        },
+        {
+          "name": "frame_done_o",
+          "direction": "out",
+          "data_type": "std_logic",
+          "default": "",
+          "description": "Output frame done o signal generated by this module."
         }
       ],
       "sources": [
@@ -7715,6 +8086,13 @@
           "data_type": "string",
           "default": "\"block\"",
           "description": "Configures G MEMORY STYLE for this instance."
+        },
+        {
+          "name": "G_INIT_FILE",
+          "direction": "",
+          "data_type": "string",
+          "default": "\"none\"",
+          "description": "Configures G INIT FILE for this instance."
         }
       ],
       "ports": [
@@ -7781,6 +8159,13 @@
           "data_type": "positive",
           "default": "16",
           "description": "Sets the bit width for A WIDTH values carried by this module."
+        },
+        {
+          "name": "B_WIDTH",
+          "direction": "",
+          "data_type": "positive",
+          "default": "18",
+          "description": "Sets the bit width for B WIDTH values carried by this module."
         }
       ],
       "ports": [
@@ -7882,6 +8267,13 @@
           "data_type": "string",
           "default": "\"7series\"",
           "description": "Identifies the target FPGA family so wrappers can choose the correct primitive or conservative portable behavior."
+        },
+        {
+          "name": "WIDTH",
+          "direction": "",
+          "data_type": "positive",
+          "default": "32",
+          "description": "Sets the bit width for WIDTH values carried by this module."
         }
       ],
       "ports": [
@@ -7976,6 +8368,13 @@
           "data_type": "positive",
           "default": "64",
           "description": "Identifies the target FPGA family so wrappers can choose the correct primitive or conservative portable behavior."
+        },
+        {
+          "name": "CHUNK_WIDTH",
+          "direction": "",
+          "data_type": "positive",
+          "default": "16",
+          "description": "Sets the bit width for CHUNK WIDTH values carried by this module."
         }
       ],
       "ports": [
@@ -8101,7 +8500,7 @@
             },
             "returncode": 2,
             "stdout": "",
-            "stderr": "\n******************** GHDL Bug occurred ***************************\nPlease report this bug on https://github.com/ghdl/ghdl/issues\nGHDL release: 1.0.0 (Ubuntu 1.0.0+dfsg-6) [Dunoon edition]\nCompiled with GNAT Version: 10.3.1 20211117\nTarget: x86_64-linux-gnu\n/tmp/radhdl-ghdl-2uyag761/\nCommand line:\n/usr/bin/ghdl-mcode -e --std=08 --ieee=synopsys -P/tmp/radhdl-ghdl-2uyag761 --workdir=/tmp/radhdl-ghdl-2uyag761 tb_raddsp_xilinx_dsp48_wide_mul\nException TYPES.INTERNAL_ERROR raised\nException information:\nraised TYPES.INTERNAL_ERROR : trans.adb:553\nCall stack traceback locations:\n0x56cfa5ff413d 0x56cfa5ff451b 0x56cfa5ff4797 0x56cfa6189fc8 0x56cfa6198d6d 0x56cfa6198e25 0x56cfa61a2bde 0x56cfa61c1aa7 0x56cfa61c1d5f 0x56cfa61c2257 0x56cfa61c26b1 0x56cfa61cf330 0x56cfa61ce81c 0x56cfa6216a78 0x56cfa6216b9f 0x56cfa62171f8 0x56cfa621798a 0x56cfa6219596 0x56cfa62196eb 0x56cfa621cb0f 0x56cfa62213f8 0x56cfa622123b 0x56cfa62214e5 0x56cfa622123b 0x56cfa62214e5 0x56cfa61e54fa 0x56cfa61d8eac 0x56cfa61e9d8c 0x56cfa61e40a0 0x56cfa6229b55 0x56cfa616aaf5 0x56cfa60a069e 0x56cfa622d4b3 0x56cfa5e58b07 0x7b672bc29d8e 0x7b672bc29e3e 0x56cfa5e57243 0xfffffffffffffffe\n******************************************************************\n"
+            "stderr": "\n******************** GHDL Bug occurred ***************************\nPlease report this bug on https://github.com/ghdl/ghdl/issues\nGHDL release: 1.0.0 (Ubuntu 1.0.0+dfsg-6) [Dunoon edition]\nCompiled with GNAT Version: 10.3.1 20211117\nTarget: x86_64-linux-gnu\n/tmp/radhdl-ghdl-ws8259wu/\nCommand line:\n/usr/bin/ghdl-mcode -e --std=08 --ieee=synopsys -P/tmp/radhdl-ghdl-ws8259wu --workdir=/tmp/radhdl-ghdl-ws8259wu tb_raddsp_xilinx_dsp48_wide_mul\nException TYPES.INTERNAL_ERROR raised\nException information:\nraised TYPES.INTERNAL_ERROR : trans.adb:553\nCall stack traceback locations:\n0x623529c6513d 0x623529c6551b 0x623529c65797 0x623529dfafc8 0x623529e09d6d 0x623529e09e25 0x623529e13bde 0x623529e32aa7 0x623529e32d5f 0x623529e33257 0x623529e336b1 0x623529e40330 0x623529e3f81c 0x623529e87a78 0x623529e87b9f 0x623529e881f8 0x623529e8898a 0x623529e8a596 0x623529e8a6eb 0x623529e8db0f 0x623529e923f8 0x623529e9223b 0x623529e924e5 0x623529e9223b 0x623529e924e5 0x623529e564fa 0x623529e49eac 0x623529e5ad8c 0x623529e550a0 0x623529e9ab55 0x623529ddbaf5 0x623529d1169e 0x623529e9e4b3 0x623529ac9b07 0x734c79829d8e 0x734c79829e3e 0x623529ac8243 0xfffffffffffffffe\n******************************************************************\n"
           }
         }
       ],
@@ -8156,6 +8555,13 @@
           "data_type": "integer",
           "default": "160",
           "description": "Configures G CHIRP AFTER PEAK for this instance."
+        },
+        {
+          "name": "G_PRODUCT_SHIFT",
+          "direction": "",
+          "data_type": "integer",
+          "default": "15",
+          "description": "Identifies the target FPGA family so wrappers can choose the correct primitive or conservative portable behavior."
         }
       ],
       "ports": [
@@ -8270,6 +8676,13 @@
           "data_type": "signed(G_SAMPLE_WIDTH - 1 downto 0)",
           "default": "",
           "description": "Chirp q interface signal."
+        },
+        {
+          "name": "chirp_done",
+          "direction": "out",
+          "data_type": "std_logic",
+          "default": "",
+          "description": "Chirp done interface signal."
         }
       ],
       "sources": [
@@ -8379,6 +8792,13 @@
           "data_type": "integer",
           "default": "40",
           "description": "Sets the bit width for G ACC WIDTH values carried by this module."
+        },
+        {
+          "name": "G_PRODUCT_SHIFT",
+          "direction": "",
+          "data_type": "integer",
+          "default": "15",
+          "description": "Identifies the target FPGA family so wrappers can choose the correct primitive or conservative portable behavior."
         }
       ],
       "ports": [
@@ -8508,6 +8928,13 @@
           "data_type": "integer",
           "default": "1024",
           "description": "Sets the width or count of samples handled by the datapath."
+        },
+        {
+          "name": "G_PRODUCT_SHIFT",
+          "direction": "",
+          "data_type": "integer",
+          "default": "15",
+          "description": "Identifies the target FPGA family so wrappers can choose the correct primitive or conservative portable behavior."
         }
       ],
       "ports": [
@@ -8630,6 +9057,13 @@
           "data_type": "positive",
           "default": "32",
           "description": "Sets the bit width for G PHASE WIDTH values carried by this module."
+        },
+        {
+          "name": "G_ITERATIONS",
+          "direction": "",
+          "data_type": "positive",
+          "default": "24",
+          "description": "Configures G ITERATIONS for this instance."
         }
       ],
       "ports": [
@@ -8773,6 +9207,13 @@
           "data_type": "boolean",
           "default": "true",
           "description": "Configures G SCALE EACH STAGE for this instance."
+        },
+        {
+          "name": "G_MEMORY_STYLE",
+          "direction": "",
+          "data_type": "string",
+          "default": "\"block\"",
+          "description": "Configures G MEMORY STYLE for this instance."
         }
       ],
       "ports": [
@@ -8937,6 +9378,13 @@
           "data_type": "integer",
           "default": "160",
           "description": "Configures G CHIRP AFTER PEAK for this instance."
+        },
+        {
+          "name": "G_PRODUCT_SHIFT",
+          "direction": "",
+          "data_type": "integer",
+          "default": "15",
+          "description": "Identifies the target FPGA family so wrappers can choose the correct primitive or conservative portable behavior."
         }
       ],
       "ports": [
@@ -9051,6 +9499,13 @@
           "data_type": "std_logic_vector(G_SAMPLE_WIDTH - 1 downto 0)",
           "default": "",
           "description": "Chirp q interface signal."
+        },
+        {
+          "name": "chirp_done",
+          "direction": "out",
+          "data_type": "std_logic",
+          "default": "",
+          "description": "Chirp done interface signal."
         }
       ],
       "sources": [
@@ -9143,6 +9598,13 @@
           "data_type": "string",
           "default": "\"XILINX\"",
           "description": "Selects the vendor-specific implementation path, usually XILINX for DSP48/XPM-backed builds or generic for portable RTL."
+        },
+        {
+          "name": "PRODUCT_SERIES_TAG",
+          "direction": "",
+          "data_type": "string",
+          "default": "\"GENERIC\"",
+          "description": "Identifies the target FPGA family so wrappers can choose the correct primitive or conservative portable behavior."
         }
       ],
       "ports": [
@@ -9467,6 +9929,13 @@
           "data_type": "std_logic",
           "default": "",
           "description": "Input AXI-stream ready response indicating this block can accept a beat."
+        },
+        {
+          "name": "s_axis_tlast",
+          "direction": "in",
+          "data_type": "std_logic",
+          "default": "",
+          "description": "Input AXI-stream frame marker for the final beat of a frame."
         }
       ],
       "sources": [
@@ -9797,6 +10266,13 @@
           "data_type": "string",
           "default": "\"XILINX\"",
           "description": "Selects the vendor-specific implementation path, usually XILINX for DSP48/XPM-backed builds or generic for portable RTL."
+        },
+        {
+          "name": "PRODUCT_SERIES_TAG",
+          "direction": "",
+          "data_type": "string",
+          "default": "\"GENERIC\"",
+          "description": "Identifies the target FPGA family so wrappers can choose the correct primitive or conservative portable behavior."
         }
       ],
       "ports": [
@@ -10016,6 +10492,13 @@
           "data_type": "std_logic",
           "default": "",
           "description": "Read response valid indication from the internal register target."
+        },
+        {
+          "name": "reg_error",
+          "direction": "in",
+          "data_type": "std_logic",
+          "default": "",
+          "description": "Register target error flag converted into the external bus error response."
         }
       ],
       "sources": [
@@ -10113,6 +10596,13 @@
           "data_type": "string",
           "default": "\"XILINX\"",
           "description": "Selects the vendor-specific implementation path, usually XILINX for DSP48/XPM-backed builds or generic for portable RTL."
+        },
+        {
+          "name": "PRODUCT_SERIES_TAG",
+          "direction": "",
+          "data_type": "string",
+          "default": "\"GENERIC\"",
+          "description": "Identifies the target FPGA family so wrappers can choose the correct primitive or conservative portable behavior."
         }
       ],
       "ports": [
@@ -10220,6 +10710,13 @@
           "data_type": "std_logic",
           "default": "",
           "description": "Read response valid indication from the internal register target."
+        },
+        {
+          "name": "reg_error",
+          "direction": "in",
+          "data_type": "std_logic",
+          "default": "",
+          "description": "Register target error flag converted into the external bus error response."
         }
       ],
       "sources": [
@@ -10376,6 +10873,13 @@
           "data_type": "string",
           "default": "\"GENERIC\"",
           "description": "Selects the vendor-specific implementation path. This core is portable RTL for all values."
+        },
+        {
+          "name": "PRODUCT_SERIES_TAG",
+          "direction": "",
+          "data_type": "string",
+          "default": "\"GENERIC\"",
+          "description": "Identifies the target FPGA family for generated project metadata."
         }
       ],
       "ports": [
@@ -10602,6 +11106,13 @@
           "data_type": "std_logic",
           "default": "",
           "description": "AXI-Stream input ready."
+        },
+        {
+          "name": "s_axis_tlast",
+          "direction": "in",
+          "data_type": "std_logic",
+          "default": "",
+          "description": "AXI-Stream input frame marker."
         }
       ],
       "sources": [
@@ -10875,6 +11386,13 @@
           "data_type": "string",
           "default": "\"XILINX\"",
           "description": "Selects the vendor-specific implementation path, usually XILINX for DSP48/XPM-backed builds or generic for portable RTL."
+        },
+        {
+          "name": "PRODUCT_SERIES_TAG",
+          "direction": "",
+          "data_type": "string",
+          "default": "\"GENERIC\"",
+          "description": "Identifies the target FPGA family so wrappers can choose the correct primitive or conservative portable behavior."
         }
       ],
       "ports": [
@@ -10996,6 +11514,13 @@
           "data_type": "std_logic",
           "default": "",
           "description": "Read response valid indication from the internal register target."
+        },
+        {
+          "name": "reg_error",
+          "direction": "in",
+          "data_type": "std_logic",
+          "default": "",
+          "description": "Register target error flag converted into the external bus error response."
         }
       ],
       "sources": [
@@ -11096,6 +11621,13 @@
           "data_type": "string",
           "default": "\"XILINX\"",
           "description": "Selects the vendor-specific implementation path, usually XILINX for DSP48/XPM-backed builds or generic for portable RTL."
+        },
+        {
+          "name": "PRODUCT_SERIES_TAG",
+          "direction": "",
+          "data_type": "string",
+          "default": "\"GENERIC\"",
+          "description": "Identifies the target FPGA family so wrappers can choose the correct primitive or conservative portable behavior."
         }
       ],
       "ports": [
@@ -11196,6 +11728,13 @@
           "data_type": "std_logic",
           "default": "",
           "description": "Readback control or data signal for host-visible captured state."
+        },
+        {
+          "name": "error",
+          "direction": "out",
+          "data_type": "std_logic",
+          "default": "",
+          "description": "Error interface signal."
         }
       ],
       "sources": [
@@ -11437,6 +11976,13 @@
           "data_type": "string",
           "default": "\"XILINX\"",
           "description": "Selects the vendor-specific implementation path, usually XILINX for DSP48/XPM-backed builds or generic for portable RTL."
+        },
+        {
+          "name": "PRODUCT_SERIES_TAG",
+          "direction": "",
+          "data_type": "string",
+          "default": "\"GENERIC\"",
+          "description": "Identifies the target FPGA family so wrappers can choose the correct primitive or conservative portable behavior."
         }
       ],
       "ports": [
@@ -11697,6 +12243,13 @@
           "data_type": "string",
           "default": "\"GENERIC\"",
           "description": "Selects the vendor-specific implementation path. This core is portable RTL for all values."
+        },
+        {
+          "name": "PRODUCT_SERIES_TAG",
+          "direction": "",
+          "data_type": "string",
+          "default": "\"GENERIC\"",
+          "description": "Identifies the target FPGA family for generated project metadata."
         }
       ],
       "ports": [
@@ -11811,6 +12364,13 @@
           "data_type": "std_logic",
           "default": "",
           "description": "SCL output-enable. A value of 0 drives SCL low; a value of 1 releases SCL."
+        },
+        {
+          "name": "i2c_sda_oen",
+          "direction": "out",
+          "data_type": "std_logic",
+          "default": "",
+          "description": "SDA output-enable. A value of 0 drives SDA low; a value of 1 releases SDA."
         }
       ],
       "sources": [
@@ -12058,6 +12618,13 @@
           "data_type": "string",
           "default": "\"GENERIC\"",
           "description": "Selects the vendor-specific implementation path. This core is portable RTL for all values."
+        },
+        {
+          "name": "PRODUCT_SERIES_TAG",
+          "direction": "",
+          "data_type": "string",
+          "default": "\"GENERIC\"",
+          "description": "Identifies the target FPGA family for generated project metadata."
         }
       ],
       "ports": [
@@ -12172,6 +12739,13 @@
           "data_type": "std_logic",
           "default": "",
           "description": "SPI master-out/slave-in data."
+        },
+        {
+          "name": "spi_miso_i",
+          "direction": "in",
+          "data_type": "std_logic",
+          "default": "",
+          "description": "SPI master-in/slave-out data sampled into the RX_DATA register."
         }
       ],
       "sources": [
@@ -12426,6 +13000,13 @@
           "data_type": "string",
           "default": "\"XILINX\"",
           "description": "Selects the vendor-specific implementation path, usually XILINX for DSP48/XPM-backed builds or generic for portable RTL."
+        },
+        {
+          "name": "PRODUCT_SERIES_TAG",
+          "direction": "",
+          "data_type": "string",
+          "default": "\"GENERIC\"",
+          "description": "Identifies the target FPGA family so wrappers can choose the correct primitive or conservative portable behavior."
         }
       ],
       "ports": [
@@ -12568,6 +13149,13 @@
           "data_type": "std_logic",
           "default": "",
           "description": "Read response valid indication from the internal register target."
+        },
+        {
+          "name": "reg_error",
+          "direction": "in",
+          "data_type": "std_logic",
+          "default": "",
+          "description": "Register target error flag converted into the external bus error response."
         }
       ],
       "sources": [
@@ -12665,6 +13253,13 @@
           "data_type": "string",
           "default": "\"XILINX\"",
           "description": "Selects the vendor-specific implementation path, usually XILINX for DSP48/XPM-backed builds or generic for portable RTL."
+        },
+        {
+          "name": "PRODUCT_SERIES_TAG",
+          "direction": "",
+          "data_type": "string",
+          "default": "\"GENERIC\"",
+          "description": "Identifies the target FPGA family so wrappers can choose the correct primitive or conservative portable behavior."
         }
       ],
       "ports": [
@@ -12884,6 +13479,13 @@
           "data_type": "std_logic",
           "default": "",
           "description": "AXI master-channel signal used for memory-mapped transfer generation."
+        },
+        {
+          "name": "m_axi_rready",
+          "direction": "out",
+          "data_type": "std_logic",
+          "default": "",
+          "description": "AXI master-channel signal used for memory-mapped transfer generation."
         }
       ],
       "sources": [
@@ -12984,6 +13586,13 @@
           "data_type": "string",
           "default": "\"XILINX\"",
           "description": "Selects the vendor-specific implementation path, usually XILINX for DSP48/XPM-backed builds or generic for portable RTL."
+        },
+        {
+          "name": "PRODUCT_SERIES_TAG",
+          "direction": "",
+          "data_type": "string",
+          "default": "\"GENERIC\"",
+          "description": "Identifies the target FPGA family so wrappers can choose the correct primitive or conservative portable behavior."
         }
       ],
       "ports": [
@@ -13105,6 +13714,13 @@
           "data_type": "std_logic",
           "default": "",
           "description": "Read response valid indication from the internal register target."
+        },
+        {
+          "name": "reg_error",
+          "direction": "in",
+          "data_type": "std_logic",
+          "default": "",
+          "description": "Register target error flag converted into the external bus error response."
         }
       ],
       "sources": [
@@ -13235,6 +13851,13 @@
           "data_type": "string",
           "default": "\"7SERIES\"",
           "description": "Identifies the target FPGA family so wrappers can choose the correct primitive or conservative portable behavior."
+        },
+        {
+          "name": "G_DEBUG_BUS",
+          "direction": "",
+          "data_type": "string",
+          "default": "\"AXI_LITE\"",
+          "description": "Configures G DEBUG BUS for this instance."
         }
       ],
       "ports": [
@@ -13412,6 +14035,13 @@
           "data_type": "std_logic",
           "default": "",
           "description": "AXI4-Lite slave-channel signal used for host register access."
+        },
+        {
+          "name": "S_AXI_RREADY",
+          "direction": "in",
+          "data_type": "std_logic",
+          "default": "",
+          "description": "AXI4-Lite slave-channel signal used for host register access."
         }
       ],
       "sources": [
@@ -13528,6 +14158,13 @@
           "data_type": "string",
           "default": "\"7SERIES\"",
           "description": "Identifies the target FPGA family so wrappers can choose the correct primitive or conservative portable behavior."
+        },
+        {
+          "name": "G_DEBUG_BUS",
+          "direction": "",
+          "data_type": "string",
+          "default": "\"AXI_LITE\"",
+          "description": "Configures G DEBUG BUS for this instance."
         }
       ],
       "ports": [
@@ -13691,6 +14328,13 @@
           "data_type": "std_logic",
           "default": "",
           "description": "S00 axi rvalid interface signal."
+        },
+        {
+          "name": "s00_axi_rready",
+          "direction": "in",
+          "data_type": "std_logic",
+          "default": "",
+          "description": "S00 axi rready interface signal."
         }
       ],
       "sources": [
@@ -13748,6 +14392,13 @@
           "data_type": "string",
           "default": "\"XILINX\"",
           "description": "Selects the vendor-specific implementation path, usually XILINX for DSP48/XPM-backed builds or generic for portable RTL."
+        },
+        {
+          "name": "PRODUCT_SERIES_TAG",
+          "direction": "",
+          "data_type": "string",
+          "default": "\"7SERIES\"",
+          "description": "Identifies the target FPGA family so wrappers can choose the correct primitive or conservative portable behavior."
         }
       ],
       "ports": [
@@ -13943,6 +14594,13 @@
           "data_type": "integer",
           "default": "32",
           "description": "Sets the bit width for G PHASE WIDTH values carried by this module."
+        },
+        {
+          "name": "G_ITERATIONS",
+          "direction": "",
+          "data_type": "integer",
+          "default": "24",
+          "description": "Configures G ITERATIONS for this instance."
         }
       ],
       "ports": [
@@ -14173,6 +14831,13 @@
           "data_type": "boolean",
           "default": "true",
           "description": "Configures G SCALE EACH STAGE for this instance."
+        },
+        {
+          "name": "G_MEMORY_STYLE",
+          "direction": "",
+          "data_type": "string",
+          "default": "\"block\"",
+          "description": "Configures G MEMORY STYLE for this instance."
         }
       ],
       "ports": [
@@ -14287,6 +14952,13 @@
           "data_type": "integer",
           "default": "",
           "description": "Output re interface signal."
+        },
+        {
+          "name": "output_im",
+          "direction": "out",
+          "data_type": "integer",
+          "default": "",
+          "description": "Output im interface signal."
         }
       ],
       "sources": [
@@ -14330,6 +15002,13 @@
           "data_type": "integer",
           "default": "5",
           "description": "Sets the bit width for ADDR WIDTH values carried by this module."
+        },
+        {
+          "name": "DEPTH",
+          "direction": "",
+          "data_type": "integer",
+          "default": "32",
+          "description": "Sets the storage depth, frame length, or number of buffered samples used internally."
         }
       ],
       "ports": [
@@ -14388,6 +15067,13 @@
           "data_type": "std_logic_vector(DATA_WIDTH - 1 downto 0)",
           "default": "",
           "description": "B dout interface signal."
+        },
+        {
+          "name": "b_we",
+          "direction": "in",
+          "data_type": "std_logic",
+          "default": "",
+          "description": "B we interface signal."
         }
       ],
       "sources": [
@@ -14445,6 +15131,13 @@
           "data_type": "string",
           "default": "\"parallel\"",
           "description": "Configures IMPLEMENTATION for this instance."
+        },
+        {
+          "name": "DSP_LANES",
+          "direction": "",
+          "data_type": "positive",
+          "default": "1",
+          "description": "Sets the number of parallel sample lanes processed per handshake beat."
         }
       ],
       "ports": [
@@ -14552,6 +15245,13 @@
           "data_type": "std_logic_vector(DATA_WIDTH - 1 downto 0)",
           "default": "",
           "description": "Output AXI-stream payload containing packed processed result lanes."
+        },
+        {
+          "name": "m_axis_tlast",
+          "direction": "out",
+          "data_type": "std_logic",
+          "default": "",
+          "description": "Output AXI-stream frame marker aligned with the processed result beat."
         }
       ],
       "sources": [
@@ -14686,6 +15386,13 @@
           "data_type": "natural",
           "default": "0",
           "description": "Sets the transform, frame, or vector size used by the datapath."
+        },
+        {
+          "name": "MEM_INIT_FILE",
+          "direction": "",
+          "data_type": "string",
+          "default": "\"dsp/hdl/raddsp/mem/sine_q15_16.mem\"",
+          "description": "Configures MEM INIT FILE for this instance."
         }
       ],
       "ports": [
@@ -14836,6 +15543,13 @@
           "data_type": "natural",
           "default": "15",
           "description": "Sets coefficient precision or coefficient count for the fixed-point DSP operation."
+        },
+        {
+          "name": "IMPLEMENTATION",
+          "direction": "",
+          "data_type": "string",
+          "default": "\"latency_optimized\"",
+          "description": "Configures IMPLEMENTATION for this instance."
         }
       ],
       "ports": [
@@ -14936,6 +15650,13 @@
           "data_type": "std_logic_vector((2 * DATA_WIDTH) - 1 downto 0)",
           "default": "",
           "description": "Output AXI-stream payload containing packed processed result lanes."
+        },
+        {
+          "name": "m_axis_tlast",
+          "direction": "out",
+          "data_type": "std_logic",
+          "default": "",
+          "description": "Output AXI-stream frame marker aligned with the processed result beat."
         }
       ],
       "sources": [
@@ -15000,6 +15721,13 @@
           "data_type": "positive",
           "default": "32",
           "description": "Sets the bit width for AXI DATA WIDTH values carried by this module."
+        },
+        {
+          "name": "DEFAULT_FRAME_BINS",
+          "direction": "",
+          "data_type": "positive",
+          "default": "1024",
+          "description": "Configures DEFAULT FRAME BINS for this instance."
         }
       ],
       "ports": [
@@ -15195,6 +15923,13 @@
         {
           "name": "s_axi_rvalid",
           "direction": "out",
+          "data_type": "std_logic",
+          "default": "",
+          "description": "AXI4-Lite slave-channel signal used for host register access."
+        },
+        {
+          "name": "s_axi_rready",
+          "direction": "in",
           "data_type": "std_logic",
           "default": "",
           "description": "AXI4-Lite slave-channel signal used for host register access."
@@ -15593,6 +16328,13 @@
           "data_type": "positive",
           "default": "32",
           "description": "Sets the bit width for AXI DATA WIDTH values carried by this module."
+        },
+        {
+          "name": "MEMORY_STYLE",
+          "direction": "",
+          "data_type": "string",
+          "default": "\"block\"",
+          "description": "Configures MEMORY STYLE for this instance."
         }
       ],
       "ports": [
@@ -15795,6 +16537,13 @@
         {
           "name": "s_axi_rvalid",
           "direction": "out",
+          "data_type": "std_logic",
+          "default": "",
+          "description": "AXI4-Lite slave-channel signal used for host register access."
+        },
+        {
+          "name": "s_axi_rready",
+          "direction": "in",
           "data_type": "std_logic",
           "default": "",
           "description": "AXI4-Lite slave-channel signal used for host register access."
@@ -16182,6 +16931,13 @@
           "data_type": "string",
           "default": "\"parallel\"",
           "description": "Configures IMPLEMENTATION for this instance."
+        },
+        {
+          "name": "DSP_LANES",
+          "direction": "",
+          "data_type": "positive",
+          "default": "1",
+          "description": "Sets the number of parallel sample lanes processed per handshake beat."
         }
       ],
       "ports": [
@@ -16261,6 +17017,13 @@
           "data_type": "std_logic_vector(DATA_WIDTH - 1 downto 0)",
           "default": "",
           "description": "Output AXI-stream payload containing packed processed result lanes."
+        },
+        {
+          "name": "m_axis_tlast",
+          "direction": "out",
+          "data_type": "std_logic",
+          "default": "",
+          "description": "Output AXI-stream frame marker aligned with the processed result beat."
         }
       ],
       "sources": [
@@ -16381,6 +17144,13 @@
           "data_type": "natural",
           "default": "15",
           "description": "Sets the number of fractional bits used when scaling fixed-point arithmetic results."
+        },
+        {
+          "name": "CHANNEL_COUNT",
+          "direction": "",
+          "data_type": "positive",
+          "default": "1",
+          "description": "Sets the number of parallel sample lanes processed per handshake beat."
         }
       ],
       "ports": [
@@ -16446,6 +17216,13 @@
           "data_type": "std_logic_vector((CHANNEL_COUNT * 32) - 1 downto 0)",
           "default": "",
           "description": "Output AXI-stream payload containing packed processed result lanes."
+        },
+        {
+          "name": "m_axis_tlast",
+          "direction": "out",
+          "data_type": "std_logic",
+          "default": "",
+          "description": "Output AXI-stream frame marker aligned with the processed result beat."
         }
       ],
       "sources": [
@@ -16562,6 +17339,13 @@
           "data_type": "natural",
           "default": "15",
           "description": "Sets the number of fractional bits used when scaling fixed-point arithmetic results."
+        },
+        {
+          "name": "CHANNEL_COUNT",
+          "direction": "",
+          "data_type": "positive",
+          "default": "1",
+          "description": "Sets the number of parallel sample lanes processed per handshake beat."
         }
       ],
       "ports": [
@@ -16627,6 +17411,13 @@
           "data_type": "std_logic_vector((CHANNEL_COUNT * FIXED_WIDTH) - 1 downto 0)",
           "default": "",
           "description": "Output AXI-stream payload containing packed processed result lanes."
+        },
+        {
+          "name": "m_axis_tlast",
+          "direction": "out",
+          "data_type": "std_logic",
+          "default": "",
+          "description": "Output AXI-stream frame marker aligned with the processed result beat."
         }
       ],
       "sources": [
@@ -16743,6 +17534,13 @@
           "data_type": "positive",
           "default": "32",
           "description": "Sets the bit width for COUNT WIDTH values carried by this module."
+        },
+        {
+          "name": "POWER_WIDTH",
+          "direction": "",
+          "data_type": "positive",
+          "default": "64",
+          "description": "Sets the bit width for POWER WIDTH values carried by this module."
         }
       ],
       "ports": [
@@ -16900,6 +17698,13 @@
           "data_type": "natural",
           "default": "15",
           "description": "Sets coefficient precision or coefficient count for the fixed-point DSP operation."
+        },
+        {
+          "name": "CHANNEL_COUNT",
+          "direction": "",
+          "data_type": "positive",
+          "default": "1",
+          "description": "Sets the number of parallel sample lanes processed per handshake beat."
         }
       ],
       "ports": [
@@ -16972,6 +17777,13 @@
           "data_type": "std_logic_vector((CHANNEL_COUNT * DATA_WIDTH) - 1 downto 0)",
           "default": "",
           "description": "Output AXI-stream payload containing packed processed result lanes."
+        },
+        {
+          "name": "m_axis_tlast",
+          "direction": "out",
+          "data_type": "std_logic",
+          "default": "",
+          "description": "Output AXI-stream frame marker aligned with the processed result beat."
         }
       ],
       "sources": [
@@ -17085,6 +17897,13 @@
           "data_type": "positive",
           "default": "16",
           "description": "Sets the bit width for DATA WIDTH values carried by this module."
+        },
+        {
+          "name": "MAG_WIDTH",
+          "direction": "",
+          "data_type": "positive",
+          "default": "32",
+          "description": "Sets the bit width for MAG WIDTH values carried by this module."
         }
       ],
       "ports": [
@@ -17150,6 +17969,13 @@
           "data_type": "std_logic_vector(MAG_WIDTH - 1 downto 0)",
           "default": "",
           "description": "Output AXI-stream payload containing packed processed result lanes."
+        },
+        {
+          "name": "m_axis_tlast",
+          "direction": "out",
+          "data_type": "std_logic",
+          "default": "",
+          "description": "Output AXI-stream frame marker aligned with the processed result beat."
         }
       ],
       "sources": [
@@ -17193,6 +18019,13 @@
           "data_type": "positive",
           "default": "48",
           "description": "Sets the bit width for ACC WIDTH values carried by this module."
+        },
+        {
+          "name": "COEFF_FRAC_BITS",
+          "direction": "",
+          "data_type": "natural",
+          "default": "15",
+          "description": "Sets coefficient precision or coefficient count for the fixed-point DSP operation."
         }
       ],
       "ports": [
@@ -17420,6 +18253,13 @@
           "data_type": "positive",
           "default": "16",
           "description": "Sets the bit width for DATA WIDTH values carried by this module."
+        },
+        {
+          "name": "COEFF_FRAC_BITS",
+          "direction": "",
+          "data_type": "natural",
+          "default": "15",
+          "description": "Sets coefficient precision or coefficient count for the fixed-point DSP operation."
         }
       ],
       "ports": [
@@ -17520,6 +18360,13 @@
           "data_type": "std_logic_vector(DATA_WIDTH - 1 downto 0)",
           "default": "",
           "description": "Output AXI-stream payload containing packed processed result lanes."
+        },
+        {
+          "name": "m_axis_tlast",
+          "direction": "out",
+          "data_type": "std_logic",
+          "default": "",
+          "description": "Output AXI-stream frame marker aligned with the processed result beat."
         }
       ],
       "sources": [
@@ -17626,6 +18473,13 @@
           "data_type": "string",
           "default": "\"generic\"",
           "description": "Identifies the target FPGA family so wrappers can choose the correct primitive or conservative portable behavior."
+        },
+        {
+          "name": "DATA_WIDTH",
+          "direction": "",
+          "data_type": "positive",
+          "default": "16",
+          "description": "Sets the bit width for DATA WIDTH values carried by this module."
         }
       ],
       "ports": [
@@ -17719,6 +18573,13 @@
           "data_type": "std_logic_vector(DATA_WIDTH - 1 downto 0)",
           "default": "",
           "description": "Output AXI-stream payload containing packed processed result lanes."
+        },
+        {
+          "name": "m_axis_tlast",
+          "direction": "out",
+          "data_type": "std_logic",
+          "default": "",
+          "description": "Output AXI-stream frame marker aligned with the processed result beat."
         }
       ],
       "sources": [
@@ -17769,6 +18630,13 @@
           "data_type": "natural",
           "default": "15",
           "description": "Sets coefficient precision or coefficient count for the fixed-point DSP operation."
+        },
+        {
+          "name": "IMPLEMENTATION",
+          "direction": "",
+          "data_type": "string",
+          "default": "\"parallel\"",
+          "description": "Configures IMPLEMENTATION for this instance."
         }
       ],
       "ports": [
@@ -17848,6 +18716,13 @@
           "data_type": "std_logic_vector(DATA_WIDTH - 1 downto 0)",
           "default": "",
           "description": "Output AXI-stream payload containing packed processed result lanes."
+        },
+        {
+          "name": "m_axis_tlast",
+          "direction": "out",
+          "data_type": "std_logic",
+          "default": "",
+          "description": "Output AXI-stream frame marker aligned with the processed result beat."
         }
       ],
       "sources": [
@@ -18074,6 +18949,13 @@
           "data_type": "positive",
           "default": "8",
           "description": "Sets the number of parallel sample lanes processed per handshake beat."
+        },
+        {
+          "name": "G_MEMORY_WORD_SAMPLES",
+          "direction": "",
+          "data_type": "positive",
+          "default": "1",
+          "description": "Sets the width or count of samples handled by the datapath."
         }
       ],
       "ports": [
@@ -18181,6 +19063,13 @@
           "data_type": "std_logic",
           "default": "",
           "description": "Output busy o signal generated by this module."
+        },
+        {
+          "name": "frame_done_o",
+          "direction": "out",
+          "data_type": "std_logic",
+          "default": "",
+          "description": "Output frame done o signal generated by this module."
         }
       ],
       "sources": [
@@ -18256,7 +19145,7 @@
             },
             "returncode": 2,
             "stdout": "",
-            "stderr": "\n******************** GHDL Bug occurred ***************************\nPlease report this bug on https://github.com/ghdl/ghdl/issues\nGHDL release: 1.0.0 (Ubuntu 1.0.0+dfsg-6) [Dunoon edition]\nCompiled with GNAT Version: 10.3.1 20211117\nTarget: x86_64-linux-gnu\n/tmp/radhdl-ghdl-f9blzion/\nCommand line:\n/usr/bin/ghdl-mcode -e --std=08 --ieee=synopsys -P/tmp/radhdl-ghdl-f9blzion --workdir=/tmp/radhdl-ghdl-f9blzion tb_raddsp_axis_radfft\nException TYPES.INTERNAL_ERROR raised\nException information:\nraised TYPES.INTERNAL_ERROR : trans.adb:553\nCall stack traceback locations:\n0x6282202ac13d 0x6282202ac51b 0x6282202ac797 0x628220441fc8 0x628220450d6d 0x628220450e25 0x62822045abde 0x628220479aa7 0x628220479d5f 0x62822047a257 0x62822047a6b1 0x628220487330 0x62822048681c 0x6282204cea78 0x6282204ceb9f 0x6282204cf1f8 0x6282204cf98a 0x6282204d1596 0x6282204d16eb 0x6282204d4b0f 0x6282204d93f8 0x6282204d923b 0x6282204d94e5 0x6282204d923b 0x6282204d94e5 0x62822049d4fa 0x628220490eac 0x6282204a1d8c 0x62822049c0a0 0x6282204e1b55 0x628220422af5 0x62822035869e 0x6282204e54b3 0x628220110b07 0x767af1029d8e 0x767af1029e3e 0x62822010f243 0xfffffffffffffffe\n******************************************************************\n"
+            "stderr": "\n******************** GHDL Bug occurred ***************************\nPlease report this bug on https://github.com/ghdl/ghdl/issues\nGHDL release: 1.0.0 (Ubuntu 1.0.0+dfsg-6) [Dunoon edition]\nCompiled with GNAT Version: 10.3.1 20211117\nTarget: x86_64-linux-gnu\n/tmp/radhdl-ghdl-kx_sbxd0/\nCommand line:\n/usr/bin/ghdl-mcode -e --std=08 --ieee=synopsys -P/tmp/radhdl-ghdl-kx_sbxd0 --workdir=/tmp/radhdl-ghdl-kx_sbxd0 tb_raddsp_axis_radfft\nException TYPES.INTERNAL_ERROR raised\nException information:\nraised TYPES.INTERNAL_ERROR : trans.adb:553\nCall stack traceback locations:\n0x60b45cb2613d 0x60b45cb2651b 0x60b45cb26797 0x60b45ccbbfc8 0x60b45cccad6d 0x60b45cccae25 0x60b45ccd4bde 0x60b45ccf3aa7 0x60b45ccf3d5f 0x60b45ccf4257 0x60b45ccf46b1 0x60b45cd01330 0x60b45cd0081c 0x60b45cd48a78 0x60b45cd48b9f 0x60b45cd491f8 0x60b45cd4998a 0x60b45cd4b596 0x60b45cd4b6eb 0x60b45cd4eb0f 0x60b45cd533f8 0x60b45cd5323b 0x60b45cd534e5 0x60b45cd5323b 0x60b45cd534e5 0x60b45cd174fa 0x60b45cd0aeac 0x60b45cd1bd8c 0x60b45cd160a0 0x60b45cd5bb55 0x60b45cc9caf5 0x60b45cbd269e 0x60b45cd5f4b3 0x60b45c98ab07 0x7e3f96e29d8e 0x7e3f96e29e3e 0x60b45c989243 0xfffffffffffffffe\n******************************************************************\n"
           }
         },
         {
@@ -18329,7 +19218,7 @@
             },
             "returncode": 2,
             "stdout": "",
-            "stderr": "\n******************** GHDL Bug occurred ***************************\nPlease report this bug on https://github.com/ghdl/ghdl/issues\nGHDL release: 1.0.0 (Ubuntu 1.0.0+dfsg-6) [Dunoon edition]\nCompiled with GNAT Version: 10.3.1 20211117\nTarget: x86_64-linux-gnu\n/tmp/radhdl-ghdl-li4_np78/\nCommand line:\n/usr/bin/ghdl-mcode -e --std=08 --ieee=synopsys -P/tmp/radhdl-ghdl-li4_np78 --workdir=/tmp/radhdl-ghdl-li4_np78 tb_raddsp_axis_radfft_ddr\nException TYPES.INTERNAL_ERROR raised\nException information:\nraised TYPES.INTERNAL_ERROR : trans.adb:553\nCall stack traceback locations:\n0x652fbde3313d 0x652fbde3351b 0x652fbde33797 0x652fbdfc8fc8 0x652fbdfd7d6d 0x652fbdfd7e25 0x652fbdfe1bde 0x652fbe000aa7 0x652fbe000d5f 0x652fbe001257 0x652fbe0016b1 0x652fbe00e330 0x652fbe00d81c 0x652fbe055a78 0x652fbe055b9f 0x652fbe0561f8 0x652fbe05698a 0x652fbe058596 0x652fbe0586eb 0x652fbe05bb0f 0x652fbe0603f8 0x652fbe06023b 0x652fbe0604e5 0x652fbe06023b 0x652fbe0604e5 0x652fbe0244fa 0x652fbe017eac 0x652fbe028d8c 0x652fbe0230a0 0x652fbe068b55 0x652fbdfa9af5 0x652fbdedf69e 0x652fbe06c4b3 0x652fbdc97b07 0x7251eda29d8e 0x7251eda29e3e 0x652fbdc96243 0xfffffffffffffffe\n******************************************************************\n"
+            "stderr": "\n******************** GHDL Bug occurred ***************************\nPlease report this bug on https://github.com/ghdl/ghdl/issues\nGHDL release: 1.0.0 (Ubuntu 1.0.0+dfsg-6) [Dunoon edition]\nCompiled with GNAT Version: 10.3.1 20211117\nTarget: x86_64-linux-gnu\n/tmp/radhdl-ghdl-b903t0x1/\nCommand line:\n/usr/bin/ghdl-mcode -e --std=08 --ieee=synopsys -P/tmp/radhdl-ghdl-b903t0x1 --workdir=/tmp/radhdl-ghdl-b903t0x1 tb_raddsp_axis_radfft_ddr\nException TYPES.INTERNAL_ERROR raised\nException information:\nraised TYPES.INTERNAL_ERROR : trans.adb:553\nCall stack traceback locations:\n0x569090b5513d 0x569090b5551b 0x569090b55797 0x569090ceafc8 0x569090cf9d6d 0x569090cf9e25 0x569090d03bde 0x569090d22aa7 0x569090d22d5f 0x569090d23257 0x569090d236b1 0x569090d30330 0x569090d2f81c 0x569090d77a78 0x569090d77b9f 0x569090d781f8 0x569090d7898a 0x569090d7a596 0x569090d7a6eb 0x569090d7db0f 0x569090d823f8 0x569090d8223b 0x569090d824e5 0x569090d8223b 0x569090d824e5 0x569090d464fa 0x569090d39eac 0x569090d4ad8c 0x569090d450a0 0x569090d8ab55 0x569090ccbaf5 0x569090c0169e 0x569090d8e4b3 0x5690909b9b07 0x7ac9b0c29d8e 0x7ac9b0c29e3e 0x5690909b8243 0xfffffffffffffffe\n******************************************************************\n"
           }
         },
         {
@@ -18401,7 +19290,7 @@
             },
             "returncode": 2,
             "stdout": "",
-            "stderr": "\n******************** GHDL Bug occurred ***************************\nPlease report this bug on https://github.com/ghdl/ghdl/issues\nGHDL release: 1.0.0 (Ubuntu 1.0.0+dfsg-6) [Dunoon edition]\nCompiled with GNAT Version: 10.3.1 20211117\nTarget: x86_64-linux-gnu\n/tmp/radhdl-ghdl-6fdeyej7/\nCommand line:\n/usr/bin/ghdl-mcode -e --std=08 --ieee=synopsys -P/tmp/radhdl-ghdl-6fdeyej7 --workdir=/tmp/radhdl-ghdl-6fdeyej7 tb_raddsp_axis_radfft_ddr_xcorr_1024\nException TYPES.INTERNAL_ERROR raised\nException information:\nraised TYPES.INTERNAL_ERROR : trans.adb:553\nCall stack traceback locations:\n0x5a61bc4a913d 0x5a61bc4a951b 0x5a61bc4a9797 0x5a61bc63efc8 0x5a61bc64dd6d 0x5a61bc64de25 0x5a61bc657bde 0x5a61bc676aa7 0x5a61bc676d5f 0x5a61bc677257 0x5a61bc6776b1 0x5a61bc684330 0x5a61bc68381c 0x5a61bc6cba78 0x5a61bc6cbb9f 0x5a61bc6cc1f8 0x5a61bc6cc98a 0x5a61bc6ce596 0x5a61bc6ce6eb 0x5a61bc6d1b0f 0x5a61bc6d63f8 0x5a61bc6d623b 0x5a61bc6d64e5 0x5a61bc6d623b 0x5a61bc6d64e5 0x5a61bc69a4fa 0x5a61bc68deac 0x5a61bc69ed8c 0x5a61bc6990a0 0x5a61bc6deb55 0x5a61bc61faf5 0x5a61bc55569e 0x5a61bc6e24b3 0x5a61bc30db07 0x7ed438e29d8e 0x7ed438e29e3e 0x5a61bc30c243 0xfffffffffffffffe\n******************************************************************\n"
+            "stderr": "\n******************** GHDL Bug occurred ***************************\nPlease report this bug on https://github.com/ghdl/ghdl/issues\nGHDL release: 1.0.0 (Ubuntu 1.0.0+dfsg-6) [Dunoon edition]\nCompiled with GNAT Version: 10.3.1 20211117\nTarget: x86_64-linux-gnu\n/tmp/radhdl-ghdl-j_ggcy0x/\nCommand line:\n/usr/bin/ghdl-mcode -e --std=08 --ieee=synopsys -P/tmp/radhdl-ghdl-j_ggcy0x --workdir=/tmp/radhdl-ghdl-j_ggcy0x tb_raddsp_axis_radfft_ddr_xcorr_1024\nException TYPES.INTERNAL_ERROR raised\nException information:\nraised TYPES.INTERNAL_ERROR : trans.adb:553\nCall stack traceback locations:\n0x644bd3a7113d 0x644bd3a7151b 0x644bd3a71797 0x644bd3c06fc8 0x644bd3c15d6d 0x644bd3c15e25 0x644bd3c1fbde 0x644bd3c3eaa7 0x644bd3c3ed5f 0x644bd3c3f257 0x644bd3c3f6b1 0x644bd3c4c330 0x644bd3c4b81c 0x644bd3c93a78 0x644bd3c93b9f 0x644bd3c941f8 0x644bd3c9498a 0x644bd3c96596 0x644bd3c966eb 0x644bd3c99b0f 0x644bd3c9e3f8 0x644bd3c9e23b 0x644bd3c9e4e5 0x644bd3c9e23b 0x644bd3c9e4e5 0x644bd3c624fa 0x644bd3c55eac 0x644bd3c66d8c 0x644bd3c610a0 0x644bd3ca6b55 0x644bd3be7af5 0x644bd3b1d69e 0x644bd3caa4b3 0x644bd38d5b07 0x794d9e029d8e 0x794d9e029e3e 0x644bd38d4243 0xfffffffffffffffe\n******************************************************************\n"
           }
         }
       ],
@@ -18484,6 +19373,13 @@
           "data_type": "boolean",
           "default": "true",
           "description": "Configures G SCALE EACH STAGE for this instance."
+        },
+        {
+          "name": "G_MEMORY_STYLE",
+          "direction": "",
+          "data_type": "string",
+          "default": "\"block\"",
+          "description": "Configures G MEMORY STYLE for this instance."
         }
       ],
       "ports": [
@@ -18584,6 +19480,13 @@
           "data_type": "std_logic",
           "default": "",
           "description": "Output busy o signal generated by this module."
+        },
+        {
+          "name": "frame_done_o",
+          "direction": "out",
+          "data_type": "std_logic",
+          "default": "",
+          "description": "Output frame done o signal generated by this module."
         }
       ],
       "sources": [
@@ -18753,6 +19656,13 @@
           "data_type": "string",
           "default": "\"block\"",
           "description": "Configures G XCORR MEMORY STYLE for this instance."
+        },
+        {
+          "name": "G_DEFAULT_REGION_BYTES",
+          "direction": "",
+          "data_type": "natural",
+          "default": "67108864",
+          "description": "Configures G DEFAULT REGION BYTES for this instance."
         }
       ],
       "ports": [
@@ -19133,6 +20043,13 @@
           "data_type": "std_logic",
           "default": "",
           "description": "Output AXI-stream frame marker aligned with the processed result beat."
+        },
+        {
+          "name": "irq_o",
+          "direction": "out",
+          "data_type": "std_logic",
+          "default": "",
+          "description": "Output irq o signal generated by this module."
         }
       ],
       "sources": [
@@ -19209,7 +20126,7 @@
             },
             "returncode": 2,
             "stdout": "",
-            "stderr": "\n******************** GHDL Bug occurred ***************************\nPlease report this bug on https://github.com/ghdl/ghdl/issues\nGHDL release: 1.0.0 (Ubuntu 1.0.0+dfsg-6) [Dunoon edition]\nCompiled with GNAT Version: 10.3.1 20211117\nTarget: x86_64-linux-gnu\n/tmp/radhdl-ghdl-li4_np78/\nCommand line:\n/usr/bin/ghdl-mcode -e --std=08 --ieee=synopsys -P/tmp/radhdl-ghdl-li4_np78 --workdir=/tmp/radhdl-ghdl-li4_np78 tb_raddsp_axis_radfft_ddr\nException TYPES.INTERNAL_ERROR raised\nException information:\nraised TYPES.INTERNAL_ERROR : trans.adb:553\nCall stack traceback locations:\n0x652fbde3313d 0x652fbde3351b 0x652fbde33797 0x652fbdfc8fc8 0x652fbdfd7d6d 0x652fbdfd7e25 0x652fbdfe1bde 0x652fbe000aa7 0x652fbe000d5f 0x652fbe001257 0x652fbe0016b1 0x652fbe00e330 0x652fbe00d81c 0x652fbe055a78 0x652fbe055b9f 0x652fbe0561f8 0x652fbe05698a 0x652fbe058596 0x652fbe0586eb 0x652fbe05bb0f 0x652fbe0603f8 0x652fbe06023b 0x652fbe0604e5 0x652fbe06023b 0x652fbe0604e5 0x652fbe0244fa 0x652fbe017eac 0x652fbe028d8c 0x652fbe0230a0 0x652fbe068b55 0x652fbdfa9af5 0x652fbdedf69e 0x652fbe06c4b3 0x652fbdc97b07 0x7251eda29d8e 0x7251eda29e3e 0x652fbdc96243 0xfffffffffffffffe\n******************************************************************\n"
+            "stderr": "\n******************** GHDL Bug occurred ***************************\nPlease report this bug on https://github.com/ghdl/ghdl/issues\nGHDL release: 1.0.0 (Ubuntu 1.0.0+dfsg-6) [Dunoon edition]\nCompiled with GNAT Version: 10.3.1 20211117\nTarget: x86_64-linux-gnu\n/tmp/radhdl-ghdl-b903t0x1/\nCommand line:\n/usr/bin/ghdl-mcode -e --std=08 --ieee=synopsys -P/tmp/radhdl-ghdl-b903t0x1 --workdir=/tmp/radhdl-ghdl-b903t0x1 tb_raddsp_axis_radfft_ddr\nException TYPES.INTERNAL_ERROR raised\nException information:\nraised TYPES.INTERNAL_ERROR : trans.adb:553\nCall stack traceback locations:\n0x569090b5513d 0x569090b5551b 0x569090b55797 0x569090ceafc8 0x569090cf9d6d 0x569090cf9e25 0x569090d03bde 0x569090d22aa7 0x569090d22d5f 0x569090d23257 0x569090d236b1 0x569090d30330 0x569090d2f81c 0x569090d77a78 0x569090d77b9f 0x569090d781f8 0x569090d7898a 0x569090d7a596 0x569090d7a6eb 0x569090d7db0f 0x569090d823f8 0x569090d8223b 0x569090d824e5 0x569090d8223b 0x569090d824e5 0x569090d464fa 0x569090d39eac 0x569090d4ad8c 0x569090d450a0 0x569090d8ab55 0x569090ccbaf5 0x569090c0169e 0x569090d8e4b3 0x5690909b9b07 0x7ac9b0c29d8e 0x7ac9b0c29e3e 0x5690909b8243 0xfffffffffffffffe\n******************************************************************\n"
           }
         },
         {
@@ -19281,7 +20198,7 @@
             },
             "returncode": 2,
             "stdout": "",
-            "stderr": "\n******************** GHDL Bug occurred ***************************\nPlease report this bug on https://github.com/ghdl/ghdl/issues\nGHDL release: 1.0.0 (Ubuntu 1.0.0+dfsg-6) [Dunoon edition]\nCompiled with GNAT Version: 10.3.1 20211117\nTarget: x86_64-linux-gnu\n/tmp/radhdl-ghdl-6fdeyej7/\nCommand line:\n/usr/bin/ghdl-mcode -e --std=08 --ieee=synopsys -P/tmp/radhdl-ghdl-6fdeyej7 --workdir=/tmp/radhdl-ghdl-6fdeyej7 tb_raddsp_axis_radfft_ddr_xcorr_1024\nException TYPES.INTERNAL_ERROR raised\nException information:\nraised TYPES.INTERNAL_ERROR : trans.adb:553\nCall stack traceback locations:\n0x5a61bc4a913d 0x5a61bc4a951b 0x5a61bc4a9797 0x5a61bc63efc8 0x5a61bc64dd6d 0x5a61bc64de25 0x5a61bc657bde 0x5a61bc676aa7 0x5a61bc676d5f 0x5a61bc677257 0x5a61bc6776b1 0x5a61bc684330 0x5a61bc68381c 0x5a61bc6cba78 0x5a61bc6cbb9f 0x5a61bc6cc1f8 0x5a61bc6cc98a 0x5a61bc6ce596 0x5a61bc6ce6eb 0x5a61bc6d1b0f 0x5a61bc6d63f8 0x5a61bc6d623b 0x5a61bc6d64e5 0x5a61bc6d623b 0x5a61bc6d64e5 0x5a61bc69a4fa 0x5a61bc68deac 0x5a61bc69ed8c 0x5a61bc6990a0 0x5a61bc6deb55 0x5a61bc61faf5 0x5a61bc55569e 0x5a61bc6e24b3 0x5a61bc30db07 0x7ed438e29d8e 0x7ed438e29e3e 0x5a61bc30c243 0xfffffffffffffffe\n******************************************************************\n"
+            "stderr": "\n******************** GHDL Bug occurred ***************************\nPlease report this bug on https://github.com/ghdl/ghdl/issues\nGHDL release: 1.0.0 (Ubuntu 1.0.0+dfsg-6) [Dunoon edition]\nCompiled with GNAT Version: 10.3.1 20211117\nTarget: x86_64-linux-gnu\n/tmp/radhdl-ghdl-j_ggcy0x/\nCommand line:\n/usr/bin/ghdl-mcode -e --std=08 --ieee=synopsys -P/tmp/radhdl-ghdl-j_ggcy0x --workdir=/tmp/radhdl-ghdl-j_ggcy0x tb_raddsp_axis_radfft_ddr_xcorr_1024\nException TYPES.INTERNAL_ERROR raised\nException information:\nraised TYPES.INTERNAL_ERROR : trans.adb:553\nCall stack traceback locations:\n0x644bd3a7113d 0x644bd3a7151b 0x644bd3a71797 0x644bd3c06fc8 0x644bd3c15d6d 0x644bd3c15e25 0x644bd3c1fbde 0x644bd3c3eaa7 0x644bd3c3ed5f 0x644bd3c3f257 0x644bd3c3f6b1 0x644bd3c4c330 0x644bd3c4b81c 0x644bd3c93a78 0x644bd3c93b9f 0x644bd3c941f8 0x644bd3c9498a 0x644bd3c96596 0x644bd3c966eb 0x644bd3c99b0f 0x644bd3c9e3f8 0x644bd3c9e23b 0x644bd3c9e4e5 0x644bd3c9e23b 0x644bd3c9e4e5 0x644bd3c624fa 0x644bd3c55eac 0x644bd3c66d8c 0x644bd3c610a0 0x644bd3ca6b55 0x644bd3be7af5 0x644bd3b1d69e 0x644bd3caa4b3 0x644bd38d5b07 0x794d9e029d8e 0x794d9e029e3e 0x644bd38d4243 0xfffffffffffffffe\n******************************************************************\n"
           }
         }
       ],
@@ -19884,6 +20801,13 @@
           "data_type": "positive",
           "default": "1",
           "description": "Sets the number of parallel sample lanes processed per handshake beat."
+        },
+        {
+          "name": "G_MAX_MULTIPLIER_LANES",
+          "direction": "",
+          "data_type": "positive",
+          "default": "8",
+          "description": "Sets the number of parallel sample lanes processed per handshake beat."
         }
       ],
       "ports": [
@@ -19984,6 +20908,13 @@
           "data_type": "std_logic",
           "default": "",
           "description": "Output busy o signal generated by this module."
+        },
+        {
+          "name": "frame_done_o",
+          "direction": "out",
+          "data_type": "std_logic",
+          "default": "",
+          "description": "Output frame done o signal generated by this module."
         }
       ],
       "sources": [
@@ -20062,6 +20993,13 @@
           "data_type": "boolean",
           "default": "true",
           "description": "Configures G SCALE EACH STAGE for this instance."
+        },
+        {
+          "name": "G_MULTIPLIER_LANES",
+          "direction": "",
+          "data_type": "positive",
+          "default": "8",
+          "description": "Sets the number of parallel sample lanes processed per handshake beat."
         }
       ],
       "ports": [
@@ -20197,6 +21135,13 @@
           "data_type": "std_logic",
           "default": "",
           "description": "Output busy o signal generated by this module."
+        },
+        {
+          "name": "frame_done_o",
+          "direction": "out",
+          "data_type": "std_logic",
+          "default": "",
+          "description": "Output frame done o signal generated by this module."
         }
       ],
       "sources": [
@@ -20303,6 +21248,13 @@
           "data_type": "boolean",
           "default": "false",
           "description": "Configures G EXTERNAL TWIDDLES for this instance."
+        },
+        {
+          "name": "G_MEMORY_WORD_SAMPLES",
+          "direction": "",
+          "data_type": "positive",
+          "default": "4",
+          "description": "Sets the width or count of samples handled by the datapath."
         }
       ],
       "ports": [
@@ -20438,6 +21390,13 @@
           "data_type": "std_logic",
           "default": "",
           "description": "Output busy o signal generated by this module."
+        },
+        {
+          "name": "frame_done_o",
+          "direction": "out",
+          "data_type": "std_logic",
+          "default": "",
+          "description": "Output frame done o signal generated by this module."
         }
       ],
       "sources": [
@@ -20544,6 +21503,13 @@
           "data_type": "boolean",
           "default": "false",
           "description": "Configures G EXTERNAL TWIDDLES for this instance."
+        },
+        {
+          "name": "G_MEMORY_WORD_SAMPLES",
+          "direction": "",
+          "data_type": "positive",
+          "default": "4",
+          "description": "Sets the width or count of samples handled by the datapath."
         }
       ],
       "ports": [
@@ -20644,6 +21610,13 @@
           "data_type": "std_logic",
           "default": "",
           "description": "Output busy o signal generated by this module."
+        },
+        {
+          "name": "frame_done_o",
+          "direction": "out",
+          "data_type": "std_logic",
+          "default": "",
+          "description": "Output frame done o signal generated by this module."
         }
       ],
       "sources": [
@@ -20750,6 +21723,13 @@
           "data_type": "positive",
           "default": "1",
           "description": "Sets the number of parallel sample lanes processed per handshake beat."
+        },
+        {
+          "name": "G_MAX_MULTIPLIER_LANES",
+          "direction": "",
+          "data_type": "positive",
+          "default": "8",
+          "description": "Sets the number of parallel sample lanes processed per handshake beat."
         }
       ],
       "ports": [
@@ -20850,6 +21830,13 @@
           "data_type": "std_logic",
           "default": "",
           "description": "Output busy o signal generated by this module."
+        },
+        {
+          "name": "frame_done_o",
+          "direction": "out",
+          "data_type": "std_logic",
+          "default": "",
+          "description": "Output frame done o signal generated by this module."
         }
       ],
       "sources": [
@@ -20940,7 +21927,7 @@
             },
             "returncode": 2,
             "stdout": "",
-            "stderr": "\n******************** GHDL Bug occurred ***************************\nPlease report this bug on https://github.com/ghdl/ghdl/issues\nGHDL release: 1.0.0 (Ubuntu 1.0.0+dfsg-6) [Dunoon edition]\nCompiled with GNAT Version: 10.3.1 20211117\nTarget: x86_64-linux-gnu\n/tmp/radhdl-ghdl-f9blzion/\nCommand line:\n/usr/bin/ghdl-mcode -e --std=08 --ieee=synopsys -P/tmp/radhdl-ghdl-f9blzion --workdir=/tmp/radhdl-ghdl-f9blzion tb_raddsp_axis_radfft\nException TYPES.INTERNAL_ERROR raised\nException information:\nraised TYPES.INTERNAL_ERROR : trans.adb:553\nCall stack traceback locations:\n0x6282202ac13d 0x6282202ac51b 0x6282202ac797 0x628220441fc8 0x628220450d6d 0x628220450e25 0x62822045abde 0x628220479aa7 0x628220479d5f 0x62822047a257 0x62822047a6b1 0x628220487330 0x62822048681c 0x6282204cea78 0x6282204ceb9f 0x6282204cf1f8 0x6282204cf98a 0x6282204d1596 0x6282204d16eb 0x6282204d4b0f 0x6282204d93f8 0x6282204d923b 0x6282204d94e5 0x6282204d923b 0x6282204d94e5 0x62822049d4fa 0x628220490eac 0x6282204a1d8c 0x62822049c0a0 0x6282204e1b55 0x628220422af5 0x62822035869e 0x6282204e54b3 0x628220110b07 0x767af1029d8e 0x767af1029e3e 0x62822010f243 0xfffffffffffffffe\n******************************************************************\n"
+            "stderr": "\n******************** GHDL Bug occurred ***************************\nPlease report this bug on https://github.com/ghdl/ghdl/issues\nGHDL release: 1.0.0 (Ubuntu 1.0.0+dfsg-6) [Dunoon edition]\nCompiled with GNAT Version: 10.3.1 20211117\nTarget: x86_64-linux-gnu\n/tmp/radhdl-ghdl-kx_sbxd0/\nCommand line:\n/usr/bin/ghdl-mcode -e --std=08 --ieee=synopsys -P/tmp/radhdl-ghdl-kx_sbxd0 --workdir=/tmp/radhdl-ghdl-kx_sbxd0 tb_raddsp_axis_radfft\nException TYPES.INTERNAL_ERROR raised\nException information:\nraised TYPES.INTERNAL_ERROR : trans.adb:553\nCall stack traceback locations:\n0x60b45cb2613d 0x60b45cb2651b 0x60b45cb26797 0x60b45ccbbfc8 0x60b45cccad6d 0x60b45cccae25 0x60b45ccd4bde 0x60b45ccf3aa7 0x60b45ccf3d5f 0x60b45ccf4257 0x60b45ccf46b1 0x60b45cd01330 0x60b45cd0081c 0x60b45cd48a78 0x60b45cd48b9f 0x60b45cd491f8 0x60b45cd4998a 0x60b45cd4b596 0x60b45cd4b6eb 0x60b45cd4eb0f 0x60b45cd533f8 0x60b45cd5323b 0x60b45cd534e5 0x60b45cd5323b 0x60b45cd534e5 0x60b45cd174fa 0x60b45cd0aeac 0x60b45cd1bd8c 0x60b45cd160a0 0x60b45cd5bb55 0x60b45cc9caf5 0x60b45cbd269e 0x60b45cd5f4b3 0x60b45c98ab07 0x7e3f96e29d8e 0x7e3f96e29e3e 0x60b45c989243 0xfffffffffffffffe\n******************************************************************\n"
           }
         },
         {
@@ -21013,7 +22000,7 @@
             },
             "returncode": 2,
             "stdout": "",
-            "stderr": "\n******************** GHDL Bug occurred ***************************\nPlease report this bug on https://github.com/ghdl/ghdl/issues\nGHDL release: 1.0.0 (Ubuntu 1.0.0+dfsg-6) [Dunoon edition]\nCompiled with GNAT Version: 10.3.1 20211117\nTarget: x86_64-linux-gnu\n/tmp/radhdl-ghdl-li4_np78/\nCommand line:\n/usr/bin/ghdl-mcode -e --std=08 --ieee=synopsys -P/tmp/radhdl-ghdl-li4_np78 --workdir=/tmp/radhdl-ghdl-li4_np78 tb_raddsp_axis_radfft_ddr\nException TYPES.INTERNAL_ERROR raised\nException information:\nraised TYPES.INTERNAL_ERROR : trans.adb:553\nCall stack traceback locations:\n0x652fbde3313d 0x652fbde3351b 0x652fbde33797 0x652fbdfc8fc8 0x652fbdfd7d6d 0x652fbdfd7e25 0x652fbdfe1bde 0x652fbe000aa7 0x652fbe000d5f 0x652fbe001257 0x652fbe0016b1 0x652fbe00e330 0x652fbe00d81c 0x652fbe055a78 0x652fbe055b9f 0x652fbe0561f8 0x652fbe05698a 0x652fbe058596 0x652fbe0586eb 0x652fbe05bb0f 0x652fbe0603f8 0x652fbe06023b 0x652fbe0604e5 0x652fbe06023b 0x652fbe0604e5 0x652fbe0244fa 0x652fbe017eac 0x652fbe028d8c 0x652fbe0230a0 0x652fbe068b55 0x652fbdfa9af5 0x652fbdedf69e 0x652fbe06c4b3 0x652fbdc97b07 0x7251eda29d8e 0x7251eda29e3e 0x652fbdc96243 0xfffffffffffffffe\n******************************************************************\n"
+            "stderr": "\n******************** GHDL Bug occurred ***************************\nPlease report this bug on https://github.com/ghdl/ghdl/issues\nGHDL release: 1.0.0 (Ubuntu 1.0.0+dfsg-6) [Dunoon edition]\nCompiled with GNAT Version: 10.3.1 20211117\nTarget: x86_64-linux-gnu\n/tmp/radhdl-ghdl-b903t0x1/\nCommand line:\n/usr/bin/ghdl-mcode -e --std=08 --ieee=synopsys -P/tmp/radhdl-ghdl-b903t0x1 --workdir=/tmp/radhdl-ghdl-b903t0x1 tb_raddsp_axis_radfft_ddr\nException TYPES.INTERNAL_ERROR raised\nException information:\nraised TYPES.INTERNAL_ERROR : trans.adb:553\nCall stack traceback locations:\n0x569090b5513d 0x569090b5551b 0x569090b55797 0x569090ceafc8 0x569090cf9d6d 0x569090cf9e25 0x569090d03bde 0x569090d22aa7 0x569090d22d5f 0x569090d23257 0x569090d236b1 0x569090d30330 0x569090d2f81c 0x569090d77a78 0x569090d77b9f 0x569090d781f8 0x569090d7898a 0x569090d7a596 0x569090d7a6eb 0x569090d7db0f 0x569090d823f8 0x569090d8223b 0x569090d824e5 0x569090d8223b 0x569090d824e5 0x569090d464fa 0x569090d39eac 0x569090d4ad8c 0x569090d450a0 0x569090d8ab55 0x569090ccbaf5 0x569090c0169e 0x569090d8e4b3 0x5690909b9b07 0x7ac9b0c29d8e 0x7ac9b0c29e3e 0x5690909b8243 0xfffffffffffffffe\n******************************************************************\n"
           }
         }
       ],
@@ -21068,6 +22055,13 @@
           "data_type": "string",
           "default": "\"block\"",
           "description": "Configures G MEMORY STYLE for this instance."
+        },
+        {
+          "name": "G_INIT_FILE",
+          "direction": "",
+          "data_type": "string",
+          "default": "\"none\"",
+          "description": "Configures G INIT FILE for this instance."
         }
       ],
       "ports": [
@@ -21134,6 +22128,13 @@
           "data_type": "positive",
           "default": "16",
           "description": "Sets the bit width for A WIDTH values carried by this module."
+        },
+        {
+          "name": "B_WIDTH",
+          "direction": "",
+          "data_type": "positive",
+          "default": "18",
+          "description": "Sets the bit width for B WIDTH values carried by this module."
         }
       ],
       "ports": [
@@ -21235,6 +22236,13 @@
           "data_type": "string",
           "default": "\"7series\"",
           "description": "Identifies the target FPGA family so wrappers can choose the correct primitive or conservative portable behavior."
+        },
+        {
+          "name": "WIDTH",
+          "direction": "",
+          "data_type": "positive",
+          "default": "32",
+          "description": "Sets the bit width for WIDTH values carried by this module."
         }
       ],
       "ports": [
@@ -21329,6 +22337,13 @@
           "data_type": "positive",
           "default": "64",
           "description": "Identifies the target FPGA family so wrappers can choose the correct primitive or conservative portable behavior."
+        },
+        {
+          "name": "CHUNK_WIDTH",
+          "direction": "",
+          "data_type": "positive",
+          "default": "16",
+          "description": "Sets the bit width for CHUNK WIDTH values carried by this module."
         }
       ],
       "ports": [
@@ -21454,7 +22469,7 @@
             },
             "returncode": 2,
             "stdout": "",
-            "stderr": "\n******************** GHDL Bug occurred ***************************\nPlease report this bug on https://github.com/ghdl/ghdl/issues\nGHDL release: 1.0.0 (Ubuntu 1.0.0+dfsg-6) [Dunoon edition]\nCompiled with GNAT Version: 10.3.1 20211117\nTarget: x86_64-linux-gnu\n/tmp/radhdl-ghdl-2uyag761/\nCommand line:\n/usr/bin/ghdl-mcode -e --std=08 --ieee=synopsys -P/tmp/radhdl-ghdl-2uyag761 --workdir=/tmp/radhdl-ghdl-2uyag761 tb_raddsp_xilinx_dsp48_wide_mul\nException TYPES.INTERNAL_ERROR raised\nException information:\nraised TYPES.INTERNAL_ERROR : trans.adb:553\nCall stack traceback locations:\n0x56cfa5ff413d 0x56cfa5ff451b 0x56cfa5ff4797 0x56cfa6189fc8 0x56cfa6198d6d 0x56cfa6198e25 0x56cfa61a2bde 0x56cfa61c1aa7 0x56cfa61c1d5f 0x56cfa61c2257 0x56cfa61c26b1 0x56cfa61cf330 0x56cfa61ce81c 0x56cfa6216a78 0x56cfa6216b9f 0x56cfa62171f8 0x56cfa621798a 0x56cfa6219596 0x56cfa62196eb 0x56cfa621cb0f 0x56cfa62213f8 0x56cfa622123b 0x56cfa62214e5 0x56cfa622123b 0x56cfa62214e5 0x56cfa61e54fa 0x56cfa61d8eac 0x56cfa61e9d8c 0x56cfa61e40a0 0x56cfa6229b55 0x56cfa616aaf5 0x56cfa60a069e 0x56cfa622d4b3 0x56cfa5e58b07 0x7b672bc29d8e 0x7b672bc29e3e 0x56cfa5e57243 0xfffffffffffffffe\n******************************************************************\n"
+            "stderr": "\n******************** GHDL Bug occurred ***************************\nPlease report this bug on https://github.com/ghdl/ghdl/issues\nGHDL release: 1.0.0 (Ubuntu 1.0.0+dfsg-6) [Dunoon edition]\nCompiled with GNAT Version: 10.3.1 20211117\nTarget: x86_64-linux-gnu\n/tmp/radhdl-ghdl-ws8259wu/\nCommand line:\n/usr/bin/ghdl-mcode -e --std=08 --ieee=synopsys -P/tmp/radhdl-ghdl-ws8259wu --workdir=/tmp/radhdl-ghdl-ws8259wu tb_raddsp_xilinx_dsp48_wide_mul\nException TYPES.INTERNAL_ERROR raised\nException information:\nraised TYPES.INTERNAL_ERROR : trans.adb:553\nCall stack traceback locations:\n0x623529c6513d 0x623529c6551b 0x623529c65797 0x623529dfafc8 0x623529e09d6d 0x623529e09e25 0x623529e13bde 0x623529e32aa7 0x623529e32d5f 0x623529e33257 0x623529e336b1 0x623529e40330 0x623529e3f81c 0x623529e87a78 0x623529e87b9f 0x623529e881f8 0x623529e8898a 0x623529e8a596 0x623529e8a6eb 0x623529e8db0f 0x623529e923f8 0x623529e9223b 0x623529e924e5 0x623529e9223b 0x623529e924e5 0x623529e564fa 0x623529e49eac 0x623529e5ad8c 0x623529e550a0 0x623529e9ab55 0x623529ddbaf5 0x623529d1169e 0x623529e9e4b3 0x623529ac9b07 0x734c79829d8e 0x734c79829e3e 0x623529ac8243 0xfffffffffffffffe\n******************************************************************\n"
           }
         }
       ],
@@ -21509,6 +22524,13 @@
           "data_type": "integer",
           "default": "160",
           "description": "Configures G CHIRP AFTER PEAK for this instance."
+        },
+        {
+          "name": "G_PRODUCT_SHIFT",
+          "direction": "",
+          "data_type": "integer",
+          "default": "15",
+          "description": "Identifies the target FPGA family so wrappers can choose the correct primitive or conservative portable behavior."
         }
       ],
       "ports": [
@@ -21623,6 +22645,13 @@
           "data_type": "signed(G_SAMPLE_WIDTH - 1 downto 0)",
           "default": "",
           "description": "Chirp q interface signal."
+        },
+        {
+          "name": "chirp_done",
+          "direction": "out",
+          "data_type": "std_logic",
+          "default": "",
+          "description": "Chirp done interface signal."
         }
       ],
       "sources": [
@@ -21732,6 +22761,13 @@
           "data_type": "integer",
           "default": "40",
           "description": "Sets the bit width for G ACC WIDTH values carried by this module."
+        },
+        {
+          "name": "G_PRODUCT_SHIFT",
+          "direction": "",
+          "data_type": "integer",
+          "default": "15",
+          "description": "Identifies the target FPGA family so wrappers can choose the correct primitive or conservative portable behavior."
         }
       ],
       "ports": [
@@ -21861,6 +22897,13 @@
           "data_type": "integer",
           "default": "1024",
           "description": "Sets the width or count of samples handled by the datapath."
+        },
+        {
+          "name": "G_PRODUCT_SHIFT",
+          "direction": "",
+          "data_type": "integer",
+          "default": "15",
+          "description": "Identifies the target FPGA family so wrappers can choose the correct primitive or conservative portable behavior."
         }
       ],
       "ports": [
@@ -21998,6 +23041,13 @@
           "data_type": "positive",
           "default": "32",
           "description": "Sets the bit width for G PHASE WIDTH values carried by this module."
+        },
+        {
+          "name": "G_ITERATIONS",
+          "direction": "",
+          "data_type": "positive",
+          "default": "24",
+          "description": "Configures G ITERATIONS for this instance."
         }
       ],
       "ports": [
@@ -22141,6 +23191,13 @@
           "data_type": "boolean",
           "default": "true",
           "description": "Configures G SCALE EACH STAGE for this instance."
+        },
+        {
+          "name": "G_MEMORY_STYLE",
+          "direction": "",
+          "data_type": "string",
+          "default": "\"block\"",
+          "description": "Configures G MEMORY STYLE for this instance."
         }
       ],
       "ports": [
@@ -22305,6 +23362,13 @@
           "data_type": "integer",
           "default": "160",
           "description": "Configures G CHIRP AFTER PEAK for this instance."
+        },
+        {
+          "name": "G_PRODUCT_SHIFT",
+          "direction": "",
+          "data_type": "integer",
+          "default": "15",
+          "description": "Identifies the target FPGA family so wrappers can choose the correct primitive or conservative portable behavior."
         }
       ],
       "ports": [
@@ -22419,6 +23483,13 @@
           "data_type": "std_logic_vector(G_SAMPLE_WIDTH - 1 downto 0)",
           "default": "",
           "description": "Chirp q interface signal."
+        },
+        {
+          "name": "chirp_done",
+          "direction": "out",
+          "data_type": "std_logic",
+          "default": "",
+          "description": "Chirp done interface signal."
         }
       ],
       "sources": [
@@ -22564,6 +23635,13 @@
           "data_type": "string",
           "default": "\"XILINX\"",
           "description": "Selects the vendor-specific implementation path, usually XILINX for DSP48/XPM-backed builds or generic for portable RTL."
+        },
+        {
+          "name": "PRODUCT_SERIES_TAG",
+          "direction": "",
+          "data_type": "string",
+          "default": "\"7SERIES\"",
+          "description": "Identifies the target FPGA family so wrappers can choose the correct primitive or conservative portable behavior."
         }
       ],
       "ports": [
@@ -22773,6 +23851,13 @@
           "data_type": "integer",
           "default": "5",
           "description": "Sets the bit width for ADDR WIDTH values carried by this module."
+        },
+        {
+          "name": "DEPTH",
+          "direction": "",
+          "data_type": "integer",
+          "default": "32",
+          "description": "Sets the storage depth, frame length, or number of buffered samples used internally."
         }
       ],
       "ports": [
@@ -22831,6 +23916,13 @@
           "data_type": "std_logic_vector(DATA_WIDTH - 1 downto 0)",
           "default": "",
           "description": "B dout interface signal."
+        },
+        {
+          "name": "b_we",
+          "direction": "in",
+          "data_type": "std_logic",
+          "default": "",
+          "description": "B we interface signal."
         }
       ],
       "sources": [
@@ -23193,7 +24285,7 @@
             },
             "returncode": 2,
             "stdout": "",
-            "stderr": "\n******************** GHDL Bug occurred ***************************\nPlease report this bug on https://github.com/ghdl/ghdl/issues\nGHDL release: 1.0.0 (Ubuntu 1.0.0+dfsg-6) [Dunoon edition]\nCompiled with GNAT Version: 10.3.1 20211117\nTarget: x86_64-linux-gnu\n/tmp/radhdl-ghdl-f9blzion/\nCommand line:\n/usr/bin/ghdl-mcode -e --std=08 --ieee=synopsys -P/tmp/radhdl-ghdl-f9blzion --workdir=/tmp/radhdl-ghdl-f9blzion tb_raddsp_axis_radfft\nException TYPES.INTERNAL_ERROR raised\nException information:\nraised TYPES.INTERNAL_ERROR : trans.adb:553\nCall stack traceback locations:\n0x6282202ac13d 0x6282202ac51b 0x6282202ac797 0x628220441fc8 0x628220450d6d 0x628220450e25 0x62822045abde 0x628220479aa7 0x628220479d5f 0x62822047a257 0x62822047a6b1 0x628220487330 0x62822048681c 0x6282204cea78 0x6282204ceb9f 0x6282204cf1f8 0x6282204cf98a 0x6282204d1596 0x6282204d16eb 0x6282204d4b0f 0x6282204d93f8 0x6282204d923b 0x6282204d94e5 0x6282204d923b 0x6282204d94e5 0x62822049d4fa 0x628220490eac 0x6282204a1d8c 0x62822049c0a0 0x6282204e1b55 0x628220422af5 0x62822035869e 0x6282204e54b3 0x628220110b07 0x767af1029d8e 0x767af1029e3e 0x62822010f243 0xfffffffffffffffe\n******************************************************************\n"
+            "stderr": "\n******************** GHDL Bug occurred ***************************\nPlease report this bug on https://github.com/ghdl/ghdl/issues\nGHDL release: 1.0.0 (Ubuntu 1.0.0+dfsg-6) [Dunoon edition]\nCompiled with GNAT Version: 10.3.1 20211117\nTarget: x86_64-linux-gnu\n/tmp/radhdl-ghdl-kx_sbxd0/\nCommand line:\n/usr/bin/ghdl-mcode -e --std=08 --ieee=synopsys -P/tmp/radhdl-ghdl-kx_sbxd0 --workdir=/tmp/radhdl-ghdl-kx_sbxd0 tb_raddsp_axis_radfft\nException TYPES.INTERNAL_ERROR raised\nException information:\nraised TYPES.INTERNAL_ERROR : trans.adb:553\nCall stack traceback locations:\n0x60b45cb2613d 0x60b45cb2651b 0x60b45cb26797 0x60b45ccbbfc8 0x60b45cccad6d 0x60b45cccae25 0x60b45ccd4bde 0x60b45ccf3aa7 0x60b45ccf3d5f 0x60b45ccf4257 0x60b45ccf46b1 0x60b45cd01330 0x60b45cd0081c 0x60b45cd48a78 0x60b45cd48b9f 0x60b45cd491f8 0x60b45cd4998a 0x60b45cd4b596 0x60b45cd4b6eb 0x60b45cd4eb0f 0x60b45cd533f8 0x60b45cd5323b 0x60b45cd534e5 0x60b45cd5323b 0x60b45cd534e5 0x60b45cd174fa 0x60b45cd0aeac 0x60b45cd1bd8c 0x60b45cd160a0 0x60b45cd5bb55 0x60b45cc9caf5 0x60b45cbd269e 0x60b45cd5f4b3 0x60b45c98ab07 0x7e3f96e29d8e 0x7e3f96e29e3e 0x60b45c989243 0xfffffffffffffffe\n******************************************************************\n"
           }
         },
         {
@@ -23266,7 +24358,7 @@
             },
             "returncode": 2,
             "stdout": "",
-            "stderr": "\n******************** GHDL Bug occurred ***************************\nPlease report this bug on https://github.com/ghdl/ghdl/issues\nGHDL release: 1.0.0 (Ubuntu 1.0.0+dfsg-6) [Dunoon edition]\nCompiled with GNAT Version: 10.3.1 20211117\nTarget: x86_64-linux-gnu\n/tmp/radhdl-ghdl-li4_np78/\nCommand line:\n/usr/bin/ghdl-mcode -e --std=08 --ieee=synopsys -P/tmp/radhdl-ghdl-li4_np78 --workdir=/tmp/radhdl-ghdl-li4_np78 tb_raddsp_axis_radfft_ddr\nException TYPES.INTERNAL_ERROR raised\nException information:\nraised TYPES.INTERNAL_ERROR : trans.adb:553\nCall stack traceback locations:\n0x652fbde3313d 0x652fbde3351b 0x652fbde33797 0x652fbdfc8fc8 0x652fbdfd7d6d 0x652fbdfd7e25 0x652fbdfe1bde 0x652fbe000aa7 0x652fbe000d5f 0x652fbe001257 0x652fbe0016b1 0x652fbe00e330 0x652fbe00d81c 0x652fbe055a78 0x652fbe055b9f 0x652fbe0561f8 0x652fbe05698a 0x652fbe058596 0x652fbe0586eb 0x652fbe05bb0f 0x652fbe0603f8 0x652fbe06023b 0x652fbe0604e5 0x652fbe06023b 0x652fbe0604e5 0x652fbe0244fa 0x652fbe017eac 0x652fbe028d8c 0x652fbe0230a0 0x652fbe068b55 0x652fbdfa9af5 0x652fbdedf69e 0x652fbe06c4b3 0x652fbdc97b07 0x7251eda29d8e 0x7251eda29e3e 0x652fbdc96243 0xfffffffffffffffe\n******************************************************************\n"
+            "stderr": "\n******************** GHDL Bug occurred ***************************\nPlease report this bug on https://github.com/ghdl/ghdl/issues\nGHDL release: 1.0.0 (Ubuntu 1.0.0+dfsg-6) [Dunoon edition]\nCompiled with GNAT Version: 10.3.1 20211117\nTarget: x86_64-linux-gnu\n/tmp/radhdl-ghdl-b903t0x1/\nCommand line:\n/usr/bin/ghdl-mcode -e --std=08 --ieee=synopsys -P/tmp/radhdl-ghdl-b903t0x1 --workdir=/tmp/radhdl-ghdl-b903t0x1 tb_raddsp_axis_radfft_ddr\nException TYPES.INTERNAL_ERROR raised\nException information:\nraised TYPES.INTERNAL_ERROR : trans.adb:553\nCall stack traceback locations:\n0x569090b5513d 0x569090b5551b 0x569090b55797 0x569090ceafc8 0x569090cf9d6d 0x569090cf9e25 0x569090d03bde 0x569090d22aa7 0x569090d22d5f 0x569090d23257 0x569090d236b1 0x569090d30330 0x569090d2f81c 0x569090d77a78 0x569090d77b9f 0x569090d781f8 0x569090d7898a 0x569090d7a596 0x569090d7a6eb 0x569090d7db0f 0x569090d823f8 0x569090d8223b 0x569090d824e5 0x569090d8223b 0x569090d824e5 0x569090d464fa 0x569090d39eac 0x569090d4ad8c 0x569090d450a0 0x569090d8ab55 0x569090ccbaf5 0x569090c0169e 0x569090d8e4b3 0x5690909b9b07 0x7ac9b0c29d8e 0x7ac9b0c29e3e 0x5690909b8243 0xfffffffffffffffe\n******************************************************************\n"
           }
         },
         {
@@ -23338,7 +24430,7 @@
             },
             "returncode": 2,
             "stdout": "",
-            "stderr": "\n******************** GHDL Bug occurred ***************************\nPlease report this bug on https://github.com/ghdl/ghdl/issues\nGHDL release: 1.0.0 (Ubuntu 1.0.0+dfsg-6) [Dunoon edition]\nCompiled with GNAT Version: 10.3.1 20211117\nTarget: x86_64-linux-gnu\n/tmp/radhdl-ghdl-6fdeyej7/\nCommand line:\n/usr/bin/ghdl-mcode -e --std=08 --ieee=synopsys -P/tmp/radhdl-ghdl-6fdeyej7 --workdir=/tmp/radhdl-ghdl-6fdeyej7 tb_raddsp_axis_radfft_ddr_xcorr_1024\nException TYPES.INTERNAL_ERROR raised\nException information:\nraised TYPES.INTERNAL_ERROR : trans.adb:553\nCall stack traceback locations:\n0x5a61bc4a913d 0x5a61bc4a951b 0x5a61bc4a9797 0x5a61bc63efc8 0x5a61bc64dd6d 0x5a61bc64de25 0x5a61bc657bde 0x5a61bc676aa7 0x5a61bc676d5f 0x5a61bc677257 0x5a61bc6776b1 0x5a61bc684330 0x5a61bc68381c 0x5a61bc6cba78 0x5a61bc6cbb9f 0x5a61bc6cc1f8 0x5a61bc6cc98a 0x5a61bc6ce596 0x5a61bc6ce6eb 0x5a61bc6d1b0f 0x5a61bc6d63f8 0x5a61bc6d623b 0x5a61bc6d64e5 0x5a61bc6d623b 0x5a61bc6d64e5 0x5a61bc69a4fa 0x5a61bc68deac 0x5a61bc69ed8c 0x5a61bc6990a0 0x5a61bc6deb55 0x5a61bc61faf5 0x5a61bc55569e 0x5a61bc6e24b3 0x5a61bc30db07 0x7ed438e29d8e 0x7ed438e29e3e 0x5a61bc30c243 0xfffffffffffffffe\n******************************************************************\n"
+            "stderr": "\n******************** GHDL Bug occurred ***************************\nPlease report this bug on https://github.com/ghdl/ghdl/issues\nGHDL release: 1.0.0 (Ubuntu 1.0.0+dfsg-6) [Dunoon edition]\nCompiled with GNAT Version: 10.3.1 20211117\nTarget: x86_64-linux-gnu\n/tmp/radhdl-ghdl-j_ggcy0x/\nCommand line:\n/usr/bin/ghdl-mcode -e --std=08 --ieee=synopsys -P/tmp/radhdl-ghdl-j_ggcy0x --workdir=/tmp/radhdl-ghdl-j_ggcy0x tb_raddsp_axis_radfft_ddr_xcorr_1024\nException TYPES.INTERNAL_ERROR raised\nException information:\nraised TYPES.INTERNAL_ERROR : trans.adb:553\nCall stack traceback locations:\n0x644bd3a7113d 0x644bd3a7151b 0x644bd3a71797 0x644bd3c06fc8 0x644bd3c15d6d 0x644bd3c15e25 0x644bd3c1fbde 0x644bd3c3eaa7 0x644bd3c3ed5f 0x644bd3c3f257 0x644bd3c3f6b1 0x644bd3c4c330 0x644bd3c4b81c 0x644bd3c93a78 0x644bd3c93b9f 0x644bd3c941f8 0x644bd3c9498a 0x644bd3c96596 0x644bd3c966eb 0x644bd3c99b0f 0x644bd3c9e3f8 0x644bd3c9e23b 0x644bd3c9e4e5 0x644bd3c9e23b 0x644bd3c9e4e5 0x644bd3c624fa 0x644bd3c55eac 0x644bd3c66d8c 0x644bd3c610a0 0x644bd3ca6b55 0x644bd3be7af5 0x644bd3b1d69e 0x644bd3caa4b3 0x644bd38d5b07 0x794d9e029d8e 0x794d9e029e3e 0x644bd38d4243 0xfffffffffffffffe\n******************************************************************\n"
           }
         },
         {
@@ -23485,7 +24577,7 @@
             },
             "returncode": 2,
             "stdout": "",
-            "stderr": "\n******************** GHDL Bug occurred ***************************\nPlease report this bug on https://github.com/ghdl/ghdl/issues\nGHDL release: 1.0.0 (Ubuntu 1.0.0+dfsg-6) [Dunoon edition]\nCompiled with GNAT Version: 10.3.1 20211117\nTarget: x86_64-linux-gnu\n/tmp/radhdl-ghdl-2uyag761/\nCommand line:\n/usr/bin/ghdl-mcode -e --std=08 --ieee=synopsys -P/tmp/radhdl-ghdl-2uyag761 --workdir=/tmp/radhdl-ghdl-2uyag761 tb_raddsp_xilinx_dsp48_wide_mul\nException TYPES.INTERNAL_ERROR raised\nException information:\nraised TYPES.INTERNAL_ERROR : trans.adb:553\nCall stack traceback locations:\n0x56cfa5ff413d 0x56cfa5ff451b 0x56cfa5ff4797 0x56cfa6189fc8 0x56cfa6198d6d 0x56cfa6198e25 0x56cfa61a2bde 0x56cfa61c1aa7 0x56cfa61c1d5f 0x56cfa61c2257 0x56cfa61c26b1 0x56cfa61cf330 0x56cfa61ce81c 0x56cfa6216a78 0x56cfa6216b9f 0x56cfa62171f8 0x56cfa621798a 0x56cfa6219596 0x56cfa62196eb 0x56cfa621cb0f 0x56cfa62213f8 0x56cfa622123b 0x56cfa62214e5 0x56cfa622123b 0x56cfa62214e5 0x56cfa61e54fa 0x56cfa61d8eac 0x56cfa61e9d8c 0x56cfa61e40a0 0x56cfa6229b55 0x56cfa616aaf5 0x56cfa60a069e 0x56cfa622d4b3 0x56cfa5e58b07 0x7b672bc29d8e 0x7b672bc29e3e 0x56cfa5e57243 0xfffffffffffffffe\n******************************************************************\n"
+            "stderr": "\n******************** GHDL Bug occurred ***************************\nPlease report this bug on https://github.com/ghdl/ghdl/issues\nGHDL release: 1.0.0 (Ubuntu 1.0.0+dfsg-6) [Dunoon edition]\nCompiled with GNAT Version: 10.3.1 20211117\nTarget: x86_64-linux-gnu\n/tmp/radhdl-ghdl-ws8259wu/\nCommand line:\n/usr/bin/ghdl-mcode -e --std=08 --ieee=synopsys -P/tmp/radhdl-ghdl-ws8259wu --workdir=/tmp/radhdl-ghdl-ws8259wu tb_raddsp_xilinx_dsp48_wide_mul\nException TYPES.INTERNAL_ERROR raised\nException information:\nraised TYPES.INTERNAL_ERROR : trans.adb:553\nCall stack traceback locations:\n0x623529c6513d 0x623529c6551b 0x623529c65797 0x623529dfafc8 0x623529e09d6d 0x623529e09e25 0x623529e13bde 0x623529e32aa7 0x623529e32d5f 0x623529e33257 0x623529e336b1 0x623529e40330 0x623529e3f81c 0x623529e87a78 0x623529e87b9f 0x623529e881f8 0x623529e8898a 0x623529e8a596 0x623529e8a6eb 0x623529e8db0f 0x623529e923f8 0x623529e9223b 0x623529e924e5 0x623529e9223b 0x623529e924e5 0x623529e564fa 0x623529e49eac 0x623529e5ad8c 0x623529e550a0 0x623529e9ab55 0x623529ddbaf5 0x623529d1169e 0x623529e9e4b3 0x623529ac9b07 0x734c79829d8e 0x734c79829e3e 0x623529ac8243 0xfffffffffffffffe\n******************************************************************\n"
           }
         },
         {
@@ -23949,6 +25041,13 @@
           "data_type": "positive",
           "default": "32",
           "description": "Sets the bit width for COUNT WIDTH values carried by this module."
+        },
+        {
+          "name": "POWER_WIDTH",
+          "direction": "",
+          "data_type": "positive",
+          "default": "64",
+          "description": "Sets the bit width for POWER WIDTH values carried by this module."
         }
       ],
       "ports": [
@@ -24106,6 +25205,13 @@
           "data_type": "natural",
           "default": "15",
           "description": "Sets coefficient precision or coefficient count for the fixed-point DSP operation."
+        },
+        {
+          "name": "IMPLEMENTATION",
+          "direction": "",
+          "data_type": "string",
+          "default": "\"parallel\"",
+          "description": "Configures IMPLEMENTATION for this instance."
         }
       ],
       "ports": [
@@ -24185,6 +25291,13 @@
           "data_type": "std_logic_vector(DATA_WIDTH - 1 downto 0)",
           "default": "",
           "description": "Output AXI-stream payload containing packed processed result lanes."
+        },
+        {
+          "name": "m_axis_tlast",
+          "direction": "out",
+          "data_type": "std_logic",
+          "default": "",
+          "description": "Output AXI-stream frame marker aligned with the processed result beat."
         }
       ],
       "sources": [
@@ -24221,6 +25334,13 @@
           "data_type": "positive",
           "default": "16",
           "description": "Sets the bit width for DATA WIDTH values carried by this module."
+        },
+        {
+          "name": "COEFF_FRAC_BITS",
+          "direction": "",
+          "data_type": "natural",
+          "default": "15",
+          "description": "Sets coefficient precision or coefficient count for the fixed-point DSP operation."
         }
       ],
       "ports": [
@@ -24321,6 +25441,13 @@
           "data_type": "std_logic_vector(DATA_WIDTH - 1 downto 0)",
           "default": "",
           "description": "Output AXI-stream payload containing packed processed result lanes."
+        },
+        {
+          "name": "m_axis_tlast",
+          "direction": "out",
+          "data_type": "std_logic",
+          "default": "",
+          "description": "Output AXI-stream frame marker aligned with the processed result beat."
         }
       ],
       "sources": [
@@ -24364,6 +25491,13 @@
           "data_type": "integer",
           "default": "5",
           "description": "Sets the bit width for ADDR WIDTH values carried by this module."
+        },
+        {
+          "name": "DEPTH",
+          "direction": "",
+          "data_type": "integer",
+          "default": "32",
+          "description": "Sets the storage depth, frame length, or number of buffered samples used internally."
         }
       ],
       "ports": [
@@ -24422,6 +25556,13 @@
           "data_type": "std_logic_vector(DATA_WIDTH - 1 downto 0)",
           "default": "",
           "description": "B dout interface signal."
+        },
+        {
+          "name": "b_we",
+          "direction": "in",
+          "data_type": "std_logic",
+          "default": "",
+          "description": "B we interface signal."
         }
       ],
       "sources": [
@@ -24472,6 +25613,13 @@
           "data_type": "string",
           "default": "\"XILINX\"",
           "description": "Selects the vendor-specific implementation path, usually XILINX for DSP48/XPM-backed builds or generic for portable RTL."
+        },
+        {
+          "name": "PRODUCT_SERIES_TAG",
+          "direction": "",
+          "data_type": "string",
+          "default": "\"GENERIC\"",
+          "description": "Identifies the target FPGA family so wrappers can choose the correct primitive or conservative portable behavior."
         }
       ],
       "ports": [
@@ -24572,6 +25720,13 @@
           "data_type": "std_logic",
           "default": "",
           "description": "Readback control or data signal for host-visible captured state."
+        },
+        {
+          "name": "error",
+          "direction": "out",
+          "data_type": "std_logic",
+          "default": "",
+          "description": "Error interface signal."
         }
       ],
       "sources": [
@@ -24665,6 +25820,13 @@
           "data_type": "string",
           "default": "\"XILINX\"",
           "description": "Selects the vendor-specific implementation path, usually XILINX for DSP48/XPM-backed builds or generic for portable RTL."
+        },
+        {
+          "name": "PRODUCT_SERIES_TAG",
+          "direction": "",
+          "data_type": "string",
+          "default": "\"GENERIC\"",
+          "description": "Identifies the target FPGA family so wrappers can choose the correct primitive or conservative portable behavior."
         }
       ],
       "ports": [
@@ -24884,6 +26046,13 @@
           "data_type": "std_logic",
           "default": "",
           "description": "Read response valid indication from the internal register target."
+        },
+        {
+          "name": "reg_error",
+          "direction": "in",
+          "data_type": "std_logic",
+          "default": "",
+          "description": "Register target error flag converted into the external bus error response."
         }
       ],
       "sources": [
@@ -24927,6 +26096,13 @@
           "data_type": "string",
           "default": "\"GENERIC\"",
           "description": "Selects the vendor-specific implementation path. This core is portable RTL for all values."
+        },
+        {
+          "name": "PRODUCT_SERIES_TAG",
+          "direction": "",
+          "data_type": "string",
+          "default": "\"GENERIC\"",
+          "description": "Identifies the target FPGA family for generated project metadata."
         }
       ],
       "ports": [
@@ -25041,6 +26217,13 @@
           "data_type": "std_logic",
           "default": "",
           "description": "SCL output-enable. A value of 0 drives SCL low; a value of 1 releases SCL."
+        },
+        {
+          "name": "i2c_sda_oen",
+          "direction": "out",
+          "data_type": "std_logic",
+          "default": "",
+          "description": "SDA output-enable. A value of 0 drives SDA low; a value of 1 releases SDA."
         }
       ],
       "sources": [
@@ -25147,6 +26330,13 @@
           "data_type": "string",
           "default": "\"GENERIC\"",
           "description": "Selects the vendor-specific implementation path. This core is portable RTL for all values."
+        },
+        {
+          "name": "PRODUCT_SERIES_TAG",
+          "direction": "",
+          "data_type": "string",
+          "default": "\"GENERIC\"",
+          "description": "Identifies the target FPGA family for generated project metadata."
         }
       ],
       "ports": [
@@ -25373,6 +26563,13 @@
           "data_type": "std_logic",
           "default": "",
           "description": "AXI-Stream input ready."
+        },
+        {
+          "name": "s_axis_tlast",
+          "direction": "in",
+          "data_type": "std_logic",
+          "default": "",
+          "description": "AXI-Stream input frame marker."
         }
       ],
       "sources": [
@@ -25423,6 +26620,13 @@
           "data_type": "string",
           "default": "\"XILINX\"",
           "description": "Selects the vendor-specific implementation path, usually XILINX for DSP48/XPM-backed builds or generic for portable RTL."
+        },
+        {
+          "name": "PRODUCT_SERIES_TAG",
+          "direction": "",
+          "data_type": "string",
+          "default": "\"GENERIC\"",
+          "description": "Identifies the target FPGA family so wrappers can choose the correct primitive or conservative portable behavior."
         }
       ],
       "ports": [
@@ -25523,6 +26727,13 @@
           "data_type": "std_logic",
           "default": "",
           "description": "Readback control or data signal for host-visible captured state."
+        },
+        {
+          "name": "error",
+          "direction": "out",
+          "data_type": "std_logic",
+          "default": "",
+          "description": "Error interface signal."
         }
       ],
       "sources": [
@@ -25566,6 +26777,13 @@
           "data_type": "string",
           "default": "\"XILINX\"",
           "description": "Selects the vendor-specific implementation path, usually XILINX for DSP48/XPM-backed builds or generic for portable RTL."
+        },
+        {
+          "name": "PRODUCT_SERIES_TAG",
+          "direction": "",
+          "data_type": "string",
+          "default": "\"GENERIC\"",
+          "description": "Identifies the target FPGA family so wrappers can choose the correct primitive or conservative portable behavior."
         }
       ],
       "ports": [
@@ -25708,6 +26926,13 @@
           "data_type": "std_logic",
           "default": "",
           "description": "Read response valid indication from the internal register target."
+        },
+        {
+          "name": "reg_error",
+          "direction": "in",
+          "data_type": "std_logic",
+          "default": "",
+          "description": "Register target error flag converted into the external bus error response."
         }
       ],
       "sources": [
@@ -25758,6 +26983,13 @@
           "data_type": "string",
           "default": "\"GENERIC\"",
           "description": "Selects the vendor-specific implementation path. This core is portable RTL for all values."
+        },
+        {
+          "name": "PRODUCT_SERIES_TAG",
+          "direction": "",
+          "data_type": "string",
+          "default": "\"GENERIC\"",
+          "description": "Identifies the target FPGA family for generated project metadata."
         }
       ],
       "ports": [
@@ -25872,6 +27104,13 @@
           "data_type": "std_logic",
           "default": "",
           "description": "SPI master-out/slave-in data."
+        },
+        {
+          "name": "spi_miso_i",
+          "direction": "in",
+          "data_type": "std_logic",
+          "default": "",
+          "description": "SPI master-in/slave-out data sampled into the RX_DATA register."
         }
       ],
       "sources": [
@@ -25964,6 +27203,13 @@
           "data_type": "string",
           "default": "\"XILINX\"",
           "description": "Selects the vendor-specific implementation path, usually XILINX for DSP48/XPM-backed builds or generic for portable RTL."
+        },
+        {
+          "name": "PRODUCT_SERIES_TAG",
+          "direction": "",
+          "data_type": "string",
+          "default": "\"GENERIC\"",
+          "description": "Identifies the target FPGA family so wrappers can choose the correct primitive or conservative portable behavior."
         }
       ],
       "ports": [
@@ -26288,6 +27534,13 @@
           "data_type": "std_logic",
           "default": "",
           "description": "Input AXI-stream ready response indicating this block can accept a beat."
+        },
+        {
+          "name": "s_axis_tlast",
+          "direction": "in",
+          "data_type": "std_logic",
+          "default": "",
+          "description": "Input AXI-stream frame marker for the final beat of a frame."
         }
       ],
       "sources": [
@@ -26618,6 +27871,13 @@
           "data_type": "string",
           "default": "\"XILINX\"",
           "description": "Selects the vendor-specific implementation path, usually XILINX for DSP48/XPM-backed builds or generic for portable RTL."
+        },
+        {
+          "name": "PRODUCT_SERIES_TAG",
+          "direction": "",
+          "data_type": "string",
+          "default": "\"GENERIC\"",
+          "description": "Identifies the target FPGA family so wrappers can choose the correct primitive or conservative portable behavior."
         }
       ],
       "ports": [
@@ -26837,6 +28097,13 @@
           "data_type": "std_logic",
           "default": "",
           "description": "Read response valid indication from the internal register target."
+        },
+        {
+          "name": "reg_error",
+          "direction": "in",
+          "data_type": "std_logic",
+          "default": "",
+          "description": "Register target error flag converted into the external bus error response."
         }
       ],
       "sources": [
@@ -26934,6 +28201,13 @@
           "data_type": "string",
           "default": "\"XILINX\"",
           "description": "Selects the vendor-specific implementation path, usually XILINX for DSP48/XPM-backed builds or generic for portable RTL."
+        },
+        {
+          "name": "PRODUCT_SERIES_TAG",
+          "direction": "",
+          "data_type": "string",
+          "default": "\"GENERIC\"",
+          "description": "Identifies the target FPGA family so wrappers can choose the correct primitive or conservative portable behavior."
         }
       ],
       "ports": [
@@ -27041,6 +28315,13 @@
           "data_type": "std_logic",
           "default": "",
           "description": "Read response valid indication from the internal register target."
+        },
+        {
+          "name": "reg_error",
+          "direction": "in",
+          "data_type": "std_logic",
+          "default": "",
+          "description": "Register target error flag converted into the external bus error response."
         }
       ],
       "sources": [
@@ -27197,6 +28478,13 @@
           "data_type": "string",
           "default": "\"GENERIC\"",
           "description": "Selects the vendor-specific implementation path. This core is portable RTL for all values."
+        },
+        {
+          "name": "PRODUCT_SERIES_TAG",
+          "direction": "",
+          "data_type": "string",
+          "default": "\"GENERIC\"",
+          "description": "Identifies the target FPGA family for generated project metadata."
         }
       ],
       "ports": [
@@ -27423,6 +28711,13 @@
           "data_type": "std_logic",
           "default": "",
           "description": "AXI-Stream input ready."
+        },
+        {
+          "name": "s_axis_tlast",
+          "direction": "in",
+          "data_type": "std_logic",
+          "default": "",
+          "description": "AXI-Stream input frame marker."
         }
       ],
       "sources": [
@@ -27895,6 +29190,13 @@
           "data_type": "string",
           "default": "\"XILINX\"",
           "description": "Selects the vendor-specific implementation path, usually XILINX for DSP48/XPM-backed builds or generic for portable RTL."
+        },
+        {
+          "name": "PRODUCT_SERIES_TAG",
+          "direction": "",
+          "data_type": "string",
+          "default": "\"GENERIC\"",
+          "description": "Identifies the target FPGA family so wrappers can choose the correct primitive or conservative portable behavior."
         }
       ],
       "ports": [
@@ -28016,6 +29318,13 @@
           "data_type": "std_logic",
           "default": "",
           "description": "Read response valid indication from the internal register target."
+        },
+        {
+          "name": "reg_error",
+          "direction": "in",
+          "data_type": "std_logic",
+          "default": "",
+          "description": "Register target error flag converted into the external bus error response."
         }
       ],
       "sources": [
@@ -28116,6 +29425,13 @@
           "data_type": "string",
           "default": "\"XILINX\"",
           "description": "Selects the vendor-specific implementation path, usually XILINX for DSP48/XPM-backed builds or generic for portable RTL."
+        },
+        {
+          "name": "PRODUCT_SERIES_TAG",
+          "direction": "",
+          "data_type": "string",
+          "default": "\"GENERIC\"",
+          "description": "Identifies the target FPGA family so wrappers can choose the correct primitive or conservative portable behavior."
         }
       ],
       "ports": [
@@ -28216,6 +29532,13 @@
           "data_type": "std_logic",
           "default": "",
           "description": "Readback control or data signal for host-visible captured state."
+        },
+        {
+          "name": "error",
+          "direction": "out",
+          "data_type": "std_logic",
+          "default": "",
+          "description": "Error interface signal."
         }
       ],
       "sources": [
@@ -28457,6 +29780,13 @@
           "data_type": "string",
           "default": "\"XILINX\"",
           "description": "Selects the vendor-specific implementation path, usually XILINX for DSP48/XPM-backed builds or generic for portable RTL."
+        },
+        {
+          "name": "PRODUCT_SERIES_TAG",
+          "direction": "",
+          "data_type": "string",
+          "default": "\"GENERIC\"",
+          "description": "Identifies the target FPGA family so wrappers can choose the correct primitive or conservative portable behavior."
         }
       ],
       "ports": [
@@ -28717,6 +30047,13 @@
           "data_type": "string",
           "default": "\"GENERIC\"",
           "description": "Selects the vendor-specific implementation path. This core is portable RTL for all values."
+        },
+        {
+          "name": "PRODUCT_SERIES_TAG",
+          "direction": "",
+          "data_type": "string",
+          "default": "\"GENERIC\"",
+          "description": "Identifies the target FPGA family for generated project metadata."
         }
       ],
       "ports": [
@@ -28831,6 +30168,13 @@
           "data_type": "std_logic",
           "default": "",
           "description": "SCL output-enable. A value of 0 drives SCL low; a value of 1 releases SCL."
+        },
+        {
+          "name": "i2c_sda_oen",
+          "direction": "out",
+          "data_type": "std_logic",
+          "default": "",
+          "description": "SDA output-enable. A value of 0 drives SDA low; a value of 1 releases SDA."
         }
       ],
       "sources": [
@@ -29078,6 +30422,13 @@
           "data_type": "string",
           "default": "\"GENERIC\"",
           "description": "Selects the vendor-specific implementation path. This core is portable RTL for all values."
+        },
+        {
+          "name": "PRODUCT_SERIES_TAG",
+          "direction": "",
+          "data_type": "string",
+          "default": "\"GENERIC\"",
+          "description": "Identifies the target FPGA family for generated project metadata."
         }
       ],
       "ports": [
@@ -29192,6 +30543,13 @@
           "data_type": "std_logic",
           "default": "",
           "description": "SPI master-out/slave-in data."
+        },
+        {
+          "name": "spi_miso_i",
+          "direction": "in",
+          "data_type": "std_logic",
+          "default": "",
+          "description": "SPI master-in/slave-out data sampled into the RX_DATA register."
         }
       ],
       "sources": [
@@ -29446,6 +30804,13 @@
           "data_type": "string",
           "default": "\"XILINX\"",
           "description": "Selects the vendor-specific implementation path, usually XILINX for DSP48/XPM-backed builds or generic for portable RTL."
+        },
+        {
+          "name": "PRODUCT_SERIES_TAG",
+          "direction": "",
+          "data_type": "string",
+          "default": "\"GENERIC\"",
+          "description": "Identifies the target FPGA family so wrappers can choose the correct primitive or conservative portable behavior."
         }
       ],
       "ports": [
@@ -29588,6 +30953,13 @@
           "data_type": "std_logic",
           "default": "",
           "description": "Read response valid indication from the internal register target."
+        },
+        {
+          "name": "reg_error",
+          "direction": "in",
+          "data_type": "std_logic",
+          "default": "",
+          "description": "Register target error flag converted into the external bus error response."
         }
       ],
       "sources": [
@@ -29685,6 +31057,13 @@
           "data_type": "string",
           "default": "\"XILINX\"",
           "description": "Selects the vendor-specific implementation path, usually XILINX for DSP48/XPM-backed builds or generic for portable RTL."
+        },
+        {
+          "name": "PRODUCT_SERIES_TAG",
+          "direction": "",
+          "data_type": "string",
+          "default": "\"GENERIC\"",
+          "description": "Identifies the target FPGA family so wrappers can choose the correct primitive or conservative portable behavior."
         }
       ],
       "ports": [
@@ -29904,6 +31283,13 @@
           "data_type": "std_logic",
           "default": "",
           "description": "AXI master-channel signal used for memory-mapped transfer generation."
+        },
+        {
+          "name": "m_axi_rready",
+          "direction": "out",
+          "data_type": "std_logic",
+          "default": "",
+          "description": "AXI master-channel signal used for memory-mapped transfer generation."
         }
       ],
       "sources": [
@@ -30004,6 +31390,13 @@
           "data_type": "string",
           "default": "\"XILINX\"",
           "description": "Selects the vendor-specific implementation path, usually XILINX for DSP48/XPM-backed builds or generic for portable RTL."
+        },
+        {
+          "name": "PRODUCT_SERIES_TAG",
+          "direction": "",
+          "data_type": "string",
+          "default": "\"GENERIC\"",
+          "description": "Identifies the target FPGA family so wrappers can choose the correct primitive or conservative portable behavior."
         }
       ],
       "ports": [
@@ -30125,6 +31518,13 @@
           "data_type": "std_logic",
           "default": "",
           "description": "Read response valid indication from the internal register target."
+        },
+        {
+          "name": "reg_error",
+          "direction": "in",
+          "data_type": "std_logic",
+          "default": "",
+          "description": "Register target error flag converted into the external bus error response."
         }
       ],
       "sources": [
@@ -30225,6 +31625,13 @@
           "data_type": "positive",
           "default": "1",
           "description": "Sets the number of parallel sample lanes processed per handshake beat."
+        },
+        {
+          "name": "DMA_DATA_WIDTH",
+          "direction": "",
+          "data_type": "positive",
+          "default": "64",
+          "description": "Sets the bit width for DMA DATA WIDTH values carried by this module."
         }
       ],
       "ports": [
@@ -30605,6 +32012,13 @@
           "data_type": "std_logic",
           "default": "",
           "description": "Dma s axis tready interface signal."
+        },
+        {
+          "name": "dma_s_axis_tlast",
+          "direction": "in",
+          "data_type": "std_logic",
+          "default": "",
+          "description": "Dma s axis tlast interface signal."
         }
       ],
       "sources": [
@@ -30970,6 +32384,13 @@
           "data_type": "positive",
           "default": "16",
           "description": "Sets the bit width for FFT TWIDDLE WIDTH values carried by this module."
+        },
+        {
+          "name": "FFT_MEMORY_STYLE",
+          "direction": "",
+          "data_type": "string",
+          "default": "\"block\"",
+          "description": "Sets the transform, frame, or vector size used by the datapath."
         }
       ],
       "ports": [
@@ -31294,6 +32715,13 @@
           "data_type": "std_logic",
           "default": "",
           "description": "AXI master-channel signal used for memory-mapped transfer generation."
+        },
+        {
+          "name": "m_axi_rready",
+          "direction": "out",
+          "data_type": "std_logic",
+          "default": "",
+          "description": "AXI master-channel signal used for memory-mapped transfer generation."
         }
       ],
       "sources": [
@@ -31365,6 +32793,13 @@
           "data_type": "positive",
           "default": "16",
           "description": "Sets the bit width for TWIDDLE WIDTH values carried by this module."
+        },
+        {
+          "name": "OUTPUT_WIDTH",
+          "direction": "",
+          "data_type": "positive",
+          "default": "24",
+          "description": "Sets the bit width for OUTPUT WIDTH values carried by this module."
         }
       ],
       "ports": [
@@ -31536,6 +32971,13 @@
           "data_type": "positive",
           "default": "16",
           "description": "Sets the number of parallel sample lanes processed per handshake beat."
+        },
+        {
+          "name": "G_DEFAULT_REGION_BYTES",
+          "direction": "",
+          "data_type": "natural",
+          "default": "67108864",
+          "description": "Configures G DEFAULT REGION BYTES for this instance."
         }
       ],
       "ports": [
@@ -31972,6 +33414,13 @@
           "data_type": "std_logic",
           "default": "",
           "description": "Output AXI-stream frame marker aligned with the processed result beat."
+        },
+        {
+          "name": "irq_o",
+          "direction": "out",
+          "data_type": "std_logic",
+          "default": "",
+          "description": "Output irq o signal generated by this module."
         }
       ],
       "sources": [
@@ -32375,7 +33824,7 @@
         },
         "returncode": 2,
         "stdout": "",
-        "stderr": "\n******************** GHDL Bug occurred ***************************\nPlease report this bug on https://github.com/ghdl/ghdl/issues\nGHDL release: 1.0.0 (Ubuntu 1.0.0+dfsg-6) [Dunoon edition]\nCompiled with GNAT Version: 10.3.1 20211117\nTarget: x86_64-linux-gnu\n/tmp/radhdl-ghdl-f9blzion/\nCommand line:\n/usr/bin/ghdl-mcode -e --std=08 --ieee=synopsys -P/tmp/radhdl-ghdl-f9blzion --workdir=/tmp/radhdl-ghdl-f9blzion tb_raddsp_axis_radfft\nException TYPES.INTERNAL_ERROR raised\nException information:\nraised TYPES.INTERNAL_ERROR : trans.adb:553\nCall stack traceback locations:\n0x6282202ac13d 0x6282202ac51b 0x6282202ac797 0x628220441fc8 0x628220450d6d 0x628220450e25 0x62822045abde 0x628220479aa7 0x628220479d5f 0x62822047a257 0x62822047a6b1 0x628220487330 0x62822048681c 0x6282204cea78 0x6282204ceb9f 0x6282204cf1f8 0x6282204cf98a 0x6282204d1596 0x6282204d16eb 0x6282204d4b0f 0x6282204d93f8 0x6282204d923b 0x6282204d94e5 0x6282204d923b 0x6282204d94e5 0x62822049d4fa 0x628220490eac 0x6282204a1d8c 0x62822049c0a0 0x6282204e1b55 0x628220422af5 0x62822035869e 0x6282204e54b3 0x628220110b07 0x767af1029d8e 0x767af1029e3e 0x62822010f243 0xfffffffffffffffe\n******************************************************************\n"
+        "stderr": "\n******************** GHDL Bug occurred ***************************\nPlease report this bug on https://github.com/ghdl/ghdl/issues\nGHDL release: 1.0.0 (Ubuntu 1.0.0+dfsg-6) [Dunoon edition]\nCompiled with GNAT Version: 10.3.1 20211117\nTarget: x86_64-linux-gnu\n/tmp/radhdl-ghdl-kx_sbxd0/\nCommand line:\n/usr/bin/ghdl-mcode -e --std=08 --ieee=synopsys -P/tmp/radhdl-ghdl-kx_sbxd0 --workdir=/tmp/radhdl-ghdl-kx_sbxd0 tb_raddsp_axis_radfft\nException TYPES.INTERNAL_ERROR raised\nException information:\nraised TYPES.INTERNAL_ERROR : trans.adb:553\nCall stack traceback locations:\n0x60b45cb2613d 0x60b45cb2651b 0x60b45cb26797 0x60b45ccbbfc8 0x60b45cccad6d 0x60b45cccae25 0x60b45ccd4bde 0x60b45ccf3aa7 0x60b45ccf3d5f 0x60b45ccf4257 0x60b45ccf46b1 0x60b45cd01330 0x60b45cd0081c 0x60b45cd48a78 0x60b45cd48b9f 0x60b45cd491f8 0x60b45cd4998a 0x60b45cd4b596 0x60b45cd4b6eb 0x60b45cd4eb0f 0x60b45cd533f8 0x60b45cd5323b 0x60b45cd534e5 0x60b45cd5323b 0x60b45cd534e5 0x60b45cd174fa 0x60b45cd0aeac 0x60b45cd1bd8c 0x60b45cd160a0 0x60b45cd5bb55 0x60b45cc9caf5 0x60b45cbd269e 0x60b45cd5f4b3 0x60b45c98ab07 0x7e3f96e29d8e 0x7e3f96e29e3e 0x60b45c989243 0xfffffffffffffffe\n******************************************************************\n"
       }
     },
     {
@@ -32448,7 +33897,7 @@
         },
         "returncode": 2,
         "stdout": "",
-        "stderr": "\n******************** GHDL Bug occurred ***************************\nPlease report this bug on https://github.com/ghdl/ghdl/issues\nGHDL release: 1.0.0 (Ubuntu 1.0.0+dfsg-6) [Dunoon edition]\nCompiled with GNAT Version: 10.3.1 20211117\nTarget: x86_64-linux-gnu\n/tmp/radhdl-ghdl-li4_np78/\nCommand line:\n/usr/bin/ghdl-mcode -e --std=08 --ieee=synopsys -P/tmp/radhdl-ghdl-li4_np78 --workdir=/tmp/radhdl-ghdl-li4_np78 tb_raddsp_axis_radfft_ddr\nException TYPES.INTERNAL_ERROR raised\nException information:\nraised TYPES.INTERNAL_ERROR : trans.adb:553\nCall stack traceback locations:\n0x652fbde3313d 0x652fbde3351b 0x652fbde33797 0x652fbdfc8fc8 0x652fbdfd7d6d 0x652fbdfd7e25 0x652fbdfe1bde 0x652fbe000aa7 0x652fbe000d5f 0x652fbe001257 0x652fbe0016b1 0x652fbe00e330 0x652fbe00d81c 0x652fbe055a78 0x652fbe055b9f 0x652fbe0561f8 0x652fbe05698a 0x652fbe058596 0x652fbe0586eb 0x652fbe05bb0f 0x652fbe0603f8 0x652fbe06023b 0x652fbe0604e5 0x652fbe06023b 0x652fbe0604e5 0x652fbe0244fa 0x652fbe017eac 0x652fbe028d8c 0x652fbe0230a0 0x652fbe068b55 0x652fbdfa9af5 0x652fbdedf69e 0x652fbe06c4b3 0x652fbdc97b07 0x7251eda29d8e 0x7251eda29e3e 0x652fbdc96243 0xfffffffffffffffe\n******************************************************************\n"
+        "stderr": "\n******************** GHDL Bug occurred ***************************\nPlease report this bug on https://github.com/ghdl/ghdl/issues\nGHDL release: 1.0.0 (Ubuntu 1.0.0+dfsg-6) [Dunoon edition]\nCompiled with GNAT Version: 10.3.1 20211117\nTarget: x86_64-linux-gnu\n/tmp/radhdl-ghdl-b903t0x1/\nCommand line:\n/usr/bin/ghdl-mcode -e --std=08 --ieee=synopsys -P/tmp/radhdl-ghdl-b903t0x1 --workdir=/tmp/radhdl-ghdl-b903t0x1 tb_raddsp_axis_radfft_ddr\nException TYPES.INTERNAL_ERROR raised\nException information:\nraised TYPES.INTERNAL_ERROR : trans.adb:553\nCall stack traceback locations:\n0x569090b5513d 0x569090b5551b 0x569090b55797 0x569090ceafc8 0x569090cf9d6d 0x569090cf9e25 0x569090d03bde 0x569090d22aa7 0x569090d22d5f 0x569090d23257 0x569090d236b1 0x569090d30330 0x569090d2f81c 0x569090d77a78 0x569090d77b9f 0x569090d781f8 0x569090d7898a 0x569090d7a596 0x569090d7a6eb 0x569090d7db0f 0x569090d823f8 0x569090d8223b 0x569090d824e5 0x569090d8223b 0x569090d824e5 0x569090d464fa 0x569090d39eac 0x569090d4ad8c 0x569090d450a0 0x569090d8ab55 0x569090ccbaf5 0x569090c0169e 0x569090d8e4b3 0x5690909b9b07 0x7ac9b0c29d8e 0x7ac9b0c29e3e 0x5690909b8243 0xfffffffffffffffe\n******************************************************************\n"
       }
     },
     {
@@ -32520,7 +33969,7 @@
         },
         "returncode": 2,
         "stdout": "",
-        "stderr": "\n******************** GHDL Bug occurred ***************************\nPlease report this bug on https://github.com/ghdl/ghdl/issues\nGHDL release: 1.0.0 (Ubuntu 1.0.0+dfsg-6) [Dunoon edition]\nCompiled with GNAT Version: 10.3.1 20211117\nTarget: x86_64-linux-gnu\n/tmp/radhdl-ghdl-6fdeyej7/\nCommand line:\n/usr/bin/ghdl-mcode -e --std=08 --ieee=synopsys -P/tmp/radhdl-ghdl-6fdeyej7 --workdir=/tmp/radhdl-ghdl-6fdeyej7 tb_raddsp_axis_radfft_ddr_xcorr_1024\nException TYPES.INTERNAL_ERROR raised\nException information:\nraised TYPES.INTERNAL_ERROR : trans.adb:553\nCall stack traceback locations:\n0x5a61bc4a913d 0x5a61bc4a951b 0x5a61bc4a9797 0x5a61bc63efc8 0x5a61bc64dd6d 0x5a61bc64de25 0x5a61bc657bde 0x5a61bc676aa7 0x5a61bc676d5f 0x5a61bc677257 0x5a61bc6776b1 0x5a61bc684330 0x5a61bc68381c 0x5a61bc6cba78 0x5a61bc6cbb9f 0x5a61bc6cc1f8 0x5a61bc6cc98a 0x5a61bc6ce596 0x5a61bc6ce6eb 0x5a61bc6d1b0f 0x5a61bc6d63f8 0x5a61bc6d623b 0x5a61bc6d64e5 0x5a61bc6d623b 0x5a61bc6d64e5 0x5a61bc69a4fa 0x5a61bc68deac 0x5a61bc69ed8c 0x5a61bc6990a0 0x5a61bc6deb55 0x5a61bc61faf5 0x5a61bc55569e 0x5a61bc6e24b3 0x5a61bc30db07 0x7ed438e29d8e 0x7ed438e29e3e 0x5a61bc30c243 0xfffffffffffffffe\n******************************************************************\n"
+        "stderr": "\n******************** GHDL Bug occurred ***************************\nPlease report this bug on https://github.com/ghdl/ghdl/issues\nGHDL release: 1.0.0 (Ubuntu 1.0.0+dfsg-6) [Dunoon edition]\nCompiled with GNAT Version: 10.3.1 20211117\nTarget: x86_64-linux-gnu\n/tmp/radhdl-ghdl-j_ggcy0x/\nCommand line:\n/usr/bin/ghdl-mcode -e --std=08 --ieee=synopsys -P/tmp/radhdl-ghdl-j_ggcy0x --workdir=/tmp/radhdl-ghdl-j_ggcy0x tb_raddsp_axis_radfft_ddr_xcorr_1024\nException TYPES.INTERNAL_ERROR raised\nException information:\nraised TYPES.INTERNAL_ERROR : trans.adb:553\nCall stack traceback locations:\n0x644bd3a7113d 0x644bd3a7151b 0x644bd3a71797 0x644bd3c06fc8 0x644bd3c15d6d 0x644bd3c15e25 0x644bd3c1fbde 0x644bd3c3eaa7 0x644bd3c3ed5f 0x644bd3c3f257 0x644bd3c3f6b1 0x644bd3c4c330 0x644bd3c4b81c 0x644bd3c93a78 0x644bd3c93b9f 0x644bd3c941f8 0x644bd3c9498a 0x644bd3c96596 0x644bd3c966eb 0x644bd3c99b0f 0x644bd3c9e3f8 0x644bd3c9e23b 0x644bd3c9e4e5 0x644bd3c9e23b 0x644bd3c9e4e5 0x644bd3c624fa 0x644bd3c55eac 0x644bd3c66d8c 0x644bd3c610a0 0x644bd3ca6b55 0x644bd3be7af5 0x644bd3b1d69e 0x644bd3caa4b3 0x644bd38d5b07 0x794d9e029d8e 0x794d9e029e3e 0x644bd38d4243 0xfffffffffffffffe\n******************************************************************\n"
       }
     },
     {
@@ -32667,7 +34116,7 @@
         },
         "returncode": 2,
         "stdout": "",
-        "stderr": "\n******************** GHDL Bug occurred ***************************\nPlease report this bug on https://github.com/ghdl/ghdl/issues\nGHDL release: 1.0.0 (Ubuntu 1.0.0+dfsg-6) [Dunoon edition]\nCompiled with GNAT Version: 10.3.1 20211117\nTarget: x86_64-linux-gnu\n/tmp/radhdl-ghdl-2uyag761/\nCommand line:\n/usr/bin/ghdl-mcode -e --std=08 --ieee=synopsys -P/tmp/radhdl-ghdl-2uyag761 --workdir=/tmp/radhdl-ghdl-2uyag761 tb_raddsp_xilinx_dsp48_wide_mul\nException TYPES.INTERNAL_ERROR raised\nException information:\nraised TYPES.INTERNAL_ERROR : trans.adb:553\nCall stack traceback locations:\n0x56cfa5ff413d 0x56cfa5ff451b 0x56cfa5ff4797 0x56cfa6189fc8 0x56cfa6198d6d 0x56cfa6198e25 0x56cfa61a2bde 0x56cfa61c1aa7 0x56cfa61c1d5f 0x56cfa61c2257 0x56cfa61c26b1 0x56cfa61cf330 0x56cfa61ce81c 0x56cfa6216a78 0x56cfa6216b9f 0x56cfa62171f8 0x56cfa621798a 0x56cfa6219596 0x56cfa62196eb 0x56cfa621cb0f 0x56cfa62213f8 0x56cfa622123b 0x56cfa62214e5 0x56cfa622123b 0x56cfa62214e5 0x56cfa61e54fa 0x56cfa61d8eac 0x56cfa61e9d8c 0x56cfa61e40a0 0x56cfa6229b55 0x56cfa616aaf5 0x56cfa60a069e 0x56cfa622d4b3 0x56cfa5e58b07 0x7b672bc29d8e 0x7b672bc29e3e 0x56cfa5e57243 0xfffffffffffffffe\n******************************************************************\n"
+        "stderr": "\n******************** GHDL Bug occurred ***************************\nPlease report this bug on https://github.com/ghdl/ghdl/issues\nGHDL release: 1.0.0 (Ubuntu 1.0.0+dfsg-6) [Dunoon edition]\nCompiled with GNAT Version: 10.3.1 20211117\nTarget: x86_64-linux-gnu\n/tmp/radhdl-ghdl-ws8259wu/\nCommand line:\n/usr/bin/ghdl-mcode -e --std=08 --ieee=synopsys -P/tmp/radhdl-ghdl-ws8259wu --workdir=/tmp/radhdl-ghdl-ws8259wu tb_raddsp_xilinx_dsp48_wide_mul\nException TYPES.INTERNAL_ERROR raised\nException information:\nraised TYPES.INTERNAL_ERROR : trans.adb:553\nCall stack traceback locations:\n0x623529c6513d 0x623529c6551b 0x623529c65797 0x623529dfafc8 0x623529e09d6d 0x623529e09e25 0x623529e13bde 0x623529e32aa7 0x623529e32d5f 0x623529e33257 0x623529e336b1 0x623529e40330 0x623529e3f81c 0x623529e87a78 0x623529e87b9f 0x623529e881f8 0x623529e8898a 0x623529e8a596 0x623529e8a6eb 0x623529e8db0f 0x623529e923f8 0x623529e9223b 0x623529e924e5 0x623529e9223b 0x623529e924e5 0x623529e564fa 0x623529e49eac 0x623529e5ad8c 0x623529e550a0 0x623529e9ab55 0x623529ddbaf5 0x623529d1169e 0x623529e9e4b3 0x623529ac9b07 0x734c79829d8e 0x734c79829e3e 0x623529ac8243 0xfffffffffffffffe\n******************************************************************\n"
       }
     },
     {

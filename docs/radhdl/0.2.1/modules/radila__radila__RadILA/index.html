@@ -80,7 +80,8 @@ use radhdl.debug.all;</code></pre><h3>Component Declaration</h3><pre><code>compo
     DEPTH : integer := 1024;
     ADDR_WIDTH : integer := 10;
     CMD_LANES : integer := 4;
-    VENDOR_TAG : string := &quot;XILINX&quot;
+    VENDOR_TAG : string := &quot;XILINX&quot;;
+    PRODUCT_SERIES_TAG : string := &quot;7SERIES&quot;
   );
   port (
     axi_clk : in std_logic;
@@ -104,12 +105,13 @@ use radhdl.debug.all;</code></pre><h3>Component Declaration</h3><pre><code>compo
   );
 end component;</code></pre><h3>Direct Entity Instantiation</h3><pre><code>u_radila : entity radhdl.RadILA
   generic map (
-    SAMPLE_WIDTH =&gt; 32,
-    EVENT_WIDTH  =&gt; 8,
-    DEPTH        =&gt; 1024,
-    ADDR_WIDTH   =&gt; 10,
-    CMD_LANES    =&gt; 4,
-    VENDOR_TAG   =&gt; &quot;XILINX&quot;
+    SAMPLE_WIDTH       =&gt; 32,
+    EVENT_WIDTH        =&gt; 8,
+    DEPTH              =&gt; 1024,
+    ADDR_WIDTH         =&gt; 10,
+    CMD_LANES          =&gt; 4,
+    VENDOR_TAG         =&gt; &quot;XILINX&quot;,
+    PRODUCT_SERIES_TAG =&gt; &quot;7SERIES&quot;
   )
   port map (
     axi_clk          =&gt; &lt;axi_clk_signal&gt;,
@@ -131,7 +133,7 @@ end component;</code></pre><h3>Direct Entity Instantiation</h3><pre><code>u_radi
     overflow_o       =&gt; &lt;overflow_o_signal&gt;,
     count_o          =&gt; &lt;count_o_signal&gt;
   );</code></pre></div></details>
-  <h2>Generics</h2><table><thead><tr><th>Name</th><th>Type</th><th>Default</th><th>Description</th></tr></thead><tbody><tr><td>SAMPLE_WIDTH</td><td>integer</td><td>32</td><td>Sets the bit width for SAMPLE WIDTH values carried by this module.</td></tr><tr><td>EVENT_WIDTH</td><td>integer</td><td>8</td><td>Sets the bit width for EVENT WIDTH values carried by this module.</td></tr><tr><td>DEPTH</td><td>integer</td><td>1024</td><td>Sets the storage depth, frame length, or number of buffered samples used internally.</td></tr><tr><td>ADDR_WIDTH</td><td>integer</td><td>10</td><td>Sets the bit width for ADDR WIDTH values carried by this module.</td></tr><tr><td>CMD_LANES</td><td>integer</td><td>4</td><td>Sets the number of parallel sample lanes processed per handshake beat.</td></tr><tr><td>VENDOR_TAG</td><td>string</td><td>&quot;XILINX&quot;</td><td>Selects the vendor-specific implementation path, usually XILINX for DSP48/XPM-backed builds or generic for portable RTL.</td></tr></tbody></table>
+  <h2>Generics</h2><table><thead><tr><th>Name</th><th>Type</th><th>Default</th><th>Description</th></tr></thead><tbody><tr><td>SAMPLE_WIDTH</td><td>integer</td><td>32</td><td>Sets the bit width for SAMPLE WIDTH values carried by this module.</td></tr><tr><td>EVENT_WIDTH</td><td>integer</td><td>8</td><td>Sets the bit width for EVENT WIDTH values carried by this module.</td></tr><tr><td>DEPTH</td><td>integer</td><td>1024</td><td>Sets the storage depth, frame length, or number of buffered samples used internally.</td></tr><tr><td>ADDR_WIDTH</td><td>integer</td><td>10</td><td>Sets the bit width for ADDR WIDTH values carried by this module.</td></tr><tr><td>CMD_LANES</td><td>integer</td><td>4</td><td>Sets the number of parallel sample lanes processed per handshake beat.</td></tr><tr><td>VENDOR_TAG</td><td>string</td><td>&quot;XILINX&quot;</td><td>Selects the vendor-specific implementation path, usually XILINX for DSP48/XPM-backed builds or generic for portable RTL.</td></tr><tr><td>PRODUCT_SERIES_TAG</td><td>string</td><td>&quot;7SERIES&quot;</td><td>Identifies the target FPGA family so wrappers can choose the correct primitive or conservative portable behavior.</td></tr></tbody></table>
   <h2>Ports</h2><table><thead><tr><th>Name</th><th>Direction</th><th>Type</th><th>Description</th></tr></thead><tbody><tr><td>axi_clk</td><td>in</td><td>std_logic</td><td>Clock for the associated synchronous logic and handshake domain.</td></tr><tr><td>axi_rstn</td><td>in</td><td>std_logic</td><td>Active-low reset for this clock domain.</td></tr><tr><td>sample_clk</td><td>in</td><td>std_logic</td><td>Clock for the associated synchronous logic and handshake domain.</td></tr><tr><td>sample_rstn</td><td>in</td><td>std_logic</td><td>Active-low reset for this clock domain.</td></tr><tr><td>sample_i</td><td>in</td><td>std_logic_vector(SAMPLE_WIDTH - 1 downto 0)</td><td>Input sample vector captured or processed by the datapath.</td></tr><tr><td>event_i</td><td>in</td><td>std_logic_vector(EVENT_WIDTH - 1 downto 0)</td><td>Event or trigger metadata associated with the current sample stream.</td></tr><tr><td>cmd_data_i</td><td>in</td><td>std_logic_vector(CMD_LANES - 1 downto 0)</td><td>Command/control input used to configure or trigger the block.</td></tr><tr><td>cmd_toggle_i</td><td>in</td><td>std_logic</td><td>Command/control input used to configure or trigger the block.</td></tr><tr><td>cmd_ack_toggle_o</td><td>out</td><td>std_logic</td><td>Command/control acknowledgement or status output.</td></tr><tr><td>rd_index_i</td><td>in</td><td>unsigned(ADDR_WIDTH - 1 downto 0)</td><td>Readback control or data signal for host-visible captured state.</td></tr><tr><td>rd_data_o</td><td>out</td><td>std_logic_vector(SAMPLE_WIDTH - 1 downto 0)</td><td>Readback control or data signal for host-visible captured state.</td></tr><tr><td>sample_now_o</td><td>out</td><td>std_logic_vector(SAMPLE_WIDTH - 1 downto 0)</td><td>Output sample vector or current sample status from the datapath.</td></tr><tr><td>event_now_o</td><td>out</td><td>std_logic_vector(EVENT_WIDTH - 1 downto 0)</td><td>Event or trigger metadata associated with the current sample stream.</td></tr><tr><td>armed_o</td><td>out</td><td>std_logic</td><td>Output armed o signal generated by this module.</td></tr><tr><td>capturing_o</td><td>out</td><td>std_logic</td><td>Output capturing o signal generated by this module.</td></tr><tr><td>done_o</td><td>out</td><td>std_logic</td><td>Output done o signal generated by this module.</td></tr><tr><td>overflow_o</td><td>out</td><td>std_logic</td><td>Output overflow o signal generated by this module.</td></tr><tr><td>count_o</td><td>out</td><td>unsigned(ADDR_WIDTH downto 0)</td><td>Output count o signal generated by this module.</td></tr></tbody></table>
   <h2 id="register-interfaces">Register Interfaces</h2><p>No fixed register map was found; this section documents the exposed register/control interface ports.</p><table><thead><tr><th>Interface</th><th>Directions</th><th>Signals</th><th>Representative ports</th></tr></thead><tbody><tr><td>Register control/status</td><td>in, out</td><td>2</td><td>rd_index_i, rd_data_o</td></tr></tbody></table>
   
