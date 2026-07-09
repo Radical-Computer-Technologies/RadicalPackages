@@ -21,6 +21,13 @@ mkdir -p "$RADHDL_DOC_OUTPUT"
 
 DOCGEN_ARGS=(build --radhdl "$RADHDL_SOURCE_DIR" --out "$RADHDL_DOC_OUTPUT")
 DOCGEN_ARGS+=(--theme "${RADHDL_DOCGEN_THEME:-dark}")
+if [[ -n "${RADHDL_DOCGEN_LOGO:-}" ]]; then
+  DOCGEN_ARGS+=(--brand-logo "$RADHDL_DOCGEN_LOGO")
+elif [[ -f "$ROOT/../../RadLogo.png" ]]; then
+  DOCGEN_ARGS+=(--brand-logo "$ROOT/../../RadLogo.png")
+elif [[ -f "$ROOT/../../RADLogo.png" ]]; then
+  DOCGEN_ARGS+=(--brand-logo "$ROOT/../../RADLogo.png")
+fi
 if [[ "${RADHDL_DOCGEN_RUN_SIMS:-0}" == "1" ]]; then
   DOCGEN_ARGS+=(--run-sims)
 fi
@@ -46,7 +53,7 @@ cat > "$ROOT/docs/radhdl/index.html" <<'HTML'
 <body>
 <main class="page">
   <nav class="nav">
-    <a class="brand" href="../../">Radical Packages</a>
+    <a class="brand" href="../../"><img src="../../assets/rad-logo.png" alt="">Radical Packages</a>
     <div class="nav-links">
       <a href="../../packages.html">Packages</a>
       <a href="../">Docs</a>

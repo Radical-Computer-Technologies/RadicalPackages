@@ -7,12 +7,15 @@
   <link rel="stylesheet" href="../../assets/radhdl-docgen.css">
 </head>
 <body>
+<div class="sitebar"><div class="wrap">
+  <a class="brand-mark" href="../../index.html"><img class="brand-logo" src="../../assets/rad-logo.png" alt="" onerror="this.style.display='none'"><span>Radical Computer Technologies</span></a>
+</div></div>
 
 <header><div class="wrap">
   <nav class="breadcrumb"><a href="../../index.html">RadHDL</a> / <a href="../../libraries/radhdl.html">radhdl</a></nav>
   <div class="kicker">Interfaces / entity</div>
   <h1>radif_reg_bank</h1>
-  <div class="meta">Documentation version: 0.2.1 / Package: radif / Source package: radif</div>
+  <div class="meta">Documentation version: 0.2.1 / Subpackage: radif_regbank / Source package: radif</div>
   <div class="summary"><p>Configurable RadIF register bank with software-visible storage.
 Provides ready/valid read and write responses for a parameterized set of memory-mapped control/status registers.</p></div>
   <div class="quick-links"><a class="pill" href="#register-interfaces">Register interfaces</a><a class="pill" href="#testbenches">Testbenches: 4</a></div>
@@ -137,11 +140,17 @@ Exercises representative handshakes, reset behavior, frame boundaries, and numer
     const grids = Array.from(wave.querySelectorAll(".wave-grid"));
     const clockGrids = grids.filter((grid) => grid.dataset.clock === "1");
     const snapGrids = clockGrids.length ? clockGrids : grids;
+    const baseWidth = svg && svg.viewBox && svg.viewBox.baseVal ? Number(svg.viewBox.baseVal.width || 1120) : 1120;
+    const baseHeight = svg && svg.viewBox && svg.viewBox.baseVal ? Number(svg.viewBox.baseVal.height || 320) : 320;
     const setZoom = () => {
       const valueX = zoomX ? Number(zoomX.value) / 100 : 1;
       const valueY = zoomY ? Number(zoomY.value) / 100 : 1;
       wave.style.setProperty("--wave-zoom-x", String(valueX));
       wave.style.setProperty("--wave-zoom-y", String(valueY));
+      if (svg) {
+        svg.style.width = `${baseWidth * valueX}px`;
+        svg.style.height = `${baseHeight * valueY}px`;
+      }
       const minSpacing = valueX >= 2.5 ? 38 : valueX >= 1.6 ? 52 : 78;
       let lastShown = -Infinity;
       labels.forEach((label) => {
@@ -206,11 +215,17 @@ Exercises representative handshakes, reset behavior, frame boundaries, and numer
     const grids = Array.from(wave.querySelectorAll(".wave-grid"));
     const clockGrids = grids.filter((grid) => grid.dataset.clock === "1");
     const snapGrids = clockGrids.length ? clockGrids : grids;
+    const baseWidth = svg && svg.viewBox && svg.viewBox.baseVal ? Number(svg.viewBox.baseVal.width || 1120) : 1120;
+    const baseHeight = svg && svg.viewBox && svg.viewBox.baseVal ? Number(svg.viewBox.baseVal.height || 320) : 320;
     const setZoom = () => {
       const valueX = zoomX ? Number(zoomX.value) / 100 : 1;
       const valueY = zoomY ? Number(zoomY.value) / 100 : 1;
       wave.style.setProperty("--wave-zoom-x", String(valueX));
       wave.style.setProperty("--wave-zoom-y", String(valueY));
+      if (svg) {
+        svg.style.width = `${baseWidth * valueX}px`;
+        svg.style.height = `${baseHeight * valueY}px`;
+      }
       const minSpacing = valueX >= 2.5 ? 38 : valueX >= 1.6 ? 52 : 78;
       let lastShown = -Infinity;
       labels.forEach((label) => {
@@ -276,11 +291,17 @@ Exercises representative handshakes, reset behavior, frame boundaries, and numer
     const grids = Array.from(wave.querySelectorAll(".wave-grid"));
     const clockGrids = grids.filter((grid) => grid.dataset.clock === "1");
     const snapGrids = clockGrids.length ? clockGrids : grids;
+    const baseWidth = svg && svg.viewBox && svg.viewBox.baseVal ? Number(svg.viewBox.baseVal.width || 1120) : 1120;
+    const baseHeight = svg && svg.viewBox && svg.viewBox.baseVal ? Number(svg.viewBox.baseVal.height || 320) : 320;
     const setZoom = () => {
       const valueX = zoomX ? Number(zoomX.value) / 100 : 1;
       const valueY = zoomY ? Number(zoomY.value) / 100 : 1;
       wave.style.setProperty("--wave-zoom-x", String(valueX));
       wave.style.setProperty("--wave-zoom-y", String(valueY));
+      if (svg) {
+        svg.style.width = `${baseWidth * valueX}px`;
+        svg.style.height = `${baseHeight * valueY}px`;
+      }
       const minSpacing = valueX >= 2.5 ? 38 : valueX >= 1.6 ? 52 : 78;
       let lastShown = -Infinity;
       labels.forEach((label) => {
@@ -346,11 +367,17 @@ Exercises representative handshakes, reset behavior, frame boundaries, and numer
     const grids = Array.from(wave.querySelectorAll(".wave-grid"));
     const clockGrids = grids.filter((grid) => grid.dataset.clock === "1");
     const snapGrids = clockGrids.length ? clockGrids : grids;
+    const baseWidth = svg && svg.viewBox && svg.viewBox.baseVal ? Number(svg.viewBox.baseVal.width || 1120) : 1120;
+    const baseHeight = svg && svg.viewBox && svg.viewBox.baseVal ? Number(svg.viewBox.baseVal.height || 320) : 320;
     const setZoom = () => {
       const valueX = zoomX ? Number(zoomX.value) / 100 : 1;
       const valueY = zoomY ? Number(zoomY.value) / 100 : 1;
       wave.style.setProperty("--wave-zoom-x", String(valueX));
       wave.style.setProperty("--wave-zoom-y", String(valueY));
+      if (svg) {
+        svg.style.width = `${baseWidth * valueX}px`;
+        svg.style.height = `${baseHeight * valueY}px`;
+      }
       const minSpacing = valueX >= 2.5 ? 38 : valueX >= 1.6 ? 52 : 78;
       let lastShown = -Infinity;
       labels.forEach((label) => {
@@ -416,11 +443,17 @@ Exercises representative handshakes, reset behavior, frame boundaries, and numer
     const grids = Array.from(wave.querySelectorAll(".wave-grid"));
     const clockGrids = grids.filter((grid) => grid.dataset.clock === "1");
     const snapGrids = clockGrids.length ? clockGrids : grids;
+    const baseWidth = svg && svg.viewBox && svg.viewBox.baseVal ? Number(svg.viewBox.baseVal.width || 1120) : 1120;
+    const baseHeight = svg && svg.viewBox && svg.viewBox.baseVal ? Number(svg.viewBox.baseVal.height || 320) : 320;
     const setZoom = () => {
       const valueX = zoomX ? Number(zoomX.value) / 100 : 1;
       const valueY = zoomY ? Number(zoomY.value) / 100 : 1;
       wave.style.setProperty("--wave-zoom-x", String(valueX));
       wave.style.setProperty("--wave-zoom-y", String(valueY));
+      if (svg) {
+        svg.style.width = `${baseWidth * valueX}px`;
+        svg.style.height = `${baseHeight * valueY}px`;
+      }
       const minSpacing = valueX >= 2.5 ? 38 : valueX >= 1.6 ? 52 : 78;
       let lastShown = -Infinity;
       labels.forEach((label) => {
@@ -485,11 +518,17 @@ Exercises representative handshakes, reset behavior, frame boundaries, and numer
     const grids = Array.from(wave.querySelectorAll(".wave-grid"));
     const clockGrids = grids.filter((grid) => grid.dataset.clock === "1");
     const snapGrids = clockGrids.length ? clockGrids : grids;
+    const baseWidth = svg && svg.viewBox && svg.viewBox.baseVal ? Number(svg.viewBox.baseVal.width || 1120) : 1120;
+    const baseHeight = svg && svg.viewBox && svg.viewBox.baseVal ? Number(svg.viewBox.baseVal.height || 320) : 320;
     const setZoom = () => {
       const valueX = zoomX ? Number(zoomX.value) / 100 : 1;
       const valueY = zoomY ? Number(zoomY.value) / 100 : 1;
       wave.style.setProperty("--wave-zoom-x", String(valueX));
       wave.style.setProperty("--wave-zoom-y", String(valueY));
+      if (svg) {
+        svg.style.width = `${baseWidth * valueX}px`;
+        svg.style.height = `${baseHeight * valueY}px`;
+      }
       const minSpacing = valueX >= 2.5 ? 38 : valueX >= 1.6 ? 52 : 78;
       let lastShown = -Infinity;
       labels.forEach((label) => {
@@ -546,12 +585,5 @@ Exercises representative handshakes, reset behavior, frame boundaries, and numer
 </main>
 <footer><div class="wrap">RadHDL documentation version 0.2.1 / Generated by radhdl-docgen 0.1.0</div></footer>
 
-<script>
-document.addEventListener('input', function (event) {
-  if (!event.target.classList || !event.target.classList.contains('wave-zoom')) return;
-  var wave = event.target.closest('.wave');
-  if (wave) wave.style.setProperty('--wave-zoom', String(Number(event.target.value) / 100));
-});
-</script>
 </body>
 </html>

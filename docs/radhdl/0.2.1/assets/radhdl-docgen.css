@@ -1,10 +1,15 @@
-:root { color-scheme: dark; --bg: #0b0f14; --ink: #e6edf5; --muted: #9aa8b8; --line: #2a3544; --panel: #121923; --card: #101720; --accent: #62d6c7; --link: #8bd3ff; --code: #070a0f; --soft: #111a24; --reserved: #182231; --ruler: #16202d; }
+:root { color-scheme: dark; --bg: #0b0f14; --ink: #e6edf5; --muted: #9aa8b8; --line: #2a3544; --panel: #121923; --card: #101720; --accent: #62d6c7; --link: #8bd3ff; --code: #070a0f; --soft: #111a24; --reserved: #182231; --ruler: #16202d; --logo-filter: invert(1) brightness(1.25); }
 * { box-sizing: border-box; }
 body { margin: 0; font-family: Inter, system-ui, -apple-system, Segoe UI, sans-serif; color: var(--ink); background: var(--bg); line-height: 1.55; }
 a { color: var(--link); text-decoration: none; }
 a:hover { text-decoration: underline; }
 header { border-bottom: 1px solid var(--line); background: var(--panel); }
 .wrap { max-width: 1180px; margin: 0 auto; padding: 24px; }
+.sitebar { border-bottom: 1px solid var(--line); background: var(--bg); }
+.sitebar .wrap { display: flex; justify-content: space-between; align-items: center; padding-top: 14px; padding-bottom: 14px; }
+.brand-mark { display: inline-flex; align-items: center; gap: 10px; color: var(--ink); font-weight: 800; text-decoration: none; }
+.brand-mark:hover { text-decoration: none; color: var(--ink); }
+.brand-logo { width: 34px; height: 34px; object-fit: contain; filter: var(--logo-filter); }
 .kicker { color: var(--accent); font-weight: 700; letter-spacing: .05em; text-transform: uppercase; font-size: 12px; }
 h1 { margin: 4px 0 10px; font-size: 34px; line-height: 1.15; }
 h2 { margin-top: 34px; padding-bottom: 6px; border-bottom: 1px solid var(--line); }
@@ -15,14 +20,15 @@ h3 { margin-top: 24px; }
 .card strong { display: block; margin-bottom: 4px; }
 .meta { color: var(--muted); font-size: 13px; }
 .datasheet-browser { border: 1px solid var(--line); border-radius: 6px; background: var(--card); padding: 14px; }
-.datasheet-controls { display: grid; grid-template-columns: minmax(240px, 1.4fr) repeat(2, minmax(160px, .7fr)); gap: 10px; align-items: end; margin-bottom: 12px; }
+.datasheet-controls { display: grid; grid-template-columns: minmax(240px, 1.4fr) repeat(3, minmax(150px, .7fr)); gap: 10px; align-items: end; margin-bottom: 12px; }
 .datasheet-search, .datasheet-select { width: 100%; border: 1px solid var(--line); border-radius: 6px; background: var(--soft); color: var(--ink); padding: 9px 11px; }
 .filter-label { display: grid; gap: 4px; color: var(--muted); font-size: 12px; font-weight: 700; }
 .filter-checks { display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 12px; }
 .filter-checks label { display: inline-flex; align-items: center; gap: 6px; border: 1px solid var(--line); border-radius: 999px; background: var(--soft); padding: 5px 10px; font-size: 13px; cursor: pointer; }
 .filter-checks input { margin: 0; }
-.datasheet-section, .package-group { border: 1px solid var(--line); border-radius: 6px; margin: 8px 0; background: var(--soft); }
-.datasheet-section > summary, .package-group > summary { cursor: pointer; padding: 8px 10px; font-weight: 700; }
+.datasheet-section, .subpackage-group, .package-group { border: 1px solid var(--line); border-radius: 6px; margin: 8px 0; background: var(--soft); }
+.datasheet-section > summary, .subpackage-group > summary, .package-group > summary { cursor: pointer; padding: 8px 10px; font-weight: 700; }
+.subpackage-group { margin: 8px 10px; background: var(--panel); }
 .package-group { margin: 8px 10px; background: var(--card); }
 .datasheet-list { max-height: 260px; overflow-y: auto; padding: 4px 10px 10px; }
 .datasheet-link-row { display: flex; justify-content: space-between; gap: 12px; padding: 5px 0; border-top: 1px solid var(--line); font-size: 14px; }
@@ -63,7 +69,7 @@ pre { overflow: auto; padding: 14px; border-radius: 6px; background: var(--code)
 .wave-controls label { display: inline-flex; align-items: center; gap: 6px; white-space: nowrap; }
 .wave-controls input { width: 180px; accent-color: var(--accent); }
 .wave-viewport { overflow: auto; max-height: 560px; border: 1px solid var(--line); border-radius: 4px; background: var(--card); resize: vertical; }
-.wave svg { display: block; width: calc(1120px * var(--wave-zoom-x)); max-width: none; height: calc(var(--wave-height) * var(--wave-zoom-y)); }
+.wave svg { display: block; width: 1120px; max-width: none; height: var(--wave-height); }
 .wave-axis { stroke: var(--line); stroke-width: 1; }
 .wave-grid { stroke: var(--line); stroke-width: 1; opacity: .65; }
 .wave-grid.clock-grid { opacity: .45; }
