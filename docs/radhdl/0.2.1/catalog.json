@@ -2740,7 +2740,53 @@
       ],
       "testbenches": [],
       "register_maps": [],
-      "synth_reports": []
+      "synth_reports": [
+        {
+          "module": "raddsp_axis_dds",
+          "part": "xc7z020clg400-1",
+          "tool": "vivado",
+          "status": "ok",
+          "clock": {
+            "frequency_mhz": 100.0,
+            "period_ns": 10.0,
+            "port": "clk"
+          },
+          "generics": {},
+          "metrics": {
+            "timing": {
+              "hold_ths_ns": 0.0,
+              "hold_whs_ns": 0.158,
+              "setup_tns_ns": 0.0,
+              "setup_wns_ns": 6.518
+            },
+            "utilization": {
+              "bonded_iob": 144,
+              "bonded_iob_available": "125",
+              "bonded_iob_util_percent": "115.20",
+              "dsps": 0,
+              "dsps_available": "220",
+              "dsps_util_percent": "0.00",
+              "ramb18": 1,
+              "ramb18_available": "280",
+              "ramb18_util_percent": "0.36",
+              "ramb36_fifo": 0,
+              "ramb36_fifo_available": "140",
+              "ramb36_fifo_util_percent": "0.00",
+              "slice_luts": 71,
+              "slice_luts_available": "53200",
+              "slice_luts_util_percent": "0.13",
+              "slice_registers": 38,
+              "slice_registers_available": "106400",
+              "slice_registers_util_percent": "0.04"
+            }
+          },
+          "reports": {
+            "timing_summary": "/media/jvincent/Kingspec512/repos/RadHDL/.radmeta/hdl-synth/raddsp_axis_dds/timing_summary.rpt",
+            "utilization": "/media/jvincent/Kingspec512/repos/RadHDL/.radmeta/hdl-synth/raddsp_axis_dds/utilization.rpt"
+          },
+          "path": "projects/synth_reports/raddsp_axis_dds/xc7z020clg400-1/synth_summary.json"
+        }
+      ]
     },
     {
       "name": "raddsp_axis_fft_bin_product",
@@ -4376,7 +4422,282 @@
         }
       ],
       "register_maps": [],
-      "synth_reports": []
+      "synth_reports": [
+        {
+          "module": "raddsp_axis_fir",
+          "part": "xc7a35tcsg324-1",
+          "tool": "vivado",
+          "status": "ok",
+          "clock": {
+            "frequency_mhz": 100.0,
+            "period_ns": 10.0,
+            "port": "clk"
+          },
+          "generics": {},
+          "metrics": {
+            "timing": {
+              "hold_ths_ns": 0.0,
+              "hold_whs_ns": 0.201,
+              "setup_tns_ns": -66.865,
+              "setup_wns_ns": -4.179
+            },
+            "utilization": {
+              "bonded_iob": 329,
+              "bonded_iob_available": "210",
+              "bonded_iob_util_percent": "156.67",
+              "bram_tiles": 0,
+              "bram_tiles_available": "50",
+              "bram_tiles_util_percent": "0.00",
+              "dsps": 16,
+              "dsps_available": "90",
+              "dsps_util_percent": "17.78",
+              "ramb18": 0,
+              "ramb18_available": "100",
+              "ramb18_util_percent": "0.00",
+              "ramb36_fifo": 0,
+              "ramb36_fifo_available": "50",
+              "ramb36_fifo_util_percent": "0.00",
+              "slice_luts": 566,
+              "slice_luts_available": "20800",
+              "slice_luts_util_percent": "2.72",
+              "slice_registers": 243,
+              "slice_registers_available": "41600",
+              "slice_registers_util_percent": "0.58"
+            }
+          },
+          "reports": {
+            "timing_summary": "/media/jvincent/Kingspec512/repos/RadHDL/.radmeta/hdl-synth/raddsp_axis_fir/timing_summary.rpt",
+            "utilization": "/media/jvincent/Kingspec512/repos/RadHDL/.radmeta/hdl-synth/raddsp_axis_fir/utilization.rpt"
+          },
+          "path": "projects/synth_reports/raddsp_axis_fir/xc7a35tcsg324-1/synth_summary.json"
+        },
+        {
+          "module": "raddsp_axis_fir",
+          "part": "xc7a35tcsg324-2",
+          "tool": "vivado",
+          "status": "ok",
+          "clock": {
+            "frequency_mhz": 100.0,
+            "period_ns": 10.0,
+            "port": "clk"
+          },
+          "generics": {},
+          "metrics": {
+            "timing": {
+              "hold_ths_ns": 0.0,
+              "hold_whs_ns": 0.183,
+              "setup_tns_ns": -26.431,
+              "setup_wns_ns": -1.652
+            },
+            "utilization": {
+              "bonded_iob": 329,
+              "bonded_iob_available": "210",
+              "bonded_iob_util_percent": "156.67",
+              "bram_tiles": 0,
+              "bram_tiles_available": "50",
+              "bram_tiles_util_percent": "0.00",
+              "dsps": 16,
+              "dsps_available": "90",
+              "dsps_util_percent": "17.78",
+              "ramb18": 0,
+              "ramb18_available": "100",
+              "ramb18_util_percent": "0.00",
+              "ramb36_fifo": 0,
+              "ramb36_fifo_available": "50",
+              "ramb36_fifo_util_percent": "0.00",
+              "slice_luts": 566,
+              "slice_luts_available": "20800",
+              "slice_luts_util_percent": "2.72",
+              "slice_registers": 243,
+              "slice_registers_available": "41600",
+              "slice_registers_util_percent": "0.58"
+            }
+          },
+          "reports": {
+            "timing_summary": "/media/jvincent/Kingspec512/repos/RadHDL/.radmeta/hdl-synth/raddsp_axis_fir/timing_summary.rpt",
+            "utilization": "/media/jvincent/Kingspec512/repos/RadHDL/.radmeta/hdl-synth/raddsp_axis_fir/utilization.rpt"
+          },
+          "path": "projects/synth_reports/raddsp_axis_fir/xc7a35tcsg324-2/synth_summary.json"
+        },
+        {
+          "module": "raddsp_axis_fir",
+          "part": "xc7z020clg400-1",
+          "tool": "vivado",
+          "status": "ok",
+          "clock": {
+            "frequency_mhz": 100.0,
+            "period_ns": 10.0,
+            "port": "clk"
+          },
+          "generics": {},
+          "metrics": {
+            "timing": {
+              "hold_ths_ns": 0.0,
+              "hold_whs_ns": 0.199,
+              "setup_tns_ns": -66.929,
+              "setup_wns_ns": -4.183
+            },
+            "utilization": {}
+          },
+          "reports": {
+            "timing_summary": "/media/jvincent/Kingspec512/repos/RadHDL/.radmeta/hdl-synth/raddsp_axis_fir/timing_summary.rpt",
+            "utilization": "/media/jvincent/Kingspec512/repos/RadHDL/.radmeta/hdl-synth/raddsp_axis_fir/utilization.rpt"
+          },
+          "path": "projects/synth_reports/raddsp_axis_fir/xc7z020clg400-1/synth_summary.json"
+        },
+        {
+          "module": "raddsp_axis_fir",
+          "part": "xc7z020clg400-2",
+          "tool": "vivado",
+          "status": "ok",
+          "clock": {
+            "frequency_mhz": 100.0,
+            "period_ns": 10.0,
+            "port": "clk"
+          },
+          "generics": {},
+          "metrics": {
+            "timing": {
+              "hold_ths_ns": 0.0,
+              "hold_whs_ns": 0.181,
+              "setup_tns_ns": -27.151,
+              "setup_wns_ns": -1.697
+            },
+            "utilization": {
+              "bonded_iob": 329,
+              "bonded_iob_available": "125",
+              "bonded_iob_util_percent": "263.20",
+              "bram_tiles": 0,
+              "bram_tiles_available": "140",
+              "bram_tiles_util_percent": "0.00",
+              "dsps": 16,
+              "dsps_available": "220",
+              "dsps_util_percent": "7.27",
+              "ramb18": 0,
+              "ramb18_available": "280",
+              "ramb18_util_percent": "0.00",
+              "ramb36_fifo": 0,
+              "ramb36_fifo_available": "140",
+              "ramb36_fifo_util_percent": "0.00",
+              "slice_luts": 566,
+              "slice_luts_available": "53200",
+              "slice_luts_util_percent": "1.06",
+              "slice_registers": 243,
+              "slice_registers_available": "106400",
+              "slice_registers_util_percent": "0.23"
+            }
+          },
+          "reports": {
+            "timing_summary": "/media/jvincent/Kingspec512/repos/RadHDL/.radmeta/hdl-synth/raddsp_axis_fir/timing_summary.rpt",
+            "utilization": "/media/jvincent/Kingspec512/repos/RadHDL/.radmeta/hdl-synth/raddsp_axis_fir/utilization.rpt"
+          },
+          "path": "projects/synth_reports/raddsp_axis_fir/xc7z020clg400-2/synth_summary.json"
+        },
+        {
+          "module": "raddsp_axis_fir",
+          "part": "xc7z020clg400-3",
+          "tool": "vivado",
+          "status": "ok",
+          "clock": {
+            "frequency_mhz": 100.0,
+            "period_ns": 10.0,
+            "port": "clk"
+          },
+          "generics": {},
+          "metrics": {
+            "timing": {
+              "hold_ths_ns": 0.0,
+              "hold_whs_ns": 0.18,
+              "setup_tns_ns": -5.721,
+              "setup_wns_ns": -0.358
+            },
+            "utilization": {}
+          },
+          "reports": {
+            "timing_summary": "/media/jvincent/Kingspec512/repos/RadHDL/.radmeta/hdl-synth/raddsp_axis_fir/timing_summary.rpt",
+            "utilization": "/media/jvincent/Kingspec512/repos/RadHDL/.radmeta/hdl-synth/raddsp_axis_fir/utilization.rpt"
+          },
+          "path": "projects/synth_reports/raddsp_axis_fir/xc7z020clg400-3/synth_summary.json"
+        },
+        {
+          "module": "raddsp_axis_fir",
+          "part": "xczu3eg-sfvc784-1-e",
+          "tool": "vivado",
+          "status": "ok",
+          "clock": {
+            "frequency_mhz": 149.993,
+            "period_ns": 6.667,
+            "port": "clk"
+          },
+          "generics": {
+            "DEVICE_FAMILY": "ultrascaleplus"
+          },
+          "metrics": {
+            "timing": {
+              "hold_ths_ns": -13.326,
+              "hold_whs_ns": -0.068,
+              "setup_tns_ns": 0.0,
+              "setup_wns_ns": 0.83
+            },
+            "utilization": {
+              "bonded_iob": 329,
+              "bonded_iob_available": "252",
+              "bonded_iob_util_percent": "130.56",
+              "bram_tiles": 0,
+              "bram_tiles_available": "216",
+              "bram_tiles_util_percent": "0.00",
+              "dsps": 16,
+              "dsps_available": "360",
+              "dsps_util_percent": "4.44",
+              "ramb18": 0,
+              "ramb18_available": "432",
+              "ramb18_util_percent": "0.00",
+              "ramb36_fifo": 0,
+              "ramb36_fifo_available": "216",
+              "ramb36_fifo_util_percent": "0.00",
+              "slice_luts": 421,
+              "slice_luts_available": "70560",
+              "slice_luts_util_percent": "0.60",
+              "slice_registers": 243,
+              "slice_registers_available": "141120",
+              "slice_registers_util_percent": "0.17"
+            }
+          },
+          "reports": {
+            "timing_summary": "/media/jvincent/Kingspec512/repos/RadHDL/.radmeta/hdl-synth/raddsp_axis_fir/timing_summary.rpt",
+            "utilization": "/media/jvincent/Kingspec512/repos/RadHDL/.radmeta/hdl-synth/raddsp_axis_fir/utilization.rpt"
+          },
+          "path": "projects/synth_reports/raddsp_axis_fir/xczu3eg-sfvc784-1-e/synth_summary.json"
+        },
+        {
+          "module": "raddsp_axis_fir",
+          "part": "xczu3eg-sfvc784-2-e",
+          "tool": "vivado",
+          "status": "ok",
+          "clock": {
+            "frequency_mhz": 149.993,
+            "period_ns": 6.667,
+            "port": "clk"
+          },
+          "generics": {
+            "DEVICE_FAMILY": "ultrascaleplus"
+          },
+          "metrics": {
+            "timing": {
+              "hold_ths_ns": -13.23,
+              "hold_whs_ns": -0.068,
+              "setup_tns_ns": 0.0,
+              "setup_wns_ns": 1.651
+            },
+            "utilization": {}
+          },
+          "reports": {
+            "timing_summary": "/media/jvincent/Kingspec512/repos/RadHDL/.radmeta/hdl-synth/raddsp_axis_fir/timing_summary.rpt",
+            "utilization": "/media/jvincent/Kingspec512/repos/RadHDL/.radmeta/hdl-synth/raddsp_axis_fir/utilization.rpt"
+          },
+          "path": "projects/synth_reports/raddsp_axis_fir/xczu3eg-sfvc784-2-e/synth_summary.json"
+        }
+      ]
     },
     {
       "name": "raddsp_axis_fixed_to_float",
@@ -5162,6 +5483,75 @@
       "synth_reports": [
         {
           "module": "raddsp_axis_gain",
+          "part": "xc7a35tcsg324-1",
+          "tool": "vivado",
+          "status": "ok",
+          "clock": {
+            "frequency_mhz": 100.0,
+            "period_ns": 10.0,
+            "port": "clk"
+          },
+          "generics": {},
+          "metrics": {
+            "timing": {},
+            "utilization": {}
+          },
+          "reports": {
+            "timing_summary": "/media/jvincent/Kingspec512/repos/RadHDL/.radmeta/hdl-synth/raddsp_axis_gain/timing_summary.rpt",
+            "utilization": "/media/jvincent/Kingspec512/repos/RadHDL/.radmeta/hdl-synth/raddsp_axis_gain/utilization.rpt"
+          },
+          "path": "projects/synth_reports/raddsp_axis_gain/xc7a35tcsg324-1/synth_summary.json"
+        },
+        {
+          "module": "raddsp_axis_gain",
+          "part": "xc7a35tcsg324-2",
+          "tool": "vivado",
+          "status": "ok",
+          "clock": {
+            "frequency_mhz": 100.0,
+            "period_ns": 10.0,
+            "port": "clk"
+          },
+          "generics": {},
+          "metrics": {
+            "timing": {
+              "hold_ths_ns": 0.0,
+              "hold_whs_ns": 0.136,
+              "setup_tns_ns": 0.0,
+              "setup_wns_ns": 6.452
+            },
+            "utilization": {
+              "bonded_iob": 58,
+              "bonded_iob_available": "210",
+              "bonded_iob_util_percent": "27.62",
+              "bram_tiles": 0,
+              "bram_tiles_available": "50",
+              "bram_tiles_util_percent": "0.00",
+              "dsps": 1,
+              "dsps_available": "90",
+              "dsps_util_percent": "1.11",
+              "ramb18": 0,
+              "ramb18_available": "100",
+              "ramb18_util_percent": "0.00",
+              "ramb36_fifo": 0,
+              "ramb36_fifo_available": "50",
+              "ramb36_fifo_util_percent": "0.00",
+              "slice_luts": 27,
+              "slice_luts_available": "20800",
+              "slice_luts_util_percent": "0.13",
+              "slice_registers": 59,
+              "slice_registers_available": "41600",
+              "slice_registers_util_percent": "0.14"
+            }
+          },
+          "reports": {
+            "timing_summary": "/media/jvincent/Kingspec512/repos/RadHDL/.radmeta/hdl-synth/raddsp_axis_gain/timing_summary.rpt",
+            "utilization": "/media/jvincent/Kingspec512/repos/RadHDL/.radmeta/hdl-synth/raddsp_axis_gain/utilization.rpt"
+          },
+          "path": "projects/synth_reports/raddsp_axis_gain/xc7a35tcsg324-2/synth_summary.json"
+        },
+        {
+          "module": "raddsp_axis_gain",
           "part": "xc7z020clg400-1",
           "tool": "vivado",
           "status": "ok",
@@ -5207,6 +5597,75 @@
             "utilization": "/media/jvincent/Kingspec512/repos/RadHDL/.radmeta/hdl-synth/raddsp_axis_gain/utilization.rpt"
           },
           "path": "projects/synth_reports/raddsp_axis_gain/xc7z020clg400-1/synth_summary.json"
+        },
+        {
+          "module": "raddsp_axis_gain",
+          "part": "xc7z020clg400-2",
+          "tool": "vivado",
+          "status": "ok",
+          "clock": {
+            "frequency_mhz": 100.0,
+            "period_ns": 10.0,
+            "port": "clk"
+          },
+          "generics": {},
+          "metrics": {
+            "timing": {
+              "hold_ths_ns": 0.0,
+              "hold_whs_ns": 0.138,
+              "setup_tns_ns": 0.0,
+              "setup_wns_ns": 6.734
+            },
+            "utilization": {
+              "bonded_iob": 58,
+              "bonded_iob_available": "125",
+              "bonded_iob_util_percent": "46.40",
+              "bram_tiles": 0,
+              "bram_tiles_available": "140",
+              "bram_tiles_util_percent": "0.00",
+              "dsps": 1,
+              "dsps_available": "220",
+              "dsps_util_percent": "0.45",
+              "ramb18": 0,
+              "ramb18_available": "280",
+              "ramb18_util_percent": "0.00",
+              "ramb36_fifo": 0,
+              "ramb36_fifo_available": "140",
+              "ramb36_fifo_util_percent": "0.00",
+              "slice_luts": 27,
+              "slice_luts_available": "53200",
+              "slice_luts_util_percent": "0.05",
+              "slice_registers": 59,
+              "slice_registers_available": "106400",
+              "slice_registers_util_percent": "0.06"
+            }
+          },
+          "reports": {
+            "timing_summary": "/media/jvincent/Kingspec512/repos/RadHDL/.radmeta/hdl-synth/raddsp_axis_gain/timing_summary.rpt",
+            "utilization": "/media/jvincent/Kingspec512/repos/RadHDL/.radmeta/hdl-synth/raddsp_axis_gain/utilization.rpt"
+          },
+          "path": "projects/synth_reports/raddsp_axis_gain/xc7z020clg400-2/synth_summary.json"
+        },
+        {
+          "module": "raddsp_axis_gain",
+          "part": "xc7z020clg400-3",
+          "tool": "vivado",
+          "status": "ok",
+          "clock": {
+            "frequency_mhz": 100.0,
+            "period_ns": 10.0,
+            "port": "clk"
+          },
+          "generics": {},
+          "metrics": {
+            "timing": {},
+            "utilization": {}
+          },
+          "reports": {
+            "timing_summary": "/media/jvincent/Kingspec512/repos/RadHDL/.radmeta/hdl-synth/raddsp_axis_gain/timing_summary.rpt",
+            "utilization": "/media/jvincent/Kingspec512/repos/RadHDL/.radmeta/hdl-synth/raddsp_axis_gain/utilization.rpt"
+          },
+          "path": "projects/synth_reports/raddsp_axis_gain/xc7z020clg400-3/synth_summary.json"
         },
         {
           "module": "raddsp_axis_gain",
@@ -5257,6 +5716,56 @@
             "utilization": "/media/jvincent/Kingspec512/repos/RadHDL/.radmeta/hdl-synth/raddsp_axis_gain/utilization.rpt"
           },
           "path": "projects/synth_reports/raddsp_axis_gain/xczu3eg-sfvc784-1-e/synth_summary.json"
+        },
+        {
+          "module": "raddsp_axis_gain",
+          "part": "xczu3eg-sfvc784-2-e",
+          "tool": "vivado",
+          "status": "ok",
+          "clock": {
+            "frequency_mhz": 149.993,
+            "period_ns": 6.667,
+            "port": "clk"
+          },
+          "generics": {
+            "DEVICE_FAMILY": "ultrascaleplus"
+          },
+          "metrics": {
+            "timing": {
+              "hold_ths_ns": 0.0,
+              "hold_whs_ns": 0.146,
+              "setup_tns_ns": 0.0,
+              "setup_wns_ns": 5.545
+            },
+            "utilization": {
+              "bonded_iob": 58,
+              "bonded_iob_available": "210",
+              "bonded_iob_util_percent": "27.62",
+              "bram_tiles": 0,
+              "bram_tiles_available": "50",
+              "bram_tiles_util_percent": "0.00",
+              "dsps": 1,
+              "dsps_available": "90",
+              "dsps_util_percent": "1.11",
+              "ramb18": 0,
+              "ramb18_available": "100",
+              "ramb18_util_percent": "0.00",
+              "ramb36_fifo": 0,
+              "ramb36_fifo_available": "50",
+              "ramb36_fifo_util_percent": "0.00",
+              "slice_luts": 27,
+              "slice_luts_available": "20800",
+              "slice_luts_util_percent": "0.13",
+              "slice_registers": 59,
+              "slice_registers_available": "41600",
+              "slice_registers_util_percent": "0.14"
+            }
+          },
+          "reports": {
+            "timing_summary": "/media/jvincent/Kingspec512/repos/RadHDL/.radmeta/hdl-synth/raddsp_axis_gain/timing_summary.rpt",
+            "utilization": "/media/jvincent/Kingspec512/repos/RadHDL/.radmeta/hdl-synth/raddsp_axis_gain/utilization.rpt"
+          },
+          "path": "projects/synth_reports/raddsp_axis_gain/xczu3eg-sfvc784-2-e/synth_summary.json"
         }
       ]
     },
@@ -5623,7 +6132,282 @@
         }
       ],
       "register_maps": [],
-      "synth_reports": []
+      "synth_reports": [
+        {
+          "module": "raddsp_axis_matrix_dot",
+          "part": "xc7a35tcsg324-1",
+          "tool": "vivado",
+          "status": "ok",
+          "clock": {
+            "frequency_mhz": 100.0,
+            "period_ns": 10.0,
+            "port": "clk"
+          },
+          "generics": {},
+          "metrics": {
+            "timing": {
+              "hold_ths_ns": 0.0,
+              "hold_whs_ns": 0.129,
+              "setup_tns_ns": 0.0,
+              "setup_wns_ns": 6.461
+            },
+            "utilization": {
+              "bonded_iob": 124,
+              "bonded_iob_available": "210",
+              "bonded_iob_util_percent": "59.05",
+              "bram_tiles": 0,
+              "bram_tiles_available": "50",
+              "bram_tiles_util_percent": "0.00",
+              "dsps": 1,
+              "dsps_available": "90",
+              "dsps_util_percent": "1.11",
+              "ramb18": 0,
+              "ramb18_available": "100",
+              "ramb18_util_percent": "0.00",
+              "ramb36_fifo": 0,
+              "ramb36_fifo_available": "50",
+              "ramb36_fifo_util_percent": "0.00",
+              "slice_luts": 103,
+              "slice_luts_available": "20800",
+              "slice_luts_util_percent": "0.50",
+              "slice_registers": 168,
+              "slice_registers_available": "41600",
+              "slice_registers_util_percent": "0.40"
+            }
+          },
+          "reports": {
+            "timing_summary": "/media/jvincent/Kingspec512/repos/RadHDL/.radmeta/hdl-synth/raddsp_axis_matrix_dot/timing_summary.rpt",
+            "utilization": "/media/jvincent/Kingspec512/repos/RadHDL/.radmeta/hdl-synth/raddsp_axis_matrix_dot/utilization.rpt"
+          },
+          "path": "projects/synth_reports/raddsp_axis_matrix_dot/xc7a35tcsg324-1/synth_summary.json"
+        },
+        {
+          "module": "raddsp_axis_matrix_dot",
+          "part": "xc7a35tcsg324-2",
+          "tool": "vivado",
+          "status": "ok",
+          "clock": {
+            "frequency_mhz": 100.0,
+            "period_ns": 10.0,
+            "port": "clk"
+          },
+          "generics": {},
+          "metrics": {
+            "timing": {
+              "hold_ths_ns": 0.0,
+              "hold_whs_ns": 0.118,
+              "setup_tns_ns": 0.0,
+              "setup_wns_ns": 7.036
+            },
+            "utilization": {
+              "bonded_iob": 124,
+              "bonded_iob_available": "210",
+              "bonded_iob_util_percent": "59.05",
+              "bram_tiles": 0,
+              "bram_tiles_available": "50",
+              "bram_tiles_util_percent": "0.00",
+              "dsps": 1,
+              "dsps_available": "90",
+              "dsps_util_percent": "1.11",
+              "ramb18": 0,
+              "ramb18_available": "100",
+              "ramb18_util_percent": "0.00",
+              "ramb36_fifo": 0,
+              "ramb36_fifo_available": "50",
+              "ramb36_fifo_util_percent": "0.00",
+              "slice_luts": 103,
+              "slice_luts_available": "20800",
+              "slice_luts_util_percent": "0.50",
+              "slice_registers": 168,
+              "slice_registers_available": "41600",
+              "slice_registers_util_percent": "0.40"
+            }
+          },
+          "reports": {
+            "timing_summary": "/media/jvincent/Kingspec512/repos/RadHDL/.radmeta/hdl-synth/raddsp_axis_matrix_dot/timing_summary.rpt",
+            "utilization": "/media/jvincent/Kingspec512/repos/RadHDL/.radmeta/hdl-synth/raddsp_axis_matrix_dot/utilization.rpt"
+          },
+          "path": "projects/synth_reports/raddsp_axis_matrix_dot/xc7a35tcsg324-2/synth_summary.json"
+        },
+        {
+          "module": "raddsp_axis_matrix_dot",
+          "part": "xc7z020clg400-1",
+          "tool": "vivado",
+          "status": "ok",
+          "clock": {
+            "frequency_mhz": 100.0,
+            "period_ns": 10.0,
+            "port": "clk"
+          },
+          "generics": {},
+          "metrics": {
+            "timing": {
+              "hold_ths_ns": 0.0,
+              "hold_whs_ns": 0.152,
+              "setup_tns_ns": 0.0,
+              "setup_wns_ns": 6.439
+            },
+            "utilization": {}
+          },
+          "reports": {
+            "timing_summary": "/media/jvincent/Kingspec512/repos/RadHDL/.radmeta/hdl-synth/raddsp_axis_matrix_dot/timing_summary.rpt",
+            "utilization": "/media/jvincent/Kingspec512/repos/RadHDL/.radmeta/hdl-synth/raddsp_axis_matrix_dot/utilization.rpt"
+          },
+          "path": "projects/synth_reports/raddsp_axis_matrix_dot/xc7z020clg400-1/synth_summary.json"
+        },
+        {
+          "module": "raddsp_axis_matrix_dot",
+          "part": "xc7z020clg400-2",
+          "tool": "vivado",
+          "status": "ok",
+          "clock": {
+            "frequency_mhz": 100.0,
+            "period_ns": 10.0,
+            "port": "clk"
+          },
+          "generics": {},
+          "metrics": {
+            "timing": {
+              "hold_ths_ns": 0.0,
+              "hold_whs_ns": 0.138,
+              "setup_tns_ns": 0.0,
+              "setup_wns_ns": 7.019
+            },
+            "utilization": {
+              "bonded_iob": 124,
+              "bonded_iob_available": "125",
+              "bonded_iob_util_percent": "99.20",
+              "bram_tiles": 0,
+              "bram_tiles_available": "140",
+              "bram_tiles_util_percent": "0.00",
+              "dsps": 1,
+              "dsps_available": "220",
+              "dsps_util_percent": "0.45",
+              "ramb18": 0,
+              "ramb18_available": "280",
+              "ramb18_util_percent": "0.00",
+              "ramb36_fifo": 0,
+              "ramb36_fifo_available": "140",
+              "ramb36_fifo_util_percent": "0.00",
+              "slice_luts": 103,
+              "slice_luts_available": "53200",
+              "slice_luts_util_percent": "0.19",
+              "slice_registers": 168,
+              "slice_registers_available": "106400",
+              "slice_registers_util_percent": "0.16"
+            }
+          },
+          "reports": {
+            "timing_summary": "/media/jvincent/Kingspec512/repos/RadHDL/.radmeta/hdl-synth/raddsp_axis_matrix_dot/timing_summary.rpt",
+            "utilization": "/media/jvincent/Kingspec512/repos/RadHDL/.radmeta/hdl-synth/raddsp_axis_matrix_dot/utilization.rpt"
+          },
+          "path": "projects/synth_reports/raddsp_axis_matrix_dot/xc7z020clg400-2/synth_summary.json"
+        },
+        {
+          "module": "raddsp_axis_matrix_dot",
+          "part": "xc7z020clg400-3",
+          "tool": "vivado",
+          "status": "ok",
+          "clock": {
+            "frequency_mhz": 100.0,
+            "period_ns": 10.0,
+            "port": "clk"
+          },
+          "generics": {},
+          "metrics": {
+            "timing": {
+              "hold_ths_ns": 0.0,
+              "hold_whs_ns": 0.138,
+              "setup_tns_ns": 0.0,
+              "setup_wns_ns": 7.309
+            },
+            "utilization": {}
+          },
+          "reports": {
+            "timing_summary": "/media/jvincent/Kingspec512/repos/RadHDL/.radmeta/hdl-synth/raddsp_axis_matrix_dot/timing_summary.rpt",
+            "utilization": "/media/jvincent/Kingspec512/repos/RadHDL/.radmeta/hdl-synth/raddsp_axis_matrix_dot/utilization.rpt"
+          },
+          "path": "projects/synth_reports/raddsp_axis_matrix_dot/xc7z020clg400-3/synth_summary.json"
+        },
+        {
+          "module": "raddsp_axis_matrix_dot",
+          "part": "xczu3eg-sfvc784-1-e",
+          "tool": "vivado",
+          "status": "ok",
+          "clock": {
+            "frequency_mhz": 149.993,
+            "period_ns": 6.667,
+            "port": "clk"
+          },
+          "generics": {
+            "DEVICE_FAMILY": "ultrascaleplus"
+          },
+          "metrics": {
+            "timing": {
+              "hold_ths_ns": -6.796,
+              "hold_whs_ns": -0.07,
+              "setup_tns_ns": 0.0,
+              "setup_wns_ns": 5.155
+            },
+            "utilization": {
+              "bonded_iob": 124,
+              "bonded_iob_available": "252",
+              "bonded_iob_util_percent": "49.21",
+              "bram_tiles": 0,
+              "bram_tiles_available": "216",
+              "bram_tiles_util_percent": "0.00",
+              "dsps": 1,
+              "dsps_available": "360",
+              "dsps_util_percent": "0.28",
+              "ramb18": 0,
+              "ramb18_available": "432",
+              "ramb18_util_percent": "0.00",
+              "ramb36_fifo": 0,
+              "ramb36_fifo_available": "216",
+              "ramb36_fifo_util_percent": "0.00",
+              "slice_luts": 103,
+              "slice_luts_available": "70560",
+              "slice_luts_util_percent": "0.15",
+              "slice_registers": 168,
+              "slice_registers_available": "141120",
+              "slice_registers_util_percent": "0.12"
+            }
+          },
+          "reports": {
+            "timing_summary": "/media/jvincent/Kingspec512/repos/RadHDL/.radmeta/hdl-synth/raddsp_axis_matrix_dot/timing_summary.rpt",
+            "utilization": "/media/jvincent/Kingspec512/repos/RadHDL/.radmeta/hdl-synth/raddsp_axis_matrix_dot/utilization.rpt"
+          },
+          "path": "projects/synth_reports/raddsp_axis_matrix_dot/xczu3eg-sfvc784-1-e/synth_summary.json"
+        },
+        {
+          "module": "raddsp_axis_matrix_dot",
+          "part": "xczu3eg-sfvc784-2-e",
+          "tool": "vivado",
+          "status": "ok",
+          "clock": {
+            "frequency_mhz": 149.993,
+            "period_ns": 6.667,
+            "port": "clk"
+          },
+          "generics": {
+            "DEVICE_FAMILY": "ultrascaleplus"
+          },
+          "metrics": {
+            "timing": {
+              "hold_ths_ns": -6.397,
+              "hold_whs_ns": -0.071,
+              "setup_tns_ns": 0.0,
+              "setup_wns_ns": 5.407
+            },
+            "utilization": {}
+          },
+          "reports": {
+            "timing_summary": "/media/jvincent/Kingspec512/repos/RadHDL/.radmeta/hdl-synth/raddsp_axis_matrix_dot/timing_summary.rpt",
+            "utilization": "/media/jvincent/Kingspec512/repos/RadHDL/.radmeta/hdl-synth/raddsp_axis_matrix_dot/utilization.rpt"
+          },
+          "path": "projects/synth_reports/raddsp_axis_matrix_dot/xczu3eg-sfvc784-2-e/synth_summary.json"
+        }
+      ]
     },
     {
       "name": "raddsp_axis_matrix_elementwise",
@@ -6223,7 +7007,304 @@
         }
       ],
       "register_maps": [],
-      "synth_reports": []
+      "synth_reports": [
+        {
+          "module": "raddsp_axis_one_pole_lowpass",
+          "part": "xc7a35tcsg324-1",
+          "tool": "vivado",
+          "status": "ok",
+          "clock": {
+            "frequency_mhz": 100.0,
+            "period_ns": 10.0,
+            "port": "clk"
+          },
+          "generics": {},
+          "metrics": {
+            "timing": {
+              "hold_ths_ns": 0.0,
+              "hold_whs_ns": 0.435,
+              "setup_tns_ns": -63.011,
+              "setup_wns_ns": -1.976
+            },
+            "utilization": {}
+          },
+          "reports": {
+            "timing_summary": "/media/jvincent/Kingspec512/repos/RadHDL/.radmeta/hdl-synth/raddsp_axis_one_pole_lowpass/timing_summary.rpt",
+            "utilization": "/media/jvincent/Kingspec512/repos/RadHDL/.radmeta/hdl-synth/raddsp_axis_one_pole_lowpass/utilization.rpt"
+          },
+          "path": "projects/synth_reports/raddsp_axis_one_pole_lowpass/xc7a35tcsg324-1/synth_summary.json"
+        },
+        {
+          "module": "raddsp_axis_one_pole_lowpass",
+          "part": "xc7a35tcsg324-2",
+          "tool": "vivado",
+          "status": "ok",
+          "clock": {
+            "frequency_mhz": 100.0,
+            "period_ns": 10.0,
+            "port": "clk"
+          },
+          "generics": {},
+          "metrics": {
+            "timing": {
+              "hold_ths_ns": 0.0,
+              "hold_whs_ns": 0.419,
+              "setup_tns_ns": 0.0,
+              "setup_wns_ns": 0.075
+            },
+            "utilization": {
+              "bonded_iob": 59,
+              "bonded_iob_available": "210",
+              "bonded_iob_util_percent": "28.10",
+              "bram_tiles": 0,
+              "bram_tiles_available": "50",
+              "bram_tiles_util_percent": "0.00",
+              "dsps": 1,
+              "dsps_available": "90",
+              "dsps_util_percent": "1.11",
+              "ramb18": 0,
+              "ramb18_available": "100",
+              "ramb18_util_percent": "0.00",
+              "ramb36_fifo": 0,
+              "ramb36_fifo_available": "50",
+              "ramb36_fifo_util_percent": "0.00",
+              "slice_luts": 89,
+              "slice_luts_available": "20800",
+              "slice_luts_util_percent": "0.43",
+              "slice_registers": 34,
+              "slice_registers_available": "41600",
+              "slice_registers_util_percent": "0.08"
+            }
+          },
+          "reports": {
+            "timing_summary": "/media/jvincent/Kingspec512/repos/RadHDL/.radmeta/hdl-synth/raddsp_axis_one_pole_lowpass/timing_summary.rpt",
+            "utilization": "/media/jvincent/Kingspec512/repos/RadHDL/.radmeta/hdl-synth/raddsp_axis_one_pole_lowpass/utilization.rpt"
+          },
+          "path": "projects/synth_reports/raddsp_axis_one_pole_lowpass/xc7a35tcsg324-2/synth_summary.json"
+        },
+        {
+          "module": "raddsp_axis_one_pole_lowpass",
+          "part": "xc7z020clg400-1",
+          "tool": "vivado",
+          "status": "ok",
+          "clock": {
+            "frequency_mhz": 100.0,
+            "period_ns": 10.0,
+            "port": "clk"
+          },
+          "generics": {},
+          "metrics": {
+            "timing": {
+              "hold_ths_ns": 0.0,
+              "hold_whs_ns": 0.433,
+              "setup_tns_ns": -61.863,
+              "setup_wns_ns": -1.938
+            },
+            "utilization": {
+              "bonded_iob": 59,
+              "bonded_iob_available": "125",
+              "bonded_iob_util_percent": "47.20",
+              "bram_tiles": 0,
+              "bram_tiles_available": "140",
+              "bram_tiles_util_percent": "0.00",
+              "dsps": 1,
+              "dsps_available": "220",
+              "dsps_util_percent": "0.45",
+              "ramb18": 0,
+              "ramb18_available": "280",
+              "ramb18_util_percent": "0.00",
+              "ramb36_fifo": 0,
+              "ramb36_fifo_available": "140",
+              "ramb36_fifo_util_percent": "0.00",
+              "slice_luts": 89,
+              "slice_luts_available": "53200",
+              "slice_luts_util_percent": "0.17",
+              "slice_registers": 34,
+              "slice_registers_available": "106400",
+              "slice_registers_util_percent": "0.03"
+            }
+          },
+          "reports": {
+            "timing_summary": "/media/jvincent/Kingspec512/repos/RadHDL/.radmeta/hdl-synth/raddsp_axis_one_pole_lowpass/timing_summary.rpt",
+            "utilization": "/media/jvincent/Kingspec512/repos/RadHDL/.radmeta/hdl-synth/raddsp_axis_one_pole_lowpass/utilization.rpt"
+          },
+          "path": "projects/synth_reports/raddsp_axis_one_pole_lowpass/xc7z020clg400-1/synth_summary.json"
+        },
+        {
+          "module": "raddsp_axis_one_pole_lowpass",
+          "part": "xc7z020clg400-2",
+          "tool": "vivado",
+          "status": "ok",
+          "clock": {
+            "frequency_mhz": 100.0,
+            "period_ns": 10.0,
+            "port": "clk"
+          },
+          "generics": {},
+          "metrics": {
+            "timing": {
+              "hold_ths_ns": 0.0,
+              "hold_whs_ns": 0.417,
+              "setup_tns_ns": 0.0,
+              "setup_wns_ns": 0.102
+            },
+            "utilization": {}
+          },
+          "reports": {
+            "timing_summary": "/media/jvincent/Kingspec512/repos/RadHDL/.radmeta/hdl-synth/raddsp_axis_one_pole_lowpass/timing_summary.rpt",
+            "utilization": "/media/jvincent/Kingspec512/repos/RadHDL/.radmeta/hdl-synth/raddsp_axis_one_pole_lowpass/utilization.rpt"
+          },
+          "path": "projects/synth_reports/raddsp_axis_one_pole_lowpass/xc7z020clg400-2/synth_summary.json"
+        },
+        {
+          "module": "raddsp_axis_one_pole_lowpass",
+          "part": "xc7z020clg400-3",
+          "tool": "vivado",
+          "status": "ok",
+          "clock": {
+            "frequency_mhz": 100.0,
+            "period_ns": 10.0,
+            "port": "clk"
+          },
+          "generics": {},
+          "metrics": {
+            "timing": {
+              "hold_ths_ns": 0.0,
+              "hold_whs_ns": 0.441,
+              "setup_tns_ns": -68.349,
+              "setup_wns_ns": -2.138
+            },
+            "utilization": {
+              "bonded_iob": 59,
+              "bonded_iob_available": "125",
+              "bonded_iob_util_percent": "47.20",
+              "bram_tiles": 0,
+              "bram_tiles_available": "140",
+              "bram_tiles_util_percent": "0.00",
+              "dsps": 1,
+              "dsps_available": "220",
+              "dsps_util_percent": "0.45",
+              "ramb18": 0,
+              "ramb18_available": "280",
+              "ramb18_util_percent": "0.00",
+              "ramb36_fifo": 0,
+              "ramb36_fifo_available": "140",
+              "ramb36_fifo_util_percent": "0.00",
+              "slice_luts": 89,
+              "slice_luts_available": "53200",
+              "slice_luts_util_percent": "0.17",
+              "slice_registers": 34,
+              "slice_registers_available": "106400",
+              "slice_registers_util_percent": "0.03"
+            }
+          },
+          "reports": {
+            "timing_summary": "/media/jvincent/Kingspec512/repos/RadHDL/.radmeta/hdl-synth/raddsp_axis_one_pole_lowpass/timing_summary.rpt",
+            "utilization": "/media/jvincent/Kingspec512/repos/RadHDL/.radmeta/hdl-synth/raddsp_axis_one_pole_lowpass/utilization.rpt"
+          },
+          "path": "projects/synth_reports/raddsp_axis_one_pole_lowpass/xc7z020clg400-3/synth_summary.json"
+        },
+        {
+          "module": "raddsp_axis_one_pole_lowpass",
+          "part": "xczu3eg-sfvc784-1-e",
+          "tool": "vivado",
+          "status": "ok",
+          "clock": {
+            "frequency_mhz": 149.993,
+            "period_ns": 6.667,
+            "port": "clk"
+          },
+          "generics": {
+            "DEVICE_FAMILY": "ultrascaleplus"
+          },
+          "metrics": {
+            "timing": {
+              "hold_ths_ns": 0.0,
+              "hold_whs_ns": 0.018,
+              "setup_tns_ns": 0.0,
+              "setup_wns_ns": 1.319
+            },
+            "utilization": {
+              "bonded_iob": 59,
+              "bonded_iob_available": "252",
+              "bonded_iob_util_percent": "23.41",
+              "bram_tiles": 0,
+              "bram_tiles_available": "216",
+              "bram_tiles_util_percent": "0.00",
+              "dsps": 1,
+              "dsps_available": "360",
+              "dsps_util_percent": "0.28",
+              "ramb18": 0,
+              "ramb18_available": "432",
+              "ramb18_util_percent": "0.00",
+              "ramb36_fifo": 0,
+              "ramb36_fifo_available": "216",
+              "ramb36_fifo_util_percent": "0.00",
+              "slice_luts": 65,
+              "slice_luts_available": "70560",
+              "slice_luts_util_percent": "0.09",
+              "slice_registers": 34,
+              "slice_registers_available": "141120",
+              "slice_registers_util_percent": "0.02"
+            }
+          },
+          "reports": {
+            "timing_summary": "/media/jvincent/Kingspec512/repos/RadHDL/.radmeta/hdl-synth/raddsp_axis_one_pole_lowpass/timing_summary.rpt",
+            "utilization": "/media/jvincent/Kingspec512/repos/RadHDL/.radmeta/hdl-synth/raddsp_axis_one_pole_lowpass/utilization.rpt"
+          },
+          "path": "projects/synth_reports/raddsp_axis_one_pole_lowpass/xczu3eg-sfvc784-1-e/synth_summary.json"
+        },
+        {
+          "module": "raddsp_axis_one_pole_lowpass",
+          "part": "xczu3eg-sfvc784-2-e",
+          "tool": "vivado",
+          "status": "ok",
+          "clock": {
+            "frequency_mhz": 149.993,
+            "period_ns": 6.667,
+            "port": "clk"
+          },
+          "generics": {
+            "DEVICE_FAMILY": "ultrascaleplus"
+          },
+          "metrics": {
+            "timing": {
+              "hold_ths_ns": 0.0,
+              "hold_whs_ns": 0.022,
+              "setup_tns_ns": 0.0,
+              "setup_wns_ns": 5.474
+            },
+            "utilization": {
+              "bonded_iob": 59,
+              "bonded_iob_available": "210",
+              "bonded_iob_util_percent": "28.10",
+              "bram_tiles": 0,
+              "bram_tiles_available": "50",
+              "bram_tiles_util_percent": "0.00",
+              "dsps": 1,
+              "dsps_available": "90",
+              "dsps_util_percent": "1.11",
+              "ramb18": 0,
+              "ramb18_available": "100",
+              "ramb18_util_percent": "0.00",
+              "ramb36_fifo": 0,
+              "ramb36_fifo_available": "50",
+              "ramb36_fifo_util_percent": "0.00",
+              "slice_luts": 89,
+              "slice_luts_available": "20800",
+              "slice_luts_util_percent": "0.43",
+              "slice_registers": 34,
+              "slice_registers_available": "41600",
+              "slice_registers_util_percent": "0.08"
+            }
+          },
+          "reports": {
+            "timing_summary": "/media/jvincent/Kingspec512/repos/RadHDL/.radmeta/hdl-synth/raddsp_axis_one_pole_lowpass/timing_summary.rpt",
+            "utilization": "/media/jvincent/Kingspec512/repos/RadHDL/.radmeta/hdl-synth/raddsp_axis_one_pole_lowpass/utilization.rpt"
+          },
+          "path": "projects/synth_reports/raddsp_axis_one_pole_lowpass/xczu3eg-sfvc784-2-e/synth_summary.json"
+        }
+      ]
     },
     {
       "name": "raddsp_axis_radfft",
@@ -6553,7 +7634,7 @@
             },
             "returncode": 2,
             "stdout": "",
-            "stderr": "\n******************** GHDL Bug occurred ***************************\nPlease report this bug on https://github.com/ghdl/ghdl/issues\nGHDL release: 1.0.0 (Ubuntu 1.0.0+dfsg-6) [Dunoon edition]\nCompiled with GNAT Version: 10.3.1 20211117\nTarget: x86_64-linux-gnu\n/tmp/radhdl-ghdl-_8eeowyc/\nCommand line:\n/usr/bin/ghdl-mcode -e --std=08 --ieee=synopsys -P/tmp/radhdl-ghdl-_8eeowyc --workdir=/tmp/radhdl-ghdl-_8eeowyc tb_raddsp_axis_radfft\nException TYPES.INTERNAL_ERROR raised\nException information:\nraised TYPES.INTERNAL_ERROR : trans.adb:553\nCall stack traceback locations:\n0x64b88f89813d 0x64b88f89851b 0x64b88f898797 0x64b88fa2dfc8 0x64b88fa3cd6d 0x64b88fa3ce25 0x64b88fa46bde 0x64b88fa65aa7 0x64b88fa65d5f 0x64b88fa66257 0x64b88fa666b1 0x64b88fa73330 0x64b88fa7281c 0x64b88fabaa78 0x64b88fabab9f 0x64b88fabb1f8 0x64b88fabb98a 0x64b88fabd596 0x64b88fabd6eb 0x64b88fac0b0f 0x64b88fac53f8 0x64b88fac523b 0x64b88fac54e5 0x64b88fac523b 0x64b88fac54e5 0x64b88fa894fa 0x64b88fa7ceac 0x64b88fa8dd8c 0x64b88fa880a0 0x64b88facdb55 0x64b88fa0eaf5 0x64b88f94469e 0x64b88fad14b3 0x64b88f6fcb07 0x7e55f8029d8e 0x7e55f8029e3e 0x64b88f6fb243 0xfffffffffffffffe\n******************************************************************\n"
+            "stderr": "\n******************** GHDL Bug occurred ***************************\nPlease report this bug on https://github.com/ghdl/ghdl/issues\nGHDL release: 1.0.0 (Ubuntu 1.0.0+dfsg-6) [Dunoon edition]\nCompiled with GNAT Version: 10.3.1 20211117\nTarget: x86_64-linux-gnu\n/tmp/radhdl-ghdl-87buice6/\nCommand line:\n/usr/bin/ghdl-mcode -e --std=08 --ieee=synopsys -P/tmp/radhdl-ghdl-87buice6 --workdir=/tmp/radhdl-ghdl-87buice6 tb_raddsp_axis_radfft\nException TYPES.INTERNAL_ERROR raised\nException information:\nraised TYPES.INTERNAL_ERROR : trans.adb:553\nCall stack traceback locations:\n0x62cc9f49413d 0x62cc9f49451b 0x62cc9f494797 0x62cc9f629fc8 0x62cc9f638d6d 0x62cc9f638e25 0x62cc9f642bde 0x62cc9f661aa7 0x62cc9f661d5f 0x62cc9f662257 0x62cc9f6626b1 0x62cc9f66f330 0x62cc9f66e81c 0x62cc9f6b6a78 0x62cc9f6b6b9f 0x62cc9f6b71f8 0x62cc9f6b798a 0x62cc9f6b9596 0x62cc9f6b96eb 0x62cc9f6bcb0f 0x62cc9f6c13f8 0x62cc9f6c123b 0x62cc9f6c14e5 0x62cc9f6c123b 0x62cc9f6c14e5 0x62cc9f6854fa 0x62cc9f678eac 0x62cc9f689d8c 0x62cc9f6840a0 0x62cc9f6c9b55 0x62cc9f60aaf5 0x62cc9f54069e 0x62cc9f6cd4b3 0x62cc9f2f8b07 0x7b76b7e29d8e 0x7b76b7e29e3e 0x62cc9f2f7243 0xfffffffffffffffe\n******************************************************************\n"
           }
         },
         {
@@ -6632,7 +7713,7 @@
             },
             "returncode": 2,
             "stdout": "",
-            "stderr": "\n******************** GHDL Bug occurred ***************************\nPlease report this bug on https://github.com/ghdl/ghdl/issues\nGHDL release: 1.0.0 (Ubuntu 1.0.0+dfsg-6) [Dunoon edition]\nCompiled with GNAT Version: 10.3.1 20211117\nTarget: x86_64-linux-gnu\n/tmp/radhdl-ghdl-bsoxjh94/\nCommand line:\n/usr/bin/ghdl-mcode -e --std=08 --ieee=synopsys -P/tmp/radhdl-ghdl-bsoxjh94 --workdir=/tmp/radhdl-ghdl-bsoxjh94 tb_raddsp_axis_radfft_ddr\nException TYPES.INTERNAL_ERROR raised\nException information:\nraised TYPES.INTERNAL_ERROR : trans.adb:553\nCall stack traceback locations:\n0x57e9c82e713d 0x57e9c82e751b 0x57e9c82e7797 0x57e9c847cfc8 0x57e9c848bd6d 0x57e9c848be25 0x57e9c8495bde 0x57e9c84b4aa7 0x57e9c84b4d5f 0x57e9c84b5257 0x57e9c84b56b1 0x57e9c84c2330 0x57e9c84c181c 0x57e9c8509a78 0x57e9c8509b9f 0x57e9c850a1f8 0x57e9c850a98a 0x57e9c850c596 0x57e9c850c6eb 0x57e9c850fb0f 0x57e9c85143f8 0x57e9c851423b 0x57e9c85144e5 0x57e9c851423b 0x57e9c85144e5 0x57e9c84d84fa 0x57e9c84cbeac 0x57e9c84dcd8c 0x57e9c84d70a0 0x57e9c851cb55 0x57e9c845daf5 0x57e9c839369e 0x57e9c85204b3 0x57e9c814bb07 0x768c36029d8e 0x768c36029e3e 0x57e9c814a243 0xfffffffffffffffe\n******************************************************************\n"
+            "stderr": "\n******************** GHDL Bug occurred ***************************\nPlease report this bug on https://github.com/ghdl/ghdl/issues\nGHDL release: 1.0.0 (Ubuntu 1.0.0+dfsg-6) [Dunoon edition]\nCompiled with GNAT Version: 10.3.1 20211117\nTarget: x86_64-linux-gnu\n/tmp/radhdl-ghdl-aexwj_11/\nCommand line:\n/usr/bin/ghdl-mcode -e --std=08 --ieee=synopsys -P/tmp/radhdl-ghdl-aexwj_11 --workdir=/tmp/radhdl-ghdl-aexwj_11 tb_raddsp_axis_radfft_ddr\nException TYPES.INTERNAL_ERROR raised\nException information:\nraised TYPES.INTERNAL_ERROR : trans.adb:553\nCall stack traceback locations:\n0x5d930b65313d 0x5d930b65351b 0x5d930b653797 0x5d930b7e8fc8 0x5d930b7f7d6d 0x5d930b7f7e25 0x5d930b801bde 0x5d930b820aa7 0x5d930b820d5f 0x5d930b821257 0x5d930b8216b1 0x5d930b82e330 0x5d930b82d81c 0x5d930b875a78 0x5d930b875b9f 0x5d930b8761f8 0x5d930b87698a 0x5d930b878596 0x5d930b8786eb 0x5d930b87bb0f 0x5d930b8803f8 0x5d930b88023b 0x5d930b8804e5 0x5d930b88023b 0x5d930b8804e5 0x5d930b8444fa 0x5d930b837eac 0x5d930b848d8c 0x5d930b8430a0 0x5d930b888b55 0x5d930b7c9af5 0x5d930b6ff69e 0x5d930b88c4b3 0x5d930b4b7b07 0x708942a29d8e 0x708942a29e3e 0x5d930b4b6243 0xfffffffffffffffe\n******************************************************************\n"
           }
         },
         {
@@ -6710,7 +7791,7 @@
             },
             "returncode": 2,
             "stdout": "",
-            "stderr": "\n******************** GHDL Bug occurred ***************************\nPlease report this bug on https://github.com/ghdl/ghdl/issues\nGHDL release: 1.0.0 (Ubuntu 1.0.0+dfsg-6) [Dunoon edition]\nCompiled with GNAT Version: 10.3.1 20211117\nTarget: x86_64-linux-gnu\n/tmp/radhdl-ghdl-2gjo6l9d/\nCommand line:\n/usr/bin/ghdl-mcode -e --std=08 --ieee=synopsys -P/tmp/radhdl-ghdl-2gjo6l9d --workdir=/tmp/radhdl-ghdl-2gjo6l9d tb_raddsp_axis_radfft_ddr_xcorr_1024\nException TYPES.INTERNAL_ERROR raised\nException information:\nraised TYPES.INTERNAL_ERROR : trans.adb:553\nCall stack traceback locations:\n0x5a2ed801713d 0x5a2ed801751b 0x5a2ed8017797 0x5a2ed81acfc8 0x5a2ed81bbd6d 0x5a2ed81bbe25 0x5a2ed81c5bde 0x5a2ed81e4aa7 0x5a2ed81e4d5f 0x5a2ed81e5257 0x5a2ed81e56b1 0x5a2ed81f2330 0x5a2ed81f181c 0x5a2ed8239a78 0x5a2ed8239b9f 0x5a2ed823a1f8 0x5a2ed823a98a 0x5a2ed823c596 0x5a2ed823c6eb 0x5a2ed823fb0f 0x5a2ed82443f8 0x5a2ed824423b 0x5a2ed82444e5 0x5a2ed824423b 0x5a2ed82444e5 0x5a2ed82084fa 0x5a2ed81fbeac 0x5a2ed820cd8c 0x5a2ed82070a0 0x5a2ed824cb55 0x5a2ed818daf5 0x5a2ed80c369e 0x5a2ed82504b3 0x5a2ed7e7bb07 0x7f7466229d8e 0x7f7466229e3e 0x5a2ed7e7a243 0xfffffffffffffffe\n******************************************************************\n"
+            "stderr": "\n******************** GHDL Bug occurred ***************************\nPlease report this bug on https://github.com/ghdl/ghdl/issues\nGHDL release: 1.0.0 (Ubuntu 1.0.0+dfsg-6) [Dunoon edition]\nCompiled with GNAT Version: 10.3.1 20211117\nTarget: x86_64-linux-gnu\n/tmp/radhdl-ghdl-3goesamh/\nCommand line:\n/usr/bin/ghdl-mcode -e --std=08 --ieee=synopsys -P/tmp/radhdl-ghdl-3goesamh --workdir=/tmp/radhdl-ghdl-3goesamh tb_raddsp_axis_radfft_ddr_xcorr_1024\nException TYPES.INTERNAL_ERROR raised\nException information:\nraised TYPES.INTERNAL_ERROR : trans.adb:553\nCall stack traceback locations:\n0x5ef9fe46313d 0x5ef9fe46351b 0x5ef9fe463797 0x5ef9fe5f8fc8 0x5ef9fe607d6d 0x5ef9fe607e25 0x5ef9fe611bde 0x5ef9fe630aa7 0x5ef9fe630d5f 0x5ef9fe631257 0x5ef9fe6316b1 0x5ef9fe63e330 0x5ef9fe63d81c 0x5ef9fe685a78 0x5ef9fe685b9f 0x5ef9fe6861f8 0x5ef9fe68698a 0x5ef9fe688596 0x5ef9fe6886eb 0x5ef9fe68bb0f 0x5ef9fe6903f8 0x5ef9fe69023b 0x5ef9fe6904e5 0x5ef9fe69023b 0x5ef9fe6904e5 0x5ef9fe6544fa 0x5ef9fe647eac 0x5ef9fe658d8c 0x5ef9fe6530a0 0x5ef9fe698b55 0x5ef9fe5d9af5 0x5ef9fe50f69e 0x5ef9fe69c4b3 0x5ef9fe2c7b07 0x7db2c0829d8e 0x7db2c0829e3e 0x5ef9fe2c6243 0xfffffffffffffffe\n******************************************************************\n"
           }
         }
       ],
@@ -7554,7 +8635,7 @@
             },
             "returncode": 2,
             "stdout": "",
-            "stderr": "\n******************** GHDL Bug occurred ***************************\nPlease report this bug on https://github.com/ghdl/ghdl/issues\nGHDL release: 1.0.0 (Ubuntu 1.0.0+dfsg-6) [Dunoon edition]\nCompiled with GNAT Version: 10.3.1 20211117\nTarget: x86_64-linux-gnu\n/tmp/radhdl-ghdl-bsoxjh94/\nCommand line:\n/usr/bin/ghdl-mcode -e --std=08 --ieee=synopsys -P/tmp/radhdl-ghdl-bsoxjh94 --workdir=/tmp/radhdl-ghdl-bsoxjh94 tb_raddsp_axis_radfft_ddr\nException TYPES.INTERNAL_ERROR raised\nException information:\nraised TYPES.INTERNAL_ERROR : trans.adb:553\nCall stack traceback locations:\n0x57e9c82e713d 0x57e9c82e751b 0x57e9c82e7797 0x57e9c847cfc8 0x57e9c848bd6d 0x57e9c848be25 0x57e9c8495bde 0x57e9c84b4aa7 0x57e9c84b4d5f 0x57e9c84b5257 0x57e9c84b56b1 0x57e9c84c2330 0x57e9c84c181c 0x57e9c8509a78 0x57e9c8509b9f 0x57e9c850a1f8 0x57e9c850a98a 0x57e9c850c596 0x57e9c850c6eb 0x57e9c850fb0f 0x57e9c85143f8 0x57e9c851423b 0x57e9c85144e5 0x57e9c851423b 0x57e9c85144e5 0x57e9c84d84fa 0x57e9c84cbeac 0x57e9c84dcd8c 0x57e9c84d70a0 0x57e9c851cb55 0x57e9c845daf5 0x57e9c839369e 0x57e9c85204b3 0x57e9c814bb07 0x768c36029d8e 0x768c36029e3e 0x57e9c814a243 0xfffffffffffffffe\n******************************************************************\n"
+            "stderr": "\n******************** GHDL Bug occurred ***************************\nPlease report this bug on https://github.com/ghdl/ghdl/issues\nGHDL release: 1.0.0 (Ubuntu 1.0.0+dfsg-6) [Dunoon edition]\nCompiled with GNAT Version: 10.3.1 20211117\nTarget: x86_64-linux-gnu\n/tmp/radhdl-ghdl-aexwj_11/\nCommand line:\n/usr/bin/ghdl-mcode -e --std=08 --ieee=synopsys -P/tmp/radhdl-ghdl-aexwj_11 --workdir=/tmp/radhdl-ghdl-aexwj_11 tb_raddsp_axis_radfft_ddr\nException TYPES.INTERNAL_ERROR raised\nException information:\nraised TYPES.INTERNAL_ERROR : trans.adb:553\nCall stack traceback locations:\n0x5d930b65313d 0x5d930b65351b 0x5d930b653797 0x5d930b7e8fc8 0x5d930b7f7d6d 0x5d930b7f7e25 0x5d930b801bde 0x5d930b820aa7 0x5d930b820d5f 0x5d930b821257 0x5d930b8216b1 0x5d930b82e330 0x5d930b82d81c 0x5d930b875a78 0x5d930b875b9f 0x5d930b8761f8 0x5d930b87698a 0x5d930b878596 0x5d930b8786eb 0x5d930b87bb0f 0x5d930b8803f8 0x5d930b88023b 0x5d930b8804e5 0x5d930b88023b 0x5d930b8804e5 0x5d930b8444fa 0x5d930b837eac 0x5d930b848d8c 0x5d930b8430a0 0x5d930b888b55 0x5d930b7c9af5 0x5d930b6ff69e 0x5d930b88c4b3 0x5d930b4b7b07 0x708942a29d8e 0x708942a29e3e 0x5d930b4b6243 0xfffffffffffffffe\n******************************************************************\n"
           }
         },
         {
@@ -7632,7 +8713,7 @@
             },
             "returncode": 2,
             "stdout": "",
-            "stderr": "\n******************** GHDL Bug occurred ***************************\nPlease report this bug on https://github.com/ghdl/ghdl/issues\nGHDL release: 1.0.0 (Ubuntu 1.0.0+dfsg-6) [Dunoon edition]\nCompiled with GNAT Version: 10.3.1 20211117\nTarget: x86_64-linux-gnu\n/tmp/radhdl-ghdl-2gjo6l9d/\nCommand line:\n/usr/bin/ghdl-mcode -e --std=08 --ieee=synopsys -P/tmp/radhdl-ghdl-2gjo6l9d --workdir=/tmp/radhdl-ghdl-2gjo6l9d tb_raddsp_axis_radfft_ddr_xcorr_1024\nException TYPES.INTERNAL_ERROR raised\nException information:\nraised TYPES.INTERNAL_ERROR : trans.adb:553\nCall stack traceback locations:\n0x5a2ed801713d 0x5a2ed801751b 0x5a2ed8017797 0x5a2ed81acfc8 0x5a2ed81bbd6d 0x5a2ed81bbe25 0x5a2ed81c5bde 0x5a2ed81e4aa7 0x5a2ed81e4d5f 0x5a2ed81e5257 0x5a2ed81e56b1 0x5a2ed81f2330 0x5a2ed81f181c 0x5a2ed8239a78 0x5a2ed8239b9f 0x5a2ed823a1f8 0x5a2ed823a98a 0x5a2ed823c596 0x5a2ed823c6eb 0x5a2ed823fb0f 0x5a2ed82443f8 0x5a2ed824423b 0x5a2ed82444e5 0x5a2ed824423b 0x5a2ed82444e5 0x5a2ed82084fa 0x5a2ed81fbeac 0x5a2ed820cd8c 0x5a2ed82070a0 0x5a2ed824cb55 0x5a2ed818daf5 0x5a2ed80c369e 0x5a2ed82504b3 0x5a2ed7e7bb07 0x7f7466229d8e 0x7f7466229e3e 0x5a2ed7e7a243 0xfffffffffffffffe\n******************************************************************\n"
+            "stderr": "\n******************** GHDL Bug occurred ***************************\nPlease report this bug on https://github.com/ghdl/ghdl/issues\nGHDL release: 1.0.0 (Ubuntu 1.0.0+dfsg-6) [Dunoon edition]\nCompiled with GNAT Version: 10.3.1 20211117\nTarget: x86_64-linux-gnu\n/tmp/radhdl-ghdl-3goesamh/\nCommand line:\n/usr/bin/ghdl-mcode -e --std=08 --ieee=synopsys -P/tmp/radhdl-ghdl-3goesamh --workdir=/tmp/radhdl-ghdl-3goesamh tb_raddsp_axis_radfft_ddr_xcorr_1024\nException TYPES.INTERNAL_ERROR raised\nException information:\nraised TYPES.INTERNAL_ERROR : trans.adb:553\nCall stack traceback locations:\n0x5ef9fe46313d 0x5ef9fe46351b 0x5ef9fe463797 0x5ef9fe5f8fc8 0x5ef9fe607d6d 0x5ef9fe607e25 0x5ef9fe611bde 0x5ef9fe630aa7 0x5ef9fe630d5f 0x5ef9fe631257 0x5ef9fe6316b1 0x5ef9fe63e330 0x5ef9fe63d81c 0x5ef9fe685a78 0x5ef9fe685b9f 0x5ef9fe6861f8 0x5ef9fe68698a 0x5ef9fe688596 0x5ef9fe6886eb 0x5ef9fe68bb0f 0x5ef9fe6903f8 0x5ef9fe69023b 0x5ef9fe6904e5 0x5ef9fe69023b 0x5ef9fe6904e5 0x5ef9fe6544fa 0x5ef9fe647eac 0x5ef9fe658d8c 0x5ef9fe6530a0 0x5ef9fe698b55 0x5ef9fe5d9af5 0x5ef9fe50f69e 0x5ef9fe69c4b3 0x5ef9fe2c7b07 0x7db2c0829d8e 0x7db2c0829e3e 0x5ef9fe2c6243 0xfffffffffffffffe\n******************************************************************\n"
           }
         }
       ],
@@ -9923,7 +11004,7 @@
             },
             "returncode": 2,
             "stdout": "",
-            "stderr": "\n******************** GHDL Bug occurred ***************************\nPlease report this bug on https://github.com/ghdl/ghdl/issues\nGHDL release: 1.0.0 (Ubuntu 1.0.0+dfsg-6) [Dunoon edition]\nCompiled with GNAT Version: 10.3.1 20211117\nTarget: x86_64-linux-gnu\n/tmp/radhdl-ghdl-3_w_9bam/\nCommand line:\n/usr/bin/ghdl-mcode -e --std=08 --ieee=synopsys -P/tmp/radhdl-ghdl-3_w_9bam --workdir=/tmp/radhdl-ghdl-3_w_9bam tb_raddsp_xilinx_dsp48_wide_mul\nException TYPES.INTERNAL_ERROR raised\nException information:\nraised TYPES.INTERNAL_ERROR : trans.adb:553\nCall stack traceback locations:\n0x607facdaa13d 0x607facdaa51b 0x607facdaa797 0x607facf3ffc8 0x607facf4ed6d 0x607facf4ee25 0x607facf58bde 0x607facf77aa7 0x607facf77d5f 0x607facf78257 0x607facf786b1 0x607facf85330 0x607facf8481c 0x607facfcca78 0x607facfccb9f 0x607facfcd1f8 0x607facfcd98a 0x607facfcf596 0x607facfcf6eb 0x607facfd2b0f 0x607facfd73f8 0x607facfd723b 0x607facfd74e5 0x607facfd723b 0x607facfd74e5 0x607facf9b4fa 0x607facf8eeac 0x607facf9fd8c 0x607facf9a0a0 0x607facfdfb55 0x607facf20af5 0x607face5669e 0x607facfe34b3 0x607facc0eb07 0x78581bc29d8e 0x78581bc29e3e 0x607facc0d243 0xfffffffffffffffe\n******************************************************************\n"
+            "stderr": "\n******************** GHDL Bug occurred ***************************\nPlease report this bug on https://github.com/ghdl/ghdl/issues\nGHDL release: 1.0.0 (Ubuntu 1.0.0+dfsg-6) [Dunoon edition]\nCompiled with GNAT Version: 10.3.1 20211117\nTarget: x86_64-linux-gnu\n/tmp/radhdl-ghdl-c7akwig1/\nCommand line:\n/usr/bin/ghdl-mcode -e --std=08 --ieee=synopsys -P/tmp/radhdl-ghdl-c7akwig1 --workdir=/tmp/radhdl-ghdl-c7akwig1 tb_raddsp_xilinx_dsp48_wide_mul\nException TYPES.INTERNAL_ERROR raised\nException information:\nraised TYPES.INTERNAL_ERROR : trans.adb:553\nCall stack traceback locations:\n0x58b29adaa13d 0x58b29adaa51b 0x58b29adaa797 0x58b29af3ffc8 0x58b29af4ed6d 0x58b29af4ee25 0x58b29af58bde 0x58b29af77aa7 0x58b29af77d5f 0x58b29af78257 0x58b29af786b1 0x58b29af85330 0x58b29af8481c 0x58b29afcca78 0x58b29afccb9f 0x58b29afcd1f8 0x58b29afcd98a 0x58b29afcf596 0x58b29afcf6eb 0x58b29afd2b0f 0x58b29afd73f8 0x58b29afd723b 0x58b29afd74e5 0x58b29afd723b 0x58b29afd74e5 0x58b29af9b4fa 0x58b29af8eeac 0x58b29af9fd8c 0x58b29af9a0a0 0x58b29afdfb55 0x58b29af20af5 0x58b29ae5669e 0x58b29afe34b3 0x58b29ac0eb07 0x7aa6f9429d8e 0x7aa6f9429e3e 0x58b29ac0d243 0xfffffffffffffffe\n******************************************************************\n"
           }
         }
       ],
@@ -15410,7 +16491,56 @@
           ]
         }
       ],
-      "synth_reports": []
+      "synth_reports": [
+        {
+          "module": "radif_reg_to_spi_master",
+          "part": "xc7z020clg400-1",
+          "tool": "vivado",
+          "status": "ok",
+          "clock": {
+            "frequency_mhz": 100.0,
+            "period_ns": 10.0,
+            "port": "clk"
+          },
+          "generics": {},
+          "metrics": {
+            "timing": {
+              "hold_ths_ns": 0.0,
+              "hold_whs_ns": 0.152,
+              "setup_tns_ns": 0.0,
+              "setup_wns_ns": 5.704
+            },
+            "utilization": {
+              "bonded_iob": 93,
+              "bonded_iob_available": "125",
+              "bonded_iob_util_percent": "74.40",
+              "bram_tiles": 0,
+              "bram_tiles_available": "140",
+              "bram_tiles_util_percent": "0.00",
+              "dsps": 0,
+              "dsps_available": "220",
+              "dsps_util_percent": "0.00",
+              "ramb18": 0,
+              "ramb18_available": "280",
+              "ramb18_util_percent": "0.00",
+              "ramb36_fifo": 0,
+              "ramb36_fifo_available": "140",
+              "ramb36_fifo_util_percent": "0.00",
+              "slice_luts": 202,
+              "slice_luts_available": "53200",
+              "slice_luts_util_percent": "0.38",
+              "slice_registers": 272,
+              "slice_registers_available": "106400",
+              "slice_registers_util_percent": "0.26"
+            }
+          },
+          "reports": {
+            "timing_summary": "/media/jvincent/Kingspec512/repos/RadHDL/.radmeta/hdl-synth/radif_reg_to_spi_master/timing_summary.rpt",
+            "utilization": "/media/jvincent/Kingspec512/repos/RadHDL/.radmeta/hdl-synth/radif_reg_to_spi_master/utilization.rpt"
+          },
+          "path": "projects/synth_reports/radif_reg_to_spi_master/xc7z020clg400-1/synth_summary.json"
+        }
+      ]
     },
     {
       "name": "radif_smi16_to_reg",
@@ -19413,7 +20543,53 @@
       ],
       "testbenches": [],
       "register_maps": [],
-      "synth_reports": []
+      "synth_reports": [
+        {
+          "module": "raddsp_axis_dds",
+          "part": "xc7z020clg400-1",
+          "tool": "vivado",
+          "status": "ok",
+          "clock": {
+            "frequency_mhz": 100.0,
+            "period_ns": 10.0,
+            "port": "clk"
+          },
+          "generics": {},
+          "metrics": {
+            "timing": {
+              "hold_ths_ns": 0.0,
+              "hold_whs_ns": 0.158,
+              "setup_tns_ns": 0.0,
+              "setup_wns_ns": 6.518
+            },
+            "utilization": {
+              "bonded_iob": 144,
+              "bonded_iob_available": "125",
+              "bonded_iob_util_percent": "115.20",
+              "dsps": 0,
+              "dsps_available": "220",
+              "dsps_util_percent": "0.00",
+              "ramb18": 1,
+              "ramb18_available": "280",
+              "ramb18_util_percent": "0.36",
+              "ramb36_fifo": 0,
+              "ramb36_fifo_available": "140",
+              "ramb36_fifo_util_percent": "0.00",
+              "slice_luts": 71,
+              "slice_luts_available": "53200",
+              "slice_luts_util_percent": "0.13",
+              "slice_registers": 38,
+              "slice_registers_available": "106400",
+              "slice_registers_util_percent": "0.04"
+            }
+          },
+          "reports": {
+            "timing_summary": "/media/jvincent/Kingspec512/repos/RadHDL/.radmeta/hdl-synth/raddsp_axis_dds/timing_summary.rpt",
+            "utilization": "/media/jvincent/Kingspec512/repos/RadHDL/.radmeta/hdl-synth/raddsp_axis_dds/utilization.rpt"
+          },
+          "path": "projects/synth_reports/raddsp_axis_dds/xc7z020clg400-1/synth_summary.json"
+        }
+      ]
     },
     {
       "name": "raddsp_axis_fft_bin_product",
@@ -21049,7 +22225,282 @@
         }
       ],
       "register_maps": [],
-      "synth_reports": []
+      "synth_reports": [
+        {
+          "module": "raddsp_axis_fir",
+          "part": "xc7a35tcsg324-1",
+          "tool": "vivado",
+          "status": "ok",
+          "clock": {
+            "frequency_mhz": 100.0,
+            "period_ns": 10.0,
+            "port": "clk"
+          },
+          "generics": {},
+          "metrics": {
+            "timing": {
+              "hold_ths_ns": 0.0,
+              "hold_whs_ns": 0.201,
+              "setup_tns_ns": -66.865,
+              "setup_wns_ns": -4.179
+            },
+            "utilization": {
+              "bonded_iob": 329,
+              "bonded_iob_available": "210",
+              "bonded_iob_util_percent": "156.67",
+              "bram_tiles": 0,
+              "bram_tiles_available": "50",
+              "bram_tiles_util_percent": "0.00",
+              "dsps": 16,
+              "dsps_available": "90",
+              "dsps_util_percent": "17.78",
+              "ramb18": 0,
+              "ramb18_available": "100",
+              "ramb18_util_percent": "0.00",
+              "ramb36_fifo": 0,
+              "ramb36_fifo_available": "50",
+              "ramb36_fifo_util_percent": "0.00",
+              "slice_luts": 566,
+              "slice_luts_available": "20800",
+              "slice_luts_util_percent": "2.72",
+              "slice_registers": 243,
+              "slice_registers_available": "41600",
+              "slice_registers_util_percent": "0.58"
+            }
+          },
+          "reports": {
+            "timing_summary": "/media/jvincent/Kingspec512/repos/RadHDL/.radmeta/hdl-synth/raddsp_axis_fir/timing_summary.rpt",
+            "utilization": "/media/jvincent/Kingspec512/repos/RadHDL/.radmeta/hdl-synth/raddsp_axis_fir/utilization.rpt"
+          },
+          "path": "projects/synth_reports/raddsp_axis_fir/xc7a35tcsg324-1/synth_summary.json"
+        },
+        {
+          "module": "raddsp_axis_fir",
+          "part": "xc7a35tcsg324-2",
+          "tool": "vivado",
+          "status": "ok",
+          "clock": {
+            "frequency_mhz": 100.0,
+            "period_ns": 10.0,
+            "port": "clk"
+          },
+          "generics": {},
+          "metrics": {
+            "timing": {
+              "hold_ths_ns": 0.0,
+              "hold_whs_ns": 0.183,
+              "setup_tns_ns": -26.431,
+              "setup_wns_ns": -1.652
+            },
+            "utilization": {
+              "bonded_iob": 329,
+              "bonded_iob_available": "210",
+              "bonded_iob_util_percent": "156.67",
+              "bram_tiles": 0,
+              "bram_tiles_available": "50",
+              "bram_tiles_util_percent": "0.00",
+              "dsps": 16,
+              "dsps_available": "90",
+              "dsps_util_percent": "17.78",
+              "ramb18": 0,
+              "ramb18_available": "100",
+              "ramb18_util_percent": "0.00",
+              "ramb36_fifo": 0,
+              "ramb36_fifo_available": "50",
+              "ramb36_fifo_util_percent": "0.00",
+              "slice_luts": 566,
+              "slice_luts_available": "20800",
+              "slice_luts_util_percent": "2.72",
+              "slice_registers": 243,
+              "slice_registers_available": "41600",
+              "slice_registers_util_percent": "0.58"
+            }
+          },
+          "reports": {
+            "timing_summary": "/media/jvincent/Kingspec512/repos/RadHDL/.radmeta/hdl-synth/raddsp_axis_fir/timing_summary.rpt",
+            "utilization": "/media/jvincent/Kingspec512/repos/RadHDL/.radmeta/hdl-synth/raddsp_axis_fir/utilization.rpt"
+          },
+          "path": "projects/synth_reports/raddsp_axis_fir/xc7a35tcsg324-2/synth_summary.json"
+        },
+        {
+          "module": "raddsp_axis_fir",
+          "part": "xc7z020clg400-1",
+          "tool": "vivado",
+          "status": "ok",
+          "clock": {
+            "frequency_mhz": 100.0,
+            "period_ns": 10.0,
+            "port": "clk"
+          },
+          "generics": {},
+          "metrics": {
+            "timing": {
+              "hold_ths_ns": 0.0,
+              "hold_whs_ns": 0.199,
+              "setup_tns_ns": -66.929,
+              "setup_wns_ns": -4.183
+            },
+            "utilization": {}
+          },
+          "reports": {
+            "timing_summary": "/media/jvincent/Kingspec512/repos/RadHDL/.radmeta/hdl-synth/raddsp_axis_fir/timing_summary.rpt",
+            "utilization": "/media/jvincent/Kingspec512/repos/RadHDL/.radmeta/hdl-synth/raddsp_axis_fir/utilization.rpt"
+          },
+          "path": "projects/synth_reports/raddsp_axis_fir/xc7z020clg400-1/synth_summary.json"
+        },
+        {
+          "module": "raddsp_axis_fir",
+          "part": "xc7z020clg400-2",
+          "tool": "vivado",
+          "status": "ok",
+          "clock": {
+            "frequency_mhz": 100.0,
+            "period_ns": 10.0,
+            "port": "clk"
+          },
+          "generics": {},
+          "metrics": {
+            "timing": {
+              "hold_ths_ns": 0.0,
+              "hold_whs_ns": 0.181,
+              "setup_tns_ns": -27.151,
+              "setup_wns_ns": -1.697
+            },
+            "utilization": {
+              "bonded_iob": 329,
+              "bonded_iob_available": "125",
+              "bonded_iob_util_percent": "263.20",
+              "bram_tiles": 0,
+              "bram_tiles_available": "140",
+              "bram_tiles_util_percent": "0.00",
+              "dsps": 16,
+              "dsps_available": "220",
+              "dsps_util_percent": "7.27",
+              "ramb18": 0,
+              "ramb18_available": "280",
+              "ramb18_util_percent": "0.00",
+              "ramb36_fifo": 0,
+              "ramb36_fifo_available": "140",
+              "ramb36_fifo_util_percent": "0.00",
+              "slice_luts": 566,
+              "slice_luts_available": "53200",
+              "slice_luts_util_percent": "1.06",
+              "slice_registers": 243,
+              "slice_registers_available": "106400",
+              "slice_registers_util_percent": "0.23"
+            }
+          },
+          "reports": {
+            "timing_summary": "/media/jvincent/Kingspec512/repos/RadHDL/.radmeta/hdl-synth/raddsp_axis_fir/timing_summary.rpt",
+            "utilization": "/media/jvincent/Kingspec512/repos/RadHDL/.radmeta/hdl-synth/raddsp_axis_fir/utilization.rpt"
+          },
+          "path": "projects/synth_reports/raddsp_axis_fir/xc7z020clg400-2/synth_summary.json"
+        },
+        {
+          "module": "raddsp_axis_fir",
+          "part": "xc7z020clg400-3",
+          "tool": "vivado",
+          "status": "ok",
+          "clock": {
+            "frequency_mhz": 100.0,
+            "period_ns": 10.0,
+            "port": "clk"
+          },
+          "generics": {},
+          "metrics": {
+            "timing": {
+              "hold_ths_ns": 0.0,
+              "hold_whs_ns": 0.18,
+              "setup_tns_ns": -5.721,
+              "setup_wns_ns": -0.358
+            },
+            "utilization": {}
+          },
+          "reports": {
+            "timing_summary": "/media/jvincent/Kingspec512/repos/RadHDL/.radmeta/hdl-synth/raddsp_axis_fir/timing_summary.rpt",
+            "utilization": "/media/jvincent/Kingspec512/repos/RadHDL/.radmeta/hdl-synth/raddsp_axis_fir/utilization.rpt"
+          },
+          "path": "projects/synth_reports/raddsp_axis_fir/xc7z020clg400-3/synth_summary.json"
+        },
+        {
+          "module": "raddsp_axis_fir",
+          "part": "xczu3eg-sfvc784-1-e",
+          "tool": "vivado",
+          "status": "ok",
+          "clock": {
+            "frequency_mhz": 149.993,
+            "period_ns": 6.667,
+            "port": "clk"
+          },
+          "generics": {
+            "DEVICE_FAMILY": "ultrascaleplus"
+          },
+          "metrics": {
+            "timing": {
+              "hold_ths_ns": -13.326,
+              "hold_whs_ns": -0.068,
+              "setup_tns_ns": 0.0,
+              "setup_wns_ns": 0.83
+            },
+            "utilization": {
+              "bonded_iob": 329,
+              "bonded_iob_available": "252",
+              "bonded_iob_util_percent": "130.56",
+              "bram_tiles": 0,
+              "bram_tiles_available": "216",
+              "bram_tiles_util_percent": "0.00",
+              "dsps": 16,
+              "dsps_available": "360",
+              "dsps_util_percent": "4.44",
+              "ramb18": 0,
+              "ramb18_available": "432",
+              "ramb18_util_percent": "0.00",
+              "ramb36_fifo": 0,
+              "ramb36_fifo_available": "216",
+              "ramb36_fifo_util_percent": "0.00",
+              "slice_luts": 421,
+              "slice_luts_available": "70560",
+              "slice_luts_util_percent": "0.60",
+              "slice_registers": 243,
+              "slice_registers_available": "141120",
+              "slice_registers_util_percent": "0.17"
+            }
+          },
+          "reports": {
+            "timing_summary": "/media/jvincent/Kingspec512/repos/RadHDL/.radmeta/hdl-synth/raddsp_axis_fir/timing_summary.rpt",
+            "utilization": "/media/jvincent/Kingspec512/repos/RadHDL/.radmeta/hdl-synth/raddsp_axis_fir/utilization.rpt"
+          },
+          "path": "projects/synth_reports/raddsp_axis_fir/xczu3eg-sfvc784-1-e/synth_summary.json"
+        },
+        {
+          "module": "raddsp_axis_fir",
+          "part": "xczu3eg-sfvc784-2-e",
+          "tool": "vivado",
+          "status": "ok",
+          "clock": {
+            "frequency_mhz": 149.993,
+            "period_ns": 6.667,
+            "port": "clk"
+          },
+          "generics": {
+            "DEVICE_FAMILY": "ultrascaleplus"
+          },
+          "metrics": {
+            "timing": {
+              "hold_ths_ns": -13.23,
+              "hold_whs_ns": -0.068,
+              "setup_tns_ns": 0.0,
+              "setup_wns_ns": 1.651
+            },
+            "utilization": {}
+          },
+          "reports": {
+            "timing_summary": "/media/jvincent/Kingspec512/repos/RadHDL/.radmeta/hdl-synth/raddsp_axis_fir/timing_summary.rpt",
+            "utilization": "/media/jvincent/Kingspec512/repos/RadHDL/.radmeta/hdl-synth/raddsp_axis_fir/utilization.rpt"
+          },
+          "path": "projects/synth_reports/raddsp_axis_fir/xczu3eg-sfvc784-2-e/synth_summary.json"
+        }
+      ]
     },
     {
       "name": "raddsp_axis_fixed_to_float",
@@ -21835,6 +23286,75 @@
       "synth_reports": [
         {
           "module": "raddsp_axis_gain",
+          "part": "xc7a35tcsg324-1",
+          "tool": "vivado",
+          "status": "ok",
+          "clock": {
+            "frequency_mhz": 100.0,
+            "period_ns": 10.0,
+            "port": "clk"
+          },
+          "generics": {},
+          "metrics": {
+            "timing": {},
+            "utilization": {}
+          },
+          "reports": {
+            "timing_summary": "/media/jvincent/Kingspec512/repos/RadHDL/.radmeta/hdl-synth/raddsp_axis_gain/timing_summary.rpt",
+            "utilization": "/media/jvincent/Kingspec512/repos/RadHDL/.radmeta/hdl-synth/raddsp_axis_gain/utilization.rpt"
+          },
+          "path": "projects/synth_reports/raddsp_axis_gain/xc7a35tcsg324-1/synth_summary.json"
+        },
+        {
+          "module": "raddsp_axis_gain",
+          "part": "xc7a35tcsg324-2",
+          "tool": "vivado",
+          "status": "ok",
+          "clock": {
+            "frequency_mhz": 100.0,
+            "period_ns": 10.0,
+            "port": "clk"
+          },
+          "generics": {},
+          "metrics": {
+            "timing": {
+              "hold_ths_ns": 0.0,
+              "hold_whs_ns": 0.136,
+              "setup_tns_ns": 0.0,
+              "setup_wns_ns": 6.452
+            },
+            "utilization": {
+              "bonded_iob": 58,
+              "bonded_iob_available": "210",
+              "bonded_iob_util_percent": "27.62",
+              "bram_tiles": 0,
+              "bram_tiles_available": "50",
+              "bram_tiles_util_percent": "0.00",
+              "dsps": 1,
+              "dsps_available": "90",
+              "dsps_util_percent": "1.11",
+              "ramb18": 0,
+              "ramb18_available": "100",
+              "ramb18_util_percent": "0.00",
+              "ramb36_fifo": 0,
+              "ramb36_fifo_available": "50",
+              "ramb36_fifo_util_percent": "0.00",
+              "slice_luts": 27,
+              "slice_luts_available": "20800",
+              "slice_luts_util_percent": "0.13",
+              "slice_registers": 59,
+              "slice_registers_available": "41600",
+              "slice_registers_util_percent": "0.14"
+            }
+          },
+          "reports": {
+            "timing_summary": "/media/jvincent/Kingspec512/repos/RadHDL/.radmeta/hdl-synth/raddsp_axis_gain/timing_summary.rpt",
+            "utilization": "/media/jvincent/Kingspec512/repos/RadHDL/.radmeta/hdl-synth/raddsp_axis_gain/utilization.rpt"
+          },
+          "path": "projects/synth_reports/raddsp_axis_gain/xc7a35tcsg324-2/synth_summary.json"
+        },
+        {
+          "module": "raddsp_axis_gain",
           "part": "xc7z020clg400-1",
           "tool": "vivado",
           "status": "ok",
@@ -21880,6 +23400,75 @@
             "utilization": "/media/jvincent/Kingspec512/repos/RadHDL/.radmeta/hdl-synth/raddsp_axis_gain/utilization.rpt"
           },
           "path": "projects/synth_reports/raddsp_axis_gain/xc7z020clg400-1/synth_summary.json"
+        },
+        {
+          "module": "raddsp_axis_gain",
+          "part": "xc7z020clg400-2",
+          "tool": "vivado",
+          "status": "ok",
+          "clock": {
+            "frequency_mhz": 100.0,
+            "period_ns": 10.0,
+            "port": "clk"
+          },
+          "generics": {},
+          "metrics": {
+            "timing": {
+              "hold_ths_ns": 0.0,
+              "hold_whs_ns": 0.138,
+              "setup_tns_ns": 0.0,
+              "setup_wns_ns": 6.734
+            },
+            "utilization": {
+              "bonded_iob": 58,
+              "bonded_iob_available": "125",
+              "bonded_iob_util_percent": "46.40",
+              "bram_tiles": 0,
+              "bram_tiles_available": "140",
+              "bram_tiles_util_percent": "0.00",
+              "dsps": 1,
+              "dsps_available": "220",
+              "dsps_util_percent": "0.45",
+              "ramb18": 0,
+              "ramb18_available": "280",
+              "ramb18_util_percent": "0.00",
+              "ramb36_fifo": 0,
+              "ramb36_fifo_available": "140",
+              "ramb36_fifo_util_percent": "0.00",
+              "slice_luts": 27,
+              "slice_luts_available": "53200",
+              "slice_luts_util_percent": "0.05",
+              "slice_registers": 59,
+              "slice_registers_available": "106400",
+              "slice_registers_util_percent": "0.06"
+            }
+          },
+          "reports": {
+            "timing_summary": "/media/jvincent/Kingspec512/repos/RadHDL/.radmeta/hdl-synth/raddsp_axis_gain/timing_summary.rpt",
+            "utilization": "/media/jvincent/Kingspec512/repos/RadHDL/.radmeta/hdl-synth/raddsp_axis_gain/utilization.rpt"
+          },
+          "path": "projects/synth_reports/raddsp_axis_gain/xc7z020clg400-2/synth_summary.json"
+        },
+        {
+          "module": "raddsp_axis_gain",
+          "part": "xc7z020clg400-3",
+          "tool": "vivado",
+          "status": "ok",
+          "clock": {
+            "frequency_mhz": 100.0,
+            "period_ns": 10.0,
+            "port": "clk"
+          },
+          "generics": {},
+          "metrics": {
+            "timing": {},
+            "utilization": {}
+          },
+          "reports": {
+            "timing_summary": "/media/jvincent/Kingspec512/repos/RadHDL/.radmeta/hdl-synth/raddsp_axis_gain/timing_summary.rpt",
+            "utilization": "/media/jvincent/Kingspec512/repos/RadHDL/.radmeta/hdl-synth/raddsp_axis_gain/utilization.rpt"
+          },
+          "path": "projects/synth_reports/raddsp_axis_gain/xc7z020clg400-3/synth_summary.json"
         },
         {
           "module": "raddsp_axis_gain",
@@ -21930,6 +23519,56 @@
             "utilization": "/media/jvincent/Kingspec512/repos/RadHDL/.radmeta/hdl-synth/raddsp_axis_gain/utilization.rpt"
           },
           "path": "projects/synth_reports/raddsp_axis_gain/xczu3eg-sfvc784-1-e/synth_summary.json"
+        },
+        {
+          "module": "raddsp_axis_gain",
+          "part": "xczu3eg-sfvc784-2-e",
+          "tool": "vivado",
+          "status": "ok",
+          "clock": {
+            "frequency_mhz": 149.993,
+            "period_ns": 6.667,
+            "port": "clk"
+          },
+          "generics": {
+            "DEVICE_FAMILY": "ultrascaleplus"
+          },
+          "metrics": {
+            "timing": {
+              "hold_ths_ns": 0.0,
+              "hold_whs_ns": 0.146,
+              "setup_tns_ns": 0.0,
+              "setup_wns_ns": 5.545
+            },
+            "utilization": {
+              "bonded_iob": 58,
+              "bonded_iob_available": "210",
+              "bonded_iob_util_percent": "27.62",
+              "bram_tiles": 0,
+              "bram_tiles_available": "50",
+              "bram_tiles_util_percent": "0.00",
+              "dsps": 1,
+              "dsps_available": "90",
+              "dsps_util_percent": "1.11",
+              "ramb18": 0,
+              "ramb18_available": "100",
+              "ramb18_util_percent": "0.00",
+              "ramb36_fifo": 0,
+              "ramb36_fifo_available": "50",
+              "ramb36_fifo_util_percent": "0.00",
+              "slice_luts": 27,
+              "slice_luts_available": "20800",
+              "slice_luts_util_percent": "0.13",
+              "slice_registers": 59,
+              "slice_registers_available": "41600",
+              "slice_registers_util_percent": "0.14"
+            }
+          },
+          "reports": {
+            "timing_summary": "/media/jvincent/Kingspec512/repos/RadHDL/.radmeta/hdl-synth/raddsp_axis_gain/timing_summary.rpt",
+            "utilization": "/media/jvincent/Kingspec512/repos/RadHDL/.radmeta/hdl-synth/raddsp_axis_gain/utilization.rpt"
+          },
+          "path": "projects/synth_reports/raddsp_axis_gain/xczu3eg-sfvc784-2-e/synth_summary.json"
         }
       ]
     },
@@ -22296,7 +23935,282 @@
         }
       ],
       "register_maps": [],
-      "synth_reports": []
+      "synth_reports": [
+        {
+          "module": "raddsp_axis_matrix_dot",
+          "part": "xc7a35tcsg324-1",
+          "tool": "vivado",
+          "status": "ok",
+          "clock": {
+            "frequency_mhz": 100.0,
+            "period_ns": 10.0,
+            "port": "clk"
+          },
+          "generics": {},
+          "metrics": {
+            "timing": {
+              "hold_ths_ns": 0.0,
+              "hold_whs_ns": 0.129,
+              "setup_tns_ns": 0.0,
+              "setup_wns_ns": 6.461
+            },
+            "utilization": {
+              "bonded_iob": 124,
+              "bonded_iob_available": "210",
+              "bonded_iob_util_percent": "59.05",
+              "bram_tiles": 0,
+              "bram_tiles_available": "50",
+              "bram_tiles_util_percent": "0.00",
+              "dsps": 1,
+              "dsps_available": "90",
+              "dsps_util_percent": "1.11",
+              "ramb18": 0,
+              "ramb18_available": "100",
+              "ramb18_util_percent": "0.00",
+              "ramb36_fifo": 0,
+              "ramb36_fifo_available": "50",
+              "ramb36_fifo_util_percent": "0.00",
+              "slice_luts": 103,
+              "slice_luts_available": "20800",
+              "slice_luts_util_percent": "0.50",
+              "slice_registers": 168,
+              "slice_registers_available": "41600",
+              "slice_registers_util_percent": "0.40"
+            }
+          },
+          "reports": {
+            "timing_summary": "/media/jvincent/Kingspec512/repos/RadHDL/.radmeta/hdl-synth/raddsp_axis_matrix_dot/timing_summary.rpt",
+            "utilization": "/media/jvincent/Kingspec512/repos/RadHDL/.radmeta/hdl-synth/raddsp_axis_matrix_dot/utilization.rpt"
+          },
+          "path": "projects/synth_reports/raddsp_axis_matrix_dot/xc7a35tcsg324-1/synth_summary.json"
+        },
+        {
+          "module": "raddsp_axis_matrix_dot",
+          "part": "xc7a35tcsg324-2",
+          "tool": "vivado",
+          "status": "ok",
+          "clock": {
+            "frequency_mhz": 100.0,
+            "period_ns": 10.0,
+            "port": "clk"
+          },
+          "generics": {},
+          "metrics": {
+            "timing": {
+              "hold_ths_ns": 0.0,
+              "hold_whs_ns": 0.118,
+              "setup_tns_ns": 0.0,
+              "setup_wns_ns": 7.036
+            },
+            "utilization": {
+              "bonded_iob": 124,
+              "bonded_iob_available": "210",
+              "bonded_iob_util_percent": "59.05",
+              "bram_tiles": 0,
+              "bram_tiles_available": "50",
+              "bram_tiles_util_percent": "0.00",
+              "dsps": 1,
+              "dsps_available": "90",
+              "dsps_util_percent": "1.11",
+              "ramb18": 0,
+              "ramb18_available": "100",
+              "ramb18_util_percent": "0.00",
+              "ramb36_fifo": 0,
+              "ramb36_fifo_available": "50",
+              "ramb36_fifo_util_percent": "0.00",
+              "slice_luts": 103,
+              "slice_luts_available": "20800",
+              "slice_luts_util_percent": "0.50",
+              "slice_registers": 168,
+              "slice_registers_available": "41600",
+              "slice_registers_util_percent": "0.40"
+            }
+          },
+          "reports": {
+            "timing_summary": "/media/jvincent/Kingspec512/repos/RadHDL/.radmeta/hdl-synth/raddsp_axis_matrix_dot/timing_summary.rpt",
+            "utilization": "/media/jvincent/Kingspec512/repos/RadHDL/.radmeta/hdl-synth/raddsp_axis_matrix_dot/utilization.rpt"
+          },
+          "path": "projects/synth_reports/raddsp_axis_matrix_dot/xc7a35tcsg324-2/synth_summary.json"
+        },
+        {
+          "module": "raddsp_axis_matrix_dot",
+          "part": "xc7z020clg400-1",
+          "tool": "vivado",
+          "status": "ok",
+          "clock": {
+            "frequency_mhz": 100.0,
+            "period_ns": 10.0,
+            "port": "clk"
+          },
+          "generics": {},
+          "metrics": {
+            "timing": {
+              "hold_ths_ns": 0.0,
+              "hold_whs_ns": 0.152,
+              "setup_tns_ns": 0.0,
+              "setup_wns_ns": 6.439
+            },
+            "utilization": {}
+          },
+          "reports": {
+            "timing_summary": "/media/jvincent/Kingspec512/repos/RadHDL/.radmeta/hdl-synth/raddsp_axis_matrix_dot/timing_summary.rpt",
+            "utilization": "/media/jvincent/Kingspec512/repos/RadHDL/.radmeta/hdl-synth/raddsp_axis_matrix_dot/utilization.rpt"
+          },
+          "path": "projects/synth_reports/raddsp_axis_matrix_dot/xc7z020clg400-1/synth_summary.json"
+        },
+        {
+          "module": "raddsp_axis_matrix_dot",
+          "part": "xc7z020clg400-2",
+          "tool": "vivado",
+          "status": "ok",
+          "clock": {
+            "frequency_mhz": 100.0,
+            "period_ns": 10.0,
+            "port": "clk"
+          },
+          "generics": {},
+          "metrics": {
+            "timing": {
+              "hold_ths_ns": 0.0,
+              "hold_whs_ns": 0.138,
+              "setup_tns_ns": 0.0,
+              "setup_wns_ns": 7.019
+            },
+            "utilization": {
+              "bonded_iob": 124,
+              "bonded_iob_available": "125",
+              "bonded_iob_util_percent": "99.20",
+              "bram_tiles": 0,
+              "bram_tiles_available": "140",
+              "bram_tiles_util_percent": "0.00",
+              "dsps": 1,
+              "dsps_available": "220",
+              "dsps_util_percent": "0.45",
+              "ramb18": 0,
+              "ramb18_available": "280",
+              "ramb18_util_percent": "0.00",
+              "ramb36_fifo": 0,
+              "ramb36_fifo_available": "140",
+              "ramb36_fifo_util_percent": "0.00",
+              "slice_luts": 103,
+              "slice_luts_available": "53200",
+              "slice_luts_util_percent": "0.19",
+              "slice_registers": 168,
+              "slice_registers_available": "106400",
+              "slice_registers_util_percent": "0.16"
+            }
+          },
+          "reports": {
+            "timing_summary": "/media/jvincent/Kingspec512/repos/RadHDL/.radmeta/hdl-synth/raddsp_axis_matrix_dot/timing_summary.rpt",
+            "utilization": "/media/jvincent/Kingspec512/repos/RadHDL/.radmeta/hdl-synth/raddsp_axis_matrix_dot/utilization.rpt"
+          },
+          "path": "projects/synth_reports/raddsp_axis_matrix_dot/xc7z020clg400-2/synth_summary.json"
+        },
+        {
+          "module": "raddsp_axis_matrix_dot",
+          "part": "xc7z020clg400-3",
+          "tool": "vivado",
+          "status": "ok",
+          "clock": {
+            "frequency_mhz": 100.0,
+            "period_ns": 10.0,
+            "port": "clk"
+          },
+          "generics": {},
+          "metrics": {
+            "timing": {
+              "hold_ths_ns": 0.0,
+              "hold_whs_ns": 0.138,
+              "setup_tns_ns": 0.0,
+              "setup_wns_ns": 7.309
+            },
+            "utilization": {}
+          },
+          "reports": {
+            "timing_summary": "/media/jvincent/Kingspec512/repos/RadHDL/.radmeta/hdl-synth/raddsp_axis_matrix_dot/timing_summary.rpt",
+            "utilization": "/media/jvincent/Kingspec512/repos/RadHDL/.radmeta/hdl-synth/raddsp_axis_matrix_dot/utilization.rpt"
+          },
+          "path": "projects/synth_reports/raddsp_axis_matrix_dot/xc7z020clg400-3/synth_summary.json"
+        },
+        {
+          "module": "raddsp_axis_matrix_dot",
+          "part": "xczu3eg-sfvc784-1-e",
+          "tool": "vivado",
+          "status": "ok",
+          "clock": {
+            "frequency_mhz": 149.993,
+            "period_ns": 6.667,
+            "port": "clk"
+          },
+          "generics": {
+            "DEVICE_FAMILY": "ultrascaleplus"
+          },
+          "metrics": {
+            "timing": {
+              "hold_ths_ns": -6.796,
+              "hold_whs_ns": -0.07,
+              "setup_tns_ns": 0.0,
+              "setup_wns_ns": 5.155
+            },
+            "utilization": {
+              "bonded_iob": 124,
+              "bonded_iob_available": "252",
+              "bonded_iob_util_percent": "49.21",
+              "bram_tiles": 0,
+              "bram_tiles_available": "216",
+              "bram_tiles_util_percent": "0.00",
+              "dsps": 1,
+              "dsps_available": "360",
+              "dsps_util_percent": "0.28",
+              "ramb18": 0,
+              "ramb18_available": "432",
+              "ramb18_util_percent": "0.00",
+              "ramb36_fifo": 0,
+              "ramb36_fifo_available": "216",
+              "ramb36_fifo_util_percent": "0.00",
+              "slice_luts": 103,
+              "slice_luts_available": "70560",
+              "slice_luts_util_percent": "0.15",
+              "slice_registers": 168,
+              "slice_registers_available": "141120",
+              "slice_registers_util_percent": "0.12"
+            }
+          },
+          "reports": {
+            "timing_summary": "/media/jvincent/Kingspec512/repos/RadHDL/.radmeta/hdl-synth/raddsp_axis_matrix_dot/timing_summary.rpt",
+            "utilization": "/media/jvincent/Kingspec512/repos/RadHDL/.radmeta/hdl-synth/raddsp_axis_matrix_dot/utilization.rpt"
+          },
+          "path": "projects/synth_reports/raddsp_axis_matrix_dot/xczu3eg-sfvc784-1-e/synth_summary.json"
+        },
+        {
+          "module": "raddsp_axis_matrix_dot",
+          "part": "xczu3eg-sfvc784-2-e",
+          "tool": "vivado",
+          "status": "ok",
+          "clock": {
+            "frequency_mhz": 149.993,
+            "period_ns": 6.667,
+            "port": "clk"
+          },
+          "generics": {
+            "DEVICE_FAMILY": "ultrascaleplus"
+          },
+          "metrics": {
+            "timing": {
+              "hold_ths_ns": -6.397,
+              "hold_whs_ns": -0.071,
+              "setup_tns_ns": 0.0,
+              "setup_wns_ns": 5.407
+            },
+            "utilization": {}
+          },
+          "reports": {
+            "timing_summary": "/media/jvincent/Kingspec512/repos/RadHDL/.radmeta/hdl-synth/raddsp_axis_matrix_dot/timing_summary.rpt",
+            "utilization": "/media/jvincent/Kingspec512/repos/RadHDL/.radmeta/hdl-synth/raddsp_axis_matrix_dot/utilization.rpt"
+          },
+          "path": "projects/synth_reports/raddsp_axis_matrix_dot/xczu3eg-sfvc784-2-e/synth_summary.json"
+        }
+      ]
     },
     {
       "name": "raddsp_axis_matrix_elementwise",
@@ -22896,7 +24810,304 @@
         }
       ],
       "register_maps": [],
-      "synth_reports": []
+      "synth_reports": [
+        {
+          "module": "raddsp_axis_one_pole_lowpass",
+          "part": "xc7a35tcsg324-1",
+          "tool": "vivado",
+          "status": "ok",
+          "clock": {
+            "frequency_mhz": 100.0,
+            "period_ns": 10.0,
+            "port": "clk"
+          },
+          "generics": {},
+          "metrics": {
+            "timing": {
+              "hold_ths_ns": 0.0,
+              "hold_whs_ns": 0.435,
+              "setup_tns_ns": -63.011,
+              "setup_wns_ns": -1.976
+            },
+            "utilization": {}
+          },
+          "reports": {
+            "timing_summary": "/media/jvincent/Kingspec512/repos/RadHDL/.radmeta/hdl-synth/raddsp_axis_one_pole_lowpass/timing_summary.rpt",
+            "utilization": "/media/jvincent/Kingspec512/repos/RadHDL/.radmeta/hdl-synth/raddsp_axis_one_pole_lowpass/utilization.rpt"
+          },
+          "path": "projects/synth_reports/raddsp_axis_one_pole_lowpass/xc7a35tcsg324-1/synth_summary.json"
+        },
+        {
+          "module": "raddsp_axis_one_pole_lowpass",
+          "part": "xc7a35tcsg324-2",
+          "tool": "vivado",
+          "status": "ok",
+          "clock": {
+            "frequency_mhz": 100.0,
+            "period_ns": 10.0,
+            "port": "clk"
+          },
+          "generics": {},
+          "metrics": {
+            "timing": {
+              "hold_ths_ns": 0.0,
+              "hold_whs_ns": 0.419,
+              "setup_tns_ns": 0.0,
+              "setup_wns_ns": 0.075
+            },
+            "utilization": {
+              "bonded_iob": 59,
+              "bonded_iob_available": "210",
+              "bonded_iob_util_percent": "28.10",
+              "bram_tiles": 0,
+              "bram_tiles_available": "50",
+              "bram_tiles_util_percent": "0.00",
+              "dsps": 1,
+              "dsps_available": "90",
+              "dsps_util_percent": "1.11",
+              "ramb18": 0,
+              "ramb18_available": "100",
+              "ramb18_util_percent": "0.00",
+              "ramb36_fifo": 0,
+              "ramb36_fifo_available": "50",
+              "ramb36_fifo_util_percent": "0.00",
+              "slice_luts": 89,
+              "slice_luts_available": "20800",
+              "slice_luts_util_percent": "0.43",
+              "slice_registers": 34,
+              "slice_registers_available": "41600",
+              "slice_registers_util_percent": "0.08"
+            }
+          },
+          "reports": {
+            "timing_summary": "/media/jvincent/Kingspec512/repos/RadHDL/.radmeta/hdl-synth/raddsp_axis_one_pole_lowpass/timing_summary.rpt",
+            "utilization": "/media/jvincent/Kingspec512/repos/RadHDL/.radmeta/hdl-synth/raddsp_axis_one_pole_lowpass/utilization.rpt"
+          },
+          "path": "projects/synth_reports/raddsp_axis_one_pole_lowpass/xc7a35tcsg324-2/synth_summary.json"
+        },
+        {
+          "module": "raddsp_axis_one_pole_lowpass",
+          "part": "xc7z020clg400-1",
+          "tool": "vivado",
+          "status": "ok",
+          "clock": {
+            "frequency_mhz": 100.0,
+            "period_ns": 10.0,
+            "port": "clk"
+          },
+          "generics": {},
+          "metrics": {
+            "timing": {
+              "hold_ths_ns": 0.0,
+              "hold_whs_ns": 0.433,
+              "setup_tns_ns": -61.863,
+              "setup_wns_ns": -1.938
+            },
+            "utilization": {
+              "bonded_iob": 59,
+              "bonded_iob_available": "125",
+              "bonded_iob_util_percent": "47.20",
+              "bram_tiles": 0,
+              "bram_tiles_available": "140",
+              "bram_tiles_util_percent": "0.00",
+              "dsps": 1,
+              "dsps_available": "220",
+              "dsps_util_percent": "0.45",
+              "ramb18": 0,
+              "ramb18_available": "280",
+              "ramb18_util_percent": "0.00",
+              "ramb36_fifo": 0,
+              "ramb36_fifo_available": "140",
+              "ramb36_fifo_util_percent": "0.00",
+              "slice_luts": 89,
+              "slice_luts_available": "53200",
+              "slice_luts_util_percent": "0.17",
+              "slice_registers": 34,
+              "slice_registers_available": "106400",
+              "slice_registers_util_percent": "0.03"
+            }
+          },
+          "reports": {
+            "timing_summary": "/media/jvincent/Kingspec512/repos/RadHDL/.radmeta/hdl-synth/raddsp_axis_one_pole_lowpass/timing_summary.rpt",
+            "utilization": "/media/jvincent/Kingspec512/repos/RadHDL/.radmeta/hdl-synth/raddsp_axis_one_pole_lowpass/utilization.rpt"
+          },
+          "path": "projects/synth_reports/raddsp_axis_one_pole_lowpass/xc7z020clg400-1/synth_summary.json"
+        },
+        {
+          "module": "raddsp_axis_one_pole_lowpass",
+          "part": "xc7z020clg400-2",
+          "tool": "vivado",
+          "status": "ok",
+          "clock": {
+            "frequency_mhz": 100.0,
+            "period_ns": 10.0,
+            "port": "clk"
+          },
+          "generics": {},
+          "metrics": {
+            "timing": {
+              "hold_ths_ns": 0.0,
+              "hold_whs_ns": 0.417,
+              "setup_tns_ns": 0.0,
+              "setup_wns_ns": 0.102
+            },
+            "utilization": {}
+          },
+          "reports": {
+            "timing_summary": "/media/jvincent/Kingspec512/repos/RadHDL/.radmeta/hdl-synth/raddsp_axis_one_pole_lowpass/timing_summary.rpt",
+            "utilization": "/media/jvincent/Kingspec512/repos/RadHDL/.radmeta/hdl-synth/raddsp_axis_one_pole_lowpass/utilization.rpt"
+          },
+          "path": "projects/synth_reports/raddsp_axis_one_pole_lowpass/xc7z020clg400-2/synth_summary.json"
+        },
+        {
+          "module": "raddsp_axis_one_pole_lowpass",
+          "part": "xc7z020clg400-3",
+          "tool": "vivado",
+          "status": "ok",
+          "clock": {
+            "frequency_mhz": 100.0,
+            "period_ns": 10.0,
+            "port": "clk"
+          },
+          "generics": {},
+          "metrics": {
+            "timing": {
+              "hold_ths_ns": 0.0,
+              "hold_whs_ns": 0.441,
+              "setup_tns_ns": -68.349,
+              "setup_wns_ns": -2.138
+            },
+            "utilization": {
+              "bonded_iob": 59,
+              "bonded_iob_available": "125",
+              "bonded_iob_util_percent": "47.20",
+              "bram_tiles": 0,
+              "bram_tiles_available": "140",
+              "bram_tiles_util_percent": "0.00",
+              "dsps": 1,
+              "dsps_available": "220",
+              "dsps_util_percent": "0.45",
+              "ramb18": 0,
+              "ramb18_available": "280",
+              "ramb18_util_percent": "0.00",
+              "ramb36_fifo": 0,
+              "ramb36_fifo_available": "140",
+              "ramb36_fifo_util_percent": "0.00",
+              "slice_luts": 89,
+              "slice_luts_available": "53200",
+              "slice_luts_util_percent": "0.17",
+              "slice_registers": 34,
+              "slice_registers_available": "106400",
+              "slice_registers_util_percent": "0.03"
+            }
+          },
+          "reports": {
+            "timing_summary": "/media/jvincent/Kingspec512/repos/RadHDL/.radmeta/hdl-synth/raddsp_axis_one_pole_lowpass/timing_summary.rpt",
+            "utilization": "/media/jvincent/Kingspec512/repos/RadHDL/.radmeta/hdl-synth/raddsp_axis_one_pole_lowpass/utilization.rpt"
+          },
+          "path": "projects/synth_reports/raddsp_axis_one_pole_lowpass/xc7z020clg400-3/synth_summary.json"
+        },
+        {
+          "module": "raddsp_axis_one_pole_lowpass",
+          "part": "xczu3eg-sfvc784-1-e",
+          "tool": "vivado",
+          "status": "ok",
+          "clock": {
+            "frequency_mhz": 149.993,
+            "period_ns": 6.667,
+            "port": "clk"
+          },
+          "generics": {
+            "DEVICE_FAMILY": "ultrascaleplus"
+          },
+          "metrics": {
+            "timing": {
+              "hold_ths_ns": 0.0,
+              "hold_whs_ns": 0.018,
+              "setup_tns_ns": 0.0,
+              "setup_wns_ns": 1.319
+            },
+            "utilization": {
+              "bonded_iob": 59,
+              "bonded_iob_available": "252",
+              "bonded_iob_util_percent": "23.41",
+              "bram_tiles": 0,
+              "bram_tiles_available": "216",
+              "bram_tiles_util_percent": "0.00",
+              "dsps": 1,
+              "dsps_available": "360",
+              "dsps_util_percent": "0.28",
+              "ramb18": 0,
+              "ramb18_available": "432",
+              "ramb18_util_percent": "0.00",
+              "ramb36_fifo": 0,
+              "ramb36_fifo_available": "216",
+              "ramb36_fifo_util_percent": "0.00",
+              "slice_luts": 65,
+              "slice_luts_available": "70560",
+              "slice_luts_util_percent": "0.09",
+              "slice_registers": 34,
+              "slice_registers_available": "141120",
+              "slice_registers_util_percent": "0.02"
+            }
+          },
+          "reports": {
+            "timing_summary": "/media/jvincent/Kingspec512/repos/RadHDL/.radmeta/hdl-synth/raddsp_axis_one_pole_lowpass/timing_summary.rpt",
+            "utilization": "/media/jvincent/Kingspec512/repos/RadHDL/.radmeta/hdl-synth/raddsp_axis_one_pole_lowpass/utilization.rpt"
+          },
+          "path": "projects/synth_reports/raddsp_axis_one_pole_lowpass/xczu3eg-sfvc784-1-e/synth_summary.json"
+        },
+        {
+          "module": "raddsp_axis_one_pole_lowpass",
+          "part": "xczu3eg-sfvc784-2-e",
+          "tool": "vivado",
+          "status": "ok",
+          "clock": {
+            "frequency_mhz": 149.993,
+            "period_ns": 6.667,
+            "port": "clk"
+          },
+          "generics": {
+            "DEVICE_FAMILY": "ultrascaleplus"
+          },
+          "metrics": {
+            "timing": {
+              "hold_ths_ns": 0.0,
+              "hold_whs_ns": 0.022,
+              "setup_tns_ns": 0.0,
+              "setup_wns_ns": 5.474
+            },
+            "utilization": {
+              "bonded_iob": 59,
+              "bonded_iob_available": "210",
+              "bonded_iob_util_percent": "28.10",
+              "bram_tiles": 0,
+              "bram_tiles_available": "50",
+              "bram_tiles_util_percent": "0.00",
+              "dsps": 1,
+              "dsps_available": "90",
+              "dsps_util_percent": "1.11",
+              "ramb18": 0,
+              "ramb18_available": "100",
+              "ramb18_util_percent": "0.00",
+              "ramb36_fifo": 0,
+              "ramb36_fifo_available": "50",
+              "ramb36_fifo_util_percent": "0.00",
+              "slice_luts": 89,
+              "slice_luts_available": "20800",
+              "slice_luts_util_percent": "0.43",
+              "slice_registers": 34,
+              "slice_registers_available": "41600",
+              "slice_registers_util_percent": "0.08"
+            }
+          },
+          "reports": {
+            "timing_summary": "/media/jvincent/Kingspec512/repos/RadHDL/.radmeta/hdl-synth/raddsp_axis_one_pole_lowpass/timing_summary.rpt",
+            "utilization": "/media/jvincent/Kingspec512/repos/RadHDL/.radmeta/hdl-synth/raddsp_axis_one_pole_lowpass/utilization.rpt"
+          },
+          "path": "projects/synth_reports/raddsp_axis_one_pole_lowpass/xczu3eg-sfvc784-2-e/synth_summary.json"
+        }
+      ]
     },
     {
       "name": "raddsp_axis_pkg",
@@ -23242,7 +25453,7 @@
             },
             "returncode": 2,
             "stdout": "",
-            "stderr": "\n******************** GHDL Bug occurred ***************************\nPlease report this bug on https://github.com/ghdl/ghdl/issues\nGHDL release: 1.0.0 (Ubuntu 1.0.0+dfsg-6) [Dunoon edition]\nCompiled with GNAT Version: 10.3.1 20211117\nTarget: x86_64-linux-gnu\n/tmp/radhdl-ghdl-_8eeowyc/\nCommand line:\n/usr/bin/ghdl-mcode -e --std=08 --ieee=synopsys -P/tmp/radhdl-ghdl-_8eeowyc --workdir=/tmp/radhdl-ghdl-_8eeowyc tb_raddsp_axis_radfft\nException TYPES.INTERNAL_ERROR raised\nException information:\nraised TYPES.INTERNAL_ERROR : trans.adb:553\nCall stack traceback locations:\n0x64b88f89813d 0x64b88f89851b 0x64b88f898797 0x64b88fa2dfc8 0x64b88fa3cd6d 0x64b88fa3ce25 0x64b88fa46bde 0x64b88fa65aa7 0x64b88fa65d5f 0x64b88fa66257 0x64b88fa666b1 0x64b88fa73330 0x64b88fa7281c 0x64b88fabaa78 0x64b88fabab9f 0x64b88fabb1f8 0x64b88fabb98a 0x64b88fabd596 0x64b88fabd6eb 0x64b88fac0b0f 0x64b88fac53f8 0x64b88fac523b 0x64b88fac54e5 0x64b88fac523b 0x64b88fac54e5 0x64b88fa894fa 0x64b88fa7ceac 0x64b88fa8dd8c 0x64b88fa880a0 0x64b88facdb55 0x64b88fa0eaf5 0x64b88f94469e 0x64b88fad14b3 0x64b88f6fcb07 0x7e55f8029d8e 0x7e55f8029e3e 0x64b88f6fb243 0xfffffffffffffffe\n******************************************************************\n"
+            "stderr": "\n******************** GHDL Bug occurred ***************************\nPlease report this bug on https://github.com/ghdl/ghdl/issues\nGHDL release: 1.0.0 (Ubuntu 1.0.0+dfsg-6) [Dunoon edition]\nCompiled with GNAT Version: 10.3.1 20211117\nTarget: x86_64-linux-gnu\n/tmp/radhdl-ghdl-87buice6/\nCommand line:\n/usr/bin/ghdl-mcode -e --std=08 --ieee=synopsys -P/tmp/radhdl-ghdl-87buice6 --workdir=/tmp/radhdl-ghdl-87buice6 tb_raddsp_axis_radfft\nException TYPES.INTERNAL_ERROR raised\nException information:\nraised TYPES.INTERNAL_ERROR : trans.adb:553\nCall stack traceback locations:\n0x62cc9f49413d 0x62cc9f49451b 0x62cc9f494797 0x62cc9f629fc8 0x62cc9f638d6d 0x62cc9f638e25 0x62cc9f642bde 0x62cc9f661aa7 0x62cc9f661d5f 0x62cc9f662257 0x62cc9f6626b1 0x62cc9f66f330 0x62cc9f66e81c 0x62cc9f6b6a78 0x62cc9f6b6b9f 0x62cc9f6b71f8 0x62cc9f6b798a 0x62cc9f6b9596 0x62cc9f6b96eb 0x62cc9f6bcb0f 0x62cc9f6c13f8 0x62cc9f6c123b 0x62cc9f6c14e5 0x62cc9f6c123b 0x62cc9f6c14e5 0x62cc9f6854fa 0x62cc9f678eac 0x62cc9f689d8c 0x62cc9f6840a0 0x62cc9f6c9b55 0x62cc9f60aaf5 0x62cc9f54069e 0x62cc9f6cd4b3 0x62cc9f2f8b07 0x7b76b7e29d8e 0x7b76b7e29e3e 0x62cc9f2f7243 0xfffffffffffffffe\n******************************************************************\n"
           }
         },
         {
@@ -23321,7 +25532,7 @@
             },
             "returncode": 2,
             "stdout": "",
-            "stderr": "\n******************** GHDL Bug occurred ***************************\nPlease report this bug on https://github.com/ghdl/ghdl/issues\nGHDL release: 1.0.0 (Ubuntu 1.0.0+dfsg-6) [Dunoon edition]\nCompiled with GNAT Version: 10.3.1 20211117\nTarget: x86_64-linux-gnu\n/tmp/radhdl-ghdl-bsoxjh94/\nCommand line:\n/usr/bin/ghdl-mcode -e --std=08 --ieee=synopsys -P/tmp/radhdl-ghdl-bsoxjh94 --workdir=/tmp/radhdl-ghdl-bsoxjh94 tb_raddsp_axis_radfft_ddr\nException TYPES.INTERNAL_ERROR raised\nException information:\nraised TYPES.INTERNAL_ERROR : trans.adb:553\nCall stack traceback locations:\n0x57e9c82e713d 0x57e9c82e751b 0x57e9c82e7797 0x57e9c847cfc8 0x57e9c848bd6d 0x57e9c848be25 0x57e9c8495bde 0x57e9c84b4aa7 0x57e9c84b4d5f 0x57e9c84b5257 0x57e9c84b56b1 0x57e9c84c2330 0x57e9c84c181c 0x57e9c8509a78 0x57e9c8509b9f 0x57e9c850a1f8 0x57e9c850a98a 0x57e9c850c596 0x57e9c850c6eb 0x57e9c850fb0f 0x57e9c85143f8 0x57e9c851423b 0x57e9c85144e5 0x57e9c851423b 0x57e9c85144e5 0x57e9c84d84fa 0x57e9c84cbeac 0x57e9c84dcd8c 0x57e9c84d70a0 0x57e9c851cb55 0x57e9c845daf5 0x57e9c839369e 0x57e9c85204b3 0x57e9c814bb07 0x768c36029d8e 0x768c36029e3e 0x57e9c814a243 0xfffffffffffffffe\n******************************************************************\n"
+            "stderr": "\n******************** GHDL Bug occurred ***************************\nPlease report this bug on https://github.com/ghdl/ghdl/issues\nGHDL release: 1.0.0 (Ubuntu 1.0.0+dfsg-6) [Dunoon edition]\nCompiled with GNAT Version: 10.3.1 20211117\nTarget: x86_64-linux-gnu\n/tmp/radhdl-ghdl-aexwj_11/\nCommand line:\n/usr/bin/ghdl-mcode -e --std=08 --ieee=synopsys -P/tmp/radhdl-ghdl-aexwj_11 --workdir=/tmp/radhdl-ghdl-aexwj_11 tb_raddsp_axis_radfft_ddr\nException TYPES.INTERNAL_ERROR raised\nException information:\nraised TYPES.INTERNAL_ERROR : trans.adb:553\nCall stack traceback locations:\n0x5d930b65313d 0x5d930b65351b 0x5d930b653797 0x5d930b7e8fc8 0x5d930b7f7d6d 0x5d930b7f7e25 0x5d930b801bde 0x5d930b820aa7 0x5d930b820d5f 0x5d930b821257 0x5d930b8216b1 0x5d930b82e330 0x5d930b82d81c 0x5d930b875a78 0x5d930b875b9f 0x5d930b8761f8 0x5d930b87698a 0x5d930b878596 0x5d930b8786eb 0x5d930b87bb0f 0x5d930b8803f8 0x5d930b88023b 0x5d930b8804e5 0x5d930b88023b 0x5d930b8804e5 0x5d930b8444fa 0x5d930b837eac 0x5d930b848d8c 0x5d930b8430a0 0x5d930b888b55 0x5d930b7c9af5 0x5d930b6ff69e 0x5d930b88c4b3 0x5d930b4b7b07 0x708942a29d8e 0x708942a29e3e 0x5d930b4b6243 0xfffffffffffffffe\n******************************************************************\n"
           }
         },
         {
@@ -23399,7 +25610,7 @@
             },
             "returncode": 2,
             "stdout": "",
-            "stderr": "\n******************** GHDL Bug occurred ***************************\nPlease report this bug on https://github.com/ghdl/ghdl/issues\nGHDL release: 1.0.0 (Ubuntu 1.0.0+dfsg-6) [Dunoon edition]\nCompiled with GNAT Version: 10.3.1 20211117\nTarget: x86_64-linux-gnu\n/tmp/radhdl-ghdl-2gjo6l9d/\nCommand line:\n/usr/bin/ghdl-mcode -e --std=08 --ieee=synopsys -P/tmp/radhdl-ghdl-2gjo6l9d --workdir=/tmp/radhdl-ghdl-2gjo6l9d tb_raddsp_axis_radfft_ddr_xcorr_1024\nException TYPES.INTERNAL_ERROR raised\nException information:\nraised TYPES.INTERNAL_ERROR : trans.adb:553\nCall stack traceback locations:\n0x5a2ed801713d 0x5a2ed801751b 0x5a2ed8017797 0x5a2ed81acfc8 0x5a2ed81bbd6d 0x5a2ed81bbe25 0x5a2ed81c5bde 0x5a2ed81e4aa7 0x5a2ed81e4d5f 0x5a2ed81e5257 0x5a2ed81e56b1 0x5a2ed81f2330 0x5a2ed81f181c 0x5a2ed8239a78 0x5a2ed8239b9f 0x5a2ed823a1f8 0x5a2ed823a98a 0x5a2ed823c596 0x5a2ed823c6eb 0x5a2ed823fb0f 0x5a2ed82443f8 0x5a2ed824423b 0x5a2ed82444e5 0x5a2ed824423b 0x5a2ed82444e5 0x5a2ed82084fa 0x5a2ed81fbeac 0x5a2ed820cd8c 0x5a2ed82070a0 0x5a2ed824cb55 0x5a2ed818daf5 0x5a2ed80c369e 0x5a2ed82504b3 0x5a2ed7e7bb07 0x7f7466229d8e 0x7f7466229e3e 0x5a2ed7e7a243 0xfffffffffffffffe\n******************************************************************\n"
+            "stderr": "\n******************** GHDL Bug occurred ***************************\nPlease report this bug on https://github.com/ghdl/ghdl/issues\nGHDL release: 1.0.0 (Ubuntu 1.0.0+dfsg-6) [Dunoon edition]\nCompiled with GNAT Version: 10.3.1 20211117\nTarget: x86_64-linux-gnu\n/tmp/radhdl-ghdl-3goesamh/\nCommand line:\n/usr/bin/ghdl-mcode -e --std=08 --ieee=synopsys -P/tmp/radhdl-ghdl-3goesamh --workdir=/tmp/radhdl-ghdl-3goesamh tb_raddsp_axis_radfft_ddr_xcorr_1024\nException TYPES.INTERNAL_ERROR raised\nException information:\nraised TYPES.INTERNAL_ERROR : trans.adb:553\nCall stack traceback locations:\n0x5ef9fe46313d 0x5ef9fe46351b 0x5ef9fe463797 0x5ef9fe5f8fc8 0x5ef9fe607d6d 0x5ef9fe607e25 0x5ef9fe611bde 0x5ef9fe630aa7 0x5ef9fe630d5f 0x5ef9fe631257 0x5ef9fe6316b1 0x5ef9fe63e330 0x5ef9fe63d81c 0x5ef9fe685a78 0x5ef9fe685b9f 0x5ef9fe6861f8 0x5ef9fe68698a 0x5ef9fe688596 0x5ef9fe6886eb 0x5ef9fe68bb0f 0x5ef9fe6903f8 0x5ef9fe69023b 0x5ef9fe6904e5 0x5ef9fe69023b 0x5ef9fe6904e5 0x5ef9fe6544fa 0x5ef9fe647eac 0x5ef9fe658d8c 0x5ef9fe6530a0 0x5ef9fe698b55 0x5ef9fe5d9af5 0x5ef9fe50f69e 0x5ef9fe69c4b3 0x5ef9fe2c7b07 0x7db2c0829d8e 0x7db2c0829e3e 0x5ef9fe2c6243 0xfffffffffffffffe\n******************************************************************\n"
           }
         }
       ],
@@ -24243,7 +26454,7 @@
             },
             "returncode": 2,
             "stdout": "",
-            "stderr": "\n******************** GHDL Bug occurred ***************************\nPlease report this bug on https://github.com/ghdl/ghdl/issues\nGHDL release: 1.0.0 (Ubuntu 1.0.0+dfsg-6) [Dunoon edition]\nCompiled with GNAT Version: 10.3.1 20211117\nTarget: x86_64-linux-gnu\n/tmp/radhdl-ghdl-bsoxjh94/\nCommand line:\n/usr/bin/ghdl-mcode -e --std=08 --ieee=synopsys -P/tmp/radhdl-ghdl-bsoxjh94 --workdir=/tmp/radhdl-ghdl-bsoxjh94 tb_raddsp_axis_radfft_ddr\nException TYPES.INTERNAL_ERROR raised\nException information:\nraised TYPES.INTERNAL_ERROR : trans.adb:553\nCall stack traceback locations:\n0x57e9c82e713d 0x57e9c82e751b 0x57e9c82e7797 0x57e9c847cfc8 0x57e9c848bd6d 0x57e9c848be25 0x57e9c8495bde 0x57e9c84b4aa7 0x57e9c84b4d5f 0x57e9c84b5257 0x57e9c84b56b1 0x57e9c84c2330 0x57e9c84c181c 0x57e9c8509a78 0x57e9c8509b9f 0x57e9c850a1f8 0x57e9c850a98a 0x57e9c850c596 0x57e9c850c6eb 0x57e9c850fb0f 0x57e9c85143f8 0x57e9c851423b 0x57e9c85144e5 0x57e9c851423b 0x57e9c85144e5 0x57e9c84d84fa 0x57e9c84cbeac 0x57e9c84dcd8c 0x57e9c84d70a0 0x57e9c851cb55 0x57e9c845daf5 0x57e9c839369e 0x57e9c85204b3 0x57e9c814bb07 0x768c36029d8e 0x768c36029e3e 0x57e9c814a243 0xfffffffffffffffe\n******************************************************************\n"
+            "stderr": "\n******************** GHDL Bug occurred ***************************\nPlease report this bug on https://github.com/ghdl/ghdl/issues\nGHDL release: 1.0.0 (Ubuntu 1.0.0+dfsg-6) [Dunoon edition]\nCompiled with GNAT Version: 10.3.1 20211117\nTarget: x86_64-linux-gnu\n/tmp/radhdl-ghdl-aexwj_11/\nCommand line:\n/usr/bin/ghdl-mcode -e --std=08 --ieee=synopsys -P/tmp/radhdl-ghdl-aexwj_11 --workdir=/tmp/radhdl-ghdl-aexwj_11 tb_raddsp_axis_radfft_ddr\nException TYPES.INTERNAL_ERROR raised\nException information:\nraised TYPES.INTERNAL_ERROR : trans.adb:553\nCall stack traceback locations:\n0x5d930b65313d 0x5d930b65351b 0x5d930b653797 0x5d930b7e8fc8 0x5d930b7f7d6d 0x5d930b7f7e25 0x5d930b801bde 0x5d930b820aa7 0x5d930b820d5f 0x5d930b821257 0x5d930b8216b1 0x5d930b82e330 0x5d930b82d81c 0x5d930b875a78 0x5d930b875b9f 0x5d930b8761f8 0x5d930b87698a 0x5d930b878596 0x5d930b8786eb 0x5d930b87bb0f 0x5d930b8803f8 0x5d930b88023b 0x5d930b8804e5 0x5d930b88023b 0x5d930b8804e5 0x5d930b8444fa 0x5d930b837eac 0x5d930b848d8c 0x5d930b8430a0 0x5d930b888b55 0x5d930b7c9af5 0x5d930b6ff69e 0x5d930b88c4b3 0x5d930b4b7b07 0x708942a29d8e 0x708942a29e3e 0x5d930b4b6243 0xfffffffffffffffe\n******************************************************************\n"
           }
         },
         {
@@ -24321,7 +26532,7 @@
             },
             "returncode": 2,
             "stdout": "",
-            "stderr": "\n******************** GHDL Bug occurred ***************************\nPlease report this bug on https://github.com/ghdl/ghdl/issues\nGHDL release: 1.0.0 (Ubuntu 1.0.0+dfsg-6) [Dunoon edition]\nCompiled with GNAT Version: 10.3.1 20211117\nTarget: x86_64-linux-gnu\n/tmp/radhdl-ghdl-2gjo6l9d/\nCommand line:\n/usr/bin/ghdl-mcode -e --std=08 --ieee=synopsys -P/tmp/radhdl-ghdl-2gjo6l9d --workdir=/tmp/radhdl-ghdl-2gjo6l9d tb_raddsp_axis_radfft_ddr_xcorr_1024\nException TYPES.INTERNAL_ERROR raised\nException information:\nraised TYPES.INTERNAL_ERROR : trans.adb:553\nCall stack traceback locations:\n0x5a2ed801713d 0x5a2ed801751b 0x5a2ed8017797 0x5a2ed81acfc8 0x5a2ed81bbd6d 0x5a2ed81bbe25 0x5a2ed81c5bde 0x5a2ed81e4aa7 0x5a2ed81e4d5f 0x5a2ed81e5257 0x5a2ed81e56b1 0x5a2ed81f2330 0x5a2ed81f181c 0x5a2ed8239a78 0x5a2ed8239b9f 0x5a2ed823a1f8 0x5a2ed823a98a 0x5a2ed823c596 0x5a2ed823c6eb 0x5a2ed823fb0f 0x5a2ed82443f8 0x5a2ed824423b 0x5a2ed82444e5 0x5a2ed824423b 0x5a2ed82444e5 0x5a2ed82084fa 0x5a2ed81fbeac 0x5a2ed820cd8c 0x5a2ed82070a0 0x5a2ed824cb55 0x5a2ed818daf5 0x5a2ed80c369e 0x5a2ed82504b3 0x5a2ed7e7bb07 0x7f7466229d8e 0x7f7466229e3e 0x5a2ed7e7a243 0xfffffffffffffffe\n******************************************************************\n"
+            "stderr": "\n******************** GHDL Bug occurred ***************************\nPlease report this bug on https://github.com/ghdl/ghdl/issues\nGHDL release: 1.0.0 (Ubuntu 1.0.0+dfsg-6) [Dunoon edition]\nCompiled with GNAT Version: 10.3.1 20211117\nTarget: x86_64-linux-gnu\n/tmp/radhdl-ghdl-3goesamh/\nCommand line:\n/usr/bin/ghdl-mcode -e --std=08 --ieee=synopsys -P/tmp/radhdl-ghdl-3goesamh --workdir=/tmp/radhdl-ghdl-3goesamh tb_raddsp_axis_radfft_ddr_xcorr_1024\nException TYPES.INTERNAL_ERROR raised\nException information:\nraised TYPES.INTERNAL_ERROR : trans.adb:553\nCall stack traceback locations:\n0x5ef9fe46313d 0x5ef9fe46351b 0x5ef9fe463797 0x5ef9fe5f8fc8 0x5ef9fe607d6d 0x5ef9fe607e25 0x5ef9fe611bde 0x5ef9fe630aa7 0x5ef9fe630d5f 0x5ef9fe631257 0x5ef9fe6316b1 0x5ef9fe63e330 0x5ef9fe63d81c 0x5ef9fe685a78 0x5ef9fe685b9f 0x5ef9fe6861f8 0x5ef9fe68698a 0x5ef9fe688596 0x5ef9fe6886eb 0x5ef9fe68bb0f 0x5ef9fe6903f8 0x5ef9fe69023b 0x5ef9fe6904e5 0x5ef9fe69023b 0x5ef9fe6904e5 0x5ef9fe6544fa 0x5ef9fe647eac 0x5ef9fe658d8c 0x5ef9fe6530a0 0x5ef9fe698b55 0x5ef9fe5d9af5 0x5ef9fe50f69e 0x5ef9fe69c4b3 0x5ef9fe2c7b07 0x7db2c0829d8e 0x7db2c0829e3e 0x5ef9fe2c6243 0xfffffffffffffffe\n******************************************************************\n"
           }
         }
       ],
@@ -26062,7 +28273,7 @@
             },
             "returncode": 2,
             "stdout": "",
-            "stderr": "\n******************** GHDL Bug occurred ***************************\nPlease report this bug on https://github.com/ghdl/ghdl/issues\nGHDL release: 1.0.0 (Ubuntu 1.0.0+dfsg-6) [Dunoon edition]\nCompiled with GNAT Version: 10.3.1 20211117\nTarget: x86_64-linux-gnu\n/tmp/radhdl-ghdl-_8eeowyc/\nCommand line:\n/usr/bin/ghdl-mcode -e --std=08 --ieee=synopsys -P/tmp/radhdl-ghdl-_8eeowyc --workdir=/tmp/radhdl-ghdl-_8eeowyc tb_raddsp_axis_radfft\nException TYPES.INTERNAL_ERROR raised\nException information:\nraised TYPES.INTERNAL_ERROR : trans.adb:553\nCall stack traceback locations:\n0x64b88f89813d 0x64b88f89851b 0x64b88f898797 0x64b88fa2dfc8 0x64b88fa3cd6d 0x64b88fa3ce25 0x64b88fa46bde 0x64b88fa65aa7 0x64b88fa65d5f 0x64b88fa66257 0x64b88fa666b1 0x64b88fa73330 0x64b88fa7281c 0x64b88fabaa78 0x64b88fabab9f 0x64b88fabb1f8 0x64b88fabb98a 0x64b88fabd596 0x64b88fabd6eb 0x64b88fac0b0f 0x64b88fac53f8 0x64b88fac523b 0x64b88fac54e5 0x64b88fac523b 0x64b88fac54e5 0x64b88fa894fa 0x64b88fa7ceac 0x64b88fa8dd8c 0x64b88fa880a0 0x64b88facdb55 0x64b88fa0eaf5 0x64b88f94469e 0x64b88fad14b3 0x64b88f6fcb07 0x7e55f8029d8e 0x7e55f8029e3e 0x64b88f6fb243 0xfffffffffffffffe\n******************************************************************\n"
+            "stderr": "\n******************** GHDL Bug occurred ***************************\nPlease report this bug on https://github.com/ghdl/ghdl/issues\nGHDL release: 1.0.0 (Ubuntu 1.0.0+dfsg-6) [Dunoon edition]\nCompiled with GNAT Version: 10.3.1 20211117\nTarget: x86_64-linux-gnu\n/tmp/radhdl-ghdl-87buice6/\nCommand line:\n/usr/bin/ghdl-mcode -e --std=08 --ieee=synopsys -P/tmp/radhdl-ghdl-87buice6 --workdir=/tmp/radhdl-ghdl-87buice6 tb_raddsp_axis_radfft\nException TYPES.INTERNAL_ERROR raised\nException information:\nraised TYPES.INTERNAL_ERROR : trans.adb:553\nCall stack traceback locations:\n0x62cc9f49413d 0x62cc9f49451b 0x62cc9f494797 0x62cc9f629fc8 0x62cc9f638d6d 0x62cc9f638e25 0x62cc9f642bde 0x62cc9f661aa7 0x62cc9f661d5f 0x62cc9f662257 0x62cc9f6626b1 0x62cc9f66f330 0x62cc9f66e81c 0x62cc9f6b6a78 0x62cc9f6b6b9f 0x62cc9f6b71f8 0x62cc9f6b798a 0x62cc9f6b9596 0x62cc9f6b96eb 0x62cc9f6bcb0f 0x62cc9f6c13f8 0x62cc9f6c123b 0x62cc9f6c14e5 0x62cc9f6c123b 0x62cc9f6c14e5 0x62cc9f6854fa 0x62cc9f678eac 0x62cc9f689d8c 0x62cc9f6840a0 0x62cc9f6c9b55 0x62cc9f60aaf5 0x62cc9f54069e 0x62cc9f6cd4b3 0x62cc9f2f8b07 0x7b76b7e29d8e 0x7b76b7e29e3e 0x62cc9f2f7243 0xfffffffffffffffe\n******************************************************************\n"
           }
         },
         {
@@ -26141,7 +28352,7 @@
             },
             "returncode": 2,
             "stdout": "",
-            "stderr": "\n******************** GHDL Bug occurred ***************************\nPlease report this bug on https://github.com/ghdl/ghdl/issues\nGHDL release: 1.0.0 (Ubuntu 1.0.0+dfsg-6) [Dunoon edition]\nCompiled with GNAT Version: 10.3.1 20211117\nTarget: x86_64-linux-gnu\n/tmp/radhdl-ghdl-bsoxjh94/\nCommand line:\n/usr/bin/ghdl-mcode -e --std=08 --ieee=synopsys -P/tmp/radhdl-ghdl-bsoxjh94 --workdir=/tmp/radhdl-ghdl-bsoxjh94 tb_raddsp_axis_radfft_ddr\nException TYPES.INTERNAL_ERROR raised\nException information:\nraised TYPES.INTERNAL_ERROR : trans.adb:553\nCall stack traceback locations:\n0x57e9c82e713d 0x57e9c82e751b 0x57e9c82e7797 0x57e9c847cfc8 0x57e9c848bd6d 0x57e9c848be25 0x57e9c8495bde 0x57e9c84b4aa7 0x57e9c84b4d5f 0x57e9c84b5257 0x57e9c84b56b1 0x57e9c84c2330 0x57e9c84c181c 0x57e9c8509a78 0x57e9c8509b9f 0x57e9c850a1f8 0x57e9c850a98a 0x57e9c850c596 0x57e9c850c6eb 0x57e9c850fb0f 0x57e9c85143f8 0x57e9c851423b 0x57e9c85144e5 0x57e9c851423b 0x57e9c85144e5 0x57e9c84d84fa 0x57e9c84cbeac 0x57e9c84dcd8c 0x57e9c84d70a0 0x57e9c851cb55 0x57e9c845daf5 0x57e9c839369e 0x57e9c85204b3 0x57e9c814bb07 0x768c36029d8e 0x768c36029e3e 0x57e9c814a243 0xfffffffffffffffe\n******************************************************************\n"
+            "stderr": "\n******************** GHDL Bug occurred ***************************\nPlease report this bug on https://github.com/ghdl/ghdl/issues\nGHDL release: 1.0.0 (Ubuntu 1.0.0+dfsg-6) [Dunoon edition]\nCompiled with GNAT Version: 10.3.1 20211117\nTarget: x86_64-linux-gnu\n/tmp/radhdl-ghdl-aexwj_11/\nCommand line:\n/usr/bin/ghdl-mcode -e --std=08 --ieee=synopsys -P/tmp/radhdl-ghdl-aexwj_11 --workdir=/tmp/radhdl-ghdl-aexwj_11 tb_raddsp_axis_radfft_ddr\nException TYPES.INTERNAL_ERROR raised\nException information:\nraised TYPES.INTERNAL_ERROR : trans.adb:553\nCall stack traceback locations:\n0x5d930b65313d 0x5d930b65351b 0x5d930b653797 0x5d930b7e8fc8 0x5d930b7f7d6d 0x5d930b7f7e25 0x5d930b801bde 0x5d930b820aa7 0x5d930b820d5f 0x5d930b821257 0x5d930b8216b1 0x5d930b82e330 0x5d930b82d81c 0x5d930b875a78 0x5d930b875b9f 0x5d930b8761f8 0x5d930b87698a 0x5d930b878596 0x5d930b8786eb 0x5d930b87bb0f 0x5d930b8803f8 0x5d930b88023b 0x5d930b8804e5 0x5d930b88023b 0x5d930b8804e5 0x5d930b8444fa 0x5d930b837eac 0x5d930b848d8c 0x5d930b8430a0 0x5d930b888b55 0x5d930b7c9af5 0x5d930b6ff69e 0x5d930b88c4b3 0x5d930b4b7b07 0x708942a29d8e 0x708942a29e3e 0x5d930b4b6243 0xfffffffffffffffe\n******************************************************************\n"
           }
         }
       ],
@@ -26786,7 +28997,7 @@
             },
             "returncode": 2,
             "stdout": "",
-            "stderr": "\n******************** GHDL Bug occurred ***************************\nPlease report this bug on https://github.com/ghdl/ghdl/issues\nGHDL release: 1.0.0 (Ubuntu 1.0.0+dfsg-6) [Dunoon edition]\nCompiled with GNAT Version: 10.3.1 20211117\nTarget: x86_64-linux-gnu\n/tmp/radhdl-ghdl-3_w_9bam/\nCommand line:\n/usr/bin/ghdl-mcode -e --std=08 --ieee=synopsys -P/tmp/radhdl-ghdl-3_w_9bam --workdir=/tmp/radhdl-ghdl-3_w_9bam tb_raddsp_xilinx_dsp48_wide_mul\nException TYPES.INTERNAL_ERROR raised\nException information:\nraised TYPES.INTERNAL_ERROR : trans.adb:553\nCall stack traceback locations:\n0x607facdaa13d 0x607facdaa51b 0x607facdaa797 0x607facf3ffc8 0x607facf4ed6d 0x607facf4ee25 0x607facf58bde 0x607facf77aa7 0x607facf77d5f 0x607facf78257 0x607facf786b1 0x607facf85330 0x607facf8481c 0x607facfcca78 0x607facfccb9f 0x607facfcd1f8 0x607facfcd98a 0x607facfcf596 0x607facfcf6eb 0x607facfd2b0f 0x607facfd73f8 0x607facfd723b 0x607facfd74e5 0x607facfd723b 0x607facfd74e5 0x607facf9b4fa 0x607facf8eeac 0x607facf9fd8c 0x607facf9a0a0 0x607facfdfb55 0x607facf20af5 0x607face5669e 0x607facfe34b3 0x607facc0eb07 0x78581bc29d8e 0x78581bc29e3e 0x607facc0d243 0xfffffffffffffffe\n******************************************************************\n"
+            "stderr": "\n******************** GHDL Bug occurred ***************************\nPlease report this bug on https://github.com/ghdl/ghdl/issues\nGHDL release: 1.0.0 (Ubuntu 1.0.0+dfsg-6) [Dunoon edition]\nCompiled with GNAT Version: 10.3.1 20211117\nTarget: x86_64-linux-gnu\n/tmp/radhdl-ghdl-c7akwig1/\nCommand line:\n/usr/bin/ghdl-mcode -e --std=08 --ieee=synopsys -P/tmp/radhdl-ghdl-c7akwig1 --workdir=/tmp/radhdl-ghdl-c7akwig1 tb_raddsp_xilinx_dsp48_wide_mul\nException TYPES.INTERNAL_ERROR raised\nException information:\nraised TYPES.INTERNAL_ERROR : trans.adb:553\nCall stack traceback locations:\n0x58b29adaa13d 0x58b29adaa51b 0x58b29adaa797 0x58b29af3ffc8 0x58b29af4ed6d 0x58b29af4ee25 0x58b29af58bde 0x58b29af77aa7 0x58b29af77d5f 0x58b29af78257 0x58b29af786b1 0x58b29af85330 0x58b29af8481c 0x58b29afcca78 0x58b29afccb9f 0x58b29afcd1f8 0x58b29afcd98a 0x58b29afcf596 0x58b29afcf6eb 0x58b29afd2b0f 0x58b29afd73f8 0x58b29afd723b 0x58b29afd74e5 0x58b29afd723b 0x58b29afd74e5 0x58b29af9b4fa 0x58b29af8eeac 0x58b29af9fd8c 0x58b29af9a0a0 0x58b29afdfb55 0x58b29af20af5 0x58b29ae5669e 0x58b29afe34b3 0x58b29ac0eb07 0x7aa6f9429d8e 0x7aa6f9429e3e 0x58b29ac0d243 0xfffffffffffffffe\n******************************************************************\n"
           }
         }
       ],
@@ -28733,7 +30944,7 @@
             },
             "returncode": 2,
             "stdout": "",
-            "stderr": "\n******************** GHDL Bug occurred ***************************\nPlease report this bug on https://github.com/ghdl/ghdl/issues\nGHDL release: 1.0.0 (Ubuntu 1.0.0+dfsg-6) [Dunoon edition]\nCompiled with GNAT Version: 10.3.1 20211117\nTarget: x86_64-linux-gnu\n/tmp/radhdl-ghdl-_8eeowyc/\nCommand line:\n/usr/bin/ghdl-mcode -e --std=08 --ieee=synopsys -P/tmp/radhdl-ghdl-_8eeowyc --workdir=/tmp/radhdl-ghdl-_8eeowyc tb_raddsp_axis_radfft\nException TYPES.INTERNAL_ERROR raised\nException information:\nraised TYPES.INTERNAL_ERROR : trans.adb:553\nCall stack traceback locations:\n0x64b88f89813d 0x64b88f89851b 0x64b88f898797 0x64b88fa2dfc8 0x64b88fa3cd6d 0x64b88fa3ce25 0x64b88fa46bde 0x64b88fa65aa7 0x64b88fa65d5f 0x64b88fa66257 0x64b88fa666b1 0x64b88fa73330 0x64b88fa7281c 0x64b88fabaa78 0x64b88fabab9f 0x64b88fabb1f8 0x64b88fabb98a 0x64b88fabd596 0x64b88fabd6eb 0x64b88fac0b0f 0x64b88fac53f8 0x64b88fac523b 0x64b88fac54e5 0x64b88fac523b 0x64b88fac54e5 0x64b88fa894fa 0x64b88fa7ceac 0x64b88fa8dd8c 0x64b88fa880a0 0x64b88facdb55 0x64b88fa0eaf5 0x64b88f94469e 0x64b88fad14b3 0x64b88f6fcb07 0x7e55f8029d8e 0x7e55f8029e3e 0x64b88f6fb243 0xfffffffffffffffe\n******************************************************************\n"
+            "stderr": "\n******************** GHDL Bug occurred ***************************\nPlease report this bug on https://github.com/ghdl/ghdl/issues\nGHDL release: 1.0.0 (Ubuntu 1.0.0+dfsg-6) [Dunoon edition]\nCompiled with GNAT Version: 10.3.1 20211117\nTarget: x86_64-linux-gnu\n/tmp/radhdl-ghdl-87buice6/\nCommand line:\n/usr/bin/ghdl-mcode -e --std=08 --ieee=synopsys -P/tmp/radhdl-ghdl-87buice6 --workdir=/tmp/radhdl-ghdl-87buice6 tb_raddsp_axis_radfft\nException TYPES.INTERNAL_ERROR raised\nException information:\nraised TYPES.INTERNAL_ERROR : trans.adb:553\nCall stack traceback locations:\n0x62cc9f49413d 0x62cc9f49451b 0x62cc9f494797 0x62cc9f629fc8 0x62cc9f638d6d 0x62cc9f638e25 0x62cc9f642bde 0x62cc9f661aa7 0x62cc9f661d5f 0x62cc9f662257 0x62cc9f6626b1 0x62cc9f66f330 0x62cc9f66e81c 0x62cc9f6b6a78 0x62cc9f6b6b9f 0x62cc9f6b71f8 0x62cc9f6b798a 0x62cc9f6b9596 0x62cc9f6b96eb 0x62cc9f6bcb0f 0x62cc9f6c13f8 0x62cc9f6c123b 0x62cc9f6c14e5 0x62cc9f6c123b 0x62cc9f6c14e5 0x62cc9f6854fa 0x62cc9f678eac 0x62cc9f689d8c 0x62cc9f6840a0 0x62cc9f6c9b55 0x62cc9f60aaf5 0x62cc9f54069e 0x62cc9f6cd4b3 0x62cc9f2f8b07 0x7b76b7e29d8e 0x7b76b7e29e3e 0x62cc9f2f7243 0xfffffffffffffffe\n******************************************************************\n"
           }
         },
         {
@@ -28812,7 +31023,7 @@
             },
             "returncode": 2,
             "stdout": "",
-            "stderr": "\n******************** GHDL Bug occurred ***************************\nPlease report this bug on https://github.com/ghdl/ghdl/issues\nGHDL release: 1.0.0 (Ubuntu 1.0.0+dfsg-6) [Dunoon edition]\nCompiled with GNAT Version: 10.3.1 20211117\nTarget: x86_64-linux-gnu\n/tmp/radhdl-ghdl-bsoxjh94/\nCommand line:\n/usr/bin/ghdl-mcode -e --std=08 --ieee=synopsys -P/tmp/radhdl-ghdl-bsoxjh94 --workdir=/tmp/radhdl-ghdl-bsoxjh94 tb_raddsp_axis_radfft_ddr\nException TYPES.INTERNAL_ERROR raised\nException information:\nraised TYPES.INTERNAL_ERROR : trans.adb:553\nCall stack traceback locations:\n0x57e9c82e713d 0x57e9c82e751b 0x57e9c82e7797 0x57e9c847cfc8 0x57e9c848bd6d 0x57e9c848be25 0x57e9c8495bde 0x57e9c84b4aa7 0x57e9c84b4d5f 0x57e9c84b5257 0x57e9c84b56b1 0x57e9c84c2330 0x57e9c84c181c 0x57e9c8509a78 0x57e9c8509b9f 0x57e9c850a1f8 0x57e9c850a98a 0x57e9c850c596 0x57e9c850c6eb 0x57e9c850fb0f 0x57e9c85143f8 0x57e9c851423b 0x57e9c85144e5 0x57e9c851423b 0x57e9c85144e5 0x57e9c84d84fa 0x57e9c84cbeac 0x57e9c84dcd8c 0x57e9c84d70a0 0x57e9c851cb55 0x57e9c845daf5 0x57e9c839369e 0x57e9c85204b3 0x57e9c814bb07 0x768c36029d8e 0x768c36029e3e 0x57e9c814a243 0xfffffffffffffffe\n******************************************************************\n"
+            "stderr": "\n******************** GHDL Bug occurred ***************************\nPlease report this bug on https://github.com/ghdl/ghdl/issues\nGHDL release: 1.0.0 (Ubuntu 1.0.0+dfsg-6) [Dunoon edition]\nCompiled with GNAT Version: 10.3.1 20211117\nTarget: x86_64-linux-gnu\n/tmp/radhdl-ghdl-aexwj_11/\nCommand line:\n/usr/bin/ghdl-mcode -e --std=08 --ieee=synopsys -P/tmp/radhdl-ghdl-aexwj_11 --workdir=/tmp/radhdl-ghdl-aexwj_11 tb_raddsp_axis_radfft_ddr\nException TYPES.INTERNAL_ERROR raised\nException information:\nraised TYPES.INTERNAL_ERROR : trans.adb:553\nCall stack traceback locations:\n0x5d930b65313d 0x5d930b65351b 0x5d930b653797 0x5d930b7e8fc8 0x5d930b7f7d6d 0x5d930b7f7e25 0x5d930b801bde 0x5d930b820aa7 0x5d930b820d5f 0x5d930b821257 0x5d930b8216b1 0x5d930b82e330 0x5d930b82d81c 0x5d930b875a78 0x5d930b875b9f 0x5d930b8761f8 0x5d930b87698a 0x5d930b878596 0x5d930b8786eb 0x5d930b87bb0f 0x5d930b8803f8 0x5d930b88023b 0x5d930b8804e5 0x5d930b88023b 0x5d930b8804e5 0x5d930b8444fa 0x5d930b837eac 0x5d930b848d8c 0x5d930b8430a0 0x5d930b888b55 0x5d930b7c9af5 0x5d930b6ff69e 0x5d930b88c4b3 0x5d930b4b7b07 0x708942a29d8e 0x708942a29e3e 0x5d930b4b6243 0xfffffffffffffffe\n******************************************************************\n"
           }
         },
         {
@@ -28890,7 +31101,7 @@
             },
             "returncode": 2,
             "stdout": "",
-            "stderr": "\n******************** GHDL Bug occurred ***************************\nPlease report this bug on https://github.com/ghdl/ghdl/issues\nGHDL release: 1.0.0 (Ubuntu 1.0.0+dfsg-6) [Dunoon edition]\nCompiled with GNAT Version: 10.3.1 20211117\nTarget: x86_64-linux-gnu\n/tmp/radhdl-ghdl-2gjo6l9d/\nCommand line:\n/usr/bin/ghdl-mcode -e --std=08 --ieee=synopsys -P/tmp/radhdl-ghdl-2gjo6l9d --workdir=/tmp/radhdl-ghdl-2gjo6l9d tb_raddsp_axis_radfft_ddr_xcorr_1024\nException TYPES.INTERNAL_ERROR raised\nException information:\nraised TYPES.INTERNAL_ERROR : trans.adb:553\nCall stack traceback locations:\n0x5a2ed801713d 0x5a2ed801751b 0x5a2ed8017797 0x5a2ed81acfc8 0x5a2ed81bbd6d 0x5a2ed81bbe25 0x5a2ed81c5bde 0x5a2ed81e4aa7 0x5a2ed81e4d5f 0x5a2ed81e5257 0x5a2ed81e56b1 0x5a2ed81f2330 0x5a2ed81f181c 0x5a2ed8239a78 0x5a2ed8239b9f 0x5a2ed823a1f8 0x5a2ed823a98a 0x5a2ed823c596 0x5a2ed823c6eb 0x5a2ed823fb0f 0x5a2ed82443f8 0x5a2ed824423b 0x5a2ed82444e5 0x5a2ed824423b 0x5a2ed82444e5 0x5a2ed82084fa 0x5a2ed81fbeac 0x5a2ed820cd8c 0x5a2ed82070a0 0x5a2ed824cb55 0x5a2ed818daf5 0x5a2ed80c369e 0x5a2ed82504b3 0x5a2ed7e7bb07 0x7f7466229d8e 0x7f7466229e3e 0x5a2ed7e7a243 0xfffffffffffffffe\n******************************************************************\n"
+            "stderr": "\n******************** GHDL Bug occurred ***************************\nPlease report this bug on https://github.com/ghdl/ghdl/issues\nGHDL release: 1.0.0 (Ubuntu 1.0.0+dfsg-6) [Dunoon edition]\nCompiled with GNAT Version: 10.3.1 20211117\nTarget: x86_64-linux-gnu\n/tmp/radhdl-ghdl-3goesamh/\nCommand line:\n/usr/bin/ghdl-mcode -e --std=08 --ieee=synopsys -P/tmp/radhdl-ghdl-3goesamh --workdir=/tmp/radhdl-ghdl-3goesamh tb_raddsp_axis_radfft_ddr_xcorr_1024\nException TYPES.INTERNAL_ERROR raised\nException information:\nraised TYPES.INTERNAL_ERROR : trans.adb:553\nCall stack traceback locations:\n0x5ef9fe46313d 0x5ef9fe46351b 0x5ef9fe463797 0x5ef9fe5f8fc8 0x5ef9fe607d6d 0x5ef9fe607e25 0x5ef9fe611bde 0x5ef9fe630aa7 0x5ef9fe630d5f 0x5ef9fe631257 0x5ef9fe6316b1 0x5ef9fe63e330 0x5ef9fe63d81c 0x5ef9fe685a78 0x5ef9fe685b9f 0x5ef9fe6861f8 0x5ef9fe68698a 0x5ef9fe688596 0x5ef9fe6886eb 0x5ef9fe68bb0f 0x5ef9fe6903f8 0x5ef9fe69023b 0x5ef9fe6904e5 0x5ef9fe69023b 0x5ef9fe6904e5 0x5ef9fe6544fa 0x5ef9fe647eac 0x5ef9fe658d8c 0x5ef9fe6530a0 0x5ef9fe698b55 0x5ef9fe5d9af5 0x5ef9fe50f69e 0x5ef9fe69c4b3 0x5ef9fe2c7b07 0x7db2c0829d8e 0x7db2c0829e3e 0x5ef9fe2c6243 0xfffffffffffffffe\n******************************************************************\n"
           }
         },
         {
@@ -29127,7 +31338,7 @@
             },
             "returncode": 2,
             "stdout": "",
-            "stderr": "\n******************** GHDL Bug occurred ***************************\nPlease report this bug on https://github.com/ghdl/ghdl/issues\nGHDL release: 1.0.0 (Ubuntu 1.0.0+dfsg-6) [Dunoon edition]\nCompiled with GNAT Version: 10.3.1 20211117\nTarget: x86_64-linux-gnu\n/tmp/radhdl-ghdl-3_w_9bam/\nCommand line:\n/usr/bin/ghdl-mcode -e --std=08 --ieee=synopsys -P/tmp/radhdl-ghdl-3_w_9bam --workdir=/tmp/radhdl-ghdl-3_w_9bam tb_raddsp_xilinx_dsp48_wide_mul\nException TYPES.INTERNAL_ERROR raised\nException information:\nraised TYPES.INTERNAL_ERROR : trans.adb:553\nCall stack traceback locations:\n0x607facdaa13d 0x607facdaa51b 0x607facdaa797 0x607facf3ffc8 0x607facf4ed6d 0x607facf4ee25 0x607facf58bde 0x607facf77aa7 0x607facf77d5f 0x607facf78257 0x607facf786b1 0x607facf85330 0x607facf8481c 0x607facfcca78 0x607facfccb9f 0x607facfcd1f8 0x607facfcd98a 0x607facfcf596 0x607facfcf6eb 0x607facfd2b0f 0x607facfd73f8 0x607facfd723b 0x607facfd74e5 0x607facfd723b 0x607facfd74e5 0x607facf9b4fa 0x607facf8eeac 0x607facf9fd8c 0x607facf9a0a0 0x607facfdfb55 0x607facf20af5 0x607face5669e 0x607facfe34b3 0x607facc0eb07 0x78581bc29d8e 0x78581bc29e3e 0x607facc0d243 0xfffffffffffffffe\n******************************************************************\n"
+            "stderr": "\n******************** GHDL Bug occurred ***************************\nPlease report this bug on https://github.com/ghdl/ghdl/issues\nGHDL release: 1.0.0 (Ubuntu 1.0.0+dfsg-6) [Dunoon edition]\nCompiled with GNAT Version: 10.3.1 20211117\nTarget: x86_64-linux-gnu\n/tmp/radhdl-ghdl-c7akwig1/\nCommand line:\n/usr/bin/ghdl-mcode -e --std=08 --ieee=synopsys -P/tmp/radhdl-ghdl-c7akwig1 --workdir=/tmp/radhdl-ghdl-c7akwig1 tb_raddsp_xilinx_dsp48_wide_mul\nException TYPES.INTERNAL_ERROR raised\nException information:\nraised TYPES.INTERNAL_ERROR : trans.adb:553\nCall stack traceback locations:\n0x58b29adaa13d 0x58b29adaa51b 0x58b29adaa797 0x58b29af3ffc8 0x58b29af4ed6d 0x58b29af4ee25 0x58b29af58bde 0x58b29af77aa7 0x58b29af77d5f 0x58b29af78257 0x58b29af786b1 0x58b29af85330 0x58b29af8481c 0x58b29afcca78 0x58b29afccb9f 0x58b29afcd1f8 0x58b29afcd98a 0x58b29afcf596 0x58b29afcf6eb 0x58b29afd2b0f 0x58b29afd73f8 0x58b29afd723b 0x58b29afd74e5 0x58b29afd723b 0x58b29afd74e5 0x58b29af9b4fa 0x58b29af8eeac 0x58b29af9fd8c 0x58b29af9a0a0 0x58b29afdfb55 0x58b29af20af5 0x58b29ae5669e 0x58b29afe34b3 0x58b29ac0eb07 0x7aa6f9429d8e 0x7aa6f9429e3e 0x58b29ac0d243 0xfffffffffffffffe\n******************************************************************\n"
           }
         },
         {
@@ -36784,7 +38995,56 @@
           ]
         }
       ],
-      "synth_reports": []
+      "synth_reports": [
+        {
+          "module": "radif_reg_to_spi_master",
+          "part": "xc7z020clg400-1",
+          "tool": "vivado",
+          "status": "ok",
+          "clock": {
+            "frequency_mhz": 100.0,
+            "period_ns": 10.0,
+            "port": "clk"
+          },
+          "generics": {},
+          "metrics": {
+            "timing": {
+              "hold_ths_ns": 0.0,
+              "hold_whs_ns": 0.152,
+              "setup_tns_ns": 0.0,
+              "setup_wns_ns": 5.704
+            },
+            "utilization": {
+              "bonded_iob": 93,
+              "bonded_iob_available": "125",
+              "bonded_iob_util_percent": "74.40",
+              "bram_tiles": 0,
+              "bram_tiles_available": "140",
+              "bram_tiles_util_percent": "0.00",
+              "dsps": 0,
+              "dsps_available": "220",
+              "dsps_util_percent": "0.00",
+              "ramb18": 0,
+              "ramb18_available": "280",
+              "ramb18_util_percent": "0.00",
+              "ramb36_fifo": 0,
+              "ramb36_fifo_available": "140",
+              "ramb36_fifo_util_percent": "0.00",
+              "slice_luts": 202,
+              "slice_luts_available": "53200",
+              "slice_luts_util_percent": "0.38",
+              "slice_registers": 272,
+              "slice_registers_available": "106400",
+              "slice_registers_util_percent": "0.26"
+            }
+          },
+          "reports": {
+            "timing_summary": "/media/jvincent/Kingspec512/repos/RadHDL/.radmeta/hdl-synth/radif_reg_to_spi_master/timing_summary.rpt",
+            "utilization": "/media/jvincent/Kingspec512/repos/RadHDL/.radmeta/hdl-synth/radif_reg_to_spi_master/utilization.rpt"
+          },
+          "path": "projects/synth_reports/radif_reg_to_spi_master/xc7z020clg400-1/synth_summary.json"
+        }
+      ]
     },
     {
       "name": "radif_smi16_to_reg",
@@ -40202,7 +42462,7 @@
         },
         "returncode": 2,
         "stdout": "",
-        "stderr": "\n******************** GHDL Bug occurred ***************************\nPlease report this bug on https://github.com/ghdl/ghdl/issues\nGHDL release: 1.0.0 (Ubuntu 1.0.0+dfsg-6) [Dunoon edition]\nCompiled with GNAT Version: 10.3.1 20211117\nTarget: x86_64-linux-gnu\n/tmp/radhdl-ghdl-_8eeowyc/\nCommand line:\n/usr/bin/ghdl-mcode -e --std=08 --ieee=synopsys -P/tmp/radhdl-ghdl-_8eeowyc --workdir=/tmp/radhdl-ghdl-_8eeowyc tb_raddsp_axis_radfft\nException TYPES.INTERNAL_ERROR raised\nException information:\nraised TYPES.INTERNAL_ERROR : trans.adb:553\nCall stack traceback locations:\n0x64b88f89813d 0x64b88f89851b 0x64b88f898797 0x64b88fa2dfc8 0x64b88fa3cd6d 0x64b88fa3ce25 0x64b88fa46bde 0x64b88fa65aa7 0x64b88fa65d5f 0x64b88fa66257 0x64b88fa666b1 0x64b88fa73330 0x64b88fa7281c 0x64b88fabaa78 0x64b88fabab9f 0x64b88fabb1f8 0x64b88fabb98a 0x64b88fabd596 0x64b88fabd6eb 0x64b88fac0b0f 0x64b88fac53f8 0x64b88fac523b 0x64b88fac54e5 0x64b88fac523b 0x64b88fac54e5 0x64b88fa894fa 0x64b88fa7ceac 0x64b88fa8dd8c 0x64b88fa880a0 0x64b88facdb55 0x64b88fa0eaf5 0x64b88f94469e 0x64b88fad14b3 0x64b88f6fcb07 0x7e55f8029d8e 0x7e55f8029e3e 0x64b88f6fb243 0xfffffffffffffffe\n******************************************************************\n"
+        "stderr": "\n******************** GHDL Bug occurred ***************************\nPlease report this bug on https://github.com/ghdl/ghdl/issues\nGHDL release: 1.0.0 (Ubuntu 1.0.0+dfsg-6) [Dunoon edition]\nCompiled with GNAT Version: 10.3.1 20211117\nTarget: x86_64-linux-gnu\n/tmp/radhdl-ghdl-87buice6/\nCommand line:\n/usr/bin/ghdl-mcode -e --std=08 --ieee=synopsys -P/tmp/radhdl-ghdl-87buice6 --workdir=/tmp/radhdl-ghdl-87buice6 tb_raddsp_axis_radfft\nException TYPES.INTERNAL_ERROR raised\nException information:\nraised TYPES.INTERNAL_ERROR : trans.adb:553\nCall stack traceback locations:\n0x62cc9f49413d 0x62cc9f49451b 0x62cc9f494797 0x62cc9f629fc8 0x62cc9f638d6d 0x62cc9f638e25 0x62cc9f642bde 0x62cc9f661aa7 0x62cc9f661d5f 0x62cc9f662257 0x62cc9f6626b1 0x62cc9f66f330 0x62cc9f66e81c 0x62cc9f6b6a78 0x62cc9f6b6b9f 0x62cc9f6b71f8 0x62cc9f6b798a 0x62cc9f6b9596 0x62cc9f6b96eb 0x62cc9f6bcb0f 0x62cc9f6c13f8 0x62cc9f6c123b 0x62cc9f6c14e5 0x62cc9f6c123b 0x62cc9f6c14e5 0x62cc9f6854fa 0x62cc9f678eac 0x62cc9f689d8c 0x62cc9f6840a0 0x62cc9f6c9b55 0x62cc9f60aaf5 0x62cc9f54069e 0x62cc9f6cd4b3 0x62cc9f2f8b07 0x7b76b7e29d8e 0x7b76b7e29e3e 0x62cc9f2f7243 0xfffffffffffffffe\n******************************************************************\n"
       }
     },
     {
@@ -40281,7 +42541,7 @@
         },
         "returncode": 2,
         "stdout": "",
-        "stderr": "\n******************** GHDL Bug occurred ***************************\nPlease report this bug on https://github.com/ghdl/ghdl/issues\nGHDL release: 1.0.0 (Ubuntu 1.0.0+dfsg-6) [Dunoon edition]\nCompiled with GNAT Version: 10.3.1 20211117\nTarget: x86_64-linux-gnu\n/tmp/radhdl-ghdl-bsoxjh94/\nCommand line:\n/usr/bin/ghdl-mcode -e --std=08 --ieee=synopsys -P/tmp/radhdl-ghdl-bsoxjh94 --workdir=/tmp/radhdl-ghdl-bsoxjh94 tb_raddsp_axis_radfft_ddr\nException TYPES.INTERNAL_ERROR raised\nException information:\nraised TYPES.INTERNAL_ERROR : trans.adb:553\nCall stack traceback locations:\n0x57e9c82e713d 0x57e9c82e751b 0x57e9c82e7797 0x57e9c847cfc8 0x57e9c848bd6d 0x57e9c848be25 0x57e9c8495bde 0x57e9c84b4aa7 0x57e9c84b4d5f 0x57e9c84b5257 0x57e9c84b56b1 0x57e9c84c2330 0x57e9c84c181c 0x57e9c8509a78 0x57e9c8509b9f 0x57e9c850a1f8 0x57e9c850a98a 0x57e9c850c596 0x57e9c850c6eb 0x57e9c850fb0f 0x57e9c85143f8 0x57e9c851423b 0x57e9c85144e5 0x57e9c851423b 0x57e9c85144e5 0x57e9c84d84fa 0x57e9c84cbeac 0x57e9c84dcd8c 0x57e9c84d70a0 0x57e9c851cb55 0x57e9c845daf5 0x57e9c839369e 0x57e9c85204b3 0x57e9c814bb07 0x768c36029d8e 0x768c36029e3e 0x57e9c814a243 0xfffffffffffffffe\n******************************************************************\n"
+        "stderr": "\n******************** GHDL Bug occurred ***************************\nPlease report this bug on https://github.com/ghdl/ghdl/issues\nGHDL release: 1.0.0 (Ubuntu 1.0.0+dfsg-6) [Dunoon edition]\nCompiled with GNAT Version: 10.3.1 20211117\nTarget: x86_64-linux-gnu\n/tmp/radhdl-ghdl-aexwj_11/\nCommand line:\n/usr/bin/ghdl-mcode -e --std=08 --ieee=synopsys -P/tmp/radhdl-ghdl-aexwj_11 --workdir=/tmp/radhdl-ghdl-aexwj_11 tb_raddsp_axis_radfft_ddr\nException TYPES.INTERNAL_ERROR raised\nException information:\nraised TYPES.INTERNAL_ERROR : trans.adb:553\nCall stack traceback locations:\n0x5d930b65313d 0x5d930b65351b 0x5d930b653797 0x5d930b7e8fc8 0x5d930b7f7d6d 0x5d930b7f7e25 0x5d930b801bde 0x5d930b820aa7 0x5d930b820d5f 0x5d930b821257 0x5d930b8216b1 0x5d930b82e330 0x5d930b82d81c 0x5d930b875a78 0x5d930b875b9f 0x5d930b8761f8 0x5d930b87698a 0x5d930b878596 0x5d930b8786eb 0x5d930b87bb0f 0x5d930b8803f8 0x5d930b88023b 0x5d930b8804e5 0x5d930b88023b 0x5d930b8804e5 0x5d930b8444fa 0x5d930b837eac 0x5d930b848d8c 0x5d930b8430a0 0x5d930b888b55 0x5d930b7c9af5 0x5d930b6ff69e 0x5d930b88c4b3 0x5d930b4b7b07 0x708942a29d8e 0x708942a29e3e 0x5d930b4b6243 0xfffffffffffffffe\n******************************************************************\n"
       }
     },
     {
@@ -40359,7 +42619,7 @@
         },
         "returncode": 2,
         "stdout": "",
-        "stderr": "\n******************** GHDL Bug occurred ***************************\nPlease report this bug on https://github.com/ghdl/ghdl/issues\nGHDL release: 1.0.0 (Ubuntu 1.0.0+dfsg-6) [Dunoon edition]\nCompiled with GNAT Version: 10.3.1 20211117\nTarget: x86_64-linux-gnu\n/tmp/radhdl-ghdl-2gjo6l9d/\nCommand line:\n/usr/bin/ghdl-mcode -e --std=08 --ieee=synopsys -P/tmp/radhdl-ghdl-2gjo6l9d --workdir=/tmp/radhdl-ghdl-2gjo6l9d tb_raddsp_axis_radfft_ddr_xcorr_1024\nException TYPES.INTERNAL_ERROR raised\nException information:\nraised TYPES.INTERNAL_ERROR : trans.adb:553\nCall stack traceback locations:\n0x5a2ed801713d 0x5a2ed801751b 0x5a2ed8017797 0x5a2ed81acfc8 0x5a2ed81bbd6d 0x5a2ed81bbe25 0x5a2ed81c5bde 0x5a2ed81e4aa7 0x5a2ed81e4d5f 0x5a2ed81e5257 0x5a2ed81e56b1 0x5a2ed81f2330 0x5a2ed81f181c 0x5a2ed8239a78 0x5a2ed8239b9f 0x5a2ed823a1f8 0x5a2ed823a98a 0x5a2ed823c596 0x5a2ed823c6eb 0x5a2ed823fb0f 0x5a2ed82443f8 0x5a2ed824423b 0x5a2ed82444e5 0x5a2ed824423b 0x5a2ed82444e5 0x5a2ed82084fa 0x5a2ed81fbeac 0x5a2ed820cd8c 0x5a2ed82070a0 0x5a2ed824cb55 0x5a2ed818daf5 0x5a2ed80c369e 0x5a2ed82504b3 0x5a2ed7e7bb07 0x7f7466229d8e 0x7f7466229e3e 0x5a2ed7e7a243 0xfffffffffffffffe\n******************************************************************\n"
+        "stderr": "\n******************** GHDL Bug occurred ***************************\nPlease report this bug on https://github.com/ghdl/ghdl/issues\nGHDL release: 1.0.0 (Ubuntu 1.0.0+dfsg-6) [Dunoon edition]\nCompiled with GNAT Version: 10.3.1 20211117\nTarget: x86_64-linux-gnu\n/tmp/radhdl-ghdl-3goesamh/\nCommand line:\n/usr/bin/ghdl-mcode -e --std=08 --ieee=synopsys -P/tmp/radhdl-ghdl-3goesamh --workdir=/tmp/radhdl-ghdl-3goesamh tb_raddsp_axis_radfft_ddr_xcorr_1024\nException TYPES.INTERNAL_ERROR raised\nException information:\nraised TYPES.INTERNAL_ERROR : trans.adb:553\nCall stack traceback locations:\n0x5ef9fe46313d 0x5ef9fe46351b 0x5ef9fe463797 0x5ef9fe5f8fc8 0x5ef9fe607d6d 0x5ef9fe607e25 0x5ef9fe611bde 0x5ef9fe630aa7 0x5ef9fe630d5f 0x5ef9fe631257 0x5ef9fe6316b1 0x5ef9fe63e330 0x5ef9fe63d81c 0x5ef9fe685a78 0x5ef9fe685b9f 0x5ef9fe6861f8 0x5ef9fe68698a 0x5ef9fe688596 0x5ef9fe6886eb 0x5ef9fe68bb0f 0x5ef9fe6903f8 0x5ef9fe69023b 0x5ef9fe6904e5 0x5ef9fe69023b 0x5ef9fe6904e5 0x5ef9fe6544fa 0x5ef9fe647eac 0x5ef9fe658d8c 0x5ef9fe6530a0 0x5ef9fe698b55 0x5ef9fe5d9af5 0x5ef9fe50f69e 0x5ef9fe69c4b3 0x5ef9fe2c7b07 0x7db2c0829d8e 0x7db2c0829e3e 0x5ef9fe2c6243 0xfffffffffffffffe\n******************************************************************\n"
       }
     },
     {
@@ -40596,7 +42856,7 @@
         },
         "returncode": 2,
         "stdout": "",
-        "stderr": "\n******************** GHDL Bug occurred ***************************\nPlease report this bug on https://github.com/ghdl/ghdl/issues\nGHDL release: 1.0.0 (Ubuntu 1.0.0+dfsg-6) [Dunoon edition]\nCompiled with GNAT Version: 10.3.1 20211117\nTarget: x86_64-linux-gnu\n/tmp/radhdl-ghdl-3_w_9bam/\nCommand line:\n/usr/bin/ghdl-mcode -e --std=08 --ieee=synopsys -P/tmp/radhdl-ghdl-3_w_9bam --workdir=/tmp/radhdl-ghdl-3_w_9bam tb_raddsp_xilinx_dsp48_wide_mul\nException TYPES.INTERNAL_ERROR raised\nException information:\nraised TYPES.INTERNAL_ERROR : trans.adb:553\nCall stack traceback locations:\n0x607facdaa13d 0x607facdaa51b 0x607facdaa797 0x607facf3ffc8 0x607facf4ed6d 0x607facf4ee25 0x607facf58bde 0x607facf77aa7 0x607facf77d5f 0x607facf78257 0x607facf786b1 0x607facf85330 0x607facf8481c 0x607facfcca78 0x607facfccb9f 0x607facfcd1f8 0x607facfcd98a 0x607facfcf596 0x607facfcf6eb 0x607facfd2b0f 0x607facfd73f8 0x607facfd723b 0x607facfd74e5 0x607facfd723b 0x607facfd74e5 0x607facf9b4fa 0x607facf8eeac 0x607facf9fd8c 0x607facf9a0a0 0x607facfdfb55 0x607facf20af5 0x607face5669e 0x607facfe34b3 0x607facc0eb07 0x78581bc29d8e 0x78581bc29e3e 0x607facc0d243 0xfffffffffffffffe\n******************************************************************\n"
+        "stderr": "\n******************** GHDL Bug occurred ***************************\nPlease report this bug on https://github.com/ghdl/ghdl/issues\nGHDL release: 1.0.0 (Ubuntu 1.0.0+dfsg-6) [Dunoon edition]\nCompiled with GNAT Version: 10.3.1 20211117\nTarget: x86_64-linux-gnu\n/tmp/radhdl-ghdl-c7akwig1/\nCommand line:\n/usr/bin/ghdl-mcode -e --std=08 --ieee=synopsys -P/tmp/radhdl-ghdl-c7akwig1 --workdir=/tmp/radhdl-ghdl-c7akwig1 tb_raddsp_xilinx_dsp48_wide_mul\nException TYPES.INTERNAL_ERROR raised\nException information:\nraised TYPES.INTERNAL_ERROR : trans.adb:553\nCall stack traceback locations:\n0x58b29adaa13d 0x58b29adaa51b 0x58b29adaa797 0x58b29af3ffc8 0x58b29af4ed6d 0x58b29af4ee25 0x58b29af58bde 0x58b29af77aa7 0x58b29af77d5f 0x58b29af78257 0x58b29af786b1 0x58b29af85330 0x58b29af8481c 0x58b29afcca78 0x58b29afccb9f 0x58b29afcd1f8 0x58b29afcd98a 0x58b29afcf596 0x58b29afcf6eb 0x58b29afd2b0f 0x58b29afd73f8 0x58b29afd723b 0x58b29afd74e5 0x58b29afd723b 0x58b29afd74e5 0x58b29af9b4fa 0x58b29af8eeac 0x58b29af9fd8c 0x58b29af9a0a0 0x58b29afdfb55 0x58b29af20af5 0x58b29ae5669e 0x58b29afe34b3 0x58b29ac0eb07 0x7aa6f9429d8e 0x7aa6f9429e3e 0x58b29ac0d243 0xfffffffffffffffe\n******************************************************************\n"
       }
     },
     {
