@@ -69,12 +69,12 @@ pre { overflow: auto; padding: 14px; border-radius: 6px; background: var(--code)
 .wave-controls label { display: inline-flex; align-items: center; gap: 6px; white-space: nowrap; }
 .wave-controls input { width: 180px; accent-color: var(--accent); }
 .wave-viewport { overflow: auto; max-height: 560px; border: 1px solid var(--line); border-radius: 4px; background: var(--card); resize: vertical; }
-.wave-stage { display: flex; align-items: flex-start; min-width: max-content; position: relative; background: var(--card); }
-.wave-label-pane { position: sticky; left: 0; z-index: 3; flex: 0 0 190px; width: 190px; min-width: 190px; background: var(--card); border-right: 1px solid var(--line); }
+.wave-stage { display: grid; grid-template-columns: 190px 894px; align-items: start; width: fit-content; min-width: 100%; position: relative; background: var(--card); }
+.wave-label-pane { position: sticky; left: 0; z-index: 3; width: 190px; min-width: 190px; background: var(--card); border-right: 1px solid var(--line); }
 .wave-label-row { position: absolute; left: 0; width: 180px; padding: 0 8px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; color: var(--ink); font: 12px ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; }
-.wave-plot-pane { position: relative; flex: 0 0 auto; background: var(--card); }
+.wave-plot-pane { position: relative; background: var(--card); }
 .waveform-canvas { display: block; background: var(--card); }
-.wave-hover-readout { position: sticky; left: 198px; bottom: 6px; display: inline-block; z-index: 4; margin: 0 0 6px 8px; border: 1px solid rgba(255, 216, 77, .45); border-radius: 4px; background: rgba(10, 15, 22, .86); color: #ffd84d; padding: 3px 6px; font: 12px ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; pointer-events: none; }
+.wave-hover-readout { position: sticky; left: 198px; bottom: 6px; display: inline-block; z-index: 4; grid-column: 2; justify-self: start; margin: 0 0 6px 8px; border: 1px solid rgba(255, 216, 77, .45); border-radius: 4px; background: rgba(10, 15, 22, .86); color: #ffd84d; padding: 3px 6px; font: 12px ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; pointer-events: none; }
 .wave-group { border: 1px solid var(--line); border-radius: 6px; background: var(--card); margin: 10px 0; }
 .wave-group > summary { cursor: pointer; padding: 8px 10px; font-weight: 700; }
 .wave-group-body { padding: 0 10px 10px; }
