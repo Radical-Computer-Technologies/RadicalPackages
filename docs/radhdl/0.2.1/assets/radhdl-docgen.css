@@ -57,12 +57,13 @@ pre { overflow: auto; padding: 14px; border-radius: 6px; background: var(--code)
 .testbench-section { border: 1px solid var(--line); border-radius: 6px; background: var(--card); margin: 12px 0; }
 .testbench-section > summary { cursor: pointer; padding: 10px 12px; font-weight: 700; }
 .testbench-body { padding: 0 12px 12px; }
-.wave { width: 100%; border: 1px solid var(--line); border-radius: 6px; padding: 10px; background: var(--soft); margin: 12px 0; --wave-zoom: 1; }
+.wave { width: 100%; border: 1px solid var(--line); border-radius: 6px; padding: 10px; background: var(--soft); margin: 12px 0; --wave-zoom-x: 1; --wave-zoom-y: 1; }
 .wave h4 { margin: 0 0 8px; }
-.wave-controls { display: flex; align-items: center; gap: 8px; margin: 0 0 8px; color: var(--muted); font-size: 13px; }
+.wave-controls { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; margin: 0 0 8px; color: var(--muted); font-size: 13px; }
+.wave-controls label { display: inline-flex; align-items: center; gap: 6px; white-space: nowrap; }
 .wave-controls input { width: 180px; accent-color: var(--accent); }
 .wave-viewport { overflow: auto; max-height: 560px; border: 1px solid var(--line); border-radius: 4px; background: var(--card); resize: vertical; }
-.wave svg { display: block; width: calc(1120px * var(--wave-zoom)); max-width: none; height: auto; }
+.wave svg { display: block; width: calc(1120px * var(--wave-zoom-x)); max-width: none; height: calc(var(--wave-height) * var(--wave-zoom-y)); }
 .wave-axis { stroke: var(--line); stroke-width: 1; }
 .wave-grid { stroke: var(--line); stroke-width: 1; opacity: .65; }
 .wave-grid.clock-grid { opacity: .45; }

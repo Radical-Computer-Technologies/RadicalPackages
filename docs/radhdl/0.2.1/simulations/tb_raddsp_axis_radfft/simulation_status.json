@@ -19,6 +19,8 @@
       "dsp/hdl/raddsp/src/cordic_atan2.vhd",
       "dsp/hdl/raddsp/src/fft_radix2_batch_core.vhd",
       "dsp/hdl/raddsp/src/fft_tdp_ram.vhd",
+      "dsp/hdl/raddsp/src/raddsp_axis_am_iq_demodulator.vhd",
+      "dsp/hdl/raddsp/src/raddsp_axis_am_iq_modulator.vhd",
       "dsp/hdl/raddsp/src/raddsp_axis_biquad.vhd",
       "dsp/hdl/raddsp/src/raddsp_axis_dds.vhd",
       "dsp/hdl/raddsp/src/raddsp_axis_fft_bin_product.vhd",
@@ -37,6 +39,7 @@
       "dsp/hdl/raddsp/src/raddsp_axis_radfft_batch.vhd",
       "dsp/hdl/raddsp/src/raddsp_axis_radfft_parallel8.vhd",
       "dsp/hdl/raddsp/src/raddsp_fft_twiddle_rom.vhd",
+      "dsp/hdl/raddsp/src/raddsp_sqrt_u32.vhd",
       "dsp/hdl/raddsp/src/raddsp_xilinx_dsp48_square_seq.vhd",
       "dsp/hdl/raddsp/src/raddsp_xilinx_dsp48_wide_mul.vhd",
       "dsp/hdl/raddsp/src/zc_chirp_frame_detector.vhd",
@@ -58,5 +61,5 @@
   },
   "returncode": 2,
   "stdout": "",
-  "stderr": "\n******************** GHDL Bug occurred ***************************\nPlease report this bug on https://github.com/ghdl/ghdl/issues\nGHDL release: 1.0.0 (Ubuntu 1.0.0+dfsg-6) [Dunoon edition]\nCompiled with GNAT Version: 10.3.1 20211117\nTarget: x86_64-linux-gnu\n/tmp/radhdl-ghdl-_xp5i_l8/\nCommand line:\n/usr/bin/ghdl-mcode -e --std=08 --ieee=synopsys -P/tmp/radhdl-ghdl-_xp5i_l8 --workdir=/tmp/radhdl-ghdl-_xp5i_l8 tb_raddsp_axis_radfft\nException TYPES.INTERNAL_ERROR raised\nException information:\nraised TYPES.INTERNAL_ERROR : trans.adb:553\nCall stack traceback locations:\n0x57e7b179b13d 0x57e7b179b51b 0x57e7b179b797 0x57e7b1930fc8 0x57e7b193fd6d 0x57e7b193fe25 0x57e7b1949bde 0x57e7b1968aa7 0x57e7b1968d5f 0x57e7b1969257 0x57e7b19696b1 0x57e7b1976330 0x57e7b197581c 0x57e7b19bda78 0x57e7b19bdb9f 0x57e7b19be1f8 0x57e7b19be98a 0x57e7b19c0596 0x57e7b19c06eb 0x57e7b19c3b0f 0x57e7b19c83f8 0x57e7b19c823b 0x57e7b19c84e5 0x57e7b19c823b 0x57e7b19c84e5 0x57e7b198c4fa 0x57e7b197feac 0x57e7b1990d8c 0x57e7b198b0a0 0x57e7b19d0b55 0x57e7b1911af5 0x57e7b184769e 0x57e7b19d44b3 0x57e7b15ffb07 0x74245de29d8e 0x74245de29e3e 0x57e7b15fe243 0xfffffffffffffffe\n******************************************************************\n"
+  "stderr": "\n******************** GHDL Bug occurred ***************************\nPlease report this bug on https://github.com/ghdl/ghdl/issues\nGHDL release: 1.0.0 (Ubuntu 1.0.0+dfsg-6) [Dunoon edition]\nCompiled with GNAT Version: 10.3.1 20211117\nTarget: x86_64-linux-gnu\n/tmp/radhdl-ghdl-_rykpo_u/\nCommand line:\n/usr/bin/ghdl-mcode -e --std=08 --ieee=synopsys -P/tmp/radhdl-ghdl-_rykpo_u --workdir=/tmp/radhdl-ghdl-_rykpo_u tb_raddsp_axis_radfft\nException TYPES.INTERNAL_ERROR raised\nException information:\nraised TYPES.INTERNAL_ERROR : trans.adb:553\nCall stack traceback locations:\n0x5801819e513d 0x5801819e551b 0x5801819e5797 0x580181b7afc8 0x580181b89d6d 0x580181b89e25 0x580181b93bde 0x580181bb2aa7 0x580181bb2d5f 0x580181bb3257 0x580181bb36b1 0x580181bc0330 0x580181bbf81c 0x580181c07a78 0x580181c07b9f 0x580181c081f8 0x580181c0898a 0x580181c0a596 0x580181c0a6eb 0x580181c0db0f 0x580181c123f8 0x580181c1223b 0x580181c124e5 0x580181c1223b 0x580181c124e5 0x580181bd64fa 0x580181bc9eac 0x580181bdad8c 0x580181bd50a0 0x580181c1ab55 0x580181b5baf5 0x580181a9169e 0x580181c1e4b3 0x580181849b07 0x777676829d8e 0x777676829e3e 0x580181848243 0xfffffffffffffffe\n******************************************************************\n"
 }

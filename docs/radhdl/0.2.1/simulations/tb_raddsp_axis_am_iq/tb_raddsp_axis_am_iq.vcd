@@ -1,0 +1,452 @@
+$date
+  Wed Jul  8 17:45:15 2026
+$end
+$version
+  GHDL v0
+$end
+$timescale
+  1 fs
+$end
+$scope module standard $end
+$upscope $end
+$scope module textio $end
+$upscope $end
+$scope module std_logic_1164 $end
+$upscope $end
+$scope module numeric_std $end
+$upscope $end
+$scope module env $end
+$upscope $end
+$scope module raddsp_axis_pkg $end
+$upscope $end
+$scope module tb_raddsp_axis_am_iq $end
+$var reg 1 ! clk $end
+$var reg 1 " rst $end
+$var reg 16 # carrier_i[15:0] $end
+$var reg 16 $ carrier_q[15:0] $end
+$var reg 1 % in_valid $end
+$var reg 1 & in_ready $end
+$var reg 16 ' in_data[15:0] $end
+$var reg 1 ( in_last $end
+$var reg 1 ) iq_valid $end
+$var reg 1 * iq_ready $end
+$var reg 32 + iq_data[31:0] $end
+$var reg 1 , iq_last $end
+$var reg 1 - env_valid $end
+$var reg 1 . env_ready $end
+$var reg 16 / env_data[15:0] $end
+$var reg 1 0 env_last $end
+$scope module u_mod $end
+$var reg 1 1 clk $end
+$var reg 1 2 rst $end
+$var reg 16 3 carrier_i_i[15:0] $end
+$var reg 16 4 carrier_q_i[15:0] $end
+$var reg 1 5 s_axis_tvalid $end
+$var reg 1 6 s_axis_tready $end
+$var reg 16 7 s_axis_tdata[15:0] $end
+$var reg 1 8 s_axis_tlast $end
+$var reg 1 9 m_axis_tvalid $end
+$var reg 1 : m_axis_tready $end
+$var reg 32 ; m_axis_tdata[31:0] $end
+$var reg 1 < m_axis_tlast $end
+$var reg 1 = out_valid_r $end
+$var reg 32 > out_data_r[31:0] $end
+$var reg 1 ? out_last_r $end
+$var reg 1 @ ready_i $end
+$upscope $end
+$scope module u_demod $end
+$var reg 1 A clk $end
+$var reg 1 B rst $end
+$var reg 1 C s_axis_tvalid $end
+$var reg 1 D s_axis_tready $end
+$var reg 32 E s_axis_tdata[31:0] $end
+$var reg 1 F s_axis_tlast $end
+$var reg 1 G m_axis_tvalid $end
+$var reg 1 H m_axis_tready $end
+$var reg 16 I m_axis_tdata[15:0] $end
+$var reg 1 J m_axis_tlast $end
+$var reg 1 K out_valid_r $end
+$var reg 16 L out_data_r[15:0] $end
+$var reg 1 M out_last_r $end
+$var reg 1 N ready_i $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+#0
+0!
+1"
+b0100000000000000 #
+b0000000000000000 $
+0%
+1&
+b0000000000000000 '
+0(
+0)
+1*
+b00000000000000000000000000000000 +
+0,
+0-
+1.
+b0000000000000000 /
+00
+01
+12
+b0100000000000000 3
+b0000000000000000 4
+05
+16
+b0000000000000000 7
+08
+09
+1:
+b00000000000000000000000000000000 ;
+0<
+0=
+b00000000000000000000000000000000 >
+0?
+1@
+0A
+1B
+0C
+1D
+b00000000000000000000000000000000 E
+0F
+0G
+1H
+b0000000000000000 I
+0J
+0K
+b0000000000000000 L
+0M
+1N
+#5000000
+1!
+11
+1A
+#10000000
+0!
+01
+0A
+#15000000
+1!
+11
+1A
+#20000000
+0!
+01
+0A
+#25000000
+1!
+11
+1A
+#30000000
+0!
+01
+0A
+#35000000
+1!
+11
+1A
+#40000000
+0!
+01
+0A
+#45000000
+1!
+11
+1A
+#50000000
+0!
+01
+0A
+#55000000
+1!
+11
+1A
+#60000000
+0!
+01
+0A
+#65000000
+1!
+11
+1A
+#70000000
+0!
+01
+0A
+#75000000
+1!
+11
+1A
+#80000000
+0!
+01
+0A
+#85000000
+1!
+11
+1A
+#90000000
+0!
+01
+0A
+#95000000
+1!
+11
+1A
+#100000000
+0!
+0"
+01
+02
+0A
+0B
+#105000000
+1!
+11
+1A
+#110000000
+0!
+01
+0A
+#115000000
+1!
+1%
+b0001000000000000 '
+11
+15
+b0001000000000000 7
+1A
+#120000000
+0!
+01
+0A
+#125000000
+1!
+0%
+1)
+b00000000000000000001000000000000 +
+11
+05
+19
+b00000000000000000001000000000000 ;
+1=
+b00000000000000000001000000000000 >
+1A
+1C
+b00000000000000000001000000000000 E
+#130000000
+0!
+01
+0A
+#135000000
+1!
+0)
+1-
+b0001000000000000 /
+11
+09
+0=
+1A
+0C
+1G
+b0001000000000000 I
+1K
+b0001000000000000 L
+#140000000
+0!
+01
+0A
+#145000000
+1!
+0-
+11
+1A
+0G
+0K
+#150000000
+0!
+01
+0A
+#155000000
+1!
+1%
+b0010000000000000 '
+11
+15
+b0010000000000000 7
+1A
+#160000000
+0!
+01
+0A
+#165000000
+1!
+0%
+1)
+b00000000000000000010000000000000 +
+11
+05
+19
+b00000000000000000010000000000000 ;
+1=
+b00000000000000000010000000000000 >
+1A
+1C
+b00000000000000000010000000000000 E
+#170000000
+0!
+01
+0A
+#175000000
+1!
+0)
+1-
+b0010000000000000 /
+11
+09
+0=
+1A
+0C
+1G
+b0010000000000000 I
+1K
+b0010000000000000 L
+#180000000
+0!
+01
+0A
+#185000000
+1!
+0-
+11
+1A
+0G
+0K
+#190000000
+0!
+01
+0A
+#195000000
+1!
+1%
+b0010111011100000 '
+11
+15
+b0010111011100000 7
+1A
+#200000000
+0!
+01
+0A
+#205000000
+1!
+0%
+1)
+b00000000000000000010111011100000 +
+11
+05
+19
+b00000000000000000010111011100000 ;
+1=
+b00000000000000000010111011100000 >
+1A
+1C
+b00000000000000000010111011100000 E
+#210000000
+0!
+01
+0A
+#215000000
+1!
+0)
+1-
+b0010111011100000 /
+11
+09
+0=
+1A
+0C
+1G
+b0010111011100000 I
+1K
+b0010111011100000 L
+#220000000
+0!
+01
+0A
+#225000000
+1!
+0-
+11
+1A
+0G
+0K
+#230000000
+0!
+01
+0A
+#235000000
+1!
+1%
+b0100000000000000 '
+1(
+11
+15
+b0100000000000000 7
+18
+1A
+#240000000
+0!
+01
+0A
+#245000000
+1!
+0%
+0(
+1)
+b00000000000000000100000000000000 +
+1,
+11
+05
+08
+19
+b00000000000000000100000000000000 ;
+1<
+1=
+b00000000000000000100000000000000 >
+1?
+1A
+1C
+b00000000000000000100000000000000 E
+1F
+#250000000
+0!
+01
+0A
+#255000000
+1!
+0)
+0,
+1-
+b0100000000000000 /
+10
+11
+09
+0<
+0=
+0?
+1A
+0C
+0F
+1G
+b0100000000000000 I
+1J
+1K
+b0100000000000000 L
+1M
+#260000000
+0!
+01
+0A
