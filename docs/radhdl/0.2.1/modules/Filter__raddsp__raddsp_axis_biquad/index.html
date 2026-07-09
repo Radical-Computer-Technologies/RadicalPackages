@@ -121,265 +121,637 @@ end component;</code></pre><h3>Direct Entity Instantiation</h3><pre><code>u_radd
   <h2 id="register-interfaces">Register Interfaces</h2><p>No fixed register map was found; this section documents the exposed register/control interface ports.</p><table><thead><tr><th>Interface</th><th>Directions</th><th>Signals</th><th>Representative ports</th></tr></thead><tbody><tr><td>M_AXIS</td><td>in, out</td><td>4</td><td>m_axis_tvalid, m_axis_tready, m_axis_tdata, m_axis_tlast</td></tr><tr><td>S_AXIS</td><td>in, out</td><td>4</td><td>s_axis_tvalid, s_axis_tready, s_axis_tdata, s_axis_tlast</td></tr></tbody></table>
   
   <h2 id="testbenches">Testbenches</h2><details class="testbench-section"><summary>tb_raddsp_axis_smoke <span class="meta">captured waveform</span></summary><div class="testbench-body"><p class="meta">Source: dsp/hdl/testbenches/tb_raddsp_axis_smoke.vhd</p><p>Self-checking or stimulus-focused testbench for axis smoke.
-Exercises representative handshakes, reset behavior, frame boundaries, and numeric corner cases for regression runs.</p><p class="meta">Artifacts: <a href="../../simulations/tb_raddsp_axis_smoke/simulation_status.json">status</a>, <a href="../../simulations/tb_raddsp_axis_smoke/tb_raddsp_axis_smoke.vcd">vcd</a></p><div class="wave"><h4>Captured GHDL Waveform</h4><p class="meta">Source: dsp/hdl/testbenches/tb_raddsp_axis_smoke.vhd</p><div class="wave-controls"><label>Horizontal <input class="wave-zoom-x" type="range" min="60" max="420" value="100"></label><label>Vertical <input class="wave-zoom-y" type="range" min="70" max="260" value="100"></label></div><div class="wave-viewport" style="--wave-height:3326px"><div class="wave-canvas"><svg class="wave-labels" viewBox="0 0 190 3326" aria-hidden="true"><text class="wave-label" x="8" y="52">clk</text><text class="wave-label" x="8" y="86">rst</text><text class="wave-label" x="8" y="120">gain_coeff[15:0]</text><text class="wave-label" x="8" y="154">gain_s_valid</text><text class="wave-label" x="8" y="188">gain_s_ready</text><text class="wave-label" x="8" y="222">gain_s_data[15:0]</text><text class="wave-label" x="8" y="256">gain_s_last</text><text class="wave-label" x="8" y="290">gain_m_valid</text><text class="wave-label" x="8" y="324">gain_m_ready</text><text class="wave-label" x="8" y="358">gain_m_data[15:0]</text><text class="wave-label" x="8" y="392">gain_m_last</text><text class="wave-label" x="8" y="426">gain2_coeff[31:0]</text><text class="wave-label" x="8" y="460">gain2_s_valid</text><text class="wave-label" x="8" y="494">gain2_s_ready</text><text class="wave-label" x="8" y="528">gain2_s_data[31:0]</text><text class="wave-label" x="8" y="562">gain2_s_last</text><text class="wave-label" x="8" y="596">gain2_m_valid</text><text class="wave-label" x="8" y="630">gain2_m_ready</text><text class="wave-label" x="8" y="664">gain2_m_data[31:0]</text><text class="wave-label" x="8" y="698">gain2_m_last</text><text class="wave-label" x="8" y="732">bq_b0[15:0]</text><text class="wave-label" x="8" y="766">bq_z[15:0]</text><text class="wave-label" x="8" y="800">bq_s_valid</text><text class="wave-label" x="8" y="834">bq_s_ready</text><text class="wave-label" x="8" y="868">bq_s_data[15:0]</text><text class="wave-label" x="8" y="902">bq_s_last</text><text class="wave-label" x="8" y="936">bq_m_valid</text><text class="wave-label" x="8" y="970">bq_m_ready</text><text class="wave-label" x="8" y="1004">bq_m_data[15:0]</text><text class="wave-label" x="8" y="1038">bq_m_last</text><text class="wave-label" x="8" y="1072">bq_seq_s_valid</text><text class="wave-label" x="8" y="1106">bq_seq_s_ready</text><text class="wave-label" x="8" y="1140">bq_seq_s_data[15:0]</text><text class="wave-label" x="8" y="1174">bq_seq_s_last</text><text class="wave-label" x="8" y="1208">bq_seq_m_valid</text><text class="wave-label" x="8" y="1242">bq_seq_m_ready</text><text class="wave-label" x="8" y="1276">bq_seq_m_data[15:0]</text><text class="wave-label" x="8" y="1310">bq_seq_m_last</text><text class="wave-label" x="8" y="1344">lp_seq_s_valid</text><text class="wave-label" x="8" y="1378">lp_seq_s_ready</text><text class="wave-label" x="8" y="1412">lp_seq_s_data[15:0]</text><text class="wave-label" x="8" y="1446">lp_seq_s_last</text><text class="wave-label" x="8" y="1480">lp_seq_m_valid</text><text class="wave-label" x="8" y="1514">lp_seq_m_ready</text><text class="wave-label" x="8" y="1548">lp_seq_m_data[15:0]</text><text class="wave-label" x="8" y="1582">lp_seq_m_last</text><text class="wave-label" x="8" y="1616">fir_taps[31:0]</text><text class="wave-label" x="8" y="1650">fir_s_valid</text><text class="wave-label" x="8" y="1684">fir_s_ready</text><text class="wave-label" x="8" y="1718">fir_s_data[15:0]</text><text class="wave-label" x="8" y="1752">fir_s_last</text><text class="wave-label" x="8" y="1786">fir_m_valid</text><text class="wave-label" x="8" y="1820">fir_m_ready</text><text class="wave-label" x="8" y="1854">fir_m_data[15:0]</text><text class="wave-label" x="8" y="1888">fir_m_last</text><text class="wave-label" x="8" y="1922">fir_seq_s_valid</text><text class="wave-label" x="8" y="1956">fir_seq_s_ready</text><text class="wave-label" x="8" y="1990">fir_seq_s_data[15:0]</text><text class="wave-label" x="8" y="2024">fir_seq_s_last</text><text class="wave-label" x="8" y="2058">fir_seq_m_valid</text><text class="wave-label" x="8" y="2092">fir_seq_m_ready</text><text class="wave-label" x="8" y="2126">fir_seq_m_data[15:0]</text><text class="wave-label" x="8" y="2160">fir_seq_m_last</text><text class="wave-label" x="8" y="2194">mat_op[1:0]</text><text class="wave-label" x="8" y="2228">mat_s0_valid</text><text class="wave-label" x="8" y="2262">mat_s0_ready</text><text class="wave-label" x="8" y="2296">mat_s0_data[15:0]</text><text class="wave-label" x="8" y="2330">mat_s0_last</text><text class="wave-label" x="8" y="2364">mat_s1_valid</text><text class="wave-label" x="8" y="2398">mat_s1_ready</text><text class="wave-label" x="8" y="2432">mat_s1_data[15:0]</text><text class="wave-label" x="8" y="2466">mat_s1_last</text><text class="wave-label" x="8" y="2500">mat_m_valid</text><text class="wave-label" x="8" y="2534">mat_m_ready</text><text class="wave-label" x="8" y="2568">mat_m_data[15:0]</text><text class="wave-label" x="8" y="2602">mat_m_last</text><text class="wave-label" x="8" y="2636">dot_s0_valid</text><text class="wave-label" x="8" y="2670">dot_s0_ready</text><text class="wave-label" x="8" y="2704">dot_s0_data[15:0]</text><text class="wave-label" x="8" y="2738">dot_s0_last</text><text class="wave-label" x="8" y="2772">dot_s1_valid</text><text class="wave-label" x="8" y="2806">dot_s1_ready</text><text class="wave-label" x="8" y="2840">dot_s1_data[15:0]</text><text class="wave-label" x="8" y="2874">dot_s1_last</text><text class="wave-label" x="8" y="2908">dot_m_valid</text><text class="wave-label" x="8" y="2942">dot_m_ready</text><text class="wave-label" x="8" y="2976">dot_m_data[31:0]</text><text class="wave-label" x="8" y="3010">dot_m_last</text><text class="wave-label" x="8" y="3044">dot_count[31:0]</text><text class="wave-label" x="8" y="3078">gain_i[15:0]</text><text class="wave-label" x="8" y="3112">out_valid_r</text><text class="wave-label" x="8" y="3146">out_data_r[15:0]</text><text class="wave-label" x="8" y="3180">out_last_r</text><text class="wave-label" x="8" y="3214">busy_r</text><text class="wave-label" x="8" y="3248">ready_i</text><text class="wave-label" x="8" y="3282">mul_valid[0:0]</text></svg><div class="wave-plot" style="--wave-plot-width:894px"><svg class="waveform" data-plot-width="894" viewBox="0 0 894 3326" role="img" aria-label="Captured GHDL Waveform"><line class="wave-grid clock-grid" data-clock="1" data-x="6.3" data-time="5000000" data-label="cycle 0" x1="6.3" y1="20" x2="6.3" y2="3308" /><text class="wave-time" data-tick="0" data-x="9.3" x="9.3" y="15">C0</text><line class="wave-grid clock-grid" data-clock="1" data-x="18.9" data-time="15000000" data-label="cycle 1" x1="18.9" y1="20" x2="18.9" y2="3308" /><text class="wave-time" data-tick="1" data-x="21.9" x="21.9" y="15">C1</text><line class="wave-grid clock-grid" data-clock="1" data-x="31.5" data-time="25000000" data-label="cycle 2" x1="31.5" y1="20" x2="31.5" y2="3308" /><text class="wave-time" data-tick="2" data-x="34.5" x="34.5" y="15">C2</text><line class="wave-grid clock-grid" data-clock="1" data-x="44.1" data-time="35000000" data-label="cycle 3" x1="44.1" y1="20" x2="44.1" y2="3308" /><text class="wave-time" data-tick="3" data-x="47.1" x="47.1" y="15">C3</text><line class="wave-grid clock-grid" data-clock="1" data-x="56.7" data-time="45000000" data-label="cycle 4" x1="56.7" y1="20" x2="56.7" y2="3308" /><text class="wave-time" data-tick="4" data-x="59.7" x="59.7" y="15">C4</text><line class="wave-grid clock-grid" data-clock="1" data-x="69.3" data-time="55000000" data-label="cycle 5" x1="69.3" y1="20" x2="69.3" y2="3308" /><text class="wave-time" data-tick="5" data-x="72.3" x="72.3" y="15">C5</text><line class="wave-grid clock-grid" data-clock="1" data-x="81.8" data-time="65000000" data-label="cycle 6" x1="81.8" y1="20" x2="81.8" y2="3308" /><text class="wave-time" data-tick="6" data-x="84.8" x="84.8" y="15">C6</text><line class="wave-grid clock-grid" data-clock="1" data-x="94.4" data-time="75000000" data-label="cycle 7" x1="94.4" y1="20" x2="94.4" y2="3308" /><text class="wave-time" data-tick="7" data-x="97.4" x="97.4" y="15">C7</text><line class="wave-grid clock-grid" data-clock="1" data-x="107.0" data-time="85000000" data-label="cycle 8" x1="107.0" y1="20" x2="107.0" y2="3308" /><text class="wave-time" data-tick="8" data-x="110.0" x="110.0" y="15">C8</text><line class="wave-grid clock-grid" data-clock="1" data-x="119.6" data-time="95000000" data-label="cycle 9" x1="119.6" y1="20" x2="119.6" y2="3308" /><text class="wave-time" data-tick="9" data-x="122.6" x="122.6" y="15">C9</text><line class="wave-grid clock-grid" data-clock="1" data-x="132.2" data-time="105000000" data-label="cycle 10" x1="132.2" y1="20" x2="132.2" y2="3308" /><text class="wave-time" data-tick="10" data-x="135.2" x="135.2" y="15">C10</text><line class="wave-grid clock-grid" data-clock="1" data-x="144.8" data-time="115000000" data-label="cycle 11" x1="144.8" y1="20" x2="144.8" y2="3308" /><text class="wave-time" data-tick="11" data-x="147.8" x="147.8" y="15">C11</text><line class="wave-grid clock-grid" data-clock="1" data-x="157.4" data-time="125000000" data-label="cycle 12" x1="157.4" y1="20" x2="157.4" y2="3308" /><text class="wave-time" data-tick="12" data-x="160.4" x="160.4" y="15">C12</text><line class="wave-grid clock-grid" data-clock="1" data-x="170.0" data-time="135000000" data-label="cycle 13" x1="170.0" y1="20" x2="170.0" y2="3308" /><text class="wave-time" data-tick="13" data-x="173.0" x="173.0" y="15">C13</text><line class="wave-grid clock-grid" data-clock="1" data-x="182.6" data-time="145000000" data-label="cycle 14" x1="182.6" y1="20" x2="182.6" y2="3308" /><text class="wave-time" data-tick="14" data-x="185.6" x="185.6" y="15">C14</text><line class="wave-grid clock-grid" data-clock="1" data-x="195.2" data-time="155000000" data-label="cycle 15" x1="195.2" y1="20" x2="195.2" y2="3308" /><text class="wave-time" data-tick="15" data-x="198.2" x="198.2" y="15">C15</text><line class="wave-grid clock-grid" data-clock="1" data-x="207.8" data-time="165000000" data-label="cycle 16" x1="207.8" y1="20" x2="207.8" y2="3308" /><text class="wave-time" data-tick="16" data-x="210.8" x="210.8" y="15">C16</text><line class="wave-grid clock-grid" data-clock="1" data-x="220.4" data-time="175000000" data-label="cycle 17" x1="220.4" y1="20" x2="220.4" y2="3308" /><text class="wave-time" data-tick="17" data-x="223.4" x="223.4" y="15">C17</text><line class="wave-grid clock-grid" data-clock="1" data-x="232.9" data-time="185000000" data-label="cycle 18" x1="232.9" y1="20" x2="232.9" y2="3308" /><text class="wave-time" data-tick="18" data-x="235.9" x="235.9" y="15">C18</text><line class="wave-grid clock-grid" data-clock="1" data-x="245.5" data-time="195000000" data-label="cycle 19" x1="245.5" y1="20" x2="245.5" y2="3308" /><text class="wave-time" data-tick="19" data-x="248.5" x="248.5" y="15">C19</text><line class="wave-grid clock-grid" data-clock="1" data-x="258.1" data-time="205000000" data-label="cycle 20" x1="258.1" y1="20" x2="258.1" y2="3308" /><text class="wave-time" data-tick="20" data-x="261.1" x="261.1" y="15">C20</text><line class="wave-grid clock-grid" data-clock="1" data-x="270.7" data-time="215000000" data-label="cycle 21" x1="270.7" y1="20" x2="270.7" y2="3308" /><text class="wave-time" data-tick="21" data-x="273.7" x="273.7" y="15">C21</text><line class="wave-grid clock-grid" data-clock="1" data-x="283.3" data-time="225000000" data-label="cycle 22" x1="283.3" y1="20" x2="283.3" y2="3308" /><text class="wave-time" data-tick="22" data-x="286.3" x="286.3" y="15">C22</text><line class="wave-grid clock-grid" data-clock="1" data-x="295.9" data-time="235000000" data-label="cycle 23" x1="295.9" y1="20" x2="295.9" y2="3308" /><text class="wave-time" data-tick="23" data-x="298.9" x="298.9" y="15">C23</text><line class="wave-grid clock-grid" data-clock="1" data-x="308.5" data-time="245000000" data-label="cycle 24" x1="308.5" y1="20" x2="308.5" y2="3308" /><text class="wave-time" data-tick="24" data-x="311.5" x="311.5" y="15">C24</text><line class="wave-grid clock-grid" data-clock="1" data-x="321.1" data-time="255000000" data-label="cycle 25" x1="321.1" y1="20" x2="321.1" y2="3308" /><text class="wave-time" data-tick="25" data-x="324.1" x="324.1" y="15">C25</text><line class="wave-grid clock-grid" data-clock="1" data-x="333.7" data-time="265000000" data-label="cycle 26" x1="333.7" y1="20" x2="333.7" y2="3308" /><text class="wave-time" data-tick="26" data-x="336.7" x="336.7" y="15">C26</text><line class="wave-grid clock-grid" data-clock="1" data-x="346.3" data-time="275000000" data-label="cycle 27" x1="346.3" y1="20" x2="346.3" y2="3308" /><text class="wave-time" data-tick="27" data-x="349.3" x="349.3" y="15">C27</text><line class="wave-grid clock-grid" data-clock="1" data-x="358.9" data-time="285000000" data-label="cycle 28" x1="358.9" y1="20" x2="358.9" y2="3308" /><text class="wave-time" data-tick="28" data-x="361.9" x="361.9" y="15">C28</text><line class="wave-grid clock-grid" data-clock="1" data-x="371.5" data-time="295000000" data-label="cycle 29" x1="371.5" y1="20" x2="371.5" y2="3308" /><text class="wave-time" data-tick="29" data-x="374.5" x="374.5" y="15">C29</text><line class="wave-grid clock-grid" data-clock="1" data-x="384.0" data-time="305000000" data-label="cycle 30" x1="384.0" y1="20" x2="384.0" y2="3308" /><text class="wave-time" data-tick="30" data-x="387.0" x="387.0" y="15">C30</text><line class="wave-grid clock-grid" data-clock="1" data-x="396.6" data-time="315000000" data-label="cycle 31" x1="396.6" y1="20" x2="396.6" y2="3308" /><text class="wave-time" data-tick="31" data-x="399.6" x="399.6" y="15">C31</text><line class="wave-grid clock-grid" data-clock="1" data-x="409.2" data-time="325000000" data-label="cycle 32" x1="409.2" y1="20" x2="409.2" y2="3308" /><text class="wave-time" data-tick="32" data-x="412.2" x="412.2" y="15">C32</text><line class="wave-grid clock-grid" data-clock="1" data-x="421.8" data-time="335000000" data-label="cycle 33" x1="421.8" y1="20" x2="421.8" y2="3308" /><text class="wave-time" data-tick="33" data-x="424.8" x="424.8" y="15">C33</text><line class="wave-grid clock-grid" data-clock="1" data-x="434.4" data-time="345000000" data-label="cycle 34" x1="434.4" y1="20" x2="434.4" y2="3308" /><text class="wave-time" data-tick="34" data-x="437.4" x="437.4" y="15">C34</text><line class="wave-grid clock-grid" data-clock="1" data-x="447.0" data-time="355000000" data-label="cycle 35" x1="447.0" y1="20" x2="447.0" y2="3308" /><text class="wave-time" data-tick="35" data-x="450.0" x="450.0" y="15">C35</text><line class="wave-grid clock-grid" data-clock="1" data-x="459.6" data-time="365000000" data-label="cycle 36" x1="459.6" y1="20" x2="459.6" y2="3308" /><text class="wave-time" data-tick="36" data-x="462.6" x="462.6" y="15">C36</text><line class="wave-grid clock-grid" data-clock="1" data-x="472.2" data-time="375000000" data-label="cycle 37" x1="472.2" y1="20" x2="472.2" y2="3308" /><text class="wave-time" data-tick="37" data-x="475.2" x="475.2" y="15">C37</text><line class="wave-grid clock-grid" data-clock="1" data-x="484.8" data-time="385000000" data-label="cycle 38" x1="484.8" y1="20" x2="484.8" y2="3308" /><text class="wave-time" data-tick="38" data-x="487.8" x="487.8" y="15">C38</text><line class="wave-grid clock-grid" data-clock="1" data-x="497.4" data-time="395000000" data-label="cycle 39" x1="497.4" y1="20" x2="497.4" y2="3308" /><text class="wave-time" data-tick="39" data-x="500.4" x="500.4" y="15">C39</text><line class="wave-grid clock-grid" data-clock="1" data-x="510.0" data-time="405000000" data-label="cycle 40" x1="510.0" y1="20" x2="510.0" y2="3308" /><text class="wave-time" data-tick="40" data-x="513.0" x="513.0" y="15">C40</text><line class="wave-grid clock-grid" data-clock="1" data-x="522.5" data-time="415000000" data-label="cycle 41" x1="522.5" y1="20" x2="522.5" y2="3308" /><text class="wave-time" data-tick="41" data-x="525.5" x="525.5" y="15">C41</text><line class="wave-grid clock-grid" data-clock="1" data-x="535.1" data-time="425000000" data-label="cycle 42" x1="535.1" y1="20" x2="535.1" y2="3308" /><text class="wave-time" data-tick="42" data-x="538.1" x="538.1" y="15">C42</text><line class="wave-grid clock-grid" data-clock="1" data-x="547.7" data-time="435000000" data-label="cycle 43" x1="547.7" y1="20" x2="547.7" y2="3308" /><text class="wave-time" data-tick="43" data-x="550.7" x="550.7" y="15">C43</text><line class="wave-grid clock-grid" data-clock="1" data-x="560.3" data-time="445000000" data-label="cycle 44" x1="560.3" y1="20" x2="560.3" y2="3308" /><text class="wave-time" data-tick="44" data-x="563.3" x="563.3" y="15">C44</text><line class="wave-grid clock-grid" data-clock="1" data-x="572.9" data-time="455000000" data-label="cycle 45" x1="572.9" y1="20" x2="572.9" y2="3308" /><text class="wave-time" data-tick="45" data-x="575.9" x="575.9" y="15">C45</text><line class="wave-grid clock-grid" data-clock="1" data-x="585.5" data-time="465000000" data-label="cycle 46" x1="585.5" y1="20" x2="585.5" y2="3308" /><text class="wave-time" data-tick="46" data-x="588.5" x="588.5" y="15">C46</text><line class="wave-grid clock-grid" data-clock="1" data-x="598.1" data-time="475000000" data-label="cycle 47" x1="598.1" y1="20" x2="598.1" y2="3308" /><text class="wave-time" data-tick="47" data-x="601.1" x="601.1" y="15">C47</text><line class="wave-grid clock-grid" data-clock="1" data-x="610.7" data-time="485000000" data-label="cycle 48" x1="610.7" y1="20" x2="610.7" y2="3308" /><text class="wave-time" data-tick="48" data-x="613.7" x="613.7" y="15">C48</text><line class="wave-grid clock-grid" data-clock="1" data-x="623.3" data-time="495000000" data-label="cycle 49" x1="623.3" y1="20" x2="623.3" y2="3308" /><text class="wave-time" data-tick="49" data-x="626.3" x="626.3" y="15">C49</text><line class="wave-grid clock-grid" data-clock="1" data-x="635.9" data-time="505000000" data-label="cycle 50" x1="635.9" y1="20" x2="635.9" y2="3308" /><text class="wave-time" data-tick="50" data-x="638.9" x="638.9" y="15">C50</text><line class="wave-grid clock-grid" data-clock="1" data-x="648.5" data-time="515000000" data-label="cycle 51" x1="648.5" y1="20" x2="648.5" y2="3308" /><text class="wave-time" data-tick="51" data-x="651.5" x="651.5" y="15">C51</text><line class="wave-grid clock-grid" data-clock="1" data-x="661.1" data-time="525000000" data-label="cycle 52" x1="661.1" y1="20" x2="661.1" y2="3308" /><text class="wave-time" data-tick="52" data-x="664.1" x="664.1" y="15">C52</text><line class="wave-grid clock-grid" data-clock="1" data-x="673.6" data-time="535000000" data-label="cycle 53" x1="673.6" y1="20" x2="673.6" y2="3308" /><text class="wave-time" data-tick="53" data-x="676.6" x="676.6" y="15">C53</text><line class="wave-grid clock-grid" data-clock="1" data-x="686.2" data-time="545000000" data-label="cycle 54" x1="686.2" y1="20" x2="686.2" y2="3308" /><text class="wave-time" data-tick="54" data-x="689.2" x="689.2" y="15">C54</text><line class="wave-grid clock-grid" data-clock="1" data-x="698.8" data-time="555000000" data-label="cycle 55" x1="698.8" y1="20" x2="698.8" y2="3308" /><text class="wave-time" data-tick="55" data-x="701.8" x="701.8" y="15">C55</text><line class="wave-grid clock-grid" data-clock="1" data-x="711.4" data-time="565000000" data-label="cycle 56" x1="711.4" y1="20" x2="711.4" y2="3308" /><text class="wave-time" data-tick="56" data-x="714.4" x="714.4" y="15">C56</text><line class="wave-grid clock-grid" data-clock="1" data-x="724.0" data-time="575000000" data-label="cycle 57" x1="724.0" y1="20" x2="724.0" y2="3308" /><text class="wave-time" data-tick="57" data-x="727.0" x="727.0" y="15">C57</text><line class="wave-grid clock-grid" data-clock="1" data-x="736.6" data-time="585000000" data-label="cycle 58" x1="736.6" y1="20" x2="736.6" y2="3308" /><text class="wave-time" data-tick="58" data-x="739.6" x="739.6" y="15">C58</text><line class="wave-grid clock-grid" data-clock="1" data-x="749.2" data-time="595000000" data-label="cycle 59" x1="749.2" y1="20" x2="749.2" y2="3308" /><text class="wave-time" data-tick="59" data-x="752.2" x="752.2" y="15">C59</text><line class="wave-grid clock-grid" data-clock="1" data-x="761.8" data-time="605000000" data-label="cycle 60" x1="761.8" y1="20" x2="761.8" y2="3308" /><text class="wave-time" data-tick="60" data-x="764.8" x="764.8" y="15">C60</text><line class="wave-grid clock-grid" data-clock="1" data-x="774.4" data-time="615000000" data-label="cycle 61" x1="774.4" y1="20" x2="774.4" y2="3308" /><text class="wave-time" data-tick="61" data-x="777.4" x="777.4" y="15">C61</text><line class="wave-grid clock-grid" data-clock="1" data-x="787.0" data-time="625000000" data-label="cycle 62" x1="787.0" y1="20" x2="787.0" y2="3308" /><text class="wave-time" data-tick="62" data-x="790.0" x="790.0" y="15">C62</text><line class="wave-grid clock-grid" data-clock="1" data-x="799.6" data-time="635000000" data-label="cycle 63" x1="799.6" y1="20" x2="799.6" y2="3308" /><text class="wave-time" data-tick="63" data-x="802.6" x="802.6" y="15">C63</text><line class="wave-grid clock-grid" data-clock="1" data-x="812.2" data-time="645000000" data-label="cycle 64" x1="812.2" y1="20" x2="812.2" y2="3308" /><text class="wave-time" data-tick="64" data-x="815.2" x="815.2" y="15">C64</text><line class="wave-grid clock-grid" data-clock="1" data-x="824.7" data-time="655000000" data-label="cycle 65" x1="824.7" y1="20" x2="824.7" y2="3308" /><text class="wave-time" data-tick="65" data-x="827.7" x="827.7" y="15">C65</text><line class="wave-grid clock-grid" data-clock="1" data-x="837.3" data-time="665000000" data-label="cycle 66" x1="837.3" y1="20" x2="837.3" y2="3308" /><text class="wave-time" data-tick="66" data-x="840.3" x="840.3" y="15">C66</text><line class="wave-grid clock-grid" data-clock="1" data-x="849.9" data-time="675000000" data-label="cycle 67" x1="849.9" y1="20" x2="849.9" y2="3308" /><text class="wave-time" data-tick="67" data-x="852.9" x="852.9" y="15">C67</text><line class="wave-grid clock-grid" data-clock="1" data-x="862.5" data-time="685000000" data-label="cycle 68" x1="862.5" y1="20" x2="862.5" y2="3308" /><text class="wave-time" data-tick="68" data-x="865.5" x="865.5" y="15">C68</text><line class="wave-grid clock-grid" data-clock="1" data-x="875.1" data-time="695000000" data-label="cycle 69" x1="875.1" y1="20" x2="875.1" y2="3308" /><text class="wave-time" data-tick="69" data-x="878.1" x="878.1" y="15">C69</text><line class="wave-grid clock-grid" data-clock="1" data-x="887.7" data-time="705000000" data-label="cycle 70" x1="887.7" y1="20" x2="887.7" y2="3308" /><text class="wave-time" data-tick="70" data-x="890.7" x="890.7" y="15">C70</text><line class="wave-grid clock-grid" data-clock="1" data-x="900.3" data-time="715000000" data-label="cycle 71" x1="900.3" y1="20" x2="900.3" y2="3308" /><text class="wave-time" data-tick="71" data-x="903.3" x="903.3" y="15">C71</text><line class="wave-axis" x1="0" y1="54" x2="894" y2="54" /><path class="wave-trace" d="M 0.0 54.0 L 6.3 54.0 L 6.3 38.0 L 12.6 38.0 L 12.6 54.0 L 18.9 54.0 L 18.9 38.0 L 25.2 38.0 L 25.2 54.0 L 31.5 54.0 L 31.5 38.0 L 37.8 38.0 L 37.8 54.0 L 44.1 54.0 L 44.1 38.0 L 50.4 38.0 L 50.4 54.0 L 56.7 54.0 L 56.7 38.0 L 63.0 38.0 L 63.0 54.0 L 69.3 54.0 L 69.3 38.0 L 75.5 38.0 L 75.5 54.0 L 81.8 54.0 L 81.8 38.0 L 88.1 38.0 L 88.1 54.0 L 94.4 54.0 L 94.4 38.0 L 100.7 38.0 L 100.7 54.0 L 107.0 54.0 L 107.0 38.0 L 113.3 38.0 L 113.3 54.0 L 119.6 54.0 L 119.6 38.0 L 125.9 38.0 L 125.9 54.0 L 132.2 54.0 L 132.2 38.0 L 138.5 38.0 L 138.5 54.0 L 144.8 54.0 L 144.8 38.0 L 151.1 38.0 L 151.1 54.0 L 157.4 54.0 L 157.4 38.0 L 163.7 38.0 L 163.7 54.0 L 170.0 54.0 L 170.0 38.0 L 176.3 38.0 L 176.3 54.0 L 182.6 54.0 L 182.6 38.0 L 188.9 38.0 L 188.9 54.0 L 195.2 54.0 L 195.2 38.0 L 201.5 38.0 L 201.5 54.0 L 207.8 54.0 L 207.8 38.0 L 214.1 38.0 L 214.1 54.0 L 220.4 54.0 L 220.4 38.0 L 226.6 38.0 L 226.6 54.0 L 232.9 54.0 L 232.9 38.0 L 239.2 38.0 L 239.2 54.0 L 245.5 54.0 L 245.5 38.0 L 251.8 38.0 L 251.8 54.0 L 258.1 54.0 L 258.1 38.0 L 264.4 38.0 L 264.4 54.0 L 270.7 54.0 L 270.7 38.0 L 277.0 38.0 L 277.0 54.0 L 283.3 54.0 L 283.3 38.0 L 289.6 38.0 L 289.6 54.0 L 295.9 54.0 L 295.9 38.0 L 302.2 38.0 L 302.2 54.0 L 308.5 54.0 L 308.5 38.0 L 314.8 38.0 L 314.8 54.0 L 321.1 54.0 L 321.1 38.0 L 327.4 38.0 L 327.4 54.0 L 333.7 54.0 L 333.7 38.0 L 340.0 38.0 L 340.0 54.0 L 346.3 54.0 L 346.3 38.0 L 352.6 38.0 L 352.6 54.0 L 358.9 54.0 L 358.9 38.0 L 365.2 38.0 L 365.2 54.0 L 371.5 54.0 L 371.5 38.0 L 377.7 38.0 L 377.7 54.0 L 384.0 54.0 L 384.0 38.0 L 390.3 38.0 L 390.3 54.0 L 396.6 54.0 L 396.6 38.0 L 402.9 38.0 L 402.9 54.0 L 409.2 54.0 L 409.2 38.0 L 415.5 38.0 L 415.5 54.0 L 421.8 54.0 L 421.8 38.0 L 428.1 38.0 L 428.1 54.0 L 434.4 54.0 L 434.4 38.0 L 440.7 38.0 L 440.7 54.0 L 447.0 54.0 L 447.0 38.0 L 894.0 38.0" /><line class="wave-axis" x1="0" y1="88" x2="894" y2="88" /><path class="wave-trace" d="M 0.0 72.0 L 69.3 72.0 L 69.3 88.0 L 894.0 88.0" /><line class="wave-axis" x1="0" y1="122" x2="894" y2="122" /><rect class="wave-bus" x="0.0" y="106" width="894.0" height="16" rx="3" /><text class="wave-bus-text" x="5.0" y="118.0">0x200</text><line class="wave-axis" x1="0" y1="156" x2="894" y2="156" /><path class="wave-trace" d="M 0.0 156.0 L 81.8 156.0 L 81.8 140.0 L 94.4 140.0 L 94.4 156.0 L 894.0 156.0" /><line class="wave-axis" x1="0" y1="190" x2="894" y2="190" /><path class="wave-trace" d="M 0.0 174.0 L 94.4 174.0 L 94.4 190.0 L 132.2 190.0 L 132.2 174.0 L 894.0 174.0" /><line class="wave-axis" x1="0" y1="224" x2="894" y2="224" /><rect class="wave-bus" x="0.0" y="208" width="81.8" height="16" rx="3" /><text class="wave-bus-text" x="5.0" y="220.0">0x0</text><rect class="wave-bus" x="81.8" y="208" width="812.2" height="16" rx="3" /><text class="wave-bus-text" x="86.8" y="220.0">0x64</text><line class="wave-axis" x1="0" y1="258" x2="894" y2="258" /><path class="wave-trace" d="M 0.0 258.0 L 81.8 258.0 L 81.8 242.0 L 94.4 242.0 L 94.4 258.0 L 894.0 258.0" /><line class="wave-axis" x1="0" y1="292" x2="894" y2="292" /><path class="wave-trace" d="M 0.0 292.0 L 132.2 292.0 L 132.2 276.0 L 144.8 276.0 L 144.8 292.0 L 894.0 292.0" /><line class="wave-axis" x1="0" y1="326" x2="894" y2="326" /><path class="wave-trace" d="M 0.0 310.0 L 894.0 310.0" /><line class="wave-axis" x1="0" y1="360" x2="894" y2="360" /><rect class="wave-bus" x="0.0" y="344" width="132.2" height="16" rx="3" /><text class="wave-bus-text" x="5.0" y="356.0">0x0</text><rect class="wave-bus" x="132.2" y="344" width="761.8" height="16" rx="3" /><text class="wave-bus-text" x="137.2" y="356.0">0xC8</text><line class="wave-axis" x1="0" y1="394" x2="894" y2="394" /><path class="wave-trace" d="M 0.0 394.0 L 132.2 394.0 L 132.2 378.0 L 894.0 378.0" /><line class="wave-axis" x1="0" y1="428" x2="894" y2="428" /><rect class="wave-bus" x="0.0" y="412" width="894.0" height="16" rx="3" /><text class="wave-bus-text" x="5.0" y="424.0">0xFF000200</text><line class="wave-axis" x1="0" y1="462" x2="894" y2="462" /><path class="wave-trace" d="M 0.0 462.0 L 157.4 462.0 L 157.4 446.0 L 170.0 446.0 L 170.0 462.0 L 894.0 462.0" /><line class="wave-axis" x1="0" y1="496" x2="894" y2="496" /><path class="wave-trace" d="M 0.0 480.0 L 170.0 480.0 L 170.0 496.0 L 207.8 496.0 L 207.8 480.0 L 894.0 480.0" /><line class="wave-axis" x1="0" y1="530" x2="894" y2="530" /><rect class="wave-bus" x="0.0" y="514" width="157.4" height="16" rx="3" /><text class="wave-bus-text" x="5.0" y="526.0">0x0</text><rect class="wave-bus" x="157.4" y="514" width="736.6" height="16" rx="3" /><text class="wave-bus-text" x="162.4" y="526.0">0xFFE20032</text><line class="wave-axis" x1="0" y1="564" x2="894" y2="564" /><path class="wave-trace" d="M 0.0 564.0 L 157.4 564.0 L 157.4 548.0 L 170.0 548.0 L 170.0 564.0 L 894.0 564.0" /><line class="wave-axis" x1="0" y1="598" x2="894" y2="598" /><path class="wave-trace" d="M 0.0 598.0 L 207.8 598.0 L 207.8 582.0 L 220.4 582.0 L 220.4 598.0 L 894.0 598.0" /><line class="wave-axis" x1="0" y1="632" x2="894" y2="632" /><path class="wave-trace" d="M 0.0 616.0 L 894.0 616.0" /><line class="wave-axis" x1="0" y1="666" x2="894" y2="666" /><rect class="wave-bus" x="0.0" y="650" width="207.8" height="16" rx="3" /><text class="wave-bus-text" x="5.0" y="662.0">0x0</text><rect class="wave-bus" x="207.8" y="650" width="686.2" height="16" rx="3" /><text class="wave-bus-text" x="212.8" y="662.0">0x1E0064</text><line class="wave-axis" x1="0" y1="700" x2="894" y2="700" /><path class="wave-trace" d="M 0.0 700.0 L 207.8 700.0 L 207.8 684.0 L 894.0 684.0" /><line class="wave-axis" x1="0" y1="734" x2="894" y2="734" /><rect class="wave-bus" x="0.0" y="718" width="894.0" height="16" rx="3" /><text class="wave-bus-text" x="5.0" y="730.0">0x100</text><line class="wave-axis" x1="0" y1="768" x2="894" y2="768" /><rect class="wave-bus" x="0.0" y="752" width="894.0" height="16" rx="3" /><text class="wave-bus-text" x="5.0" y="764.0">0x0</text><line class="wave-axis" x1="0" y1="802" x2="894" y2="802" /><path class="wave-trace" d="M 0.0 802.0 L 232.9 802.0 L 232.9 786.0 L 245.5 786.0 L 245.5 802.0 L 894.0 802.0" /><line class="wave-axis" x1="0" y1="836" x2="894" y2="836" /><path class="wave-trace" d="M 0.0 820.0 L 894.0 820.0" /><line class="wave-axis" x1="0" y1="870" x2="894" y2="870" /><rect class="wave-bus" x="0.0" y="854" width="232.9" height="16" rx="3" /><text class="wave-bus-text" x="5.0" y="866.0">0x0</text><rect class="wave-bus" x="232.9" y="854" width="661.1" height="16" rx="3" /><text class="wave-bus-text" x="237.9" y="866.0">0xFF85</text><line class="wave-axis" x1="0" y1="904" x2="894" y2="904" /><path class="wave-trace" d="M 0.0 904.0 L 232.9 904.0 L 232.9 888.0 L 245.5 888.0 L 245.5 904.0 L 894.0 904.0" /><line class="wave-axis" x1="0" y1="938" x2="894" y2="938" /><path class="wave-trace" d="M 0.0 938.0 L 245.5 938.0 L 245.5 922.0 L 258.1 922.0 L 258.1 938.0 L 894.0 938.0" /><line class="wave-axis" x1="0" y1="972" x2="894" y2="972" /><path class="wave-trace" d="M 0.0 956.0 L 894.0 956.0" /><line class="wave-axis" x1="0" y1="1006" x2="894" y2="1006" /><rect class="wave-bus" x="0.0" y="990" width="245.5" height="16" rx="3" /><text class="wave-bus-text" x="5.0" y="1002.0">0x0</text><rect class="wave-bus" x="245.5" y="990" width="648.5" height="16" rx="3" /><text class="wave-bus-text" x="250.5" y="1002.0">0xFF85</text><line class="wave-axis" x1="0" y1="1040" x2="894" y2="1040" /><path class="wave-trace" d="M 0.0 1040.0 L 245.5 1040.0 L 245.5 1024.0 L 258.1 1024.0 L 258.1 1040.0 L 894.0 1040.0" /><line class="wave-axis" x1="0" y1="1074" x2="894" y2="1074" /><path class="wave-trace" d="M 0.0 1074.0 L 270.7 1074.0 L 270.7 1058.0 L 283.3 1058.0 L 283.3 1074.0 L 894.0 1074.0" /><line class="wave-axis" x1="0" y1="1108" x2="894" y2="1108" /><path class="wave-trace" d="M 0.0 1092.0 L 283.3 1092.0 L 283.3 1108.0 L 321.1 1108.0 L 321.1 1092.0 L 894.0 1092.0" /><line class="wave-axis" x1="0" y1="1142" x2="894" y2="1142" /><rect class="wave-bus" x="0.0" y="1126" width="270.7" height="16" rx="3" /><text class="wave-bus-text" x="5.0" y="1138.0">0x0</text><rect class="wave-bus" x="270.7" y="1126" width="623.3" height="16" rx="3" /><text class="wave-bus-text" x="275.7" y="1138.0">0x4D</text><line class="wave-axis" x1="0" y1="1176" x2="894" y2="1176" /><path class="wave-trace" d="M 0.0 1176.0 L 270.7 1176.0 L 270.7 1160.0 L 283.3 1160.0 L 283.3 1176.0 L 894.0 1176.0" /><line class="wave-axis" x1="0" y1="1210" x2="894" y2="1210" /><path class="wave-trace" d="M 0.0 1210.0 L 321.1 1210.0 L 321.1 1194.0 L 333.7 1194.0 L 333.7 1210.0 L 894.0 1210.0" /><line class="wave-axis" x1="0" y1="1244" x2="894" y2="1244" /><path class="wave-trace" d="M 0.0 1228.0 L 894.0 1228.0" /><line class="wave-axis" x1="0" y1="1278" x2="894" y2="1278" /><rect class="wave-bus" x="0.0" y="1262" width="321.1" height="16" rx="3" /><text class="wave-bus-text" x="5.0" y="1274.0">0x0</text><rect class="wave-bus" x="321.1" y="1262" width="572.9" height="16" rx="3" /><text class="wave-bus-text" x="326.1" y="1274.0">0x4D</text><line class="wave-axis" x1="0" y1="1312" x2="894" y2="1312" /><path class="wave-trace" d="M 0.0 1312.0 L 321.1 1312.0 L 321.1 1296.0 L 894.0 1296.0" /><line class="wave-axis" x1="0" y1="1346" x2="894" y2="1346" /><path class="wave-trace" d="M 0.0 1346.0 L 346.3 1346.0 L 346.3 1330.0 L 358.9 1330.0 L 358.9 1346.0 L 894.0 1346.0" /><line class="wave-axis" x1="0" y1="1380" x2="894" y2="1380" /><path class="wave-trace" d="M 0.0 1364.0 L 358.9 1364.0 L 358.9 1380.0 L 396.6 1380.0 L 396.6 1364.0 L 894.0 1364.0" /><line class="wave-axis" x1="0" y1="1414" x2="894" y2="1414" /><rect class="wave-bus" x="0.0" y="1398" width="346.3" height="16" rx="3" /><text class="wave-bus-text" x="5.0" y="1410.0">0x0</text><rect class="wave-bus" x="346.3" y="1398" width="547.7" height="16" rx="3" /><text class="wave-bus-text" x="351.3" y="1410.0">0x37</text><line class="wave-axis" x1="0" y1="1448" x2="894" y2="1448" /><path class="wave-trace" d="M 0.0 1448.0 L 346.3 1448.0 L 346.3 1432.0 L 358.9 1432.0 L 358.9 1448.0 L 894.0 1448.0" /><line class="wave-axis" x1="0" y1="1482" x2="894" y2="1482" /><path class="wave-trace" d="M 0.0 1482.0 L 396.6 1482.0 L 396.6 1466.0 L 409.2 1466.0 L 409.2 1482.0 L 894.0 1482.0" /><line class="wave-axis" x1="0" y1="1516" x2="894" y2="1516" /><path class="wave-trace" d="M 0.0 1500.0 L 894.0 1500.0" /><line class="wave-axis" x1="0" y1="1550" x2="894" y2="1550" /><rect class="wave-bus" x="0.0" y="1534" width="396.6" height="16" rx="3" /><text class="wave-bus-text" x="5.0" y="1546.0">0x0</text><rect class="wave-bus" x="396.6" y="1534" width="497.4" height="16" rx="3" /><text class="wave-bus-text" x="401.6" y="1546.0">0x37</text><line class="wave-axis" x1="0" y1="1584" x2="894" y2="1584" /><path class="wave-trace" d="M 0.0 1584.0 L 396.6 1584.0 L 396.6 1568.0 L 894.0 1568.0" /><line class="wave-axis" x1="0" y1="1618" x2="894" y2="1618" /><rect class="wave-bus" x="0.0" y="1602" width="894.0" height="16" rx="3" /><text class="wave-bus-text" x="5.0" y="1614.0">0x1000100</text><line class="wave-axis" x1="0" y1="1652" x2="894" y2="1652" /><path class="wave-trace" d="M 0.0 1652.0 L 421.8 1652.0 L 421.8 1636.0 L 434.4 1636.0 L 434.4 1652.0 L 459.6 1652.0 L 459.6 1636.0 L 472.2 1636.0 L 472.2 1652.0 L 894.0 1652.0" /><line class="wave-axis" x1="0" y1="1686" x2="894" y2="1686" /><path class="wave-trace" d="M 0.0 1670.0 L 894.0 1670.0" /><line class="wave-axis" x1="0" y1="1720" x2="894" y2="1720" /><rect class="wave-bus" x="0.0" y="1704" width="421.8" height="16" rx="3" /><text class="wave-bus-text" x="5.0" y="1716.0">0x0</text><rect class="wave-bus" x="421.8" y="1704" width="37.8" height="16" rx="3" /><text class="wave-bus-text" x="426.8" y="1716.0">0xA</text><rect class="wave-bus" x="459.6" y="1704" width="434.4" height="16" rx="3" /><text class="wave-bus-text" x="464.6" y="1716.0">0x14</text><line class="wave-axis" x1="0" y1="1754" x2="894" y2="1754" /><path class="wave-trace" d="M 0.0 1754.0 L 459.6 1754.0 L 459.6 1738.0 L 472.2 1738.0 L 472.2 1754.0 L 894.0 1754.0" /><line class="wave-axis" x1="0" y1="1788" x2="894" y2="1788" /><path class="wave-trace" d="M 0.0 1788.0 L 434.4 1788.0 L 434.4 1772.0 L 447.0 1772.0 L 447.0 1788.0 L 472.2 1788.0 L 472.2 1772.0 L 484.8 1772.0 L 484.8 1788.0 L 894.0 1788.0" /><line class="wave-axis" x1="0" y1="1822" x2="894" y2="1822" /><path class="wave-trace" d="M 0.0 1806.0 L 894.0 1806.0" /><line class="wave-axis" x1="0" y1="1856" x2="894" y2="1856" /><rect class="wave-bus" x="0.0" y="1840" width="434.4" height="16" rx="3" /><text class="wave-bus-text" x="5.0" y="1852.0">0x0</text><rect class="wave-bus" x="434.4" y="1840" width="37.8" height="16" rx="3" /><text class="wave-bus-text" x="439.4" y="1852.0">0xA</text><rect class="wave-bus" x="472.2" y="1840" width="421.8" height="16" rx="3" /><text class="wave-bus-text" x="477.2" y="1852.0">0x1E</text><line class="wave-axis" x1="0" y1="1890" x2="894" y2="1890" /><path class="wave-trace" d="M 0.0 1890.0 L 472.2 1890.0 L 472.2 1874.0 L 484.8 1874.0 L 484.8 1890.0 L 894.0 1890.0" /><line class="wave-axis" x1="0" y1="1924" x2="894" y2="1924" /><path class="wave-trace" d="M 0.0 1924.0 L 497.4 1924.0 L 497.4 1908.0 L 510.0 1908.0 L 510.0 1924.0 L 585.5 1924.0 L 585.5 1908.0 L 598.1 1908.0 L 598.1 1924.0 L 894.0 1924.0" /><line class="wave-axis" x1="0" y1="1958" x2="894" y2="1958" /><path class="wave-trace" d="M 0.0 1942.0 L 510.0 1942.0 L 510.0 1958.0 L 560.3 1958.0 L 560.3 1942.0 L 598.1 1942.0 L 598.1 1958.0 L 648.5 1958.0 L 648.5 1942.0 L 894.0 1942.0" /><line class="wave-axis" x1="0" y1="1992" x2="894" y2="1992" /><rect class="wave-bus" x="0.0" y="1976" width="497.4" height="16" rx="3" /><text class="wave-bus-text" x="5.0" y="1988.0">0x0</text><rect class="wave-bus" x="497.4" y="1976" width="88.1" height="16" rx="3" /><text class="wave-bus-text" x="502.4" y="1988.0">0xA</text><rect class="wave-bus" x="585.5" y="1976" width="308.5" height="16" rx="3" /><text class="wave-bus-text" x="590.5" y="1988.0">0x14</text><line class="wave-axis" x1="0" y1="2026" x2="894" y2="2026" /><path class="wave-trace" d="M 0.0 2026.0 L 585.5 2026.0 L 585.5 2010.0 L 598.1 2010.0 L 598.1 2026.0 L 894.0 2026.0" /><line class="wave-axis" x1="0" y1="2060" x2="894" y2="2060" /><path class="wave-trace" d="M 0.0 2060.0 L 560.3 2060.0 L 560.3 2044.0 L 572.9 2044.0 L 572.9 2060.0 L 648.5 2060.0 L 648.5 2044.0 L 661.1 2044.0 L 661.1 2060.0 L 894.0 2060.0" /><line class="wave-axis" x1="0" y1="2094" x2="894" y2="2094" /><path class="wave-trace" d="M 0.0 2078.0 L 894.0 2078.0" /><line class="wave-axis" x1="0" y1="2128" x2="894" y2="2128" /><rect class="wave-bus" x="0.0" y="2112" width="560.3" height="16" rx="3" /><text class="wave-bus-text" x="5.0" y="2124.0">0x0</text><rect class="wave-bus" x="560.3" y="2112" width="88.1" height="16" rx="3" /><text class="wave-bus-text" x="565.3" y="2124.0">0xA</text><rect class="wave-bus" x="648.5" y="2112" width="245.5" height="16" rx="3" /><text class="wave-bus-text" x="653.5" y="2124.0">0x1E</text><line class="wave-axis" x1="0" y1="2162" x2="894" y2="2162" /><path class="wave-trace" d="M 0.0 2162.0 L 648.5 2162.0 L 648.5 2146.0 L 894.0 2146.0" /><line class="wave-axis" x1="0" y1="2196" x2="894" y2="2196" /><rect class="wave-bus" x="0.0" y="2180" width="698.8" height="16" rx="3" /><text class="wave-bus-text" x="5.0" y="2192.0">00</text><rect class="wave-bus" x="698.8" y="2180" width="195.2" height="16" rx="3" /><text class="wave-bus-text" x="703.8" y="2192.0">10</text><line class="wave-axis" x1="0" y1="2230" x2="894" y2="2230" /><path class="wave-trace" d="M 0.0 2230.0 L 673.6 2230.0 L 673.6 2214.0 L 686.2 2214.0 L 686.2 2230.0 L 711.4 2230.0 L 711.4 2214.0 L 724.0 2214.0 L 724.0 2230.0 L 894.0 2230.0" /><line class="wave-axis" x1="0" y1="2264" x2="894" y2="2264" /><path class="wave-trace" d="M 0.0 2264.0 L 673.6 2264.0 L 673.6 2248.0 L 686.2 2248.0 L 686.2 2264.0 L 711.4 2264.0 L 711.4 2248.0 L 724.0 2248.0 L 724.0 2264.0 L 894.0 2264.0" /><line class="wave-axis" x1="0" y1="2298" x2="894" y2="2298" /><rect class="wave-bus" x="0.0" y="2282" width="673.6" height="16" rx="3" /><text class="wave-bus-text" x="5.0" y="2294.0">0x0</text><rect class="wave-bus" x="673.6" y="2282" width="37.8" height="16" rx="3" /><text class="wave-bus-text" x="678.6" y="2294.0">0x64</text><rect class="wave-bus" x="711.4" y="2282" width="182.6" height="16" rx="3" /><text class="wave-bus-text" x="716.4" y="2294.0">0x200</text><line class="wave-axis" x1="0" y1="2332" x2="894" y2="2332" /><path class="wave-trace" d="M 0.0 2332.0 L 673.6 2332.0 L 673.6 2316.0 L 686.2 2316.0 L 686.2 2332.0 L 711.4 2332.0 L 711.4 2316.0 L 724.0 2316.0 L 724.0 2332.0 L 894.0 2332.0" /><line class="wave-axis" x1="0" y1="2366" x2="894" y2="2366" /><path class="wave-trace" d="M 0.0 2366.0 L 673.6 2366.0 L 673.6 2350.0 L 686.2 2350.0 L 686.2 2366.0 L 711.4 2366.0 L 711.4 2350.0 L 724.0 2350.0 L 724.0 2366.0 L 894.0 2366.0" /><line class="wave-axis" x1="0" y1="2400" x2="894" y2="2400" /><path class="wave-trace" d="M 0.0 2400.0 L 673.6 2400.0 L 673.6 2384.0 L 686.2 2384.0 L 686.2 2400.0 L 711.4 2400.0 L 711.4 2384.0 L 724.0 2384.0 L 724.0 2400.0 L 894.0 2400.0" /><line class="wave-axis" x1="0" y1="2434" x2="894" y2="2434" /><rect class="wave-bus" x="0.0" y="2418" width="673.6" height="16" rx="3" /><text class="wave-bus-text" x="5.0" y="2430.0">0x0</text><rect class="wave-bus" x="673.6" y="2418" width="37.8" height="16" rx="3" /><text class="wave-bus-text" x="678.6" y="2430.0">0x17</text><rect class="wave-bus" x="711.4" y="2418" width="182.6" height="16" rx="3" /><text class="wave-bus-text" x="716.4" y="2430.0">0x200</text><line class="wave-axis" x1="0" y1="2468" x2="894" y2="2468" /><path class="wave-trace" d="M 0.0 2468.0 L 673.6 2468.0 L 673.6 2452.0 L 686.2 2452.0 L 686.2 2468.0 L 711.4 2468.0 L 711.4 2452.0 L 724.0 2452.0 L 724.0 2468.0 L 894.0 2468.0" /><line class="wave-axis" x1="0" y1="2502" x2="894" y2="2502" /><path class="wave-trace" d="M 0.0 2502.0 L 686.2 2502.0 L 686.2 2486.0 L 698.8 2486.0 L 698.8 2502.0 L 761.8 2502.0 L 761.8 2486.0 L 774.4 2486.0 L 774.4 2502.0 L 894.0 2502.0" /><line class="wave-axis" x1="0" y1="2536" x2="894" y2="2536" /><path class="wave-trace" d="M 0.0 2520.0 L 894.0 2520.0" /><line class="wave-axis" x1="0" y1="2570" x2="894" y2="2570" /><rect class="wave-bus" x="0.0" y="2554" width="686.2" height="16" rx="3" /><text class="wave-bus-text" x="5.0" y="2566.0">0x0</text><rect class="wave-bus" x="686.2" y="2554" width="75.5" height="16" rx="3" /><text class="wave-bus-text" x="691.2" y="2566.0">0x7B</text><rect class="wave-bus" x="761.8" y="2554" width="132.2" height="16" rx="3" /><text class="wave-bus-text" x="766.8" y="2566.0">0x400</text><line class="wave-axis" x1="0" y1="2604" x2="894" y2="2604" /><path class="wave-trace" d="M 0.0 2604.0 L 686.2 2604.0 L 686.2 2588.0 L 894.0 2588.0" /><line class="wave-axis" x1="0" y1="2638" x2="894" y2="2638" /><path class="wave-trace" d="M 0.0 2638.0 L 787.0 2638.0 L 787.0 2622.0 L 799.6 2622.0 L 799.6 2638.0 L 812.2 2638.0 L 812.2 2622.0 L 849.9 2622.0 L 849.9 2638.0 L 894.0 2638.0" /><line class="wave-axis" x1="0" y1="2672" x2="894" y2="2672" /><path class="wave-trace" d="M 0.0 2672.0 L 787.0 2672.0 L 787.0 2656.0 L 799.6 2656.0 L 799.6 2672.0 L 837.3 2672.0 L 837.3 2656.0 L 849.9 2656.0 L 849.9 2672.0 L 894.0 2672.0" /><line class="wave-axis" x1="0" y1="2706" x2="894" y2="2706" /><rect class="wave-bus" x="0.0" y="2690" width="787.0" height="16" rx="3" /><text class="wave-bus-text" x="5.0" y="2702.0">0x0</text><rect class="wave-bus" x="787.0" y="2690" width="25.2" height="16" rx="3" /><rect class="wave-bus" x="812.2" y="2690" width="81.8" height="16" rx="3" /><text class="wave-bus-text" x="817.2" y="2702.0">0x3</text><line class="wave-axis" x1="0" y1="2740" x2="894" y2="2740" /><path class="wave-trace" d="M 0.0 2740.0 L 812.2 2740.0 L 812.2 2724.0 L 849.9 2724.0 L 849.9 2740.0 L 894.0 2740.0" /><line class="wave-axis" x1="0" y1="2774" x2="894" y2="2774" /><path class="wave-trace" d="M 0.0 2774.0 L 787.0 2774.0 L 787.0 2758.0 L 799.6 2758.0 L 799.6 2774.0 L 812.2 2774.0 L 812.2 2758.0 L 849.9 2758.0 L 849.9 2774.0 L 894.0 2774.0" /><line class="wave-axis" x1="0" y1="2808" x2="894" y2="2808" /><path class="wave-trace" d="M 0.0 2808.0 L 787.0 2808.0 L 787.0 2792.0 L 799.6 2792.0 L 799.6 2808.0 L 837.3 2808.0 L 837.3 2792.0 L 849.9 2792.0 L 849.9 2808.0 L 894.0 2808.0" /><line class="wave-axis" x1="0" y1="2842" x2="894" y2="2842" /><rect class="wave-bus" x="0.0" y="2826" width="787.0" height="16" rx="3" /><text class="wave-bus-text" x="5.0" y="2838.0">0x0</text><rect class="wave-bus" x="787.0" y="2826" width="25.2" height="16" rx="3" /><rect class="wave-bus" x="812.2" y="2826" width="81.8" height="16" rx="3" /><text class="wave-bus-text" x="817.2" y="2838.0">0x7</text><line class="wave-axis" x1="0" y1="2876" x2="894" y2="2876" /><path class="wave-trace" d="M 0.0 2876.0 L 812.2 2876.0 L 812.2 2860.0 L 849.9 2860.0 L 849.9 2876.0 L 894.0 2876.0" /><line class="wave-axis" x1="0" y1="2910" x2="894" y2="2910" /><path class="wave-trace" d="M 0.0 2910.0 L 887.7 2910.0 L 887.7 2894.0 L 894.0 2894.0" /><line class="wave-axis" x1="0" y1="2944" x2="894" y2="2944" /><path class="wave-trace" d="M 0.0 2928.0 L 894.0 2928.0" /><line class="wave-axis" x1="0" y1="2978" x2="894" y2="2978" /><rect class="wave-bus" x="0.0" y="2962" width="887.7" height="16" rx="3" /><text class="wave-bus-text" x="5.0" y="2974.0">0x0</text><rect class="wave-bus" x="887.7" y="2962" width="6.3" height="16" rx="3" /><line class="wave-axis" x1="0" y1="3012" x2="894" y2="3012" /><path class="wave-trace" d="M 0.0 3012.0 L 887.7 3012.0 L 887.7 2996.0 L 894.0 2996.0" /><line class="wave-axis" x1="0" y1="3046" x2="894" y2="3046" /><rect class="wave-bus" x="0.0" y="3030" width="837.3" height="16" rx="3" /><text class="wave-bus-text" x="5.0" y="3042.0">0x0</text><rect class="wave-bus" x="837.3" y="3030" width="50.4" height="16" rx="3" /><text class="wave-bus-text" x="842.3" y="3042.0">0x1</text><rect class="wave-bus" x="887.7" y="3030" width="6.3" height="16" rx="3" /><line class="wave-axis" x1="0" y1="3080" x2="894" y2="3080" /><rect class="wave-bus" x="0.0" y="3064" width="894.0" height="16" rx="3" /><text class="wave-bus-text" x="5.0" y="3076.0">0x200</text><line class="wave-axis" x1="0" y1="3114" x2="894" y2="3114" /><path class="wave-trace" d="M 0.0 3114.0 L 132.2 3114.0 L 132.2 3098.0 L 144.8 3098.0 L 144.8 3114.0 L 894.0 3114.0" /><line class="wave-axis" x1="0" y1="3148" x2="894" y2="3148" /><rect class="wave-bus" x="0.0" y="3132" width="132.2" height="16" rx="3" /><text class="wave-bus-text" x="5.0" y="3144.0">0x0</text><rect class="wave-bus" x="132.2" y="3132" width="761.8" height="16" rx="3" /><text class="wave-bus-text" x="137.2" y="3144.0">0xC8</text><line class="wave-axis" x1="0" y1="3182" x2="894" y2="3182" /><path class="wave-trace" d="M 0.0 3182.0 L 132.2 3182.0 L 132.2 3166.0 L 894.0 3166.0" /><line class="wave-axis" x1="0" y1="3216" x2="894" y2="3216" /><path class="wave-trace" d="M 0.0 3216.0 L 94.4 3216.0 L 94.4 3200.0 L 132.2 3200.0 L 132.2 3216.0 L 894.0 3216.0" /><line class="wave-axis" x1="0" y1="3250" x2="894" y2="3250" /><path class="wave-trace" d="M 0.0 3234.0 L 94.4 3234.0 L 94.4 3250.0 L 132.2 3250.0 L 132.2 3234.0 L 894.0 3234.0" /><line class="wave-axis" x1="0" y1="3284" x2="894" y2="3284" /><path class="wave-trace" d="M 0.0 3284.0 L 94.4 3284.0 L 94.4 3268.0 L 107.0 3268.0 L 107.0 3284.0 L 894.0 3284.0" /><line class="wave-hover-line" x1="0" y1="20" x2="0" y2="3308" /><text class="wave-hover-label" x="4" y="3320"></text></svg></div></div></div><script>
+Exercises representative handshakes, reset behavior, frame boundaries, and numeric corner cases for regression runs.</p><p class="meta">Artifacts: <a href="../../simulations/tb_raddsp_axis_smoke/simulation_status.json">status</a>, <a href="../../simulations/tb_raddsp_axis_smoke/tb_raddsp_axis_smoke.vcd">vcd</a></p><div class="wave"><h4>Captured GHDL Waveform</h4><p class="meta">Source: dsp/hdl/testbenches/tb_raddsp_axis_smoke.vhd</p><div class="wave-controls"><label>Horizontal <input class="wave-zoom-x" type="range" min="60" max="420" value="100"></label><label>Vertical <input class="wave-zoom-y" type="range" min="70" max="260" value="100"></label></div><div class="wave-viewport"><div class="wave-stage" style="height:3326px"><div class="wave-label-pane" style="height:3326px"><div class="wave-label-row" style="top:39px;height:32px;line-height:32px">clk</div><div class="wave-label-row" style="top:73px;height:32px;line-height:32px">rst</div><div class="wave-label-row" style="top:107px;height:32px;line-height:32px">gain_coeff[15:0]</div><div class="wave-label-row" style="top:141px;height:32px;line-height:32px">gain_s_valid</div><div class="wave-label-row" style="top:175px;height:32px;line-height:32px">gain_s_ready</div><div class="wave-label-row" style="top:209px;height:32px;line-height:32px">gain_s_data[15:0]</div><div class="wave-label-row" style="top:243px;height:32px;line-height:32px">gain_s_last</div><div class="wave-label-row" style="top:277px;height:32px;line-height:32px">gain_m_valid</div><div class="wave-label-row" style="top:311px;height:32px;line-height:32px">gain_m_ready</div><div class="wave-label-row" style="top:345px;height:32px;line-height:32px">gain_m_data[15:0]</div><div class="wave-label-row" style="top:379px;height:32px;line-height:32px">gain_m_last</div><div class="wave-label-row" style="top:413px;height:32px;line-height:32px">gain2_coeff[31:0]</div><div class="wave-label-row" style="top:447px;height:32px;line-height:32px">gain2_s_valid</div><div class="wave-label-row" style="top:481px;height:32px;line-height:32px">gain2_s_ready</div><div class="wave-label-row" style="top:515px;height:32px;line-height:32px">gain2_s_data[31:0]</div><div class="wave-label-row" style="top:549px;height:32px;line-height:32px">gain2_s_last</div><div class="wave-label-row" style="top:583px;height:32px;line-height:32px">gain2_m_valid</div><div class="wave-label-row" style="top:617px;height:32px;line-height:32px">gain2_m_ready</div><div class="wave-label-row" style="top:651px;height:32px;line-height:32px">gain2_m_data[31:0]</div><div class="wave-label-row" style="top:685px;height:32px;line-height:32px">gain2_m_last</div><div class="wave-label-row" style="top:719px;height:32px;line-height:32px">bq_b0[15:0]</div><div class="wave-label-row" style="top:753px;height:32px;line-height:32px">bq_z[15:0]</div><div class="wave-label-row" style="top:787px;height:32px;line-height:32px">bq_s_valid</div><div class="wave-label-row" style="top:821px;height:32px;line-height:32px">bq_s_ready</div><div class="wave-label-row" style="top:855px;height:32px;line-height:32px">bq_s_data[15:0]</div><div class="wave-label-row" style="top:889px;height:32px;line-height:32px">bq_s_last</div><div class="wave-label-row" style="top:923px;height:32px;line-height:32px">bq_m_valid</div><div class="wave-label-row" style="top:957px;height:32px;line-height:32px">bq_m_ready</div><div class="wave-label-row" style="top:991px;height:32px;line-height:32px">bq_m_data[15:0]</div><div class="wave-label-row" style="top:1025px;height:32px;line-height:32px">bq_m_last</div><div class="wave-label-row" style="top:1059px;height:32px;line-height:32px">bq_seq_s_valid</div><div class="wave-label-row" style="top:1093px;height:32px;line-height:32px">bq_seq_s_ready</div><div class="wave-label-row" style="top:1127px;height:32px;line-height:32px">bq_seq_s_data[15:0]</div><div class="wave-label-row" style="top:1161px;height:32px;line-height:32px">bq_seq_s_last</div><div class="wave-label-row" style="top:1195px;height:32px;line-height:32px">bq_seq_m_valid</div><div class="wave-label-row" style="top:1229px;height:32px;line-height:32px">bq_seq_m_ready</div><div class="wave-label-row" style="top:1263px;height:32px;line-height:32px">bq_seq_m_data[15:0]</div><div class="wave-label-row" style="top:1297px;height:32px;line-height:32px">bq_seq_m_last</div><div class="wave-label-row" style="top:1331px;height:32px;line-height:32px">lp_seq_s_valid</div><div class="wave-label-row" style="top:1365px;height:32px;line-height:32px">lp_seq_s_ready</div><div class="wave-label-row" style="top:1399px;height:32px;line-height:32px">lp_seq_s_data[15:0]</div><div class="wave-label-row" style="top:1433px;height:32px;line-height:32px">lp_seq_s_last</div><div class="wave-label-row" style="top:1467px;height:32px;line-height:32px">lp_seq_m_valid</div><div class="wave-label-row" style="top:1501px;height:32px;line-height:32px">lp_seq_m_ready</div><div class="wave-label-row" style="top:1535px;height:32px;line-height:32px">lp_seq_m_data[15:0]</div><div class="wave-label-row" style="top:1569px;height:32px;line-height:32px">lp_seq_m_last</div><div class="wave-label-row" style="top:1603px;height:32px;line-height:32px">fir_taps[31:0]</div><div class="wave-label-row" style="top:1637px;height:32px;line-height:32px">fir_s_valid</div><div class="wave-label-row" style="top:1671px;height:32px;line-height:32px">fir_s_ready</div><div class="wave-label-row" style="top:1705px;height:32px;line-height:32px">fir_s_data[15:0]</div><div class="wave-label-row" style="top:1739px;height:32px;line-height:32px">fir_s_last</div><div class="wave-label-row" style="top:1773px;height:32px;line-height:32px">fir_m_valid</div><div class="wave-label-row" style="top:1807px;height:32px;line-height:32px">fir_m_ready</div><div class="wave-label-row" style="top:1841px;height:32px;line-height:32px">fir_m_data[15:0]</div><div class="wave-label-row" style="top:1875px;height:32px;line-height:32px">fir_m_last</div><div class="wave-label-row" style="top:1909px;height:32px;line-height:32px">fir_seq_s_valid</div><div class="wave-label-row" style="top:1943px;height:32px;line-height:32px">fir_seq_s_ready</div><div class="wave-label-row" style="top:1977px;height:32px;line-height:32px">fir_seq_s_data[15:0]</div><div class="wave-label-row" style="top:2011px;height:32px;line-height:32px">fir_seq_s_last</div><div class="wave-label-row" style="top:2045px;height:32px;line-height:32px">fir_seq_m_valid</div><div class="wave-label-row" style="top:2079px;height:32px;line-height:32px">fir_seq_m_ready</div><div class="wave-label-row" style="top:2113px;height:32px;line-height:32px">fir_seq_m_data[15:0]</div><div class="wave-label-row" style="top:2147px;height:32px;line-height:32px">fir_seq_m_last</div><div class="wave-label-row" style="top:2181px;height:32px;line-height:32px">mat_op[1:0]</div><div class="wave-label-row" style="top:2215px;height:32px;line-height:32px">mat_s0_valid</div><div class="wave-label-row" style="top:2249px;height:32px;line-height:32px">mat_s0_ready</div><div class="wave-label-row" style="top:2283px;height:32px;line-height:32px">mat_s0_data[15:0]</div><div class="wave-label-row" style="top:2317px;height:32px;line-height:32px">mat_s0_last</div><div class="wave-label-row" style="top:2351px;height:32px;line-height:32px">mat_s1_valid</div><div class="wave-label-row" style="top:2385px;height:32px;line-height:32px">mat_s1_ready</div><div class="wave-label-row" style="top:2419px;height:32px;line-height:32px">mat_s1_data[15:0]</div><div class="wave-label-row" style="top:2453px;height:32px;line-height:32px">mat_s1_last</div><div class="wave-label-row" style="top:2487px;height:32px;line-height:32px">mat_m_valid</div><div class="wave-label-row" style="top:2521px;height:32px;line-height:32px">mat_m_ready</div><div class="wave-label-row" style="top:2555px;height:32px;line-height:32px">mat_m_data[15:0]</div><div class="wave-label-row" style="top:2589px;height:32px;line-height:32px">mat_m_last</div><div class="wave-label-row" style="top:2623px;height:32px;line-height:32px">dot_s0_valid</div><div class="wave-label-row" style="top:2657px;height:32px;line-height:32px">dot_s0_ready</div><div class="wave-label-row" style="top:2691px;height:32px;line-height:32px">dot_s0_data[15:0]</div><div class="wave-label-row" style="top:2725px;height:32px;line-height:32px">dot_s0_last</div><div class="wave-label-row" style="top:2759px;height:32px;line-height:32px">dot_s1_valid</div><div class="wave-label-row" style="top:2793px;height:32px;line-height:32px">dot_s1_ready</div><div class="wave-label-row" style="top:2827px;height:32px;line-height:32px">dot_s1_data[15:0]</div><div class="wave-label-row" style="top:2861px;height:32px;line-height:32px">dot_s1_last</div><div class="wave-label-row" style="top:2895px;height:32px;line-height:32px">dot_m_valid</div><div class="wave-label-row" style="top:2929px;height:32px;line-height:32px">dot_m_ready</div><div class="wave-label-row" style="top:2963px;height:32px;line-height:32px">dot_m_data[31:0]</div><div class="wave-label-row" style="top:2997px;height:32px;line-height:32px">dot_m_last</div><div class="wave-label-row" style="top:3031px;height:32px;line-height:32px">dot_count[31:0]</div><div class="wave-label-row" style="top:3065px;height:32px;line-height:32px">gain_i[15:0]</div><div class="wave-label-row" style="top:3099px;height:32px;line-height:32px">out_valid_r</div><div class="wave-label-row" style="top:3133px;height:32px;line-height:32px">out_data_r[15:0]</div><div class="wave-label-row" style="top:3167px;height:32px;line-height:32px">out_last_r</div><div class="wave-label-row" style="top:3201px;height:32px;line-height:32px">busy_r</div><div class="wave-label-row" style="top:3235px;height:32px;line-height:32px">ready_i</div><div class="wave-label-row" style="top:3269px;height:32px;line-height:32px">mul_valid[0:0]</div></div><div class="wave-plot-pane" style="width:894px;min-width:894px;height:3326px"><canvas class="waveform-canvas" width="894" height="3326" aria-label="Captured GHDL Waveform"></canvas></div><span class="wave-hover-readout" hidden></span><script type="application/json" class="wave-data">{"title":"Captured GHDL Waveform","endTime":710000000,"basePlotWidth":894,"top":34,"rowHeight":34,"traceHeight":16,"ticks":[{"time":5000000,"clock":true,"tickLabel":"C0","label":"cycle 0"},{"time":15000000,"clock":true,"tickLabel":"C1","label":"cycle 1"},{"time":25000000,"clock":true,"tickLabel":"C2","label":"cycle 2"},{"time":35000000,"clock":true,"tickLabel":"C3","label":"cycle 3"},{"time":45000000,"clock":true,"tickLabel":"C4","label":"cycle 4"},{"time":55000000,"clock":true,"tickLabel":"C5","label":"cycle 5"},{"time":65000000,"clock":true,"tickLabel":"C6","label":"cycle 6"},{"time":75000000,"clock":true,"tickLabel":"C7","label":"cycle 7"},{"time":85000000,"clock":true,"tickLabel":"C8","label":"cycle 8"},{"time":95000000,"clock":true,"tickLabel":"C9","label":"cycle 9"},{"time":105000000,"clock":true,"tickLabel":"C10","label":"cycle 10"},{"time":115000000,"clock":true,"tickLabel":"C11","label":"cycle 11"},{"time":125000000,"clock":true,"tickLabel":"C12","label":"cycle 12"},{"time":135000000,"clock":true,"tickLabel":"C13","label":"cycle 13"},{"time":145000000,"clock":true,"tickLabel":"C14","label":"cycle 14"},{"time":155000000,"clock":true,"tickLabel":"C15","label":"cycle 15"},{"time":165000000,"clock":true,"tickLabel":"C16","label":"cycle 16"},{"time":175000000,"clock":true,"tickLabel":"C17","label":"cycle 17"},{"time":185000000,"clock":true,"tickLabel":"C18","label":"cycle 18"},{"time":195000000,"clock":true,"tickLabel":"C19","label":"cycle 19"},{"time":205000000,"clock":true,"tickLabel":"C20","label":"cycle 20"},{"time":215000000,"clock":true,"tickLabel":"C21","label":"cycle 21"},{"time":225000000,"clock":true,"tickLabel":"C22","label":"cycle 22"},{"time":235000000,"clock":true,"tickLabel":"C23","label":"cycle 23"},{"time":245000000,"clock":true,"tickLabel":"C24","label":"cycle 24"},{"time":255000000,"clock":true,"tickLabel":"C25","label":"cycle 25"},{"time":265000000,"clock":true,"tickLabel":"C26","label":"cycle 26"},{"time":275000000,"clock":true,"tickLabel":"C27","label":"cycle 27"},{"time":285000000,"clock":true,"tickLabel":"C28","label":"cycle 28"},{"time":295000000,"clock":true,"tickLabel":"C29","label":"cycle 29"},{"time":305000000,"clock":true,"tickLabel":"C30","label":"cycle 30"},{"time":315000000,"clock":true,"tickLabel":"C31","label":"cycle 31"},{"time":325000000,"clock":true,"tickLabel":"C32","label":"cycle 32"},{"time":335000000,"clock":true,"tickLabel":"C33","label":"cycle 33"},{"time":345000000,"clock":true,"tickLabel":"C34","label":"cycle 34"},{"time":355000000,"clock":true,"tickLabel":"C35","label":"cycle 35"},{"time":365000000,"clock":true,"tickLabel":"C36","label":"cycle 36"},{"time":375000000,"clock":true,"tickLabel":"C37","label":"cycle 37"},{"time":385000000,"clock":true,"tickLabel":"C38","label":"cycle 38"},{"time":395000000,"clock":true,"tickLabel":"C39","label":"cycle 39"},{"time":405000000,"clock":true,"tickLabel":"C40","label":"cycle 40"},{"time":415000000,"clock":true,"tickLabel":"C41","label":"cycle 41"},{"time":425000000,"clock":true,"tickLabel":"C42","label":"cycle 42"},{"time":435000000,"clock":true,"tickLabel":"C43","label":"cycle 43"},{"time":445000000,"clock":true,"tickLabel":"C44","label":"cycle 44"},{"time":455000000,"clock":true,"tickLabel":"C45","label":"cycle 45"},{"time":465000000,"clock":true,"tickLabel":"C46","label":"cycle 46"},{"time":475000000,"clock":true,"tickLabel":"C47","label":"cycle 47"},{"time":485000000,"clock":true,"tickLabel":"C48","label":"cycle 48"},{"time":495000000,"clock":true,"tickLabel":"C49","label":"cycle 49"},{"time":505000000,"clock":true,"tickLabel":"C50","label":"cycle 50"},{"time":515000000,"clock":true,"tickLabel":"C51","label":"cycle 51"},{"time":525000000,"clock":true,"tickLabel":"C52","label":"cycle 52"},{"time":535000000,"clock":true,"tickLabel":"C53","label":"cycle 53"},{"time":545000000,"clock":true,"tickLabel":"C54","label":"cycle 54"},{"time":555000000,"clock":true,"tickLabel":"C55","label":"cycle 55"},{"time":565000000,"clock":true,"tickLabel":"C56","label":"cycle 56"},{"time":575000000,"clock":true,"tickLabel":"C57","label":"cycle 57"},{"time":585000000,"clock":true,"tickLabel":"C58","label":"cycle 58"},{"time":595000000,"clock":true,"tickLabel":"C59","label":"cycle 59"},{"time":605000000,"clock":true,"tickLabel":"C60","label":"cycle 60"},{"time":615000000,"clock":true,"tickLabel":"C61","label":"cycle 61"},{"time":625000000,"clock":true,"tickLabel":"C62","label":"cycle 62"},{"time":635000000,"clock":true,"tickLabel":"C63","label":"cycle 63"},{"time":645000000,"clock":true,"tickLabel":"C64","label":"cycle 64"},{"time":655000000,"clock":true,"tickLabel":"C65","label":"cycle 65"},{"time":665000000,"clock":true,"tickLabel":"C66","label":"cycle 66"},{"time":675000000,"clock":true,"tickLabel":"C67","label":"cycle 67"},{"time":685000000,"clock":true,"tickLabel":"C68","label":"cycle 68"},{"time":695000000,"clock":true,"tickLabel":"C69","label":"cycle 69"},{"time":705000000,"clock":true,"tickLabel":"C70","label":"cycle 70"},{"time":715000000,"clock":true,"tickLabel":"C71","label":"cycle 71"}],"signals":[{"name":"clk","kind":"signal","count":0,"scalar":true,"samples":[[0,"0"],[5000000,"1"],[10000000,"0"],[15000000,"1"],[20000000,"0"],[25000000,"1"],[30000000,"0"],[35000000,"1"],[40000000,"0"],[45000000,"1"],[50000000,"0"],[55000000,"1"],[60000000,"0"],[65000000,"1"],[70000000,"0"],[75000000,"1"],[80000000,"0"],[85000000,"1"],[90000000,"0"],[95000000,"1"],[100000000,"0"],[105000000,"1"],[110000000,"0"],[115000000,"1"],[120000000,"0"],[125000000,"1"],[130000000,"0"],[135000000,"1"],[140000000,"0"],[145000000,"1"],[150000000,"0"],[155000000,"1"],[160000000,"0"],[165000000,"1"],[170000000,"0"],[175000000,"1"],[180000000,"0"],[185000000,"1"],[190000000,"0"],[195000000,"1"],[200000000,"0"],[205000000,"1"],[210000000,"0"],[215000000,"1"],[220000000,"0"],[225000000,"1"],[230000000,"0"],[235000000,"1"],[240000000,"0"],[245000000,"1"],[250000000,"0"],[255000000,"1"],[260000000,"0"],[265000000,"1"],[270000000,"0"],[275000000,"1"],[280000000,"0"],[285000000,"1"],[290000000,"0"],[295000000,"1"],[300000000,"0"],[305000000,"1"],[310000000,"0"],[315000000,"1"],[320000000,"0"],[325000000,"1"],[330000000,"0"],[335000000,"1"],[340000000,"0"],[345000000,"1"],[350000000,"0"],[355000000,"1"],[360000000,"0"],[365000000,"1"],[370000000,"0"],[375000000,"1"],[380000000,"0"],[385000000,"1"],[390000000,"0"],[395000000,"1"],[400000000,"0"],[405000000,"1"],[410000000,"0"],[415000000,"1"],[420000000,"0"],[425000000,"1"],[430000000,"0"],[435000000,"1"],[440000000,"0"],[445000000,"1"],[450000000,"0"],[455000000,"1"],[460000000,"0"],[465000000,"1"],[470000000,"0"],[475000000,"1"],[480000000,"0"],[485000000,"1"],[490000000,"0"],[495000000,"1"],[500000000,"0"],[505000000,"1"],[510000000,"0"],[515000000,"1"],[520000000,"0"],[525000000,"1"],[530000000,"0"],[535000000,"1"],[540000000,"0"],[545000000,"1"],[550000000,"0"],[555000000,"1"],[560000000,"0"],[565000000,"1"],[570000000,"0"],[575000000,"1"],[580000000,"0"],[585000000,"1"],[590000000,"0"],[595000000,"1"],[600000000,"0"],[605000000,"1"],[610000000,"0"],[615000000,"1"],[620000000,"0"],[625000000,"1"],[630000000,"0"],[635000000,"1"],[640000000,"0"],[645000000,"1"],[650000000,"0"],[655000000,"1"],[660000000,"0"],[665000000,"1"],[670000000,"0"],[675000000,"1"],[680000000,"0"],[685000000,"1"],[690000000,"0"],[695000000,"1"],[700000000,"0"],[705000000,"1"],[710000000,"0"]]},{"name":"rst","kind":"signal","count":0,"scalar":true,"samples":[[0,"1"],[55000000,"0"]]},{"name":"gain_coeff[15:0]","kind":"signal","count":0,"scalar":false,"samples":[[0,"0000001000000000"]]},{"name":"gain_s_valid","kind":"signal","count":0,"scalar":true,"samples":[[0,"0"],[65000000,"1"],[75000000,"0"]]},{"name":"gain_s_ready","kind":"signal","count":0,"scalar":true,"samples":[[0,"1"],[75000000,"0"],[105000000,"1"]]},{"name":"gain_s_data[15:0]","kind":"signal","count":0,"scalar":false,"samples":[[0,"0000000000000000"],[65000000,"0000000001100100"]]},{"name":"gain_s_last","kind":"signal","count":0,"scalar":true,"samples":[[0,"0"],[65000000,"1"],[75000000,"0"]]},{"name":"gain_m_valid","kind":"signal","count":0,"scalar":true,"samples":[[0,"0"],[105000000,"1"],[115000000,"0"]]},{"name":"gain_m_ready","kind":"signal","count":0,"scalar":true,"samples":[[0,"1"]]},{"name":"gain_m_data[15:0]","kind":"signal","count":0,"scalar":false,"samples":[[0,"0000000000000000"],[105000000,"0000000011001000"]]},{"name":"gain_m_last","kind":"signal","count":0,"scalar":true,"samples":[[0,"0"],[105000000,"1"]]},{"name":"gain2_coeff[31:0]","kind":"signal","count":0,"scalar":false,"samples":[[0,"11111111000000000000001000000000"]]},{"name":"gain2_s_valid","kind":"signal","count":0,"scalar":true,"samples":[[0,"0"],[125000000,"1"],[135000000,"0"]]},{"name":"gain2_s_ready","kind":"signal","count":0,"scalar":true,"samples":[[0,"1"],[135000000,"0"],[165000000,"1"]]},{"name":"gain2_s_data[31:0]","kind":"signal","count":0,"scalar":false,"samples":[[0,"00000000000000000000000000000000"],[125000000,"11111111111000100000000000110010"]]},{"name":"gain2_s_last","kind":"signal","count":0,"scalar":true,"samples":[[0,"0"],[125000000,"1"],[135000000,"0"]]},{"name":"gain2_m_valid","kind":"signal","count":0,"scalar":true,"samples":[[0,"0"],[165000000,"1"],[175000000,"0"]]},{"name":"gain2_m_ready","kind":"signal","count":0,"scalar":true,"samples":[[0,"1"]]},{"name":"gain2_m_data[31:0]","kind":"signal","count":0,"scalar":false,"samples":[[0,"00000000000000000000000000000000"],[165000000,"00000000000111100000000001100100"]]},{"name":"gain2_m_last","kind":"signal","count":0,"scalar":true,"samples":[[0,"0"],[165000000,"1"]]},{"name":"bq_b0[15:0]","kind":"signal","count":0,"scalar":false,"samples":[[0,"0000000100000000"]]},{"name":"bq_z[15:0]","kind":"signal","count":0,"scalar":false,"samples":[[0,"0000000000000000"]]},{"name":"bq_s_valid","kind":"signal","count":0,"scalar":true,"samples":[[0,"0"],[185000000,"1"],[195000000,"0"]]},{"name":"bq_s_ready","kind":"signal","count":0,"scalar":true,"samples":[[0,"1"]]},{"name":"bq_s_data[15:0]","kind":"signal","count":0,"scalar":false,"samples":[[0,"0000000000000000"],[185000000,"1111111110000101"]]},{"name":"bq_s_last","kind":"signal","count":0,"scalar":true,"samples":[[0,"0"],[185000000,"1"],[195000000,"0"]]},{"name":"bq_m_valid","kind":"signal","count":0,"scalar":true,"samples":[[0,"0"],[195000000,"1"],[205000000,"0"]]},{"name":"bq_m_ready","kind":"signal","count":0,"scalar":true,"samples":[[0,"1"]]},{"name":"bq_m_data[15:0]","kind":"signal","count":0,"scalar":false,"samples":[[0,"0000000000000000"],[195000000,"1111111110000101"]]},{"name":"bq_m_last","kind":"signal","count":0,"scalar":true,"samples":[[0,"0"],[195000000,"1"],[205000000,"0"]]},{"name":"bq_seq_s_valid","kind":"signal","count":0,"scalar":true,"samples":[[0,"0"],[215000000,"1"],[225000000,"0"]]},{"name":"bq_seq_s_ready","kind":"signal","count":0,"scalar":true,"samples":[[0,"1"],[225000000,"0"],[255000000,"1"]]},{"name":"bq_seq_s_data[15:0]","kind":"signal","count":0,"scalar":false,"samples":[[0,"0000000000000000"],[215000000,"0000000001001101"]]},{"name":"bq_seq_s_last","kind":"signal","count":0,"scalar":true,"samples":[[0,"0"],[215000000,"1"],[225000000,"0"]]},{"name":"bq_seq_m_valid","kind":"signal","count":0,"scalar":true,"samples":[[0,"0"],[255000000,"1"],[265000000,"0"]]},{"name":"bq_seq_m_ready","kind":"signal","count":0,"scalar":true,"samples":[[0,"1"]]},{"name":"bq_seq_m_data[15:0]","kind":"signal","count":0,"scalar":false,"samples":[[0,"0000000000000000"],[255000000,"0000000001001101"]]},{"name":"bq_seq_m_last","kind":"signal","count":0,"scalar":true,"samples":[[0,"0"],[255000000,"1"]]},{"name":"lp_seq_s_valid","kind":"signal","count":0,"scalar":true,"samples":[[0,"0"],[275000000,"1"],[285000000,"0"]]},{"name":"lp_seq_s_ready","kind":"signal","count":0,"scalar":true,"samples":[[0,"1"],[285000000,"0"],[315000000,"1"]]},{"name":"lp_seq_s_data[15:0]","kind":"signal","count":0,"scalar":false,"samples":[[0,"0000000000000000"],[275000000,"0000000000110111"]]},{"name":"lp_seq_s_last","kind":"signal","count":0,"scalar":true,"samples":[[0,"0"],[275000000,"1"],[285000000,"0"]]},{"name":"lp_seq_m_valid","kind":"signal","count":0,"scalar":true,"samples":[[0,"0"],[315000000,"1"],[325000000,"0"]]},{"name":"lp_seq_m_ready","kind":"signal","count":0,"scalar":true,"samples":[[0,"1"]]},{"name":"lp_seq_m_data[15:0]","kind":"signal","count":0,"scalar":false,"samples":[[0,"0000000000000000"],[315000000,"0000000000110111"]]},{"name":"lp_seq_m_last","kind":"signal","count":0,"scalar":true,"samples":[[0,"0"],[315000000,"1"]]},{"name":"fir_taps[31:0]","kind":"signal","count":0,"scalar":false,"samples":[[0,"00000001000000000000000100000000"]]},{"name":"fir_s_valid","kind":"signal","count":0,"scalar":true,"samples":[[0,"0"],[335000000,"1"],[345000000,"0"],[365000000,"1"],[375000000,"0"]]},{"name":"fir_s_ready","kind":"signal","count":0,"scalar":true,"samples":[[0,"1"]]},{"name":"fir_s_data[15:0]","kind":"signal","count":0,"scalar":false,"samples":[[0,"0000000000000000"],[335000000,"0000000000001010"],[365000000,"0000000000010100"]]},{"name":"fir_s_last","kind":"signal","count":0,"scalar":true,"samples":[[0,"0"],[365000000,"1"],[375000000,"0"]]},{"name":"fir_m_valid","kind":"signal","count":0,"scalar":true,"samples":[[0,"0"],[345000000,"1"],[355000000,"0"],[375000000,"1"],[385000000,"0"]]},{"name":"fir_m_ready","kind":"signal","count":0,"scalar":true,"samples":[[0,"1"]]},{"name":"fir_m_data[15:0]","kind":"signal","count":0,"scalar":false,"samples":[[0,"0000000000000000"],[345000000,"0000000000001010"],[375000000,"0000000000011110"]]},{"name":"fir_m_last","kind":"signal","count":0,"scalar":true,"samples":[[0,"0"],[375000000,"1"],[385000000,"0"]]},{"name":"fir_seq_s_valid","kind":"signal","count":0,"scalar":true,"samples":[[0,"0"],[395000000,"1"],[405000000,"0"],[465000000,"1"],[475000000,"0"]]},{"name":"fir_seq_s_ready","kind":"signal","count":0,"scalar":true,"samples":[[0,"1"],[405000000,"0"],[445000000,"1"],[475000000,"0"],[515000000,"1"]]},{"name":"fir_seq_s_data[15:0]","kind":"signal","count":0,"scalar":false,"samples":[[0,"0000000000000000"],[395000000,"0000000000001010"],[465000000,"0000000000010100"]]},{"name":"fir_seq_s_last","kind":"signal","count":0,"scalar":true,"samples":[[0,"0"],[465000000,"1"],[475000000,"0"]]},{"name":"fir_seq_m_valid","kind":"signal","count":0,"scalar":true,"samples":[[0,"0"],[445000000,"1"],[455000000,"0"],[515000000,"1"],[525000000,"0"]]},{"name":"fir_seq_m_ready","kind":"signal","count":0,"scalar":true,"samples":[[0,"1"]]},{"name":"fir_seq_m_data[15:0]","kind":"signal","count":0,"scalar":false,"samples":[[0,"0000000000000000"],[445000000,"0000000000001010"],[515000000,"0000000000011110"]]},{"name":"fir_seq_m_last","kind":"signal","count":0,"scalar":true,"samples":[[0,"0"],[515000000,"1"]]},{"name":"mat_op[1:0]","kind":"signal","count":0,"scalar":false,"samples":[[0,"00"],[555000000,"10"]]},{"name":"mat_s0_valid","kind":"signal","count":0,"scalar":true,"samples":[[0,"0"],[535000000,"1"],[545000000,"0"],[565000000,"1"],[575000000,"0"]]},{"name":"mat_s0_ready","kind":"signal","count":0,"scalar":true,"samples":[[0,"0"],[535000000,"1"],[545000000,"0"],[565000000,"1"],[575000000,"0"]]},{"name":"mat_s0_data[15:0]","kind":"signal","count":0,"scalar":false,"samples":[[0,"0000000000000000"],[535000000,"0000000001100100"],[565000000,"0000001000000000"]]},{"name":"mat_s0_last","kind":"signal","count":0,"scalar":true,"samples":[[0,"0"],[535000000,"1"],[545000000,"0"],[565000000,"1"],[575000000,"0"]]},{"name":"mat_s1_valid","kind":"signal","count":0,"scalar":true,"samples":[[0,"0"],[535000000,"1"],[545000000,"0"],[565000000,"1"],[575000000,"0"]]},{"name":"mat_s1_ready","kind":"signal","count":0,"scalar":true,"samples":[[0,"0"],[535000000,"1"],[545000000,"0"],[565000000,"1"],[575000000,"0"]]},{"name":"mat_s1_data[15:0]","kind":"signal","count":0,"scalar":false,"samples":[[0,"0000000000000000"],[535000000,"0000000000010111"],[565000000,"0000001000000000"]]},{"name":"mat_s1_last","kind":"signal","count":0,"scalar":true,"samples":[[0,"0"],[535000000,"1"],[545000000,"0"],[565000000,"1"],[575000000,"0"]]},{"name":"mat_m_valid","kind":"signal","count":0,"scalar":true,"samples":[[0,"0"],[545000000,"1"],[555000000,"0"],[605000000,"1"],[615000000,"0"]]},{"name":"mat_m_ready","kind":"signal","count":0,"scalar":true,"samples":[[0,"1"]]},{"name":"mat_m_data[15:0]","kind":"signal","count":0,"scalar":false,"samples":[[0,"0000000000000000"],[545000000,"0000000001111011"],[605000000,"0000010000000000"]]},{"name":"mat_m_last","kind":"signal","count":0,"scalar":true,"samples":[[0,"0"],[545000000,"1"]]},{"name":"dot_s0_valid","kind":"signal","count":0,"scalar":true,"samples":[[0,"0"],[625000000,"1"],[635000000,"0"],[645000000,"1"],[675000000,"0"]]},{"name":"dot_s0_ready","kind":"signal","count":0,"scalar":true,"samples":[[0,"0"],[625000000,"1"],[635000000,"0"],[665000000,"1"],[675000000,"0"]]},{"name":"dot_s0_data[15:0]","kind":"signal","count":0,"scalar":false,"samples":[[0,"0000000000000000"],[625000000,"0000000000000010"],[645000000,"0000000000000011"]]},{"name":"dot_s0_last","kind":"signal","count":0,"scalar":true,"samples":[[0,"0"],[645000000,"1"],[675000000,"0"]]},{"name":"dot_s1_valid","kind":"signal","count":0,"scalar":true,"samples":[[0,"0"],[625000000,"1"],[635000000,"0"],[645000000,"1"],[675000000,"0"]]},{"name":"dot_s1_ready","kind":"signal","count":0,"scalar":true,"samples":[[0,"0"],[625000000,"1"],[635000000,"0"],[665000000,"1"],[675000000,"0"]]},{"name":"dot_s1_data[15:0]","kind":"signal","count":0,"scalar":false,"samples":[[0,"0000000000000000"],[625000000,"0000000000000101"],[645000000,"0000000000000111"]]},{"name":"dot_s1_last","kind":"signal","count":0,"scalar":true,"samples":[[0,"0"],[645000000,"1"],[675000000,"0"]]},{"name":"dot_m_valid","kind":"signal","count":0,"scalar":true,"samples":[[0,"0"],[705000000,"1"]]},{"name":"dot_m_ready","kind":"signal","count":0,"scalar":true,"samples":[[0,"1"]]},{"name":"dot_m_data[31:0]","kind":"signal","count":0,"scalar":false,"samples":[[0,"00000000000000000000000000000000"],[705000000,"00000000000000000000000000011111"]]},{"name":"dot_m_last","kind":"signal","count":0,"scalar":true,"samples":[[0,"0"],[705000000,"1"]]},{"name":"dot_count[31:0]","kind":"signal","count":0,"scalar":false,"samples":[[0,"00000000000000000000000000000000"],[665000000,"00000000000000000000000000000001"],[705000000,"00000000000000000000000000000000"]]},{"name":"gain_i[15:0]","kind":"signal","count":0,"scalar":false,"samples":[[0,"0000001000000000"]]},{"name":"out_valid_r","kind":"signal","count":0,"scalar":true,"samples":[[0,"0"],[105000000,"1"],[115000000,"0"]]},{"name":"out_data_r[15:0]","kind":"signal","count":0,"scalar":false,"samples":[[0,"0000000000000000"],[105000000,"0000000011001000"]]},{"name":"out_last_r","kind":"signal","count":0,"scalar":true,"samples":[[0,"0"],[105000000,"1"]]},{"name":"busy_r","kind":"signal","count":0,"scalar":true,"samples":[[0,"0"],[75000000,"1"],[105000000,"0"]]},{"name":"ready_i","kind":"signal","count":0,"scalar":true,"samples":[[0,"1"],[75000000,"0"],[105000000,"1"]]},{"name":"mul_valid[0:0]","kind":"signal","count":0,"scalar":true,"samples":[[0,"0"],[75000000,"1"],[85000000,"0"]]}]}</script></div></div><script>
 (() => {
   document.querySelectorAll(".wave").forEach((wave) => {
     if (wave.dataset.ready === "1") return;
     wave.dataset.ready = "1";
     const zoomX = wave.querySelector(".wave-zoom-x");
     const zoomY = wave.querySelector(".wave-zoom-y");
-    const plotPane = wave.querySelector(".wave-plot");
-    const svg = wave.querySelector("svg.waveform");
-    const labelSvg = wave.querySelector("svg.wave-labels");
-    const hover = wave.querySelector(".wave-hover-line");
-    const hoverLabel = wave.querySelector(".wave-hover-label");
-    const labels = Array.from(wave.querySelectorAll(".wave-time"));
-    const grids = Array.from(wave.querySelectorAll(".wave-grid"));
-    const clockGrids = grids.filter((grid) => grid.dataset.clock === "1");
-    const snapGrids = clockGrids.length ? clockGrids : grids;
-    const plotWidth = svg ? Number(svg.dataset.plotWidth || 894) : 894;
-    const baseHeight = svg && svg.viewBox && svg.viewBox.baseVal ? Number(svg.viewBox.baseVal.height || 320) : 320;
-    const setZoom = () => {
-      const valueX = zoomX ? Number(zoomX.value) / 100 : 1;
-      const valueY = zoomY ? Number(zoomY.value) / 100 : 1;
-      wave.style.setProperty("--wave-zoom-x", String(valueX));
-      wave.style.setProperty("--wave-zoom-y", String(valueY));
-      const scaledWidth = `${plotWidth * valueX}px`;
-      wave.style.setProperty("--wave-plot-width", scaledWidth);
-      if (plotPane) {
-        plotPane.style.width = scaledWidth;
-        plotPane.style.minWidth = scaledWidth;
-        plotPane.style.flexBasis = scaledWidth;
-      }
-      if (svg) {
-        svg.style.width = "100%";
-        svg.style.height = `${baseHeight * valueY}px`;
-      }
-      if (labelSvg) {
-        labelSvg.style.height = `${baseHeight * valueY}px`;
-      }
-      const minSpacing = valueX >= 2.5 ? 38 : valueX >= 1.6 ? 52 : 78;
-      let lastShown = -Infinity;
-      labels.forEach((label) => {
-        const x = Number(label.dataset.x || label.getAttribute("x") || "0") * valueX;
-        if (x - lastShown >= minSpacing) {
-          label.style.display = "";
-          lastShown = x;
-        } else {
-          label.style.display = "none";
-        }
-      });
+    const canvas = wave.querySelector("canvas.waveform-canvas");
+    const plotPane = wave.querySelector(".wave-plot-pane");
+    const labelPane = wave.querySelector(".wave-label-pane");
+    const labelRows = Array.from(wave.querySelectorAll(".wave-label-row"));
+    const readout = wave.querySelector(".wave-hover-readout");
+    const dataNode = wave.querySelector("script.wave-data");
+    if (!canvas || !plotPane || !labelPane || !dataNode) return;
+    let payload;
+    try {
+      payload = JSON.parse(dataNode.textContent || "{}");
+    } catch (_) {
+      return;
+    }
+    const ctx = canvas.getContext("2d");
+    if (!ctx) return;
+    const css = getComputedStyle(wave);
+    const colors = {
+      card: css.getPropertyValue("--card").trim() || "#111827",
+      line: css.getPropertyValue("--line").trim() || "#273244",
+      muted: css.getPropertyValue("--muted").trim() || "#93a4b8",
+      ink: css.getPropertyValue("--ink").trim() || "#e8eef7",
+      accent: css.getPropertyValue("--accent").trim() || "#62d6c7",
+      bus: "rgba(98, 214, 199, .14)",
+      iface: "rgba(139, 211, 255, .14)",
+      hover: "#ffd84d",
+      unknown: "#d59b35"
     };
-    setZoom();
-    if (zoomX) zoomX.addEventListener("input", setZoom);
-    if (zoomY) zoomY.addEventListener("input", setZoom);
-    if (!svg || !hover || !hoverLabel || !snapGrids.length) return;
-    const nearest = (x) => {
-      let best = snapGrids[0];
-      let bestDistance = Math.abs(Number(best.dataset.x) - x);
-      snapGrids.forEach((line) => {
-        const distance = Math.abs(Number(line.dataset.x) - x);
+    const basePlotWidth = Number(payload.basePlotWidth || 894);
+    const baseRowHeight = Number(payload.rowHeight || 34);
+    const top = Number(payload.top || 34);
+    const traceHeight = Number(payload.traceHeight || 16);
+    const endTime = Math.max(1, Number(payload.endTime || 1));
+    const signals = Array.isArray(payload.signals) ? payload.signals : [];
+    const ticks = Array.isArray(payload.ticks) ? payload.ticks : [];
+    const compactValue = (value) => {
+      const text = String(value || "").replaceAll("_", "");
+      if (!text) return "";
+      if (text.length > 8 && /^[01]+$/i.test(text)) return `0x${parseInt(text, 2).toString(16).toUpperCase()}`;
+      if (text.length > 18) return `${text.slice(0, 15)}...`;
+      return text.toUpperCase();
+    };
+    const isScalar = (signal) => signal.scalar === true;
+    const yForScalar = (value, highY, lowY) => {
+      const text = String(value || "").toLowerCase();
+      if (text === "1") return highY;
+      if (text === "0") return lowY;
+      return (highY + lowY) / 2;
+    };
+    let hoverTick = null;
+    const nearestTick = (x, plotWidth) => {
+      const snapTicks = ticks.length ? ticks : [{time: 0, label: "t=0"}, {time: endTime, label: `t=${endTime}`}];
+      let best = snapTicks[0];
+      let bestDistance = Infinity;
+      snapTicks.forEach((tick) => {
+        const tx = (Number(tick.time || 0) / endTime) * plotWidth;
+        const distance = Math.abs(tx - x);
         if (distance < bestDistance) {
-          best = line;
+          best = tick;
           bestDistance = distance;
         }
       });
       return best;
     };
-    svg.addEventListener("mousemove", (event) => {
-      const point = svg.createSVGPoint();
-      point.x = event.clientX;
-      point.y = event.clientY;
-      const matrix = svg.getScreenCTM();
-      if (!matrix) return;
-      const local = point.matrixTransform(matrix.inverse());
-      const line = nearest(local.x);
-      const x = Number(line.dataset.x);
-      hover.setAttribute("x1", x);
-      hover.setAttribute("x2", x);
-      hover.style.opacity = "1";
-      hoverLabel.setAttribute("x", x + 4);
-      hoverLabel.textContent = line.dataset.label || `t=${line.dataset.time}`;
-      hoverLabel.style.opacity = "1";
+    const draw = () => {
+      const valueX = zoomX ? Number(zoomX.value) / 100 : 1;
+      const valueY = zoomY ? Number(zoomY.value) / 100 : 1;
+      const plotWidth = Math.max(320, basePlotWidth * valueX);
+      const rowHeight = Math.max(18, baseRowHeight * valueY);
+      const height = Math.ceil(top + (signals.length * rowHeight) + 28);
+      const dpr = window.devicePixelRatio || 1;
+      plotPane.style.width = `${plotWidth}px`;
+      plotPane.style.minWidth = `${plotWidth}px`;
+      plotPane.style.flexBasis = `${plotWidth}px`;
+      plotPane.style.height = `${height}px`;
+      labelPane.style.height = `${height}px`;
+      canvas.style.width = `${plotWidth}px`;
+      canvas.style.height = `${height}px`;
+      canvas.width = Math.max(1, Math.ceil(plotWidth * dpr));
+      canvas.height = Math.max(1, Math.ceil(height * dpr));
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      ctx.clearRect(0, 0, plotWidth, height);
+      ctx.fillStyle = colors.card;
+      ctx.fillRect(0, 0, plotWidth, height);
+      labelRows.forEach((row, index) => {
+        row.style.top = `${top + (index * rowHeight) + 5}px`;
+        row.style.height = `${Math.max(16, rowHeight - 2)}px`;
+        row.style.lineHeight = `${Math.max(16, rowHeight - 2)}px`;
+      });
+      ctx.font = "11px ui-monospace, SFMono-Regular, Menlo, Consolas, monospace";
+      ctx.textBaseline = "middle";
+      const minTickSpacing = valueX >= 2.8 ? 38 : valueX >= 1.7 ? 54 : 88;
+      let lastTickX = -Infinity;
+      ticks.forEach((tick, index) => {
+        const x = (Number(tick.time || 0) / endTime) * plotWidth;
+        ctx.strokeStyle = colors.line;
+        ctx.globalAlpha = tick.clock ? 0.45 : 0.62;
+        ctx.beginPath();
+        ctx.moveTo(x, 20);
+        ctx.lineTo(x, height - 18);
+        ctx.stroke();
+        ctx.globalAlpha = 1;
+        if (x - lastTickX >= minTickSpacing) {
+          ctx.fillStyle = colors.muted;
+          ctx.fillText(String(tick.tickLabel || tick.label || index), x + 3, 14);
+          lastTickX = x;
+        }
+      });
+      signals.forEach((signal, index) => {
+        const rowY = top + (index * rowHeight);
+        const traceY = rowY + Math.max(3, rowHeight * 0.12);
+        const traceH = Math.min(traceHeight, Math.max(10, rowHeight * 0.48));
+        const lowY = traceY + traceH;
+        const highY = traceY;
+        ctx.strokeStyle = colors.line;
+        ctx.globalAlpha = 1;
+        ctx.beginPath();
+        ctx.moveTo(0, lowY);
+        ctx.lineTo(plotWidth, lowY);
+        ctx.stroke();
+        const samples = Array.isArray(signal.samples) ? signal.samples : [];
+        if (signal.kind === "interface") {
+          ctx.fillStyle = colors.iface;
+          ctx.strokeStyle = "#8bd3ff";
+          ctx.lineWidth = 1.2;
+          ctx.fillRect(0, traceY - 1, plotWidth, traceH + 2);
+          ctx.strokeRect(0, traceY - 1, plotWidth, traceH + 2);
+          ctx.fillStyle = colors.ink;
+          ctx.font = "12px ui-monospace, SFMono-Regular, Menlo, Consolas, monospace";
+          ctx.fillText(`${signal.name} interface (${signal.count || 0} signals)`, 8, traceY + (traceH / 2));
+          return;
+        }
+        if (!samples.length) return;
+        if (isScalar(signal)) {
+          let unknown = false;
+          ctx.beginPath();
+          samples.forEach((sample, sampleIndex) => {
+            const x = (Number(sample[0] || 0) / endTime) * plotWidth;
+            const y = yForScalar(sample[1], highY, lowY);
+            unknown = unknown || !["0", "1"].includes(String(sample[1]).toLowerCase());
+            if (sampleIndex === 0) {
+              ctx.moveTo(x, y);
+            } else {
+              const previous = samples[sampleIndex - 1];
+              const previousY = yForScalar(previous[1], highY, lowY);
+              ctx.lineTo(x, previousY);
+              ctx.lineTo(x, y);
+            }
+          });
+          const last = samples[samples.length - 1];
+          ctx.lineTo(plotWidth, yForScalar(last[1], highY, lowY));
+          ctx.strokeStyle = unknown ? colors.unknown : colors.accent;
+          ctx.lineWidth = 2.2;
+          ctx.stroke();
+          return;
+        }
+        ctx.font = "11px ui-monospace, SFMono-Regular, Menlo, Consolas, monospace";
+        samples.forEach((sample, sampleIndex) => {
+          const next = samples[sampleIndex + 1];
+          const x1 = (Number(sample[0] || 0) / endTime) * plotWidth;
+          const x2 = next ? (Number(next[0] || 0) / endTime) * plotWidth : plotWidth;
+          const width = Math.max(3, x2 - x1);
+          ctx.fillStyle = colors.bus;
+          ctx.strokeStyle = colors.accent;
+          ctx.lineWidth = 1.1;
+          ctx.fillRect(x1, traceY, width, traceH);
+          ctx.strokeRect(x1, traceY, width, traceH);
+          if (width >= 38) {
+            ctx.fillStyle = colors.ink;
+            ctx.fillText(compactValue(sample[1]), x1 + 5, traceY + (traceH / 2));
+          }
+        });
+      });
+      if (hoverTick) {
+        const x = (Number(hoverTick.time || 0) / endTime) * plotWidth;
+        ctx.strokeStyle = colors.hover;
+        ctx.lineWidth = 2;
+        ctx.beginPath();
+        ctx.moveTo(x, 20);
+        ctx.lineTo(x, height - 18);
+        ctx.stroke();
+        if (readout) {
+          readout.hidden = false;
+          readout.textContent = hoverTick.label || `t=${hoverTick.time}`;
+        }
+      } else if (readout) {
+        readout.hidden = true;
+      }
+    };
+    draw();
+    if (zoomX) zoomX.addEventListener("input", draw);
+    if (zoomY) zoomY.addEventListener("input", draw);
+    canvas.addEventListener("mousemove", (event) => {
+      const rect = canvas.getBoundingClientRect();
+      const x = event.clientX - rect.left;
+      hoverTick = nearestTick(x, rect.width);
+      draw();
     });
-    svg.addEventListener("mouseleave", () => {
-      hover.style.opacity = "0";
-      hoverLabel.style.opacity = "0";
+    canvas.addEventListener("mouseleave", () => {
+      hoverTick = null;
+      draw();
     });
+    window.addEventListener("resize", draw);
   });
 })();
-</script></div><details class="wave-group"><summary>M_AXIS interface signals</summary><div class="wave-group-body"><div class="wave"><h4>M_AXIS Interface Waveform</h4><p class="meta">Source: dsp/hdl/testbenches/tb_raddsp_axis_smoke.vhd</p><div class="wave-controls"><label>Horizontal <input class="wave-zoom-x" type="range" min="60" max="420" value="100"></label><label>Vertical <input class="wave-zoom-y" type="range" min="70" max="260" value="100"></label></div><div class="wave-viewport" style="--wave-height:232px"><div class="wave-canvas"><svg class="wave-labels" viewBox="0 0 190 232" aria-hidden="true"><text class="wave-label" x="8" y="52">m_axis_tvalid</text><text class="wave-label" x="8" y="86">m_axis_tready</text><text class="wave-label" x="8" y="120">m_axis_tdata[15:0]</text><text class="wave-label" x="8" y="154">m_axis_tlast</text><text class="wave-label" x="8" y="188">m_axis_tdata[31:0]</text></svg><div class="wave-plot" style="--wave-plot-width:894px"><svg class="waveform" data-plot-width="894" viewBox="0 0 894 232" role="img" aria-label="M_AXIS Interface Waveform"><line class="wave-grid clock-grid" data-clock="1" data-x="6.3" data-time="5000000" data-label="cycle 0" x1="6.3" y1="20" x2="6.3" y2="214" /><text class="wave-time" data-tick="0" data-x="9.3" x="9.3" y="15">C0</text><line class="wave-grid clock-grid" data-clock="1" data-x="18.9" data-time="15000000" data-label="cycle 1" x1="18.9" y1="20" x2="18.9" y2="214" /><text class="wave-time" data-tick="1" data-x="21.9" x="21.9" y="15">C1</text><line class="wave-grid clock-grid" data-clock="1" data-x="31.5" data-time="25000000" data-label="cycle 2" x1="31.5" y1="20" x2="31.5" y2="214" /><text class="wave-time" data-tick="2" data-x="34.5" x="34.5" y="15">C2</text><line class="wave-grid clock-grid" data-clock="1" data-x="44.1" data-time="35000000" data-label="cycle 3" x1="44.1" y1="20" x2="44.1" y2="214" /><text class="wave-time" data-tick="3" data-x="47.1" x="47.1" y="15">C3</text><line class="wave-grid clock-grid" data-clock="1" data-x="56.7" data-time="45000000" data-label="cycle 4" x1="56.7" y1="20" x2="56.7" y2="214" /><text class="wave-time" data-tick="4" data-x="59.7" x="59.7" y="15">C4</text><line class="wave-grid clock-grid" data-clock="1" data-x="69.3" data-time="55000000" data-label="cycle 5" x1="69.3" y1="20" x2="69.3" y2="214" /><text class="wave-time" data-tick="5" data-x="72.3" x="72.3" y="15">C5</text><line class="wave-grid clock-grid" data-clock="1" data-x="81.8" data-time="65000000" data-label="cycle 6" x1="81.8" y1="20" x2="81.8" y2="214" /><text class="wave-time" data-tick="6" data-x="84.8" x="84.8" y="15">C6</text><line class="wave-grid clock-grid" data-clock="1" data-x="94.4" data-time="75000000" data-label="cycle 7" x1="94.4" y1="20" x2="94.4" y2="214" /><text class="wave-time" data-tick="7" data-x="97.4" x="97.4" y="15">C7</text><line class="wave-grid clock-grid" data-clock="1" data-x="107.0" data-time="85000000" data-label="cycle 8" x1="107.0" y1="20" x2="107.0" y2="214" /><text class="wave-time" data-tick="8" data-x="110.0" x="110.0" y="15">C8</text><line class="wave-grid clock-grid" data-clock="1" data-x="119.6" data-time="95000000" data-label="cycle 9" x1="119.6" y1="20" x2="119.6" y2="214" /><text class="wave-time" data-tick="9" data-x="122.6" x="122.6" y="15">C9</text><line class="wave-grid clock-grid" data-clock="1" data-x="132.2" data-time="105000000" data-label="cycle 10" x1="132.2" y1="20" x2="132.2" y2="214" /><text class="wave-time" data-tick="10" data-x="135.2" x="135.2" y="15">C10</text><line class="wave-grid clock-grid" data-clock="1" data-x="144.8" data-time="115000000" data-label="cycle 11" x1="144.8" y1="20" x2="144.8" y2="214" /><text class="wave-time" data-tick="11" data-x="147.8" x="147.8" y="15">C11</text><line class="wave-grid clock-grid" data-clock="1" data-x="157.4" data-time="125000000" data-label="cycle 12" x1="157.4" y1="20" x2="157.4" y2="214" /><text class="wave-time" data-tick="12" data-x="160.4" x="160.4" y="15">C12</text><line class="wave-grid clock-grid" data-clock="1" data-x="170.0" data-time="135000000" data-label="cycle 13" x1="170.0" y1="20" x2="170.0" y2="214" /><text class="wave-time" data-tick="13" data-x="173.0" x="173.0" y="15">C13</text><line class="wave-grid clock-grid" data-clock="1" data-x="182.6" data-time="145000000" data-label="cycle 14" x1="182.6" y1="20" x2="182.6" y2="214" /><text class="wave-time" data-tick="14" data-x="185.6" x="185.6" y="15">C14</text><line class="wave-grid clock-grid" data-clock="1" data-x="195.2" data-time="155000000" data-label="cycle 15" x1="195.2" y1="20" x2="195.2" y2="214" /><text class="wave-time" data-tick="15" data-x="198.2" x="198.2" y="15">C15</text><line class="wave-grid clock-grid" data-clock="1" data-x="207.8" data-time="165000000" data-label="cycle 16" x1="207.8" y1="20" x2="207.8" y2="214" /><text class="wave-time" data-tick="16" data-x="210.8" x="210.8" y="15">C16</text><line class="wave-grid clock-grid" data-clock="1" data-x="220.4" data-time="175000000" data-label="cycle 17" x1="220.4" y1="20" x2="220.4" y2="214" /><text class="wave-time" data-tick="17" data-x="223.4" x="223.4" y="15">C17</text><line class="wave-grid clock-grid" data-clock="1" data-x="232.9" data-time="185000000" data-label="cycle 18" x1="232.9" y1="20" x2="232.9" y2="214" /><text class="wave-time" data-tick="18" data-x="235.9" x="235.9" y="15">C18</text><line class="wave-grid clock-grid" data-clock="1" data-x="245.5" data-time="195000000" data-label="cycle 19" x1="245.5" y1="20" x2="245.5" y2="214" /><text class="wave-time" data-tick="19" data-x="248.5" x="248.5" y="15">C19</text><line class="wave-grid clock-grid" data-clock="1" data-x="258.1" data-time="205000000" data-label="cycle 20" x1="258.1" y1="20" x2="258.1" y2="214" /><text class="wave-time" data-tick="20" data-x="261.1" x="261.1" y="15">C20</text><line class="wave-grid clock-grid" data-clock="1" data-x="270.7" data-time="215000000" data-label="cycle 21" x1="270.7" y1="20" x2="270.7" y2="214" /><text class="wave-time" data-tick="21" data-x="273.7" x="273.7" y="15">C21</text><line class="wave-grid clock-grid" data-clock="1" data-x="283.3" data-time="225000000" data-label="cycle 22" x1="283.3" y1="20" x2="283.3" y2="214" /><text class="wave-time" data-tick="22" data-x="286.3" x="286.3" y="15">C22</text><line class="wave-grid clock-grid" data-clock="1" data-x="295.9" data-time="235000000" data-label="cycle 23" x1="295.9" y1="20" x2="295.9" y2="214" /><text class="wave-time" data-tick="23" data-x="298.9" x="298.9" y="15">C23</text><line class="wave-grid clock-grid" data-clock="1" data-x="308.5" data-time="245000000" data-label="cycle 24" x1="308.5" y1="20" x2="308.5" y2="214" /><text class="wave-time" data-tick="24" data-x="311.5" x="311.5" y="15">C24</text><line class="wave-grid clock-grid" data-clock="1" data-x="321.1" data-time="255000000" data-label="cycle 25" x1="321.1" y1="20" x2="321.1" y2="214" /><text class="wave-time" data-tick="25" data-x="324.1" x="324.1" y="15">C25</text><line class="wave-grid clock-grid" data-clock="1" data-x="333.7" data-time="265000000" data-label="cycle 26" x1="333.7" y1="20" x2="333.7" y2="214" /><text class="wave-time" data-tick="26" data-x="336.7" x="336.7" y="15">C26</text><line class="wave-grid clock-grid" data-clock="1" data-x="346.3" data-time="275000000" data-label="cycle 27" x1="346.3" y1="20" x2="346.3" y2="214" /><text class="wave-time" data-tick="27" data-x="349.3" x="349.3" y="15">C27</text><line class="wave-grid clock-grid" data-clock="1" data-x="358.9" data-time="285000000" data-label="cycle 28" x1="358.9" y1="20" x2="358.9" y2="214" /><text class="wave-time" data-tick="28" data-x="361.9" x="361.9" y="15">C28</text><line class="wave-grid clock-grid" data-clock="1" data-x="371.5" data-time="295000000" data-label="cycle 29" x1="371.5" y1="20" x2="371.5" y2="214" /><text class="wave-time" data-tick="29" data-x="374.5" x="374.5" y="15">C29</text><line class="wave-grid clock-grid" data-clock="1" data-x="384.0" data-time="305000000" data-label="cycle 30" x1="384.0" y1="20" x2="384.0" y2="214" /><text class="wave-time" data-tick="30" data-x="387.0" x="387.0" y="15">C30</text><line class="wave-grid clock-grid" data-clock="1" data-x="396.6" data-time="315000000" data-label="cycle 31" x1="396.6" y1="20" x2="396.6" y2="214" /><text class="wave-time" data-tick="31" data-x="399.6" x="399.6" y="15">C31</text><line class="wave-grid clock-grid" data-clock="1" data-x="409.2" data-time="325000000" data-label="cycle 32" x1="409.2" y1="20" x2="409.2" y2="214" /><text class="wave-time" data-tick="32" data-x="412.2" x="412.2" y="15">C32</text><line class="wave-grid clock-grid" data-clock="1" data-x="421.8" data-time="335000000" data-label="cycle 33" x1="421.8" y1="20" x2="421.8" y2="214" /><text class="wave-time" data-tick="33" data-x="424.8" x="424.8" y="15">C33</text><line class="wave-grid clock-grid" data-clock="1" data-x="434.4" data-time="345000000" data-label="cycle 34" x1="434.4" y1="20" x2="434.4" y2="214" /><text class="wave-time" data-tick="34" data-x="437.4" x="437.4" y="15">C34</text><line class="wave-grid clock-grid" data-clock="1" data-x="447.0" data-time="355000000" data-label="cycle 35" x1="447.0" y1="20" x2="447.0" y2="214" /><text class="wave-time" data-tick="35" data-x="450.0" x="450.0" y="15">C35</text><line class="wave-grid clock-grid" data-clock="1" data-x="459.6" data-time="365000000" data-label="cycle 36" x1="459.6" y1="20" x2="459.6" y2="214" /><text class="wave-time" data-tick="36" data-x="462.6" x="462.6" y="15">C36</text><line class="wave-grid clock-grid" data-clock="1" data-x="472.2" data-time="375000000" data-label="cycle 37" x1="472.2" y1="20" x2="472.2" y2="214" /><text class="wave-time" data-tick="37" data-x="475.2" x="475.2" y="15">C37</text><line class="wave-grid clock-grid" data-clock="1" data-x="484.8" data-time="385000000" data-label="cycle 38" x1="484.8" y1="20" x2="484.8" y2="214" /><text class="wave-time" data-tick="38" data-x="487.8" x="487.8" y="15">C38</text><line class="wave-grid clock-grid" data-clock="1" data-x="497.4" data-time="395000000" data-label="cycle 39" x1="497.4" y1="20" x2="497.4" y2="214" /><text class="wave-time" data-tick="39" data-x="500.4" x="500.4" y="15">C39</text><line class="wave-grid clock-grid" data-clock="1" data-x="510.0" data-time="405000000" data-label="cycle 40" x1="510.0" y1="20" x2="510.0" y2="214" /><text class="wave-time" data-tick="40" data-x="513.0" x="513.0" y="15">C40</text><line class="wave-grid clock-grid" data-clock="1" data-x="522.5" data-time="415000000" data-label="cycle 41" x1="522.5" y1="20" x2="522.5" y2="214" /><text class="wave-time" data-tick="41" data-x="525.5" x="525.5" y="15">C41</text><line class="wave-grid clock-grid" data-clock="1" data-x="535.1" data-time="425000000" data-label="cycle 42" x1="535.1" y1="20" x2="535.1" y2="214" /><text class="wave-time" data-tick="42" data-x="538.1" x="538.1" y="15">C42</text><line class="wave-grid clock-grid" data-clock="1" data-x="547.7" data-time="435000000" data-label="cycle 43" x1="547.7" y1="20" x2="547.7" y2="214" /><text class="wave-time" data-tick="43" data-x="550.7" x="550.7" y="15">C43</text><line class="wave-grid clock-grid" data-clock="1" data-x="560.3" data-time="445000000" data-label="cycle 44" x1="560.3" y1="20" x2="560.3" y2="214" /><text class="wave-time" data-tick="44" data-x="563.3" x="563.3" y="15">C44</text><line class="wave-grid clock-grid" data-clock="1" data-x="572.9" data-time="455000000" data-label="cycle 45" x1="572.9" y1="20" x2="572.9" y2="214" /><text class="wave-time" data-tick="45" data-x="575.9" x="575.9" y="15">C45</text><line class="wave-grid clock-grid" data-clock="1" data-x="585.5" data-time="465000000" data-label="cycle 46" x1="585.5" y1="20" x2="585.5" y2="214" /><text class="wave-time" data-tick="46" data-x="588.5" x="588.5" y="15">C46</text><line class="wave-grid clock-grid" data-clock="1" data-x="598.1" data-time="475000000" data-label="cycle 47" x1="598.1" y1="20" x2="598.1" y2="214" /><text class="wave-time" data-tick="47" data-x="601.1" x="601.1" y="15">C47</text><line class="wave-grid clock-grid" data-clock="1" data-x="610.7" data-time="485000000" data-label="cycle 48" x1="610.7" y1="20" x2="610.7" y2="214" /><text class="wave-time" data-tick="48" data-x="613.7" x="613.7" y="15">C48</text><line class="wave-grid clock-grid" data-clock="1" data-x="623.3" data-time="495000000" data-label="cycle 49" x1="623.3" y1="20" x2="623.3" y2="214" /><text class="wave-time" data-tick="49" data-x="626.3" x="626.3" y="15">C49</text><line class="wave-grid clock-grid" data-clock="1" data-x="635.9" data-time="505000000" data-label="cycle 50" x1="635.9" y1="20" x2="635.9" y2="214" /><text class="wave-time" data-tick="50" data-x="638.9" x="638.9" y="15">C50</text><line class="wave-grid clock-grid" data-clock="1" data-x="648.5" data-time="515000000" data-label="cycle 51" x1="648.5" y1="20" x2="648.5" y2="214" /><text class="wave-time" data-tick="51" data-x="651.5" x="651.5" y="15">C51</text><line class="wave-grid clock-grid" data-clock="1" data-x="661.1" data-time="525000000" data-label="cycle 52" x1="661.1" y1="20" x2="661.1" y2="214" /><text class="wave-time" data-tick="52" data-x="664.1" x="664.1" y="15">C52</text><line class="wave-grid clock-grid" data-clock="1" data-x="673.6" data-time="535000000" data-label="cycle 53" x1="673.6" y1="20" x2="673.6" y2="214" /><text class="wave-time" data-tick="53" data-x="676.6" x="676.6" y="15">C53</text><line class="wave-grid clock-grid" data-clock="1" data-x="686.2" data-time="545000000" data-label="cycle 54" x1="686.2" y1="20" x2="686.2" y2="214" /><text class="wave-time" data-tick="54" data-x="689.2" x="689.2" y="15">C54</text><line class="wave-grid clock-grid" data-clock="1" data-x="698.8" data-time="555000000" data-label="cycle 55" x1="698.8" y1="20" x2="698.8" y2="214" /><text class="wave-time" data-tick="55" data-x="701.8" x="701.8" y="15">C55</text><line class="wave-grid clock-grid" data-clock="1" data-x="711.4" data-time="565000000" data-label="cycle 56" x1="711.4" y1="20" x2="711.4" y2="214" /><text class="wave-time" data-tick="56" data-x="714.4" x="714.4" y="15">C56</text><line class="wave-grid clock-grid" data-clock="1" data-x="724.0" data-time="575000000" data-label="cycle 57" x1="724.0" y1="20" x2="724.0" y2="214" /><text class="wave-time" data-tick="57" data-x="727.0" x="727.0" y="15">C57</text><line class="wave-grid clock-grid" data-clock="1" data-x="736.6" data-time="585000000" data-label="cycle 58" x1="736.6" y1="20" x2="736.6" y2="214" /><text class="wave-time" data-tick="58" data-x="739.6" x="739.6" y="15">C58</text><line class="wave-grid clock-grid" data-clock="1" data-x="749.2" data-time="595000000" data-label="cycle 59" x1="749.2" y1="20" x2="749.2" y2="214" /><text class="wave-time" data-tick="59" data-x="752.2" x="752.2" y="15">C59</text><line class="wave-grid clock-grid" data-clock="1" data-x="761.8" data-time="605000000" data-label="cycle 60" x1="761.8" y1="20" x2="761.8" y2="214" /><text class="wave-time" data-tick="60" data-x="764.8" x="764.8" y="15">C60</text><line class="wave-grid clock-grid" data-clock="1" data-x="774.4" data-time="615000000" data-label="cycle 61" x1="774.4" y1="20" x2="774.4" y2="214" /><text class="wave-time" data-tick="61" data-x="777.4" x="777.4" y="15">C61</text><line class="wave-grid clock-grid" data-clock="1" data-x="787.0" data-time="625000000" data-label="cycle 62" x1="787.0" y1="20" x2="787.0" y2="214" /><text class="wave-time" data-tick="62" data-x="790.0" x="790.0" y="15">C62</text><line class="wave-grid clock-grid" data-clock="1" data-x="799.6" data-time="635000000" data-label="cycle 63" x1="799.6" y1="20" x2="799.6" y2="214" /><text class="wave-time" data-tick="63" data-x="802.6" x="802.6" y="15">C63</text><line class="wave-grid clock-grid" data-clock="1" data-x="812.2" data-time="645000000" data-label="cycle 64" x1="812.2" y1="20" x2="812.2" y2="214" /><text class="wave-time" data-tick="64" data-x="815.2" x="815.2" y="15">C64</text><line class="wave-grid clock-grid" data-clock="1" data-x="824.7" data-time="655000000" data-label="cycle 65" x1="824.7" y1="20" x2="824.7" y2="214" /><text class="wave-time" data-tick="65" data-x="827.7" x="827.7" y="15">C65</text><line class="wave-grid clock-grid" data-clock="1" data-x="837.3" data-time="665000000" data-label="cycle 66" x1="837.3" y1="20" x2="837.3" y2="214" /><text class="wave-time" data-tick="66" data-x="840.3" x="840.3" y="15">C66</text><line class="wave-grid clock-grid" data-clock="1" data-x="849.9" data-time="675000000" data-label="cycle 67" x1="849.9" y1="20" x2="849.9" y2="214" /><text class="wave-time" data-tick="67" data-x="852.9" x="852.9" y="15">C67</text><line class="wave-grid clock-grid" data-clock="1" data-x="862.5" data-time="685000000" data-label="cycle 68" x1="862.5" y1="20" x2="862.5" y2="214" /><text class="wave-time" data-tick="68" data-x="865.5" x="865.5" y="15">C68</text><line class="wave-grid clock-grid" data-clock="1" data-x="875.1" data-time="695000000" data-label="cycle 69" x1="875.1" y1="20" x2="875.1" y2="214" /><text class="wave-time" data-tick="69" data-x="878.1" x="878.1" y="15">C69</text><line class="wave-grid clock-grid" data-clock="1" data-x="887.7" data-time="705000000" data-label="cycle 70" x1="887.7" y1="20" x2="887.7" y2="214" /><text class="wave-time" data-tick="70" data-x="890.7" x="890.7" y="15">C70</text><line class="wave-grid clock-grid" data-clock="1" data-x="900.3" data-time="715000000" data-label="cycle 71" x1="900.3" y1="20" x2="900.3" y2="214" /><text class="wave-time" data-tick="71" data-x="903.3" x="903.3" y="15">C71</text><line class="wave-axis" x1="0" y1="54" x2="894" y2="54" /><path class="wave-trace" d="M 0.0 54.0 L 132.2 54.0 L 132.2 38.0 L 144.8 38.0 L 144.8 54.0 L 894.0 54.0" /><line class="wave-axis" x1="0" y1="88" x2="894" y2="88" /><path class="wave-trace" d="M 0.0 72.0 L 894.0 72.0" /><line class="wave-axis" x1="0" y1="122" x2="894" y2="122" /><rect class="wave-bus" x="0.0" y="106" width="132.2" height="16" rx="3" /><text class="wave-bus-text" x="5.0" y="118.0">0x0</text><rect class="wave-bus" x="132.2" y="106" width="761.8" height="16" rx="3" /><text class="wave-bus-text" x="137.2" y="118.0">0xC8</text><line class="wave-axis" x1="0" y1="156" x2="894" y2="156" /><path class="wave-trace" d="M 0.0 156.0 L 132.2 156.0 L 132.2 140.0 L 894.0 140.0" /><line class="wave-axis" x1="0" y1="190" x2="894" y2="190" /><rect class="wave-bus" x="0.0" y="174" width="207.8" height="16" rx="3" /><text class="wave-bus-text" x="5.0" y="186.0">0x0</text><rect class="wave-bus" x="207.8" y="174" width="686.2" height="16" rx="3" /><text class="wave-bus-text" x="212.8" y="186.0">0x1E0064</text><line class="wave-hover-line" x1="0" y1="20" x2="0" y2="214" /><text class="wave-hover-label" x="4" y="226"></text></svg></div></div></div><script>
+</script></div><details class="wave-group"><summary>M_AXIS interface signals</summary><div class="wave-group-body"><div class="wave"><h4>M_AXIS Interface Waveform</h4><p class="meta">Source: dsp/hdl/testbenches/tb_raddsp_axis_smoke.vhd</p><div class="wave-controls"><label>Horizontal <input class="wave-zoom-x" type="range" min="60" max="420" value="100"></label><label>Vertical <input class="wave-zoom-y" type="range" min="70" max="260" value="100"></label></div><div class="wave-viewport"><div class="wave-stage" style="height:232px"><div class="wave-label-pane" style="height:232px"><div class="wave-label-row" style="top:39px;height:32px;line-height:32px">m_axis_tvalid</div><div class="wave-label-row" style="top:73px;height:32px;line-height:32px">m_axis_tready</div><div class="wave-label-row" style="top:107px;height:32px;line-height:32px">m_axis_tdata[15:0]</div><div class="wave-label-row" style="top:141px;height:32px;line-height:32px">m_axis_tlast</div><div class="wave-label-row" style="top:175px;height:32px;line-height:32px">m_axis_tdata[31:0]</div></div><div class="wave-plot-pane" style="width:894px;min-width:894px;height:232px"><canvas class="waveform-canvas" width="894" height="232" aria-label="M_AXIS Interface Waveform"></canvas></div><span class="wave-hover-readout" hidden></span><script type="application/json" class="wave-data">{"title":"M_AXIS Interface Waveform","endTime":710000000,"basePlotWidth":894,"top":34,"rowHeight":34,"traceHeight":16,"ticks":[{"time":5000000,"clock":true,"tickLabel":"C0","label":"cycle 0"},{"time":15000000,"clock":true,"tickLabel":"C1","label":"cycle 1"},{"time":25000000,"clock":true,"tickLabel":"C2","label":"cycle 2"},{"time":35000000,"clock":true,"tickLabel":"C3","label":"cycle 3"},{"time":45000000,"clock":true,"tickLabel":"C4","label":"cycle 4"},{"time":55000000,"clock":true,"tickLabel":"C5","label":"cycle 5"},{"time":65000000,"clock":true,"tickLabel":"C6","label":"cycle 6"},{"time":75000000,"clock":true,"tickLabel":"C7","label":"cycle 7"},{"time":85000000,"clock":true,"tickLabel":"C8","label":"cycle 8"},{"time":95000000,"clock":true,"tickLabel":"C9","label":"cycle 9"},{"time":105000000,"clock":true,"tickLabel":"C10","label":"cycle 10"},{"time":115000000,"clock":true,"tickLabel":"C11","label":"cycle 11"},{"time":125000000,"clock":true,"tickLabel":"C12","label":"cycle 12"},{"time":135000000,"clock":true,"tickLabel":"C13","label":"cycle 13"},{"time":145000000,"clock":true,"tickLabel":"C14","label":"cycle 14"},{"time":155000000,"clock":true,"tickLabel":"C15","label":"cycle 15"},{"time":165000000,"clock":true,"tickLabel":"C16","label":"cycle 16"},{"time":175000000,"clock":true,"tickLabel":"C17","label":"cycle 17"},{"time":185000000,"clock":true,"tickLabel":"C18","label":"cycle 18"},{"time":195000000,"clock":true,"tickLabel":"C19","label":"cycle 19"},{"time":205000000,"clock":true,"tickLabel":"C20","label":"cycle 20"},{"time":215000000,"clock":true,"tickLabel":"C21","label":"cycle 21"},{"time":225000000,"clock":true,"tickLabel":"C22","label":"cycle 22"},{"time":235000000,"clock":true,"tickLabel":"C23","label":"cycle 23"},{"time":245000000,"clock":true,"tickLabel":"C24","label":"cycle 24"},{"time":255000000,"clock":true,"tickLabel":"C25","label":"cycle 25"},{"time":265000000,"clock":true,"tickLabel":"C26","label":"cycle 26"},{"time":275000000,"clock":true,"tickLabel":"C27","label":"cycle 27"},{"time":285000000,"clock":true,"tickLabel":"C28","label":"cycle 28"},{"time":295000000,"clock":true,"tickLabel":"C29","label":"cycle 29"},{"time":305000000,"clock":true,"tickLabel":"C30","label":"cycle 30"},{"time":315000000,"clock":true,"tickLabel":"C31","label":"cycle 31"},{"time":325000000,"clock":true,"tickLabel":"C32","label":"cycle 32"},{"time":335000000,"clock":true,"tickLabel":"C33","label":"cycle 33"},{"time":345000000,"clock":true,"tickLabel":"C34","label":"cycle 34"},{"time":355000000,"clock":true,"tickLabel":"C35","label":"cycle 35"},{"time":365000000,"clock":true,"tickLabel":"C36","label":"cycle 36"},{"time":375000000,"clock":true,"tickLabel":"C37","label":"cycle 37"},{"time":385000000,"clock":true,"tickLabel":"C38","label":"cycle 38"},{"time":395000000,"clock":true,"tickLabel":"C39","label":"cycle 39"},{"time":405000000,"clock":true,"tickLabel":"C40","label":"cycle 40"},{"time":415000000,"clock":true,"tickLabel":"C41","label":"cycle 41"},{"time":425000000,"clock":true,"tickLabel":"C42","label":"cycle 42"},{"time":435000000,"clock":true,"tickLabel":"C43","label":"cycle 43"},{"time":445000000,"clock":true,"tickLabel":"C44","label":"cycle 44"},{"time":455000000,"clock":true,"tickLabel":"C45","label":"cycle 45"},{"time":465000000,"clock":true,"tickLabel":"C46","label":"cycle 46"},{"time":475000000,"clock":true,"tickLabel":"C47","label":"cycle 47"},{"time":485000000,"clock":true,"tickLabel":"C48","label":"cycle 48"},{"time":495000000,"clock":true,"tickLabel":"C49","label":"cycle 49"},{"time":505000000,"clock":true,"tickLabel":"C50","label":"cycle 50"},{"time":515000000,"clock":true,"tickLabel":"C51","label":"cycle 51"},{"time":525000000,"clock":true,"tickLabel":"C52","label":"cycle 52"},{"time":535000000,"clock":true,"tickLabel":"C53","label":"cycle 53"},{"time":545000000,"clock":true,"tickLabel":"C54","label":"cycle 54"},{"time":555000000,"clock":true,"tickLabel":"C55","label":"cycle 55"},{"time":565000000,"clock":true,"tickLabel":"C56","label":"cycle 56"},{"time":575000000,"clock":true,"tickLabel":"C57","label":"cycle 57"},{"time":585000000,"clock":true,"tickLabel":"C58","label":"cycle 58"},{"time":595000000,"clock":true,"tickLabel":"C59","label":"cycle 59"},{"time":605000000,"clock":true,"tickLabel":"C60","label":"cycle 60"},{"time":615000000,"clock":true,"tickLabel":"C61","label":"cycle 61"},{"time":625000000,"clock":true,"tickLabel":"C62","label":"cycle 62"},{"time":635000000,"clock":true,"tickLabel":"C63","label":"cycle 63"},{"time":645000000,"clock":true,"tickLabel":"C64","label":"cycle 64"},{"time":655000000,"clock":true,"tickLabel":"C65","label":"cycle 65"},{"time":665000000,"clock":true,"tickLabel":"C66","label":"cycle 66"},{"time":675000000,"clock":true,"tickLabel":"C67","label":"cycle 67"},{"time":685000000,"clock":true,"tickLabel":"C68","label":"cycle 68"},{"time":695000000,"clock":true,"tickLabel":"C69","label":"cycle 69"},{"time":705000000,"clock":true,"tickLabel":"C70","label":"cycle 70"},{"time":715000000,"clock":true,"tickLabel":"C71","label":"cycle 71"}],"signals":[{"name":"m_axis_tvalid","kind":"signal","count":0,"scalar":true,"samples":[[0,"0"],[105000000,"1"],[115000000,"0"]]},{"name":"m_axis_tready","kind":"signal","count":0,"scalar":true,"samples":[[0,"1"]]},{"name":"m_axis_tdata[15:0]","kind":"signal","count":0,"scalar":false,"samples":[[0,"0000000000000000"],[105000000,"0000000011001000"]]},{"name":"m_axis_tlast","kind":"signal","count":0,"scalar":true,"samples":[[0,"0"],[105000000,"1"]]},{"name":"m_axis_tdata[31:0]","kind":"signal","count":0,"scalar":false,"samples":[[0,"00000000000000000000000000000000"],[165000000,"00000000000111100000000001100100"]]}]}</script></div></div><script>
 (() => {
   document.querySelectorAll(".wave").forEach((wave) => {
     if (wave.dataset.ready === "1") return;
     wave.dataset.ready = "1";
     const zoomX = wave.querySelector(".wave-zoom-x");
     const zoomY = wave.querySelector(".wave-zoom-y");
-    const plotPane = wave.querySelector(".wave-plot");
-    const svg = wave.querySelector("svg.waveform");
-    const labelSvg = wave.querySelector("svg.wave-labels");
-    const hover = wave.querySelector(".wave-hover-line");
-    const hoverLabel = wave.querySelector(".wave-hover-label");
-    const labels = Array.from(wave.querySelectorAll(".wave-time"));
-    const grids = Array.from(wave.querySelectorAll(".wave-grid"));
-    const clockGrids = grids.filter((grid) => grid.dataset.clock === "1");
-    const snapGrids = clockGrids.length ? clockGrids : grids;
-    const plotWidth = svg ? Number(svg.dataset.plotWidth || 894) : 894;
-    const baseHeight = svg && svg.viewBox && svg.viewBox.baseVal ? Number(svg.viewBox.baseVal.height || 320) : 320;
-    const setZoom = () => {
-      const valueX = zoomX ? Number(zoomX.value) / 100 : 1;
-      const valueY = zoomY ? Number(zoomY.value) / 100 : 1;
-      wave.style.setProperty("--wave-zoom-x", String(valueX));
-      wave.style.setProperty("--wave-zoom-y", String(valueY));
-      const scaledWidth = `${plotWidth * valueX}px`;
-      wave.style.setProperty("--wave-plot-width", scaledWidth);
-      if (plotPane) {
-        plotPane.style.width = scaledWidth;
-        plotPane.style.minWidth = scaledWidth;
-        plotPane.style.flexBasis = scaledWidth;
-      }
-      if (svg) {
-        svg.style.width = "100%";
-        svg.style.height = `${baseHeight * valueY}px`;
-      }
-      if (labelSvg) {
-        labelSvg.style.height = `${baseHeight * valueY}px`;
-      }
-      const minSpacing = valueX >= 2.5 ? 38 : valueX >= 1.6 ? 52 : 78;
-      let lastShown = -Infinity;
-      labels.forEach((label) => {
-        const x = Number(label.dataset.x || label.getAttribute("x") || "0") * valueX;
-        if (x - lastShown >= minSpacing) {
-          label.style.display = "";
-          lastShown = x;
-        } else {
-          label.style.display = "none";
-        }
-      });
+    const canvas = wave.querySelector("canvas.waveform-canvas");
+    const plotPane = wave.querySelector(".wave-plot-pane");
+    const labelPane = wave.querySelector(".wave-label-pane");
+    const labelRows = Array.from(wave.querySelectorAll(".wave-label-row"));
+    const readout = wave.querySelector(".wave-hover-readout");
+    const dataNode = wave.querySelector("script.wave-data");
+    if (!canvas || !plotPane || !labelPane || !dataNode) return;
+    let payload;
+    try {
+      payload = JSON.parse(dataNode.textContent || "{}");
+    } catch (_) {
+      return;
+    }
+    const ctx = canvas.getContext("2d");
+    if (!ctx) return;
+    const css = getComputedStyle(wave);
+    const colors = {
+      card: css.getPropertyValue("--card").trim() || "#111827",
+      line: css.getPropertyValue("--line").trim() || "#273244",
+      muted: css.getPropertyValue("--muted").trim() || "#93a4b8",
+      ink: css.getPropertyValue("--ink").trim() || "#e8eef7",
+      accent: css.getPropertyValue("--accent").trim() || "#62d6c7",
+      bus: "rgba(98, 214, 199, .14)",
+      iface: "rgba(139, 211, 255, .14)",
+      hover: "#ffd84d",
+      unknown: "#d59b35"
     };
-    setZoom();
-    if (zoomX) zoomX.addEventListener("input", setZoom);
-    if (zoomY) zoomY.addEventListener("input", setZoom);
-    if (!svg || !hover || !hoverLabel || !snapGrids.length) return;
-    const nearest = (x) => {
-      let best = snapGrids[0];
-      let bestDistance = Math.abs(Number(best.dataset.x) - x);
-      snapGrids.forEach((line) => {
-        const distance = Math.abs(Number(line.dataset.x) - x);
+    const basePlotWidth = Number(payload.basePlotWidth || 894);
+    const baseRowHeight = Number(payload.rowHeight || 34);
+    const top = Number(payload.top || 34);
+    const traceHeight = Number(payload.traceHeight || 16);
+    const endTime = Math.max(1, Number(payload.endTime || 1));
+    const signals = Array.isArray(payload.signals) ? payload.signals : [];
+    const ticks = Array.isArray(payload.ticks) ? payload.ticks : [];
+    const compactValue = (value) => {
+      const text = String(value || "").replaceAll("_", "");
+      if (!text) return "";
+      if (text.length > 8 && /^[01]+$/i.test(text)) return `0x${parseInt(text, 2).toString(16).toUpperCase()}`;
+      if (text.length > 18) return `${text.slice(0, 15)}...`;
+      return text.toUpperCase();
+    };
+    const isScalar = (signal) => signal.scalar === true;
+    const yForScalar = (value, highY, lowY) => {
+      const text = String(value || "").toLowerCase();
+      if (text === "1") return highY;
+      if (text === "0") return lowY;
+      return (highY + lowY) / 2;
+    };
+    let hoverTick = null;
+    const nearestTick = (x, plotWidth) => {
+      const snapTicks = ticks.length ? ticks : [{time: 0, label: "t=0"}, {time: endTime, label: `t=${endTime}`}];
+      let best = snapTicks[0];
+      let bestDistance = Infinity;
+      snapTicks.forEach((tick) => {
+        const tx = (Number(tick.time || 0) / endTime) * plotWidth;
+        const distance = Math.abs(tx - x);
         if (distance < bestDistance) {
-          best = line;
+          best = tick;
           bestDistance = distance;
         }
       });
       return best;
     };
-    svg.addEventListener("mousemove", (event) => {
-      const point = svg.createSVGPoint();
-      point.x = event.clientX;
-      point.y = event.clientY;
-      const matrix = svg.getScreenCTM();
-      if (!matrix) return;
-      const local = point.matrixTransform(matrix.inverse());
-      const line = nearest(local.x);
-      const x = Number(line.dataset.x);
-      hover.setAttribute("x1", x);
-      hover.setAttribute("x2", x);
-      hover.style.opacity = "1";
-      hoverLabel.setAttribute("x", x + 4);
-      hoverLabel.textContent = line.dataset.label || `t=${line.dataset.time}`;
-      hoverLabel.style.opacity = "1";
+    const draw = () => {
+      const valueX = zoomX ? Number(zoomX.value) / 100 : 1;
+      const valueY = zoomY ? Number(zoomY.value) / 100 : 1;
+      const plotWidth = Math.max(320, basePlotWidth * valueX);
+      const rowHeight = Math.max(18, baseRowHeight * valueY);
+      const height = Math.ceil(top + (signals.length * rowHeight) + 28);
+      const dpr = window.devicePixelRatio || 1;
+      plotPane.style.width = `${plotWidth}px`;
+      plotPane.style.minWidth = `${plotWidth}px`;
+      plotPane.style.flexBasis = `${plotWidth}px`;
+      plotPane.style.height = `${height}px`;
+      labelPane.style.height = `${height}px`;
+      canvas.style.width = `${plotWidth}px`;
+      canvas.style.height = `${height}px`;
+      canvas.width = Math.max(1, Math.ceil(plotWidth * dpr));
+      canvas.height = Math.max(1, Math.ceil(height * dpr));
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      ctx.clearRect(0, 0, plotWidth, height);
+      ctx.fillStyle = colors.card;
+      ctx.fillRect(0, 0, plotWidth, height);
+      labelRows.forEach((row, index) => {
+        row.style.top = `${top + (index * rowHeight) + 5}px`;
+        row.style.height = `${Math.max(16, rowHeight - 2)}px`;
+        row.style.lineHeight = `${Math.max(16, rowHeight - 2)}px`;
+      });
+      ctx.font = "11px ui-monospace, SFMono-Regular, Menlo, Consolas, monospace";
+      ctx.textBaseline = "middle";
+      const minTickSpacing = valueX >= 2.8 ? 38 : valueX >= 1.7 ? 54 : 88;
+      let lastTickX = -Infinity;
+      ticks.forEach((tick, index) => {
+        const x = (Number(tick.time || 0) / endTime) * plotWidth;
+        ctx.strokeStyle = colors.line;
+        ctx.globalAlpha = tick.clock ? 0.45 : 0.62;
+        ctx.beginPath();
+        ctx.moveTo(x, 20);
+        ctx.lineTo(x, height - 18);
+        ctx.stroke();
+        ctx.globalAlpha = 1;
+        if (x - lastTickX >= minTickSpacing) {
+          ctx.fillStyle = colors.muted;
+          ctx.fillText(String(tick.tickLabel || tick.label || index), x + 3, 14);
+          lastTickX = x;
+        }
+      });
+      signals.forEach((signal, index) => {
+        const rowY = top + (index * rowHeight);
+        const traceY = rowY + Math.max(3, rowHeight * 0.12);
+        const traceH = Math.min(traceHeight, Math.max(10, rowHeight * 0.48));
+        const lowY = traceY + traceH;
+        const highY = traceY;
+        ctx.strokeStyle = colors.line;
+        ctx.globalAlpha = 1;
+        ctx.beginPath();
+        ctx.moveTo(0, lowY);
+        ctx.lineTo(plotWidth, lowY);
+        ctx.stroke();
+        const samples = Array.isArray(signal.samples) ? signal.samples : [];
+        if (signal.kind === "interface") {
+          ctx.fillStyle = colors.iface;
+          ctx.strokeStyle = "#8bd3ff";
+          ctx.lineWidth = 1.2;
+          ctx.fillRect(0, traceY - 1, plotWidth, traceH + 2);
+          ctx.strokeRect(0, traceY - 1, plotWidth, traceH + 2);
+          ctx.fillStyle = colors.ink;
+          ctx.font = "12px ui-monospace, SFMono-Regular, Menlo, Consolas, monospace";
+          ctx.fillText(`${signal.name} interface (${signal.count || 0} signals)`, 8, traceY + (traceH / 2));
+          return;
+        }
+        if (!samples.length) return;
+        if (isScalar(signal)) {
+          let unknown = false;
+          ctx.beginPath();
+          samples.forEach((sample, sampleIndex) => {
+            const x = (Number(sample[0] || 0) / endTime) * plotWidth;
+            const y = yForScalar(sample[1], highY, lowY);
+            unknown = unknown || !["0", "1"].includes(String(sample[1]).toLowerCase());
+            if (sampleIndex === 0) {
+              ctx.moveTo(x, y);
+            } else {
+              const previous = samples[sampleIndex - 1];
+              const previousY = yForScalar(previous[1], highY, lowY);
+              ctx.lineTo(x, previousY);
+              ctx.lineTo(x, y);
+            }
+          });
+          const last = samples[samples.length - 1];
+          ctx.lineTo(plotWidth, yForScalar(last[1], highY, lowY));
+          ctx.strokeStyle = unknown ? colors.unknown : colors.accent;
+          ctx.lineWidth = 2.2;
+          ctx.stroke();
+          return;
+        }
+        ctx.font = "11px ui-monospace, SFMono-Regular, Menlo, Consolas, monospace";
+        samples.forEach((sample, sampleIndex) => {
+          const next = samples[sampleIndex + 1];
+          const x1 = (Number(sample[0] || 0) / endTime) * plotWidth;
+          const x2 = next ? (Number(next[0] || 0) / endTime) * plotWidth : plotWidth;
+          const width = Math.max(3, x2 - x1);
+          ctx.fillStyle = colors.bus;
+          ctx.strokeStyle = colors.accent;
+          ctx.lineWidth = 1.1;
+          ctx.fillRect(x1, traceY, width, traceH);
+          ctx.strokeRect(x1, traceY, width, traceH);
+          if (width >= 38) {
+            ctx.fillStyle = colors.ink;
+            ctx.fillText(compactValue(sample[1]), x1 + 5, traceY + (traceH / 2));
+          }
+        });
+      });
+      if (hoverTick) {
+        const x = (Number(hoverTick.time || 0) / endTime) * plotWidth;
+        ctx.strokeStyle = colors.hover;
+        ctx.lineWidth = 2;
+        ctx.beginPath();
+        ctx.moveTo(x, 20);
+        ctx.lineTo(x, height - 18);
+        ctx.stroke();
+        if (readout) {
+          readout.hidden = false;
+          readout.textContent = hoverTick.label || `t=${hoverTick.time}`;
+        }
+      } else if (readout) {
+        readout.hidden = true;
+      }
+    };
+    draw();
+    if (zoomX) zoomX.addEventListener("input", draw);
+    if (zoomY) zoomY.addEventListener("input", draw);
+    canvas.addEventListener("mousemove", (event) => {
+      const rect = canvas.getBoundingClientRect();
+      const x = event.clientX - rect.left;
+      hoverTick = nearestTick(x, rect.width);
+      draw();
     });
-    svg.addEventListener("mouseleave", () => {
-      hover.style.opacity = "0";
-      hoverLabel.style.opacity = "0";
+    canvas.addEventListener("mouseleave", () => {
+      hoverTick = null;
+      draw();
     });
+    window.addEventListener("resize", draw);
   });
 })();
-</script></div></div></details><details class="wave-group"><summary>S_AXIS interface signals</summary><div class="wave-group-body"><div class="wave"><h4>S_AXIS Interface Waveform</h4><p class="meta">Source: dsp/hdl/testbenches/tb_raddsp_axis_smoke.vhd</p><div class="wave-controls"><label>Horizontal <input class="wave-zoom-x" type="range" min="60" max="420" value="100"></label><label>Vertical <input class="wave-zoom-y" type="range" min="70" max="260" value="100"></label></div><div class="wave-viewport" style="--wave-height:232px"><div class="wave-canvas"><svg class="wave-labels" viewBox="0 0 190 232" aria-hidden="true"><text class="wave-label" x="8" y="52">s_axis_tvalid</text><text class="wave-label" x="8" y="86">s_axis_tready</text><text class="wave-label" x="8" y="120">s_axis_tdata[15:0]</text><text class="wave-label" x="8" y="154">s_axis_tlast</text><text class="wave-label" x="8" y="188">s_axis_tdata[31:0]</text></svg><div class="wave-plot" style="--wave-plot-width:894px"><svg class="waveform" data-plot-width="894" viewBox="0 0 894 232" role="img" aria-label="S_AXIS Interface Waveform"><line class="wave-grid clock-grid" data-clock="1" data-x="6.3" data-time="5000000" data-label="cycle 0" x1="6.3" y1="20" x2="6.3" y2="214" /><text class="wave-time" data-tick="0" data-x="9.3" x="9.3" y="15">C0</text><line class="wave-grid clock-grid" data-clock="1" data-x="18.9" data-time="15000000" data-label="cycle 1" x1="18.9" y1="20" x2="18.9" y2="214" /><text class="wave-time" data-tick="1" data-x="21.9" x="21.9" y="15">C1</text><line class="wave-grid clock-grid" data-clock="1" data-x="31.5" data-time="25000000" data-label="cycle 2" x1="31.5" y1="20" x2="31.5" y2="214" /><text class="wave-time" data-tick="2" data-x="34.5" x="34.5" y="15">C2</text><line class="wave-grid clock-grid" data-clock="1" data-x="44.1" data-time="35000000" data-label="cycle 3" x1="44.1" y1="20" x2="44.1" y2="214" /><text class="wave-time" data-tick="3" data-x="47.1" x="47.1" y="15">C3</text><line class="wave-grid clock-grid" data-clock="1" data-x="56.7" data-time="45000000" data-label="cycle 4" x1="56.7" y1="20" x2="56.7" y2="214" /><text class="wave-time" data-tick="4" data-x="59.7" x="59.7" y="15">C4</text><line class="wave-grid clock-grid" data-clock="1" data-x="69.3" data-time="55000000" data-label="cycle 5" x1="69.3" y1="20" x2="69.3" y2="214" /><text class="wave-time" data-tick="5" data-x="72.3" x="72.3" y="15">C5</text><line class="wave-grid clock-grid" data-clock="1" data-x="81.8" data-time="65000000" data-label="cycle 6" x1="81.8" y1="20" x2="81.8" y2="214" /><text class="wave-time" data-tick="6" data-x="84.8" x="84.8" y="15">C6</text><line class="wave-grid clock-grid" data-clock="1" data-x="94.4" data-time="75000000" data-label="cycle 7" x1="94.4" y1="20" x2="94.4" y2="214" /><text class="wave-time" data-tick="7" data-x="97.4" x="97.4" y="15">C7</text><line class="wave-grid clock-grid" data-clock="1" data-x="107.0" data-time="85000000" data-label="cycle 8" x1="107.0" y1="20" x2="107.0" y2="214" /><text class="wave-time" data-tick="8" data-x="110.0" x="110.0" y="15">C8</text><line class="wave-grid clock-grid" data-clock="1" data-x="119.6" data-time="95000000" data-label="cycle 9" x1="119.6" y1="20" x2="119.6" y2="214" /><text class="wave-time" data-tick="9" data-x="122.6" x="122.6" y="15">C9</text><line class="wave-grid clock-grid" data-clock="1" data-x="132.2" data-time="105000000" data-label="cycle 10" x1="132.2" y1="20" x2="132.2" y2="214" /><text class="wave-time" data-tick="10" data-x="135.2" x="135.2" y="15">C10</text><line class="wave-grid clock-grid" data-clock="1" data-x="144.8" data-time="115000000" data-label="cycle 11" x1="144.8" y1="20" x2="144.8" y2="214" /><text class="wave-time" data-tick="11" data-x="147.8" x="147.8" y="15">C11</text><line class="wave-grid clock-grid" data-clock="1" data-x="157.4" data-time="125000000" data-label="cycle 12" x1="157.4" y1="20" x2="157.4" y2="214" /><text class="wave-time" data-tick="12" data-x="160.4" x="160.4" y="15">C12</text><line class="wave-grid clock-grid" data-clock="1" data-x="170.0" data-time="135000000" data-label="cycle 13" x1="170.0" y1="20" x2="170.0" y2="214" /><text class="wave-time" data-tick="13" data-x="173.0" x="173.0" y="15">C13</text><line class="wave-grid clock-grid" data-clock="1" data-x="182.6" data-time="145000000" data-label="cycle 14" x1="182.6" y1="20" x2="182.6" y2="214" /><text class="wave-time" data-tick="14" data-x="185.6" x="185.6" y="15">C14</text><line class="wave-grid clock-grid" data-clock="1" data-x="195.2" data-time="155000000" data-label="cycle 15" x1="195.2" y1="20" x2="195.2" y2="214" /><text class="wave-time" data-tick="15" data-x="198.2" x="198.2" y="15">C15</text><line class="wave-grid clock-grid" data-clock="1" data-x="207.8" data-time="165000000" data-label="cycle 16" x1="207.8" y1="20" x2="207.8" y2="214" /><text class="wave-time" data-tick="16" data-x="210.8" x="210.8" y="15">C16</text><line class="wave-grid clock-grid" data-clock="1" data-x="220.4" data-time="175000000" data-label="cycle 17" x1="220.4" y1="20" x2="220.4" y2="214" /><text class="wave-time" data-tick="17" data-x="223.4" x="223.4" y="15">C17</text><line class="wave-grid clock-grid" data-clock="1" data-x="232.9" data-time="185000000" data-label="cycle 18" x1="232.9" y1="20" x2="232.9" y2="214" /><text class="wave-time" data-tick="18" data-x="235.9" x="235.9" y="15">C18</text><line class="wave-grid clock-grid" data-clock="1" data-x="245.5" data-time="195000000" data-label="cycle 19" x1="245.5" y1="20" x2="245.5" y2="214" /><text class="wave-time" data-tick="19" data-x="248.5" x="248.5" y="15">C19</text><line class="wave-grid clock-grid" data-clock="1" data-x="258.1" data-time="205000000" data-label="cycle 20" x1="258.1" y1="20" x2="258.1" y2="214" /><text class="wave-time" data-tick="20" data-x="261.1" x="261.1" y="15">C20</text><line class="wave-grid clock-grid" data-clock="1" data-x="270.7" data-time="215000000" data-label="cycle 21" x1="270.7" y1="20" x2="270.7" y2="214" /><text class="wave-time" data-tick="21" data-x="273.7" x="273.7" y="15">C21</text><line class="wave-grid clock-grid" data-clock="1" data-x="283.3" data-time="225000000" data-label="cycle 22" x1="283.3" y1="20" x2="283.3" y2="214" /><text class="wave-time" data-tick="22" data-x="286.3" x="286.3" y="15">C22</text><line class="wave-grid clock-grid" data-clock="1" data-x="295.9" data-time="235000000" data-label="cycle 23" x1="295.9" y1="20" x2="295.9" y2="214" /><text class="wave-time" data-tick="23" data-x="298.9" x="298.9" y="15">C23</text><line class="wave-grid clock-grid" data-clock="1" data-x="308.5" data-time="245000000" data-label="cycle 24" x1="308.5" y1="20" x2="308.5" y2="214" /><text class="wave-time" data-tick="24" data-x="311.5" x="311.5" y="15">C24</text><line class="wave-grid clock-grid" data-clock="1" data-x="321.1" data-time="255000000" data-label="cycle 25" x1="321.1" y1="20" x2="321.1" y2="214" /><text class="wave-time" data-tick="25" data-x="324.1" x="324.1" y="15">C25</text><line class="wave-grid clock-grid" data-clock="1" data-x="333.7" data-time="265000000" data-label="cycle 26" x1="333.7" y1="20" x2="333.7" y2="214" /><text class="wave-time" data-tick="26" data-x="336.7" x="336.7" y="15">C26</text><line class="wave-grid clock-grid" data-clock="1" data-x="346.3" data-time="275000000" data-label="cycle 27" x1="346.3" y1="20" x2="346.3" y2="214" /><text class="wave-time" data-tick="27" data-x="349.3" x="349.3" y="15">C27</text><line class="wave-grid clock-grid" data-clock="1" data-x="358.9" data-time="285000000" data-label="cycle 28" x1="358.9" y1="20" x2="358.9" y2="214" /><text class="wave-time" data-tick="28" data-x="361.9" x="361.9" y="15">C28</text><line class="wave-grid clock-grid" data-clock="1" data-x="371.5" data-time="295000000" data-label="cycle 29" x1="371.5" y1="20" x2="371.5" y2="214" /><text class="wave-time" data-tick="29" data-x="374.5" x="374.5" y="15">C29</text><line class="wave-grid clock-grid" data-clock="1" data-x="384.0" data-time="305000000" data-label="cycle 30" x1="384.0" y1="20" x2="384.0" y2="214" /><text class="wave-time" data-tick="30" data-x="387.0" x="387.0" y="15">C30</text><line class="wave-grid clock-grid" data-clock="1" data-x="396.6" data-time="315000000" data-label="cycle 31" x1="396.6" y1="20" x2="396.6" y2="214" /><text class="wave-time" data-tick="31" data-x="399.6" x="399.6" y="15">C31</text><line class="wave-grid clock-grid" data-clock="1" data-x="409.2" data-time="325000000" data-label="cycle 32" x1="409.2" y1="20" x2="409.2" y2="214" /><text class="wave-time" data-tick="32" data-x="412.2" x="412.2" y="15">C32</text><line class="wave-grid clock-grid" data-clock="1" data-x="421.8" data-time="335000000" data-label="cycle 33" x1="421.8" y1="20" x2="421.8" y2="214" /><text class="wave-time" data-tick="33" data-x="424.8" x="424.8" y="15">C33</text><line class="wave-grid clock-grid" data-clock="1" data-x="434.4" data-time="345000000" data-label="cycle 34" x1="434.4" y1="20" x2="434.4" y2="214" /><text class="wave-time" data-tick="34" data-x="437.4" x="437.4" y="15">C34</text><line class="wave-grid clock-grid" data-clock="1" data-x="447.0" data-time="355000000" data-label="cycle 35" x1="447.0" y1="20" x2="447.0" y2="214" /><text class="wave-time" data-tick="35" data-x="450.0" x="450.0" y="15">C35</text><line class="wave-grid clock-grid" data-clock="1" data-x="459.6" data-time="365000000" data-label="cycle 36" x1="459.6" y1="20" x2="459.6" y2="214" /><text class="wave-time" data-tick="36" data-x="462.6" x="462.6" y="15">C36</text><line class="wave-grid clock-grid" data-clock="1" data-x="472.2" data-time="375000000" data-label="cycle 37" x1="472.2" y1="20" x2="472.2" y2="214" /><text class="wave-time" data-tick="37" data-x="475.2" x="475.2" y="15">C37</text><line class="wave-grid clock-grid" data-clock="1" data-x="484.8" data-time="385000000" data-label="cycle 38" x1="484.8" y1="20" x2="484.8" y2="214" /><text class="wave-time" data-tick="38" data-x="487.8" x="487.8" y="15">C38</text><line class="wave-grid clock-grid" data-clock="1" data-x="497.4" data-time="395000000" data-label="cycle 39" x1="497.4" y1="20" x2="497.4" y2="214" /><text class="wave-time" data-tick="39" data-x="500.4" x="500.4" y="15">C39</text><line class="wave-grid clock-grid" data-clock="1" data-x="510.0" data-time="405000000" data-label="cycle 40" x1="510.0" y1="20" x2="510.0" y2="214" /><text class="wave-time" data-tick="40" data-x="513.0" x="513.0" y="15">C40</text><line class="wave-grid clock-grid" data-clock="1" data-x="522.5" data-time="415000000" data-label="cycle 41" x1="522.5" y1="20" x2="522.5" y2="214" /><text class="wave-time" data-tick="41" data-x="525.5" x="525.5" y="15">C41</text><line class="wave-grid clock-grid" data-clock="1" data-x="535.1" data-time="425000000" data-label="cycle 42" x1="535.1" y1="20" x2="535.1" y2="214" /><text class="wave-time" data-tick="42" data-x="538.1" x="538.1" y="15">C42</text><line class="wave-grid clock-grid" data-clock="1" data-x="547.7" data-time="435000000" data-label="cycle 43" x1="547.7" y1="20" x2="547.7" y2="214" /><text class="wave-time" data-tick="43" data-x="550.7" x="550.7" y="15">C43</text><line class="wave-grid clock-grid" data-clock="1" data-x="560.3" data-time="445000000" data-label="cycle 44" x1="560.3" y1="20" x2="560.3" y2="214" /><text class="wave-time" data-tick="44" data-x="563.3" x="563.3" y="15">C44</text><line class="wave-grid clock-grid" data-clock="1" data-x="572.9" data-time="455000000" data-label="cycle 45" x1="572.9" y1="20" x2="572.9" y2="214" /><text class="wave-time" data-tick="45" data-x="575.9" x="575.9" y="15">C45</text><line class="wave-grid clock-grid" data-clock="1" data-x="585.5" data-time="465000000" data-label="cycle 46" x1="585.5" y1="20" x2="585.5" y2="214" /><text class="wave-time" data-tick="46" data-x="588.5" x="588.5" y="15">C46</text><line class="wave-grid clock-grid" data-clock="1" data-x="598.1" data-time="475000000" data-label="cycle 47" x1="598.1" y1="20" x2="598.1" y2="214" /><text class="wave-time" data-tick="47" data-x="601.1" x="601.1" y="15">C47</text><line class="wave-grid clock-grid" data-clock="1" data-x="610.7" data-time="485000000" data-label="cycle 48" x1="610.7" y1="20" x2="610.7" y2="214" /><text class="wave-time" data-tick="48" data-x="613.7" x="613.7" y="15">C48</text><line class="wave-grid clock-grid" data-clock="1" data-x="623.3" data-time="495000000" data-label="cycle 49" x1="623.3" y1="20" x2="623.3" y2="214" /><text class="wave-time" data-tick="49" data-x="626.3" x="626.3" y="15">C49</text><line class="wave-grid clock-grid" data-clock="1" data-x="635.9" data-time="505000000" data-label="cycle 50" x1="635.9" y1="20" x2="635.9" y2="214" /><text class="wave-time" data-tick="50" data-x="638.9" x="638.9" y="15">C50</text><line class="wave-grid clock-grid" data-clock="1" data-x="648.5" data-time="515000000" data-label="cycle 51" x1="648.5" y1="20" x2="648.5" y2="214" /><text class="wave-time" data-tick="51" data-x="651.5" x="651.5" y="15">C51</text><line class="wave-grid clock-grid" data-clock="1" data-x="661.1" data-time="525000000" data-label="cycle 52" x1="661.1" y1="20" x2="661.1" y2="214" /><text class="wave-time" data-tick="52" data-x="664.1" x="664.1" y="15">C52</text><line class="wave-grid clock-grid" data-clock="1" data-x="673.6" data-time="535000000" data-label="cycle 53" x1="673.6" y1="20" x2="673.6" y2="214" /><text class="wave-time" data-tick="53" data-x="676.6" x="676.6" y="15">C53</text><line class="wave-grid clock-grid" data-clock="1" data-x="686.2" data-time="545000000" data-label="cycle 54" x1="686.2" y1="20" x2="686.2" y2="214" /><text class="wave-time" data-tick="54" data-x="689.2" x="689.2" y="15">C54</text><line class="wave-grid clock-grid" data-clock="1" data-x="698.8" data-time="555000000" data-label="cycle 55" x1="698.8" y1="20" x2="698.8" y2="214" /><text class="wave-time" data-tick="55" data-x="701.8" x="701.8" y="15">C55</text><line class="wave-grid clock-grid" data-clock="1" data-x="711.4" data-time="565000000" data-label="cycle 56" x1="711.4" y1="20" x2="711.4" y2="214" /><text class="wave-time" data-tick="56" data-x="714.4" x="714.4" y="15">C56</text><line class="wave-grid clock-grid" data-clock="1" data-x="724.0" data-time="575000000" data-label="cycle 57" x1="724.0" y1="20" x2="724.0" y2="214" /><text class="wave-time" data-tick="57" data-x="727.0" x="727.0" y="15">C57</text><line class="wave-grid clock-grid" data-clock="1" data-x="736.6" data-time="585000000" data-label="cycle 58" x1="736.6" y1="20" x2="736.6" y2="214" /><text class="wave-time" data-tick="58" data-x="739.6" x="739.6" y="15">C58</text><line class="wave-grid clock-grid" data-clock="1" data-x="749.2" data-time="595000000" data-label="cycle 59" x1="749.2" y1="20" x2="749.2" y2="214" /><text class="wave-time" data-tick="59" data-x="752.2" x="752.2" y="15">C59</text><line class="wave-grid clock-grid" data-clock="1" data-x="761.8" data-time="605000000" data-label="cycle 60" x1="761.8" y1="20" x2="761.8" y2="214" /><text class="wave-time" data-tick="60" data-x="764.8" x="764.8" y="15">C60</text><line class="wave-grid clock-grid" data-clock="1" data-x="774.4" data-time="615000000" data-label="cycle 61" x1="774.4" y1="20" x2="774.4" y2="214" /><text class="wave-time" data-tick="61" data-x="777.4" x="777.4" y="15">C61</text><line class="wave-grid clock-grid" data-clock="1" data-x="787.0" data-time="625000000" data-label="cycle 62" x1="787.0" y1="20" x2="787.0" y2="214" /><text class="wave-time" data-tick="62" data-x="790.0" x="790.0" y="15">C62</text><line class="wave-grid clock-grid" data-clock="1" data-x="799.6" data-time="635000000" data-label="cycle 63" x1="799.6" y1="20" x2="799.6" y2="214" /><text class="wave-time" data-tick="63" data-x="802.6" x="802.6" y="15">C63</text><line class="wave-grid clock-grid" data-clock="1" data-x="812.2" data-time="645000000" data-label="cycle 64" x1="812.2" y1="20" x2="812.2" y2="214" /><text class="wave-time" data-tick="64" data-x="815.2" x="815.2" y="15">C64</text><line class="wave-grid clock-grid" data-clock="1" data-x="824.7" data-time="655000000" data-label="cycle 65" x1="824.7" y1="20" x2="824.7" y2="214" /><text class="wave-time" data-tick="65" data-x="827.7" x="827.7" y="15">C65</text><line class="wave-grid clock-grid" data-clock="1" data-x="837.3" data-time="665000000" data-label="cycle 66" x1="837.3" y1="20" x2="837.3" y2="214" /><text class="wave-time" data-tick="66" data-x="840.3" x="840.3" y="15">C66</text><line class="wave-grid clock-grid" data-clock="1" data-x="849.9" data-time="675000000" data-label="cycle 67" x1="849.9" y1="20" x2="849.9" y2="214" /><text class="wave-time" data-tick="67" data-x="852.9" x="852.9" y="15">C67</text><line class="wave-grid clock-grid" data-clock="1" data-x="862.5" data-time="685000000" data-label="cycle 68" x1="862.5" y1="20" x2="862.5" y2="214" /><text class="wave-time" data-tick="68" data-x="865.5" x="865.5" y="15">C68</text><line class="wave-grid clock-grid" data-clock="1" data-x="875.1" data-time="695000000" data-label="cycle 69" x1="875.1" y1="20" x2="875.1" y2="214" /><text class="wave-time" data-tick="69" data-x="878.1" x="878.1" y="15">C69</text><line class="wave-grid clock-grid" data-clock="1" data-x="887.7" data-time="705000000" data-label="cycle 70" x1="887.7" y1="20" x2="887.7" y2="214" /><text class="wave-time" data-tick="70" data-x="890.7" x="890.7" y="15">C70</text><line class="wave-grid clock-grid" data-clock="1" data-x="900.3" data-time="715000000" data-label="cycle 71" x1="900.3" y1="20" x2="900.3" y2="214" /><text class="wave-time" data-tick="71" data-x="903.3" x="903.3" y="15">C71</text><line class="wave-axis" x1="0" y1="54" x2="894" y2="54" /><path class="wave-trace" d="M 0.0 54.0 L 81.8 54.0 L 81.8 38.0 L 94.4 38.0 L 94.4 54.0 L 894.0 54.0" /><line class="wave-axis" x1="0" y1="88" x2="894" y2="88" /><path class="wave-trace" d="M 0.0 72.0 L 94.4 72.0 L 94.4 88.0 L 132.2 88.0 L 132.2 72.0 L 894.0 72.0" /><line class="wave-axis" x1="0" y1="122" x2="894" y2="122" /><rect class="wave-bus" x="0.0" y="106" width="81.8" height="16" rx="3" /><text class="wave-bus-text" x="5.0" y="118.0">0x0</text><rect class="wave-bus" x="81.8" y="106" width="812.2" height="16" rx="3" /><text class="wave-bus-text" x="86.8" y="118.0">0x64</text><line class="wave-axis" x1="0" y1="156" x2="894" y2="156" /><path class="wave-trace" d="M 0.0 156.0 L 81.8 156.0 L 81.8 140.0 L 94.4 140.0 L 94.4 156.0 L 894.0 156.0" /><line class="wave-axis" x1="0" y1="190" x2="894" y2="190" /><rect class="wave-bus" x="0.0" y="174" width="157.4" height="16" rx="3" /><text class="wave-bus-text" x="5.0" y="186.0">0x0</text><rect class="wave-bus" x="157.4" y="174" width="736.6" height="16" rx="3" /><text class="wave-bus-text" x="162.4" y="186.0">0xFFE20032</text><line class="wave-hover-line" x1="0" y1="20" x2="0" y2="214" /><text class="wave-hover-label" x="4" y="226"></text></svg></div></div></div><script>
+</script></div></div></details><details class="wave-group"><summary>S_AXIS interface signals</summary><div class="wave-group-body"><div class="wave"><h4>S_AXIS Interface Waveform</h4><p class="meta">Source: dsp/hdl/testbenches/tb_raddsp_axis_smoke.vhd</p><div class="wave-controls"><label>Horizontal <input class="wave-zoom-x" type="range" min="60" max="420" value="100"></label><label>Vertical <input class="wave-zoom-y" type="range" min="70" max="260" value="100"></label></div><div class="wave-viewport"><div class="wave-stage" style="height:232px"><div class="wave-label-pane" style="height:232px"><div class="wave-label-row" style="top:39px;height:32px;line-height:32px">s_axis_tvalid</div><div class="wave-label-row" style="top:73px;height:32px;line-height:32px">s_axis_tready</div><div class="wave-label-row" style="top:107px;height:32px;line-height:32px">s_axis_tdata[15:0]</div><div class="wave-label-row" style="top:141px;height:32px;line-height:32px">s_axis_tlast</div><div class="wave-label-row" style="top:175px;height:32px;line-height:32px">s_axis_tdata[31:0]</div></div><div class="wave-plot-pane" style="width:894px;min-width:894px;height:232px"><canvas class="waveform-canvas" width="894" height="232" aria-label="S_AXIS Interface Waveform"></canvas></div><span class="wave-hover-readout" hidden></span><script type="application/json" class="wave-data">{"title":"S_AXIS Interface Waveform","endTime":710000000,"basePlotWidth":894,"top":34,"rowHeight":34,"traceHeight":16,"ticks":[{"time":5000000,"clock":true,"tickLabel":"C0","label":"cycle 0"},{"time":15000000,"clock":true,"tickLabel":"C1","label":"cycle 1"},{"time":25000000,"clock":true,"tickLabel":"C2","label":"cycle 2"},{"time":35000000,"clock":true,"tickLabel":"C3","label":"cycle 3"},{"time":45000000,"clock":true,"tickLabel":"C4","label":"cycle 4"},{"time":55000000,"clock":true,"tickLabel":"C5","label":"cycle 5"},{"time":65000000,"clock":true,"tickLabel":"C6","label":"cycle 6"},{"time":75000000,"clock":true,"tickLabel":"C7","label":"cycle 7"},{"time":85000000,"clock":true,"tickLabel":"C8","label":"cycle 8"},{"time":95000000,"clock":true,"tickLabel":"C9","label":"cycle 9"},{"time":105000000,"clock":true,"tickLabel":"C10","label":"cycle 10"},{"time":115000000,"clock":true,"tickLabel":"C11","label":"cycle 11"},{"time":125000000,"clock":true,"tickLabel":"C12","label":"cycle 12"},{"time":135000000,"clock":true,"tickLabel":"C13","label":"cycle 13"},{"time":145000000,"clock":true,"tickLabel":"C14","label":"cycle 14"},{"time":155000000,"clock":true,"tickLabel":"C15","label":"cycle 15"},{"time":165000000,"clock":true,"tickLabel":"C16","label":"cycle 16"},{"time":175000000,"clock":true,"tickLabel":"C17","label":"cycle 17"},{"time":185000000,"clock":true,"tickLabel":"C18","label":"cycle 18"},{"time":195000000,"clock":true,"tickLabel":"C19","label":"cycle 19"},{"time":205000000,"clock":true,"tickLabel":"C20","label":"cycle 20"},{"time":215000000,"clock":true,"tickLabel":"C21","label":"cycle 21"},{"time":225000000,"clock":true,"tickLabel":"C22","label":"cycle 22"},{"time":235000000,"clock":true,"tickLabel":"C23","label":"cycle 23"},{"time":245000000,"clock":true,"tickLabel":"C24","label":"cycle 24"},{"time":255000000,"clock":true,"tickLabel":"C25","label":"cycle 25"},{"time":265000000,"clock":true,"tickLabel":"C26","label":"cycle 26"},{"time":275000000,"clock":true,"tickLabel":"C27","label":"cycle 27"},{"time":285000000,"clock":true,"tickLabel":"C28","label":"cycle 28"},{"time":295000000,"clock":true,"tickLabel":"C29","label":"cycle 29"},{"time":305000000,"clock":true,"tickLabel":"C30","label":"cycle 30"},{"time":315000000,"clock":true,"tickLabel":"C31","label":"cycle 31"},{"time":325000000,"clock":true,"tickLabel":"C32","label":"cycle 32"},{"time":335000000,"clock":true,"tickLabel":"C33","label":"cycle 33"},{"time":345000000,"clock":true,"tickLabel":"C34","label":"cycle 34"},{"time":355000000,"clock":true,"tickLabel":"C35","label":"cycle 35"},{"time":365000000,"clock":true,"tickLabel":"C36","label":"cycle 36"},{"time":375000000,"clock":true,"tickLabel":"C37","label":"cycle 37"},{"time":385000000,"clock":true,"tickLabel":"C38","label":"cycle 38"},{"time":395000000,"clock":true,"tickLabel":"C39","label":"cycle 39"},{"time":405000000,"clock":true,"tickLabel":"C40","label":"cycle 40"},{"time":415000000,"clock":true,"tickLabel":"C41","label":"cycle 41"},{"time":425000000,"clock":true,"tickLabel":"C42","label":"cycle 42"},{"time":435000000,"clock":true,"tickLabel":"C43","label":"cycle 43"},{"time":445000000,"clock":true,"tickLabel":"C44","label":"cycle 44"},{"time":455000000,"clock":true,"tickLabel":"C45","label":"cycle 45"},{"time":465000000,"clock":true,"tickLabel":"C46","label":"cycle 46"},{"time":475000000,"clock":true,"tickLabel":"C47","label":"cycle 47"},{"time":485000000,"clock":true,"tickLabel":"C48","label":"cycle 48"},{"time":495000000,"clock":true,"tickLabel":"C49","label":"cycle 49"},{"time":505000000,"clock":true,"tickLabel":"C50","label":"cycle 50"},{"time":515000000,"clock":true,"tickLabel":"C51","label":"cycle 51"},{"time":525000000,"clock":true,"tickLabel":"C52","label":"cycle 52"},{"time":535000000,"clock":true,"tickLabel":"C53","label":"cycle 53"},{"time":545000000,"clock":true,"tickLabel":"C54","label":"cycle 54"},{"time":555000000,"clock":true,"tickLabel":"C55","label":"cycle 55"},{"time":565000000,"clock":true,"tickLabel":"C56","label":"cycle 56"},{"time":575000000,"clock":true,"tickLabel":"C57","label":"cycle 57"},{"time":585000000,"clock":true,"tickLabel":"C58","label":"cycle 58"},{"time":595000000,"clock":true,"tickLabel":"C59","label":"cycle 59"},{"time":605000000,"clock":true,"tickLabel":"C60","label":"cycle 60"},{"time":615000000,"clock":true,"tickLabel":"C61","label":"cycle 61"},{"time":625000000,"clock":true,"tickLabel":"C62","label":"cycle 62"},{"time":635000000,"clock":true,"tickLabel":"C63","label":"cycle 63"},{"time":645000000,"clock":true,"tickLabel":"C64","label":"cycle 64"},{"time":655000000,"clock":true,"tickLabel":"C65","label":"cycle 65"},{"time":665000000,"clock":true,"tickLabel":"C66","label":"cycle 66"},{"time":675000000,"clock":true,"tickLabel":"C67","label":"cycle 67"},{"time":685000000,"clock":true,"tickLabel":"C68","label":"cycle 68"},{"time":695000000,"clock":true,"tickLabel":"C69","label":"cycle 69"},{"time":705000000,"clock":true,"tickLabel":"C70","label":"cycle 70"},{"time":715000000,"clock":true,"tickLabel":"C71","label":"cycle 71"}],"signals":[{"name":"s_axis_tvalid","kind":"signal","count":0,"scalar":true,"samples":[[0,"0"],[65000000,"1"],[75000000,"0"]]},{"name":"s_axis_tready","kind":"signal","count":0,"scalar":true,"samples":[[0,"1"],[75000000,"0"],[105000000,"1"]]},{"name":"s_axis_tdata[15:0]","kind":"signal","count":0,"scalar":false,"samples":[[0,"0000000000000000"],[65000000,"0000000001100100"]]},{"name":"s_axis_tlast","kind":"signal","count":0,"scalar":true,"samples":[[0,"0"],[65000000,"1"],[75000000,"0"]]},{"name":"s_axis_tdata[31:0]","kind":"signal","count":0,"scalar":false,"samples":[[0,"00000000000000000000000000000000"],[125000000,"11111111111000100000000000110010"]]}]}</script></div></div><script>
 (() => {
   document.querySelectorAll(".wave").forEach((wave) => {
     if (wave.dataset.ready === "1") return;
     wave.dataset.ready = "1";
     const zoomX = wave.querySelector(".wave-zoom-x");
     const zoomY = wave.querySelector(".wave-zoom-y");
-    const plotPane = wave.querySelector(".wave-plot");
-    const svg = wave.querySelector("svg.waveform");
-    const labelSvg = wave.querySelector("svg.wave-labels");
-    const hover = wave.querySelector(".wave-hover-line");
-    const hoverLabel = wave.querySelector(".wave-hover-label");
-    const labels = Array.from(wave.querySelectorAll(".wave-time"));
-    const grids = Array.from(wave.querySelectorAll(".wave-grid"));
-    const clockGrids = grids.filter((grid) => grid.dataset.clock === "1");
-    const snapGrids = clockGrids.length ? clockGrids : grids;
-    const plotWidth = svg ? Number(svg.dataset.plotWidth || 894) : 894;
-    const baseHeight = svg && svg.viewBox && svg.viewBox.baseVal ? Number(svg.viewBox.baseVal.height || 320) : 320;
-    const setZoom = () => {
-      const valueX = zoomX ? Number(zoomX.value) / 100 : 1;
-      const valueY = zoomY ? Number(zoomY.value) / 100 : 1;
-      wave.style.setProperty("--wave-zoom-x", String(valueX));
-      wave.style.setProperty("--wave-zoom-y", String(valueY));
-      const scaledWidth = `${plotWidth * valueX}px`;
-      wave.style.setProperty("--wave-plot-width", scaledWidth);
-      if (plotPane) {
-        plotPane.style.width = scaledWidth;
-        plotPane.style.minWidth = scaledWidth;
-        plotPane.style.flexBasis = scaledWidth;
-      }
-      if (svg) {
-        svg.style.width = "100%";
-        svg.style.height = `${baseHeight * valueY}px`;
-      }
-      if (labelSvg) {
-        labelSvg.style.height = `${baseHeight * valueY}px`;
-      }
-      const minSpacing = valueX >= 2.5 ? 38 : valueX >= 1.6 ? 52 : 78;
-      let lastShown = -Infinity;
-      labels.forEach((label) => {
-        const x = Number(label.dataset.x || label.getAttribute("x") || "0") * valueX;
-        if (x - lastShown >= minSpacing) {
-          label.style.display = "";
-          lastShown = x;
-        } else {
-          label.style.display = "none";
-        }
-      });
+    const canvas = wave.querySelector("canvas.waveform-canvas");
+    const plotPane = wave.querySelector(".wave-plot-pane");
+    const labelPane = wave.querySelector(".wave-label-pane");
+    const labelRows = Array.from(wave.querySelectorAll(".wave-label-row"));
+    const readout = wave.querySelector(".wave-hover-readout");
+    const dataNode = wave.querySelector("script.wave-data");
+    if (!canvas || !plotPane || !labelPane || !dataNode) return;
+    let payload;
+    try {
+      payload = JSON.parse(dataNode.textContent || "{}");
+    } catch (_) {
+      return;
+    }
+    const ctx = canvas.getContext("2d");
+    if (!ctx) return;
+    const css = getComputedStyle(wave);
+    const colors = {
+      card: css.getPropertyValue("--card").trim() || "#111827",
+      line: css.getPropertyValue("--line").trim() || "#273244",
+      muted: css.getPropertyValue("--muted").trim() || "#93a4b8",
+      ink: css.getPropertyValue("--ink").trim() || "#e8eef7",
+      accent: css.getPropertyValue("--accent").trim() || "#62d6c7",
+      bus: "rgba(98, 214, 199, .14)",
+      iface: "rgba(139, 211, 255, .14)",
+      hover: "#ffd84d",
+      unknown: "#d59b35"
     };
-    setZoom();
-    if (zoomX) zoomX.addEventListener("input", setZoom);
-    if (zoomY) zoomY.addEventListener("input", setZoom);
-    if (!svg || !hover || !hoverLabel || !snapGrids.length) return;
-    const nearest = (x) => {
-      let best = snapGrids[0];
-      let bestDistance = Math.abs(Number(best.dataset.x) - x);
-      snapGrids.forEach((line) => {
-        const distance = Math.abs(Number(line.dataset.x) - x);
+    const basePlotWidth = Number(payload.basePlotWidth || 894);
+    const baseRowHeight = Number(payload.rowHeight || 34);
+    const top = Number(payload.top || 34);
+    const traceHeight = Number(payload.traceHeight || 16);
+    const endTime = Math.max(1, Number(payload.endTime || 1));
+    const signals = Array.isArray(payload.signals) ? payload.signals : [];
+    const ticks = Array.isArray(payload.ticks) ? payload.ticks : [];
+    const compactValue = (value) => {
+      const text = String(value || "").replaceAll("_", "");
+      if (!text) return "";
+      if (text.length > 8 && /^[01]+$/i.test(text)) return `0x${parseInt(text, 2).toString(16).toUpperCase()}`;
+      if (text.length > 18) return `${text.slice(0, 15)}...`;
+      return text.toUpperCase();
+    };
+    const isScalar = (signal) => signal.scalar === true;
+    const yForScalar = (value, highY, lowY) => {
+      const text = String(value || "").toLowerCase();
+      if (text === "1") return highY;
+      if (text === "0") return lowY;
+      return (highY + lowY) / 2;
+    };
+    let hoverTick = null;
+    const nearestTick = (x, plotWidth) => {
+      const snapTicks = ticks.length ? ticks : [{time: 0, label: "t=0"}, {time: endTime, label: `t=${endTime}`}];
+      let best = snapTicks[0];
+      let bestDistance = Infinity;
+      snapTicks.forEach((tick) => {
+        const tx = (Number(tick.time || 0) / endTime) * plotWidth;
+        const distance = Math.abs(tx - x);
         if (distance < bestDistance) {
-          best = line;
+          best = tick;
           bestDistance = distance;
         }
       });
       return best;
     };
-    svg.addEventListener("mousemove", (event) => {
-      const point = svg.createSVGPoint();
-      point.x = event.clientX;
-      point.y = event.clientY;
-      const matrix = svg.getScreenCTM();
-      if (!matrix) return;
-      const local = point.matrixTransform(matrix.inverse());
-      const line = nearest(local.x);
-      const x = Number(line.dataset.x);
-      hover.setAttribute("x1", x);
-      hover.setAttribute("x2", x);
-      hover.style.opacity = "1";
-      hoverLabel.setAttribute("x", x + 4);
-      hoverLabel.textContent = line.dataset.label || `t=${line.dataset.time}`;
-      hoverLabel.style.opacity = "1";
+    const draw = () => {
+      const valueX = zoomX ? Number(zoomX.value) / 100 : 1;
+      const valueY = zoomY ? Number(zoomY.value) / 100 : 1;
+      const plotWidth = Math.max(320, basePlotWidth * valueX);
+      const rowHeight = Math.max(18, baseRowHeight * valueY);
+      const height = Math.ceil(top + (signals.length * rowHeight) + 28);
+      const dpr = window.devicePixelRatio || 1;
+      plotPane.style.width = `${plotWidth}px`;
+      plotPane.style.minWidth = `${plotWidth}px`;
+      plotPane.style.flexBasis = `${plotWidth}px`;
+      plotPane.style.height = `${height}px`;
+      labelPane.style.height = `${height}px`;
+      canvas.style.width = `${plotWidth}px`;
+      canvas.style.height = `${height}px`;
+      canvas.width = Math.max(1, Math.ceil(plotWidth * dpr));
+      canvas.height = Math.max(1, Math.ceil(height * dpr));
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      ctx.clearRect(0, 0, plotWidth, height);
+      ctx.fillStyle = colors.card;
+      ctx.fillRect(0, 0, plotWidth, height);
+      labelRows.forEach((row, index) => {
+        row.style.top = `${top + (index * rowHeight) + 5}px`;
+        row.style.height = `${Math.max(16, rowHeight - 2)}px`;
+        row.style.lineHeight = `${Math.max(16, rowHeight - 2)}px`;
+      });
+      ctx.font = "11px ui-monospace, SFMono-Regular, Menlo, Consolas, monospace";
+      ctx.textBaseline = "middle";
+      const minTickSpacing = valueX >= 2.8 ? 38 : valueX >= 1.7 ? 54 : 88;
+      let lastTickX = -Infinity;
+      ticks.forEach((tick, index) => {
+        const x = (Number(tick.time || 0) / endTime) * plotWidth;
+        ctx.strokeStyle = colors.line;
+        ctx.globalAlpha = tick.clock ? 0.45 : 0.62;
+        ctx.beginPath();
+        ctx.moveTo(x, 20);
+        ctx.lineTo(x, height - 18);
+        ctx.stroke();
+        ctx.globalAlpha = 1;
+        if (x - lastTickX >= minTickSpacing) {
+          ctx.fillStyle = colors.muted;
+          ctx.fillText(String(tick.tickLabel || tick.label || index), x + 3, 14);
+          lastTickX = x;
+        }
+      });
+      signals.forEach((signal, index) => {
+        const rowY = top + (index * rowHeight);
+        const traceY = rowY + Math.max(3, rowHeight * 0.12);
+        const traceH = Math.min(traceHeight, Math.max(10, rowHeight * 0.48));
+        const lowY = traceY + traceH;
+        const highY = traceY;
+        ctx.strokeStyle = colors.line;
+        ctx.globalAlpha = 1;
+        ctx.beginPath();
+        ctx.moveTo(0, lowY);
+        ctx.lineTo(plotWidth, lowY);
+        ctx.stroke();
+        const samples = Array.isArray(signal.samples) ? signal.samples : [];
+        if (signal.kind === "interface") {
+          ctx.fillStyle = colors.iface;
+          ctx.strokeStyle = "#8bd3ff";
+          ctx.lineWidth = 1.2;
+          ctx.fillRect(0, traceY - 1, plotWidth, traceH + 2);
+          ctx.strokeRect(0, traceY - 1, plotWidth, traceH + 2);
+          ctx.fillStyle = colors.ink;
+          ctx.font = "12px ui-monospace, SFMono-Regular, Menlo, Consolas, monospace";
+          ctx.fillText(`${signal.name} interface (${signal.count || 0} signals)`, 8, traceY + (traceH / 2));
+          return;
+        }
+        if (!samples.length) return;
+        if (isScalar(signal)) {
+          let unknown = false;
+          ctx.beginPath();
+          samples.forEach((sample, sampleIndex) => {
+            const x = (Number(sample[0] || 0) / endTime) * plotWidth;
+            const y = yForScalar(sample[1], highY, lowY);
+            unknown = unknown || !["0", "1"].includes(String(sample[1]).toLowerCase());
+            if (sampleIndex === 0) {
+              ctx.moveTo(x, y);
+            } else {
+              const previous = samples[sampleIndex - 1];
+              const previousY = yForScalar(previous[1], highY, lowY);
+              ctx.lineTo(x, previousY);
+              ctx.lineTo(x, y);
+            }
+          });
+          const last = samples[samples.length - 1];
+          ctx.lineTo(plotWidth, yForScalar(last[1], highY, lowY));
+          ctx.strokeStyle = unknown ? colors.unknown : colors.accent;
+          ctx.lineWidth = 2.2;
+          ctx.stroke();
+          return;
+        }
+        ctx.font = "11px ui-monospace, SFMono-Regular, Menlo, Consolas, monospace";
+        samples.forEach((sample, sampleIndex) => {
+          const next = samples[sampleIndex + 1];
+          const x1 = (Number(sample[0] || 0) / endTime) * plotWidth;
+          const x2 = next ? (Number(next[0] || 0) / endTime) * plotWidth : plotWidth;
+          const width = Math.max(3, x2 - x1);
+          ctx.fillStyle = colors.bus;
+          ctx.strokeStyle = colors.accent;
+          ctx.lineWidth = 1.1;
+          ctx.fillRect(x1, traceY, width, traceH);
+          ctx.strokeRect(x1, traceY, width, traceH);
+          if (width >= 38) {
+            ctx.fillStyle = colors.ink;
+            ctx.fillText(compactValue(sample[1]), x1 + 5, traceY + (traceH / 2));
+          }
+        });
+      });
+      if (hoverTick) {
+        const x = (Number(hoverTick.time || 0) / endTime) * plotWidth;
+        ctx.strokeStyle = colors.hover;
+        ctx.lineWidth = 2;
+        ctx.beginPath();
+        ctx.moveTo(x, 20);
+        ctx.lineTo(x, height - 18);
+        ctx.stroke();
+        if (readout) {
+          readout.hidden = false;
+          readout.textContent = hoverTick.label || `t=${hoverTick.time}`;
+        }
+      } else if (readout) {
+        readout.hidden = true;
+      }
+    };
+    draw();
+    if (zoomX) zoomX.addEventListener("input", draw);
+    if (zoomY) zoomY.addEventListener("input", draw);
+    canvas.addEventListener("mousemove", (event) => {
+      const rect = canvas.getBoundingClientRect();
+      const x = event.clientX - rect.left;
+      hoverTick = nearestTick(x, rect.width);
+      draw();
     });
-    svg.addEventListener("mouseleave", () => {
-      hover.style.opacity = "0";
-      hoverLabel.style.opacity = "0";
+    canvas.addEventListener("mouseleave", () => {
+      hoverTick = null;
+      draw();
     });
+    window.addEventListener("resize", draw);
   });
 })();
 </script></div></div></details></div></details>

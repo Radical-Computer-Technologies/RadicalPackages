@@ -63,30 +63,18 @@ pre { overflow: auto; padding: 14px; border-radius: 6px; background: var(--code)
 .testbench-section { border: 1px solid var(--line); border-radius: 6px; background: var(--card); margin: 12px 0; }
 .testbench-section > summary { cursor: pointer; padding: 10px 12px; font-weight: 700; }
 .testbench-body { padding: 0 12px 12px; }
-.wave { width: 100%; border: 1px solid var(--line); border-radius: 6px; padding: 10px; background: var(--soft); margin: 12px 0; --wave-zoom-x: 1; --wave-zoom-y: 1; }
+.wave { width: 100%; border: 1px solid var(--line); border-radius: 6px; padding: 10px; background: var(--soft); margin: 12px 0; }
 .wave h4 { margin: 0 0 8px; }
 .wave-controls { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; margin: 0 0 8px; color: var(--muted); font-size: 13px; }
 .wave-controls label { display: inline-flex; align-items: center; gap: 6px; white-space: nowrap; }
 .wave-controls input { width: 180px; accent-color: var(--accent); }
 .wave-viewport { overflow: auto; max-height: 560px; border: 1px solid var(--line); border-radius: 4px; background: var(--card); resize: vertical; }
-.wave-canvas { display: flex; align-items: flex-start; min-width: max-content; }
-.wave-labels { position: sticky; left: 0; z-index: 2; flex: 0 0 190px; width: 190px; max-width: none; height: var(--wave-height); background: var(--card); border-right: 1px solid var(--line); }
-.wave-plot { flex: 0 0 var(--wave-plot-width, 894px); width: var(--wave-plot-width, 894px); min-width: var(--wave-plot-width, 894px); }
-.waveform { display: block; width: 100%; max-width: none; height: var(--wave-height); background: var(--card); }
-.wave-axis { stroke: var(--line); stroke-width: 1; }
-.wave-grid { stroke: var(--line); stroke-width: 1; opacity: .65; }
-.wave-grid.clock-grid { opacity: .45; }
-.wave-grid.fallback-grid { stroke-dasharray: 4 4; }
-.wave-hover-line { stroke: #ffd84d; stroke-width: 2; opacity: 0; pointer-events: none; }
-.wave-hover-label { fill: #ffd84d; font: 12px ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; opacity: 0; pointer-events: none; }
-.wave-label { fill: var(--ink); font: 12px ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; }
-.wave-time { fill: var(--muted); font: 11px ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; }
-.wave-trace { fill: none; stroke: var(--accent); stroke-width: 2.2; stroke-linejoin: round; stroke-linecap: round; }
-.wave-bus { fill: rgba(98, 214, 199, .12); stroke: var(--accent); stroke-width: 1.2; }
-.wave-bus-text { fill: var(--ink); font: 11px ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; }
-.wave-interface { fill: rgba(139, 211, 255, .13); stroke: #8bd3ff; stroke-width: 1.2; }
-.wave-interface-text { fill: var(--ink); font: 12px ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-weight: 700; }
-.wave-unknown { stroke: #d59b35; }
+.wave-stage { display: flex; align-items: flex-start; min-width: max-content; position: relative; background: var(--card); }
+.wave-label-pane { position: sticky; left: 0; z-index: 3; flex: 0 0 190px; width: 190px; min-width: 190px; background: var(--card); border-right: 1px solid var(--line); }
+.wave-label-row { position: absolute; left: 0; width: 180px; padding: 0 8px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; color: var(--ink); font: 12px ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; }
+.wave-plot-pane { position: relative; flex: 0 0 auto; background: var(--card); }
+.waveform-canvas { display: block; background: var(--card); }
+.wave-hover-readout { position: sticky; left: 198px; bottom: 6px; display: inline-block; z-index: 4; margin: 0 0 6px 8px; border: 1px solid rgba(255, 216, 77, .45); border-radius: 4px; background: rgba(10, 15, 22, .86); color: #ffd84d; padding: 3px 6px; font: 12px ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; pointer-events: none; }
 .wave-group { border: 1px solid var(--line); border-radius: 6px; background: var(--card); margin: 10px 0; }
 .wave-group > summary { cursor: pointer; padding: 8px 10px; font-weight: 700; }
 .wave-group-body { padding: 0 10px 10px; }

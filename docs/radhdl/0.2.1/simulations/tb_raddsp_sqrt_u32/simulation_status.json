@@ -1,7 +1,7 @@
 {
   "backend": "ghdl",
-  "testbench": "tb_raddsp_xilinx_dsp48_wide_mul",
-  "status": "failed",
+  "testbench": "tb_raddsp_sqrt_u32",
+  "status": "passed",
   "libraries": [
     "raddsp"
   ],
@@ -56,10 +56,10 @@
       "dsp/hdl/testbenches/iqcal_capture_pkg.vhd",
       "dsp/hdl/raddsp/sim/raddsp_xilinx_dsp48_mul.vhd",
       "dsp/hdl/raddsp/sim/xpm_fifo_sync.vhd",
-      "dsp/hdl/testbenches/tb_raddsp_xilinx_dsp48_wide_mul.vhd"
+      "dsp/hdl/testbenches/tb_raddsp_sqrt_u32.vhd"
     ]
   },
-  "returncode": 2,
-  "stdout": "",
-  "stderr": "\n******************** GHDL Bug occurred ***************************\nPlease report this bug on https://github.com/ghdl/ghdl/issues\nGHDL release: 1.0.0 (Ubuntu 1.0.0+dfsg-6) [Dunoon edition]\nCompiled with GNAT Version: 10.3.1 20211117\nTarget: x86_64-linux-gnu\n/tmp/radhdl-ghdl-a5rtytxe/\nCommand line:\n/usr/bin/ghdl-mcode -e --std=08 --ieee=synopsys -P/tmp/radhdl-ghdl-a5rtytxe --workdir=/tmp/radhdl-ghdl-a5rtytxe tb_raddsp_xilinx_dsp48_wide_mul\nException TYPES.INTERNAL_ERROR raised\nException information:\nraised TYPES.INTERNAL_ERROR : trans.adb:553\nCall stack traceback locations:\n0x653a49c3313d 0x653a49c3351b 0x653a49c33797 0x653a49dc8fc8 0x653a49dd7d6d 0x653a49dd7e25 0x653a49de1bde 0x653a49e00aa7 0x653a49e00d5f 0x653a49e01257 0x653a49e016b1 0x653a49e0e330 0x653a49e0d81c 0x653a49e55a78 0x653a49e55b9f 0x653a49e561f8 0x653a49e5698a 0x653a49e58596 0x653a49e586eb 0x653a49e5bb0f 0x653a49e603f8 0x653a49e6023b 0x653a49e604e5 0x653a49e6023b 0x653a49e604e5 0x653a49e244fa 0x653a49e17eac 0x653a49e28d8c 0x653a49e230a0 0x653a49e68b55 0x653a49da9af5 0x653a49cdf69e 0x653a49e6c4b3 0x653a49a97b07 0x789e71029d8e 0x789e71029e3e 0x653a49a96243 0xfffffffffffffffe\n******************************************************************\n"
+  "vcd": "simulations/tb_raddsp_sqrt_u32/tb_raddsp_sqrt_u32.vcd",
+  "stdout": "dsp/hdl/testbenches/tb_raddsp_sqrt_u32.vhd:151:11:@1405ns:(report note): tb_raddsp_sqrt_u32 passed\nsimulation finished @1405ns\n",
+  "stderr": ""
 }
