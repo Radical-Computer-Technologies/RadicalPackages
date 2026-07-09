@@ -1353,7 +1353,7 @@
       "path": "dsp/hdl/raddsp/src/raddsp_axis_am_iq_demodulator.vhd",
       "library": "radhdl",
       "category": "DSP",
-      "description": "AXI-stream AM IQ demodulator.\nComputes the magnitude envelope sqrt(I^2 + Q^2) from packed signed I/Q\nsamples. The low input word is I and the high input word is Q.",
+      "description": "Register-controlled AXI-stream AM IQ demodulator.\nAccepts packed signed I/Q samples, optionally rotates them by an internal\nphase-accumulator DDS carrier for carrier-tuned demodulation, and emits the\nrecovered envelope magnitude. Register control covers enable, internal mixer\nselection, bypass, phase reset, phase increment, and phase offset.",
       "generics": [
         {
           "name": "SAMPLE_WIDTH",
@@ -1361,6 +1361,55 @@
           "data_type": "positive",
           "default": "16",
           "description": "Signed I/Q sample width."
+        },
+        {
+          "name": "FRAC_BITS",
+          "direction": "",
+          "data_type": "natural",
+          "default": "14",
+          "description": "Number of fractional bits used by carrier and I/Q fixed-point values."
+        },
+        {
+          "name": "PHASE_WIDTH",
+          "direction": "",
+          "data_type": "positive",
+          "default": "32",
+          "description": "Internal DDS phase accumulator width. The register interface supports up to 32 bits."
+        },
+        {
+          "name": "REG_DATA_WIDTH",
+          "direction": "",
+          "data_type": "positive",
+          "default": "32",
+          "description": "Width of the RADIF register data path."
+        },
+        {
+          "name": "REG_ADDR_WIDTH",
+          "direction": "",
+          "data_type": "positive",
+          "default": "16",
+          "description": "Width of the RADIF byte address path."
+        },
+        {
+          "name": "DEFAULT_PHASE_INC",
+          "direction": "",
+          "data_type": "natural",
+          "default": "16#01000000#",
+          "description": "Reset value for carrier phase increment."
+        },
+        {
+          "name": "DEFAULT_INTERNAL_DDS",
+          "direction": "",
+          "data_type": "boolean",
+          "default": "true",
+          "description": "Reset value for internal carrier-rotation selection."
+        },
+        {
+          "name": "DEFAULT_ENABLE",
+          "direction": "",
+          "data_type": "boolean",
+          "default": "true",
+          "description": "Reset value for stream processing enable."
         },
         {
           "name": "VENDOR",
@@ -1383,7 +1432,7 @@
           "direction": "in",
           "data_type": "std_logic",
           "default": "",
-          "description": "Stream clock."
+          "description": "Stream and register clock."
         },
         {
           "name": "rst",
@@ -1447,6 +1496,83 @@
           "data_type": "std_logic",
           "default": "",
           "description": "Output frame marker aligned with envelope sample."
+        },
+        {
+          "name": "reg_wr_addr",
+          "direction": "in",
+          "data_type": "std_logic_vector(REG_ADDR_WIDTH - 1 downto 0)",
+          "default": "",
+          "description": "Register write address."
+        },
+        {
+          "name": "reg_rd_addr",
+          "direction": "in",
+          "data_type": "std_logic_vector(REG_ADDR_WIDTH - 1 downto 0)",
+          "default": "",
+          "description": "Register read address."
+        },
+        {
+          "name": "reg_wr_en",
+          "direction": "in",
+          "data_type": "std_logic",
+          "default": "",
+          "description": "One-cycle register write request."
+        },
+        {
+          "name": "reg_rd_en",
+          "direction": "in",
+          "data_type": "std_logic",
+          "default": "",
+          "description": "One-cycle register read request."
+        },
+        {
+          "name": "reg_data_in",
+          "direction": "in",
+          "data_type": "std_logic_vector(REG_DATA_WIDTH - 1 downto 0)",
+          "default": "",
+          "description": "Register write data."
+        },
+        {
+          "name": "reg_data_out",
+          "direction": "out",
+          "data_type": "std_logic_vector(REG_DATA_WIDTH - 1 downto 0)",
+          "default": "",
+          "description": "Register read data."
+        },
+        {
+          "name": "reg_wr_rdy",
+          "direction": "out",
+          "data_type": "std_logic",
+          "default": "",
+          "description": "Register write ready."
+        },
+        {
+          "name": "reg_rd_rdy",
+          "direction": "out",
+          "data_type": "std_logic",
+          "default": "",
+          "description": "Register read ready."
+        },
+        {
+          "name": "reg_wr_valid",
+          "direction": "out",
+          "data_type": "std_logic",
+          "default": "",
+          "description": "Register write response valid."
+        },
+        {
+          "name": "reg_rd_valid",
+          "direction": "out",
+          "data_type": "std_logic",
+          "default": "",
+          "description": "Register read response valid."
+        },
+        {
+          "name": "reg_error",
+          "direction": "out",
+          "data_type": "std_logic",
+          "default": "",
+          "description": "Register transaction error."
         }
       ],
       "sources": [
@@ -1456,7 +1582,7 @@
         {
           "name": "tb_raddsp_axis_am_iq",
           "path": "dsp/hdl/testbenches/tb_raddsp_axis_am_iq.vhd",
-          "description": "Verifies the AM IQ modulator and demodulator as independent blocks and as a loop.",
+          "description": "Verifies the register-controlled AM IQ modulator and demodulator with a\n2048-sample amplitude envelope. The test programs both internal DDS mixers\nto the same carrier tuning word, streams a sinusoidal envelope through the\nmodulator, demodulates it back to baseband, and exposes plot_* signals for\ndatasheet analog plots.",
           "related_modules": [
             "dsp",
             "raddsp_axis_am_iq_demodulator",
@@ -1524,12 +1650,164 @@
               ]
             },
             "vcd": "simulations/tb_raddsp_axis_am_iq/tb_raddsp_axis_am_iq.vcd",
-            "stdout": "dsp/hdl/testbenches/tb_raddsp_axis_am_iq.vhd:114:5:@265ns:(report note): tb_raddsp_axis_am_iq passed\nsimulation finished @265ns\n",
+            "stdout": "dsp/hdl/testbenches/tb_raddsp_axis_am_iq.vhd:200:5:@41155ns:(report note): tb_raddsp_axis_am_iq passed\nsimulation finished @41155ns\n",
             "stderr": ""
           }
         }
       ],
-      "register_maps": []
+      "register_maps": [
+        {
+          "name": "raddsp_axis_am_iq_demodulator",
+          "path": "dsp/hdl/raddsp/register_maps/raddsp_axis_am_iq_demodulator.map.json",
+          "base": "0x0000",
+          "description": "Controls tuned I/Q carrier rotation, envelope detection, and sample-count observation.",
+          "data_width": 32,
+          "registers": [
+            {
+              "name": "control",
+              "offset": "0x0000",
+              "access": "rw",
+              "address": "0x0000",
+              "reset": "0x00000003",
+              "width": 32,
+              "region": "raddsp_axis_am_iq_demodulator",
+              "description": "Controls stream processing and carrier-rotation source selection.",
+              "fields": [
+                {
+                  "name": "enable",
+                  "display_name": "EN",
+                  "description": "Enables stream processing. When clear, accepted input samples are dropped and no output samples are emitted.",
+                  "msb": 0,
+                  "lsb": 0
+                },
+                {
+                  "name": "internal_dds",
+                  "display_name": "INT DDS",
+                  "description": "Enables internal DDS carrier rotation before envelope magnitude calculation.",
+                  "msb": 1,
+                  "lsb": 1
+                },
+                {
+                  "name": "bypass",
+                  "display_name": "BYPASS",
+                  "description": "Bypasses carrier rotation and computes magnitude directly from the incoming I/Q sample.",
+                  "msb": 2,
+                  "lsb": 2
+                },
+                {
+                  "name": "phase_reset",
+                  "display_name": "PH RST",
+                  "description": "Write-one strobe that clears the internal DDS phase accumulator.",
+                  "msb": 3,
+                  "lsb": 3
+                }
+              ]
+            },
+            {
+              "name": "status",
+              "offset": "0x0004",
+              "access": "ro",
+              "address": "0x0004",
+              "reset": "0x00000002",
+              "width": 32,
+              "region": "raddsp_axis_am_iq_demodulator",
+              "description": "Reports output-valid and input-ready status.",
+              "fields": [
+                {
+                  "name": "out_valid",
+                  "display_name": "VALID",
+                  "description": "Set when an output envelope sample is currently valid.",
+                  "msb": 0,
+                  "lsb": 0
+                },
+                {
+                  "name": "input_ready",
+                  "display_name": "READY",
+                  "description": "Set when the block can accept an input I/Q sample.",
+                  "msb": 1,
+                  "lsb": 1
+                }
+              ]
+            },
+            {
+              "name": "phase_inc",
+              "offset": "0x0008",
+              "access": "rw",
+              "address": "0x0008",
+              "reset": "0x01000000",
+              "width": 32,
+              "region": "raddsp_axis_am_iq_demodulator",
+              "description": "Internal DDS phase increment applied after each accepted sample.",
+              "fields": [
+                {
+                  "name": "phase_inc",
+                  "display_name": "PH INC",
+                  "description": "Unsigned phase tuning word. Larger values increase the demodulator rotation frequency; one full accumulator wrap equals one carrier cycle.",
+                  "msb": 31,
+                  "lsb": 0
+                }
+              ]
+            },
+            {
+              "name": "phase_offset",
+              "offset": "0x000C",
+              "access": "rw",
+              "address": "0x000C",
+              "reset": "0x00000000",
+              "width": 32,
+              "region": "raddsp_axis_am_iq_demodulator",
+              "description": "Static phase offset added to the accumulator before carrier-rotation lookup.",
+              "fields": [
+                {
+                  "name": "phase_offset",
+                  "display_name": "PH OFFS",
+                  "description": "Unsigned phase offset added to the DDS accumulator before demodulator sine/cosine lookup.",
+                  "msb": 31,
+                  "lsb": 0
+                }
+              ]
+            },
+            {
+              "name": "phase",
+              "offset": "0x0010",
+              "access": "ro",
+              "address": "0x0010",
+              "reset": "0x00000000",
+              "width": 32,
+              "region": "raddsp_axis_am_iq_demodulator",
+              "description": "Current internal DDS phase accumulator value.",
+              "fields": [
+                {
+                  "name": "phase",
+                  "display_name": "PHASE",
+                  "description": "Current unsigned DDS phase accumulator value.",
+                  "msb": 31,
+                  "lsb": 0
+                }
+              ]
+            },
+            {
+              "name": "sample_count",
+              "offset": "0x0014",
+              "access": "rw",
+              "address": "0x0014",
+              "reset": "0x00000000",
+              "width": 32,
+              "region": "raddsp_axis_am_iq_demodulator",
+              "description": "Counts accepted and emitted samples. Write bit 0 as one to clear the counter.",
+              "fields": [
+                {
+                  "name": "sample_count",
+                  "display_name": "COUNT",
+                  "description": "Current emitted-sample count. Writing bit 0 as one clears the counter.",
+                  "msb": 31,
+                  "lsb": 0
+                }
+              ]
+            }
+          ]
+        }
+      ]
     },
     {
       "name": "raddsp_axis_am_iq_modulator",
@@ -1537,7 +1815,7 @@
       "path": "dsp/hdl/raddsp/src/raddsp_axis_am_iq_modulator.vhd",
       "library": "radhdl",
       "category": "DSP",
-      "description": "AXI-stream AM IQ modulator.\nMultiplies a signed envelope stream by externally supplied carrier cosine\nand sine samples to produce packed I/Q output. The low word is I and the high\nword is Q, both signed fixed-point values.",
+      "description": "Register-controlled AXI-stream AM IQ modulator.\nMultiplies a signed envelope stream by either externally supplied carrier\nsamples or an internal phase-accumulator DDS carrier. The output is packed\nI/Q with I in the low word and Q in the high word. A RADIF-style register\ninterface controls enable, bypass, internal carrier selection, phase reset,\ncarrier phase increment, and phase offset.",
       "generics": [
         {
           "name": "SAMPLE_WIDTH",
@@ -1552,6 +1830,48 @@
           "data_type": "natural",
           "default": "14",
           "description": "Number of fractional bits used by carrier and envelope fixed-point values."
+        },
+        {
+          "name": "PHASE_WIDTH",
+          "direction": "",
+          "data_type": "positive",
+          "default": "32",
+          "description": "Internal DDS phase accumulator width. The register interface supports up to 32 bits."
+        },
+        {
+          "name": "REG_DATA_WIDTH",
+          "direction": "",
+          "data_type": "positive",
+          "default": "32",
+          "description": "Width of the RADIF register data path."
+        },
+        {
+          "name": "REG_ADDR_WIDTH",
+          "direction": "",
+          "data_type": "positive",
+          "default": "16",
+          "description": "Width of the RADIF byte address path."
+        },
+        {
+          "name": "DEFAULT_PHASE_INC",
+          "direction": "",
+          "data_type": "natural",
+          "default": "16#01000000#",
+          "description": "Reset value for carrier phase increment."
+        },
+        {
+          "name": "DEFAULT_INTERNAL_DDS",
+          "direction": "",
+          "data_type": "boolean",
+          "default": "true",
+          "description": "Reset value for internal DDS carrier selection."
+        },
+        {
+          "name": "DEFAULT_ENABLE",
+          "direction": "",
+          "data_type": "boolean",
+          "default": "true",
+          "description": "Reset value for stream processing enable."
         },
         {
           "name": "VENDOR",
@@ -1574,7 +1894,7 @@
           "direction": "in",
           "data_type": "std_logic",
           "default": "",
-          "description": "Stream clock."
+          "description": "Stream and register clock."
         },
         {
           "name": "rst",
@@ -1588,14 +1908,14 @@
           "direction": "in",
           "data_type": "std_logic_vector(SAMPLE_WIDTH - 1 downto 0)",
           "default": "",
-          "description": "Signed fixed-point carrier cosine sample."
+          "description": "Signed fixed-point external carrier cosine sample."
         },
         {
           "name": "carrier_q_i",
           "direction": "in",
           "data_type": "std_logic_vector(SAMPLE_WIDTH - 1 downto 0)",
           "default": "",
-          "description": "Signed fixed-point carrier sine sample."
+          "description": "Signed fixed-point external carrier sine sample."
         },
         {
           "name": "s_axis_tvalid",
@@ -1652,6 +1972,83 @@
           "data_type": "std_logic",
           "default": "",
           "description": "Output frame marker aligned with output sample."
+        },
+        {
+          "name": "reg_wr_addr",
+          "direction": "in",
+          "data_type": "std_logic_vector(REG_ADDR_WIDTH - 1 downto 0)",
+          "default": "",
+          "description": "Register write address."
+        },
+        {
+          "name": "reg_rd_addr",
+          "direction": "in",
+          "data_type": "std_logic_vector(REG_ADDR_WIDTH - 1 downto 0)",
+          "default": "",
+          "description": "Register read address."
+        },
+        {
+          "name": "reg_wr_en",
+          "direction": "in",
+          "data_type": "std_logic",
+          "default": "",
+          "description": "One-cycle register write request."
+        },
+        {
+          "name": "reg_rd_en",
+          "direction": "in",
+          "data_type": "std_logic",
+          "default": "",
+          "description": "One-cycle register read request."
+        },
+        {
+          "name": "reg_data_in",
+          "direction": "in",
+          "data_type": "std_logic_vector(REG_DATA_WIDTH - 1 downto 0)",
+          "default": "",
+          "description": "Register write data."
+        },
+        {
+          "name": "reg_data_out",
+          "direction": "out",
+          "data_type": "std_logic_vector(REG_DATA_WIDTH - 1 downto 0)",
+          "default": "",
+          "description": "Register read data."
+        },
+        {
+          "name": "reg_wr_rdy",
+          "direction": "out",
+          "data_type": "std_logic",
+          "default": "",
+          "description": "Register write ready."
+        },
+        {
+          "name": "reg_rd_rdy",
+          "direction": "out",
+          "data_type": "std_logic",
+          "default": "",
+          "description": "Register read ready."
+        },
+        {
+          "name": "reg_wr_valid",
+          "direction": "out",
+          "data_type": "std_logic",
+          "default": "",
+          "description": "Register write response valid."
+        },
+        {
+          "name": "reg_rd_valid",
+          "direction": "out",
+          "data_type": "std_logic",
+          "default": "",
+          "description": "Register read response valid."
+        },
+        {
+          "name": "reg_error",
+          "direction": "out",
+          "data_type": "std_logic",
+          "default": "",
+          "description": "Register transaction error."
         }
       ],
       "sources": [
@@ -1661,7 +2058,7 @@
         {
           "name": "tb_raddsp_axis_am_iq",
           "path": "dsp/hdl/testbenches/tb_raddsp_axis_am_iq.vhd",
-          "description": "Verifies the AM IQ modulator and demodulator as independent blocks and as a loop.",
+          "description": "Verifies the register-controlled AM IQ modulator and demodulator with a\n2048-sample amplitude envelope. The test programs both internal DDS mixers\nto the same carrier tuning word, streams a sinusoidal envelope through the\nmodulator, demodulates it back to baseband, and exposes plot_* signals for\ndatasheet analog plots.",
           "related_modules": [
             "dsp",
             "raddsp_axis_am_iq_demodulator",
@@ -1729,12 +2126,164 @@
               ]
             },
             "vcd": "simulations/tb_raddsp_axis_am_iq/tb_raddsp_axis_am_iq.vcd",
-            "stdout": "dsp/hdl/testbenches/tb_raddsp_axis_am_iq.vhd:114:5:@265ns:(report note): tb_raddsp_axis_am_iq passed\nsimulation finished @265ns\n",
+            "stdout": "dsp/hdl/testbenches/tb_raddsp_axis_am_iq.vhd:200:5:@41155ns:(report note): tb_raddsp_axis_am_iq passed\nsimulation finished @41155ns\n",
             "stderr": ""
           }
         }
       ],
-      "register_maps": []
+      "register_maps": [
+        {
+          "name": "raddsp_axis_am_iq_modulator",
+          "path": "dsp/hdl/raddsp/register_maps/raddsp_axis_am_iq_modulator.map.json",
+          "base": "0x0000",
+          "description": "Controls AM envelope modulation, internal/external carrier selection, DDS tuning, and sample-count observation.",
+          "data_width": 32,
+          "registers": [
+            {
+              "name": "control",
+              "offset": "0x0000",
+              "access": "rw",
+              "address": "0x0000",
+              "reset": "0x00000003",
+              "width": 32,
+              "region": "raddsp_axis_am_iq_modulator",
+              "description": "Controls stream processing and carrier source selection.",
+              "fields": [
+                {
+                  "name": "enable",
+                  "display_name": "EN",
+                  "description": "Enables stream processing. When clear, accepted input samples are dropped and no output samples are emitted.",
+                  "msb": 0,
+                  "lsb": 0
+                },
+                {
+                  "name": "internal_dds",
+                  "display_name": "INT DDS",
+                  "description": "Selects the internal DDS carrier. When clear, carrier_i_i and carrier_q_i provide the carrier samples.",
+                  "msb": 1,
+                  "lsb": 1
+                },
+                {
+                  "name": "bypass",
+                  "display_name": "BYPASS",
+                  "description": "Passes the envelope to the I lane and drives Q to zero without carrier multiplication.",
+                  "msb": 2,
+                  "lsb": 2
+                },
+                {
+                  "name": "phase_reset",
+                  "display_name": "PH RST",
+                  "description": "Write-one strobe that clears the internal DDS phase accumulator.",
+                  "msb": 3,
+                  "lsb": 3
+                }
+              ]
+            },
+            {
+              "name": "status",
+              "offset": "0x0004",
+              "access": "ro",
+              "address": "0x0004",
+              "reset": "0x00000002",
+              "width": 32,
+              "region": "raddsp_axis_am_iq_modulator",
+              "description": "Reports output-valid and input-ready status.",
+              "fields": [
+                {
+                  "name": "out_valid",
+                  "display_name": "VALID",
+                  "description": "Set when an output I/Q sample is currently valid.",
+                  "msb": 0,
+                  "lsb": 0
+                },
+                {
+                  "name": "input_ready",
+                  "display_name": "READY",
+                  "description": "Set when the block can accept an input envelope sample.",
+                  "msb": 1,
+                  "lsb": 1
+                }
+              ]
+            },
+            {
+              "name": "phase_inc",
+              "offset": "0x0008",
+              "access": "rw",
+              "address": "0x0008",
+              "reset": "0x01000000",
+              "width": 32,
+              "region": "raddsp_axis_am_iq_modulator",
+              "description": "Internal DDS phase increment applied after each accepted sample.",
+              "fields": [
+                {
+                  "name": "phase_inc",
+                  "display_name": "PH INC",
+                  "description": "Unsigned phase tuning word. Larger values increase carrier frequency; one full accumulator wrap equals one carrier cycle.",
+                  "msb": 31,
+                  "lsb": 0
+                }
+              ]
+            },
+            {
+              "name": "phase_offset",
+              "offset": "0x000C",
+              "access": "rw",
+              "address": "0x000C",
+              "reset": "0x00000000",
+              "width": 32,
+              "region": "raddsp_axis_am_iq_modulator",
+              "description": "Static phase offset added to the accumulator before carrier lookup.",
+              "fields": [
+                {
+                  "name": "phase_offset",
+                  "display_name": "PH OFFS",
+                  "description": "Unsigned phase offset added to the DDS accumulator before sine/cosine lookup.",
+                  "msb": 31,
+                  "lsb": 0
+                }
+              ]
+            },
+            {
+              "name": "phase",
+              "offset": "0x0010",
+              "access": "ro",
+              "address": "0x0010",
+              "reset": "0x00000000",
+              "width": 32,
+              "region": "raddsp_axis_am_iq_modulator",
+              "description": "Current internal DDS phase accumulator value.",
+              "fields": [
+                {
+                  "name": "phase",
+                  "display_name": "PHASE",
+                  "description": "Current unsigned DDS phase accumulator value.",
+                  "msb": 31,
+                  "lsb": 0
+                }
+              ]
+            },
+            {
+              "name": "sample_count",
+              "offset": "0x0014",
+              "access": "rw",
+              "address": "0x0014",
+              "reset": "0x00000000",
+              "width": 32,
+              "region": "raddsp_axis_am_iq_modulator",
+              "description": "Counts accepted and emitted samples. Write bit 0 as one to clear the counter.",
+              "fields": [
+                {
+                  "name": "sample_count",
+                  "display_name": "COUNT",
+                  "description": "Current emitted-sample count. Writing bit 0 as one clears the counter.",
+                  "msb": 31,
+                  "lsb": 0
+                }
+              ]
+            }
+          ]
+        }
+      ]
     },
     {
       "name": "raddsp_axis_biquad",
@@ -5823,7 +6372,7 @@
             },
             "returncode": 2,
             "stdout": "",
-            "stderr": "\n******************** GHDL Bug occurred ***************************\nPlease report this bug on https://github.com/ghdl/ghdl/issues\nGHDL release: 1.0.0 (Ubuntu 1.0.0+dfsg-6) [Dunoon edition]\nCompiled with GNAT Version: 10.3.1 20211117\nTarget: x86_64-linux-gnu\n/tmp/radhdl-ghdl-n4tq106v/\nCommand line:\n/usr/bin/ghdl-mcode -e --std=08 --ieee=synopsys -P/tmp/radhdl-ghdl-n4tq106v --workdir=/tmp/radhdl-ghdl-n4tq106v tb_raddsp_axis_radfft\nException TYPES.INTERNAL_ERROR raised\nException information:\nraised TYPES.INTERNAL_ERROR : trans.adb:553\nCall stack traceback locations:\n0x6149f23c413d 0x6149f23c451b 0x6149f23c4797 0x6149f2559fc8 0x6149f2568d6d 0x6149f2568e25 0x6149f2572bde 0x6149f2591aa7 0x6149f2591d5f 0x6149f2592257 0x6149f25926b1 0x6149f259f330 0x6149f259e81c 0x6149f25e6a78 0x6149f25e6b9f 0x6149f25e71f8 0x6149f25e798a 0x6149f25e9596 0x6149f25e96eb 0x6149f25ecb0f 0x6149f25f13f8 0x6149f25f123b 0x6149f25f14e5 0x6149f25f123b 0x6149f25f14e5 0x6149f25b54fa 0x6149f25a8eac 0x6149f25b9d8c 0x6149f25b40a0 0x6149f25f9b55 0x6149f253aaf5 0x6149f247069e 0x6149f25fd4b3 0x6149f2228b07 0x71f200429d8e 0x71f200429e3e 0x6149f2227243 0xfffffffffffffffe\n******************************************************************\n"
+            "stderr": "\n******************** GHDL Bug occurred ***************************\nPlease report this bug on https://github.com/ghdl/ghdl/issues\nGHDL release: 1.0.0 (Ubuntu 1.0.0+dfsg-6) [Dunoon edition]\nCompiled with GNAT Version: 10.3.1 20211117\nTarget: x86_64-linux-gnu\n/tmp/radhdl-ghdl-ogbrduuu/\nCommand line:\n/usr/bin/ghdl-mcode -e --std=08 --ieee=synopsys -P/tmp/radhdl-ghdl-ogbrduuu --workdir=/tmp/radhdl-ghdl-ogbrduuu tb_raddsp_axis_radfft\nException TYPES.INTERNAL_ERROR raised\nException information:\nraised TYPES.INTERNAL_ERROR : trans.adb:553\nCall stack traceback locations:\n0x631083eb913d 0x631083eb951b 0x631083eb9797 0x63108404efc8 0x63108405dd6d 0x63108405de25 0x631084067bde 0x631084086aa7 0x631084086d5f 0x631084087257 0x6310840876b1 0x631084094330 0x63108409381c 0x6310840dba78 0x6310840dbb9f 0x6310840dc1f8 0x6310840dc98a 0x6310840de596 0x6310840de6eb 0x6310840e1b0f 0x6310840e63f8 0x6310840e623b 0x6310840e64e5 0x6310840e623b 0x6310840e64e5 0x6310840aa4fa 0x63108409deac 0x6310840aed8c 0x6310840a90a0 0x6310840eeb55 0x63108402faf5 0x631083f6569e 0x6310840f24b3 0x631083d1db07 0x70f3d6429d8e 0x70f3d6429e3e 0x631083d1c243 0xfffffffffffffffe\n******************************************************************\n"
           }
         },
         {
@@ -5899,7 +6448,7 @@
             },
             "returncode": 2,
             "stdout": "",
-            "stderr": "\n******************** GHDL Bug occurred ***************************\nPlease report this bug on https://github.com/ghdl/ghdl/issues\nGHDL release: 1.0.0 (Ubuntu 1.0.0+dfsg-6) [Dunoon edition]\nCompiled with GNAT Version: 10.3.1 20211117\nTarget: x86_64-linux-gnu\n/tmp/radhdl-ghdl-ievwbx91/\nCommand line:\n/usr/bin/ghdl-mcode -e --std=08 --ieee=synopsys -P/tmp/radhdl-ghdl-ievwbx91 --workdir=/tmp/radhdl-ghdl-ievwbx91 tb_raddsp_axis_radfft_ddr\nException TYPES.INTERNAL_ERROR raised\nException information:\nraised TYPES.INTERNAL_ERROR : trans.adb:553\nCall stack traceback locations:\n0x5e35d286c13d 0x5e35d286c51b 0x5e35d286c797 0x5e35d2a01fc8 0x5e35d2a10d6d 0x5e35d2a10e25 0x5e35d2a1abde 0x5e35d2a39aa7 0x5e35d2a39d5f 0x5e35d2a3a257 0x5e35d2a3a6b1 0x5e35d2a47330 0x5e35d2a4681c 0x5e35d2a8ea78 0x5e35d2a8eb9f 0x5e35d2a8f1f8 0x5e35d2a8f98a 0x5e35d2a91596 0x5e35d2a916eb 0x5e35d2a94b0f 0x5e35d2a993f8 0x5e35d2a9923b 0x5e35d2a994e5 0x5e35d2a9923b 0x5e35d2a994e5 0x5e35d2a5d4fa 0x5e35d2a50eac 0x5e35d2a61d8c 0x5e35d2a5c0a0 0x5e35d2aa1b55 0x5e35d29e2af5 0x5e35d291869e 0x5e35d2aa54b3 0x5e35d26d0b07 0x78a972c29d8e 0x78a972c29e3e 0x5e35d26cf243 0xfffffffffffffffe\n******************************************************************\n"
+            "stderr": "\n******************** GHDL Bug occurred ***************************\nPlease report this bug on https://github.com/ghdl/ghdl/issues\nGHDL release: 1.0.0 (Ubuntu 1.0.0+dfsg-6) [Dunoon edition]\nCompiled with GNAT Version: 10.3.1 20211117\nTarget: x86_64-linux-gnu\n/tmp/radhdl-ghdl-sn781yzf/\nCommand line:\n/usr/bin/ghdl-mcode -e --std=08 --ieee=synopsys -P/tmp/radhdl-ghdl-sn781yzf --workdir=/tmp/radhdl-ghdl-sn781yzf tb_raddsp_axis_radfft_ddr\nException TYPES.INTERNAL_ERROR raised\nException information:\nraised TYPES.INTERNAL_ERROR : trans.adb:553\nCall stack traceback locations:\n0x5dd1820cb13d 0x5dd1820cb51b 0x5dd1820cb797 0x5dd182260fc8 0x5dd18226fd6d 0x5dd18226fe25 0x5dd182279bde 0x5dd182298aa7 0x5dd182298d5f 0x5dd182299257 0x5dd1822996b1 0x5dd1822a6330 0x5dd1822a581c 0x5dd1822eda78 0x5dd1822edb9f 0x5dd1822ee1f8 0x5dd1822ee98a 0x5dd1822f0596 0x5dd1822f06eb 0x5dd1822f3b0f 0x5dd1822f83f8 0x5dd1822f823b 0x5dd1822f84e5 0x5dd1822f823b 0x5dd1822f84e5 0x5dd1822bc4fa 0x5dd1822afeac 0x5dd1822c0d8c 0x5dd1822bb0a0 0x5dd182300b55 0x5dd182241af5 0x5dd18217769e 0x5dd1823044b3 0x5dd181f2fb07 0x733724229d8e 0x733724229e3e 0x5dd181f2e243 0xfffffffffffffffe\n******************************************************************\n"
           }
         },
         {
@@ -5974,7 +6523,7 @@
             },
             "returncode": 2,
             "stdout": "",
-            "stderr": "\n******************** GHDL Bug occurred ***************************\nPlease report this bug on https://github.com/ghdl/ghdl/issues\nGHDL release: 1.0.0 (Ubuntu 1.0.0+dfsg-6) [Dunoon edition]\nCompiled with GNAT Version: 10.3.1 20211117\nTarget: x86_64-linux-gnu\n/tmp/radhdl-ghdl-h1uvpojv/\nCommand line:\n/usr/bin/ghdl-mcode -e --std=08 --ieee=synopsys -P/tmp/radhdl-ghdl-h1uvpojv --workdir=/tmp/radhdl-ghdl-h1uvpojv tb_raddsp_axis_radfft_ddr_xcorr_1024\nException TYPES.INTERNAL_ERROR raised\nException information:\nraised TYPES.INTERNAL_ERROR : trans.adb:553\nCall stack traceback locations:\n0x5ad35531d13d 0x5ad35531d51b 0x5ad35531d797 0x5ad3554b2fc8 0x5ad3554c1d6d 0x5ad3554c1e25 0x5ad3554cbbde 0x5ad3554eaaa7 0x5ad3554ead5f 0x5ad3554eb257 0x5ad3554eb6b1 0x5ad3554f8330 0x5ad3554f781c 0x5ad35553fa78 0x5ad35553fb9f 0x5ad3555401f8 0x5ad35554098a 0x5ad355542596 0x5ad3555426eb 0x5ad355545b0f 0x5ad35554a3f8 0x5ad35554a23b 0x5ad35554a4e5 0x5ad35554a23b 0x5ad35554a4e5 0x5ad35550e4fa 0x5ad355501eac 0x5ad355512d8c 0x5ad35550d0a0 0x5ad355552b55 0x5ad355493af5 0x5ad3553c969e 0x5ad3555564b3 0x5ad355181b07 0x754ff0629d8e 0x754ff0629e3e 0x5ad355180243 0xfffffffffffffffe\n******************************************************************\n"
+            "stderr": "\n******************** GHDL Bug occurred ***************************\nPlease report this bug on https://github.com/ghdl/ghdl/issues\nGHDL release: 1.0.0 (Ubuntu 1.0.0+dfsg-6) [Dunoon edition]\nCompiled with GNAT Version: 10.3.1 20211117\nTarget: x86_64-linux-gnu\n/tmp/radhdl-ghdl-286n9f4c/\nCommand line:\n/usr/bin/ghdl-mcode -e --std=08 --ieee=synopsys -P/tmp/radhdl-ghdl-286n9f4c --workdir=/tmp/radhdl-ghdl-286n9f4c tb_raddsp_axis_radfft_ddr_xcorr_1024\nException TYPES.INTERNAL_ERROR raised\nException information:\nraised TYPES.INTERNAL_ERROR : trans.adb:553\nCall stack traceback locations:\n0x5df6b080313d 0x5df6b080351b 0x5df6b0803797 0x5df6b0998fc8 0x5df6b09a7d6d 0x5df6b09a7e25 0x5df6b09b1bde 0x5df6b09d0aa7 0x5df6b09d0d5f 0x5df6b09d1257 0x5df6b09d16b1 0x5df6b09de330 0x5df6b09dd81c 0x5df6b0a25a78 0x5df6b0a25b9f 0x5df6b0a261f8 0x5df6b0a2698a 0x5df6b0a28596 0x5df6b0a286eb 0x5df6b0a2bb0f 0x5df6b0a303f8 0x5df6b0a3023b 0x5df6b0a304e5 0x5df6b0a3023b 0x5df6b0a304e5 0x5df6b09f44fa 0x5df6b09e7eac 0x5df6b09f8d8c 0x5df6b09f30a0 0x5df6b0a38b55 0x5df6b0979af5 0x5df6b08af69e 0x5df6b0a3c4b3 0x5df6b0667b07 0x720560029d8e 0x720560029e3e 0x5df6b0666243 0xfffffffffffffffe\n******************************************************************\n"
           }
         }
       ],
@@ -6813,7 +7362,7 @@
             },
             "returncode": 2,
             "stdout": "",
-            "stderr": "\n******************** GHDL Bug occurred ***************************\nPlease report this bug on https://github.com/ghdl/ghdl/issues\nGHDL release: 1.0.0 (Ubuntu 1.0.0+dfsg-6) [Dunoon edition]\nCompiled with GNAT Version: 10.3.1 20211117\nTarget: x86_64-linux-gnu\n/tmp/radhdl-ghdl-ievwbx91/\nCommand line:\n/usr/bin/ghdl-mcode -e --std=08 --ieee=synopsys -P/tmp/radhdl-ghdl-ievwbx91 --workdir=/tmp/radhdl-ghdl-ievwbx91 tb_raddsp_axis_radfft_ddr\nException TYPES.INTERNAL_ERROR raised\nException information:\nraised TYPES.INTERNAL_ERROR : trans.adb:553\nCall stack traceback locations:\n0x5e35d286c13d 0x5e35d286c51b 0x5e35d286c797 0x5e35d2a01fc8 0x5e35d2a10d6d 0x5e35d2a10e25 0x5e35d2a1abde 0x5e35d2a39aa7 0x5e35d2a39d5f 0x5e35d2a3a257 0x5e35d2a3a6b1 0x5e35d2a47330 0x5e35d2a4681c 0x5e35d2a8ea78 0x5e35d2a8eb9f 0x5e35d2a8f1f8 0x5e35d2a8f98a 0x5e35d2a91596 0x5e35d2a916eb 0x5e35d2a94b0f 0x5e35d2a993f8 0x5e35d2a9923b 0x5e35d2a994e5 0x5e35d2a9923b 0x5e35d2a994e5 0x5e35d2a5d4fa 0x5e35d2a50eac 0x5e35d2a61d8c 0x5e35d2a5c0a0 0x5e35d2aa1b55 0x5e35d29e2af5 0x5e35d291869e 0x5e35d2aa54b3 0x5e35d26d0b07 0x78a972c29d8e 0x78a972c29e3e 0x5e35d26cf243 0xfffffffffffffffe\n******************************************************************\n"
+            "stderr": "\n******************** GHDL Bug occurred ***************************\nPlease report this bug on https://github.com/ghdl/ghdl/issues\nGHDL release: 1.0.0 (Ubuntu 1.0.0+dfsg-6) [Dunoon edition]\nCompiled with GNAT Version: 10.3.1 20211117\nTarget: x86_64-linux-gnu\n/tmp/radhdl-ghdl-sn781yzf/\nCommand line:\n/usr/bin/ghdl-mcode -e --std=08 --ieee=synopsys -P/tmp/radhdl-ghdl-sn781yzf --workdir=/tmp/radhdl-ghdl-sn781yzf tb_raddsp_axis_radfft_ddr\nException TYPES.INTERNAL_ERROR raised\nException information:\nraised TYPES.INTERNAL_ERROR : trans.adb:553\nCall stack traceback locations:\n0x5dd1820cb13d 0x5dd1820cb51b 0x5dd1820cb797 0x5dd182260fc8 0x5dd18226fd6d 0x5dd18226fe25 0x5dd182279bde 0x5dd182298aa7 0x5dd182298d5f 0x5dd182299257 0x5dd1822996b1 0x5dd1822a6330 0x5dd1822a581c 0x5dd1822eda78 0x5dd1822edb9f 0x5dd1822ee1f8 0x5dd1822ee98a 0x5dd1822f0596 0x5dd1822f06eb 0x5dd1822f3b0f 0x5dd1822f83f8 0x5dd1822f823b 0x5dd1822f84e5 0x5dd1822f823b 0x5dd1822f84e5 0x5dd1822bc4fa 0x5dd1822afeac 0x5dd1822c0d8c 0x5dd1822bb0a0 0x5dd182300b55 0x5dd182241af5 0x5dd18217769e 0x5dd1823044b3 0x5dd181f2fb07 0x733724229d8e 0x733724229e3e 0x5dd181f2e243 0xfffffffffffffffe\n******************************************************************\n"
           }
         },
         {
@@ -6888,7 +7437,7 @@
             },
             "returncode": 2,
             "stdout": "",
-            "stderr": "\n******************** GHDL Bug occurred ***************************\nPlease report this bug on https://github.com/ghdl/ghdl/issues\nGHDL release: 1.0.0 (Ubuntu 1.0.0+dfsg-6) [Dunoon edition]\nCompiled with GNAT Version: 10.3.1 20211117\nTarget: x86_64-linux-gnu\n/tmp/radhdl-ghdl-h1uvpojv/\nCommand line:\n/usr/bin/ghdl-mcode -e --std=08 --ieee=synopsys -P/tmp/radhdl-ghdl-h1uvpojv --workdir=/tmp/radhdl-ghdl-h1uvpojv tb_raddsp_axis_radfft_ddr_xcorr_1024\nException TYPES.INTERNAL_ERROR raised\nException information:\nraised TYPES.INTERNAL_ERROR : trans.adb:553\nCall stack traceback locations:\n0x5ad35531d13d 0x5ad35531d51b 0x5ad35531d797 0x5ad3554b2fc8 0x5ad3554c1d6d 0x5ad3554c1e25 0x5ad3554cbbde 0x5ad3554eaaa7 0x5ad3554ead5f 0x5ad3554eb257 0x5ad3554eb6b1 0x5ad3554f8330 0x5ad3554f781c 0x5ad35553fa78 0x5ad35553fb9f 0x5ad3555401f8 0x5ad35554098a 0x5ad355542596 0x5ad3555426eb 0x5ad355545b0f 0x5ad35554a3f8 0x5ad35554a23b 0x5ad35554a4e5 0x5ad35554a23b 0x5ad35554a4e5 0x5ad35550e4fa 0x5ad355501eac 0x5ad355512d8c 0x5ad35550d0a0 0x5ad355552b55 0x5ad355493af5 0x5ad3553c969e 0x5ad3555564b3 0x5ad355181b07 0x754ff0629d8e 0x754ff0629e3e 0x5ad355180243 0xfffffffffffffffe\n******************************************************************\n"
+            "stderr": "\n******************** GHDL Bug occurred ***************************\nPlease report this bug on https://github.com/ghdl/ghdl/issues\nGHDL release: 1.0.0 (Ubuntu 1.0.0+dfsg-6) [Dunoon edition]\nCompiled with GNAT Version: 10.3.1 20211117\nTarget: x86_64-linux-gnu\n/tmp/radhdl-ghdl-286n9f4c/\nCommand line:\n/usr/bin/ghdl-mcode -e --std=08 --ieee=synopsys -P/tmp/radhdl-ghdl-286n9f4c --workdir=/tmp/radhdl-ghdl-286n9f4c tb_raddsp_axis_radfft_ddr_xcorr_1024\nException TYPES.INTERNAL_ERROR raised\nException information:\nraised TYPES.INTERNAL_ERROR : trans.adb:553\nCall stack traceback locations:\n0x5df6b080313d 0x5df6b080351b 0x5df6b0803797 0x5df6b0998fc8 0x5df6b09a7d6d 0x5df6b09a7e25 0x5df6b09b1bde 0x5df6b09d0aa7 0x5df6b09d0d5f 0x5df6b09d1257 0x5df6b09d16b1 0x5df6b09de330 0x5df6b09dd81c 0x5df6b0a25a78 0x5df6b0a25b9f 0x5df6b0a261f8 0x5df6b0a2698a 0x5df6b0a28596 0x5df6b0a286eb 0x5df6b0a2bb0f 0x5df6b0a303f8 0x5df6b0a3023b 0x5df6b0a304e5 0x5df6b0a3023b 0x5df6b0a304e5 0x5df6b09f44fa 0x5df6b09e7eac 0x5df6b09f8d8c 0x5df6b09f30a0 0x5df6b0a38b55 0x5df6b0979af5 0x5df6b08af69e 0x5df6b0a3c4b3 0x5df6b0667b07 0x720560029d8e 0x720560029e3e 0x5df6b0666243 0xfffffffffffffffe\n******************************************************************\n"
           }
         }
       ],
@@ -9046,7 +9595,7 @@
             },
             "returncode": 2,
             "stdout": "",
-            "stderr": "\n******************** GHDL Bug occurred ***************************\nPlease report this bug on https://github.com/ghdl/ghdl/issues\nGHDL release: 1.0.0 (Ubuntu 1.0.0+dfsg-6) [Dunoon edition]\nCompiled with GNAT Version: 10.3.1 20211117\nTarget: x86_64-linux-gnu\n/tmp/radhdl-ghdl-0e_0bc0d/\nCommand line:\n/usr/bin/ghdl-mcode -e --std=08 --ieee=synopsys -P/tmp/radhdl-ghdl-0e_0bc0d --workdir=/tmp/radhdl-ghdl-0e_0bc0d tb_raddsp_xilinx_dsp48_wide_mul\nException TYPES.INTERNAL_ERROR raised\nException information:\nraised TYPES.INTERNAL_ERROR : trans.adb:553\nCall stack traceback locations:\n0x5d680194913d 0x5d680194951b 0x5d6801949797 0x5d6801adefc8 0x5d6801aedd6d 0x5d6801aede25 0x5d6801af7bde 0x5d6801b16aa7 0x5d6801b16d5f 0x5d6801b17257 0x5d6801b176b1 0x5d6801b24330 0x5d6801b2381c 0x5d6801b6ba78 0x5d6801b6bb9f 0x5d6801b6c1f8 0x5d6801b6c98a 0x5d6801b6e596 0x5d6801b6e6eb 0x5d6801b71b0f 0x5d6801b763f8 0x5d6801b7623b 0x5d6801b764e5 0x5d6801b7623b 0x5d6801b764e5 0x5d6801b3a4fa 0x5d6801b2deac 0x5d6801b3ed8c 0x5d6801b390a0 0x5d6801b7eb55 0x5d6801abfaf5 0x5d68019f569e 0x5d6801b824b3 0x5d68017adb07 0x725eb9629d8e 0x725eb9629e3e 0x5d68017ac243 0xfffffffffffffffe\n******************************************************************\n"
+            "stderr": "\n******************** GHDL Bug occurred ***************************\nPlease report this bug on https://github.com/ghdl/ghdl/issues\nGHDL release: 1.0.0 (Ubuntu 1.0.0+dfsg-6) [Dunoon edition]\nCompiled with GNAT Version: 10.3.1 20211117\nTarget: x86_64-linux-gnu\n/tmp/radhdl-ghdl-mauzqxw6/\nCommand line:\n/usr/bin/ghdl-mcode -e --std=08 --ieee=synopsys -P/tmp/radhdl-ghdl-mauzqxw6 --workdir=/tmp/radhdl-ghdl-mauzqxw6 tb_raddsp_xilinx_dsp48_wide_mul\nException TYPES.INTERNAL_ERROR raised\nException information:\nraised TYPES.INTERNAL_ERROR : trans.adb:553\nCall stack traceback locations:\n0x628e199ba13d 0x628e199ba51b 0x628e199ba797 0x628e19b4ffc8 0x628e19b5ed6d 0x628e19b5ee25 0x628e19b68bde 0x628e19b87aa7 0x628e19b87d5f 0x628e19b88257 0x628e19b886b1 0x628e19b95330 0x628e19b9481c 0x628e19bdca78 0x628e19bdcb9f 0x628e19bdd1f8 0x628e19bdd98a 0x628e19bdf596 0x628e19bdf6eb 0x628e19be2b0f 0x628e19be73f8 0x628e19be723b 0x628e19be74e5 0x628e19be723b 0x628e19be74e5 0x628e19bab4fa 0x628e19b9eeac 0x628e19bafd8c 0x628e19baa0a0 0x628e19befb55 0x628e19b30af5 0x628e19a6669e 0x628e19bf34b3 0x628e1981eb07 0x780170829d8e 0x780170829e3e 0x628e1981d243 0xfffffffffffffffe\n******************************************************************\n"
           }
         }
       ],
@@ -16690,7 +17239,7 @@
       "path": "dsp/hdl/raddsp/src/raddsp_axis_am_iq_demodulator.vhd",
       "library": "radhdl",
       "category": "DSP",
-      "description": "AXI-stream AM IQ demodulator.\nComputes the magnitude envelope sqrt(I^2 + Q^2) from packed signed I/Q\nsamples. The low input word is I and the high input word is Q.",
+      "description": "Register-controlled AXI-stream AM IQ demodulator.\nAccepts packed signed I/Q samples, optionally rotates them by an internal\nphase-accumulator DDS carrier for carrier-tuned demodulation, and emits the\nrecovered envelope magnitude. Register control covers enable, internal mixer\nselection, bypass, phase reset, phase increment, and phase offset.",
       "generics": [
         {
           "name": "SAMPLE_WIDTH",
@@ -16698,6 +17247,55 @@
           "data_type": "positive",
           "default": "16",
           "description": "Signed I/Q sample width."
+        },
+        {
+          "name": "FRAC_BITS",
+          "direction": "",
+          "data_type": "natural",
+          "default": "14",
+          "description": "Number of fractional bits used by carrier and I/Q fixed-point values."
+        },
+        {
+          "name": "PHASE_WIDTH",
+          "direction": "",
+          "data_type": "positive",
+          "default": "32",
+          "description": "Internal DDS phase accumulator width. The register interface supports up to 32 bits."
+        },
+        {
+          "name": "REG_DATA_WIDTH",
+          "direction": "",
+          "data_type": "positive",
+          "default": "32",
+          "description": "Width of the RADIF register data path."
+        },
+        {
+          "name": "REG_ADDR_WIDTH",
+          "direction": "",
+          "data_type": "positive",
+          "default": "16",
+          "description": "Width of the RADIF byte address path."
+        },
+        {
+          "name": "DEFAULT_PHASE_INC",
+          "direction": "",
+          "data_type": "natural",
+          "default": "16#01000000#",
+          "description": "Reset value for carrier phase increment."
+        },
+        {
+          "name": "DEFAULT_INTERNAL_DDS",
+          "direction": "",
+          "data_type": "boolean",
+          "default": "true",
+          "description": "Reset value for internal carrier-rotation selection."
+        },
+        {
+          "name": "DEFAULT_ENABLE",
+          "direction": "",
+          "data_type": "boolean",
+          "default": "true",
+          "description": "Reset value for stream processing enable."
         },
         {
           "name": "VENDOR",
@@ -16720,7 +17318,7 @@
           "direction": "in",
           "data_type": "std_logic",
           "default": "",
-          "description": "Stream clock."
+          "description": "Stream and register clock."
         },
         {
           "name": "rst",
@@ -16784,6 +17382,83 @@
           "data_type": "std_logic",
           "default": "",
           "description": "Output frame marker aligned with envelope sample."
+        },
+        {
+          "name": "reg_wr_addr",
+          "direction": "in",
+          "data_type": "std_logic_vector(REG_ADDR_WIDTH - 1 downto 0)",
+          "default": "",
+          "description": "Register write address."
+        },
+        {
+          "name": "reg_rd_addr",
+          "direction": "in",
+          "data_type": "std_logic_vector(REG_ADDR_WIDTH - 1 downto 0)",
+          "default": "",
+          "description": "Register read address."
+        },
+        {
+          "name": "reg_wr_en",
+          "direction": "in",
+          "data_type": "std_logic",
+          "default": "",
+          "description": "One-cycle register write request."
+        },
+        {
+          "name": "reg_rd_en",
+          "direction": "in",
+          "data_type": "std_logic",
+          "default": "",
+          "description": "One-cycle register read request."
+        },
+        {
+          "name": "reg_data_in",
+          "direction": "in",
+          "data_type": "std_logic_vector(REG_DATA_WIDTH - 1 downto 0)",
+          "default": "",
+          "description": "Register write data."
+        },
+        {
+          "name": "reg_data_out",
+          "direction": "out",
+          "data_type": "std_logic_vector(REG_DATA_WIDTH - 1 downto 0)",
+          "default": "",
+          "description": "Register read data."
+        },
+        {
+          "name": "reg_wr_rdy",
+          "direction": "out",
+          "data_type": "std_logic",
+          "default": "",
+          "description": "Register write ready."
+        },
+        {
+          "name": "reg_rd_rdy",
+          "direction": "out",
+          "data_type": "std_logic",
+          "default": "",
+          "description": "Register read ready."
+        },
+        {
+          "name": "reg_wr_valid",
+          "direction": "out",
+          "data_type": "std_logic",
+          "default": "",
+          "description": "Register write response valid."
+        },
+        {
+          "name": "reg_rd_valid",
+          "direction": "out",
+          "data_type": "std_logic",
+          "default": "",
+          "description": "Register read response valid."
+        },
+        {
+          "name": "reg_error",
+          "direction": "out",
+          "data_type": "std_logic",
+          "default": "",
+          "description": "Register transaction error."
         }
       ],
       "sources": [
@@ -16793,7 +17468,7 @@
         {
           "name": "tb_raddsp_axis_am_iq",
           "path": "dsp/hdl/testbenches/tb_raddsp_axis_am_iq.vhd",
-          "description": "Verifies the AM IQ modulator and demodulator as independent blocks and as a loop.",
+          "description": "Verifies the register-controlled AM IQ modulator and demodulator with a\n2048-sample amplitude envelope. The test programs both internal DDS mixers\nto the same carrier tuning word, streams a sinusoidal envelope through the\nmodulator, demodulates it back to baseband, and exposes plot_* signals for\ndatasheet analog plots.",
           "related_modules": [
             "dsp",
             "raddsp_axis_am_iq_demodulator",
@@ -16861,12 +17536,164 @@
               ]
             },
             "vcd": "simulations/tb_raddsp_axis_am_iq/tb_raddsp_axis_am_iq.vcd",
-            "stdout": "dsp/hdl/testbenches/tb_raddsp_axis_am_iq.vhd:114:5:@265ns:(report note): tb_raddsp_axis_am_iq passed\nsimulation finished @265ns\n",
+            "stdout": "dsp/hdl/testbenches/tb_raddsp_axis_am_iq.vhd:200:5:@41155ns:(report note): tb_raddsp_axis_am_iq passed\nsimulation finished @41155ns\n",
             "stderr": ""
           }
         }
       ],
-      "register_maps": []
+      "register_maps": [
+        {
+          "name": "raddsp_axis_am_iq_demodulator",
+          "path": "dsp/hdl/raddsp/register_maps/raddsp_axis_am_iq_demodulator.map.json",
+          "base": "0x0000",
+          "description": "Controls tuned I/Q carrier rotation, envelope detection, and sample-count observation.",
+          "data_width": 32,
+          "registers": [
+            {
+              "name": "control",
+              "offset": "0x0000",
+              "access": "rw",
+              "address": "0x0000",
+              "reset": "0x00000003",
+              "width": 32,
+              "region": "raddsp_axis_am_iq_demodulator",
+              "description": "Controls stream processing and carrier-rotation source selection.",
+              "fields": [
+                {
+                  "name": "enable",
+                  "display_name": "EN",
+                  "description": "Enables stream processing. When clear, accepted input samples are dropped and no output samples are emitted.",
+                  "msb": 0,
+                  "lsb": 0
+                },
+                {
+                  "name": "internal_dds",
+                  "display_name": "INT DDS",
+                  "description": "Enables internal DDS carrier rotation before envelope magnitude calculation.",
+                  "msb": 1,
+                  "lsb": 1
+                },
+                {
+                  "name": "bypass",
+                  "display_name": "BYPASS",
+                  "description": "Bypasses carrier rotation and computes magnitude directly from the incoming I/Q sample.",
+                  "msb": 2,
+                  "lsb": 2
+                },
+                {
+                  "name": "phase_reset",
+                  "display_name": "PH RST",
+                  "description": "Write-one strobe that clears the internal DDS phase accumulator.",
+                  "msb": 3,
+                  "lsb": 3
+                }
+              ]
+            },
+            {
+              "name": "status",
+              "offset": "0x0004",
+              "access": "ro",
+              "address": "0x0004",
+              "reset": "0x00000002",
+              "width": 32,
+              "region": "raddsp_axis_am_iq_demodulator",
+              "description": "Reports output-valid and input-ready status.",
+              "fields": [
+                {
+                  "name": "out_valid",
+                  "display_name": "VALID",
+                  "description": "Set when an output envelope sample is currently valid.",
+                  "msb": 0,
+                  "lsb": 0
+                },
+                {
+                  "name": "input_ready",
+                  "display_name": "READY",
+                  "description": "Set when the block can accept an input I/Q sample.",
+                  "msb": 1,
+                  "lsb": 1
+                }
+              ]
+            },
+            {
+              "name": "phase_inc",
+              "offset": "0x0008",
+              "access": "rw",
+              "address": "0x0008",
+              "reset": "0x01000000",
+              "width": 32,
+              "region": "raddsp_axis_am_iq_demodulator",
+              "description": "Internal DDS phase increment applied after each accepted sample.",
+              "fields": [
+                {
+                  "name": "phase_inc",
+                  "display_name": "PH INC",
+                  "description": "Unsigned phase tuning word. Larger values increase the demodulator rotation frequency; one full accumulator wrap equals one carrier cycle.",
+                  "msb": 31,
+                  "lsb": 0
+                }
+              ]
+            },
+            {
+              "name": "phase_offset",
+              "offset": "0x000C",
+              "access": "rw",
+              "address": "0x000C",
+              "reset": "0x00000000",
+              "width": 32,
+              "region": "raddsp_axis_am_iq_demodulator",
+              "description": "Static phase offset added to the accumulator before carrier-rotation lookup.",
+              "fields": [
+                {
+                  "name": "phase_offset",
+                  "display_name": "PH OFFS",
+                  "description": "Unsigned phase offset added to the DDS accumulator before demodulator sine/cosine lookup.",
+                  "msb": 31,
+                  "lsb": 0
+                }
+              ]
+            },
+            {
+              "name": "phase",
+              "offset": "0x0010",
+              "access": "ro",
+              "address": "0x0010",
+              "reset": "0x00000000",
+              "width": 32,
+              "region": "raddsp_axis_am_iq_demodulator",
+              "description": "Current internal DDS phase accumulator value.",
+              "fields": [
+                {
+                  "name": "phase",
+                  "display_name": "PHASE",
+                  "description": "Current unsigned DDS phase accumulator value.",
+                  "msb": 31,
+                  "lsb": 0
+                }
+              ]
+            },
+            {
+              "name": "sample_count",
+              "offset": "0x0014",
+              "access": "rw",
+              "address": "0x0014",
+              "reset": "0x00000000",
+              "width": 32,
+              "region": "raddsp_axis_am_iq_demodulator",
+              "description": "Counts accepted and emitted samples. Write bit 0 as one to clear the counter.",
+              "fields": [
+                {
+                  "name": "sample_count",
+                  "display_name": "COUNT",
+                  "description": "Current emitted-sample count. Writing bit 0 as one clears the counter.",
+                  "msb": 31,
+                  "lsb": 0
+                }
+              ]
+            }
+          ]
+        }
+      ]
     },
     {
       "name": "raddsp_axis_am_iq_modulator",
@@ -16874,7 +17701,7 @@
       "path": "dsp/hdl/raddsp/src/raddsp_axis_am_iq_modulator.vhd",
       "library": "radhdl",
       "category": "DSP",
-      "description": "AXI-stream AM IQ modulator.\nMultiplies a signed envelope stream by externally supplied carrier cosine\nand sine samples to produce packed I/Q output. The low word is I and the high\nword is Q, both signed fixed-point values.",
+      "description": "Register-controlled AXI-stream AM IQ modulator.\nMultiplies a signed envelope stream by either externally supplied carrier\nsamples or an internal phase-accumulator DDS carrier. The output is packed\nI/Q with I in the low word and Q in the high word. A RADIF-style register\ninterface controls enable, bypass, internal carrier selection, phase reset,\ncarrier phase increment, and phase offset.",
       "generics": [
         {
           "name": "SAMPLE_WIDTH",
@@ -16889,6 +17716,48 @@
           "data_type": "natural",
           "default": "14",
           "description": "Number of fractional bits used by carrier and envelope fixed-point values."
+        },
+        {
+          "name": "PHASE_WIDTH",
+          "direction": "",
+          "data_type": "positive",
+          "default": "32",
+          "description": "Internal DDS phase accumulator width. The register interface supports up to 32 bits."
+        },
+        {
+          "name": "REG_DATA_WIDTH",
+          "direction": "",
+          "data_type": "positive",
+          "default": "32",
+          "description": "Width of the RADIF register data path."
+        },
+        {
+          "name": "REG_ADDR_WIDTH",
+          "direction": "",
+          "data_type": "positive",
+          "default": "16",
+          "description": "Width of the RADIF byte address path."
+        },
+        {
+          "name": "DEFAULT_PHASE_INC",
+          "direction": "",
+          "data_type": "natural",
+          "default": "16#01000000#",
+          "description": "Reset value for carrier phase increment."
+        },
+        {
+          "name": "DEFAULT_INTERNAL_DDS",
+          "direction": "",
+          "data_type": "boolean",
+          "default": "true",
+          "description": "Reset value for internal DDS carrier selection."
+        },
+        {
+          "name": "DEFAULT_ENABLE",
+          "direction": "",
+          "data_type": "boolean",
+          "default": "true",
+          "description": "Reset value for stream processing enable."
         },
         {
           "name": "VENDOR",
@@ -16911,7 +17780,7 @@
           "direction": "in",
           "data_type": "std_logic",
           "default": "",
-          "description": "Stream clock."
+          "description": "Stream and register clock."
         },
         {
           "name": "rst",
@@ -16925,14 +17794,14 @@
           "direction": "in",
           "data_type": "std_logic_vector(SAMPLE_WIDTH - 1 downto 0)",
           "default": "",
-          "description": "Signed fixed-point carrier cosine sample."
+          "description": "Signed fixed-point external carrier cosine sample."
         },
         {
           "name": "carrier_q_i",
           "direction": "in",
           "data_type": "std_logic_vector(SAMPLE_WIDTH - 1 downto 0)",
           "default": "",
-          "description": "Signed fixed-point carrier sine sample."
+          "description": "Signed fixed-point external carrier sine sample."
         },
         {
           "name": "s_axis_tvalid",
@@ -16989,6 +17858,83 @@
           "data_type": "std_logic",
           "default": "",
           "description": "Output frame marker aligned with output sample."
+        },
+        {
+          "name": "reg_wr_addr",
+          "direction": "in",
+          "data_type": "std_logic_vector(REG_ADDR_WIDTH - 1 downto 0)",
+          "default": "",
+          "description": "Register write address."
+        },
+        {
+          "name": "reg_rd_addr",
+          "direction": "in",
+          "data_type": "std_logic_vector(REG_ADDR_WIDTH - 1 downto 0)",
+          "default": "",
+          "description": "Register read address."
+        },
+        {
+          "name": "reg_wr_en",
+          "direction": "in",
+          "data_type": "std_logic",
+          "default": "",
+          "description": "One-cycle register write request."
+        },
+        {
+          "name": "reg_rd_en",
+          "direction": "in",
+          "data_type": "std_logic",
+          "default": "",
+          "description": "One-cycle register read request."
+        },
+        {
+          "name": "reg_data_in",
+          "direction": "in",
+          "data_type": "std_logic_vector(REG_DATA_WIDTH - 1 downto 0)",
+          "default": "",
+          "description": "Register write data."
+        },
+        {
+          "name": "reg_data_out",
+          "direction": "out",
+          "data_type": "std_logic_vector(REG_DATA_WIDTH - 1 downto 0)",
+          "default": "",
+          "description": "Register read data."
+        },
+        {
+          "name": "reg_wr_rdy",
+          "direction": "out",
+          "data_type": "std_logic",
+          "default": "",
+          "description": "Register write ready."
+        },
+        {
+          "name": "reg_rd_rdy",
+          "direction": "out",
+          "data_type": "std_logic",
+          "default": "",
+          "description": "Register read ready."
+        },
+        {
+          "name": "reg_wr_valid",
+          "direction": "out",
+          "data_type": "std_logic",
+          "default": "",
+          "description": "Register write response valid."
+        },
+        {
+          "name": "reg_rd_valid",
+          "direction": "out",
+          "data_type": "std_logic",
+          "default": "",
+          "description": "Register read response valid."
+        },
+        {
+          "name": "reg_error",
+          "direction": "out",
+          "data_type": "std_logic",
+          "default": "",
+          "description": "Register transaction error."
         }
       ],
       "sources": [
@@ -16998,7 +17944,7 @@
         {
           "name": "tb_raddsp_axis_am_iq",
           "path": "dsp/hdl/testbenches/tb_raddsp_axis_am_iq.vhd",
-          "description": "Verifies the AM IQ modulator and demodulator as independent blocks and as a loop.",
+          "description": "Verifies the register-controlled AM IQ modulator and demodulator with a\n2048-sample amplitude envelope. The test programs both internal DDS mixers\nto the same carrier tuning word, streams a sinusoidal envelope through the\nmodulator, demodulates it back to baseband, and exposes plot_* signals for\ndatasheet analog plots.",
           "related_modules": [
             "dsp",
             "raddsp_axis_am_iq_demodulator",
@@ -17066,12 +18012,164 @@
               ]
             },
             "vcd": "simulations/tb_raddsp_axis_am_iq/tb_raddsp_axis_am_iq.vcd",
-            "stdout": "dsp/hdl/testbenches/tb_raddsp_axis_am_iq.vhd:114:5:@265ns:(report note): tb_raddsp_axis_am_iq passed\nsimulation finished @265ns\n",
+            "stdout": "dsp/hdl/testbenches/tb_raddsp_axis_am_iq.vhd:200:5:@41155ns:(report note): tb_raddsp_axis_am_iq passed\nsimulation finished @41155ns\n",
             "stderr": ""
           }
         }
       ],
-      "register_maps": []
+      "register_maps": [
+        {
+          "name": "raddsp_axis_am_iq_modulator",
+          "path": "dsp/hdl/raddsp/register_maps/raddsp_axis_am_iq_modulator.map.json",
+          "base": "0x0000",
+          "description": "Controls AM envelope modulation, internal/external carrier selection, DDS tuning, and sample-count observation.",
+          "data_width": 32,
+          "registers": [
+            {
+              "name": "control",
+              "offset": "0x0000",
+              "access": "rw",
+              "address": "0x0000",
+              "reset": "0x00000003",
+              "width": 32,
+              "region": "raddsp_axis_am_iq_modulator",
+              "description": "Controls stream processing and carrier source selection.",
+              "fields": [
+                {
+                  "name": "enable",
+                  "display_name": "EN",
+                  "description": "Enables stream processing. When clear, accepted input samples are dropped and no output samples are emitted.",
+                  "msb": 0,
+                  "lsb": 0
+                },
+                {
+                  "name": "internal_dds",
+                  "display_name": "INT DDS",
+                  "description": "Selects the internal DDS carrier. When clear, carrier_i_i and carrier_q_i provide the carrier samples.",
+                  "msb": 1,
+                  "lsb": 1
+                },
+                {
+                  "name": "bypass",
+                  "display_name": "BYPASS",
+                  "description": "Passes the envelope to the I lane and drives Q to zero without carrier multiplication.",
+                  "msb": 2,
+                  "lsb": 2
+                },
+                {
+                  "name": "phase_reset",
+                  "display_name": "PH RST",
+                  "description": "Write-one strobe that clears the internal DDS phase accumulator.",
+                  "msb": 3,
+                  "lsb": 3
+                }
+              ]
+            },
+            {
+              "name": "status",
+              "offset": "0x0004",
+              "access": "ro",
+              "address": "0x0004",
+              "reset": "0x00000002",
+              "width": 32,
+              "region": "raddsp_axis_am_iq_modulator",
+              "description": "Reports output-valid and input-ready status.",
+              "fields": [
+                {
+                  "name": "out_valid",
+                  "display_name": "VALID",
+                  "description": "Set when an output I/Q sample is currently valid.",
+                  "msb": 0,
+                  "lsb": 0
+                },
+                {
+                  "name": "input_ready",
+                  "display_name": "READY",
+                  "description": "Set when the block can accept an input envelope sample.",
+                  "msb": 1,
+                  "lsb": 1
+                }
+              ]
+            },
+            {
+              "name": "phase_inc",
+              "offset": "0x0008",
+              "access": "rw",
+              "address": "0x0008",
+              "reset": "0x01000000",
+              "width": 32,
+              "region": "raddsp_axis_am_iq_modulator",
+              "description": "Internal DDS phase increment applied after each accepted sample.",
+              "fields": [
+                {
+                  "name": "phase_inc",
+                  "display_name": "PH INC",
+                  "description": "Unsigned phase tuning word. Larger values increase carrier frequency; one full accumulator wrap equals one carrier cycle.",
+                  "msb": 31,
+                  "lsb": 0
+                }
+              ]
+            },
+            {
+              "name": "phase_offset",
+              "offset": "0x000C",
+              "access": "rw",
+              "address": "0x000C",
+              "reset": "0x00000000",
+              "width": 32,
+              "region": "raddsp_axis_am_iq_modulator",
+              "description": "Static phase offset added to the accumulator before carrier lookup.",
+              "fields": [
+                {
+                  "name": "phase_offset",
+                  "display_name": "PH OFFS",
+                  "description": "Unsigned phase offset added to the DDS accumulator before sine/cosine lookup.",
+                  "msb": 31,
+                  "lsb": 0
+                }
+              ]
+            },
+            {
+              "name": "phase",
+              "offset": "0x0010",
+              "access": "ro",
+              "address": "0x0010",
+              "reset": "0x00000000",
+              "width": 32,
+              "region": "raddsp_axis_am_iq_modulator",
+              "description": "Current internal DDS phase accumulator value.",
+              "fields": [
+                {
+                  "name": "phase",
+                  "display_name": "PHASE",
+                  "description": "Current unsigned DDS phase accumulator value.",
+                  "msb": 31,
+                  "lsb": 0
+                }
+              ]
+            },
+            {
+              "name": "sample_count",
+              "offset": "0x0014",
+              "access": "rw",
+              "address": "0x0014",
+              "reset": "0x00000000",
+              "width": 32,
+              "region": "raddsp_axis_am_iq_modulator",
+              "description": "Counts accepted and emitted samples. Write bit 0 as one to clear the counter.",
+              "fields": [
+                {
+                  "name": "sample_count",
+                  "display_name": "COUNT",
+                  "description": "Current emitted-sample count. Writing bit 0 as one clears the counter.",
+                  "msb": 31,
+                  "lsb": 0
+                }
+              ]
+            }
+          ]
+        }
+      ]
     },
     {
       "name": "raddsp_axis_biquad",
@@ -21175,7 +22273,7 @@
             },
             "returncode": 2,
             "stdout": "",
-            "stderr": "\n******************** GHDL Bug occurred ***************************\nPlease report this bug on https://github.com/ghdl/ghdl/issues\nGHDL release: 1.0.0 (Ubuntu 1.0.0+dfsg-6) [Dunoon edition]\nCompiled with GNAT Version: 10.3.1 20211117\nTarget: x86_64-linux-gnu\n/tmp/radhdl-ghdl-n4tq106v/\nCommand line:\n/usr/bin/ghdl-mcode -e --std=08 --ieee=synopsys -P/tmp/radhdl-ghdl-n4tq106v --workdir=/tmp/radhdl-ghdl-n4tq106v tb_raddsp_axis_radfft\nException TYPES.INTERNAL_ERROR raised\nException information:\nraised TYPES.INTERNAL_ERROR : trans.adb:553\nCall stack traceback locations:\n0x6149f23c413d 0x6149f23c451b 0x6149f23c4797 0x6149f2559fc8 0x6149f2568d6d 0x6149f2568e25 0x6149f2572bde 0x6149f2591aa7 0x6149f2591d5f 0x6149f2592257 0x6149f25926b1 0x6149f259f330 0x6149f259e81c 0x6149f25e6a78 0x6149f25e6b9f 0x6149f25e71f8 0x6149f25e798a 0x6149f25e9596 0x6149f25e96eb 0x6149f25ecb0f 0x6149f25f13f8 0x6149f25f123b 0x6149f25f14e5 0x6149f25f123b 0x6149f25f14e5 0x6149f25b54fa 0x6149f25a8eac 0x6149f25b9d8c 0x6149f25b40a0 0x6149f25f9b55 0x6149f253aaf5 0x6149f247069e 0x6149f25fd4b3 0x6149f2228b07 0x71f200429d8e 0x71f200429e3e 0x6149f2227243 0xfffffffffffffffe\n******************************************************************\n"
+            "stderr": "\n******************** GHDL Bug occurred ***************************\nPlease report this bug on https://github.com/ghdl/ghdl/issues\nGHDL release: 1.0.0 (Ubuntu 1.0.0+dfsg-6) [Dunoon edition]\nCompiled with GNAT Version: 10.3.1 20211117\nTarget: x86_64-linux-gnu\n/tmp/radhdl-ghdl-ogbrduuu/\nCommand line:\n/usr/bin/ghdl-mcode -e --std=08 --ieee=synopsys -P/tmp/radhdl-ghdl-ogbrduuu --workdir=/tmp/radhdl-ghdl-ogbrduuu tb_raddsp_axis_radfft\nException TYPES.INTERNAL_ERROR raised\nException information:\nraised TYPES.INTERNAL_ERROR : trans.adb:553\nCall stack traceback locations:\n0x631083eb913d 0x631083eb951b 0x631083eb9797 0x63108404efc8 0x63108405dd6d 0x63108405de25 0x631084067bde 0x631084086aa7 0x631084086d5f 0x631084087257 0x6310840876b1 0x631084094330 0x63108409381c 0x6310840dba78 0x6310840dbb9f 0x6310840dc1f8 0x6310840dc98a 0x6310840de596 0x6310840de6eb 0x6310840e1b0f 0x6310840e63f8 0x6310840e623b 0x6310840e64e5 0x6310840e623b 0x6310840e64e5 0x6310840aa4fa 0x63108409deac 0x6310840aed8c 0x6310840a90a0 0x6310840eeb55 0x63108402faf5 0x631083f6569e 0x6310840f24b3 0x631083d1db07 0x70f3d6429d8e 0x70f3d6429e3e 0x631083d1c243 0xfffffffffffffffe\n******************************************************************\n"
           }
         },
         {
@@ -21251,7 +22349,7 @@
             },
             "returncode": 2,
             "stdout": "",
-            "stderr": "\n******************** GHDL Bug occurred ***************************\nPlease report this bug on https://github.com/ghdl/ghdl/issues\nGHDL release: 1.0.0 (Ubuntu 1.0.0+dfsg-6) [Dunoon edition]\nCompiled with GNAT Version: 10.3.1 20211117\nTarget: x86_64-linux-gnu\n/tmp/radhdl-ghdl-ievwbx91/\nCommand line:\n/usr/bin/ghdl-mcode -e --std=08 --ieee=synopsys -P/tmp/radhdl-ghdl-ievwbx91 --workdir=/tmp/radhdl-ghdl-ievwbx91 tb_raddsp_axis_radfft_ddr\nException TYPES.INTERNAL_ERROR raised\nException information:\nraised TYPES.INTERNAL_ERROR : trans.adb:553\nCall stack traceback locations:\n0x5e35d286c13d 0x5e35d286c51b 0x5e35d286c797 0x5e35d2a01fc8 0x5e35d2a10d6d 0x5e35d2a10e25 0x5e35d2a1abde 0x5e35d2a39aa7 0x5e35d2a39d5f 0x5e35d2a3a257 0x5e35d2a3a6b1 0x5e35d2a47330 0x5e35d2a4681c 0x5e35d2a8ea78 0x5e35d2a8eb9f 0x5e35d2a8f1f8 0x5e35d2a8f98a 0x5e35d2a91596 0x5e35d2a916eb 0x5e35d2a94b0f 0x5e35d2a993f8 0x5e35d2a9923b 0x5e35d2a994e5 0x5e35d2a9923b 0x5e35d2a994e5 0x5e35d2a5d4fa 0x5e35d2a50eac 0x5e35d2a61d8c 0x5e35d2a5c0a0 0x5e35d2aa1b55 0x5e35d29e2af5 0x5e35d291869e 0x5e35d2aa54b3 0x5e35d26d0b07 0x78a972c29d8e 0x78a972c29e3e 0x5e35d26cf243 0xfffffffffffffffe\n******************************************************************\n"
+            "stderr": "\n******************** GHDL Bug occurred ***************************\nPlease report this bug on https://github.com/ghdl/ghdl/issues\nGHDL release: 1.0.0 (Ubuntu 1.0.0+dfsg-6) [Dunoon edition]\nCompiled with GNAT Version: 10.3.1 20211117\nTarget: x86_64-linux-gnu\n/tmp/radhdl-ghdl-sn781yzf/\nCommand line:\n/usr/bin/ghdl-mcode -e --std=08 --ieee=synopsys -P/tmp/radhdl-ghdl-sn781yzf --workdir=/tmp/radhdl-ghdl-sn781yzf tb_raddsp_axis_radfft_ddr\nException TYPES.INTERNAL_ERROR raised\nException information:\nraised TYPES.INTERNAL_ERROR : trans.adb:553\nCall stack traceback locations:\n0x5dd1820cb13d 0x5dd1820cb51b 0x5dd1820cb797 0x5dd182260fc8 0x5dd18226fd6d 0x5dd18226fe25 0x5dd182279bde 0x5dd182298aa7 0x5dd182298d5f 0x5dd182299257 0x5dd1822996b1 0x5dd1822a6330 0x5dd1822a581c 0x5dd1822eda78 0x5dd1822edb9f 0x5dd1822ee1f8 0x5dd1822ee98a 0x5dd1822f0596 0x5dd1822f06eb 0x5dd1822f3b0f 0x5dd1822f83f8 0x5dd1822f823b 0x5dd1822f84e5 0x5dd1822f823b 0x5dd1822f84e5 0x5dd1822bc4fa 0x5dd1822afeac 0x5dd1822c0d8c 0x5dd1822bb0a0 0x5dd182300b55 0x5dd182241af5 0x5dd18217769e 0x5dd1823044b3 0x5dd181f2fb07 0x733724229d8e 0x733724229e3e 0x5dd181f2e243 0xfffffffffffffffe\n******************************************************************\n"
           }
         },
         {
@@ -21326,7 +22424,7 @@
             },
             "returncode": 2,
             "stdout": "",
-            "stderr": "\n******************** GHDL Bug occurred ***************************\nPlease report this bug on https://github.com/ghdl/ghdl/issues\nGHDL release: 1.0.0 (Ubuntu 1.0.0+dfsg-6) [Dunoon edition]\nCompiled with GNAT Version: 10.3.1 20211117\nTarget: x86_64-linux-gnu\n/tmp/radhdl-ghdl-h1uvpojv/\nCommand line:\n/usr/bin/ghdl-mcode -e --std=08 --ieee=synopsys -P/tmp/radhdl-ghdl-h1uvpojv --workdir=/tmp/radhdl-ghdl-h1uvpojv tb_raddsp_axis_radfft_ddr_xcorr_1024\nException TYPES.INTERNAL_ERROR raised\nException information:\nraised TYPES.INTERNAL_ERROR : trans.adb:553\nCall stack traceback locations:\n0x5ad35531d13d 0x5ad35531d51b 0x5ad35531d797 0x5ad3554b2fc8 0x5ad3554c1d6d 0x5ad3554c1e25 0x5ad3554cbbde 0x5ad3554eaaa7 0x5ad3554ead5f 0x5ad3554eb257 0x5ad3554eb6b1 0x5ad3554f8330 0x5ad3554f781c 0x5ad35553fa78 0x5ad35553fb9f 0x5ad3555401f8 0x5ad35554098a 0x5ad355542596 0x5ad3555426eb 0x5ad355545b0f 0x5ad35554a3f8 0x5ad35554a23b 0x5ad35554a4e5 0x5ad35554a23b 0x5ad35554a4e5 0x5ad35550e4fa 0x5ad355501eac 0x5ad355512d8c 0x5ad35550d0a0 0x5ad355552b55 0x5ad355493af5 0x5ad3553c969e 0x5ad3555564b3 0x5ad355181b07 0x754ff0629d8e 0x754ff0629e3e 0x5ad355180243 0xfffffffffffffffe\n******************************************************************\n"
+            "stderr": "\n******************** GHDL Bug occurred ***************************\nPlease report this bug on https://github.com/ghdl/ghdl/issues\nGHDL release: 1.0.0 (Ubuntu 1.0.0+dfsg-6) [Dunoon edition]\nCompiled with GNAT Version: 10.3.1 20211117\nTarget: x86_64-linux-gnu\n/tmp/radhdl-ghdl-286n9f4c/\nCommand line:\n/usr/bin/ghdl-mcode -e --std=08 --ieee=synopsys -P/tmp/radhdl-ghdl-286n9f4c --workdir=/tmp/radhdl-ghdl-286n9f4c tb_raddsp_axis_radfft_ddr_xcorr_1024\nException TYPES.INTERNAL_ERROR raised\nException information:\nraised TYPES.INTERNAL_ERROR : trans.adb:553\nCall stack traceback locations:\n0x5df6b080313d 0x5df6b080351b 0x5df6b0803797 0x5df6b0998fc8 0x5df6b09a7d6d 0x5df6b09a7e25 0x5df6b09b1bde 0x5df6b09d0aa7 0x5df6b09d0d5f 0x5df6b09d1257 0x5df6b09d16b1 0x5df6b09de330 0x5df6b09dd81c 0x5df6b0a25a78 0x5df6b0a25b9f 0x5df6b0a261f8 0x5df6b0a2698a 0x5df6b0a28596 0x5df6b0a286eb 0x5df6b0a2bb0f 0x5df6b0a303f8 0x5df6b0a3023b 0x5df6b0a304e5 0x5df6b0a3023b 0x5df6b0a304e5 0x5df6b09f44fa 0x5df6b09e7eac 0x5df6b09f8d8c 0x5df6b09f30a0 0x5df6b0a38b55 0x5df6b0979af5 0x5df6b08af69e 0x5df6b0a3c4b3 0x5df6b0667b07 0x720560029d8e 0x720560029e3e 0x5df6b0666243 0xfffffffffffffffe\n******************************************************************\n"
           }
         }
       ],
@@ -22165,7 +23263,7 @@
             },
             "returncode": 2,
             "stdout": "",
-            "stderr": "\n******************** GHDL Bug occurred ***************************\nPlease report this bug on https://github.com/ghdl/ghdl/issues\nGHDL release: 1.0.0 (Ubuntu 1.0.0+dfsg-6) [Dunoon edition]\nCompiled with GNAT Version: 10.3.1 20211117\nTarget: x86_64-linux-gnu\n/tmp/radhdl-ghdl-ievwbx91/\nCommand line:\n/usr/bin/ghdl-mcode -e --std=08 --ieee=synopsys -P/tmp/radhdl-ghdl-ievwbx91 --workdir=/tmp/radhdl-ghdl-ievwbx91 tb_raddsp_axis_radfft_ddr\nException TYPES.INTERNAL_ERROR raised\nException information:\nraised TYPES.INTERNAL_ERROR : trans.adb:553\nCall stack traceback locations:\n0x5e35d286c13d 0x5e35d286c51b 0x5e35d286c797 0x5e35d2a01fc8 0x5e35d2a10d6d 0x5e35d2a10e25 0x5e35d2a1abde 0x5e35d2a39aa7 0x5e35d2a39d5f 0x5e35d2a3a257 0x5e35d2a3a6b1 0x5e35d2a47330 0x5e35d2a4681c 0x5e35d2a8ea78 0x5e35d2a8eb9f 0x5e35d2a8f1f8 0x5e35d2a8f98a 0x5e35d2a91596 0x5e35d2a916eb 0x5e35d2a94b0f 0x5e35d2a993f8 0x5e35d2a9923b 0x5e35d2a994e5 0x5e35d2a9923b 0x5e35d2a994e5 0x5e35d2a5d4fa 0x5e35d2a50eac 0x5e35d2a61d8c 0x5e35d2a5c0a0 0x5e35d2aa1b55 0x5e35d29e2af5 0x5e35d291869e 0x5e35d2aa54b3 0x5e35d26d0b07 0x78a972c29d8e 0x78a972c29e3e 0x5e35d26cf243 0xfffffffffffffffe\n******************************************************************\n"
+            "stderr": "\n******************** GHDL Bug occurred ***************************\nPlease report this bug on https://github.com/ghdl/ghdl/issues\nGHDL release: 1.0.0 (Ubuntu 1.0.0+dfsg-6) [Dunoon edition]\nCompiled with GNAT Version: 10.3.1 20211117\nTarget: x86_64-linux-gnu\n/tmp/radhdl-ghdl-sn781yzf/\nCommand line:\n/usr/bin/ghdl-mcode -e --std=08 --ieee=synopsys -P/tmp/radhdl-ghdl-sn781yzf --workdir=/tmp/radhdl-ghdl-sn781yzf tb_raddsp_axis_radfft_ddr\nException TYPES.INTERNAL_ERROR raised\nException information:\nraised TYPES.INTERNAL_ERROR : trans.adb:553\nCall stack traceback locations:\n0x5dd1820cb13d 0x5dd1820cb51b 0x5dd1820cb797 0x5dd182260fc8 0x5dd18226fd6d 0x5dd18226fe25 0x5dd182279bde 0x5dd182298aa7 0x5dd182298d5f 0x5dd182299257 0x5dd1822996b1 0x5dd1822a6330 0x5dd1822a581c 0x5dd1822eda78 0x5dd1822edb9f 0x5dd1822ee1f8 0x5dd1822ee98a 0x5dd1822f0596 0x5dd1822f06eb 0x5dd1822f3b0f 0x5dd1822f83f8 0x5dd1822f823b 0x5dd1822f84e5 0x5dd1822f823b 0x5dd1822f84e5 0x5dd1822bc4fa 0x5dd1822afeac 0x5dd1822c0d8c 0x5dd1822bb0a0 0x5dd182300b55 0x5dd182241af5 0x5dd18217769e 0x5dd1823044b3 0x5dd181f2fb07 0x733724229d8e 0x733724229e3e 0x5dd181f2e243 0xfffffffffffffffe\n******************************************************************\n"
           }
         },
         {
@@ -22240,7 +23338,7 @@
             },
             "returncode": 2,
             "stdout": "",
-            "stderr": "\n******************** GHDL Bug occurred ***************************\nPlease report this bug on https://github.com/ghdl/ghdl/issues\nGHDL release: 1.0.0 (Ubuntu 1.0.0+dfsg-6) [Dunoon edition]\nCompiled with GNAT Version: 10.3.1 20211117\nTarget: x86_64-linux-gnu\n/tmp/radhdl-ghdl-h1uvpojv/\nCommand line:\n/usr/bin/ghdl-mcode -e --std=08 --ieee=synopsys -P/tmp/radhdl-ghdl-h1uvpojv --workdir=/tmp/radhdl-ghdl-h1uvpojv tb_raddsp_axis_radfft_ddr_xcorr_1024\nException TYPES.INTERNAL_ERROR raised\nException information:\nraised TYPES.INTERNAL_ERROR : trans.adb:553\nCall stack traceback locations:\n0x5ad35531d13d 0x5ad35531d51b 0x5ad35531d797 0x5ad3554b2fc8 0x5ad3554c1d6d 0x5ad3554c1e25 0x5ad3554cbbde 0x5ad3554eaaa7 0x5ad3554ead5f 0x5ad3554eb257 0x5ad3554eb6b1 0x5ad3554f8330 0x5ad3554f781c 0x5ad35553fa78 0x5ad35553fb9f 0x5ad3555401f8 0x5ad35554098a 0x5ad355542596 0x5ad3555426eb 0x5ad355545b0f 0x5ad35554a3f8 0x5ad35554a23b 0x5ad35554a4e5 0x5ad35554a23b 0x5ad35554a4e5 0x5ad35550e4fa 0x5ad355501eac 0x5ad355512d8c 0x5ad35550d0a0 0x5ad355552b55 0x5ad355493af5 0x5ad3553c969e 0x5ad3555564b3 0x5ad355181b07 0x754ff0629d8e 0x754ff0629e3e 0x5ad355180243 0xfffffffffffffffe\n******************************************************************\n"
+            "stderr": "\n******************** GHDL Bug occurred ***************************\nPlease report this bug on https://github.com/ghdl/ghdl/issues\nGHDL release: 1.0.0 (Ubuntu 1.0.0+dfsg-6) [Dunoon edition]\nCompiled with GNAT Version: 10.3.1 20211117\nTarget: x86_64-linux-gnu\n/tmp/radhdl-ghdl-286n9f4c/\nCommand line:\n/usr/bin/ghdl-mcode -e --std=08 --ieee=synopsys -P/tmp/radhdl-ghdl-286n9f4c --workdir=/tmp/radhdl-ghdl-286n9f4c tb_raddsp_axis_radfft_ddr_xcorr_1024\nException TYPES.INTERNAL_ERROR raised\nException information:\nraised TYPES.INTERNAL_ERROR : trans.adb:553\nCall stack traceback locations:\n0x5df6b080313d 0x5df6b080351b 0x5df6b0803797 0x5df6b0998fc8 0x5df6b09a7d6d 0x5df6b09a7e25 0x5df6b09b1bde 0x5df6b09d0aa7 0x5df6b09d0d5f 0x5df6b09d1257 0x5df6b09d16b1 0x5df6b09de330 0x5df6b09dd81c 0x5df6b0a25a78 0x5df6b0a25b9f 0x5df6b0a261f8 0x5df6b0a2698a 0x5df6b0a28596 0x5df6b0a286eb 0x5df6b0a2bb0f 0x5df6b0a303f8 0x5df6b0a3023b 0x5df6b0a304e5 0x5df6b0a3023b 0x5df6b0a304e5 0x5df6b09f44fa 0x5df6b09e7eac 0x5df6b09f8d8c 0x5df6b09f30a0 0x5df6b0a38b55 0x5df6b0979af5 0x5df6b08af69e 0x5df6b0a3c4b3 0x5df6b0667b07 0x720560029d8e 0x720560029e3e 0x5df6b0666243 0xfffffffffffffffe\n******************************************************************\n"
           }
         }
       ],
@@ -23972,7 +25070,7 @@
             },
             "returncode": 2,
             "stdout": "",
-            "stderr": "\n******************** GHDL Bug occurred ***************************\nPlease report this bug on https://github.com/ghdl/ghdl/issues\nGHDL release: 1.0.0 (Ubuntu 1.0.0+dfsg-6) [Dunoon edition]\nCompiled with GNAT Version: 10.3.1 20211117\nTarget: x86_64-linux-gnu\n/tmp/radhdl-ghdl-n4tq106v/\nCommand line:\n/usr/bin/ghdl-mcode -e --std=08 --ieee=synopsys -P/tmp/radhdl-ghdl-n4tq106v --workdir=/tmp/radhdl-ghdl-n4tq106v tb_raddsp_axis_radfft\nException TYPES.INTERNAL_ERROR raised\nException information:\nraised TYPES.INTERNAL_ERROR : trans.adb:553\nCall stack traceback locations:\n0x6149f23c413d 0x6149f23c451b 0x6149f23c4797 0x6149f2559fc8 0x6149f2568d6d 0x6149f2568e25 0x6149f2572bde 0x6149f2591aa7 0x6149f2591d5f 0x6149f2592257 0x6149f25926b1 0x6149f259f330 0x6149f259e81c 0x6149f25e6a78 0x6149f25e6b9f 0x6149f25e71f8 0x6149f25e798a 0x6149f25e9596 0x6149f25e96eb 0x6149f25ecb0f 0x6149f25f13f8 0x6149f25f123b 0x6149f25f14e5 0x6149f25f123b 0x6149f25f14e5 0x6149f25b54fa 0x6149f25a8eac 0x6149f25b9d8c 0x6149f25b40a0 0x6149f25f9b55 0x6149f253aaf5 0x6149f247069e 0x6149f25fd4b3 0x6149f2228b07 0x71f200429d8e 0x71f200429e3e 0x6149f2227243 0xfffffffffffffffe\n******************************************************************\n"
+            "stderr": "\n******************** GHDL Bug occurred ***************************\nPlease report this bug on https://github.com/ghdl/ghdl/issues\nGHDL release: 1.0.0 (Ubuntu 1.0.0+dfsg-6) [Dunoon edition]\nCompiled with GNAT Version: 10.3.1 20211117\nTarget: x86_64-linux-gnu\n/tmp/radhdl-ghdl-ogbrduuu/\nCommand line:\n/usr/bin/ghdl-mcode -e --std=08 --ieee=synopsys -P/tmp/radhdl-ghdl-ogbrduuu --workdir=/tmp/radhdl-ghdl-ogbrduuu tb_raddsp_axis_radfft\nException TYPES.INTERNAL_ERROR raised\nException information:\nraised TYPES.INTERNAL_ERROR : trans.adb:553\nCall stack traceback locations:\n0x631083eb913d 0x631083eb951b 0x631083eb9797 0x63108404efc8 0x63108405dd6d 0x63108405de25 0x631084067bde 0x631084086aa7 0x631084086d5f 0x631084087257 0x6310840876b1 0x631084094330 0x63108409381c 0x6310840dba78 0x6310840dbb9f 0x6310840dc1f8 0x6310840dc98a 0x6310840de596 0x6310840de6eb 0x6310840e1b0f 0x6310840e63f8 0x6310840e623b 0x6310840e64e5 0x6310840e623b 0x6310840e64e5 0x6310840aa4fa 0x63108409deac 0x6310840aed8c 0x6310840a90a0 0x6310840eeb55 0x63108402faf5 0x631083f6569e 0x6310840f24b3 0x631083d1db07 0x70f3d6429d8e 0x70f3d6429e3e 0x631083d1c243 0xfffffffffffffffe\n******************************************************************\n"
           }
         },
         {
@@ -24048,7 +25146,7 @@
             },
             "returncode": 2,
             "stdout": "",
-            "stderr": "\n******************** GHDL Bug occurred ***************************\nPlease report this bug on https://github.com/ghdl/ghdl/issues\nGHDL release: 1.0.0 (Ubuntu 1.0.0+dfsg-6) [Dunoon edition]\nCompiled with GNAT Version: 10.3.1 20211117\nTarget: x86_64-linux-gnu\n/tmp/radhdl-ghdl-ievwbx91/\nCommand line:\n/usr/bin/ghdl-mcode -e --std=08 --ieee=synopsys -P/tmp/radhdl-ghdl-ievwbx91 --workdir=/tmp/radhdl-ghdl-ievwbx91 tb_raddsp_axis_radfft_ddr\nException TYPES.INTERNAL_ERROR raised\nException information:\nraised TYPES.INTERNAL_ERROR : trans.adb:553\nCall stack traceback locations:\n0x5e35d286c13d 0x5e35d286c51b 0x5e35d286c797 0x5e35d2a01fc8 0x5e35d2a10d6d 0x5e35d2a10e25 0x5e35d2a1abde 0x5e35d2a39aa7 0x5e35d2a39d5f 0x5e35d2a3a257 0x5e35d2a3a6b1 0x5e35d2a47330 0x5e35d2a4681c 0x5e35d2a8ea78 0x5e35d2a8eb9f 0x5e35d2a8f1f8 0x5e35d2a8f98a 0x5e35d2a91596 0x5e35d2a916eb 0x5e35d2a94b0f 0x5e35d2a993f8 0x5e35d2a9923b 0x5e35d2a994e5 0x5e35d2a9923b 0x5e35d2a994e5 0x5e35d2a5d4fa 0x5e35d2a50eac 0x5e35d2a61d8c 0x5e35d2a5c0a0 0x5e35d2aa1b55 0x5e35d29e2af5 0x5e35d291869e 0x5e35d2aa54b3 0x5e35d26d0b07 0x78a972c29d8e 0x78a972c29e3e 0x5e35d26cf243 0xfffffffffffffffe\n******************************************************************\n"
+            "stderr": "\n******************** GHDL Bug occurred ***************************\nPlease report this bug on https://github.com/ghdl/ghdl/issues\nGHDL release: 1.0.0 (Ubuntu 1.0.0+dfsg-6) [Dunoon edition]\nCompiled with GNAT Version: 10.3.1 20211117\nTarget: x86_64-linux-gnu\n/tmp/radhdl-ghdl-sn781yzf/\nCommand line:\n/usr/bin/ghdl-mcode -e --std=08 --ieee=synopsys -P/tmp/radhdl-ghdl-sn781yzf --workdir=/tmp/radhdl-ghdl-sn781yzf tb_raddsp_axis_radfft_ddr\nException TYPES.INTERNAL_ERROR raised\nException information:\nraised TYPES.INTERNAL_ERROR : trans.adb:553\nCall stack traceback locations:\n0x5dd1820cb13d 0x5dd1820cb51b 0x5dd1820cb797 0x5dd182260fc8 0x5dd18226fd6d 0x5dd18226fe25 0x5dd182279bde 0x5dd182298aa7 0x5dd182298d5f 0x5dd182299257 0x5dd1822996b1 0x5dd1822a6330 0x5dd1822a581c 0x5dd1822eda78 0x5dd1822edb9f 0x5dd1822ee1f8 0x5dd1822ee98a 0x5dd1822f0596 0x5dd1822f06eb 0x5dd1822f3b0f 0x5dd1822f83f8 0x5dd1822f823b 0x5dd1822f84e5 0x5dd1822f823b 0x5dd1822f84e5 0x5dd1822bc4fa 0x5dd1822afeac 0x5dd1822c0d8c 0x5dd1822bb0a0 0x5dd182300b55 0x5dd182241af5 0x5dd18217769e 0x5dd1823044b3 0x5dd181f2fb07 0x733724229d8e 0x733724229e3e 0x5dd181f2e243 0xfffffffffffffffe\n******************************************************************\n"
           }
         }
       ],
@@ -24565,7 +25663,7 @@
             },
             "returncode": 2,
             "stdout": "",
-            "stderr": "\n******************** GHDL Bug occurred ***************************\nPlease report this bug on https://github.com/ghdl/ghdl/issues\nGHDL release: 1.0.0 (Ubuntu 1.0.0+dfsg-6) [Dunoon edition]\nCompiled with GNAT Version: 10.3.1 20211117\nTarget: x86_64-linux-gnu\n/tmp/radhdl-ghdl-0e_0bc0d/\nCommand line:\n/usr/bin/ghdl-mcode -e --std=08 --ieee=synopsys -P/tmp/radhdl-ghdl-0e_0bc0d --workdir=/tmp/radhdl-ghdl-0e_0bc0d tb_raddsp_xilinx_dsp48_wide_mul\nException TYPES.INTERNAL_ERROR raised\nException information:\nraised TYPES.INTERNAL_ERROR : trans.adb:553\nCall stack traceback locations:\n0x5d680194913d 0x5d680194951b 0x5d6801949797 0x5d6801adefc8 0x5d6801aedd6d 0x5d6801aede25 0x5d6801af7bde 0x5d6801b16aa7 0x5d6801b16d5f 0x5d6801b17257 0x5d6801b176b1 0x5d6801b24330 0x5d6801b2381c 0x5d6801b6ba78 0x5d6801b6bb9f 0x5d6801b6c1f8 0x5d6801b6c98a 0x5d6801b6e596 0x5d6801b6e6eb 0x5d6801b71b0f 0x5d6801b763f8 0x5d6801b7623b 0x5d6801b764e5 0x5d6801b7623b 0x5d6801b764e5 0x5d6801b3a4fa 0x5d6801b2deac 0x5d6801b3ed8c 0x5d6801b390a0 0x5d6801b7eb55 0x5d6801abfaf5 0x5d68019f569e 0x5d6801b824b3 0x5d68017adb07 0x725eb9629d8e 0x725eb9629e3e 0x5d68017ac243 0xfffffffffffffffe\n******************************************************************\n"
+            "stderr": "\n******************** GHDL Bug occurred ***************************\nPlease report this bug on https://github.com/ghdl/ghdl/issues\nGHDL release: 1.0.0 (Ubuntu 1.0.0+dfsg-6) [Dunoon edition]\nCompiled with GNAT Version: 10.3.1 20211117\nTarget: x86_64-linux-gnu\n/tmp/radhdl-ghdl-mauzqxw6/\nCommand line:\n/usr/bin/ghdl-mcode -e --std=08 --ieee=synopsys -P/tmp/radhdl-ghdl-mauzqxw6 --workdir=/tmp/radhdl-ghdl-mauzqxw6 tb_raddsp_xilinx_dsp48_wide_mul\nException TYPES.INTERNAL_ERROR raised\nException information:\nraised TYPES.INTERNAL_ERROR : trans.adb:553\nCall stack traceback locations:\n0x628e199ba13d 0x628e199ba51b 0x628e199ba797 0x628e19b4ffc8 0x628e19b5ed6d 0x628e19b5ee25 0x628e19b68bde 0x628e19b87aa7 0x628e19b87d5f 0x628e19b88257 0x628e19b886b1 0x628e19b95330 0x628e19b9481c 0x628e19bdca78 0x628e19bdcb9f 0x628e19bdd1f8 0x628e19bdd98a 0x628e19bdf596 0x628e19bdf6eb 0x628e19be2b0f 0x628e19be73f8 0x628e19be723b 0x628e19be74e5 0x628e19be723b 0x628e19be74e5 0x628e19bab4fa 0x628e19b9eeac 0x628e19bafd8c 0x628e19baa0a0 0x628e19befb55 0x628e19b30af5 0x628e19a6669e 0x628e19bf34b3 0x628e1981eb07 0x780170829d8e 0x780170829e3e 0x628e1981d243 0xfffffffffffffffe\n******************************************************************\n"
           }
         }
       ],
@@ -26106,7 +27204,7 @@
         {
           "name": "tb_raddsp_axis_am_iq",
           "path": "dsp/hdl/testbenches/tb_raddsp_axis_am_iq.vhd",
-          "description": "Verifies the AM IQ modulator and demodulator as independent blocks and as a loop.",
+          "description": "Verifies the register-controlled AM IQ modulator and demodulator with a\n2048-sample amplitude envelope. The test programs both internal DDS mixers\nto the same carrier tuning word, streams a sinusoidal envelope through the\nmodulator, demodulates it back to baseband, and exposes plot_* signals for\ndatasheet analog plots.",
           "related_modules": [
             "dsp",
             "raddsp_axis_am_iq_demodulator",
@@ -26174,7 +27272,7 @@
               ]
             },
             "vcd": "simulations/tb_raddsp_axis_am_iq/tb_raddsp_axis_am_iq.vcd",
-            "stdout": "dsp/hdl/testbenches/tb_raddsp_axis_am_iq.vhd:114:5:@265ns:(report note): tb_raddsp_axis_am_iq passed\nsimulation finished @265ns\n",
+            "stdout": "dsp/hdl/testbenches/tb_raddsp_axis_am_iq.vhd:200:5:@41155ns:(report note): tb_raddsp_axis_am_iq passed\nsimulation finished @41155ns\n",
             "stderr": ""
           }
         },
@@ -26475,7 +27573,7 @@
             },
             "returncode": 2,
             "stdout": "",
-            "stderr": "\n******************** GHDL Bug occurred ***************************\nPlease report this bug on https://github.com/ghdl/ghdl/issues\nGHDL release: 1.0.0 (Ubuntu 1.0.0+dfsg-6) [Dunoon edition]\nCompiled with GNAT Version: 10.3.1 20211117\nTarget: x86_64-linux-gnu\n/tmp/radhdl-ghdl-n4tq106v/\nCommand line:\n/usr/bin/ghdl-mcode -e --std=08 --ieee=synopsys -P/tmp/radhdl-ghdl-n4tq106v --workdir=/tmp/radhdl-ghdl-n4tq106v tb_raddsp_axis_radfft\nException TYPES.INTERNAL_ERROR raised\nException information:\nraised TYPES.INTERNAL_ERROR : trans.adb:553\nCall stack traceback locations:\n0x6149f23c413d 0x6149f23c451b 0x6149f23c4797 0x6149f2559fc8 0x6149f2568d6d 0x6149f2568e25 0x6149f2572bde 0x6149f2591aa7 0x6149f2591d5f 0x6149f2592257 0x6149f25926b1 0x6149f259f330 0x6149f259e81c 0x6149f25e6a78 0x6149f25e6b9f 0x6149f25e71f8 0x6149f25e798a 0x6149f25e9596 0x6149f25e96eb 0x6149f25ecb0f 0x6149f25f13f8 0x6149f25f123b 0x6149f25f14e5 0x6149f25f123b 0x6149f25f14e5 0x6149f25b54fa 0x6149f25a8eac 0x6149f25b9d8c 0x6149f25b40a0 0x6149f25f9b55 0x6149f253aaf5 0x6149f247069e 0x6149f25fd4b3 0x6149f2228b07 0x71f200429d8e 0x71f200429e3e 0x6149f2227243 0xfffffffffffffffe\n******************************************************************\n"
+            "stderr": "\n******************** GHDL Bug occurred ***************************\nPlease report this bug on https://github.com/ghdl/ghdl/issues\nGHDL release: 1.0.0 (Ubuntu 1.0.0+dfsg-6) [Dunoon edition]\nCompiled with GNAT Version: 10.3.1 20211117\nTarget: x86_64-linux-gnu\n/tmp/radhdl-ghdl-ogbrduuu/\nCommand line:\n/usr/bin/ghdl-mcode -e --std=08 --ieee=synopsys -P/tmp/radhdl-ghdl-ogbrduuu --workdir=/tmp/radhdl-ghdl-ogbrduuu tb_raddsp_axis_radfft\nException TYPES.INTERNAL_ERROR raised\nException information:\nraised TYPES.INTERNAL_ERROR : trans.adb:553\nCall stack traceback locations:\n0x631083eb913d 0x631083eb951b 0x631083eb9797 0x63108404efc8 0x63108405dd6d 0x63108405de25 0x631084067bde 0x631084086aa7 0x631084086d5f 0x631084087257 0x6310840876b1 0x631084094330 0x63108409381c 0x6310840dba78 0x6310840dbb9f 0x6310840dc1f8 0x6310840dc98a 0x6310840de596 0x6310840de6eb 0x6310840e1b0f 0x6310840e63f8 0x6310840e623b 0x6310840e64e5 0x6310840e623b 0x6310840e64e5 0x6310840aa4fa 0x63108409deac 0x6310840aed8c 0x6310840a90a0 0x6310840eeb55 0x63108402faf5 0x631083f6569e 0x6310840f24b3 0x631083d1db07 0x70f3d6429d8e 0x70f3d6429e3e 0x631083d1c243 0xfffffffffffffffe\n******************************************************************\n"
           }
         },
         {
@@ -26551,7 +27649,7 @@
             },
             "returncode": 2,
             "stdout": "",
-            "stderr": "\n******************** GHDL Bug occurred ***************************\nPlease report this bug on https://github.com/ghdl/ghdl/issues\nGHDL release: 1.0.0 (Ubuntu 1.0.0+dfsg-6) [Dunoon edition]\nCompiled with GNAT Version: 10.3.1 20211117\nTarget: x86_64-linux-gnu\n/tmp/radhdl-ghdl-ievwbx91/\nCommand line:\n/usr/bin/ghdl-mcode -e --std=08 --ieee=synopsys -P/tmp/radhdl-ghdl-ievwbx91 --workdir=/tmp/radhdl-ghdl-ievwbx91 tb_raddsp_axis_radfft_ddr\nException TYPES.INTERNAL_ERROR raised\nException information:\nraised TYPES.INTERNAL_ERROR : trans.adb:553\nCall stack traceback locations:\n0x5e35d286c13d 0x5e35d286c51b 0x5e35d286c797 0x5e35d2a01fc8 0x5e35d2a10d6d 0x5e35d2a10e25 0x5e35d2a1abde 0x5e35d2a39aa7 0x5e35d2a39d5f 0x5e35d2a3a257 0x5e35d2a3a6b1 0x5e35d2a47330 0x5e35d2a4681c 0x5e35d2a8ea78 0x5e35d2a8eb9f 0x5e35d2a8f1f8 0x5e35d2a8f98a 0x5e35d2a91596 0x5e35d2a916eb 0x5e35d2a94b0f 0x5e35d2a993f8 0x5e35d2a9923b 0x5e35d2a994e5 0x5e35d2a9923b 0x5e35d2a994e5 0x5e35d2a5d4fa 0x5e35d2a50eac 0x5e35d2a61d8c 0x5e35d2a5c0a0 0x5e35d2aa1b55 0x5e35d29e2af5 0x5e35d291869e 0x5e35d2aa54b3 0x5e35d26d0b07 0x78a972c29d8e 0x78a972c29e3e 0x5e35d26cf243 0xfffffffffffffffe\n******************************************************************\n"
+            "stderr": "\n******************** GHDL Bug occurred ***************************\nPlease report this bug on https://github.com/ghdl/ghdl/issues\nGHDL release: 1.0.0 (Ubuntu 1.0.0+dfsg-6) [Dunoon edition]\nCompiled with GNAT Version: 10.3.1 20211117\nTarget: x86_64-linux-gnu\n/tmp/radhdl-ghdl-sn781yzf/\nCommand line:\n/usr/bin/ghdl-mcode -e --std=08 --ieee=synopsys -P/tmp/radhdl-ghdl-sn781yzf --workdir=/tmp/radhdl-ghdl-sn781yzf tb_raddsp_axis_radfft_ddr\nException TYPES.INTERNAL_ERROR raised\nException information:\nraised TYPES.INTERNAL_ERROR : trans.adb:553\nCall stack traceback locations:\n0x5dd1820cb13d 0x5dd1820cb51b 0x5dd1820cb797 0x5dd182260fc8 0x5dd18226fd6d 0x5dd18226fe25 0x5dd182279bde 0x5dd182298aa7 0x5dd182298d5f 0x5dd182299257 0x5dd1822996b1 0x5dd1822a6330 0x5dd1822a581c 0x5dd1822eda78 0x5dd1822edb9f 0x5dd1822ee1f8 0x5dd1822ee98a 0x5dd1822f0596 0x5dd1822f06eb 0x5dd1822f3b0f 0x5dd1822f83f8 0x5dd1822f823b 0x5dd1822f84e5 0x5dd1822f823b 0x5dd1822f84e5 0x5dd1822bc4fa 0x5dd1822afeac 0x5dd1822c0d8c 0x5dd1822bb0a0 0x5dd182300b55 0x5dd182241af5 0x5dd18217769e 0x5dd1823044b3 0x5dd181f2fb07 0x733724229d8e 0x733724229e3e 0x5dd181f2e243 0xfffffffffffffffe\n******************************************************************\n"
           }
         },
         {
@@ -26626,7 +27724,7 @@
             },
             "returncode": 2,
             "stdout": "",
-            "stderr": "\n******************** GHDL Bug occurred ***************************\nPlease report this bug on https://github.com/ghdl/ghdl/issues\nGHDL release: 1.0.0 (Ubuntu 1.0.0+dfsg-6) [Dunoon edition]\nCompiled with GNAT Version: 10.3.1 20211117\nTarget: x86_64-linux-gnu\n/tmp/radhdl-ghdl-h1uvpojv/\nCommand line:\n/usr/bin/ghdl-mcode -e --std=08 --ieee=synopsys -P/tmp/radhdl-ghdl-h1uvpojv --workdir=/tmp/radhdl-ghdl-h1uvpojv tb_raddsp_axis_radfft_ddr_xcorr_1024\nException TYPES.INTERNAL_ERROR raised\nException information:\nraised TYPES.INTERNAL_ERROR : trans.adb:553\nCall stack traceback locations:\n0x5ad35531d13d 0x5ad35531d51b 0x5ad35531d797 0x5ad3554b2fc8 0x5ad3554c1d6d 0x5ad3554c1e25 0x5ad3554cbbde 0x5ad3554eaaa7 0x5ad3554ead5f 0x5ad3554eb257 0x5ad3554eb6b1 0x5ad3554f8330 0x5ad3554f781c 0x5ad35553fa78 0x5ad35553fb9f 0x5ad3555401f8 0x5ad35554098a 0x5ad355542596 0x5ad3555426eb 0x5ad355545b0f 0x5ad35554a3f8 0x5ad35554a23b 0x5ad35554a4e5 0x5ad35554a23b 0x5ad35554a4e5 0x5ad35550e4fa 0x5ad355501eac 0x5ad355512d8c 0x5ad35550d0a0 0x5ad355552b55 0x5ad355493af5 0x5ad3553c969e 0x5ad3555564b3 0x5ad355181b07 0x754ff0629d8e 0x754ff0629e3e 0x5ad355180243 0xfffffffffffffffe\n******************************************************************\n"
+            "stderr": "\n******************** GHDL Bug occurred ***************************\nPlease report this bug on https://github.com/ghdl/ghdl/issues\nGHDL release: 1.0.0 (Ubuntu 1.0.0+dfsg-6) [Dunoon edition]\nCompiled with GNAT Version: 10.3.1 20211117\nTarget: x86_64-linux-gnu\n/tmp/radhdl-ghdl-286n9f4c/\nCommand line:\n/usr/bin/ghdl-mcode -e --std=08 --ieee=synopsys -P/tmp/radhdl-ghdl-286n9f4c --workdir=/tmp/radhdl-ghdl-286n9f4c tb_raddsp_axis_radfft_ddr_xcorr_1024\nException TYPES.INTERNAL_ERROR raised\nException information:\nraised TYPES.INTERNAL_ERROR : trans.adb:553\nCall stack traceback locations:\n0x5df6b080313d 0x5df6b080351b 0x5df6b0803797 0x5df6b0998fc8 0x5df6b09a7d6d 0x5df6b09a7e25 0x5df6b09b1bde 0x5df6b09d0aa7 0x5df6b09d0d5f 0x5df6b09d1257 0x5df6b09d16b1 0x5df6b09de330 0x5df6b09dd81c 0x5df6b0a25a78 0x5df6b0a25b9f 0x5df6b0a261f8 0x5df6b0a2698a 0x5df6b0a28596 0x5df6b0a286eb 0x5df6b0a2bb0f 0x5df6b0a303f8 0x5df6b0a3023b 0x5df6b0a304e5 0x5df6b0a3023b 0x5df6b0a304e5 0x5df6b09f44fa 0x5df6b09e7eac 0x5df6b09f8d8c 0x5df6b09f30a0 0x5df6b0a38b55 0x5df6b0979af5 0x5df6b08af69e 0x5df6b0a3c4b3 0x5df6b0667b07 0x720560029d8e 0x720560029e3e 0x5df6b0666243 0xfffffffffffffffe\n******************************************************************\n"
           }
         },
         {
@@ -26779,7 +27877,7 @@
             },
             "returncode": 2,
             "stdout": "",
-            "stderr": "\n******************** GHDL Bug occurred ***************************\nPlease report this bug on https://github.com/ghdl/ghdl/issues\nGHDL release: 1.0.0 (Ubuntu 1.0.0+dfsg-6) [Dunoon edition]\nCompiled with GNAT Version: 10.3.1 20211117\nTarget: x86_64-linux-gnu\n/tmp/radhdl-ghdl-0e_0bc0d/\nCommand line:\n/usr/bin/ghdl-mcode -e --std=08 --ieee=synopsys -P/tmp/radhdl-ghdl-0e_0bc0d --workdir=/tmp/radhdl-ghdl-0e_0bc0d tb_raddsp_xilinx_dsp48_wide_mul\nException TYPES.INTERNAL_ERROR raised\nException information:\nraised TYPES.INTERNAL_ERROR : trans.adb:553\nCall stack traceback locations:\n0x5d680194913d 0x5d680194951b 0x5d6801949797 0x5d6801adefc8 0x5d6801aedd6d 0x5d6801aede25 0x5d6801af7bde 0x5d6801b16aa7 0x5d6801b16d5f 0x5d6801b17257 0x5d6801b176b1 0x5d6801b24330 0x5d6801b2381c 0x5d6801b6ba78 0x5d6801b6bb9f 0x5d6801b6c1f8 0x5d6801b6c98a 0x5d6801b6e596 0x5d6801b6e6eb 0x5d6801b71b0f 0x5d6801b763f8 0x5d6801b7623b 0x5d6801b764e5 0x5d6801b7623b 0x5d6801b764e5 0x5d6801b3a4fa 0x5d6801b2deac 0x5d6801b3ed8c 0x5d6801b390a0 0x5d6801b7eb55 0x5d6801abfaf5 0x5d68019f569e 0x5d6801b824b3 0x5d68017adb07 0x725eb9629d8e 0x725eb9629e3e 0x5d68017ac243 0xfffffffffffffffe\n******************************************************************\n"
+            "stderr": "\n******************** GHDL Bug occurred ***************************\nPlease report this bug on https://github.com/ghdl/ghdl/issues\nGHDL release: 1.0.0 (Ubuntu 1.0.0+dfsg-6) [Dunoon edition]\nCompiled with GNAT Version: 10.3.1 20211117\nTarget: x86_64-linux-gnu\n/tmp/radhdl-ghdl-mauzqxw6/\nCommand line:\n/usr/bin/ghdl-mcode -e --std=08 --ieee=synopsys -P/tmp/radhdl-ghdl-mauzqxw6 --workdir=/tmp/radhdl-ghdl-mauzqxw6 tb_raddsp_xilinx_dsp48_wide_mul\nException TYPES.INTERNAL_ERROR raised\nException information:\nraised TYPES.INTERNAL_ERROR : trans.adb:553\nCall stack traceback locations:\n0x628e199ba13d 0x628e199ba51b 0x628e199ba797 0x628e19b4ffc8 0x628e19b5ed6d 0x628e19b5ee25 0x628e19b68bde 0x628e19b87aa7 0x628e19b87d5f 0x628e19b88257 0x628e19b886b1 0x628e19b95330 0x628e19b9481c 0x628e19bdca78 0x628e19bdcb9f 0x628e19bdd1f8 0x628e19bdd98a 0x628e19bdf596 0x628e19bdf6eb 0x628e19be2b0f 0x628e19be73f8 0x628e19be723b 0x628e19be74e5 0x628e19be723b 0x628e19be74e5 0x628e19bab4fa 0x628e19b9eeac 0x628e19bafd8c 0x628e19baa0a0 0x628e19befb55 0x628e19b30af5 0x628e19a6669e 0x628e19bf34b3 0x628e1981eb07 0x780170829d8e 0x780170829e3e 0x628e1981d243 0xfffffffffffffffe\n******************************************************************\n"
           }
         },
         {
@@ -27234,6 +28332,48 @@
           "description": "Number of fractional bits used by carrier and envelope fixed-point values."
         },
         {
+          "name": "PHASE_WIDTH",
+          "direction": "",
+          "data_type": "positive",
+          "default": "32",
+          "description": "Internal DDS phase accumulator width. The register interface supports up to 32 bits."
+        },
+        {
+          "name": "REG_DATA_WIDTH",
+          "direction": "",
+          "data_type": "positive",
+          "default": "32",
+          "description": "Width of the RADIF register data path."
+        },
+        {
+          "name": "REG_ADDR_WIDTH",
+          "direction": "",
+          "data_type": "positive",
+          "default": "16",
+          "description": "Width of the RADIF byte address path."
+        },
+        {
+          "name": "DEFAULT_PHASE_INC",
+          "direction": "",
+          "data_type": "natural",
+          "default": "16#01000000#",
+          "description": "Reset value for carrier phase increment."
+        },
+        {
+          "name": "DEFAULT_INTERNAL_DDS",
+          "direction": "",
+          "data_type": "boolean",
+          "default": "true",
+          "description": "Reset value for internal DDS carrier selection."
+        },
+        {
+          "name": "DEFAULT_ENABLE",
+          "direction": "",
+          "data_type": "boolean",
+          "default": "true",
+          "description": "Reset value for stream processing enable."
+        },
+        {
           "name": "VENDOR",
           "direction": "",
           "data_type": "string",
@@ -27254,7 +28394,7 @@
           "direction": "in",
           "data_type": "std_logic",
           "default": "",
-          "description": "Stream clock."
+          "description": "Stream and register clock."
         },
         {
           "name": "rst",
@@ -27268,14 +28408,14 @@
           "direction": "in",
           "data_type": "std_logic_vector(SAMPLE_WIDTH - 1 downto 0)",
           "default": "",
-          "description": "Signed fixed-point carrier cosine sample."
+          "description": "Signed fixed-point external carrier cosine sample."
         },
         {
           "name": "carrier_q_i",
           "direction": "in",
           "data_type": "std_logic_vector(SAMPLE_WIDTH - 1 downto 0)",
           "default": "",
-          "description": "Signed fixed-point carrier sine sample."
+          "description": "Signed fixed-point external carrier sine sample."
         },
         {
           "name": "s_axis_tvalid",
@@ -27332,6 +28472,83 @@
           "data_type": "std_logic",
           "default": "",
           "description": "Output frame marker aligned with output sample."
+        },
+        {
+          "name": "reg_wr_addr",
+          "direction": "in",
+          "data_type": "std_logic_vector(REG_ADDR_WIDTH - 1 downto 0)",
+          "default": "",
+          "description": "Register write address."
+        },
+        {
+          "name": "reg_rd_addr",
+          "direction": "in",
+          "data_type": "std_logic_vector(REG_ADDR_WIDTH - 1 downto 0)",
+          "default": "",
+          "description": "Register read address."
+        },
+        {
+          "name": "reg_wr_en",
+          "direction": "in",
+          "data_type": "std_logic",
+          "default": "",
+          "description": "One-cycle register write request."
+        },
+        {
+          "name": "reg_rd_en",
+          "direction": "in",
+          "data_type": "std_logic",
+          "default": "",
+          "description": "One-cycle register read request."
+        },
+        {
+          "name": "reg_data_in",
+          "direction": "in",
+          "data_type": "std_logic_vector(REG_DATA_WIDTH - 1 downto 0)",
+          "default": "",
+          "description": "Register write data."
+        },
+        {
+          "name": "reg_data_out",
+          "direction": "out",
+          "data_type": "std_logic_vector(REG_DATA_WIDTH - 1 downto 0)",
+          "default": "",
+          "description": "Register read data."
+        },
+        {
+          "name": "reg_wr_rdy",
+          "direction": "out",
+          "data_type": "std_logic",
+          "default": "",
+          "description": "Register write ready."
+        },
+        {
+          "name": "reg_rd_rdy",
+          "direction": "out",
+          "data_type": "std_logic",
+          "default": "",
+          "description": "Register read ready."
+        },
+        {
+          "name": "reg_wr_valid",
+          "direction": "out",
+          "data_type": "std_logic",
+          "default": "",
+          "description": "Register write response valid."
+        },
+        {
+          "name": "reg_rd_valid",
+          "direction": "out",
+          "data_type": "std_logic",
+          "default": "",
+          "description": "Register read response valid."
+        },
+        {
+          "name": "reg_error",
+          "direction": "out",
+          "data_type": "std_logic",
+          "default": "",
+          "description": "Register transaction error."
         }
       ],
       "sources": [
@@ -37044,7 +38261,7 @@
     {
       "name": "tb_raddsp_axis_am_iq",
       "path": "dsp/hdl/testbenches/tb_raddsp_axis_am_iq.vhd",
-      "description": "Verifies the AM IQ modulator and demodulator as independent blocks and as a loop.",
+      "description": "Verifies the register-controlled AM IQ modulator and demodulator with a\n2048-sample amplitude envelope. The test programs both internal DDS mixers\nto the same carrier tuning word, streams a sinusoidal envelope through the\nmodulator, demodulates it back to baseband, and exposes plot_* signals for\ndatasheet analog plots.",
       "related_modules": [
         "dsp",
         "raddsp_axis_am_iq_demodulator",
@@ -37112,7 +38329,7 @@
           ]
         },
         "vcd": "simulations/tb_raddsp_axis_am_iq/tb_raddsp_axis_am_iq.vcd",
-        "stdout": "dsp/hdl/testbenches/tb_raddsp_axis_am_iq.vhd:114:5:@265ns:(report note): tb_raddsp_axis_am_iq passed\nsimulation finished @265ns\n",
+        "stdout": "dsp/hdl/testbenches/tb_raddsp_axis_am_iq.vhd:200:5:@41155ns:(report note): tb_raddsp_axis_am_iq passed\nsimulation finished @41155ns\n",
         "stderr": ""
       }
     },
@@ -37413,7 +38630,7 @@
         },
         "returncode": 2,
         "stdout": "",
-        "stderr": "\n******************** GHDL Bug occurred ***************************\nPlease report this bug on https://github.com/ghdl/ghdl/issues\nGHDL release: 1.0.0 (Ubuntu 1.0.0+dfsg-6) [Dunoon edition]\nCompiled with GNAT Version: 10.3.1 20211117\nTarget: x86_64-linux-gnu\n/tmp/radhdl-ghdl-n4tq106v/\nCommand line:\n/usr/bin/ghdl-mcode -e --std=08 --ieee=synopsys -P/tmp/radhdl-ghdl-n4tq106v --workdir=/tmp/radhdl-ghdl-n4tq106v tb_raddsp_axis_radfft\nException TYPES.INTERNAL_ERROR raised\nException information:\nraised TYPES.INTERNAL_ERROR : trans.adb:553\nCall stack traceback locations:\n0x6149f23c413d 0x6149f23c451b 0x6149f23c4797 0x6149f2559fc8 0x6149f2568d6d 0x6149f2568e25 0x6149f2572bde 0x6149f2591aa7 0x6149f2591d5f 0x6149f2592257 0x6149f25926b1 0x6149f259f330 0x6149f259e81c 0x6149f25e6a78 0x6149f25e6b9f 0x6149f25e71f8 0x6149f25e798a 0x6149f25e9596 0x6149f25e96eb 0x6149f25ecb0f 0x6149f25f13f8 0x6149f25f123b 0x6149f25f14e5 0x6149f25f123b 0x6149f25f14e5 0x6149f25b54fa 0x6149f25a8eac 0x6149f25b9d8c 0x6149f25b40a0 0x6149f25f9b55 0x6149f253aaf5 0x6149f247069e 0x6149f25fd4b3 0x6149f2228b07 0x71f200429d8e 0x71f200429e3e 0x6149f2227243 0xfffffffffffffffe\n******************************************************************\n"
+        "stderr": "\n******************** GHDL Bug occurred ***************************\nPlease report this bug on https://github.com/ghdl/ghdl/issues\nGHDL release: 1.0.0 (Ubuntu 1.0.0+dfsg-6) [Dunoon edition]\nCompiled with GNAT Version: 10.3.1 20211117\nTarget: x86_64-linux-gnu\n/tmp/radhdl-ghdl-ogbrduuu/\nCommand line:\n/usr/bin/ghdl-mcode -e --std=08 --ieee=synopsys -P/tmp/radhdl-ghdl-ogbrduuu --workdir=/tmp/radhdl-ghdl-ogbrduuu tb_raddsp_axis_radfft\nException TYPES.INTERNAL_ERROR raised\nException information:\nraised TYPES.INTERNAL_ERROR : trans.adb:553\nCall stack traceback locations:\n0x631083eb913d 0x631083eb951b 0x631083eb9797 0x63108404efc8 0x63108405dd6d 0x63108405de25 0x631084067bde 0x631084086aa7 0x631084086d5f 0x631084087257 0x6310840876b1 0x631084094330 0x63108409381c 0x6310840dba78 0x6310840dbb9f 0x6310840dc1f8 0x6310840dc98a 0x6310840de596 0x6310840de6eb 0x6310840e1b0f 0x6310840e63f8 0x6310840e623b 0x6310840e64e5 0x6310840e623b 0x6310840e64e5 0x6310840aa4fa 0x63108409deac 0x6310840aed8c 0x6310840a90a0 0x6310840eeb55 0x63108402faf5 0x631083f6569e 0x6310840f24b3 0x631083d1db07 0x70f3d6429d8e 0x70f3d6429e3e 0x631083d1c243 0xfffffffffffffffe\n******************************************************************\n"
       }
     },
     {
@@ -37489,7 +38706,7 @@
         },
         "returncode": 2,
         "stdout": "",
-        "stderr": "\n******************** GHDL Bug occurred ***************************\nPlease report this bug on https://github.com/ghdl/ghdl/issues\nGHDL release: 1.0.0 (Ubuntu 1.0.0+dfsg-6) [Dunoon edition]\nCompiled with GNAT Version: 10.3.1 20211117\nTarget: x86_64-linux-gnu\n/tmp/radhdl-ghdl-ievwbx91/\nCommand line:\n/usr/bin/ghdl-mcode -e --std=08 --ieee=synopsys -P/tmp/radhdl-ghdl-ievwbx91 --workdir=/tmp/radhdl-ghdl-ievwbx91 tb_raddsp_axis_radfft_ddr\nException TYPES.INTERNAL_ERROR raised\nException information:\nraised TYPES.INTERNAL_ERROR : trans.adb:553\nCall stack traceback locations:\n0x5e35d286c13d 0x5e35d286c51b 0x5e35d286c797 0x5e35d2a01fc8 0x5e35d2a10d6d 0x5e35d2a10e25 0x5e35d2a1abde 0x5e35d2a39aa7 0x5e35d2a39d5f 0x5e35d2a3a257 0x5e35d2a3a6b1 0x5e35d2a47330 0x5e35d2a4681c 0x5e35d2a8ea78 0x5e35d2a8eb9f 0x5e35d2a8f1f8 0x5e35d2a8f98a 0x5e35d2a91596 0x5e35d2a916eb 0x5e35d2a94b0f 0x5e35d2a993f8 0x5e35d2a9923b 0x5e35d2a994e5 0x5e35d2a9923b 0x5e35d2a994e5 0x5e35d2a5d4fa 0x5e35d2a50eac 0x5e35d2a61d8c 0x5e35d2a5c0a0 0x5e35d2aa1b55 0x5e35d29e2af5 0x5e35d291869e 0x5e35d2aa54b3 0x5e35d26d0b07 0x78a972c29d8e 0x78a972c29e3e 0x5e35d26cf243 0xfffffffffffffffe\n******************************************************************\n"
+        "stderr": "\n******************** GHDL Bug occurred ***************************\nPlease report this bug on https://github.com/ghdl/ghdl/issues\nGHDL release: 1.0.0 (Ubuntu 1.0.0+dfsg-6) [Dunoon edition]\nCompiled with GNAT Version: 10.3.1 20211117\nTarget: x86_64-linux-gnu\n/tmp/radhdl-ghdl-sn781yzf/\nCommand line:\n/usr/bin/ghdl-mcode -e --std=08 --ieee=synopsys -P/tmp/radhdl-ghdl-sn781yzf --workdir=/tmp/radhdl-ghdl-sn781yzf tb_raddsp_axis_radfft_ddr\nException TYPES.INTERNAL_ERROR raised\nException information:\nraised TYPES.INTERNAL_ERROR : trans.adb:553\nCall stack traceback locations:\n0x5dd1820cb13d 0x5dd1820cb51b 0x5dd1820cb797 0x5dd182260fc8 0x5dd18226fd6d 0x5dd18226fe25 0x5dd182279bde 0x5dd182298aa7 0x5dd182298d5f 0x5dd182299257 0x5dd1822996b1 0x5dd1822a6330 0x5dd1822a581c 0x5dd1822eda78 0x5dd1822edb9f 0x5dd1822ee1f8 0x5dd1822ee98a 0x5dd1822f0596 0x5dd1822f06eb 0x5dd1822f3b0f 0x5dd1822f83f8 0x5dd1822f823b 0x5dd1822f84e5 0x5dd1822f823b 0x5dd1822f84e5 0x5dd1822bc4fa 0x5dd1822afeac 0x5dd1822c0d8c 0x5dd1822bb0a0 0x5dd182300b55 0x5dd182241af5 0x5dd18217769e 0x5dd1823044b3 0x5dd181f2fb07 0x733724229d8e 0x733724229e3e 0x5dd181f2e243 0xfffffffffffffffe\n******************************************************************\n"
       }
     },
     {
@@ -37564,7 +38781,7 @@
         },
         "returncode": 2,
         "stdout": "",
-        "stderr": "\n******************** GHDL Bug occurred ***************************\nPlease report this bug on https://github.com/ghdl/ghdl/issues\nGHDL release: 1.0.0 (Ubuntu 1.0.0+dfsg-6) [Dunoon edition]\nCompiled with GNAT Version: 10.3.1 20211117\nTarget: x86_64-linux-gnu\n/tmp/radhdl-ghdl-h1uvpojv/\nCommand line:\n/usr/bin/ghdl-mcode -e --std=08 --ieee=synopsys -P/tmp/radhdl-ghdl-h1uvpojv --workdir=/tmp/radhdl-ghdl-h1uvpojv tb_raddsp_axis_radfft_ddr_xcorr_1024\nException TYPES.INTERNAL_ERROR raised\nException information:\nraised TYPES.INTERNAL_ERROR : trans.adb:553\nCall stack traceback locations:\n0x5ad35531d13d 0x5ad35531d51b 0x5ad35531d797 0x5ad3554b2fc8 0x5ad3554c1d6d 0x5ad3554c1e25 0x5ad3554cbbde 0x5ad3554eaaa7 0x5ad3554ead5f 0x5ad3554eb257 0x5ad3554eb6b1 0x5ad3554f8330 0x5ad3554f781c 0x5ad35553fa78 0x5ad35553fb9f 0x5ad3555401f8 0x5ad35554098a 0x5ad355542596 0x5ad3555426eb 0x5ad355545b0f 0x5ad35554a3f8 0x5ad35554a23b 0x5ad35554a4e5 0x5ad35554a23b 0x5ad35554a4e5 0x5ad35550e4fa 0x5ad355501eac 0x5ad355512d8c 0x5ad35550d0a0 0x5ad355552b55 0x5ad355493af5 0x5ad3553c969e 0x5ad3555564b3 0x5ad355181b07 0x754ff0629d8e 0x754ff0629e3e 0x5ad355180243 0xfffffffffffffffe\n******************************************************************\n"
+        "stderr": "\n******************** GHDL Bug occurred ***************************\nPlease report this bug on https://github.com/ghdl/ghdl/issues\nGHDL release: 1.0.0 (Ubuntu 1.0.0+dfsg-6) [Dunoon edition]\nCompiled with GNAT Version: 10.3.1 20211117\nTarget: x86_64-linux-gnu\n/tmp/radhdl-ghdl-286n9f4c/\nCommand line:\n/usr/bin/ghdl-mcode -e --std=08 --ieee=synopsys -P/tmp/radhdl-ghdl-286n9f4c --workdir=/tmp/radhdl-ghdl-286n9f4c tb_raddsp_axis_radfft_ddr_xcorr_1024\nException TYPES.INTERNAL_ERROR raised\nException information:\nraised TYPES.INTERNAL_ERROR : trans.adb:553\nCall stack traceback locations:\n0x5df6b080313d 0x5df6b080351b 0x5df6b0803797 0x5df6b0998fc8 0x5df6b09a7d6d 0x5df6b09a7e25 0x5df6b09b1bde 0x5df6b09d0aa7 0x5df6b09d0d5f 0x5df6b09d1257 0x5df6b09d16b1 0x5df6b09de330 0x5df6b09dd81c 0x5df6b0a25a78 0x5df6b0a25b9f 0x5df6b0a261f8 0x5df6b0a2698a 0x5df6b0a28596 0x5df6b0a286eb 0x5df6b0a2bb0f 0x5df6b0a303f8 0x5df6b0a3023b 0x5df6b0a304e5 0x5df6b0a3023b 0x5df6b0a304e5 0x5df6b09f44fa 0x5df6b09e7eac 0x5df6b09f8d8c 0x5df6b09f30a0 0x5df6b0a38b55 0x5df6b0979af5 0x5df6b08af69e 0x5df6b0a3c4b3 0x5df6b0667b07 0x720560029d8e 0x720560029e3e 0x5df6b0666243 0xfffffffffffffffe\n******************************************************************\n"
       }
     },
     {
@@ -37717,7 +38934,7 @@
         },
         "returncode": 2,
         "stdout": "",
-        "stderr": "\n******************** GHDL Bug occurred ***************************\nPlease report this bug on https://github.com/ghdl/ghdl/issues\nGHDL release: 1.0.0 (Ubuntu 1.0.0+dfsg-6) [Dunoon edition]\nCompiled with GNAT Version: 10.3.1 20211117\nTarget: x86_64-linux-gnu\n/tmp/radhdl-ghdl-0e_0bc0d/\nCommand line:\n/usr/bin/ghdl-mcode -e --std=08 --ieee=synopsys -P/tmp/radhdl-ghdl-0e_0bc0d --workdir=/tmp/radhdl-ghdl-0e_0bc0d tb_raddsp_xilinx_dsp48_wide_mul\nException TYPES.INTERNAL_ERROR raised\nException information:\nraised TYPES.INTERNAL_ERROR : trans.adb:553\nCall stack traceback locations:\n0x5d680194913d 0x5d680194951b 0x5d6801949797 0x5d6801adefc8 0x5d6801aedd6d 0x5d6801aede25 0x5d6801af7bde 0x5d6801b16aa7 0x5d6801b16d5f 0x5d6801b17257 0x5d6801b176b1 0x5d6801b24330 0x5d6801b2381c 0x5d6801b6ba78 0x5d6801b6bb9f 0x5d6801b6c1f8 0x5d6801b6c98a 0x5d6801b6e596 0x5d6801b6e6eb 0x5d6801b71b0f 0x5d6801b763f8 0x5d6801b7623b 0x5d6801b764e5 0x5d6801b7623b 0x5d6801b764e5 0x5d6801b3a4fa 0x5d6801b2deac 0x5d6801b3ed8c 0x5d6801b390a0 0x5d6801b7eb55 0x5d6801abfaf5 0x5d68019f569e 0x5d6801b824b3 0x5d68017adb07 0x725eb9629d8e 0x725eb9629e3e 0x5d68017ac243 0xfffffffffffffffe\n******************************************************************\n"
+        "stderr": "\n******************** GHDL Bug occurred ***************************\nPlease report this bug on https://github.com/ghdl/ghdl/issues\nGHDL release: 1.0.0 (Ubuntu 1.0.0+dfsg-6) [Dunoon edition]\nCompiled with GNAT Version: 10.3.1 20211117\nTarget: x86_64-linux-gnu\n/tmp/radhdl-ghdl-mauzqxw6/\nCommand line:\n/usr/bin/ghdl-mcode -e --std=08 --ieee=synopsys -P/tmp/radhdl-ghdl-mauzqxw6 --workdir=/tmp/radhdl-ghdl-mauzqxw6 tb_raddsp_xilinx_dsp48_wide_mul\nException TYPES.INTERNAL_ERROR raised\nException information:\nraised TYPES.INTERNAL_ERROR : trans.adb:553\nCall stack traceback locations:\n0x628e199ba13d 0x628e199ba51b 0x628e199ba797 0x628e19b4ffc8 0x628e19b5ed6d 0x628e19b5ee25 0x628e19b68bde 0x628e19b87aa7 0x628e19b87d5f 0x628e19b88257 0x628e19b886b1 0x628e19b95330 0x628e19b9481c 0x628e19bdca78 0x628e19bdcb9f 0x628e19bdd1f8 0x628e19bdd98a 0x628e19bdf596 0x628e19bdf6eb 0x628e19be2b0f 0x628e19be73f8 0x628e19be723b 0x628e19be74e5 0x628e19be723b 0x628e19be74e5 0x628e19bab4fa 0x628e19b9eeac 0x628e19bafd8c 0x628e19baa0a0 0x628e19befb55 0x628e19b30af5 0x628e19a6669e 0x628e19bf34b3 0x628e1981eb07 0x780170829d8e 0x780170829e3e 0x628e1981d243 0xfffffffffffffffe\n******************************************************************\n"
       }
     },
     {
@@ -38656,6 +39873,308 @@
               "name": "SAMPLE_DATA3",
               "display_name": "SAMPLE DATA3",
               "description": "Additional captured sample word for wide analyzer instances.",
+              "msb": 31,
+              "lsb": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "raddsp_axis_am_iq_demodulator",
+      "path": "dsp/hdl/raddsp/register_maps/raddsp_axis_am_iq_demodulator.map.json",
+      "base": "0x0000",
+      "description": "Controls tuned I/Q carrier rotation, envelope detection, and sample-count observation.",
+      "data_width": 32,
+      "registers": [
+        {
+          "name": "control",
+          "offset": "0x0000",
+          "access": "rw",
+          "address": "0x0000",
+          "reset": "0x00000003",
+          "width": 32,
+          "region": "raddsp_axis_am_iq_demodulator",
+          "description": "Controls stream processing and carrier-rotation source selection.",
+          "fields": [
+            {
+              "name": "enable",
+              "display_name": "EN",
+              "description": "Enables stream processing. When clear, accepted input samples are dropped and no output samples are emitted.",
+              "msb": 0,
+              "lsb": 0
+            },
+            {
+              "name": "internal_dds",
+              "display_name": "INT DDS",
+              "description": "Enables internal DDS carrier rotation before envelope magnitude calculation.",
+              "msb": 1,
+              "lsb": 1
+            },
+            {
+              "name": "bypass",
+              "display_name": "BYPASS",
+              "description": "Bypasses carrier rotation and computes magnitude directly from the incoming I/Q sample.",
+              "msb": 2,
+              "lsb": 2
+            },
+            {
+              "name": "phase_reset",
+              "display_name": "PH RST",
+              "description": "Write-one strobe that clears the internal DDS phase accumulator.",
+              "msb": 3,
+              "lsb": 3
+            }
+          ]
+        },
+        {
+          "name": "status",
+          "offset": "0x0004",
+          "access": "ro",
+          "address": "0x0004",
+          "reset": "0x00000002",
+          "width": 32,
+          "region": "raddsp_axis_am_iq_demodulator",
+          "description": "Reports output-valid and input-ready status.",
+          "fields": [
+            {
+              "name": "out_valid",
+              "display_name": "VALID",
+              "description": "Set when an output envelope sample is currently valid.",
+              "msb": 0,
+              "lsb": 0
+            },
+            {
+              "name": "input_ready",
+              "display_name": "READY",
+              "description": "Set when the block can accept an input I/Q sample.",
+              "msb": 1,
+              "lsb": 1
+            }
+          ]
+        },
+        {
+          "name": "phase_inc",
+          "offset": "0x0008",
+          "access": "rw",
+          "address": "0x0008",
+          "reset": "0x01000000",
+          "width": 32,
+          "region": "raddsp_axis_am_iq_demodulator",
+          "description": "Internal DDS phase increment applied after each accepted sample.",
+          "fields": [
+            {
+              "name": "phase_inc",
+              "display_name": "PH INC",
+              "description": "Unsigned phase tuning word. Larger values increase the demodulator rotation frequency; one full accumulator wrap equals one carrier cycle.",
+              "msb": 31,
+              "lsb": 0
+            }
+          ]
+        },
+        {
+          "name": "phase_offset",
+          "offset": "0x000C",
+          "access": "rw",
+          "address": "0x000C",
+          "reset": "0x00000000",
+          "width": 32,
+          "region": "raddsp_axis_am_iq_demodulator",
+          "description": "Static phase offset added to the accumulator before carrier-rotation lookup.",
+          "fields": [
+            {
+              "name": "phase_offset",
+              "display_name": "PH OFFS",
+              "description": "Unsigned phase offset added to the DDS accumulator before demodulator sine/cosine lookup.",
+              "msb": 31,
+              "lsb": 0
+            }
+          ]
+        },
+        {
+          "name": "phase",
+          "offset": "0x0010",
+          "access": "ro",
+          "address": "0x0010",
+          "reset": "0x00000000",
+          "width": 32,
+          "region": "raddsp_axis_am_iq_demodulator",
+          "description": "Current internal DDS phase accumulator value.",
+          "fields": [
+            {
+              "name": "phase",
+              "display_name": "PHASE",
+              "description": "Current unsigned DDS phase accumulator value.",
+              "msb": 31,
+              "lsb": 0
+            }
+          ]
+        },
+        {
+          "name": "sample_count",
+          "offset": "0x0014",
+          "access": "rw",
+          "address": "0x0014",
+          "reset": "0x00000000",
+          "width": 32,
+          "region": "raddsp_axis_am_iq_demodulator",
+          "description": "Counts accepted and emitted samples. Write bit 0 as one to clear the counter.",
+          "fields": [
+            {
+              "name": "sample_count",
+              "display_name": "COUNT",
+              "description": "Current emitted-sample count. Writing bit 0 as one clears the counter.",
+              "msb": 31,
+              "lsb": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "raddsp_axis_am_iq_modulator",
+      "path": "dsp/hdl/raddsp/register_maps/raddsp_axis_am_iq_modulator.map.json",
+      "base": "0x0000",
+      "description": "Controls AM envelope modulation, internal/external carrier selection, DDS tuning, and sample-count observation.",
+      "data_width": 32,
+      "registers": [
+        {
+          "name": "control",
+          "offset": "0x0000",
+          "access": "rw",
+          "address": "0x0000",
+          "reset": "0x00000003",
+          "width": 32,
+          "region": "raddsp_axis_am_iq_modulator",
+          "description": "Controls stream processing and carrier source selection.",
+          "fields": [
+            {
+              "name": "enable",
+              "display_name": "EN",
+              "description": "Enables stream processing. When clear, accepted input samples are dropped and no output samples are emitted.",
+              "msb": 0,
+              "lsb": 0
+            },
+            {
+              "name": "internal_dds",
+              "display_name": "INT DDS",
+              "description": "Selects the internal DDS carrier. When clear, carrier_i_i and carrier_q_i provide the carrier samples.",
+              "msb": 1,
+              "lsb": 1
+            },
+            {
+              "name": "bypass",
+              "display_name": "BYPASS",
+              "description": "Passes the envelope to the I lane and drives Q to zero without carrier multiplication.",
+              "msb": 2,
+              "lsb": 2
+            },
+            {
+              "name": "phase_reset",
+              "display_name": "PH RST",
+              "description": "Write-one strobe that clears the internal DDS phase accumulator.",
+              "msb": 3,
+              "lsb": 3
+            }
+          ]
+        },
+        {
+          "name": "status",
+          "offset": "0x0004",
+          "access": "ro",
+          "address": "0x0004",
+          "reset": "0x00000002",
+          "width": 32,
+          "region": "raddsp_axis_am_iq_modulator",
+          "description": "Reports output-valid and input-ready status.",
+          "fields": [
+            {
+              "name": "out_valid",
+              "display_name": "VALID",
+              "description": "Set when an output I/Q sample is currently valid.",
+              "msb": 0,
+              "lsb": 0
+            },
+            {
+              "name": "input_ready",
+              "display_name": "READY",
+              "description": "Set when the block can accept an input envelope sample.",
+              "msb": 1,
+              "lsb": 1
+            }
+          ]
+        },
+        {
+          "name": "phase_inc",
+          "offset": "0x0008",
+          "access": "rw",
+          "address": "0x0008",
+          "reset": "0x01000000",
+          "width": 32,
+          "region": "raddsp_axis_am_iq_modulator",
+          "description": "Internal DDS phase increment applied after each accepted sample.",
+          "fields": [
+            {
+              "name": "phase_inc",
+              "display_name": "PH INC",
+              "description": "Unsigned phase tuning word. Larger values increase carrier frequency; one full accumulator wrap equals one carrier cycle.",
+              "msb": 31,
+              "lsb": 0
+            }
+          ]
+        },
+        {
+          "name": "phase_offset",
+          "offset": "0x000C",
+          "access": "rw",
+          "address": "0x000C",
+          "reset": "0x00000000",
+          "width": 32,
+          "region": "raddsp_axis_am_iq_modulator",
+          "description": "Static phase offset added to the accumulator before carrier lookup.",
+          "fields": [
+            {
+              "name": "phase_offset",
+              "display_name": "PH OFFS",
+              "description": "Unsigned phase offset added to the DDS accumulator before sine/cosine lookup.",
+              "msb": 31,
+              "lsb": 0
+            }
+          ]
+        },
+        {
+          "name": "phase",
+          "offset": "0x0010",
+          "access": "ro",
+          "address": "0x0010",
+          "reset": "0x00000000",
+          "width": 32,
+          "region": "raddsp_axis_am_iq_modulator",
+          "description": "Current internal DDS phase accumulator value.",
+          "fields": [
+            {
+              "name": "phase",
+              "display_name": "PHASE",
+              "description": "Current unsigned DDS phase accumulator value.",
+              "msb": 31,
+              "lsb": 0
+            }
+          ]
+        },
+        {
+          "name": "sample_count",
+          "offset": "0x0014",
+          "access": "rw",
+          "address": "0x0014",
+          "reset": "0x00000000",
+          "width": 32,
+          "region": "raddsp_axis_am_iq_modulator",
+          "description": "Counts accepted and emitted samples. Write bit 0 as one to clear the counter.",
+          "fields": [
+            {
+              "name": "sample_count",
+              "display_name": "COUNT",
+              "description": "Current emitted-sample count. Writing bit 0 as one clears the counter.",
               "msb": 31,
               "lsb": 0
             }

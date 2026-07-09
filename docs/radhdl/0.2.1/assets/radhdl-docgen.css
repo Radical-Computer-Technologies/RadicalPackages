@@ -69,7 +69,10 @@ pre { overflow: auto; padding: 14px; border-radius: 6px; background: var(--code)
 .wave-controls label { display: inline-flex; align-items: center; gap: 6px; white-space: nowrap; }
 .wave-controls input { width: 180px; accent-color: var(--accent); }
 .wave-viewport { overflow: auto; max-height: 560px; border: 1px solid var(--line); border-radius: 4px; background: var(--card); resize: vertical; }
-.wave svg { display: block; width: 1120px; max-width: none; height: var(--wave-height); }
+.wave-canvas { display: flex; align-items: flex-start; min-width: max-content; }
+.wave-labels { position: sticky; left: 0; z-index: 2; flex: 0 0 190px; width: 190px; max-width: none; height: var(--wave-height); background: var(--card); border-right: 1px solid var(--line); }
+.wave-plot { flex: 0 0 var(--wave-plot-width, 894px); width: var(--wave-plot-width, 894px); min-width: var(--wave-plot-width, 894px); }
+.waveform { display: block; width: 100%; max-width: none; height: var(--wave-height); background: var(--card); }
 .wave-axis { stroke: var(--line); stroke-width: 1; }
 .wave-grid { stroke: var(--line); stroke-width: 1; opacity: .65; }
 .wave-grid.clock-grid { opacity: .45; }
@@ -87,5 +90,14 @@ pre { overflow: auto; padding: 14px; border-radius: 6px; background: var(--code)
 .wave-group { border: 1px solid var(--line); border-radius: 6px; background: var(--card); margin: 10px 0; }
 .wave-group > summary { cursor: pointer; padding: 8px 10px; font-weight: 700; }
 .wave-group-body { padding: 0 10px 10px; }
+.plot-card { border: 1px solid var(--line); border-radius: 6px; background: var(--soft); padding: 10px; margin: 12px 0; }
+.plot-card h4 { margin: 0 0 6px; }
+.plot-viewport { overflow: auto; border: 1px solid var(--line); border-radius: 4px; background: var(--card); }
+.plot-svg { display: block; min-width: 820px; width: 100%; height: auto; }
+.plot-grid { stroke: var(--line); stroke-width: 1; opacity: .55; }
+.plot-axis { stroke: var(--muted); stroke-width: 1.2; }
+.plot-label { fill: var(--muted); font: 11px ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; }
+.plot-title { fill: var(--ink); font: 12px ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-weight: 700; }
+.plot-line { fill: none; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
 nav.breadcrumb { font-size: 13px; color: var(--muted); margin-bottom: 14px; }
 footer { margin-top: 42px; border-top: 1px solid var(--line); color: var(--muted); font-size: 13px; }
