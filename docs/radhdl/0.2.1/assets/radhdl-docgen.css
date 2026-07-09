@@ -40,6 +40,11 @@ h3 { margin-top: 24px; }
 .pill:hover { text-decoration: none; border-color: var(--accent); }
 .register-index .datasheet-list { max-height: 340px; }
 .register-index .datasheet-link-row { align-items: baseline; }
+.type-grid { display: grid; grid-template-columns: 1fr; gap: 12px; }
+.type-card { border: 1px solid var(--line); border-radius: 6px; background: var(--card); margin: 10px 0; }
+.type-card > summary { cursor: pointer; padding: 10px 12px; font-weight: 800; }
+.type-body { padding: 0 12px 12px; }
+.type-decl { white-space: pre-wrap; overflow-x: auto; background: var(--soft); border: 1px solid var(--line); border-radius: 6px; padding: 10px; }
 .doc-section { border: 1px solid var(--line); border-radius: 6px; background: var(--card); margin: 12px 0; }
 .doc-section > summary { cursor: pointer; padding: 10px 12px; font-weight: 700; color: var(--ink); }
 .doc-section-body { padding: 0 12px 12px; }

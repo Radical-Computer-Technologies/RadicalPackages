@@ -10,6 +10,9 @@
       "sim/xpm/xpm_memory_models.vhd"
     ],
     "raddsp": [
+      "common/hdl/src/radhdl_axis_pkg.vhd",
+      "common/hdl/src/radhdl_spi_pkg.vhd",
+      "common/hdl/src/radhdl_axi_pkg.vhd",
       "dsp/hdl/raddsp/src/cordic_atan_pkg.vhd",
       "dsp/hdl/raddsp/src/raddsp_axis_pkg.vhd",
       "dsp/hdl/raddsp/src/raddsp_fft_twiddle_pkg.vhd",
@@ -61,5 +64,5 @@
   },
   "returncode": 2,
   "stdout": "",
-  "stderr": "\n******************** GHDL Bug occurred ***************************\nPlease report this bug on https://github.com/ghdl/ghdl/issues\nGHDL release: 1.0.0 (Ubuntu 1.0.0+dfsg-6) [Dunoon edition]\nCompiled with GNAT Version: 10.3.1 20211117\nTarget: x86_64-linux-gnu\n/tmp/radhdl-ghdl-4u2w0sn1/\nCommand line:\n/usr/bin/ghdl-mcode -e --std=08 --ieee=synopsys -P/tmp/radhdl-ghdl-4u2w0sn1 --workdir=/tmp/radhdl-ghdl-4u2w0sn1 tb_raddsp_axis_radfft\nException TYPES.INTERNAL_ERROR raised\nException information:\nraised TYPES.INTERNAL_ERROR : trans.adb:553\nCall stack traceback locations:\n0x5658dc84513d 0x5658dc84551b 0x5658dc845797 0x5658dc9dafc8 0x5658dc9e9d6d 0x5658dc9e9e25 0x5658dc9f3bde 0x5658dca12aa7 0x5658dca12d5f 0x5658dca13257 0x5658dca136b1 0x5658dca20330 0x5658dca1f81c 0x5658dca67a78 0x5658dca67b9f 0x5658dca681f8 0x5658dca6898a 0x5658dca6a596 0x5658dca6a6eb 0x5658dca6db0f 0x5658dca723f8 0x5658dca7223b 0x5658dca724e5 0x5658dca7223b 0x5658dca724e5 0x5658dca364fa 0x5658dca29eac 0x5658dca3ad8c 0x5658dca350a0 0x5658dca7ab55 0x5658dc9bbaf5 0x5658dc8f169e 0x5658dca7e4b3 0x5658dc6a9b07 0x7c1912829d8e 0x7c1912829e3e 0x5658dc6a8243 0xfffffffffffffffe\n******************************************************************\n"
+  "stderr": "\n******************** GHDL Bug occurred ***************************\nPlease report this bug on https://github.com/ghdl/ghdl/issues\nGHDL release: 1.0.0 (Ubuntu 1.0.0+dfsg-6) [Dunoon edition]\nCompiled with GNAT Version: 10.3.1 20211117\nTarget: x86_64-linux-gnu\n/tmp/radhdl-ghdl-_8eeowyc/\nCommand line:\n/usr/bin/ghdl-mcode -e --std=08 --ieee=synopsys -P/tmp/radhdl-ghdl-_8eeowyc --workdir=/tmp/radhdl-ghdl-_8eeowyc tb_raddsp_axis_radfft\nException TYPES.INTERNAL_ERROR raised\nException information:\nraised TYPES.INTERNAL_ERROR : trans.adb:553\nCall stack traceback locations:\n0x64b88f89813d 0x64b88f89851b 0x64b88f898797 0x64b88fa2dfc8 0x64b88fa3cd6d 0x64b88fa3ce25 0x64b88fa46bde 0x64b88fa65aa7 0x64b88fa65d5f 0x64b88fa66257 0x64b88fa666b1 0x64b88fa73330 0x64b88fa7281c 0x64b88fabaa78 0x64b88fabab9f 0x64b88fabb1f8 0x64b88fabb98a 0x64b88fabd596 0x64b88fabd6eb 0x64b88fac0b0f 0x64b88fac53f8 0x64b88fac523b 0x64b88fac54e5 0x64b88fac523b 0x64b88fac54e5 0x64b88fa894fa 0x64b88fa7ceac 0x64b88fa8dd8c 0x64b88fa880a0 0x64b88facdb55 0x64b88fa0eaf5 0x64b88f94469e 0x64b88fad14b3 0x64b88f6fcb07 0x7e55f8029d8e 0x7e55f8029e3e 0x64b88f6fb243 0xfffffffffffffffe\n******************************************************************\n"
 }
