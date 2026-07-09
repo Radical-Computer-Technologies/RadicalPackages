@@ -15,7 +15,12 @@ h3 { margin-top: 24px; }
 .card strong { display: block; margin-bottom: 4px; }
 .meta { color: var(--muted); font-size: 13px; }
 .datasheet-browser { border: 1px solid var(--line); border-radius: 6px; background: var(--card); padding: 14px; }
-.datasheet-search { width: 100%; max-width: 460px; border: 1px solid var(--line); border-radius: 6px; background: var(--soft); color: var(--ink); padding: 9px 11px; margin-bottom: 12px; }
+.datasheet-controls { display: grid; grid-template-columns: minmax(240px, 1.4fr) repeat(2, minmax(160px, .7fr)); gap: 10px; align-items: end; margin-bottom: 12px; }
+.datasheet-search, .datasheet-select { width: 100%; border: 1px solid var(--line); border-radius: 6px; background: var(--soft); color: var(--ink); padding: 9px 11px; }
+.filter-label { display: grid; gap: 4px; color: var(--muted); font-size: 12px; font-weight: 700; }
+.filter-checks { display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 12px; }
+.filter-checks label { display: inline-flex; align-items: center; gap: 6px; border: 1px solid var(--line); border-radius: 999px; background: var(--soft); padding: 5px 10px; font-size: 13px; cursor: pointer; }
+.filter-checks input { margin: 0; }
 .datasheet-section, .package-group { border: 1px solid var(--line); border-radius: 6px; margin: 8px 0; background: var(--soft); }
 .datasheet-section > summary, .package-group > summary { cursor: pointer; padding: 8px 10px; font-weight: 700; }
 .package-group { margin: 8px 10px; background: var(--card); }
@@ -23,6 +28,7 @@ h3 { margin-top: 24px; }
 .datasheet-link-row { display: flex; justify-content: space-between; gap: 12px; padding: 5px 0; border-top: 1px solid var(--line); font-size: 14px; }
 .datasheet-link-row:first-child { border-top: 0; }
 .datasheet-link-row .meta { white-space: nowrap; }
+.datasheet-empty { color: var(--muted); padding: 10px; }
 .quick-links { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
 .pill { display: inline-flex; align-items: center; gap: 6px; border: 1px solid var(--line); border-radius: 999px; background: var(--soft); color: var(--link); padding: 5px 10px; font-size: 13px; font-weight: 700; }
 .pill:hover { text-decoration: none; border-color: var(--accent); }
