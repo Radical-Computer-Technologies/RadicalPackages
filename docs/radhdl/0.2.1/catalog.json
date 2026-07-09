@@ -6,80 +6,73 @@
     {
       "name": "RadDebugHub",
       "kind": "entity",
-      "path": "debug/radila/hdl/radila/raddebughub_axi.vhd",
+      "path": "debug/radila/hdl/radila/raddebughub.vhd",
       "library": "radhdl",
       "category": "Debug",
-      "description": "AXI-accessible debug hub for RadHDL instrumentation cores.\nProvides register access and coordination points for debug blocks that need host-visible control, status, and capture data.",
+      "description": "RADIF-accessible debug hub for the RadILA capture engine.\nProvides a bus-neutral register target for analyzer control, trigger setup,\nlive status, and capture-buffer readback. External RADIF bridges such as\nAXI-Lite, SPI, I2C, and SMI can all drive this same register contract.",
       "generics": [
         {
-          "name": "C_S_AXI_DATA_WIDTH",
+          "name": "DATA_WIDTH",
           "direction": "",
           "data_type": "integer",
           "default": "32",
-          "description": "Sets the bit width for C S AXI DATA WIDTH values carried by this module."
+          "description": "Register data width for the RADIF register target."
         },
         {
-          "name": "C_S_AXI_ADDR_WIDTH",
+          "name": "REG_ADDR_WIDTH",
           "direction": "",
           "data_type": "integer",
-          "default": "6",
-          "description": "Sets the bit width for C S AXI ADDR WIDTH values carried by this module."
+          "default": "16",
+          "description": "Register byte-address width for the RADIF register target."
         },
         {
           "name": "SAMPLE_WIDTH",
           "direction": "",
           "data_type": "integer",
           "default": "32",
-          "description": "Sets the bit width for SAMPLE WIDTH values carried by this module."
+          "description": "Total captured sample bus width in bits."
         },
         {
           "name": "EVENT_WIDTH",
           "direction": "",
           "data_type": "integer",
           "default": "8",
-          "description": "Sets the bit width for EVENT WIDTH values carried by this module."
+          "description": "Width of event/trigger metadata sampled beside each captured value."
         },
         {
           "name": "DEPTH",
           "direction": "",
           "data_type": "integer",
           "default": "1024",
-          "description": "Sets the storage depth, frame length, or number of buffered samples used internally."
+          "description": "Number of samples stored in the RadILA capture RAM."
         },
         {
           "name": "ADDR_WIDTH",
           "direction": "",
           "data_type": "integer",
           "default": "10",
-          "description": "Sets the bit width for ADDR WIDTH values carried by this module."
+          "description": "Capture RAM address width."
         },
         {
           "name": "CMD_LANES",
           "direction": "",
           "data_type": "integer",
           "default": "4",
-          "description": "Sets the number of parallel sample lanes processed per handshake beat."
+          "description": "Narrow command link width between RadDebugHub and RadILA."
         },
         {
           "name": "VENDOR_TAG",
           "direction": "",
           "data_type": "string",
           "default": "\"XILINX\"",
-          "description": "Selects the vendor-specific implementation path, usually XILINX for DSP48/XPM-backed builds or generic for portable RTL."
+          "description": "Vendor selector used by generate blocks for vendor-specific primitives."
         },
         {
           "name": "PRODUCT_SERIES_TAG",
           "direction": "",
           "data_type": "string",
           "default": "\"7SERIES\"",
-          "description": "Identifies the target FPGA family so wrappers can choose the correct primitive or conservative portable behavior."
-        },
-        {
-          "name": "G_DEBUG_BUS",
-          "direction": "",
-          "data_type": "string",
-          "default": "\"AXI_LITE\"",
-          "description": "Configures G DEBUG BUS for this instance."
+          "description": "Device-family selector used by vendor primitive wrappers."
         }
       ],
       "ports": [
@@ -88,21 +81,21 @@
           "direction": "in",
           "data_type": "std_logic",
           "default": "",
-          "description": "Clock for the associated synchronous logic and handshake domain."
+          "description": "Sample clock for the observed logic and capture RAM write side."
         },
         {
           "name": "sample_rstn",
           "direction": "in",
           "data_type": "std_logic",
           "default": "",
-          "description": "Active-low reset for this clock domain."
+          "description": "Active-low reset for the sample clock domain."
         },
         {
           "name": "sample_i",
           "direction": "in",
           "data_type": "std_logic_vector(SAMPLE_WIDTH - 1 downto 0)",
           "default": "",
-          "description": "Input sample vector captured or processed by the datapath."
+          "description": "Input sample vector captured by the analyzer."
         },
         {
           "name": "event_i",
@@ -116,158 +109,102 @@
           "direction": "out",
           "data_type": "std_logic",
           "default": "",
-          "description": "Output irq o signal generated by this module."
+          "description": "Interrupt asserted when capture completion is enabled and the core is done."
         },
         {
-          "name": "S_AXI_ACLK",
+          "name": "reg_clk",
           "direction": "in",
           "data_type": "std_logic",
           "default": "",
-          "description": "AXI4-Lite slave-channel signal used for host register access."
+          "description": "Clock for the RADIF register interface and capture RAM read side."
         },
         {
-          "name": "S_AXI_ARESETN",
+          "name": "reg_rstn",
           "direction": "in",
           "data_type": "std_logic",
           "default": "",
-          "description": "AXI4-Lite slave-channel signal used for host register access."
+          "description": "Active-low reset for the RADIF register interface."
         },
         {
-          "name": "S_AXI_AWADDR",
+          "name": "reg_wr_addr",
           "direction": "in",
-          "data_type": "std_logic_vector(C_S_AXI_ADDR_WIDTH - 1 downto 0)",
+          "data_type": "std_logic_vector(REG_ADDR_WIDTH - 1 downto 0)",
           "default": "",
-          "description": "AXI4-Lite slave-channel signal used for host register access."
+          "description": "Register write address."
         },
         {
-          "name": "S_AXI_AWPROT",
+          "name": "reg_rd_addr",
           "direction": "in",
-          "data_type": "std_logic_vector(2 downto 0)",
+          "data_type": "std_logic_vector(REG_ADDR_WIDTH - 1 downto 0)",
           "default": "",
-          "description": "AXI4-Lite slave-channel signal used for host register access."
+          "description": "Register read address."
         },
         {
-          "name": "S_AXI_AWVALID",
+          "name": "reg_wr_en",
           "direction": "in",
           "data_type": "std_logic",
           "default": "",
-          "description": "AXI4-Lite slave-channel signal used for host register access."
+          "description": "One-cycle register write request."
         },
         {
-          "name": "S_AXI_AWREADY",
+          "name": "reg_rd_en",
+          "direction": "in",
+          "data_type": "std_logic",
+          "default": "",
+          "description": "One-cycle register read request."
+        },
+        {
+          "name": "reg_data_in",
+          "direction": "in",
+          "data_type": "std_logic_vector(DATA_WIDTH - 1 downto 0)",
+          "default": "",
+          "description": "Register write data."
+        },
+        {
+          "name": "reg_data_out",
+          "direction": "out",
+          "data_type": "std_logic_vector(DATA_WIDTH - 1 downto 0)",
+          "default": "",
+          "description": "Register read data."
+        },
+        {
+          "name": "reg_wr_rdy",
           "direction": "out",
           "data_type": "std_logic",
           "default": "",
-          "description": "AXI4-Lite slave-channel signal used for host register access."
+          "description": "Write-side ready indication."
         },
         {
-          "name": "S_AXI_WDATA",
-          "direction": "in",
-          "data_type": "std_logic_vector(C_S_AXI_DATA_WIDTH - 1 downto 0)",
-          "default": "",
-          "description": "AXI4-Lite slave-channel signal used for host register access."
-        },
-        {
-          "name": "S_AXI_WSTRB",
-          "direction": "in",
-          "data_type": "std_logic_vector((C_S_AXI_DATA_WIDTH / 8) - 1 downto 0)",
-          "default": "",
-          "description": "AXI4-Lite slave-channel signal used for host register access."
-        },
-        {
-          "name": "S_AXI_WVALID",
-          "direction": "in",
-          "data_type": "std_logic",
-          "default": "",
-          "description": "AXI4-Lite slave-channel signal used for host register access."
-        },
-        {
-          "name": "S_AXI_WREADY",
+          "name": "reg_rd_rdy",
           "direction": "out",
           "data_type": "std_logic",
           "default": "",
-          "description": "AXI4-Lite slave-channel signal used for host register access."
+          "description": "Read-side ready indication."
         },
         {
-          "name": "S_AXI_BRESP",
-          "direction": "out",
-          "data_type": "std_logic_vector(1 downto 0)",
-          "default": "",
-          "description": "AXI4-Lite slave-channel signal used for host register access."
-        },
-        {
-          "name": "S_AXI_BVALID",
+          "name": "reg_wr_valid",
           "direction": "out",
           "data_type": "std_logic",
           "default": "",
-          "description": "AXI4-Lite slave-channel signal used for host register access."
+          "description": "Write response valid pulse."
         },
         {
-          "name": "S_AXI_BREADY",
-          "direction": "in",
-          "data_type": "std_logic",
-          "default": "",
-          "description": "AXI4-Lite slave-channel signal used for host register access."
-        },
-        {
-          "name": "S_AXI_ARADDR",
-          "direction": "in",
-          "data_type": "std_logic_vector(C_S_AXI_ADDR_WIDTH - 1 downto 0)",
-          "default": "",
-          "description": "AXI4-Lite slave-channel signal used for host register access."
-        },
-        {
-          "name": "S_AXI_ARPROT",
-          "direction": "in",
-          "data_type": "std_logic_vector(2 downto 0)",
-          "default": "",
-          "description": "AXI4-Lite slave-channel signal used for host register access."
-        },
-        {
-          "name": "S_AXI_ARVALID",
-          "direction": "in",
-          "data_type": "std_logic",
-          "default": "",
-          "description": "AXI4-Lite slave-channel signal used for host register access."
-        },
-        {
-          "name": "S_AXI_ARREADY",
+          "name": "reg_rd_valid",
           "direction": "out",
           "data_type": "std_logic",
           "default": "",
-          "description": "AXI4-Lite slave-channel signal used for host register access."
+          "description": "Read response valid pulse."
         },
         {
-          "name": "S_AXI_RDATA",
-          "direction": "out",
-          "data_type": "std_logic_vector(C_S_AXI_DATA_WIDTH - 1 downto 0)",
-          "default": "",
-          "description": "AXI4-Lite slave-channel signal used for host register access."
-        },
-        {
-          "name": "S_AXI_RRESP",
-          "direction": "out",
-          "data_type": "std_logic_vector(1 downto 0)",
-          "default": "",
-          "description": "AXI4-Lite slave-channel signal used for host register access."
-        },
-        {
-          "name": "S_AXI_RVALID",
+          "name": "reg_error",
           "direction": "out",
           "data_type": "std_logic",
           "default": "",
-          "description": "AXI4-Lite slave-channel signal used for host register access."
-        },
-        {
-          "name": "S_AXI_RREADY",
-          "direction": "in",
-          "data_type": "std_logic",
-          "default": "",
-          "description": "AXI4-Lite slave-channel signal used for host register access."
+          "description": "Address or transaction error flag for the current response."
         }
       ],
       "sources": [
-        "debug/radila/hdl/radila/raddebughub_axi.vhd"
+        "debug/radila/hdl/radila/raddebughub.vhd"
       ],
       "testbenches": [
         {
@@ -292,278 +229,398 @@
               ],
               "radila": [
                 "debug/radila/hdl/radila/radila_core.vhd",
-                "debug/radila/hdl/radila/raddebughub_axi.vhd",
-                "debug/radila/hdl/radila/radila_axi_top.vhd"
+                "debug/radila/hdl/radila/raddebughub.vhd"
               ],
               "work": [
                 "debug/radila/hdl/radila/radila_core.vhd",
-                "debug/radila/hdl/radila/raddebughub_axi.vhd",
-                "debug/radila/hdl/radila/radila_axi_top.vhd",
+                "debug/radila/hdl/radila/raddebughub.vhd",
                 "debug/radila/hdl/radila/testbenches/tb_radila_core.vhd"
               ]
             },
             "vcd": "simulations/tb_radila_core/tb_radila_core.vcd",
-            "stdout": "../../src/ieee2008/numeric_std-body.vhdl:3089:7:@0ms:(assertion warning): NUMERIC_STD.TO_UNSIGNED: vector truncated\n../../src/ieee2008/numeric_std-body.vhdl:3089:7:@0ms:(assertion warning): NUMERIC_STD.TO_UNSIGNED: vector truncated\n../../src/ieee2008/numeric_std-body.vhdl:3089:7:@3500ps:(assertion warning): NUMERIC_STD.TO_UNSIGNED: vector truncated\n../../src/ieee2008/numeric_std-body.vhdl:3089:7:@5ns:(assertion warning): NUMERIC_STD.TO_UNSIGNED: vector truncated\n../../src/ieee2008/numeric_std-body.vhdl:3089:7:@10500ps:(assertion warning): NUMERIC_STD.TO_UNSIGNED: vector truncated\n../../src/ieee2008/numeric_std-body.vhdl:3089:7:@15ns:(assertion warning): NUMERIC_STD.TO_UNSIGNED: vector truncated\n../../src/ieee2008/numeric_std-body.vhdl:3089:7:@17500ps:(assertion warning): NUMERIC_STD.TO_UNSIGNED: vector truncated\n../../src/ieee2008/numeric_std-body.vhdl:3089:7:@24500ps:(assertion warning): NUMERIC_STD.TO_UNSIGNED: vector truncated\n../../src/ieee2008/numeric_std-body.vhdl:3089:7:@25ns:(assertion warning): NUMERIC_STD.TO_UNSIGNED: vector truncated\n../../src/ieee2008/numeric_std-body.vhdl:3089:7:@31500ps:(assertion warning): NUMERIC_STD.TO_UNSIGNED: vector truncated\n../../src/ieee2008/numeric_std-body.vhdl:3089:7:@35ns:(assertion warning): NUMERIC_STD.TO_UNSIGNED: vector truncated\n../../src/ieee2008/numeric_std-body.vhdl:3089:7:@38500ps:(assertion warning): NUMERIC_STD.TO_UNSIGNED: vector truncated\n../../src/ieee2008/numeric_std-body.vhdl:3089:7:@45ns:(assertion warning): NUMERIC_STD.TO_UNSIGNED: vector truncated\n../../src/ieee2008/numeric_std-body.vhdl:3089:7:@45500ps:(assertion warning): NUMERIC_STD.TO_UNSIGNED: vector truncated\n../../src/ieee2008/numeric_std-body.vhdl:3089:7:@52500ps:(assertion warning): NUMERIC_STD.TO_UNSIGNED: vector truncated\n../../src/ieee2008/numeric_std-body.vhdl:3089:7:@55ns:(assertion warning): NUMERIC_STD.TO_UNSIGNED: vector truncated\n../../src/ieee2008/numeric_std-body.vhdl:3089:7:@59500ps:(assertion warning): NUMERIC_STD.TO_UNSIGNED: vector truncated\n../../src/ieee2008/numeric_std-body.vhdl:3089:7:@65ns:(assertion warning): NUMERIC_STD.TO_UNSIGNED: vector truncated\n../../src/ieee2008/numeric_std-body.vhdl:3089:7:@66500ps:(assertion warning): NUMERIC_STD.TO_UNSIGNED: vector truncated\n../../src/ieee2008/numeric_std-body.vhdl:3089:7:@73500ps:(assertion warning): NUMERIC_STD.TO_UNSIGNED: vector truncated\n../../src/ieee2008/numeric_std-body.vhdl:3089:7:@75ns:(assertion warning): NUMERIC_STD.TO_UNSIGNED: vector truncated\n../../src/ieee2008/numeric_std-body.vhdl:3089:7:@80500ps:(assertion warning): NUMERIC_STD.TO_UNSIGNED: vector truncated\n../../src/ieee2008/numeric_std-body.vhdl:3089:7:@85ns:(assertion warning): NUMERIC_STD.TO_UNSIGNED: vector truncated\n../../src/ieee2008/numeric_std-body.vhdl:3089:7:@87500ps:(assertion warning): NUMERIC_STD.TO_UNSIGNED: vector truncated\n../../src/ieee2008/numeric_std-body.vhdl:3089:7:@94500ps:(assertion warning): NUMERIC_STD.TO_UNSIGNED: vector truncated\n../../src/ieee2008/numeric_std-body.vhdl:3089:7:@95ns:(assertion warning): NUMERIC_STD.TO_UNSIGNED: vector truncated\n../../src/ieee2008/numeric_std-body.vhdl:3089:7:@7801500ps:(assertion warning): NUMERIC_STD.TO_UNSIGNED: vector truncated\ndebug/radila/hdl/radila/testbenches/tb_radila_core.vhd:195:5:@7845ns:(report note): tb_radila_core passed\nsimulation finished @7845ns\n",
+            "stdout": "debug/radila/hdl/radila/testbenches/tb_radila_core.vhd:173:5:@8085ns:(report note): tb_radila_core passed\nsimulation finished @8085ns\n",
             "stderr": ""
           }
         }
       ],
-      "register_maps": []
-    },
-    {
-      "name": "radila_v1_0",
-      "kind": "entity",
-      "path": "debug/radila/hdl/radila/radila_axi_top.vhd",
-      "library": "radhdl",
-      "category": "Debug",
-      "description": "Vivado-packaged AXI wrapper around the RadILA capture core.\nMaps AXI register transactions onto analyzer control, trigger, status, and capture-buffer readback signals.",
-      "generics": [
+      "register_maps": [
         {
-          "name": "C_S00_AXI_DATA_WIDTH",
-          "direction": "",
-          "data_type": "integer",
-          "default": "32",
-          "description": "Sets the bit width for C S00 AXI DATA WIDTH values carried by this module."
-        },
-        {
-          "name": "C_S00_AXI_ADDR_WIDTH",
-          "direction": "",
-          "data_type": "integer",
-          "default": "6",
-          "description": "Sets the bit width for C S00 AXI ADDR WIDTH values carried by this module."
-        },
-        {
-          "name": "SAMPLE_WIDTH",
-          "direction": "",
-          "data_type": "integer",
-          "default": "32",
-          "description": "Sets the bit width for SAMPLE WIDTH values carried by this module."
-        },
-        {
-          "name": "EVENT_WIDTH",
-          "direction": "",
-          "data_type": "integer",
-          "default": "8",
-          "description": "Sets the bit width for EVENT WIDTH values carried by this module."
-        },
-        {
-          "name": "DEPTH",
-          "direction": "",
-          "data_type": "integer",
-          "default": "1024",
-          "description": "Sets the storage depth, frame length, or number of buffered samples used internally."
-        },
-        {
-          "name": "ADDR_WIDTH",
-          "direction": "",
-          "data_type": "integer",
-          "default": "10",
-          "description": "Sets the bit width for ADDR WIDTH values carried by this module."
-        },
-        {
-          "name": "CMD_LANES",
-          "direction": "",
-          "data_type": "integer",
-          "default": "4",
-          "description": "Sets the number of parallel sample lanes processed per handshake beat."
-        },
-        {
-          "name": "VENDOR_TAG",
-          "direction": "",
-          "data_type": "string",
-          "default": "\"XILINX\"",
-          "description": "Selects the vendor-specific implementation path, usually XILINX for DSP48/XPM-backed builds or generic for portable RTL."
-        },
-        {
-          "name": "PRODUCT_SERIES_TAG",
-          "direction": "",
-          "data_type": "string",
-          "default": "\"7SERIES\"",
-          "description": "Identifies the target FPGA family so wrappers can choose the correct primitive or conservative portable behavior."
-        },
-        {
-          "name": "G_DEBUG_BUS",
-          "direction": "",
-          "data_type": "string",
-          "default": "\"AXI_LITE\"",
-          "description": "Configures G DEBUG BUS for this instance."
+          "name": "RadDebugHub",
+          "path": "debug/radila/hdl/radila/register_maps/RadDebugHub.map.json",
+          "base": "0x0000",
+          "description": "Controls RadILA capture arming, trigger matching, status reporting, and capture-buffer readback through the shared RADIF register interface.",
+          "data_width": 32,
+          "registers": [
+            {
+              "name": "id",
+              "offset": "0x0000",
+              "access": "ro",
+              "address": "0x0000",
+              "reset": "0x52414449",
+              "width": 32,
+              "region": "RadDebugHub",
+              "description": "Constant ASCII identifier for the RadILA debug hub.",
+              "fields": [
+                {
+                  "name": "ID",
+                  "display_name": "ID",
+                  "description": "Reads as 0x52414449, the ASCII tag RADI.",
+                  "msb": 31,
+                  "lsb": 0
+                }
+              ]
+            },
+            {
+              "name": "version",
+              "offset": "0x0004",
+              "access": "ro",
+              "address": "0x0004",
+              "reset": "0x00020800",
+              "width": 32,
+              "region": "RadDebugHub",
+              "description": "Hardware register-map version and compatibility word.",
+              "fields": [
+                {
+                  "name": "VERSION",
+                  "display_name": "VERSION",
+                  "description": "Encodes the debug hub register contract version used by host tools.",
+                  "msb": 31,
+                  "lsb": 0
+                }
+              ]
+            },
+            {
+              "name": "control",
+              "offset": "0x0008",
+              "access": "rw",
+              "address": "0x0008",
+              "reset": "0x00000000",
+              "width": 32,
+              "region": "RadDebugHub",
+              "description": "Issues capture commands and configures optional interrupt and auto-rearm behavior.",
+              "fields": [
+                {
+                  "name": "ARM",
+                  "display_name": "ARM",
+                  "description": "Writing 1 arms the analyzer and starts capture when the trigger condition is met.",
+                  "msb": 0,
+                  "lsb": 0
+                },
+                {
+                  "name": "SW_TRIG",
+                  "display_name": "SW TRIG",
+                  "description": "Writing 1 injects a software trigger into the command stream.",
+                  "msb": 1,
+                  "lsb": 1
+                },
+                {
+                  "name": "CLEAR",
+                  "display_name": "CLEAR",
+                  "description": "Writing 1 clears capture state, sticky done indication, counters, and command framing.",
+                  "msb": 2,
+                  "lsb": 2
+                },
+                {
+                  "name": "AUTO_REARM",
+                  "display_name": "AUTO REARM",
+                  "description": "When set, the capture engine automatically returns to the armed state after completing a capture.",
+                  "msb": 3,
+                  "lsb": 3
+                },
+                {
+                  "name": "IRQ_EN",
+                  "display_name": "IRQ EN",
+                  "description": "When set, irq_o asserts while STATUS.DONE is set.",
+                  "msb": 4,
+                  "lsb": 4
+                }
+              ]
+            },
+            {
+              "name": "status",
+              "offset": "0x000C",
+              "access": "ro",
+              "address": "0x000C",
+              "reset": "0x00000000",
+              "width": 32,
+              "region": "RadDebugHub",
+              "description": "Reports analyzer state and captured sample count.",
+              "fields": [
+                {
+                  "name": "ARMED",
+                  "display_name": "ARMED",
+                  "description": "Set while the analyzer is armed and waiting for a trigger.",
+                  "msb": 0,
+                  "lsb": 0
+                },
+                {
+                  "name": "CAPTURING",
+                  "display_name": "CAPTURING",
+                  "description": "Set while samples are being written into the capture buffer.",
+                  "msb": 1,
+                  "lsb": 1
+                },
+                {
+                  "name": "DONE",
+                  "display_name": "DONE",
+                  "description": "Set after the configured capture window has completed.",
+                  "msb": 2,
+                  "lsb": 2
+                },
+                {
+                  "name": "OVERFLOW",
+                  "display_name": "OVERFLOW",
+                  "description": "Set when capture activity exceeds the configured buffer accounting.",
+                  "msb": 3,
+                  "lsb": 3
+                },
+                {
+                  "name": "COUNT",
+                  "display_name": "COUNT",
+                  "description": "Number of samples captured or retained by the current capture window.",
+                  "msb": 31,
+                  "lsb": 16
+                }
+              ]
+            },
+            {
+              "name": "trig_mask",
+              "offset": "0x0010",
+              "access": "rw",
+              "address": "0x0010",
+              "reset": "0x00000000",
+              "width": 32,
+              "region": "RadDebugHub",
+              "description": "Selects which event_i bits participate in hardware trigger comparison.",
+              "fields": [
+                {
+                  "name": "TRIG_MASK",
+                  "display_name": "TRIG MASK",
+                  "description": "A mask bit of 1 enables comparison for the corresponding event_i bit.",
+                  "msb": 7,
+                  "lsb": 0
+                }
+              ]
+            },
+            {
+              "name": "trig_value",
+              "offset": "0x0014",
+              "access": "rw",
+              "address": "0x0014",
+              "reset": "0x00000000",
+              "width": 32,
+              "region": "RadDebugHub",
+              "description": "Expected event value after applying TRIG_MASK.",
+              "fields": [
+                {
+                  "name": "TRIG_VALUE",
+                  "display_name": "TRIG VALUE",
+                  "description": "The analyzer triggers when event_i masked by TRIG_MASK equals this masked value.",
+                  "msb": 7,
+                  "lsb": 0
+                }
+              ]
+            },
+            {
+              "name": "pretrig",
+              "offset": "0x0018",
+              "access": "rw",
+              "address": "0x0018",
+              "reset": "0x00000000",
+              "width": 32,
+              "region": "RadDebugHub",
+              "description": "Reserved pre-trigger depth configuration field retained for host API compatibility.",
+              "fields": [
+                {
+                  "name": "PRETRIG",
+                  "display_name": "PRETRIG",
+                  "description": "Reserved for future pre-trigger capture-window selection.",
+                  "msb": 9,
+                  "lsb": 0
+                }
+              ]
+            },
+            {
+              "name": "posttrig",
+              "offset": "0x001C",
+              "access": "rw",
+              "address": "0x001C",
+              "reset": "0x000000FF",
+              "width": 32,
+              "region": "RadDebugHub",
+              "description": "Number of post-trigger samples to capture after the trigger condition is accepted.",
+              "fields": [
+                {
+                  "name": "POSTTRIG",
+                  "display_name": "POSTTRIG",
+                  "description": "Post-trigger capture count. Values wider than ADDR_WIDTH are ignored by the configured hardware instance.",
+                  "msb": 9,
+                  "lsb": 0
+                }
+              ]
+            },
+            {
+              "name": "data_index",
+              "offset": "0x0020",
+              "access": "rw",
+              "address": "0x0020",
+              "reset": "0x00000000",
+              "width": 32,
+              "region": "RadDebugHub",
+              "description": "Capture-buffer read index used by SAMPLE_DATA registers.",
+              "fields": [
+                {
+                  "name": "DATA_INDEX",
+                  "display_name": "DATA INDEX",
+                  "description": "Selects the capture-buffer sample address returned by SAMPLE_DATA0 through SAMPLE_DATA3.",
+                  "msb": 9,
+                  "lsb": 0
+                }
+              ]
+            },
+            {
+              "name": "sample_data0",
+              "offset": "0x0024",
+              "access": "ro",
+              "address": "0x0024",
+              "reset": "0x00000000",
+              "width": 32,
+              "region": "RadDebugHub",
+              "description": "Low 32 bits of the captured sample selected by DATA_INDEX.",
+              "fields": [
+                {
+                  "name": "SAMPLE_DATA0",
+                  "display_name": "SAMPLE DATA0",
+                  "description": "Captured sample bits 31 downto 0.",
+                  "msb": 31,
+                  "lsb": 0
+                }
+              ]
+            },
+            {
+              "name": "sample_now0",
+              "offset": "0x0028",
+              "access": "ro",
+              "address": "0x0028",
+              "reset": "0x00000000",
+              "width": 32,
+              "region": "RadDebugHub",
+              "description": "Low 32 bits of the live sample input synchronized into the register clock domain.",
+              "fields": [
+                {
+                  "name": "SAMPLE_NOW0",
+                  "display_name": "SAMPLE NOW0",
+                  "description": "Live sample_i bits 31 downto 0.",
+                  "msb": 31,
+                  "lsb": 0
+                }
+              ]
+            },
+            {
+              "name": "event_now",
+              "offset": "0x002C",
+              "access": "ro",
+              "address": "0x002C",
+              "reset": "0x00000000",
+              "width": 32,
+              "region": "RadDebugHub",
+              "description": "Current event metadata synchronized into the register clock domain.",
+              "fields": [
+                {
+                  "name": "EVENT_NOW",
+                  "display_name": "EVENT NOW",
+                  "description": "Live event_i value observed by the analyzer.",
+                  "msb": 7,
+                  "lsb": 0
+                }
+              ]
+            },
+            {
+              "name": "caps",
+              "offset": "0x0030",
+              "access": "ro",
+              "address": "0x0030",
+              "reset": "0x00200008",
+              "width": 32,
+              "region": "RadDebugHub",
+              "description": "Static hardware capability word for host discovery.",
+              "fields": [
+                {
+                  "name": "EVENT_WIDTH",
+                  "display_name": "EVENT WIDTH",
+                  "description": "Configured width of event_i in bits.",
+                  "msb": 15,
+                  "lsb": 0
+                },
+                {
+                  "name": "SAMPLE_WIDTH",
+                  "display_name": "SAMPLE WIDTH",
+                  "description": "Configured width of sample_i in bits.",
+                  "msb": 31,
+                  "lsb": 16
+                }
+              ]
+            },
+            {
+              "name": "sample_data1",
+              "offset": "0x0034",
+              "access": "ro",
+              "address": "0x0034",
+              "reset": "0x00000000",
+              "width": 32,
+              "region": "RadDebugHub",
+              "description": "Captured sample bits 63 downto 32 when SAMPLE_WIDTH is greater than 32.",
+              "fields": [
+                {
+                  "name": "SAMPLE_DATA1",
+                  "display_name": "SAMPLE DATA1",
+                  "description": "Upper captured sample word for wider analyzer instances.",
+                  "msb": 31,
+                  "lsb": 0
+                }
+              ]
+            },
+            {
+              "name": "sample_data2",
+              "offset": "0x0038",
+              "access": "ro",
+              "address": "0x0038",
+              "reset": "0x00000000",
+              "width": 32,
+              "region": "RadDebugHub",
+              "description": "Captured sample bits 95 downto 64 when SAMPLE_WIDTH is greater than 64.",
+              "fields": [
+                {
+                  "name": "SAMPLE_DATA2",
+                  "display_name": "SAMPLE DATA2",
+                  "description": "Additional captured sample word for wide analyzer instances.",
+                  "msb": 31,
+                  "lsb": 0
+                }
+              ]
+            },
+            {
+              "name": "sample_data3",
+              "offset": "0x003C",
+              "access": "ro",
+              "address": "0x003C",
+              "reset": "0x00000000",
+              "width": 32,
+              "region": "RadDebugHub",
+              "description": "Captured sample bits 127 downto 96 when SAMPLE_WIDTH is greater than 96.",
+              "fields": [
+                {
+                  "name": "SAMPLE_DATA3",
+                  "display_name": "SAMPLE DATA3",
+                  "description": "Additional captured sample word for wide analyzer instances.",
+                  "msb": 31,
+                  "lsb": 0
+                }
+              ]
+            }
+          ]
         }
-      ],
-      "ports": [
-        {
-          "name": "sample_i",
-          "direction": "in",
-          "data_type": "std_logic_vector(SAMPLE_WIDTH - 1 downto 0)",
-          "default": "",
-          "description": "Input sample vector captured or processed by the datapath."
-        },
-        {
-          "name": "event_i",
-          "direction": "in",
-          "data_type": "std_logic_vector(EVENT_WIDTH - 1 downto 0)",
-          "default": "",
-          "description": "Event or trigger metadata associated with the current sample stream."
-        },
-        {
-          "name": "irq_o",
-          "direction": "out",
-          "data_type": "std_logic",
-          "default": "",
-          "description": "Output irq o signal generated by this module."
-        },
-        {
-          "name": "s00_axi_aclk",
-          "direction": "in",
-          "data_type": "std_logic",
-          "default": "",
-          "description": "S00 axi aclk interface signal."
-        },
-        {
-          "name": "s00_axi_aresetn",
-          "direction": "in",
-          "data_type": "std_logic",
-          "default": "",
-          "description": "S00 axi aresetn interface signal."
-        },
-        {
-          "name": "s00_axi_awaddr",
-          "direction": "in",
-          "data_type": "std_logic_vector(C_S00_AXI_ADDR_WIDTH - 1 downto 0)",
-          "default": "",
-          "description": "S00 axi awaddr interface signal."
-        },
-        {
-          "name": "s00_axi_awprot",
-          "direction": "in",
-          "data_type": "std_logic_vector(2 downto 0)",
-          "default": "",
-          "description": "S00 axi awprot interface signal."
-        },
-        {
-          "name": "s00_axi_awvalid",
-          "direction": "in",
-          "data_type": "std_logic",
-          "default": "",
-          "description": "S00 axi awvalid interface signal."
-        },
-        {
-          "name": "s00_axi_awready",
-          "direction": "out",
-          "data_type": "std_logic",
-          "default": "",
-          "description": "S00 axi awready interface signal."
-        },
-        {
-          "name": "s00_axi_wdata",
-          "direction": "in",
-          "data_type": "std_logic_vector(C_S00_AXI_DATA_WIDTH - 1 downto 0)",
-          "default": "",
-          "description": "S00 axi wdata interface signal."
-        },
-        {
-          "name": "s00_axi_wstrb",
-          "direction": "in",
-          "data_type": "std_logic_vector((C_S00_AXI_DATA_WIDTH / 8) - 1 downto 0)",
-          "default": "",
-          "description": "S00 axi wstrb interface signal."
-        },
-        {
-          "name": "s00_axi_wvalid",
-          "direction": "in",
-          "data_type": "std_logic",
-          "default": "",
-          "description": "S00 axi wvalid interface signal."
-        },
-        {
-          "name": "s00_axi_wready",
-          "direction": "out",
-          "data_type": "std_logic",
-          "default": "",
-          "description": "S00 axi wready interface signal."
-        },
-        {
-          "name": "s00_axi_bresp",
-          "direction": "out",
-          "data_type": "std_logic_vector(1 downto 0)",
-          "default": "",
-          "description": "S00 axi bresp interface signal."
-        },
-        {
-          "name": "s00_axi_bvalid",
-          "direction": "out",
-          "data_type": "std_logic",
-          "default": "",
-          "description": "S00 axi bvalid interface signal."
-        },
-        {
-          "name": "s00_axi_bready",
-          "direction": "in",
-          "data_type": "std_logic",
-          "default": "",
-          "description": "S00 axi bready interface signal."
-        },
-        {
-          "name": "s00_axi_araddr",
-          "direction": "in",
-          "data_type": "std_logic_vector(C_S00_AXI_ADDR_WIDTH - 1 downto 0)",
-          "default": "",
-          "description": "S00 axi araddr interface signal."
-        },
-        {
-          "name": "s00_axi_arprot",
-          "direction": "in",
-          "data_type": "std_logic_vector(2 downto 0)",
-          "default": "",
-          "description": "S00 axi arprot interface signal."
-        },
-        {
-          "name": "s00_axi_arvalid",
-          "direction": "in",
-          "data_type": "std_logic",
-          "default": "",
-          "description": "S00 axi arvalid interface signal."
-        },
-        {
-          "name": "s00_axi_arready",
-          "direction": "out",
-          "data_type": "std_logic",
-          "default": "",
-          "description": "S00 axi arready interface signal."
-        },
-        {
-          "name": "s00_axi_rdata",
-          "direction": "out",
-          "data_type": "std_logic_vector(C_S00_AXI_DATA_WIDTH - 1 downto 0)",
-          "default": "",
-          "description": "S00 axi rdata interface signal."
-        },
-        {
-          "name": "s00_axi_rresp",
-          "direction": "out",
-          "data_type": "std_logic_vector(1 downto 0)",
-          "default": "",
-          "description": "S00 axi rresp interface signal."
-        },
-        {
-          "name": "s00_axi_rvalid",
-          "direction": "out",
-          "data_type": "std_logic",
-          "default": "",
-          "description": "S00 axi rvalid interface signal."
-        },
-        {
-          "name": "s00_axi_rready",
-          "direction": "in",
-          "data_type": "std_logic",
-          "default": "",
-          "description": "S00 axi rready interface signal."
-        }
-      ],
-      "sources": [
-        "debug/radila/hdl/radila/radila_axi_top.vhd"
-      ],
-      "testbenches": [],
-      "register_maps": []
+      ]
     },
     {
       "name": "RadILA",
@@ -777,18 +834,16 @@
               ],
               "radila": [
                 "debug/radila/hdl/radila/radila_core.vhd",
-                "debug/radila/hdl/radila/raddebughub_axi.vhd",
-                "debug/radila/hdl/radila/radila_axi_top.vhd"
+                "debug/radila/hdl/radila/raddebughub.vhd"
               ],
               "work": [
                 "debug/radila/hdl/radila/radila_core.vhd",
-                "debug/radila/hdl/radila/raddebughub_axi.vhd",
-                "debug/radila/hdl/radila/radila_axi_top.vhd",
+                "debug/radila/hdl/radila/raddebughub.vhd",
                 "debug/radila/hdl/radila/testbenches/tb_radila_core.vhd"
               ]
             },
             "vcd": "simulations/tb_radila_core/tb_radila_core.vcd",
-            "stdout": "../../src/ieee2008/numeric_std-body.vhdl:3089:7:@0ms:(assertion warning): NUMERIC_STD.TO_UNSIGNED: vector truncated\n../../src/ieee2008/numeric_std-body.vhdl:3089:7:@0ms:(assertion warning): NUMERIC_STD.TO_UNSIGNED: vector truncated\n../../src/ieee2008/numeric_std-body.vhdl:3089:7:@3500ps:(assertion warning): NUMERIC_STD.TO_UNSIGNED: vector truncated\n../../src/ieee2008/numeric_std-body.vhdl:3089:7:@5ns:(assertion warning): NUMERIC_STD.TO_UNSIGNED: vector truncated\n../../src/ieee2008/numeric_std-body.vhdl:3089:7:@10500ps:(assertion warning): NUMERIC_STD.TO_UNSIGNED: vector truncated\n../../src/ieee2008/numeric_std-body.vhdl:3089:7:@15ns:(assertion warning): NUMERIC_STD.TO_UNSIGNED: vector truncated\n../../src/ieee2008/numeric_std-body.vhdl:3089:7:@17500ps:(assertion warning): NUMERIC_STD.TO_UNSIGNED: vector truncated\n../../src/ieee2008/numeric_std-body.vhdl:3089:7:@24500ps:(assertion warning): NUMERIC_STD.TO_UNSIGNED: vector truncated\n../../src/ieee2008/numeric_std-body.vhdl:3089:7:@25ns:(assertion warning): NUMERIC_STD.TO_UNSIGNED: vector truncated\n../../src/ieee2008/numeric_std-body.vhdl:3089:7:@31500ps:(assertion warning): NUMERIC_STD.TO_UNSIGNED: vector truncated\n../../src/ieee2008/numeric_std-body.vhdl:3089:7:@35ns:(assertion warning): NUMERIC_STD.TO_UNSIGNED: vector truncated\n../../src/ieee2008/numeric_std-body.vhdl:3089:7:@38500ps:(assertion warning): NUMERIC_STD.TO_UNSIGNED: vector truncated\n../../src/ieee2008/numeric_std-body.vhdl:3089:7:@45ns:(assertion warning): NUMERIC_STD.TO_UNSIGNED: vector truncated\n../../src/ieee2008/numeric_std-body.vhdl:3089:7:@45500ps:(assertion warning): NUMERIC_STD.TO_UNSIGNED: vector truncated\n../../src/ieee2008/numeric_std-body.vhdl:3089:7:@52500ps:(assertion warning): NUMERIC_STD.TO_UNSIGNED: vector truncated\n../../src/ieee2008/numeric_std-body.vhdl:3089:7:@55ns:(assertion warning): NUMERIC_STD.TO_UNSIGNED: vector truncated\n../../src/ieee2008/numeric_std-body.vhdl:3089:7:@59500ps:(assertion warning): NUMERIC_STD.TO_UNSIGNED: vector truncated\n../../src/ieee2008/numeric_std-body.vhdl:3089:7:@65ns:(assertion warning): NUMERIC_STD.TO_UNSIGNED: vector truncated\n../../src/ieee2008/numeric_std-body.vhdl:3089:7:@66500ps:(assertion warning): NUMERIC_STD.TO_UNSIGNED: vector truncated\n../../src/ieee2008/numeric_std-body.vhdl:3089:7:@73500ps:(assertion warning): NUMERIC_STD.TO_UNSIGNED: vector truncated\n../../src/ieee2008/numeric_std-body.vhdl:3089:7:@75ns:(assertion warning): NUMERIC_STD.TO_UNSIGNED: vector truncated\n../../src/ieee2008/numeric_std-body.vhdl:3089:7:@80500ps:(assertion warning): NUMERIC_STD.TO_UNSIGNED: vector truncated\n../../src/ieee2008/numeric_std-body.vhdl:3089:7:@85ns:(assertion warning): NUMERIC_STD.TO_UNSIGNED: vector truncated\n../../src/ieee2008/numeric_std-body.vhdl:3089:7:@87500ps:(assertion warning): NUMERIC_STD.TO_UNSIGNED: vector truncated\n../../src/ieee2008/numeric_std-body.vhdl:3089:7:@94500ps:(assertion warning): NUMERIC_STD.TO_UNSIGNED: vector truncated\n../../src/ieee2008/numeric_std-body.vhdl:3089:7:@95ns:(assertion warning): NUMERIC_STD.TO_UNSIGNED: vector truncated\n../../src/ieee2008/numeric_std-body.vhdl:3089:7:@7801500ps:(assertion warning): NUMERIC_STD.TO_UNSIGNED: vector truncated\ndebug/radila/hdl/radila/testbenches/tb_radila_core.vhd:195:5:@7845ns:(report note): tb_radila_core passed\nsimulation finished @7845ns\n",
+            "stdout": "debug/radila/hdl/radila/testbenches/tb_radila_core.vhd:173:5:@8085ns:(report note): tb_radila_core passed\nsimulation finished @8085ns\n",
             "stderr": ""
           }
         }
@@ -5337,7 +5392,7 @@
             },
             "returncode": 2,
             "stdout": "",
-            "stderr": "\n******************** GHDL Bug occurred ***************************\nPlease report this bug on https://github.com/ghdl/ghdl/issues\nGHDL release: 1.0.0 (Ubuntu 1.0.0+dfsg-6) [Dunoon edition]\nCompiled with GNAT Version: 10.3.1 20211117\nTarget: x86_64-linux-gnu\n/tmp/radhdl-ghdl-coklhkwx/\nCommand line:\n/usr/bin/ghdl-mcode -e --std=08 --ieee=synopsys -P/tmp/radhdl-ghdl-coklhkwx --workdir=/tmp/radhdl-ghdl-coklhkwx tb_raddsp_axis_radfft\nException TYPES.INTERNAL_ERROR raised\nException information:\nraised TYPES.INTERNAL_ERROR : trans.adb:553\nCall stack traceback locations:\n0x56de2e03a13d 0x56de2e03a51b 0x56de2e03a797 0x56de2e1cffc8 0x56de2e1ded6d 0x56de2e1dee25 0x56de2e1e8bde 0x56de2e207aa7 0x56de2e207d5f 0x56de2e208257 0x56de2e2086b1 0x56de2e215330 0x56de2e21481c 0x56de2e25ca78 0x56de2e25cb9f 0x56de2e25d1f8 0x56de2e25d98a 0x56de2e25f596 0x56de2e25f6eb 0x56de2e262b0f 0x56de2e2673f8 0x56de2e26723b 0x56de2e2674e5 0x56de2e26723b 0x56de2e2674e5 0x56de2e22b4fa 0x56de2e21eeac 0x56de2e22fd8c 0x56de2e22a0a0 0x56de2e26fb55 0x56de2e1b0af5 0x56de2e0e669e 0x56de2e2734b3 0x56de2de9eb07 0x72a16f829d8e 0x72a16f829e3e 0x56de2de9d243 0xfffffffffffffffe\n******************************************************************\n"
+            "stderr": "\n******************** GHDL Bug occurred ***************************\nPlease report this bug on https://github.com/ghdl/ghdl/issues\nGHDL release: 1.0.0 (Ubuntu 1.0.0+dfsg-6) [Dunoon edition]\nCompiled with GNAT Version: 10.3.1 20211117\nTarget: x86_64-linux-gnu\n/tmp/radhdl-ghdl-_xp5i_l8/\nCommand line:\n/usr/bin/ghdl-mcode -e --std=08 --ieee=synopsys -P/tmp/radhdl-ghdl-_xp5i_l8 --workdir=/tmp/radhdl-ghdl-_xp5i_l8 tb_raddsp_axis_radfft\nException TYPES.INTERNAL_ERROR raised\nException information:\nraised TYPES.INTERNAL_ERROR : trans.adb:553\nCall stack traceback locations:\n0x57e7b179b13d 0x57e7b179b51b 0x57e7b179b797 0x57e7b1930fc8 0x57e7b193fd6d 0x57e7b193fe25 0x57e7b1949bde 0x57e7b1968aa7 0x57e7b1968d5f 0x57e7b1969257 0x57e7b19696b1 0x57e7b1976330 0x57e7b197581c 0x57e7b19bda78 0x57e7b19bdb9f 0x57e7b19be1f8 0x57e7b19be98a 0x57e7b19c0596 0x57e7b19c06eb 0x57e7b19c3b0f 0x57e7b19c83f8 0x57e7b19c823b 0x57e7b19c84e5 0x57e7b19c823b 0x57e7b19c84e5 0x57e7b198c4fa 0x57e7b197feac 0x57e7b1990d8c 0x57e7b198b0a0 0x57e7b19d0b55 0x57e7b1911af5 0x57e7b184769e 0x57e7b19d44b3 0x57e7b15ffb07 0x74245de29d8e 0x74245de29e3e 0x57e7b15fe243 0xfffffffffffffffe\n******************************************************************\n"
           }
         },
         {
@@ -5410,7 +5465,7 @@
             },
             "returncode": 2,
             "stdout": "",
-            "stderr": "\n******************** GHDL Bug occurred ***************************\nPlease report this bug on https://github.com/ghdl/ghdl/issues\nGHDL release: 1.0.0 (Ubuntu 1.0.0+dfsg-6) [Dunoon edition]\nCompiled with GNAT Version: 10.3.1 20211117\nTarget: x86_64-linux-gnu\n/tmp/radhdl-ghdl-bu8mq3x1/\nCommand line:\n/usr/bin/ghdl-mcode -e --std=08 --ieee=synopsys -P/tmp/radhdl-ghdl-bu8mq3x1 --workdir=/tmp/radhdl-ghdl-bu8mq3x1 tb_raddsp_axis_radfft_ddr\nException TYPES.INTERNAL_ERROR raised\nException information:\nraised TYPES.INTERNAL_ERROR : trans.adb:553\nCall stack traceback locations:\n0x62a00abaa13d 0x62a00abaa51b 0x62a00abaa797 0x62a00ad3ffc8 0x62a00ad4ed6d 0x62a00ad4ee25 0x62a00ad58bde 0x62a00ad77aa7 0x62a00ad77d5f 0x62a00ad78257 0x62a00ad786b1 0x62a00ad85330 0x62a00ad8481c 0x62a00adcca78 0x62a00adccb9f 0x62a00adcd1f8 0x62a00adcd98a 0x62a00adcf596 0x62a00adcf6eb 0x62a00add2b0f 0x62a00add73f8 0x62a00add723b 0x62a00add74e5 0x62a00add723b 0x62a00add74e5 0x62a00ad9b4fa 0x62a00ad8eeac 0x62a00ad9fd8c 0x62a00ad9a0a0 0x62a00addfb55 0x62a00ad20af5 0x62a00ac5669e 0x62a00ade34b3 0x62a00aa0eb07 0x7bee3f229d8e 0x7bee3f229e3e 0x62a00aa0d243 0xfffffffffffffffe\n******************************************************************\n"
+            "stderr": "\n******************** GHDL Bug occurred ***************************\nPlease report this bug on https://github.com/ghdl/ghdl/issues\nGHDL release: 1.0.0 (Ubuntu 1.0.0+dfsg-6) [Dunoon edition]\nCompiled with GNAT Version: 10.3.1 20211117\nTarget: x86_64-linux-gnu\n/tmp/radhdl-ghdl-fn51igmn/\nCommand line:\n/usr/bin/ghdl-mcode -e --std=08 --ieee=synopsys -P/tmp/radhdl-ghdl-fn51igmn --workdir=/tmp/radhdl-ghdl-fn51igmn tb_raddsp_axis_radfft_ddr\nException TYPES.INTERNAL_ERROR raised\nException information:\nraised TYPES.INTERNAL_ERROR : trans.adb:553\nCall stack traceback locations:\n0x6318067b713d 0x6318067b751b 0x6318067b7797 0x63180694cfc8 0x63180695bd6d 0x63180695be25 0x631806965bde 0x631806984aa7 0x631806984d5f 0x631806985257 0x6318069856b1 0x631806992330 0x63180699181c 0x6318069d9a78 0x6318069d9b9f 0x6318069da1f8 0x6318069da98a 0x6318069dc596 0x6318069dc6eb 0x6318069dfb0f 0x6318069e43f8 0x6318069e423b 0x6318069e44e5 0x6318069e423b 0x6318069e44e5 0x6318069a84fa 0x63180699beac 0x6318069acd8c 0x6318069a70a0 0x6318069ecb55 0x63180692daf5 0x63180686369e 0x6318069f04b3 0x63180661bb07 0x7026ea429d8e 0x7026ea429e3e 0x63180661a243 0xfffffffffffffffe\n******************************************************************\n"
           }
         },
         {
@@ -5482,7 +5537,7 @@
             },
             "returncode": 2,
             "stdout": "",
-            "stderr": "\n******************** GHDL Bug occurred ***************************\nPlease report this bug on https://github.com/ghdl/ghdl/issues\nGHDL release: 1.0.0 (Ubuntu 1.0.0+dfsg-6) [Dunoon edition]\nCompiled with GNAT Version: 10.3.1 20211117\nTarget: x86_64-linux-gnu\n/tmp/radhdl-ghdl-9y2vinzs/\nCommand line:\n/usr/bin/ghdl-mcode -e --std=08 --ieee=synopsys -P/tmp/radhdl-ghdl-9y2vinzs --workdir=/tmp/radhdl-ghdl-9y2vinzs tb_raddsp_axis_radfft_ddr_xcorr_1024\nException TYPES.INTERNAL_ERROR raised\nException information:\nraised TYPES.INTERNAL_ERROR : trans.adb:553\nCall stack traceback locations:\n0x5aa65efda13d 0x5aa65efda51b 0x5aa65efda797 0x5aa65f16ffc8 0x5aa65f17ed6d 0x5aa65f17ee25 0x5aa65f188bde 0x5aa65f1a7aa7 0x5aa65f1a7d5f 0x5aa65f1a8257 0x5aa65f1a86b1 0x5aa65f1b5330 0x5aa65f1b481c 0x5aa65f1fca78 0x5aa65f1fcb9f 0x5aa65f1fd1f8 0x5aa65f1fd98a 0x5aa65f1ff596 0x5aa65f1ff6eb 0x5aa65f202b0f 0x5aa65f2073f8 0x5aa65f20723b 0x5aa65f2074e5 0x5aa65f20723b 0x5aa65f2074e5 0x5aa65f1cb4fa 0x5aa65f1beeac 0x5aa65f1cfd8c 0x5aa65f1ca0a0 0x5aa65f20fb55 0x5aa65f150af5 0x5aa65f08669e 0x5aa65f2134b3 0x5aa65ee3eb07 0x7ade3d029d8e 0x7ade3d029e3e 0x5aa65ee3d243 0xfffffffffffffffe\n******************************************************************\n"
+            "stderr": "\n******************** GHDL Bug occurred ***************************\nPlease report this bug on https://github.com/ghdl/ghdl/issues\nGHDL release: 1.0.0 (Ubuntu 1.0.0+dfsg-6) [Dunoon edition]\nCompiled with GNAT Version: 10.3.1 20211117\nTarget: x86_64-linux-gnu\n/tmp/radhdl-ghdl-x84r7on2/\nCommand line:\n/usr/bin/ghdl-mcode -e --std=08 --ieee=synopsys -P/tmp/radhdl-ghdl-x84r7on2 --workdir=/tmp/radhdl-ghdl-x84r7on2 tb_raddsp_axis_radfft_ddr_xcorr_1024\nException TYPES.INTERNAL_ERROR raised\nException information:\nraised TYPES.INTERNAL_ERROR : trans.adb:553\nCall stack traceback locations:\n0x5a10149cd13d 0x5a10149cd51b 0x5a10149cd797 0x5a1014b62fc8 0x5a1014b71d6d 0x5a1014b71e25 0x5a1014b7bbde 0x5a1014b9aaa7 0x5a1014b9ad5f 0x5a1014b9b257 0x5a1014b9b6b1 0x5a1014ba8330 0x5a1014ba781c 0x5a1014befa78 0x5a1014befb9f 0x5a1014bf01f8 0x5a1014bf098a 0x5a1014bf2596 0x5a1014bf26eb 0x5a1014bf5b0f 0x5a1014bfa3f8 0x5a1014bfa23b 0x5a1014bfa4e5 0x5a1014bfa23b 0x5a1014bfa4e5 0x5a1014bbe4fa 0x5a1014bb1eac 0x5a1014bc2d8c 0x5a1014bbd0a0 0x5a1014c02b55 0x5a1014b43af5 0x5a1014a7969e 0x5a1014c064b3 0x5a1014831b07 0x73724d029d8e 0x73724d029e3e 0x5a1014830243 0xfffffffffffffffe\n******************************************************************\n"
           }
         }
       ],
@@ -6318,7 +6373,7 @@
             },
             "returncode": 2,
             "stdout": "",
-            "stderr": "\n******************** GHDL Bug occurred ***************************\nPlease report this bug on https://github.com/ghdl/ghdl/issues\nGHDL release: 1.0.0 (Ubuntu 1.0.0+dfsg-6) [Dunoon edition]\nCompiled with GNAT Version: 10.3.1 20211117\nTarget: x86_64-linux-gnu\n/tmp/radhdl-ghdl-bu8mq3x1/\nCommand line:\n/usr/bin/ghdl-mcode -e --std=08 --ieee=synopsys -P/tmp/radhdl-ghdl-bu8mq3x1 --workdir=/tmp/radhdl-ghdl-bu8mq3x1 tb_raddsp_axis_radfft_ddr\nException TYPES.INTERNAL_ERROR raised\nException information:\nraised TYPES.INTERNAL_ERROR : trans.adb:553\nCall stack traceback locations:\n0x62a00abaa13d 0x62a00abaa51b 0x62a00abaa797 0x62a00ad3ffc8 0x62a00ad4ed6d 0x62a00ad4ee25 0x62a00ad58bde 0x62a00ad77aa7 0x62a00ad77d5f 0x62a00ad78257 0x62a00ad786b1 0x62a00ad85330 0x62a00ad8481c 0x62a00adcca78 0x62a00adccb9f 0x62a00adcd1f8 0x62a00adcd98a 0x62a00adcf596 0x62a00adcf6eb 0x62a00add2b0f 0x62a00add73f8 0x62a00add723b 0x62a00add74e5 0x62a00add723b 0x62a00add74e5 0x62a00ad9b4fa 0x62a00ad8eeac 0x62a00ad9fd8c 0x62a00ad9a0a0 0x62a00addfb55 0x62a00ad20af5 0x62a00ac5669e 0x62a00ade34b3 0x62a00aa0eb07 0x7bee3f229d8e 0x7bee3f229e3e 0x62a00aa0d243 0xfffffffffffffffe\n******************************************************************\n"
+            "stderr": "\n******************** GHDL Bug occurred ***************************\nPlease report this bug on https://github.com/ghdl/ghdl/issues\nGHDL release: 1.0.0 (Ubuntu 1.0.0+dfsg-6) [Dunoon edition]\nCompiled with GNAT Version: 10.3.1 20211117\nTarget: x86_64-linux-gnu\n/tmp/radhdl-ghdl-fn51igmn/\nCommand line:\n/usr/bin/ghdl-mcode -e --std=08 --ieee=synopsys -P/tmp/radhdl-ghdl-fn51igmn --workdir=/tmp/radhdl-ghdl-fn51igmn tb_raddsp_axis_radfft_ddr\nException TYPES.INTERNAL_ERROR raised\nException information:\nraised TYPES.INTERNAL_ERROR : trans.adb:553\nCall stack traceback locations:\n0x6318067b713d 0x6318067b751b 0x6318067b7797 0x63180694cfc8 0x63180695bd6d 0x63180695be25 0x631806965bde 0x631806984aa7 0x631806984d5f 0x631806985257 0x6318069856b1 0x631806992330 0x63180699181c 0x6318069d9a78 0x6318069d9b9f 0x6318069da1f8 0x6318069da98a 0x6318069dc596 0x6318069dc6eb 0x6318069dfb0f 0x6318069e43f8 0x6318069e423b 0x6318069e44e5 0x6318069e423b 0x6318069e44e5 0x6318069a84fa 0x63180699beac 0x6318069acd8c 0x6318069a70a0 0x6318069ecb55 0x63180692daf5 0x63180686369e 0x6318069f04b3 0x63180661bb07 0x7026ea429d8e 0x7026ea429e3e 0x63180661a243 0xfffffffffffffffe\n******************************************************************\n"
           }
         },
         {
@@ -6390,7 +6445,7 @@
             },
             "returncode": 2,
             "stdout": "",
-            "stderr": "\n******************** GHDL Bug occurred ***************************\nPlease report this bug on https://github.com/ghdl/ghdl/issues\nGHDL release: 1.0.0 (Ubuntu 1.0.0+dfsg-6) [Dunoon edition]\nCompiled with GNAT Version: 10.3.1 20211117\nTarget: x86_64-linux-gnu\n/tmp/radhdl-ghdl-9y2vinzs/\nCommand line:\n/usr/bin/ghdl-mcode -e --std=08 --ieee=synopsys -P/tmp/radhdl-ghdl-9y2vinzs --workdir=/tmp/radhdl-ghdl-9y2vinzs tb_raddsp_axis_radfft_ddr_xcorr_1024\nException TYPES.INTERNAL_ERROR raised\nException information:\nraised TYPES.INTERNAL_ERROR : trans.adb:553\nCall stack traceback locations:\n0x5aa65efda13d 0x5aa65efda51b 0x5aa65efda797 0x5aa65f16ffc8 0x5aa65f17ed6d 0x5aa65f17ee25 0x5aa65f188bde 0x5aa65f1a7aa7 0x5aa65f1a7d5f 0x5aa65f1a8257 0x5aa65f1a86b1 0x5aa65f1b5330 0x5aa65f1b481c 0x5aa65f1fca78 0x5aa65f1fcb9f 0x5aa65f1fd1f8 0x5aa65f1fd98a 0x5aa65f1ff596 0x5aa65f1ff6eb 0x5aa65f202b0f 0x5aa65f2073f8 0x5aa65f20723b 0x5aa65f2074e5 0x5aa65f20723b 0x5aa65f2074e5 0x5aa65f1cb4fa 0x5aa65f1beeac 0x5aa65f1cfd8c 0x5aa65f1ca0a0 0x5aa65f20fb55 0x5aa65f150af5 0x5aa65f08669e 0x5aa65f2134b3 0x5aa65ee3eb07 0x7ade3d029d8e 0x7ade3d029e3e 0x5aa65ee3d243 0xfffffffffffffffe\n******************************************************************\n"
+            "stderr": "\n******************** GHDL Bug occurred ***************************\nPlease report this bug on https://github.com/ghdl/ghdl/issues\nGHDL release: 1.0.0 (Ubuntu 1.0.0+dfsg-6) [Dunoon edition]\nCompiled with GNAT Version: 10.3.1 20211117\nTarget: x86_64-linux-gnu\n/tmp/radhdl-ghdl-x84r7on2/\nCommand line:\n/usr/bin/ghdl-mcode -e --std=08 --ieee=synopsys -P/tmp/radhdl-ghdl-x84r7on2 --workdir=/tmp/radhdl-ghdl-x84r7on2 tb_raddsp_axis_radfft_ddr_xcorr_1024\nException TYPES.INTERNAL_ERROR raised\nException information:\nraised TYPES.INTERNAL_ERROR : trans.adb:553\nCall stack traceback locations:\n0x5a10149cd13d 0x5a10149cd51b 0x5a10149cd797 0x5a1014b62fc8 0x5a1014b71d6d 0x5a1014b71e25 0x5a1014b7bbde 0x5a1014b9aaa7 0x5a1014b9ad5f 0x5a1014b9b257 0x5a1014b9b6b1 0x5a1014ba8330 0x5a1014ba781c 0x5a1014befa78 0x5a1014befb9f 0x5a1014bf01f8 0x5a1014bf098a 0x5a1014bf2596 0x5a1014bf26eb 0x5a1014bf5b0f 0x5a1014bfa3f8 0x5a1014bfa23b 0x5a1014bfa4e5 0x5a1014bfa23b 0x5a1014bfa4e5 0x5a1014bbe4fa 0x5a1014bb1eac 0x5a1014bc2d8c 0x5a1014bbd0a0 0x5a1014c02b55 0x5a1014b43af5 0x5a1014a7969e 0x5a1014c064b3 0x5a1014831b07 0x73724d029d8e 0x73724d029e3e 0x5a1014830243 0xfffffffffffffffe\n******************************************************************\n"
           }
         }
       ],
@@ -8500,7 +8555,7 @@
             },
             "returncode": 2,
             "stdout": "",
-            "stderr": "\n******************** GHDL Bug occurred ***************************\nPlease report this bug on https://github.com/ghdl/ghdl/issues\nGHDL release: 1.0.0 (Ubuntu 1.0.0+dfsg-6) [Dunoon edition]\nCompiled with GNAT Version: 10.3.1 20211117\nTarget: x86_64-linux-gnu\n/tmp/radhdl-ghdl-t_ojxt6z/\nCommand line:\n/usr/bin/ghdl-mcode -e --std=08 --ieee=synopsys -P/tmp/radhdl-ghdl-t_ojxt6z --workdir=/tmp/radhdl-ghdl-t_ojxt6z tb_raddsp_xilinx_dsp48_wide_mul\nException TYPES.INTERNAL_ERROR raised\nException information:\nraised TYPES.INTERNAL_ERROR : trans.adb:553\nCall stack traceback locations:\n0x5862a5ae813d 0x5862a5ae851b 0x5862a5ae8797 0x5862a5c7dfc8 0x5862a5c8cd6d 0x5862a5c8ce25 0x5862a5c96bde 0x5862a5cb5aa7 0x5862a5cb5d5f 0x5862a5cb6257 0x5862a5cb66b1 0x5862a5cc3330 0x5862a5cc281c 0x5862a5d0aa78 0x5862a5d0ab9f 0x5862a5d0b1f8 0x5862a5d0b98a 0x5862a5d0d596 0x5862a5d0d6eb 0x5862a5d10b0f 0x5862a5d153f8 0x5862a5d1523b 0x5862a5d154e5 0x5862a5d1523b 0x5862a5d154e5 0x5862a5cd94fa 0x5862a5ccceac 0x5862a5cddd8c 0x5862a5cd80a0 0x5862a5d1db55 0x5862a5c5eaf5 0x5862a5b9469e 0x5862a5d214b3 0x5862a594cb07 0x798b82829d8e 0x798b82829e3e 0x5862a594b243 0xfffffffffffffffe\n******************************************************************\n"
+            "stderr": "\n******************** GHDL Bug occurred ***************************\nPlease report this bug on https://github.com/ghdl/ghdl/issues\nGHDL release: 1.0.0 (Ubuntu 1.0.0+dfsg-6) [Dunoon edition]\nCompiled with GNAT Version: 10.3.1 20211117\nTarget: x86_64-linux-gnu\n/tmp/radhdl-ghdl-uym81icy/\nCommand line:\n/usr/bin/ghdl-mcode -e --std=08 --ieee=synopsys -P/tmp/radhdl-ghdl-uym81icy --workdir=/tmp/radhdl-ghdl-uym81icy tb_raddsp_xilinx_dsp48_wide_mul\nException TYPES.INTERNAL_ERROR raised\nException information:\nraised TYPES.INTERNAL_ERROR : trans.adb:553\nCall stack traceback locations:\n0x5ef47c4f913d 0x5ef47c4f951b 0x5ef47c4f9797 0x5ef47c68efc8 0x5ef47c69dd6d 0x5ef47c69de25 0x5ef47c6a7bde 0x5ef47c6c6aa7 0x5ef47c6c6d5f 0x5ef47c6c7257 0x5ef47c6c76b1 0x5ef47c6d4330 0x5ef47c6d381c 0x5ef47c71ba78 0x5ef47c71bb9f 0x5ef47c71c1f8 0x5ef47c71c98a 0x5ef47c71e596 0x5ef47c71e6eb 0x5ef47c721b0f 0x5ef47c7263f8 0x5ef47c72623b 0x5ef47c7264e5 0x5ef47c72623b 0x5ef47c7264e5 0x5ef47c6ea4fa 0x5ef47c6ddeac 0x5ef47c6eed8c 0x5ef47c6e90a0 0x5ef47c72eb55 0x5ef47c66faf5 0x5ef47c5a569e 0x5ef47c7324b3 0x5ef47c35db07 0x744434a29d8e 0x744434a29e3e 0x5ef47c35c243 0xfffffffffffffffe\n******************************************************************\n"
           }
         }
       ],
@@ -13784,80 +13839,73 @@
     {
       "name": "RadDebugHub",
       "kind": "entity",
-      "path": "debug/radila/hdl/radila/raddebughub_axi.vhd",
+      "path": "debug/radila/hdl/radila/raddebughub.vhd",
       "library": "radhdl",
       "category": "Debug",
-      "description": "AXI-accessible debug hub for RadHDL instrumentation cores.\nProvides register access and coordination points for debug blocks that need host-visible control, status, and capture data.",
+      "description": "RADIF-accessible debug hub for the RadILA capture engine.\nProvides a bus-neutral register target for analyzer control, trigger setup,\nlive status, and capture-buffer readback. External RADIF bridges such as\nAXI-Lite, SPI, I2C, and SMI can all drive this same register contract.",
       "generics": [
         {
-          "name": "C_S_AXI_DATA_WIDTH",
+          "name": "DATA_WIDTH",
           "direction": "",
           "data_type": "integer",
           "default": "32",
-          "description": "Sets the bit width for C S AXI DATA WIDTH values carried by this module."
+          "description": "Register data width for the RADIF register target."
         },
         {
-          "name": "C_S_AXI_ADDR_WIDTH",
+          "name": "REG_ADDR_WIDTH",
           "direction": "",
           "data_type": "integer",
-          "default": "6",
-          "description": "Sets the bit width for C S AXI ADDR WIDTH values carried by this module."
+          "default": "16",
+          "description": "Register byte-address width for the RADIF register target."
         },
         {
           "name": "SAMPLE_WIDTH",
           "direction": "",
           "data_type": "integer",
           "default": "32",
-          "description": "Sets the bit width for SAMPLE WIDTH values carried by this module."
+          "description": "Total captured sample bus width in bits."
         },
         {
           "name": "EVENT_WIDTH",
           "direction": "",
           "data_type": "integer",
           "default": "8",
-          "description": "Sets the bit width for EVENT WIDTH values carried by this module."
+          "description": "Width of event/trigger metadata sampled beside each captured value."
         },
         {
           "name": "DEPTH",
           "direction": "",
           "data_type": "integer",
           "default": "1024",
-          "description": "Sets the storage depth, frame length, or number of buffered samples used internally."
+          "description": "Number of samples stored in the RadILA capture RAM."
         },
         {
           "name": "ADDR_WIDTH",
           "direction": "",
           "data_type": "integer",
           "default": "10",
-          "description": "Sets the bit width for ADDR WIDTH values carried by this module."
+          "description": "Capture RAM address width."
         },
         {
           "name": "CMD_LANES",
           "direction": "",
           "data_type": "integer",
           "default": "4",
-          "description": "Sets the number of parallel sample lanes processed per handshake beat."
+          "description": "Narrow command link width between RadDebugHub and RadILA."
         },
         {
           "name": "VENDOR_TAG",
           "direction": "",
           "data_type": "string",
           "default": "\"XILINX\"",
-          "description": "Selects the vendor-specific implementation path, usually XILINX for DSP48/XPM-backed builds or generic for portable RTL."
+          "description": "Vendor selector used by generate blocks for vendor-specific primitives."
         },
         {
           "name": "PRODUCT_SERIES_TAG",
           "direction": "",
           "data_type": "string",
           "default": "\"7SERIES\"",
-          "description": "Identifies the target FPGA family so wrappers can choose the correct primitive or conservative portable behavior."
-        },
-        {
-          "name": "G_DEBUG_BUS",
-          "direction": "",
-          "data_type": "string",
-          "default": "\"AXI_LITE\"",
-          "description": "Configures G DEBUG BUS for this instance."
+          "description": "Device-family selector used by vendor primitive wrappers."
         }
       ],
       "ports": [
@@ -13866,21 +13914,21 @@
           "direction": "in",
           "data_type": "std_logic",
           "default": "",
-          "description": "Clock for the associated synchronous logic and handshake domain."
+          "description": "Sample clock for the observed logic and capture RAM write side."
         },
         {
           "name": "sample_rstn",
           "direction": "in",
           "data_type": "std_logic",
           "default": "",
-          "description": "Active-low reset for this clock domain."
+          "description": "Active-low reset for the sample clock domain."
         },
         {
           "name": "sample_i",
           "direction": "in",
           "data_type": "std_logic_vector(SAMPLE_WIDTH - 1 downto 0)",
           "default": "",
-          "description": "Input sample vector captured or processed by the datapath."
+          "description": "Input sample vector captured by the analyzer."
         },
         {
           "name": "event_i",
@@ -13894,158 +13942,102 @@
           "direction": "out",
           "data_type": "std_logic",
           "default": "",
-          "description": "Output irq o signal generated by this module."
+          "description": "Interrupt asserted when capture completion is enabled and the core is done."
         },
         {
-          "name": "S_AXI_ACLK",
+          "name": "reg_clk",
           "direction": "in",
           "data_type": "std_logic",
           "default": "",
-          "description": "AXI4-Lite slave-channel signal used for host register access."
+          "description": "Clock for the RADIF register interface and capture RAM read side."
         },
         {
-          "name": "S_AXI_ARESETN",
+          "name": "reg_rstn",
           "direction": "in",
           "data_type": "std_logic",
           "default": "",
-          "description": "AXI4-Lite slave-channel signal used for host register access."
+          "description": "Active-low reset for the RADIF register interface."
         },
         {
-          "name": "S_AXI_AWADDR",
+          "name": "reg_wr_addr",
           "direction": "in",
-          "data_type": "std_logic_vector(C_S_AXI_ADDR_WIDTH - 1 downto 0)",
+          "data_type": "std_logic_vector(REG_ADDR_WIDTH - 1 downto 0)",
           "default": "",
-          "description": "AXI4-Lite slave-channel signal used for host register access."
+          "description": "Register write address."
         },
         {
-          "name": "S_AXI_AWPROT",
+          "name": "reg_rd_addr",
           "direction": "in",
-          "data_type": "std_logic_vector(2 downto 0)",
+          "data_type": "std_logic_vector(REG_ADDR_WIDTH - 1 downto 0)",
           "default": "",
-          "description": "AXI4-Lite slave-channel signal used for host register access."
+          "description": "Register read address."
         },
         {
-          "name": "S_AXI_AWVALID",
+          "name": "reg_wr_en",
           "direction": "in",
           "data_type": "std_logic",
           "default": "",
-          "description": "AXI4-Lite slave-channel signal used for host register access."
+          "description": "One-cycle register write request."
         },
         {
-          "name": "S_AXI_AWREADY",
+          "name": "reg_rd_en",
+          "direction": "in",
+          "data_type": "std_logic",
+          "default": "",
+          "description": "One-cycle register read request."
+        },
+        {
+          "name": "reg_data_in",
+          "direction": "in",
+          "data_type": "std_logic_vector(DATA_WIDTH - 1 downto 0)",
+          "default": "",
+          "description": "Register write data."
+        },
+        {
+          "name": "reg_data_out",
+          "direction": "out",
+          "data_type": "std_logic_vector(DATA_WIDTH - 1 downto 0)",
+          "default": "",
+          "description": "Register read data."
+        },
+        {
+          "name": "reg_wr_rdy",
           "direction": "out",
           "data_type": "std_logic",
           "default": "",
-          "description": "AXI4-Lite slave-channel signal used for host register access."
+          "description": "Write-side ready indication."
         },
         {
-          "name": "S_AXI_WDATA",
-          "direction": "in",
-          "data_type": "std_logic_vector(C_S_AXI_DATA_WIDTH - 1 downto 0)",
-          "default": "",
-          "description": "AXI4-Lite slave-channel signal used for host register access."
-        },
-        {
-          "name": "S_AXI_WSTRB",
-          "direction": "in",
-          "data_type": "std_logic_vector((C_S_AXI_DATA_WIDTH / 8) - 1 downto 0)",
-          "default": "",
-          "description": "AXI4-Lite slave-channel signal used for host register access."
-        },
-        {
-          "name": "S_AXI_WVALID",
-          "direction": "in",
-          "data_type": "std_logic",
-          "default": "",
-          "description": "AXI4-Lite slave-channel signal used for host register access."
-        },
-        {
-          "name": "S_AXI_WREADY",
+          "name": "reg_rd_rdy",
           "direction": "out",
           "data_type": "std_logic",
           "default": "",
-          "description": "AXI4-Lite slave-channel signal used for host register access."
+          "description": "Read-side ready indication."
         },
         {
-          "name": "S_AXI_BRESP",
-          "direction": "out",
-          "data_type": "std_logic_vector(1 downto 0)",
-          "default": "",
-          "description": "AXI4-Lite slave-channel signal used for host register access."
-        },
-        {
-          "name": "S_AXI_BVALID",
+          "name": "reg_wr_valid",
           "direction": "out",
           "data_type": "std_logic",
           "default": "",
-          "description": "AXI4-Lite slave-channel signal used for host register access."
+          "description": "Write response valid pulse."
         },
         {
-          "name": "S_AXI_BREADY",
-          "direction": "in",
-          "data_type": "std_logic",
-          "default": "",
-          "description": "AXI4-Lite slave-channel signal used for host register access."
-        },
-        {
-          "name": "S_AXI_ARADDR",
-          "direction": "in",
-          "data_type": "std_logic_vector(C_S_AXI_ADDR_WIDTH - 1 downto 0)",
-          "default": "",
-          "description": "AXI4-Lite slave-channel signal used for host register access."
-        },
-        {
-          "name": "S_AXI_ARPROT",
-          "direction": "in",
-          "data_type": "std_logic_vector(2 downto 0)",
-          "default": "",
-          "description": "AXI4-Lite slave-channel signal used for host register access."
-        },
-        {
-          "name": "S_AXI_ARVALID",
-          "direction": "in",
-          "data_type": "std_logic",
-          "default": "",
-          "description": "AXI4-Lite slave-channel signal used for host register access."
-        },
-        {
-          "name": "S_AXI_ARREADY",
+          "name": "reg_rd_valid",
           "direction": "out",
           "data_type": "std_logic",
           "default": "",
-          "description": "AXI4-Lite slave-channel signal used for host register access."
+          "description": "Read response valid pulse."
         },
         {
-          "name": "S_AXI_RDATA",
-          "direction": "out",
-          "data_type": "std_logic_vector(C_S_AXI_DATA_WIDTH - 1 downto 0)",
-          "default": "",
-          "description": "AXI4-Lite slave-channel signal used for host register access."
-        },
-        {
-          "name": "S_AXI_RRESP",
-          "direction": "out",
-          "data_type": "std_logic_vector(1 downto 0)",
-          "default": "",
-          "description": "AXI4-Lite slave-channel signal used for host register access."
-        },
-        {
-          "name": "S_AXI_RVALID",
+          "name": "reg_error",
           "direction": "out",
           "data_type": "std_logic",
           "default": "",
-          "description": "AXI4-Lite slave-channel signal used for host register access."
-        },
-        {
-          "name": "S_AXI_RREADY",
-          "direction": "in",
-          "data_type": "std_logic",
-          "default": "",
-          "description": "AXI4-Lite slave-channel signal used for host register access."
+          "description": "Address or transaction error flag for the current response."
         }
       ],
       "sources": [
-        "debug/radila/hdl/radila/raddebughub_axi.vhd"
+        "debug/radila/hdl/radila/raddebughub.vhd"
       ],
       "testbenches": [
         {
@@ -14070,278 +14062,398 @@
               ],
               "radila": [
                 "debug/radila/hdl/radila/radila_core.vhd",
-                "debug/radila/hdl/radila/raddebughub_axi.vhd",
-                "debug/radila/hdl/radila/radila_axi_top.vhd"
+                "debug/radila/hdl/radila/raddebughub.vhd"
               ],
               "work": [
                 "debug/radila/hdl/radila/radila_core.vhd",
-                "debug/radila/hdl/radila/raddebughub_axi.vhd",
-                "debug/radila/hdl/radila/radila_axi_top.vhd",
+                "debug/radila/hdl/radila/raddebughub.vhd",
                 "debug/radila/hdl/radila/testbenches/tb_radila_core.vhd"
               ]
             },
             "vcd": "simulations/tb_radila_core/tb_radila_core.vcd",
-            "stdout": "../../src/ieee2008/numeric_std-body.vhdl:3089:7:@0ms:(assertion warning): NUMERIC_STD.TO_UNSIGNED: vector truncated\n../../src/ieee2008/numeric_std-body.vhdl:3089:7:@0ms:(assertion warning): NUMERIC_STD.TO_UNSIGNED: vector truncated\n../../src/ieee2008/numeric_std-body.vhdl:3089:7:@3500ps:(assertion warning): NUMERIC_STD.TO_UNSIGNED: vector truncated\n../../src/ieee2008/numeric_std-body.vhdl:3089:7:@5ns:(assertion warning): NUMERIC_STD.TO_UNSIGNED: vector truncated\n../../src/ieee2008/numeric_std-body.vhdl:3089:7:@10500ps:(assertion warning): NUMERIC_STD.TO_UNSIGNED: vector truncated\n../../src/ieee2008/numeric_std-body.vhdl:3089:7:@15ns:(assertion warning): NUMERIC_STD.TO_UNSIGNED: vector truncated\n../../src/ieee2008/numeric_std-body.vhdl:3089:7:@17500ps:(assertion warning): NUMERIC_STD.TO_UNSIGNED: vector truncated\n../../src/ieee2008/numeric_std-body.vhdl:3089:7:@24500ps:(assertion warning): NUMERIC_STD.TO_UNSIGNED: vector truncated\n../../src/ieee2008/numeric_std-body.vhdl:3089:7:@25ns:(assertion warning): NUMERIC_STD.TO_UNSIGNED: vector truncated\n../../src/ieee2008/numeric_std-body.vhdl:3089:7:@31500ps:(assertion warning): NUMERIC_STD.TO_UNSIGNED: vector truncated\n../../src/ieee2008/numeric_std-body.vhdl:3089:7:@35ns:(assertion warning): NUMERIC_STD.TO_UNSIGNED: vector truncated\n../../src/ieee2008/numeric_std-body.vhdl:3089:7:@38500ps:(assertion warning): NUMERIC_STD.TO_UNSIGNED: vector truncated\n../../src/ieee2008/numeric_std-body.vhdl:3089:7:@45ns:(assertion warning): NUMERIC_STD.TO_UNSIGNED: vector truncated\n../../src/ieee2008/numeric_std-body.vhdl:3089:7:@45500ps:(assertion warning): NUMERIC_STD.TO_UNSIGNED: vector truncated\n../../src/ieee2008/numeric_std-body.vhdl:3089:7:@52500ps:(assertion warning): NUMERIC_STD.TO_UNSIGNED: vector truncated\n../../src/ieee2008/numeric_std-body.vhdl:3089:7:@55ns:(assertion warning): NUMERIC_STD.TO_UNSIGNED: vector truncated\n../../src/ieee2008/numeric_std-body.vhdl:3089:7:@59500ps:(assertion warning): NUMERIC_STD.TO_UNSIGNED: vector truncated\n../../src/ieee2008/numeric_std-body.vhdl:3089:7:@65ns:(assertion warning): NUMERIC_STD.TO_UNSIGNED: vector truncated\n../../src/ieee2008/numeric_std-body.vhdl:3089:7:@66500ps:(assertion warning): NUMERIC_STD.TO_UNSIGNED: vector truncated\n../../src/ieee2008/numeric_std-body.vhdl:3089:7:@73500ps:(assertion warning): NUMERIC_STD.TO_UNSIGNED: vector truncated\n../../src/ieee2008/numeric_std-body.vhdl:3089:7:@75ns:(assertion warning): NUMERIC_STD.TO_UNSIGNED: vector truncated\n../../src/ieee2008/numeric_std-body.vhdl:3089:7:@80500ps:(assertion warning): NUMERIC_STD.TO_UNSIGNED: vector truncated\n../../src/ieee2008/numeric_std-body.vhdl:3089:7:@85ns:(assertion warning): NUMERIC_STD.TO_UNSIGNED: vector truncated\n../../src/ieee2008/numeric_std-body.vhdl:3089:7:@87500ps:(assertion warning): NUMERIC_STD.TO_UNSIGNED: vector truncated\n../../src/ieee2008/numeric_std-body.vhdl:3089:7:@94500ps:(assertion warning): NUMERIC_STD.TO_UNSIGNED: vector truncated\n../../src/ieee2008/numeric_std-body.vhdl:3089:7:@95ns:(assertion warning): NUMERIC_STD.TO_UNSIGNED: vector truncated\n../../src/ieee2008/numeric_std-body.vhdl:3089:7:@7801500ps:(assertion warning): NUMERIC_STD.TO_UNSIGNED: vector truncated\ndebug/radila/hdl/radila/testbenches/tb_radila_core.vhd:195:5:@7845ns:(report note): tb_radila_core passed\nsimulation finished @7845ns\n",
+            "stdout": "debug/radila/hdl/radila/testbenches/tb_radila_core.vhd:173:5:@8085ns:(report note): tb_radila_core passed\nsimulation finished @8085ns\n",
             "stderr": ""
           }
         }
       ],
-      "register_maps": []
-    },
-    {
-      "name": "radila_v1_0",
-      "kind": "entity",
-      "path": "debug/radila/hdl/radila/radila_axi_top.vhd",
-      "library": "radhdl",
-      "category": "Debug",
-      "description": "Vivado-packaged AXI wrapper around the RadILA capture core.\nMaps AXI register transactions onto analyzer control, trigger, status, and capture-buffer readback signals.",
-      "generics": [
+      "register_maps": [
         {
-          "name": "C_S00_AXI_DATA_WIDTH",
-          "direction": "",
-          "data_type": "integer",
-          "default": "32",
-          "description": "Sets the bit width for C S00 AXI DATA WIDTH values carried by this module."
-        },
-        {
-          "name": "C_S00_AXI_ADDR_WIDTH",
-          "direction": "",
-          "data_type": "integer",
-          "default": "6",
-          "description": "Sets the bit width for C S00 AXI ADDR WIDTH values carried by this module."
-        },
-        {
-          "name": "SAMPLE_WIDTH",
-          "direction": "",
-          "data_type": "integer",
-          "default": "32",
-          "description": "Sets the bit width for SAMPLE WIDTH values carried by this module."
-        },
-        {
-          "name": "EVENT_WIDTH",
-          "direction": "",
-          "data_type": "integer",
-          "default": "8",
-          "description": "Sets the bit width for EVENT WIDTH values carried by this module."
-        },
-        {
-          "name": "DEPTH",
-          "direction": "",
-          "data_type": "integer",
-          "default": "1024",
-          "description": "Sets the storage depth, frame length, or number of buffered samples used internally."
-        },
-        {
-          "name": "ADDR_WIDTH",
-          "direction": "",
-          "data_type": "integer",
-          "default": "10",
-          "description": "Sets the bit width for ADDR WIDTH values carried by this module."
-        },
-        {
-          "name": "CMD_LANES",
-          "direction": "",
-          "data_type": "integer",
-          "default": "4",
-          "description": "Sets the number of parallel sample lanes processed per handshake beat."
-        },
-        {
-          "name": "VENDOR_TAG",
-          "direction": "",
-          "data_type": "string",
-          "default": "\"XILINX\"",
-          "description": "Selects the vendor-specific implementation path, usually XILINX for DSP48/XPM-backed builds or generic for portable RTL."
-        },
-        {
-          "name": "PRODUCT_SERIES_TAG",
-          "direction": "",
-          "data_type": "string",
-          "default": "\"7SERIES\"",
-          "description": "Identifies the target FPGA family so wrappers can choose the correct primitive or conservative portable behavior."
-        },
-        {
-          "name": "G_DEBUG_BUS",
-          "direction": "",
-          "data_type": "string",
-          "default": "\"AXI_LITE\"",
-          "description": "Configures G DEBUG BUS for this instance."
+          "name": "RadDebugHub",
+          "path": "debug/radila/hdl/radila/register_maps/RadDebugHub.map.json",
+          "base": "0x0000",
+          "description": "Controls RadILA capture arming, trigger matching, status reporting, and capture-buffer readback through the shared RADIF register interface.",
+          "data_width": 32,
+          "registers": [
+            {
+              "name": "id",
+              "offset": "0x0000",
+              "access": "ro",
+              "address": "0x0000",
+              "reset": "0x52414449",
+              "width": 32,
+              "region": "RadDebugHub",
+              "description": "Constant ASCII identifier for the RadILA debug hub.",
+              "fields": [
+                {
+                  "name": "ID",
+                  "display_name": "ID",
+                  "description": "Reads as 0x52414449, the ASCII tag RADI.",
+                  "msb": 31,
+                  "lsb": 0
+                }
+              ]
+            },
+            {
+              "name": "version",
+              "offset": "0x0004",
+              "access": "ro",
+              "address": "0x0004",
+              "reset": "0x00020800",
+              "width": 32,
+              "region": "RadDebugHub",
+              "description": "Hardware register-map version and compatibility word.",
+              "fields": [
+                {
+                  "name": "VERSION",
+                  "display_name": "VERSION",
+                  "description": "Encodes the debug hub register contract version used by host tools.",
+                  "msb": 31,
+                  "lsb": 0
+                }
+              ]
+            },
+            {
+              "name": "control",
+              "offset": "0x0008",
+              "access": "rw",
+              "address": "0x0008",
+              "reset": "0x00000000",
+              "width": 32,
+              "region": "RadDebugHub",
+              "description": "Issues capture commands and configures optional interrupt and auto-rearm behavior.",
+              "fields": [
+                {
+                  "name": "ARM",
+                  "display_name": "ARM",
+                  "description": "Writing 1 arms the analyzer and starts capture when the trigger condition is met.",
+                  "msb": 0,
+                  "lsb": 0
+                },
+                {
+                  "name": "SW_TRIG",
+                  "display_name": "SW TRIG",
+                  "description": "Writing 1 injects a software trigger into the command stream.",
+                  "msb": 1,
+                  "lsb": 1
+                },
+                {
+                  "name": "CLEAR",
+                  "display_name": "CLEAR",
+                  "description": "Writing 1 clears capture state, sticky done indication, counters, and command framing.",
+                  "msb": 2,
+                  "lsb": 2
+                },
+                {
+                  "name": "AUTO_REARM",
+                  "display_name": "AUTO REARM",
+                  "description": "When set, the capture engine automatically returns to the armed state after completing a capture.",
+                  "msb": 3,
+                  "lsb": 3
+                },
+                {
+                  "name": "IRQ_EN",
+                  "display_name": "IRQ EN",
+                  "description": "When set, irq_o asserts while STATUS.DONE is set.",
+                  "msb": 4,
+                  "lsb": 4
+                }
+              ]
+            },
+            {
+              "name": "status",
+              "offset": "0x000C",
+              "access": "ro",
+              "address": "0x000C",
+              "reset": "0x00000000",
+              "width": 32,
+              "region": "RadDebugHub",
+              "description": "Reports analyzer state and captured sample count.",
+              "fields": [
+                {
+                  "name": "ARMED",
+                  "display_name": "ARMED",
+                  "description": "Set while the analyzer is armed and waiting for a trigger.",
+                  "msb": 0,
+                  "lsb": 0
+                },
+                {
+                  "name": "CAPTURING",
+                  "display_name": "CAPTURING",
+                  "description": "Set while samples are being written into the capture buffer.",
+                  "msb": 1,
+                  "lsb": 1
+                },
+                {
+                  "name": "DONE",
+                  "display_name": "DONE",
+                  "description": "Set after the configured capture window has completed.",
+                  "msb": 2,
+                  "lsb": 2
+                },
+                {
+                  "name": "OVERFLOW",
+                  "display_name": "OVERFLOW",
+                  "description": "Set when capture activity exceeds the configured buffer accounting.",
+                  "msb": 3,
+                  "lsb": 3
+                },
+                {
+                  "name": "COUNT",
+                  "display_name": "COUNT",
+                  "description": "Number of samples captured or retained by the current capture window.",
+                  "msb": 31,
+                  "lsb": 16
+                }
+              ]
+            },
+            {
+              "name": "trig_mask",
+              "offset": "0x0010",
+              "access": "rw",
+              "address": "0x0010",
+              "reset": "0x00000000",
+              "width": 32,
+              "region": "RadDebugHub",
+              "description": "Selects which event_i bits participate in hardware trigger comparison.",
+              "fields": [
+                {
+                  "name": "TRIG_MASK",
+                  "display_name": "TRIG MASK",
+                  "description": "A mask bit of 1 enables comparison for the corresponding event_i bit.",
+                  "msb": 7,
+                  "lsb": 0
+                }
+              ]
+            },
+            {
+              "name": "trig_value",
+              "offset": "0x0014",
+              "access": "rw",
+              "address": "0x0014",
+              "reset": "0x00000000",
+              "width": 32,
+              "region": "RadDebugHub",
+              "description": "Expected event value after applying TRIG_MASK.",
+              "fields": [
+                {
+                  "name": "TRIG_VALUE",
+                  "display_name": "TRIG VALUE",
+                  "description": "The analyzer triggers when event_i masked by TRIG_MASK equals this masked value.",
+                  "msb": 7,
+                  "lsb": 0
+                }
+              ]
+            },
+            {
+              "name": "pretrig",
+              "offset": "0x0018",
+              "access": "rw",
+              "address": "0x0018",
+              "reset": "0x00000000",
+              "width": 32,
+              "region": "RadDebugHub",
+              "description": "Reserved pre-trigger depth configuration field retained for host API compatibility.",
+              "fields": [
+                {
+                  "name": "PRETRIG",
+                  "display_name": "PRETRIG",
+                  "description": "Reserved for future pre-trigger capture-window selection.",
+                  "msb": 9,
+                  "lsb": 0
+                }
+              ]
+            },
+            {
+              "name": "posttrig",
+              "offset": "0x001C",
+              "access": "rw",
+              "address": "0x001C",
+              "reset": "0x000000FF",
+              "width": 32,
+              "region": "RadDebugHub",
+              "description": "Number of post-trigger samples to capture after the trigger condition is accepted.",
+              "fields": [
+                {
+                  "name": "POSTTRIG",
+                  "display_name": "POSTTRIG",
+                  "description": "Post-trigger capture count. Values wider than ADDR_WIDTH are ignored by the configured hardware instance.",
+                  "msb": 9,
+                  "lsb": 0
+                }
+              ]
+            },
+            {
+              "name": "data_index",
+              "offset": "0x0020",
+              "access": "rw",
+              "address": "0x0020",
+              "reset": "0x00000000",
+              "width": 32,
+              "region": "RadDebugHub",
+              "description": "Capture-buffer read index used by SAMPLE_DATA registers.",
+              "fields": [
+                {
+                  "name": "DATA_INDEX",
+                  "display_name": "DATA INDEX",
+                  "description": "Selects the capture-buffer sample address returned by SAMPLE_DATA0 through SAMPLE_DATA3.",
+                  "msb": 9,
+                  "lsb": 0
+                }
+              ]
+            },
+            {
+              "name": "sample_data0",
+              "offset": "0x0024",
+              "access": "ro",
+              "address": "0x0024",
+              "reset": "0x00000000",
+              "width": 32,
+              "region": "RadDebugHub",
+              "description": "Low 32 bits of the captured sample selected by DATA_INDEX.",
+              "fields": [
+                {
+                  "name": "SAMPLE_DATA0",
+                  "display_name": "SAMPLE DATA0",
+                  "description": "Captured sample bits 31 downto 0.",
+                  "msb": 31,
+                  "lsb": 0
+                }
+              ]
+            },
+            {
+              "name": "sample_now0",
+              "offset": "0x0028",
+              "access": "ro",
+              "address": "0x0028",
+              "reset": "0x00000000",
+              "width": 32,
+              "region": "RadDebugHub",
+              "description": "Low 32 bits of the live sample input synchronized into the register clock domain.",
+              "fields": [
+                {
+                  "name": "SAMPLE_NOW0",
+                  "display_name": "SAMPLE NOW0",
+                  "description": "Live sample_i bits 31 downto 0.",
+                  "msb": 31,
+                  "lsb": 0
+                }
+              ]
+            },
+            {
+              "name": "event_now",
+              "offset": "0x002C",
+              "access": "ro",
+              "address": "0x002C",
+              "reset": "0x00000000",
+              "width": 32,
+              "region": "RadDebugHub",
+              "description": "Current event metadata synchronized into the register clock domain.",
+              "fields": [
+                {
+                  "name": "EVENT_NOW",
+                  "display_name": "EVENT NOW",
+                  "description": "Live event_i value observed by the analyzer.",
+                  "msb": 7,
+                  "lsb": 0
+                }
+              ]
+            },
+            {
+              "name": "caps",
+              "offset": "0x0030",
+              "access": "ro",
+              "address": "0x0030",
+              "reset": "0x00200008",
+              "width": 32,
+              "region": "RadDebugHub",
+              "description": "Static hardware capability word for host discovery.",
+              "fields": [
+                {
+                  "name": "EVENT_WIDTH",
+                  "display_name": "EVENT WIDTH",
+                  "description": "Configured width of event_i in bits.",
+                  "msb": 15,
+                  "lsb": 0
+                },
+                {
+                  "name": "SAMPLE_WIDTH",
+                  "display_name": "SAMPLE WIDTH",
+                  "description": "Configured width of sample_i in bits.",
+                  "msb": 31,
+                  "lsb": 16
+                }
+              ]
+            },
+            {
+              "name": "sample_data1",
+              "offset": "0x0034",
+              "access": "ro",
+              "address": "0x0034",
+              "reset": "0x00000000",
+              "width": 32,
+              "region": "RadDebugHub",
+              "description": "Captured sample bits 63 downto 32 when SAMPLE_WIDTH is greater than 32.",
+              "fields": [
+                {
+                  "name": "SAMPLE_DATA1",
+                  "display_name": "SAMPLE DATA1",
+                  "description": "Upper captured sample word for wider analyzer instances.",
+                  "msb": 31,
+                  "lsb": 0
+                }
+              ]
+            },
+            {
+              "name": "sample_data2",
+              "offset": "0x0038",
+              "access": "ro",
+              "address": "0x0038",
+              "reset": "0x00000000",
+              "width": 32,
+              "region": "RadDebugHub",
+              "description": "Captured sample bits 95 downto 64 when SAMPLE_WIDTH is greater than 64.",
+              "fields": [
+                {
+                  "name": "SAMPLE_DATA2",
+                  "display_name": "SAMPLE DATA2",
+                  "description": "Additional captured sample word for wide analyzer instances.",
+                  "msb": 31,
+                  "lsb": 0
+                }
+              ]
+            },
+            {
+              "name": "sample_data3",
+              "offset": "0x003C",
+              "access": "ro",
+              "address": "0x003C",
+              "reset": "0x00000000",
+              "width": 32,
+              "region": "RadDebugHub",
+              "description": "Captured sample bits 127 downto 96 when SAMPLE_WIDTH is greater than 96.",
+              "fields": [
+                {
+                  "name": "SAMPLE_DATA3",
+                  "display_name": "SAMPLE DATA3",
+                  "description": "Additional captured sample word for wide analyzer instances.",
+                  "msb": 31,
+                  "lsb": 0
+                }
+              ]
+            }
+          ]
         }
-      ],
-      "ports": [
-        {
-          "name": "sample_i",
-          "direction": "in",
-          "data_type": "std_logic_vector(SAMPLE_WIDTH - 1 downto 0)",
-          "default": "",
-          "description": "Input sample vector captured or processed by the datapath."
-        },
-        {
-          "name": "event_i",
-          "direction": "in",
-          "data_type": "std_logic_vector(EVENT_WIDTH - 1 downto 0)",
-          "default": "",
-          "description": "Event or trigger metadata associated with the current sample stream."
-        },
-        {
-          "name": "irq_o",
-          "direction": "out",
-          "data_type": "std_logic",
-          "default": "",
-          "description": "Output irq o signal generated by this module."
-        },
-        {
-          "name": "s00_axi_aclk",
-          "direction": "in",
-          "data_type": "std_logic",
-          "default": "",
-          "description": "S00 axi aclk interface signal."
-        },
-        {
-          "name": "s00_axi_aresetn",
-          "direction": "in",
-          "data_type": "std_logic",
-          "default": "",
-          "description": "S00 axi aresetn interface signal."
-        },
-        {
-          "name": "s00_axi_awaddr",
-          "direction": "in",
-          "data_type": "std_logic_vector(C_S00_AXI_ADDR_WIDTH - 1 downto 0)",
-          "default": "",
-          "description": "S00 axi awaddr interface signal."
-        },
-        {
-          "name": "s00_axi_awprot",
-          "direction": "in",
-          "data_type": "std_logic_vector(2 downto 0)",
-          "default": "",
-          "description": "S00 axi awprot interface signal."
-        },
-        {
-          "name": "s00_axi_awvalid",
-          "direction": "in",
-          "data_type": "std_logic",
-          "default": "",
-          "description": "S00 axi awvalid interface signal."
-        },
-        {
-          "name": "s00_axi_awready",
-          "direction": "out",
-          "data_type": "std_logic",
-          "default": "",
-          "description": "S00 axi awready interface signal."
-        },
-        {
-          "name": "s00_axi_wdata",
-          "direction": "in",
-          "data_type": "std_logic_vector(C_S00_AXI_DATA_WIDTH - 1 downto 0)",
-          "default": "",
-          "description": "S00 axi wdata interface signal."
-        },
-        {
-          "name": "s00_axi_wstrb",
-          "direction": "in",
-          "data_type": "std_logic_vector((C_S00_AXI_DATA_WIDTH / 8) - 1 downto 0)",
-          "default": "",
-          "description": "S00 axi wstrb interface signal."
-        },
-        {
-          "name": "s00_axi_wvalid",
-          "direction": "in",
-          "data_type": "std_logic",
-          "default": "",
-          "description": "S00 axi wvalid interface signal."
-        },
-        {
-          "name": "s00_axi_wready",
-          "direction": "out",
-          "data_type": "std_logic",
-          "default": "",
-          "description": "S00 axi wready interface signal."
-        },
-        {
-          "name": "s00_axi_bresp",
-          "direction": "out",
-          "data_type": "std_logic_vector(1 downto 0)",
-          "default": "",
-          "description": "S00 axi bresp interface signal."
-        },
-        {
-          "name": "s00_axi_bvalid",
-          "direction": "out",
-          "data_type": "std_logic",
-          "default": "",
-          "description": "S00 axi bvalid interface signal."
-        },
-        {
-          "name": "s00_axi_bready",
-          "direction": "in",
-          "data_type": "std_logic",
-          "default": "",
-          "description": "S00 axi bready interface signal."
-        },
-        {
-          "name": "s00_axi_araddr",
-          "direction": "in",
-          "data_type": "std_logic_vector(C_S00_AXI_ADDR_WIDTH - 1 downto 0)",
-          "default": "",
-          "description": "S00 axi araddr interface signal."
-        },
-        {
-          "name": "s00_axi_arprot",
-          "direction": "in",
-          "data_type": "std_logic_vector(2 downto 0)",
-          "default": "",
-          "description": "S00 axi arprot interface signal."
-        },
-        {
-          "name": "s00_axi_arvalid",
-          "direction": "in",
-          "data_type": "std_logic",
-          "default": "",
-          "description": "S00 axi arvalid interface signal."
-        },
-        {
-          "name": "s00_axi_arready",
-          "direction": "out",
-          "data_type": "std_logic",
-          "default": "",
-          "description": "S00 axi arready interface signal."
-        },
-        {
-          "name": "s00_axi_rdata",
-          "direction": "out",
-          "data_type": "std_logic_vector(C_S00_AXI_DATA_WIDTH - 1 downto 0)",
-          "default": "",
-          "description": "S00 axi rdata interface signal."
-        },
-        {
-          "name": "s00_axi_rresp",
-          "direction": "out",
-          "data_type": "std_logic_vector(1 downto 0)",
-          "default": "",
-          "description": "S00 axi rresp interface signal."
-        },
-        {
-          "name": "s00_axi_rvalid",
-          "direction": "out",
-          "data_type": "std_logic",
-          "default": "",
-          "description": "S00 axi rvalid interface signal."
-        },
-        {
-          "name": "s00_axi_rready",
-          "direction": "in",
-          "data_type": "std_logic",
-          "default": "",
-          "description": "S00 axi rready interface signal."
-        }
-      ],
-      "sources": [
-        "debug/radila/hdl/radila/radila_axi_top.vhd"
-      ],
-      "testbenches": [],
-      "register_maps": []
+      ]
     },
     {
       "name": "RadILA",
@@ -14555,18 +14667,16 @@
               ],
               "radila": [
                 "debug/radila/hdl/radila/radila_core.vhd",
-                "debug/radila/hdl/radila/raddebughub_axi.vhd",
-                "debug/radila/hdl/radila/radila_axi_top.vhd"
+                "debug/radila/hdl/radila/raddebughub.vhd"
               ],
               "work": [
                 "debug/radila/hdl/radila/radila_core.vhd",
-                "debug/radila/hdl/radila/raddebughub_axi.vhd",
-                "debug/radila/hdl/radila/radila_axi_top.vhd",
+                "debug/radila/hdl/radila/raddebughub.vhd",
                 "debug/radila/hdl/radila/testbenches/tb_radila_core.vhd"
               ]
             },
             "vcd": "simulations/tb_radila_core/tb_radila_core.vcd",
-            "stdout": "../../src/ieee2008/numeric_std-body.vhdl:3089:7:@0ms:(assertion warning): NUMERIC_STD.TO_UNSIGNED: vector truncated\n../../src/ieee2008/numeric_std-body.vhdl:3089:7:@0ms:(assertion warning): NUMERIC_STD.TO_UNSIGNED: vector truncated\n../../src/ieee2008/numeric_std-body.vhdl:3089:7:@3500ps:(assertion warning): NUMERIC_STD.TO_UNSIGNED: vector truncated\n../../src/ieee2008/numeric_std-body.vhdl:3089:7:@5ns:(assertion warning): NUMERIC_STD.TO_UNSIGNED: vector truncated\n../../src/ieee2008/numeric_std-body.vhdl:3089:7:@10500ps:(assertion warning): NUMERIC_STD.TO_UNSIGNED: vector truncated\n../../src/ieee2008/numeric_std-body.vhdl:3089:7:@15ns:(assertion warning): NUMERIC_STD.TO_UNSIGNED: vector truncated\n../../src/ieee2008/numeric_std-body.vhdl:3089:7:@17500ps:(assertion warning): NUMERIC_STD.TO_UNSIGNED: vector truncated\n../../src/ieee2008/numeric_std-body.vhdl:3089:7:@24500ps:(assertion warning): NUMERIC_STD.TO_UNSIGNED: vector truncated\n../../src/ieee2008/numeric_std-body.vhdl:3089:7:@25ns:(assertion warning): NUMERIC_STD.TO_UNSIGNED: vector truncated\n../../src/ieee2008/numeric_std-body.vhdl:3089:7:@31500ps:(assertion warning): NUMERIC_STD.TO_UNSIGNED: vector truncated\n../../src/ieee2008/numeric_std-body.vhdl:3089:7:@35ns:(assertion warning): NUMERIC_STD.TO_UNSIGNED: vector truncated\n../../src/ieee2008/numeric_std-body.vhdl:3089:7:@38500ps:(assertion warning): NUMERIC_STD.TO_UNSIGNED: vector truncated\n../../src/ieee2008/numeric_std-body.vhdl:3089:7:@45ns:(assertion warning): NUMERIC_STD.TO_UNSIGNED: vector truncated\n../../src/ieee2008/numeric_std-body.vhdl:3089:7:@45500ps:(assertion warning): NUMERIC_STD.TO_UNSIGNED: vector truncated\n../../src/ieee2008/numeric_std-body.vhdl:3089:7:@52500ps:(assertion warning): NUMERIC_STD.TO_UNSIGNED: vector truncated\n../../src/ieee2008/numeric_std-body.vhdl:3089:7:@55ns:(assertion warning): NUMERIC_STD.TO_UNSIGNED: vector truncated\n../../src/ieee2008/numeric_std-body.vhdl:3089:7:@59500ps:(assertion warning): NUMERIC_STD.TO_UNSIGNED: vector truncated\n../../src/ieee2008/numeric_std-body.vhdl:3089:7:@65ns:(assertion warning): NUMERIC_STD.TO_UNSIGNED: vector truncated\n../../src/ieee2008/numeric_std-body.vhdl:3089:7:@66500ps:(assertion warning): NUMERIC_STD.TO_UNSIGNED: vector truncated\n../../src/ieee2008/numeric_std-body.vhdl:3089:7:@73500ps:(assertion warning): NUMERIC_STD.TO_UNSIGNED: vector truncated\n../../src/ieee2008/numeric_std-body.vhdl:3089:7:@75ns:(assertion warning): NUMERIC_STD.TO_UNSIGNED: vector truncated\n../../src/ieee2008/numeric_std-body.vhdl:3089:7:@80500ps:(assertion warning): NUMERIC_STD.TO_UNSIGNED: vector truncated\n../../src/ieee2008/numeric_std-body.vhdl:3089:7:@85ns:(assertion warning): NUMERIC_STD.TO_UNSIGNED: vector truncated\n../../src/ieee2008/numeric_std-body.vhdl:3089:7:@87500ps:(assertion warning): NUMERIC_STD.TO_UNSIGNED: vector truncated\n../../src/ieee2008/numeric_std-body.vhdl:3089:7:@94500ps:(assertion warning): NUMERIC_STD.TO_UNSIGNED: vector truncated\n../../src/ieee2008/numeric_std-body.vhdl:3089:7:@95ns:(assertion warning): NUMERIC_STD.TO_UNSIGNED: vector truncated\n../../src/ieee2008/numeric_std-body.vhdl:3089:7:@7801500ps:(assertion warning): NUMERIC_STD.TO_UNSIGNED: vector truncated\ndebug/radila/hdl/radila/testbenches/tb_radila_core.vhd:195:5:@7845ns:(report note): tb_radila_core passed\nsimulation finished @7845ns\n",
+            "stdout": "debug/radila/hdl/radila/testbenches/tb_radila_core.vhd:173:5:@8085ns:(report note): tb_radila_core passed\nsimulation finished @8085ns\n",
             "stderr": ""
           }
         }
@@ -19145,7 +19255,7 @@
             },
             "returncode": 2,
             "stdout": "",
-            "stderr": "\n******************** GHDL Bug occurred ***************************\nPlease report this bug on https://github.com/ghdl/ghdl/issues\nGHDL release: 1.0.0 (Ubuntu 1.0.0+dfsg-6) [Dunoon edition]\nCompiled with GNAT Version: 10.3.1 20211117\nTarget: x86_64-linux-gnu\n/tmp/radhdl-ghdl-coklhkwx/\nCommand line:\n/usr/bin/ghdl-mcode -e --std=08 --ieee=synopsys -P/tmp/radhdl-ghdl-coklhkwx --workdir=/tmp/radhdl-ghdl-coklhkwx tb_raddsp_axis_radfft\nException TYPES.INTERNAL_ERROR raised\nException information:\nraised TYPES.INTERNAL_ERROR : trans.adb:553\nCall stack traceback locations:\n0x56de2e03a13d 0x56de2e03a51b 0x56de2e03a797 0x56de2e1cffc8 0x56de2e1ded6d 0x56de2e1dee25 0x56de2e1e8bde 0x56de2e207aa7 0x56de2e207d5f 0x56de2e208257 0x56de2e2086b1 0x56de2e215330 0x56de2e21481c 0x56de2e25ca78 0x56de2e25cb9f 0x56de2e25d1f8 0x56de2e25d98a 0x56de2e25f596 0x56de2e25f6eb 0x56de2e262b0f 0x56de2e2673f8 0x56de2e26723b 0x56de2e2674e5 0x56de2e26723b 0x56de2e2674e5 0x56de2e22b4fa 0x56de2e21eeac 0x56de2e22fd8c 0x56de2e22a0a0 0x56de2e26fb55 0x56de2e1b0af5 0x56de2e0e669e 0x56de2e2734b3 0x56de2de9eb07 0x72a16f829d8e 0x72a16f829e3e 0x56de2de9d243 0xfffffffffffffffe\n******************************************************************\n"
+            "stderr": "\n******************** GHDL Bug occurred ***************************\nPlease report this bug on https://github.com/ghdl/ghdl/issues\nGHDL release: 1.0.0 (Ubuntu 1.0.0+dfsg-6) [Dunoon edition]\nCompiled with GNAT Version: 10.3.1 20211117\nTarget: x86_64-linux-gnu\n/tmp/radhdl-ghdl-_xp5i_l8/\nCommand line:\n/usr/bin/ghdl-mcode -e --std=08 --ieee=synopsys -P/tmp/radhdl-ghdl-_xp5i_l8 --workdir=/tmp/radhdl-ghdl-_xp5i_l8 tb_raddsp_axis_radfft\nException TYPES.INTERNAL_ERROR raised\nException information:\nraised TYPES.INTERNAL_ERROR : trans.adb:553\nCall stack traceback locations:\n0x57e7b179b13d 0x57e7b179b51b 0x57e7b179b797 0x57e7b1930fc8 0x57e7b193fd6d 0x57e7b193fe25 0x57e7b1949bde 0x57e7b1968aa7 0x57e7b1968d5f 0x57e7b1969257 0x57e7b19696b1 0x57e7b1976330 0x57e7b197581c 0x57e7b19bda78 0x57e7b19bdb9f 0x57e7b19be1f8 0x57e7b19be98a 0x57e7b19c0596 0x57e7b19c06eb 0x57e7b19c3b0f 0x57e7b19c83f8 0x57e7b19c823b 0x57e7b19c84e5 0x57e7b19c823b 0x57e7b19c84e5 0x57e7b198c4fa 0x57e7b197feac 0x57e7b1990d8c 0x57e7b198b0a0 0x57e7b19d0b55 0x57e7b1911af5 0x57e7b184769e 0x57e7b19d44b3 0x57e7b15ffb07 0x74245de29d8e 0x74245de29e3e 0x57e7b15fe243 0xfffffffffffffffe\n******************************************************************\n"
           }
         },
         {
@@ -19218,7 +19328,7 @@
             },
             "returncode": 2,
             "stdout": "",
-            "stderr": "\n******************** GHDL Bug occurred ***************************\nPlease report this bug on https://github.com/ghdl/ghdl/issues\nGHDL release: 1.0.0 (Ubuntu 1.0.0+dfsg-6) [Dunoon edition]\nCompiled with GNAT Version: 10.3.1 20211117\nTarget: x86_64-linux-gnu\n/tmp/radhdl-ghdl-bu8mq3x1/\nCommand line:\n/usr/bin/ghdl-mcode -e --std=08 --ieee=synopsys -P/tmp/radhdl-ghdl-bu8mq3x1 --workdir=/tmp/radhdl-ghdl-bu8mq3x1 tb_raddsp_axis_radfft_ddr\nException TYPES.INTERNAL_ERROR raised\nException information:\nraised TYPES.INTERNAL_ERROR : trans.adb:553\nCall stack traceback locations:\n0x62a00abaa13d 0x62a00abaa51b 0x62a00abaa797 0x62a00ad3ffc8 0x62a00ad4ed6d 0x62a00ad4ee25 0x62a00ad58bde 0x62a00ad77aa7 0x62a00ad77d5f 0x62a00ad78257 0x62a00ad786b1 0x62a00ad85330 0x62a00ad8481c 0x62a00adcca78 0x62a00adccb9f 0x62a00adcd1f8 0x62a00adcd98a 0x62a00adcf596 0x62a00adcf6eb 0x62a00add2b0f 0x62a00add73f8 0x62a00add723b 0x62a00add74e5 0x62a00add723b 0x62a00add74e5 0x62a00ad9b4fa 0x62a00ad8eeac 0x62a00ad9fd8c 0x62a00ad9a0a0 0x62a00addfb55 0x62a00ad20af5 0x62a00ac5669e 0x62a00ade34b3 0x62a00aa0eb07 0x7bee3f229d8e 0x7bee3f229e3e 0x62a00aa0d243 0xfffffffffffffffe\n******************************************************************\n"
+            "stderr": "\n******************** GHDL Bug occurred ***************************\nPlease report this bug on https://github.com/ghdl/ghdl/issues\nGHDL release: 1.0.0 (Ubuntu 1.0.0+dfsg-6) [Dunoon edition]\nCompiled with GNAT Version: 10.3.1 20211117\nTarget: x86_64-linux-gnu\n/tmp/radhdl-ghdl-fn51igmn/\nCommand line:\n/usr/bin/ghdl-mcode -e --std=08 --ieee=synopsys -P/tmp/radhdl-ghdl-fn51igmn --workdir=/tmp/radhdl-ghdl-fn51igmn tb_raddsp_axis_radfft_ddr\nException TYPES.INTERNAL_ERROR raised\nException information:\nraised TYPES.INTERNAL_ERROR : trans.adb:553\nCall stack traceback locations:\n0x6318067b713d 0x6318067b751b 0x6318067b7797 0x63180694cfc8 0x63180695bd6d 0x63180695be25 0x631806965bde 0x631806984aa7 0x631806984d5f 0x631806985257 0x6318069856b1 0x631806992330 0x63180699181c 0x6318069d9a78 0x6318069d9b9f 0x6318069da1f8 0x6318069da98a 0x6318069dc596 0x6318069dc6eb 0x6318069dfb0f 0x6318069e43f8 0x6318069e423b 0x6318069e44e5 0x6318069e423b 0x6318069e44e5 0x6318069a84fa 0x63180699beac 0x6318069acd8c 0x6318069a70a0 0x6318069ecb55 0x63180692daf5 0x63180686369e 0x6318069f04b3 0x63180661bb07 0x7026ea429d8e 0x7026ea429e3e 0x63180661a243 0xfffffffffffffffe\n******************************************************************\n"
           }
         },
         {
@@ -19290,7 +19400,7 @@
             },
             "returncode": 2,
             "stdout": "",
-            "stderr": "\n******************** GHDL Bug occurred ***************************\nPlease report this bug on https://github.com/ghdl/ghdl/issues\nGHDL release: 1.0.0 (Ubuntu 1.0.0+dfsg-6) [Dunoon edition]\nCompiled with GNAT Version: 10.3.1 20211117\nTarget: x86_64-linux-gnu\n/tmp/radhdl-ghdl-9y2vinzs/\nCommand line:\n/usr/bin/ghdl-mcode -e --std=08 --ieee=synopsys -P/tmp/radhdl-ghdl-9y2vinzs --workdir=/tmp/radhdl-ghdl-9y2vinzs tb_raddsp_axis_radfft_ddr_xcorr_1024\nException TYPES.INTERNAL_ERROR raised\nException information:\nraised TYPES.INTERNAL_ERROR : trans.adb:553\nCall stack traceback locations:\n0x5aa65efda13d 0x5aa65efda51b 0x5aa65efda797 0x5aa65f16ffc8 0x5aa65f17ed6d 0x5aa65f17ee25 0x5aa65f188bde 0x5aa65f1a7aa7 0x5aa65f1a7d5f 0x5aa65f1a8257 0x5aa65f1a86b1 0x5aa65f1b5330 0x5aa65f1b481c 0x5aa65f1fca78 0x5aa65f1fcb9f 0x5aa65f1fd1f8 0x5aa65f1fd98a 0x5aa65f1ff596 0x5aa65f1ff6eb 0x5aa65f202b0f 0x5aa65f2073f8 0x5aa65f20723b 0x5aa65f2074e5 0x5aa65f20723b 0x5aa65f2074e5 0x5aa65f1cb4fa 0x5aa65f1beeac 0x5aa65f1cfd8c 0x5aa65f1ca0a0 0x5aa65f20fb55 0x5aa65f150af5 0x5aa65f08669e 0x5aa65f2134b3 0x5aa65ee3eb07 0x7ade3d029d8e 0x7ade3d029e3e 0x5aa65ee3d243 0xfffffffffffffffe\n******************************************************************\n"
+            "stderr": "\n******************** GHDL Bug occurred ***************************\nPlease report this bug on https://github.com/ghdl/ghdl/issues\nGHDL release: 1.0.0 (Ubuntu 1.0.0+dfsg-6) [Dunoon edition]\nCompiled with GNAT Version: 10.3.1 20211117\nTarget: x86_64-linux-gnu\n/tmp/radhdl-ghdl-x84r7on2/\nCommand line:\n/usr/bin/ghdl-mcode -e --std=08 --ieee=synopsys -P/tmp/radhdl-ghdl-x84r7on2 --workdir=/tmp/radhdl-ghdl-x84r7on2 tb_raddsp_axis_radfft_ddr_xcorr_1024\nException TYPES.INTERNAL_ERROR raised\nException information:\nraised TYPES.INTERNAL_ERROR : trans.adb:553\nCall stack traceback locations:\n0x5a10149cd13d 0x5a10149cd51b 0x5a10149cd797 0x5a1014b62fc8 0x5a1014b71d6d 0x5a1014b71e25 0x5a1014b7bbde 0x5a1014b9aaa7 0x5a1014b9ad5f 0x5a1014b9b257 0x5a1014b9b6b1 0x5a1014ba8330 0x5a1014ba781c 0x5a1014befa78 0x5a1014befb9f 0x5a1014bf01f8 0x5a1014bf098a 0x5a1014bf2596 0x5a1014bf26eb 0x5a1014bf5b0f 0x5a1014bfa3f8 0x5a1014bfa23b 0x5a1014bfa4e5 0x5a1014bfa23b 0x5a1014bfa4e5 0x5a1014bbe4fa 0x5a1014bb1eac 0x5a1014bc2d8c 0x5a1014bbd0a0 0x5a1014c02b55 0x5a1014b43af5 0x5a1014a7969e 0x5a1014c064b3 0x5a1014831b07 0x73724d029d8e 0x73724d029e3e 0x5a1014830243 0xfffffffffffffffe\n******************************************************************\n"
           }
         }
       ],
@@ -20126,7 +20236,7 @@
             },
             "returncode": 2,
             "stdout": "",
-            "stderr": "\n******************** GHDL Bug occurred ***************************\nPlease report this bug on https://github.com/ghdl/ghdl/issues\nGHDL release: 1.0.0 (Ubuntu 1.0.0+dfsg-6) [Dunoon edition]\nCompiled with GNAT Version: 10.3.1 20211117\nTarget: x86_64-linux-gnu\n/tmp/radhdl-ghdl-bu8mq3x1/\nCommand line:\n/usr/bin/ghdl-mcode -e --std=08 --ieee=synopsys -P/tmp/radhdl-ghdl-bu8mq3x1 --workdir=/tmp/radhdl-ghdl-bu8mq3x1 tb_raddsp_axis_radfft_ddr\nException TYPES.INTERNAL_ERROR raised\nException information:\nraised TYPES.INTERNAL_ERROR : trans.adb:553\nCall stack traceback locations:\n0x62a00abaa13d 0x62a00abaa51b 0x62a00abaa797 0x62a00ad3ffc8 0x62a00ad4ed6d 0x62a00ad4ee25 0x62a00ad58bde 0x62a00ad77aa7 0x62a00ad77d5f 0x62a00ad78257 0x62a00ad786b1 0x62a00ad85330 0x62a00ad8481c 0x62a00adcca78 0x62a00adccb9f 0x62a00adcd1f8 0x62a00adcd98a 0x62a00adcf596 0x62a00adcf6eb 0x62a00add2b0f 0x62a00add73f8 0x62a00add723b 0x62a00add74e5 0x62a00add723b 0x62a00add74e5 0x62a00ad9b4fa 0x62a00ad8eeac 0x62a00ad9fd8c 0x62a00ad9a0a0 0x62a00addfb55 0x62a00ad20af5 0x62a00ac5669e 0x62a00ade34b3 0x62a00aa0eb07 0x7bee3f229d8e 0x7bee3f229e3e 0x62a00aa0d243 0xfffffffffffffffe\n******************************************************************\n"
+            "stderr": "\n******************** GHDL Bug occurred ***************************\nPlease report this bug on https://github.com/ghdl/ghdl/issues\nGHDL release: 1.0.0 (Ubuntu 1.0.0+dfsg-6) [Dunoon edition]\nCompiled with GNAT Version: 10.3.1 20211117\nTarget: x86_64-linux-gnu\n/tmp/radhdl-ghdl-fn51igmn/\nCommand line:\n/usr/bin/ghdl-mcode -e --std=08 --ieee=synopsys -P/tmp/radhdl-ghdl-fn51igmn --workdir=/tmp/radhdl-ghdl-fn51igmn tb_raddsp_axis_radfft_ddr\nException TYPES.INTERNAL_ERROR raised\nException information:\nraised TYPES.INTERNAL_ERROR : trans.adb:553\nCall stack traceback locations:\n0x6318067b713d 0x6318067b751b 0x6318067b7797 0x63180694cfc8 0x63180695bd6d 0x63180695be25 0x631806965bde 0x631806984aa7 0x631806984d5f 0x631806985257 0x6318069856b1 0x631806992330 0x63180699181c 0x6318069d9a78 0x6318069d9b9f 0x6318069da1f8 0x6318069da98a 0x6318069dc596 0x6318069dc6eb 0x6318069dfb0f 0x6318069e43f8 0x6318069e423b 0x6318069e44e5 0x6318069e423b 0x6318069e44e5 0x6318069a84fa 0x63180699beac 0x6318069acd8c 0x6318069a70a0 0x6318069ecb55 0x63180692daf5 0x63180686369e 0x6318069f04b3 0x63180661bb07 0x7026ea429d8e 0x7026ea429e3e 0x63180661a243 0xfffffffffffffffe\n******************************************************************\n"
           }
         },
         {
@@ -20198,7 +20308,7 @@
             },
             "returncode": 2,
             "stdout": "",
-            "stderr": "\n******************** GHDL Bug occurred ***************************\nPlease report this bug on https://github.com/ghdl/ghdl/issues\nGHDL release: 1.0.0 (Ubuntu 1.0.0+dfsg-6) [Dunoon edition]\nCompiled with GNAT Version: 10.3.1 20211117\nTarget: x86_64-linux-gnu\n/tmp/radhdl-ghdl-9y2vinzs/\nCommand line:\n/usr/bin/ghdl-mcode -e --std=08 --ieee=synopsys -P/tmp/radhdl-ghdl-9y2vinzs --workdir=/tmp/radhdl-ghdl-9y2vinzs tb_raddsp_axis_radfft_ddr_xcorr_1024\nException TYPES.INTERNAL_ERROR raised\nException information:\nraised TYPES.INTERNAL_ERROR : trans.adb:553\nCall stack traceback locations:\n0x5aa65efda13d 0x5aa65efda51b 0x5aa65efda797 0x5aa65f16ffc8 0x5aa65f17ed6d 0x5aa65f17ee25 0x5aa65f188bde 0x5aa65f1a7aa7 0x5aa65f1a7d5f 0x5aa65f1a8257 0x5aa65f1a86b1 0x5aa65f1b5330 0x5aa65f1b481c 0x5aa65f1fca78 0x5aa65f1fcb9f 0x5aa65f1fd1f8 0x5aa65f1fd98a 0x5aa65f1ff596 0x5aa65f1ff6eb 0x5aa65f202b0f 0x5aa65f2073f8 0x5aa65f20723b 0x5aa65f2074e5 0x5aa65f20723b 0x5aa65f2074e5 0x5aa65f1cb4fa 0x5aa65f1beeac 0x5aa65f1cfd8c 0x5aa65f1ca0a0 0x5aa65f20fb55 0x5aa65f150af5 0x5aa65f08669e 0x5aa65f2134b3 0x5aa65ee3eb07 0x7ade3d029d8e 0x7ade3d029e3e 0x5aa65ee3d243 0xfffffffffffffffe\n******************************************************************\n"
+            "stderr": "\n******************** GHDL Bug occurred ***************************\nPlease report this bug on https://github.com/ghdl/ghdl/issues\nGHDL release: 1.0.0 (Ubuntu 1.0.0+dfsg-6) [Dunoon edition]\nCompiled with GNAT Version: 10.3.1 20211117\nTarget: x86_64-linux-gnu\n/tmp/radhdl-ghdl-x84r7on2/\nCommand line:\n/usr/bin/ghdl-mcode -e --std=08 --ieee=synopsys -P/tmp/radhdl-ghdl-x84r7on2 --workdir=/tmp/radhdl-ghdl-x84r7on2 tb_raddsp_axis_radfft_ddr_xcorr_1024\nException TYPES.INTERNAL_ERROR raised\nException information:\nraised TYPES.INTERNAL_ERROR : trans.adb:553\nCall stack traceback locations:\n0x5a10149cd13d 0x5a10149cd51b 0x5a10149cd797 0x5a1014b62fc8 0x5a1014b71d6d 0x5a1014b71e25 0x5a1014b7bbde 0x5a1014b9aaa7 0x5a1014b9ad5f 0x5a1014b9b257 0x5a1014b9b6b1 0x5a1014ba8330 0x5a1014ba781c 0x5a1014befa78 0x5a1014befb9f 0x5a1014bf01f8 0x5a1014bf098a 0x5a1014bf2596 0x5a1014bf26eb 0x5a1014bf5b0f 0x5a1014bfa3f8 0x5a1014bfa23b 0x5a1014bfa4e5 0x5a1014bfa23b 0x5a1014bfa4e5 0x5a1014bbe4fa 0x5a1014bb1eac 0x5a1014bc2d8c 0x5a1014bbd0a0 0x5a1014c02b55 0x5a1014b43af5 0x5a1014a7969e 0x5a1014c064b3 0x5a1014831b07 0x73724d029d8e 0x73724d029e3e 0x5a1014830243 0xfffffffffffffffe\n******************************************************************\n"
           }
         }
       ],
@@ -21927,7 +22037,7 @@
             },
             "returncode": 2,
             "stdout": "",
-            "stderr": "\n******************** GHDL Bug occurred ***************************\nPlease report this bug on https://github.com/ghdl/ghdl/issues\nGHDL release: 1.0.0 (Ubuntu 1.0.0+dfsg-6) [Dunoon edition]\nCompiled with GNAT Version: 10.3.1 20211117\nTarget: x86_64-linux-gnu\n/tmp/radhdl-ghdl-coklhkwx/\nCommand line:\n/usr/bin/ghdl-mcode -e --std=08 --ieee=synopsys -P/tmp/radhdl-ghdl-coklhkwx --workdir=/tmp/radhdl-ghdl-coklhkwx tb_raddsp_axis_radfft\nException TYPES.INTERNAL_ERROR raised\nException information:\nraised TYPES.INTERNAL_ERROR : trans.adb:553\nCall stack traceback locations:\n0x56de2e03a13d 0x56de2e03a51b 0x56de2e03a797 0x56de2e1cffc8 0x56de2e1ded6d 0x56de2e1dee25 0x56de2e1e8bde 0x56de2e207aa7 0x56de2e207d5f 0x56de2e208257 0x56de2e2086b1 0x56de2e215330 0x56de2e21481c 0x56de2e25ca78 0x56de2e25cb9f 0x56de2e25d1f8 0x56de2e25d98a 0x56de2e25f596 0x56de2e25f6eb 0x56de2e262b0f 0x56de2e2673f8 0x56de2e26723b 0x56de2e2674e5 0x56de2e26723b 0x56de2e2674e5 0x56de2e22b4fa 0x56de2e21eeac 0x56de2e22fd8c 0x56de2e22a0a0 0x56de2e26fb55 0x56de2e1b0af5 0x56de2e0e669e 0x56de2e2734b3 0x56de2de9eb07 0x72a16f829d8e 0x72a16f829e3e 0x56de2de9d243 0xfffffffffffffffe\n******************************************************************\n"
+            "stderr": "\n******************** GHDL Bug occurred ***************************\nPlease report this bug on https://github.com/ghdl/ghdl/issues\nGHDL release: 1.0.0 (Ubuntu 1.0.0+dfsg-6) [Dunoon edition]\nCompiled with GNAT Version: 10.3.1 20211117\nTarget: x86_64-linux-gnu\n/tmp/radhdl-ghdl-_xp5i_l8/\nCommand line:\n/usr/bin/ghdl-mcode -e --std=08 --ieee=synopsys -P/tmp/radhdl-ghdl-_xp5i_l8 --workdir=/tmp/radhdl-ghdl-_xp5i_l8 tb_raddsp_axis_radfft\nException TYPES.INTERNAL_ERROR raised\nException information:\nraised TYPES.INTERNAL_ERROR : trans.adb:553\nCall stack traceback locations:\n0x57e7b179b13d 0x57e7b179b51b 0x57e7b179b797 0x57e7b1930fc8 0x57e7b193fd6d 0x57e7b193fe25 0x57e7b1949bde 0x57e7b1968aa7 0x57e7b1968d5f 0x57e7b1969257 0x57e7b19696b1 0x57e7b1976330 0x57e7b197581c 0x57e7b19bda78 0x57e7b19bdb9f 0x57e7b19be1f8 0x57e7b19be98a 0x57e7b19c0596 0x57e7b19c06eb 0x57e7b19c3b0f 0x57e7b19c83f8 0x57e7b19c823b 0x57e7b19c84e5 0x57e7b19c823b 0x57e7b19c84e5 0x57e7b198c4fa 0x57e7b197feac 0x57e7b1990d8c 0x57e7b198b0a0 0x57e7b19d0b55 0x57e7b1911af5 0x57e7b184769e 0x57e7b19d44b3 0x57e7b15ffb07 0x74245de29d8e 0x74245de29e3e 0x57e7b15fe243 0xfffffffffffffffe\n******************************************************************\n"
           }
         },
         {
@@ -22000,7 +22110,7 @@
             },
             "returncode": 2,
             "stdout": "",
-            "stderr": "\n******************** GHDL Bug occurred ***************************\nPlease report this bug on https://github.com/ghdl/ghdl/issues\nGHDL release: 1.0.0 (Ubuntu 1.0.0+dfsg-6) [Dunoon edition]\nCompiled with GNAT Version: 10.3.1 20211117\nTarget: x86_64-linux-gnu\n/tmp/radhdl-ghdl-bu8mq3x1/\nCommand line:\n/usr/bin/ghdl-mcode -e --std=08 --ieee=synopsys -P/tmp/radhdl-ghdl-bu8mq3x1 --workdir=/tmp/radhdl-ghdl-bu8mq3x1 tb_raddsp_axis_radfft_ddr\nException TYPES.INTERNAL_ERROR raised\nException information:\nraised TYPES.INTERNAL_ERROR : trans.adb:553\nCall stack traceback locations:\n0x62a00abaa13d 0x62a00abaa51b 0x62a00abaa797 0x62a00ad3ffc8 0x62a00ad4ed6d 0x62a00ad4ee25 0x62a00ad58bde 0x62a00ad77aa7 0x62a00ad77d5f 0x62a00ad78257 0x62a00ad786b1 0x62a00ad85330 0x62a00ad8481c 0x62a00adcca78 0x62a00adccb9f 0x62a00adcd1f8 0x62a00adcd98a 0x62a00adcf596 0x62a00adcf6eb 0x62a00add2b0f 0x62a00add73f8 0x62a00add723b 0x62a00add74e5 0x62a00add723b 0x62a00add74e5 0x62a00ad9b4fa 0x62a00ad8eeac 0x62a00ad9fd8c 0x62a00ad9a0a0 0x62a00addfb55 0x62a00ad20af5 0x62a00ac5669e 0x62a00ade34b3 0x62a00aa0eb07 0x7bee3f229d8e 0x7bee3f229e3e 0x62a00aa0d243 0xfffffffffffffffe\n******************************************************************\n"
+            "stderr": "\n******************** GHDL Bug occurred ***************************\nPlease report this bug on https://github.com/ghdl/ghdl/issues\nGHDL release: 1.0.0 (Ubuntu 1.0.0+dfsg-6) [Dunoon edition]\nCompiled with GNAT Version: 10.3.1 20211117\nTarget: x86_64-linux-gnu\n/tmp/radhdl-ghdl-fn51igmn/\nCommand line:\n/usr/bin/ghdl-mcode -e --std=08 --ieee=synopsys -P/tmp/radhdl-ghdl-fn51igmn --workdir=/tmp/radhdl-ghdl-fn51igmn tb_raddsp_axis_radfft_ddr\nException TYPES.INTERNAL_ERROR raised\nException information:\nraised TYPES.INTERNAL_ERROR : trans.adb:553\nCall stack traceback locations:\n0x6318067b713d 0x6318067b751b 0x6318067b7797 0x63180694cfc8 0x63180695bd6d 0x63180695be25 0x631806965bde 0x631806984aa7 0x631806984d5f 0x631806985257 0x6318069856b1 0x631806992330 0x63180699181c 0x6318069d9a78 0x6318069d9b9f 0x6318069da1f8 0x6318069da98a 0x6318069dc596 0x6318069dc6eb 0x6318069dfb0f 0x6318069e43f8 0x6318069e423b 0x6318069e44e5 0x6318069e423b 0x6318069e44e5 0x6318069a84fa 0x63180699beac 0x6318069acd8c 0x6318069a70a0 0x6318069ecb55 0x63180692daf5 0x63180686369e 0x6318069f04b3 0x63180661bb07 0x7026ea429d8e 0x7026ea429e3e 0x63180661a243 0xfffffffffffffffe\n******************************************************************\n"
           }
         }
       ],
@@ -22469,7 +22579,7 @@
             },
             "returncode": 2,
             "stdout": "",
-            "stderr": "\n******************** GHDL Bug occurred ***************************\nPlease report this bug on https://github.com/ghdl/ghdl/issues\nGHDL release: 1.0.0 (Ubuntu 1.0.0+dfsg-6) [Dunoon edition]\nCompiled with GNAT Version: 10.3.1 20211117\nTarget: x86_64-linux-gnu\n/tmp/radhdl-ghdl-t_ojxt6z/\nCommand line:\n/usr/bin/ghdl-mcode -e --std=08 --ieee=synopsys -P/tmp/radhdl-ghdl-t_ojxt6z --workdir=/tmp/radhdl-ghdl-t_ojxt6z tb_raddsp_xilinx_dsp48_wide_mul\nException TYPES.INTERNAL_ERROR raised\nException information:\nraised TYPES.INTERNAL_ERROR : trans.adb:553\nCall stack traceback locations:\n0x5862a5ae813d 0x5862a5ae851b 0x5862a5ae8797 0x5862a5c7dfc8 0x5862a5c8cd6d 0x5862a5c8ce25 0x5862a5c96bde 0x5862a5cb5aa7 0x5862a5cb5d5f 0x5862a5cb6257 0x5862a5cb66b1 0x5862a5cc3330 0x5862a5cc281c 0x5862a5d0aa78 0x5862a5d0ab9f 0x5862a5d0b1f8 0x5862a5d0b98a 0x5862a5d0d596 0x5862a5d0d6eb 0x5862a5d10b0f 0x5862a5d153f8 0x5862a5d1523b 0x5862a5d154e5 0x5862a5d1523b 0x5862a5d154e5 0x5862a5cd94fa 0x5862a5ccceac 0x5862a5cddd8c 0x5862a5cd80a0 0x5862a5d1db55 0x5862a5c5eaf5 0x5862a5b9469e 0x5862a5d214b3 0x5862a594cb07 0x798b82829d8e 0x798b82829e3e 0x5862a594b243 0xfffffffffffffffe\n******************************************************************\n"
+            "stderr": "\n******************** GHDL Bug occurred ***************************\nPlease report this bug on https://github.com/ghdl/ghdl/issues\nGHDL release: 1.0.0 (Ubuntu 1.0.0+dfsg-6) [Dunoon edition]\nCompiled with GNAT Version: 10.3.1 20211117\nTarget: x86_64-linux-gnu\n/tmp/radhdl-ghdl-uym81icy/\nCommand line:\n/usr/bin/ghdl-mcode -e --std=08 --ieee=synopsys -P/tmp/radhdl-ghdl-uym81icy --workdir=/tmp/radhdl-ghdl-uym81icy tb_raddsp_xilinx_dsp48_wide_mul\nException TYPES.INTERNAL_ERROR raised\nException information:\nraised TYPES.INTERNAL_ERROR : trans.adb:553\nCall stack traceback locations:\n0x5ef47c4f913d 0x5ef47c4f951b 0x5ef47c4f9797 0x5ef47c68efc8 0x5ef47c69dd6d 0x5ef47c69de25 0x5ef47c6a7bde 0x5ef47c6c6aa7 0x5ef47c6c6d5f 0x5ef47c6c7257 0x5ef47c6c76b1 0x5ef47c6d4330 0x5ef47c6d381c 0x5ef47c71ba78 0x5ef47c71bb9f 0x5ef47c71c1f8 0x5ef47c71c98a 0x5ef47c71e596 0x5ef47c71e6eb 0x5ef47c721b0f 0x5ef47c7263f8 0x5ef47c72623b 0x5ef47c7264e5 0x5ef47c72623b 0x5ef47c7264e5 0x5ef47c6ea4fa 0x5ef47c6ddeac 0x5ef47c6eed8c 0x5ef47c6e90a0 0x5ef47c72eb55 0x5ef47c66faf5 0x5ef47c5a569e 0x5ef47c7324b3 0x5ef47c35db07 0x744434a29d8e 0x744434a29e3e 0x5ef47c35c243 0xfffffffffffffffe\n******************************************************************\n"
           }
         }
       ],
@@ -23798,18 +23908,16 @@
               ],
               "radila": [
                 "debug/radila/hdl/radila/radila_core.vhd",
-                "debug/radila/hdl/radila/raddebughub_axi.vhd",
-                "debug/radila/hdl/radila/radila_axi_top.vhd"
+                "debug/radila/hdl/radila/raddebughub.vhd"
               ],
               "work": [
                 "debug/radila/hdl/radila/radila_core.vhd",
-                "debug/radila/hdl/radila/raddebughub_axi.vhd",
-                "debug/radila/hdl/radila/radila_axi_top.vhd",
+                "debug/radila/hdl/radila/raddebughub.vhd",
                 "debug/radila/hdl/radila/testbenches/tb_radila_core.vhd"
               ]
             },
             "vcd": "simulations/tb_radila_core/tb_radila_core.vcd",
-            "stdout": "../../src/ieee2008/numeric_std-body.vhdl:3089:7:@0ms:(assertion warning): NUMERIC_STD.TO_UNSIGNED: vector truncated\n../../src/ieee2008/numeric_std-body.vhdl:3089:7:@0ms:(assertion warning): NUMERIC_STD.TO_UNSIGNED: vector truncated\n../../src/ieee2008/numeric_std-body.vhdl:3089:7:@3500ps:(assertion warning): NUMERIC_STD.TO_UNSIGNED: vector truncated\n../../src/ieee2008/numeric_std-body.vhdl:3089:7:@5ns:(assertion warning): NUMERIC_STD.TO_UNSIGNED: vector truncated\n../../src/ieee2008/numeric_std-body.vhdl:3089:7:@10500ps:(assertion warning): NUMERIC_STD.TO_UNSIGNED: vector truncated\n../../src/ieee2008/numeric_std-body.vhdl:3089:7:@15ns:(assertion warning): NUMERIC_STD.TO_UNSIGNED: vector truncated\n../../src/ieee2008/numeric_std-body.vhdl:3089:7:@17500ps:(assertion warning): NUMERIC_STD.TO_UNSIGNED: vector truncated\n../../src/ieee2008/numeric_std-body.vhdl:3089:7:@24500ps:(assertion warning): NUMERIC_STD.TO_UNSIGNED: vector truncated\n../../src/ieee2008/numeric_std-body.vhdl:3089:7:@25ns:(assertion warning): NUMERIC_STD.TO_UNSIGNED: vector truncated\n../../src/ieee2008/numeric_std-body.vhdl:3089:7:@31500ps:(assertion warning): NUMERIC_STD.TO_UNSIGNED: vector truncated\n../../src/ieee2008/numeric_std-body.vhdl:3089:7:@35ns:(assertion warning): NUMERIC_STD.TO_UNSIGNED: vector truncated\n../../src/ieee2008/numeric_std-body.vhdl:3089:7:@38500ps:(assertion warning): NUMERIC_STD.TO_UNSIGNED: vector truncated\n../../src/ieee2008/numeric_std-body.vhdl:3089:7:@45ns:(assertion warning): NUMERIC_STD.TO_UNSIGNED: vector truncated\n../../src/ieee2008/numeric_std-body.vhdl:3089:7:@45500ps:(assertion warning): NUMERIC_STD.TO_UNSIGNED: vector truncated\n../../src/ieee2008/numeric_std-body.vhdl:3089:7:@52500ps:(assertion warning): NUMERIC_STD.TO_UNSIGNED: vector truncated\n../../src/ieee2008/numeric_std-body.vhdl:3089:7:@55ns:(assertion warning): NUMERIC_STD.TO_UNSIGNED: vector truncated\n../../src/ieee2008/numeric_std-body.vhdl:3089:7:@59500ps:(assertion warning): NUMERIC_STD.TO_UNSIGNED: vector truncated\n../../src/ieee2008/numeric_std-body.vhdl:3089:7:@65ns:(assertion warning): NUMERIC_STD.TO_UNSIGNED: vector truncated\n../../src/ieee2008/numeric_std-body.vhdl:3089:7:@66500ps:(assertion warning): NUMERIC_STD.TO_UNSIGNED: vector truncated\n../../src/ieee2008/numeric_std-body.vhdl:3089:7:@73500ps:(assertion warning): NUMERIC_STD.TO_UNSIGNED: vector truncated\n../../src/ieee2008/numeric_std-body.vhdl:3089:7:@75ns:(assertion warning): NUMERIC_STD.TO_UNSIGNED: vector truncated\n../../src/ieee2008/numeric_std-body.vhdl:3089:7:@80500ps:(assertion warning): NUMERIC_STD.TO_UNSIGNED: vector truncated\n../../src/ieee2008/numeric_std-body.vhdl:3089:7:@85ns:(assertion warning): NUMERIC_STD.TO_UNSIGNED: vector truncated\n../../src/ieee2008/numeric_std-body.vhdl:3089:7:@87500ps:(assertion warning): NUMERIC_STD.TO_UNSIGNED: vector truncated\n../../src/ieee2008/numeric_std-body.vhdl:3089:7:@94500ps:(assertion warning): NUMERIC_STD.TO_UNSIGNED: vector truncated\n../../src/ieee2008/numeric_std-body.vhdl:3089:7:@95ns:(assertion warning): NUMERIC_STD.TO_UNSIGNED: vector truncated\n../../src/ieee2008/numeric_std-body.vhdl:3089:7:@7801500ps:(assertion warning): NUMERIC_STD.TO_UNSIGNED: vector truncated\ndebug/radila/hdl/radila/testbenches/tb_radila_core.vhd:195:5:@7845ns:(report note): tb_radila_core passed\nsimulation finished @7845ns\n",
+            "stdout": "debug/radila/hdl/radila/testbenches/tb_radila_core.vhd:173:5:@8085ns:(report note): tb_radila_core passed\nsimulation finished @8085ns\n",
             "stderr": ""
           }
         }
@@ -24285,7 +24393,7 @@
             },
             "returncode": 2,
             "stdout": "",
-            "stderr": "\n******************** GHDL Bug occurred ***************************\nPlease report this bug on https://github.com/ghdl/ghdl/issues\nGHDL release: 1.0.0 (Ubuntu 1.0.0+dfsg-6) [Dunoon edition]\nCompiled with GNAT Version: 10.3.1 20211117\nTarget: x86_64-linux-gnu\n/tmp/radhdl-ghdl-coklhkwx/\nCommand line:\n/usr/bin/ghdl-mcode -e --std=08 --ieee=synopsys -P/tmp/radhdl-ghdl-coklhkwx --workdir=/tmp/radhdl-ghdl-coklhkwx tb_raddsp_axis_radfft\nException TYPES.INTERNAL_ERROR raised\nException information:\nraised TYPES.INTERNAL_ERROR : trans.adb:553\nCall stack traceback locations:\n0x56de2e03a13d 0x56de2e03a51b 0x56de2e03a797 0x56de2e1cffc8 0x56de2e1ded6d 0x56de2e1dee25 0x56de2e1e8bde 0x56de2e207aa7 0x56de2e207d5f 0x56de2e208257 0x56de2e2086b1 0x56de2e215330 0x56de2e21481c 0x56de2e25ca78 0x56de2e25cb9f 0x56de2e25d1f8 0x56de2e25d98a 0x56de2e25f596 0x56de2e25f6eb 0x56de2e262b0f 0x56de2e2673f8 0x56de2e26723b 0x56de2e2674e5 0x56de2e26723b 0x56de2e2674e5 0x56de2e22b4fa 0x56de2e21eeac 0x56de2e22fd8c 0x56de2e22a0a0 0x56de2e26fb55 0x56de2e1b0af5 0x56de2e0e669e 0x56de2e2734b3 0x56de2de9eb07 0x72a16f829d8e 0x72a16f829e3e 0x56de2de9d243 0xfffffffffffffffe\n******************************************************************\n"
+            "stderr": "\n******************** GHDL Bug occurred ***************************\nPlease report this bug on https://github.com/ghdl/ghdl/issues\nGHDL release: 1.0.0 (Ubuntu 1.0.0+dfsg-6) [Dunoon edition]\nCompiled with GNAT Version: 10.3.1 20211117\nTarget: x86_64-linux-gnu\n/tmp/radhdl-ghdl-_xp5i_l8/\nCommand line:\n/usr/bin/ghdl-mcode -e --std=08 --ieee=synopsys -P/tmp/radhdl-ghdl-_xp5i_l8 --workdir=/tmp/radhdl-ghdl-_xp5i_l8 tb_raddsp_axis_radfft\nException TYPES.INTERNAL_ERROR raised\nException information:\nraised TYPES.INTERNAL_ERROR : trans.adb:553\nCall stack traceback locations:\n0x57e7b179b13d 0x57e7b179b51b 0x57e7b179b797 0x57e7b1930fc8 0x57e7b193fd6d 0x57e7b193fe25 0x57e7b1949bde 0x57e7b1968aa7 0x57e7b1968d5f 0x57e7b1969257 0x57e7b19696b1 0x57e7b1976330 0x57e7b197581c 0x57e7b19bda78 0x57e7b19bdb9f 0x57e7b19be1f8 0x57e7b19be98a 0x57e7b19c0596 0x57e7b19c06eb 0x57e7b19c3b0f 0x57e7b19c83f8 0x57e7b19c823b 0x57e7b19c84e5 0x57e7b19c823b 0x57e7b19c84e5 0x57e7b198c4fa 0x57e7b197feac 0x57e7b1990d8c 0x57e7b198b0a0 0x57e7b19d0b55 0x57e7b1911af5 0x57e7b184769e 0x57e7b19d44b3 0x57e7b15ffb07 0x74245de29d8e 0x74245de29e3e 0x57e7b15fe243 0xfffffffffffffffe\n******************************************************************\n"
           }
         },
         {
@@ -24358,7 +24466,7 @@
             },
             "returncode": 2,
             "stdout": "",
-            "stderr": "\n******************** GHDL Bug occurred ***************************\nPlease report this bug on https://github.com/ghdl/ghdl/issues\nGHDL release: 1.0.0 (Ubuntu 1.0.0+dfsg-6) [Dunoon edition]\nCompiled with GNAT Version: 10.3.1 20211117\nTarget: x86_64-linux-gnu\n/tmp/radhdl-ghdl-bu8mq3x1/\nCommand line:\n/usr/bin/ghdl-mcode -e --std=08 --ieee=synopsys -P/tmp/radhdl-ghdl-bu8mq3x1 --workdir=/tmp/radhdl-ghdl-bu8mq3x1 tb_raddsp_axis_radfft_ddr\nException TYPES.INTERNAL_ERROR raised\nException information:\nraised TYPES.INTERNAL_ERROR : trans.adb:553\nCall stack traceback locations:\n0x62a00abaa13d 0x62a00abaa51b 0x62a00abaa797 0x62a00ad3ffc8 0x62a00ad4ed6d 0x62a00ad4ee25 0x62a00ad58bde 0x62a00ad77aa7 0x62a00ad77d5f 0x62a00ad78257 0x62a00ad786b1 0x62a00ad85330 0x62a00ad8481c 0x62a00adcca78 0x62a00adccb9f 0x62a00adcd1f8 0x62a00adcd98a 0x62a00adcf596 0x62a00adcf6eb 0x62a00add2b0f 0x62a00add73f8 0x62a00add723b 0x62a00add74e5 0x62a00add723b 0x62a00add74e5 0x62a00ad9b4fa 0x62a00ad8eeac 0x62a00ad9fd8c 0x62a00ad9a0a0 0x62a00addfb55 0x62a00ad20af5 0x62a00ac5669e 0x62a00ade34b3 0x62a00aa0eb07 0x7bee3f229d8e 0x7bee3f229e3e 0x62a00aa0d243 0xfffffffffffffffe\n******************************************************************\n"
+            "stderr": "\n******************** GHDL Bug occurred ***************************\nPlease report this bug on https://github.com/ghdl/ghdl/issues\nGHDL release: 1.0.0 (Ubuntu 1.0.0+dfsg-6) [Dunoon edition]\nCompiled with GNAT Version: 10.3.1 20211117\nTarget: x86_64-linux-gnu\n/tmp/radhdl-ghdl-fn51igmn/\nCommand line:\n/usr/bin/ghdl-mcode -e --std=08 --ieee=synopsys -P/tmp/radhdl-ghdl-fn51igmn --workdir=/tmp/radhdl-ghdl-fn51igmn tb_raddsp_axis_radfft_ddr\nException TYPES.INTERNAL_ERROR raised\nException information:\nraised TYPES.INTERNAL_ERROR : trans.adb:553\nCall stack traceback locations:\n0x6318067b713d 0x6318067b751b 0x6318067b7797 0x63180694cfc8 0x63180695bd6d 0x63180695be25 0x631806965bde 0x631806984aa7 0x631806984d5f 0x631806985257 0x6318069856b1 0x631806992330 0x63180699181c 0x6318069d9a78 0x6318069d9b9f 0x6318069da1f8 0x6318069da98a 0x6318069dc596 0x6318069dc6eb 0x6318069dfb0f 0x6318069e43f8 0x6318069e423b 0x6318069e44e5 0x6318069e423b 0x6318069e44e5 0x6318069a84fa 0x63180699beac 0x6318069acd8c 0x6318069a70a0 0x6318069ecb55 0x63180692daf5 0x63180686369e 0x6318069f04b3 0x63180661bb07 0x7026ea429d8e 0x7026ea429e3e 0x63180661a243 0xfffffffffffffffe\n******************************************************************\n"
           }
         },
         {
@@ -24430,7 +24538,7 @@
             },
             "returncode": 2,
             "stdout": "",
-            "stderr": "\n******************** GHDL Bug occurred ***************************\nPlease report this bug on https://github.com/ghdl/ghdl/issues\nGHDL release: 1.0.0 (Ubuntu 1.0.0+dfsg-6) [Dunoon edition]\nCompiled with GNAT Version: 10.3.1 20211117\nTarget: x86_64-linux-gnu\n/tmp/radhdl-ghdl-9y2vinzs/\nCommand line:\n/usr/bin/ghdl-mcode -e --std=08 --ieee=synopsys -P/tmp/radhdl-ghdl-9y2vinzs --workdir=/tmp/radhdl-ghdl-9y2vinzs tb_raddsp_axis_radfft_ddr_xcorr_1024\nException TYPES.INTERNAL_ERROR raised\nException information:\nraised TYPES.INTERNAL_ERROR : trans.adb:553\nCall stack traceback locations:\n0x5aa65efda13d 0x5aa65efda51b 0x5aa65efda797 0x5aa65f16ffc8 0x5aa65f17ed6d 0x5aa65f17ee25 0x5aa65f188bde 0x5aa65f1a7aa7 0x5aa65f1a7d5f 0x5aa65f1a8257 0x5aa65f1a86b1 0x5aa65f1b5330 0x5aa65f1b481c 0x5aa65f1fca78 0x5aa65f1fcb9f 0x5aa65f1fd1f8 0x5aa65f1fd98a 0x5aa65f1ff596 0x5aa65f1ff6eb 0x5aa65f202b0f 0x5aa65f2073f8 0x5aa65f20723b 0x5aa65f2074e5 0x5aa65f20723b 0x5aa65f2074e5 0x5aa65f1cb4fa 0x5aa65f1beeac 0x5aa65f1cfd8c 0x5aa65f1ca0a0 0x5aa65f20fb55 0x5aa65f150af5 0x5aa65f08669e 0x5aa65f2134b3 0x5aa65ee3eb07 0x7ade3d029d8e 0x7ade3d029e3e 0x5aa65ee3d243 0xfffffffffffffffe\n******************************************************************\n"
+            "stderr": "\n******************** GHDL Bug occurred ***************************\nPlease report this bug on https://github.com/ghdl/ghdl/issues\nGHDL release: 1.0.0 (Ubuntu 1.0.0+dfsg-6) [Dunoon edition]\nCompiled with GNAT Version: 10.3.1 20211117\nTarget: x86_64-linux-gnu\n/tmp/radhdl-ghdl-x84r7on2/\nCommand line:\n/usr/bin/ghdl-mcode -e --std=08 --ieee=synopsys -P/tmp/radhdl-ghdl-x84r7on2 --workdir=/tmp/radhdl-ghdl-x84r7on2 tb_raddsp_axis_radfft_ddr_xcorr_1024\nException TYPES.INTERNAL_ERROR raised\nException information:\nraised TYPES.INTERNAL_ERROR : trans.adb:553\nCall stack traceback locations:\n0x5a10149cd13d 0x5a10149cd51b 0x5a10149cd797 0x5a1014b62fc8 0x5a1014b71d6d 0x5a1014b71e25 0x5a1014b7bbde 0x5a1014b9aaa7 0x5a1014b9ad5f 0x5a1014b9b257 0x5a1014b9b6b1 0x5a1014ba8330 0x5a1014ba781c 0x5a1014befa78 0x5a1014befb9f 0x5a1014bf01f8 0x5a1014bf098a 0x5a1014bf2596 0x5a1014bf26eb 0x5a1014bf5b0f 0x5a1014bfa3f8 0x5a1014bfa23b 0x5a1014bfa4e5 0x5a1014bfa23b 0x5a1014bfa4e5 0x5a1014bbe4fa 0x5a1014bb1eac 0x5a1014bc2d8c 0x5a1014bbd0a0 0x5a1014c02b55 0x5a1014b43af5 0x5a1014a7969e 0x5a1014c064b3 0x5a1014831b07 0x73724d029d8e 0x73724d029e3e 0x5a1014830243 0xfffffffffffffffe\n******************************************************************\n"
           }
         },
         {
@@ -24577,7 +24685,7 @@
             },
             "returncode": 2,
             "stdout": "",
-            "stderr": "\n******************** GHDL Bug occurred ***************************\nPlease report this bug on https://github.com/ghdl/ghdl/issues\nGHDL release: 1.0.0 (Ubuntu 1.0.0+dfsg-6) [Dunoon edition]\nCompiled with GNAT Version: 10.3.1 20211117\nTarget: x86_64-linux-gnu\n/tmp/radhdl-ghdl-t_ojxt6z/\nCommand line:\n/usr/bin/ghdl-mcode -e --std=08 --ieee=synopsys -P/tmp/radhdl-ghdl-t_ojxt6z --workdir=/tmp/radhdl-ghdl-t_ojxt6z tb_raddsp_xilinx_dsp48_wide_mul\nException TYPES.INTERNAL_ERROR raised\nException information:\nraised TYPES.INTERNAL_ERROR : trans.adb:553\nCall stack traceback locations:\n0x5862a5ae813d 0x5862a5ae851b 0x5862a5ae8797 0x5862a5c7dfc8 0x5862a5c8cd6d 0x5862a5c8ce25 0x5862a5c96bde 0x5862a5cb5aa7 0x5862a5cb5d5f 0x5862a5cb6257 0x5862a5cb66b1 0x5862a5cc3330 0x5862a5cc281c 0x5862a5d0aa78 0x5862a5d0ab9f 0x5862a5d0b1f8 0x5862a5d0b98a 0x5862a5d0d596 0x5862a5d0d6eb 0x5862a5d10b0f 0x5862a5d153f8 0x5862a5d1523b 0x5862a5d154e5 0x5862a5d1523b 0x5862a5d154e5 0x5862a5cd94fa 0x5862a5ccceac 0x5862a5cddd8c 0x5862a5cd80a0 0x5862a5d1db55 0x5862a5c5eaf5 0x5862a5b9469e 0x5862a5d214b3 0x5862a594cb07 0x798b82829d8e 0x798b82829e3e 0x5862a594b243 0xfffffffffffffffe\n******************************************************************\n"
+            "stderr": "\n******************** GHDL Bug occurred ***************************\nPlease report this bug on https://github.com/ghdl/ghdl/issues\nGHDL release: 1.0.0 (Ubuntu 1.0.0+dfsg-6) [Dunoon edition]\nCompiled with GNAT Version: 10.3.1 20211117\nTarget: x86_64-linux-gnu\n/tmp/radhdl-ghdl-uym81icy/\nCommand line:\n/usr/bin/ghdl-mcode -e --std=08 --ieee=synopsys -P/tmp/radhdl-ghdl-uym81icy --workdir=/tmp/radhdl-ghdl-uym81icy tb_raddsp_xilinx_dsp48_wide_mul\nException TYPES.INTERNAL_ERROR raised\nException information:\nraised TYPES.INTERNAL_ERROR : trans.adb:553\nCall stack traceback locations:\n0x5ef47c4f913d 0x5ef47c4f951b 0x5ef47c4f9797 0x5ef47c68efc8 0x5ef47c69dd6d 0x5ef47c69de25 0x5ef47c6a7bde 0x5ef47c6c6aa7 0x5ef47c6c6d5f 0x5ef47c6c7257 0x5ef47c6c76b1 0x5ef47c6d4330 0x5ef47c6d381c 0x5ef47c71ba78 0x5ef47c71bb9f 0x5ef47c71c1f8 0x5ef47c71c98a 0x5ef47c71e596 0x5ef47c71e6eb 0x5ef47c721b0f 0x5ef47c7263f8 0x5ef47c72623b 0x5ef47c7264e5 0x5ef47c72623b 0x5ef47c7264e5 0x5ef47c6ea4fa 0x5ef47c6ddeac 0x5ef47c6eed8c 0x5ef47c6e90a0 0x5ef47c72eb55 0x5ef47c66faf5 0x5ef47c5a569e 0x5ef47c7324b3 0x5ef47c35db07 0x744434a29d8e 0x744434a29e3e 0x5ef47c35c243 0xfffffffffffffffe\n******************************************************************\n"
           }
         },
         {
@@ -33453,18 +33561,16 @@
           ],
           "radila": [
             "debug/radila/hdl/radila/radila_core.vhd",
-            "debug/radila/hdl/radila/raddebughub_axi.vhd",
-            "debug/radila/hdl/radila/radila_axi_top.vhd"
+            "debug/radila/hdl/radila/raddebughub.vhd"
           ],
           "work": [
             "debug/radila/hdl/radila/radila_core.vhd",
-            "debug/radila/hdl/radila/raddebughub_axi.vhd",
-            "debug/radila/hdl/radila/radila_axi_top.vhd",
+            "debug/radila/hdl/radila/raddebughub.vhd",
             "debug/radila/hdl/radila/testbenches/tb_radila_core.vhd"
           ]
         },
         "vcd": "simulations/tb_radila_core/tb_radila_core.vcd",
-        "stdout": "../../src/ieee2008/numeric_std-body.vhdl:3089:7:@0ms:(assertion warning): NUMERIC_STD.TO_UNSIGNED: vector truncated\n../../src/ieee2008/numeric_std-body.vhdl:3089:7:@0ms:(assertion warning): NUMERIC_STD.TO_UNSIGNED: vector truncated\n../../src/ieee2008/numeric_std-body.vhdl:3089:7:@3500ps:(assertion warning): NUMERIC_STD.TO_UNSIGNED: vector truncated\n../../src/ieee2008/numeric_std-body.vhdl:3089:7:@5ns:(assertion warning): NUMERIC_STD.TO_UNSIGNED: vector truncated\n../../src/ieee2008/numeric_std-body.vhdl:3089:7:@10500ps:(assertion warning): NUMERIC_STD.TO_UNSIGNED: vector truncated\n../../src/ieee2008/numeric_std-body.vhdl:3089:7:@15ns:(assertion warning): NUMERIC_STD.TO_UNSIGNED: vector truncated\n../../src/ieee2008/numeric_std-body.vhdl:3089:7:@17500ps:(assertion warning): NUMERIC_STD.TO_UNSIGNED: vector truncated\n../../src/ieee2008/numeric_std-body.vhdl:3089:7:@24500ps:(assertion warning): NUMERIC_STD.TO_UNSIGNED: vector truncated\n../../src/ieee2008/numeric_std-body.vhdl:3089:7:@25ns:(assertion warning): NUMERIC_STD.TO_UNSIGNED: vector truncated\n../../src/ieee2008/numeric_std-body.vhdl:3089:7:@31500ps:(assertion warning): NUMERIC_STD.TO_UNSIGNED: vector truncated\n../../src/ieee2008/numeric_std-body.vhdl:3089:7:@35ns:(assertion warning): NUMERIC_STD.TO_UNSIGNED: vector truncated\n../../src/ieee2008/numeric_std-body.vhdl:3089:7:@38500ps:(assertion warning): NUMERIC_STD.TO_UNSIGNED: vector truncated\n../../src/ieee2008/numeric_std-body.vhdl:3089:7:@45ns:(assertion warning): NUMERIC_STD.TO_UNSIGNED: vector truncated\n../../src/ieee2008/numeric_std-body.vhdl:3089:7:@45500ps:(assertion warning): NUMERIC_STD.TO_UNSIGNED: vector truncated\n../../src/ieee2008/numeric_std-body.vhdl:3089:7:@52500ps:(assertion warning): NUMERIC_STD.TO_UNSIGNED: vector truncated\n../../src/ieee2008/numeric_std-body.vhdl:3089:7:@55ns:(assertion warning): NUMERIC_STD.TO_UNSIGNED: vector truncated\n../../src/ieee2008/numeric_std-body.vhdl:3089:7:@59500ps:(assertion warning): NUMERIC_STD.TO_UNSIGNED: vector truncated\n../../src/ieee2008/numeric_std-body.vhdl:3089:7:@65ns:(assertion warning): NUMERIC_STD.TO_UNSIGNED: vector truncated\n../../src/ieee2008/numeric_std-body.vhdl:3089:7:@66500ps:(assertion warning): NUMERIC_STD.TO_UNSIGNED: vector truncated\n../../src/ieee2008/numeric_std-body.vhdl:3089:7:@73500ps:(assertion warning): NUMERIC_STD.TO_UNSIGNED: vector truncated\n../../src/ieee2008/numeric_std-body.vhdl:3089:7:@75ns:(assertion warning): NUMERIC_STD.TO_UNSIGNED: vector truncated\n../../src/ieee2008/numeric_std-body.vhdl:3089:7:@80500ps:(assertion warning): NUMERIC_STD.TO_UNSIGNED: vector truncated\n../../src/ieee2008/numeric_std-body.vhdl:3089:7:@85ns:(assertion warning): NUMERIC_STD.TO_UNSIGNED: vector truncated\n../../src/ieee2008/numeric_std-body.vhdl:3089:7:@87500ps:(assertion warning): NUMERIC_STD.TO_UNSIGNED: vector truncated\n../../src/ieee2008/numeric_std-body.vhdl:3089:7:@94500ps:(assertion warning): NUMERIC_STD.TO_UNSIGNED: vector truncated\n../../src/ieee2008/numeric_std-body.vhdl:3089:7:@95ns:(assertion warning): NUMERIC_STD.TO_UNSIGNED: vector truncated\n../../src/ieee2008/numeric_std-body.vhdl:3089:7:@7801500ps:(assertion warning): NUMERIC_STD.TO_UNSIGNED: vector truncated\ndebug/radila/hdl/radila/testbenches/tb_radila_core.vhd:195:5:@7845ns:(report note): tb_radila_core passed\nsimulation finished @7845ns\n",
+        "stdout": "debug/radila/hdl/radila/testbenches/tb_radila_core.vhd:173:5:@8085ns:(report note): tb_radila_core passed\nsimulation finished @8085ns\n",
         "stderr": ""
       }
     },
@@ -33824,7 +33930,7 @@
         },
         "returncode": 2,
         "stdout": "",
-        "stderr": "\n******************** GHDL Bug occurred ***************************\nPlease report this bug on https://github.com/ghdl/ghdl/issues\nGHDL release: 1.0.0 (Ubuntu 1.0.0+dfsg-6) [Dunoon edition]\nCompiled with GNAT Version: 10.3.1 20211117\nTarget: x86_64-linux-gnu\n/tmp/radhdl-ghdl-coklhkwx/\nCommand line:\n/usr/bin/ghdl-mcode -e --std=08 --ieee=synopsys -P/tmp/radhdl-ghdl-coklhkwx --workdir=/tmp/radhdl-ghdl-coklhkwx tb_raddsp_axis_radfft\nException TYPES.INTERNAL_ERROR raised\nException information:\nraised TYPES.INTERNAL_ERROR : trans.adb:553\nCall stack traceback locations:\n0x56de2e03a13d 0x56de2e03a51b 0x56de2e03a797 0x56de2e1cffc8 0x56de2e1ded6d 0x56de2e1dee25 0x56de2e1e8bde 0x56de2e207aa7 0x56de2e207d5f 0x56de2e208257 0x56de2e2086b1 0x56de2e215330 0x56de2e21481c 0x56de2e25ca78 0x56de2e25cb9f 0x56de2e25d1f8 0x56de2e25d98a 0x56de2e25f596 0x56de2e25f6eb 0x56de2e262b0f 0x56de2e2673f8 0x56de2e26723b 0x56de2e2674e5 0x56de2e26723b 0x56de2e2674e5 0x56de2e22b4fa 0x56de2e21eeac 0x56de2e22fd8c 0x56de2e22a0a0 0x56de2e26fb55 0x56de2e1b0af5 0x56de2e0e669e 0x56de2e2734b3 0x56de2de9eb07 0x72a16f829d8e 0x72a16f829e3e 0x56de2de9d243 0xfffffffffffffffe\n******************************************************************\n"
+        "stderr": "\n******************** GHDL Bug occurred ***************************\nPlease report this bug on https://github.com/ghdl/ghdl/issues\nGHDL release: 1.0.0 (Ubuntu 1.0.0+dfsg-6) [Dunoon edition]\nCompiled with GNAT Version: 10.3.1 20211117\nTarget: x86_64-linux-gnu\n/tmp/radhdl-ghdl-_xp5i_l8/\nCommand line:\n/usr/bin/ghdl-mcode -e --std=08 --ieee=synopsys -P/tmp/radhdl-ghdl-_xp5i_l8 --workdir=/tmp/radhdl-ghdl-_xp5i_l8 tb_raddsp_axis_radfft\nException TYPES.INTERNAL_ERROR raised\nException information:\nraised TYPES.INTERNAL_ERROR : trans.adb:553\nCall stack traceback locations:\n0x57e7b179b13d 0x57e7b179b51b 0x57e7b179b797 0x57e7b1930fc8 0x57e7b193fd6d 0x57e7b193fe25 0x57e7b1949bde 0x57e7b1968aa7 0x57e7b1968d5f 0x57e7b1969257 0x57e7b19696b1 0x57e7b1976330 0x57e7b197581c 0x57e7b19bda78 0x57e7b19bdb9f 0x57e7b19be1f8 0x57e7b19be98a 0x57e7b19c0596 0x57e7b19c06eb 0x57e7b19c3b0f 0x57e7b19c83f8 0x57e7b19c823b 0x57e7b19c84e5 0x57e7b19c823b 0x57e7b19c84e5 0x57e7b198c4fa 0x57e7b197feac 0x57e7b1990d8c 0x57e7b198b0a0 0x57e7b19d0b55 0x57e7b1911af5 0x57e7b184769e 0x57e7b19d44b3 0x57e7b15ffb07 0x74245de29d8e 0x74245de29e3e 0x57e7b15fe243 0xfffffffffffffffe\n******************************************************************\n"
       }
     },
     {
@@ -33897,7 +34003,7 @@
         },
         "returncode": 2,
         "stdout": "",
-        "stderr": "\n******************** GHDL Bug occurred ***************************\nPlease report this bug on https://github.com/ghdl/ghdl/issues\nGHDL release: 1.0.0 (Ubuntu 1.0.0+dfsg-6) [Dunoon edition]\nCompiled with GNAT Version: 10.3.1 20211117\nTarget: x86_64-linux-gnu\n/tmp/radhdl-ghdl-bu8mq3x1/\nCommand line:\n/usr/bin/ghdl-mcode -e --std=08 --ieee=synopsys -P/tmp/radhdl-ghdl-bu8mq3x1 --workdir=/tmp/radhdl-ghdl-bu8mq3x1 tb_raddsp_axis_radfft_ddr\nException TYPES.INTERNAL_ERROR raised\nException information:\nraised TYPES.INTERNAL_ERROR : trans.adb:553\nCall stack traceback locations:\n0x62a00abaa13d 0x62a00abaa51b 0x62a00abaa797 0x62a00ad3ffc8 0x62a00ad4ed6d 0x62a00ad4ee25 0x62a00ad58bde 0x62a00ad77aa7 0x62a00ad77d5f 0x62a00ad78257 0x62a00ad786b1 0x62a00ad85330 0x62a00ad8481c 0x62a00adcca78 0x62a00adccb9f 0x62a00adcd1f8 0x62a00adcd98a 0x62a00adcf596 0x62a00adcf6eb 0x62a00add2b0f 0x62a00add73f8 0x62a00add723b 0x62a00add74e5 0x62a00add723b 0x62a00add74e5 0x62a00ad9b4fa 0x62a00ad8eeac 0x62a00ad9fd8c 0x62a00ad9a0a0 0x62a00addfb55 0x62a00ad20af5 0x62a00ac5669e 0x62a00ade34b3 0x62a00aa0eb07 0x7bee3f229d8e 0x7bee3f229e3e 0x62a00aa0d243 0xfffffffffffffffe\n******************************************************************\n"
+        "stderr": "\n******************** GHDL Bug occurred ***************************\nPlease report this bug on https://github.com/ghdl/ghdl/issues\nGHDL release: 1.0.0 (Ubuntu 1.0.0+dfsg-6) [Dunoon edition]\nCompiled with GNAT Version: 10.3.1 20211117\nTarget: x86_64-linux-gnu\n/tmp/radhdl-ghdl-fn51igmn/\nCommand line:\n/usr/bin/ghdl-mcode -e --std=08 --ieee=synopsys -P/tmp/radhdl-ghdl-fn51igmn --workdir=/tmp/radhdl-ghdl-fn51igmn tb_raddsp_axis_radfft_ddr\nException TYPES.INTERNAL_ERROR raised\nException information:\nraised TYPES.INTERNAL_ERROR : trans.adb:553\nCall stack traceback locations:\n0x6318067b713d 0x6318067b751b 0x6318067b7797 0x63180694cfc8 0x63180695bd6d 0x63180695be25 0x631806965bde 0x631806984aa7 0x631806984d5f 0x631806985257 0x6318069856b1 0x631806992330 0x63180699181c 0x6318069d9a78 0x6318069d9b9f 0x6318069da1f8 0x6318069da98a 0x6318069dc596 0x6318069dc6eb 0x6318069dfb0f 0x6318069e43f8 0x6318069e423b 0x6318069e44e5 0x6318069e423b 0x6318069e44e5 0x6318069a84fa 0x63180699beac 0x6318069acd8c 0x6318069a70a0 0x6318069ecb55 0x63180692daf5 0x63180686369e 0x6318069f04b3 0x63180661bb07 0x7026ea429d8e 0x7026ea429e3e 0x63180661a243 0xfffffffffffffffe\n******************************************************************\n"
       }
     },
     {
@@ -33969,7 +34075,7 @@
         },
         "returncode": 2,
         "stdout": "",
-        "stderr": "\n******************** GHDL Bug occurred ***************************\nPlease report this bug on https://github.com/ghdl/ghdl/issues\nGHDL release: 1.0.0 (Ubuntu 1.0.0+dfsg-6) [Dunoon edition]\nCompiled with GNAT Version: 10.3.1 20211117\nTarget: x86_64-linux-gnu\n/tmp/radhdl-ghdl-9y2vinzs/\nCommand line:\n/usr/bin/ghdl-mcode -e --std=08 --ieee=synopsys -P/tmp/radhdl-ghdl-9y2vinzs --workdir=/tmp/radhdl-ghdl-9y2vinzs tb_raddsp_axis_radfft_ddr_xcorr_1024\nException TYPES.INTERNAL_ERROR raised\nException information:\nraised TYPES.INTERNAL_ERROR : trans.adb:553\nCall stack traceback locations:\n0x5aa65efda13d 0x5aa65efda51b 0x5aa65efda797 0x5aa65f16ffc8 0x5aa65f17ed6d 0x5aa65f17ee25 0x5aa65f188bde 0x5aa65f1a7aa7 0x5aa65f1a7d5f 0x5aa65f1a8257 0x5aa65f1a86b1 0x5aa65f1b5330 0x5aa65f1b481c 0x5aa65f1fca78 0x5aa65f1fcb9f 0x5aa65f1fd1f8 0x5aa65f1fd98a 0x5aa65f1ff596 0x5aa65f1ff6eb 0x5aa65f202b0f 0x5aa65f2073f8 0x5aa65f20723b 0x5aa65f2074e5 0x5aa65f20723b 0x5aa65f2074e5 0x5aa65f1cb4fa 0x5aa65f1beeac 0x5aa65f1cfd8c 0x5aa65f1ca0a0 0x5aa65f20fb55 0x5aa65f150af5 0x5aa65f08669e 0x5aa65f2134b3 0x5aa65ee3eb07 0x7ade3d029d8e 0x7ade3d029e3e 0x5aa65ee3d243 0xfffffffffffffffe\n******************************************************************\n"
+        "stderr": "\n******************** GHDL Bug occurred ***************************\nPlease report this bug on https://github.com/ghdl/ghdl/issues\nGHDL release: 1.0.0 (Ubuntu 1.0.0+dfsg-6) [Dunoon edition]\nCompiled with GNAT Version: 10.3.1 20211117\nTarget: x86_64-linux-gnu\n/tmp/radhdl-ghdl-x84r7on2/\nCommand line:\n/usr/bin/ghdl-mcode -e --std=08 --ieee=synopsys -P/tmp/radhdl-ghdl-x84r7on2 --workdir=/tmp/radhdl-ghdl-x84r7on2 tb_raddsp_axis_radfft_ddr_xcorr_1024\nException TYPES.INTERNAL_ERROR raised\nException information:\nraised TYPES.INTERNAL_ERROR : trans.adb:553\nCall stack traceback locations:\n0x5a10149cd13d 0x5a10149cd51b 0x5a10149cd797 0x5a1014b62fc8 0x5a1014b71d6d 0x5a1014b71e25 0x5a1014b7bbde 0x5a1014b9aaa7 0x5a1014b9ad5f 0x5a1014b9b257 0x5a1014b9b6b1 0x5a1014ba8330 0x5a1014ba781c 0x5a1014befa78 0x5a1014befb9f 0x5a1014bf01f8 0x5a1014bf098a 0x5a1014bf2596 0x5a1014bf26eb 0x5a1014bf5b0f 0x5a1014bfa3f8 0x5a1014bfa23b 0x5a1014bfa4e5 0x5a1014bfa23b 0x5a1014bfa4e5 0x5a1014bbe4fa 0x5a1014bb1eac 0x5a1014bc2d8c 0x5a1014bbd0a0 0x5a1014c02b55 0x5a1014b43af5 0x5a1014a7969e 0x5a1014c064b3 0x5a1014831b07 0x73724d029d8e 0x73724d029e3e 0x5a1014830243 0xfffffffffffffffe\n******************************************************************\n"
       }
     },
     {
@@ -34116,7 +34222,7 @@
         },
         "returncode": 2,
         "stdout": "",
-        "stderr": "\n******************** GHDL Bug occurred ***************************\nPlease report this bug on https://github.com/ghdl/ghdl/issues\nGHDL release: 1.0.0 (Ubuntu 1.0.0+dfsg-6) [Dunoon edition]\nCompiled with GNAT Version: 10.3.1 20211117\nTarget: x86_64-linux-gnu\n/tmp/radhdl-ghdl-t_ojxt6z/\nCommand line:\n/usr/bin/ghdl-mcode -e --std=08 --ieee=synopsys -P/tmp/radhdl-ghdl-t_ojxt6z --workdir=/tmp/radhdl-ghdl-t_ojxt6z tb_raddsp_xilinx_dsp48_wide_mul\nException TYPES.INTERNAL_ERROR raised\nException information:\nraised TYPES.INTERNAL_ERROR : trans.adb:553\nCall stack traceback locations:\n0x5862a5ae813d 0x5862a5ae851b 0x5862a5ae8797 0x5862a5c7dfc8 0x5862a5c8cd6d 0x5862a5c8ce25 0x5862a5c96bde 0x5862a5cb5aa7 0x5862a5cb5d5f 0x5862a5cb6257 0x5862a5cb66b1 0x5862a5cc3330 0x5862a5cc281c 0x5862a5d0aa78 0x5862a5d0ab9f 0x5862a5d0b1f8 0x5862a5d0b98a 0x5862a5d0d596 0x5862a5d0d6eb 0x5862a5d10b0f 0x5862a5d153f8 0x5862a5d1523b 0x5862a5d154e5 0x5862a5d1523b 0x5862a5d154e5 0x5862a5cd94fa 0x5862a5ccceac 0x5862a5cddd8c 0x5862a5cd80a0 0x5862a5d1db55 0x5862a5c5eaf5 0x5862a5b9469e 0x5862a5d214b3 0x5862a594cb07 0x798b82829d8e 0x798b82829e3e 0x5862a594b243 0xfffffffffffffffe\n******************************************************************\n"
+        "stderr": "\n******************** GHDL Bug occurred ***************************\nPlease report this bug on https://github.com/ghdl/ghdl/issues\nGHDL release: 1.0.0 (Ubuntu 1.0.0+dfsg-6) [Dunoon edition]\nCompiled with GNAT Version: 10.3.1 20211117\nTarget: x86_64-linux-gnu\n/tmp/radhdl-ghdl-uym81icy/\nCommand line:\n/usr/bin/ghdl-mcode -e --std=08 --ieee=synopsys -P/tmp/radhdl-ghdl-uym81icy --workdir=/tmp/radhdl-ghdl-uym81icy tb_raddsp_xilinx_dsp48_wide_mul\nException TYPES.INTERNAL_ERROR raised\nException information:\nraised TYPES.INTERNAL_ERROR : trans.adb:553\nCall stack traceback locations:\n0x5ef47c4f913d 0x5ef47c4f951b 0x5ef47c4f9797 0x5ef47c68efc8 0x5ef47c69dd6d 0x5ef47c69de25 0x5ef47c6a7bde 0x5ef47c6c6aa7 0x5ef47c6c6d5f 0x5ef47c6c7257 0x5ef47c6c76b1 0x5ef47c6d4330 0x5ef47c6d381c 0x5ef47c71ba78 0x5ef47c71bb9f 0x5ef47c71c1f8 0x5ef47c71c98a 0x5ef47c71e596 0x5ef47c71e6eb 0x5ef47c721b0f 0x5ef47c7263f8 0x5ef47c72623b 0x5ef47c7264e5 0x5ef47c72623b 0x5ef47c7264e5 0x5ef47c6ea4fa 0x5ef47c6ddeac 0x5ef47c6eed8c 0x5ef47c6e90a0 0x5ef47c72eb55 0x5ef47c66faf5 0x5ef47c5a569e 0x5ef47c7324b3 0x5ef47c35db07 0x744434a29d8e 0x744434a29e3e 0x5ef47c35c243 0xfffffffffffffffe\n******************************************************************\n"
       }
     },
     {
@@ -34608,6 +34714,382 @@
     }
   ],
   "register_maps": [
+    {
+      "name": "RadDebugHub",
+      "path": "debug/radila/hdl/radila/register_maps/RadDebugHub.map.json",
+      "base": "0x0000",
+      "description": "Controls RadILA capture arming, trigger matching, status reporting, and capture-buffer readback through the shared RADIF register interface.",
+      "data_width": 32,
+      "registers": [
+        {
+          "name": "id",
+          "offset": "0x0000",
+          "access": "ro",
+          "address": "0x0000",
+          "reset": "0x52414449",
+          "width": 32,
+          "region": "RadDebugHub",
+          "description": "Constant ASCII identifier for the RadILA debug hub.",
+          "fields": [
+            {
+              "name": "ID",
+              "display_name": "ID",
+              "description": "Reads as 0x52414449, the ASCII tag RADI.",
+              "msb": 31,
+              "lsb": 0
+            }
+          ]
+        },
+        {
+          "name": "version",
+          "offset": "0x0004",
+          "access": "ro",
+          "address": "0x0004",
+          "reset": "0x00020800",
+          "width": 32,
+          "region": "RadDebugHub",
+          "description": "Hardware register-map version and compatibility word.",
+          "fields": [
+            {
+              "name": "VERSION",
+              "display_name": "VERSION",
+              "description": "Encodes the debug hub register contract version used by host tools.",
+              "msb": 31,
+              "lsb": 0
+            }
+          ]
+        },
+        {
+          "name": "control",
+          "offset": "0x0008",
+          "access": "rw",
+          "address": "0x0008",
+          "reset": "0x00000000",
+          "width": 32,
+          "region": "RadDebugHub",
+          "description": "Issues capture commands and configures optional interrupt and auto-rearm behavior.",
+          "fields": [
+            {
+              "name": "ARM",
+              "display_name": "ARM",
+              "description": "Writing 1 arms the analyzer and starts capture when the trigger condition is met.",
+              "msb": 0,
+              "lsb": 0
+            },
+            {
+              "name": "SW_TRIG",
+              "display_name": "SW TRIG",
+              "description": "Writing 1 injects a software trigger into the command stream.",
+              "msb": 1,
+              "lsb": 1
+            },
+            {
+              "name": "CLEAR",
+              "display_name": "CLEAR",
+              "description": "Writing 1 clears capture state, sticky done indication, counters, and command framing.",
+              "msb": 2,
+              "lsb": 2
+            },
+            {
+              "name": "AUTO_REARM",
+              "display_name": "AUTO REARM",
+              "description": "When set, the capture engine automatically returns to the armed state after completing a capture.",
+              "msb": 3,
+              "lsb": 3
+            },
+            {
+              "name": "IRQ_EN",
+              "display_name": "IRQ EN",
+              "description": "When set, irq_o asserts while STATUS.DONE is set.",
+              "msb": 4,
+              "lsb": 4
+            }
+          ]
+        },
+        {
+          "name": "status",
+          "offset": "0x000C",
+          "access": "ro",
+          "address": "0x000C",
+          "reset": "0x00000000",
+          "width": 32,
+          "region": "RadDebugHub",
+          "description": "Reports analyzer state and captured sample count.",
+          "fields": [
+            {
+              "name": "ARMED",
+              "display_name": "ARMED",
+              "description": "Set while the analyzer is armed and waiting for a trigger.",
+              "msb": 0,
+              "lsb": 0
+            },
+            {
+              "name": "CAPTURING",
+              "display_name": "CAPTURING",
+              "description": "Set while samples are being written into the capture buffer.",
+              "msb": 1,
+              "lsb": 1
+            },
+            {
+              "name": "DONE",
+              "display_name": "DONE",
+              "description": "Set after the configured capture window has completed.",
+              "msb": 2,
+              "lsb": 2
+            },
+            {
+              "name": "OVERFLOW",
+              "display_name": "OVERFLOW",
+              "description": "Set when capture activity exceeds the configured buffer accounting.",
+              "msb": 3,
+              "lsb": 3
+            },
+            {
+              "name": "COUNT",
+              "display_name": "COUNT",
+              "description": "Number of samples captured or retained by the current capture window.",
+              "msb": 31,
+              "lsb": 16
+            }
+          ]
+        },
+        {
+          "name": "trig_mask",
+          "offset": "0x0010",
+          "access": "rw",
+          "address": "0x0010",
+          "reset": "0x00000000",
+          "width": 32,
+          "region": "RadDebugHub",
+          "description": "Selects which event_i bits participate in hardware trigger comparison.",
+          "fields": [
+            {
+              "name": "TRIG_MASK",
+              "display_name": "TRIG MASK",
+              "description": "A mask bit of 1 enables comparison for the corresponding event_i bit.",
+              "msb": 7,
+              "lsb": 0
+            }
+          ]
+        },
+        {
+          "name": "trig_value",
+          "offset": "0x0014",
+          "access": "rw",
+          "address": "0x0014",
+          "reset": "0x00000000",
+          "width": 32,
+          "region": "RadDebugHub",
+          "description": "Expected event value after applying TRIG_MASK.",
+          "fields": [
+            {
+              "name": "TRIG_VALUE",
+              "display_name": "TRIG VALUE",
+              "description": "The analyzer triggers when event_i masked by TRIG_MASK equals this masked value.",
+              "msb": 7,
+              "lsb": 0
+            }
+          ]
+        },
+        {
+          "name": "pretrig",
+          "offset": "0x0018",
+          "access": "rw",
+          "address": "0x0018",
+          "reset": "0x00000000",
+          "width": 32,
+          "region": "RadDebugHub",
+          "description": "Reserved pre-trigger depth configuration field retained for host API compatibility.",
+          "fields": [
+            {
+              "name": "PRETRIG",
+              "display_name": "PRETRIG",
+              "description": "Reserved for future pre-trigger capture-window selection.",
+              "msb": 9,
+              "lsb": 0
+            }
+          ]
+        },
+        {
+          "name": "posttrig",
+          "offset": "0x001C",
+          "access": "rw",
+          "address": "0x001C",
+          "reset": "0x000000FF",
+          "width": 32,
+          "region": "RadDebugHub",
+          "description": "Number of post-trigger samples to capture after the trigger condition is accepted.",
+          "fields": [
+            {
+              "name": "POSTTRIG",
+              "display_name": "POSTTRIG",
+              "description": "Post-trigger capture count. Values wider than ADDR_WIDTH are ignored by the configured hardware instance.",
+              "msb": 9,
+              "lsb": 0
+            }
+          ]
+        },
+        {
+          "name": "data_index",
+          "offset": "0x0020",
+          "access": "rw",
+          "address": "0x0020",
+          "reset": "0x00000000",
+          "width": 32,
+          "region": "RadDebugHub",
+          "description": "Capture-buffer read index used by SAMPLE_DATA registers.",
+          "fields": [
+            {
+              "name": "DATA_INDEX",
+              "display_name": "DATA INDEX",
+              "description": "Selects the capture-buffer sample address returned by SAMPLE_DATA0 through SAMPLE_DATA3.",
+              "msb": 9,
+              "lsb": 0
+            }
+          ]
+        },
+        {
+          "name": "sample_data0",
+          "offset": "0x0024",
+          "access": "ro",
+          "address": "0x0024",
+          "reset": "0x00000000",
+          "width": 32,
+          "region": "RadDebugHub",
+          "description": "Low 32 bits of the captured sample selected by DATA_INDEX.",
+          "fields": [
+            {
+              "name": "SAMPLE_DATA0",
+              "display_name": "SAMPLE DATA0",
+              "description": "Captured sample bits 31 downto 0.",
+              "msb": 31,
+              "lsb": 0
+            }
+          ]
+        },
+        {
+          "name": "sample_now0",
+          "offset": "0x0028",
+          "access": "ro",
+          "address": "0x0028",
+          "reset": "0x00000000",
+          "width": 32,
+          "region": "RadDebugHub",
+          "description": "Low 32 bits of the live sample input synchronized into the register clock domain.",
+          "fields": [
+            {
+              "name": "SAMPLE_NOW0",
+              "display_name": "SAMPLE NOW0",
+              "description": "Live sample_i bits 31 downto 0.",
+              "msb": 31,
+              "lsb": 0
+            }
+          ]
+        },
+        {
+          "name": "event_now",
+          "offset": "0x002C",
+          "access": "ro",
+          "address": "0x002C",
+          "reset": "0x00000000",
+          "width": 32,
+          "region": "RadDebugHub",
+          "description": "Current event metadata synchronized into the register clock domain.",
+          "fields": [
+            {
+              "name": "EVENT_NOW",
+              "display_name": "EVENT NOW",
+              "description": "Live event_i value observed by the analyzer.",
+              "msb": 7,
+              "lsb": 0
+            }
+          ]
+        },
+        {
+          "name": "caps",
+          "offset": "0x0030",
+          "access": "ro",
+          "address": "0x0030",
+          "reset": "0x00200008",
+          "width": 32,
+          "region": "RadDebugHub",
+          "description": "Static hardware capability word for host discovery.",
+          "fields": [
+            {
+              "name": "EVENT_WIDTH",
+              "display_name": "EVENT WIDTH",
+              "description": "Configured width of event_i in bits.",
+              "msb": 15,
+              "lsb": 0
+            },
+            {
+              "name": "SAMPLE_WIDTH",
+              "display_name": "SAMPLE WIDTH",
+              "description": "Configured width of sample_i in bits.",
+              "msb": 31,
+              "lsb": 16
+            }
+          ]
+        },
+        {
+          "name": "sample_data1",
+          "offset": "0x0034",
+          "access": "ro",
+          "address": "0x0034",
+          "reset": "0x00000000",
+          "width": 32,
+          "region": "RadDebugHub",
+          "description": "Captured sample bits 63 downto 32 when SAMPLE_WIDTH is greater than 32.",
+          "fields": [
+            {
+              "name": "SAMPLE_DATA1",
+              "display_name": "SAMPLE DATA1",
+              "description": "Upper captured sample word for wider analyzer instances.",
+              "msb": 31,
+              "lsb": 0
+            }
+          ]
+        },
+        {
+          "name": "sample_data2",
+          "offset": "0x0038",
+          "access": "ro",
+          "address": "0x0038",
+          "reset": "0x00000000",
+          "width": 32,
+          "region": "RadDebugHub",
+          "description": "Captured sample bits 95 downto 64 when SAMPLE_WIDTH is greater than 64.",
+          "fields": [
+            {
+              "name": "SAMPLE_DATA2",
+              "display_name": "SAMPLE DATA2",
+              "description": "Additional captured sample word for wide analyzer instances.",
+              "msb": 31,
+              "lsb": 0
+            }
+          ]
+        },
+        {
+          "name": "sample_data3",
+          "offset": "0x003C",
+          "access": "ro",
+          "address": "0x003C",
+          "reset": "0x00000000",
+          "width": 32,
+          "region": "RadDebugHub",
+          "description": "Captured sample bits 127 downto 96 when SAMPLE_WIDTH is greater than 96.",
+          "fields": [
+            {
+              "name": "SAMPLE_DATA3",
+              "display_name": "SAMPLE DATA3",
+              "description": "Additional captured sample word for wide analyzer instances.",
+              "msb": 31,
+              "lsb": 0
+            }
+          ]
+        }
+      ]
+    },
     {
       "name": "raddsp_axis_radfft_ddr",
       "path": "dsp/hdl/raddsp/register_maps/raddsp_axis_radfft_ddr.map.json",
