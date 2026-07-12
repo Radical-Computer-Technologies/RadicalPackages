@@ -16,7 +16,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/headers/radixkernel/rad_cpp.h" line="114" column="16" bodyfile="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/headers/radixkernel/rad_cpp.h" bodystart="114" bodyend="-1"/>
+        <location file="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/headers/radixkernel/rad_cpp.h" line="163" column="16" bodyfile="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/headers/radixkernel/rad_cpp.h" bodystart="163" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classrad_1_1Module_1aec4c32cd06aced7bdfaa98e37e0520ac" prot="private" static="no" mutable="no">
         <type><ref refid="radixkernel_8h_1aeb7c981d4b5f029daa65d3b928bab127" kindref="member">rad_status_t</ref></type>
@@ -30,7 +30,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/headers/radixkernel/rad_cpp.h" line="115" column="18" bodyfile="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/headers/radixkernel/rad_cpp.h" bodystart="115" bodyend="-1"/>
+        <location file="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/headers/radixkernel/rad_cpp.h" line="164" column="18" bodyfile="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/headers/radixkernel/rad_cpp.h" bodystart="164" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
@@ -44,12 +44,13 @@
           <declname>descriptor</declname>
         </param>
         <briefdescription>
+<para>Register a module descriptor and unregister it on destruction. </para>
         </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/headers/radixkernel/rad_cpp.h" line="106" column="14" bodyfile="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/headers/radixkernel/rad_cpp.h" bodystart="106" bodyend="108"/>
+        <location file="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/headers/radixkernel/rad_cpp.h" line="153" column="14" bodyfile="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/headers/radixkernel/rad_cpp.h" bodystart="153" bodyend="155"/>
       </memberdef>
       <memberdef kind="function" id="classrad_1_1Module_1ad94235b9df90db690959dcf87cb4a995" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type></type>
@@ -57,12 +58,13 @@
         <argsstring>()</argsstring>
         <name>~Module</name>
         <briefdescription>
+<para>Unregister the module when registration succeeded. </para>
         </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/headers/radixkernel/rad_cpp.h" line="109" column="5" bodyfile="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/headers/radixkernel/rad_cpp.h" bodystart="109" bodyend="109"/>
+        <location file="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/headers/radixkernel/rad_cpp.h" line="157" column="5" bodyfile="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/headers/radixkernel/rad_cpp.h" bodystart="157" bodyend="157"/>
       </memberdef>
       <memberdef kind="function" id="classrad_1_1Module_1a3014c724365bc4a66f1010da225e9cc5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
@@ -78,7 +80,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/headers/radixkernel/rad_cpp.h" line="110" column="5"/>
+        <location file="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/headers/radixkernel/rad_cpp.h" line="158" column="5"/>
       </memberdef>
       <memberdef kind="function" id="classrad_1_1Module_1a8c39c7d3c000fbd4b18fc286c3e8f905" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="classrad_1_1Module" kindref="compound">Module</ref> &amp;</type>
@@ -94,7 +96,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/headers/radixkernel/rad_cpp.h" line="111" column="12"/>
+        <location file="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/headers/radixkernel/rad_cpp.h" line="159" column="12"/>
       </memberdef>
       <memberdef kind="function" id="classrad_1_1Module_1a61294413da507f54fc8a432564bd1000" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type><ref refid="radixkernel_8h_1aeb7c981d4b5f029daa65d3b928bab127" kindref="member">rad_status_t</ref></type>
@@ -102,19 +104,21 @@
         <argsstring>() const</argsstring>
         <name>status</name>
         <briefdescription>
+<para>Return registration status. </para>
         </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/headers/radixkernel/rad_cpp.h" line="112" column="18" bodyfile="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/headers/radixkernel/rad_cpp.h" bodystart="112" bodyend="112"/>
+        <location file="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/headers/radixkernel/rad_cpp.h" line="161" column="18" bodyfile="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/headers/radixkernel/rad_cpp.h" bodystart="161" bodyend="161"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
+<para>RAII registration wrapper for rad_module_descriptor_t. </para>
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/headers/radixkernel/rad_cpp.h" line="104" column="1" bodyfile="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/headers/radixkernel/rad_cpp.h" bodystart="104" bodyend="116"/>
+    <location file="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/headers/radixkernel/rad_cpp.h" line="150" column="1" bodyfile="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/headers/radixkernel/rad_cpp.h" bodystart="150" bodyend="165"/>
     <listofallmembers>
       <member refid="classrad_1_1Module_1a11a40c21a2463b818d31ed5593b7cacb" prot="public" virt="non-virtual"><scope>rad::Module</scope><name>Module</name></member>
       <member refid="classrad_1_1Module_1a3014c724365bc4a66f1010da225e9cc5" prot="public" virt="non-virtual"><scope>rad::Module</scope><name>Module</name></member>

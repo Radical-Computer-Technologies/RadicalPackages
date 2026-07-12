@@ -92,339 +92,62 @@ $(document).ready(function(){initNavTree('classrad_1_1UniqueHandle.html',''); in
 </div><!--header-->
 <div class="contents">
 
+<p>Move-only RAII owner for nullable RADix handles.  
+ <a href="classrad_1_1UniqueHandle.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="rad__cpp_8h_source.html">rad_cpp.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a4697ead3a397f26574d1c5e1c0c2c318"><td class="memItemLeft" align="right" valign="top">constexpr&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classrad_1_1UniqueHandle.html#a4697ead3a397f26574d1c5e1c0c2c318">UniqueHandle</a> ()=default</td></tr>
+<tr class="memitem:a4697ead3a397f26574d1c5e1c0c2c318"><td class="memItemLeft" align="right" valign="top"><a id="a4697ead3a397f26574d1c5e1c0c2c318"></a>
+constexpr&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classrad_1_1UniqueHandle.html#a4697ead3a397f26574d1c5e1c0c2c318">UniqueHandle</a> ()=default</td></tr>
+<tr class="memdesc:a4697ead3a397f26574d1c5e1c0c2c318"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create an empty owner. <br /></td></tr>
 <tr class="separator:a4697ead3a397f26574d1c5e1c0c2c318"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae22ec2a848c5357ad9e8fe12e7882379"><td class="memItemLeft" align="right" valign="top">constexpr&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classrad_1_1UniqueHandle.html#ae22ec2a848c5357ad9e8fe12e7882379">UniqueHandle</a> (Handle handle)</td></tr>
+<tr class="memitem:ae22ec2a848c5357ad9e8fe12e7882379"><td class="memItemLeft" align="right" valign="top"><a id="ae22ec2a848c5357ad9e8fe12e7882379"></a>
+constexpr&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classrad_1_1UniqueHandle.html#ae22ec2a848c5357ad9e8fe12e7882379">UniqueHandle</a> (Handle handle)</td></tr>
+<tr class="memdesc:ae22ec2a848c5357ad9e8fe12e7882379"><td class="mdescLeft">&#160;</td><td class="mdescRight">Take ownership of handle. <br /></td></tr>
 <tr class="separator:ae22ec2a848c5357ad9e8fe12e7882379"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9dec5db7f770d3dca3e76ebb59ac6088"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classrad_1_1UniqueHandle.html#a9dec5db7f770d3dca3e76ebb59ac6088">~UniqueHandle</a> ()</td></tr>
+<tr class="memitem:a9dec5db7f770d3dca3e76ebb59ac6088"><td class="memItemLeft" align="right" valign="top"><a id="a9dec5db7f770d3dca3e76ebb59ac6088"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classrad_1_1UniqueHandle.html#a9dec5db7f770d3dca3e76ebb59ac6088">~UniqueHandle</a> ()</td></tr>
+<tr class="memdesc:a9dec5db7f770d3dca3e76ebb59ac6088"><td class="mdescLeft">&#160;</td><td class="mdescRight">Close the owned handle if present. <br /></td></tr>
 <tr class="separator:a9dec5db7f770d3dca3e76ebb59ac6088"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a535d3d5ccf11c0abc6a00ee4688b7a72"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classrad_1_1UniqueHandle.html#a535d3d5ccf11c0abc6a00ee4688b7a72">UniqueHandle</a> (const <a class="el" href="classrad_1_1UniqueHandle.html">UniqueHandle</a> &amp;)=delete</td></tr>
+<tr class="memitem:a535d3d5ccf11c0abc6a00ee4688b7a72"><td class="memItemLeft" align="right" valign="top"><a id="a535d3d5ccf11c0abc6a00ee4688b7a72"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>UniqueHandle</b> (const <a class="el" href="classrad_1_1UniqueHandle.html">UniqueHandle</a> &amp;)=delete</td></tr>
 <tr class="separator:a535d3d5ccf11c0abc6a00ee4688b7a72"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4faa4316c587a6402de843ab0f78ef45"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classrad_1_1UniqueHandle.html">UniqueHandle</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classrad_1_1UniqueHandle.html#a4faa4316c587a6402de843ab0f78ef45">operator=</a> (const <a class="el" href="classrad_1_1UniqueHandle.html">UniqueHandle</a> &amp;)=delete</td></tr>
+<tr class="memitem:a4faa4316c587a6402de843ab0f78ef45"><td class="memItemLeft" align="right" valign="top"><a id="a4faa4316c587a6402de843ab0f78ef45"></a>
+<a class="el" href="classrad_1_1UniqueHandle.html">UniqueHandle</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator=</b> (const <a class="el" href="classrad_1_1UniqueHandle.html">UniqueHandle</a> &amp;)=delete</td></tr>
 <tr class="separator:a4faa4316c587a6402de843ab0f78ef45"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a48425fea3f8e10faa7f170c3b0c66724"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classrad_1_1UniqueHandle.html#a48425fea3f8e10faa7f170c3b0c66724">UniqueHandle</a> (<a class="el" href="classrad_1_1UniqueHandle.html">UniqueHandle</a> &amp;&amp;other) noexcept</td></tr>
+<tr class="memitem:a48425fea3f8e10faa7f170c3b0c66724"><td class="memItemLeft" align="right" valign="top"><a id="a48425fea3f8e10faa7f170c3b0c66724"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classrad_1_1UniqueHandle.html#a48425fea3f8e10faa7f170c3b0c66724">UniqueHandle</a> (<a class="el" href="classrad_1_1UniqueHandle.html">UniqueHandle</a> &amp;&amp;other) noexcept</td></tr>
+<tr class="memdesc:a48425fea3f8e10faa7f170c3b0c66724"><td class="mdescLeft">&#160;</td><td class="mdescRight">Move ownership from another handle owner. <br /></td></tr>
 <tr class="separator:a48425fea3f8e10faa7f170c3b0c66724"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6dbcc1e26911ffcd6c95abc6bff30717"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classrad_1_1UniqueHandle.html">UniqueHandle</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classrad_1_1UniqueHandle.html#a6dbcc1e26911ffcd6c95abc6bff30717">operator=</a> (<a class="el" href="classrad_1_1UniqueHandle.html">UniqueHandle</a> &amp;&amp;other) noexcept</td></tr>
+<tr class="memitem:a6dbcc1e26911ffcd6c95abc6bff30717"><td class="memItemLeft" align="right" valign="top"><a id="a6dbcc1e26911ffcd6c95abc6bff30717"></a>
+<a class="el" href="classrad_1_1UniqueHandle.html">UniqueHandle</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classrad_1_1UniqueHandle.html#a6dbcc1e26911ffcd6c95abc6bff30717">operator=</a> (<a class="el" href="classrad_1_1UniqueHandle.html">UniqueHandle</a> &amp;&amp;other) noexcept</td></tr>
+<tr class="memdesc:a6dbcc1e26911ffcd6c95abc6bff30717"><td class="mdescLeft">&#160;</td><td class="mdescRight">Replace this owner with another owner's handle. <br /></td></tr>
 <tr class="separator:a6dbcc1e26911ffcd6c95abc6bff30717"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1957d6494075bf66ed9a0deb11b465e1"><td class="memItemLeft" align="right" valign="top">constexpr Handle&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classrad_1_1UniqueHandle.html#a1957d6494075bf66ed9a0deb11b465e1">get</a> () const</td></tr>
+<tr class="memitem:a1957d6494075bf66ed9a0deb11b465e1"><td class="memItemLeft" align="right" valign="top"><a id="a1957d6494075bf66ed9a0deb11b465e1"></a>
+constexpr Handle&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classrad_1_1UniqueHandle.html#a1957d6494075bf66ed9a0deb11b465e1">get</a> () const</td></tr>
+<tr class="memdesc:a1957d6494075bf66ed9a0deb11b465e1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the raw handle without releasing ownership. <br /></td></tr>
 <tr class="separator:a1957d6494075bf66ed9a0deb11b465e1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab14c8f21702cbc2856b8494d406228d2"><td class="memItemLeft" align="right" valign="top">constexpr&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classrad_1_1UniqueHandle.html#ab14c8f21702cbc2856b8494d406228d2">operator bool</a> () const</td></tr>
+<tr class="memitem:ab14c8f21702cbc2856b8494d406228d2"><td class="memItemLeft" align="right" valign="top"><a id="ab14c8f21702cbc2856b8494d406228d2"></a>
+constexpr&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classrad_1_1UniqueHandle.html#ab14c8f21702cbc2856b8494d406228d2">operator bool</a> () const</td></tr>
+<tr class="memdesc:ab14c8f21702cbc2856b8494d406228d2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return true when a handle is owned. <br /></td></tr>
 <tr class="separator:ab14c8f21702cbc2856b8494d406228d2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4377049b08ef19e5c1499e565da8c0a3"><td class="memItemLeft" align="right" valign="top">Handle&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classrad_1_1UniqueHandle.html#a4377049b08ef19e5c1499e565da8c0a3">release</a> ()</td></tr>
+<tr class="memitem:a4377049b08ef19e5c1499e565da8c0a3"><td class="memItemLeft" align="right" valign="top"><a id="a4377049b08ef19e5c1499e565da8c0a3"></a>
+Handle&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classrad_1_1UniqueHandle.html#a4377049b08ef19e5c1499e565da8c0a3">release</a> ()</td></tr>
+<tr class="memdesc:a4377049b08ef19e5c1499e565da8c0a3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Release ownership and return the raw handle. <br /></td></tr>
 <tr class="separator:a4377049b08ef19e5c1499e565da8c0a3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1082fabd1c54ef343c6d355be7b2c8e6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classrad_1_1UniqueHandle.html#a1082fabd1c54ef343c6d355be7b2c8e6">reset</a> (Handle handle=nullptr)</td></tr>
+<tr class="memitem:a1082fabd1c54ef343c6d355be7b2c8e6"><td class="memItemLeft" align="right" valign="top"><a id="a1082fabd1c54ef343c6d355be7b2c8e6"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classrad_1_1UniqueHandle.html#a1082fabd1c54ef343c6d355be7b2c8e6">reset</a> (Handle handle=nullptr)</td></tr>
+<tr class="memdesc:a1082fabd1c54ef343c6d355be7b2c8e6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Close any current handle and optionally take a replacement. <br /></td></tr>
 <tr class="separator:a1082fabd1c54ef343c6d355be7b2c8e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a4697ead3a397f26574d1c5e1c0c2c318"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4697ead3a397f26574d1c5e1c0c2c318">&#9670;&nbsp;</a></span>UniqueHandle() <span class="overload">[1/4]</span></h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><h3>template&lt;typename Handle, void(*)(Handle) CloseFn&gt;<br />
+class rad::UniqueHandle&lt; Handle, CloseFn &gt;</h3>
 
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename Handle , void(*)(Handle) CloseFn&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">constexpr <a class="el" href="classrad_1_1UniqueHandle.html">rad::UniqueHandle</a>&lt; Handle, CloseFn &gt;::<a class="el" href="classrad_1_1UniqueHandle.html">UniqueHandle</a> </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">constexpr</span><span class="mlabel">default</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="ae22ec2a848c5357ad9e8fe12e7882379"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae22ec2a848c5357ad9e8fe12e7882379">&#9670;&nbsp;</a></span>UniqueHandle() <span class="overload">[2/4]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename Handle , void(*)(Handle) CloseFn&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">constexpr <a class="el" href="classrad_1_1UniqueHandle.html">rad::UniqueHandle</a>&lt; Handle, CloseFn &gt;::<a class="el" href="classrad_1_1UniqueHandle.html">UniqueHandle</a> </td>
-          <td>(</td>
-          <td class="paramtype">Handle&#160;</td>
-          <td class="paramname"><em>handle</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">explicit</span><span class="mlabel">constexpr</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a9dec5db7f770d3dca3e76ebb59ac6088"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9dec5db7f770d3dca3e76ebb59ac6088">&#9670;&nbsp;</a></span>~UniqueHandle()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename Handle , void(*)(Handle) CloseFn&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="classrad_1_1UniqueHandle.html">rad::UniqueHandle</a>&lt; Handle, CloseFn &gt;::~<a class="el" href="classrad_1_1UniqueHandle.html">UniqueHandle</a> </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a535d3d5ccf11c0abc6a00ee4688b7a72"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a535d3d5ccf11c0abc6a00ee4688b7a72">&#9670;&nbsp;</a></span>UniqueHandle() <span class="overload">[3/4]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename Handle , void(*)(Handle) CloseFn&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="classrad_1_1UniqueHandle.html">rad::UniqueHandle</a>&lt; Handle, CloseFn &gt;::<a class="el" href="classrad_1_1UniqueHandle.html">UniqueHandle</a> </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="classrad_1_1UniqueHandle.html">UniqueHandle</a>&lt; Handle, CloseFn &gt; &amp;&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">delete</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a48425fea3f8e10faa7f170c3b0c66724"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a48425fea3f8e10faa7f170c3b0c66724">&#9670;&nbsp;</a></span>UniqueHandle() <span class="overload">[4/4]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename Handle , void(*)(Handle) CloseFn&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="classrad_1_1UniqueHandle.html">rad::UniqueHandle</a>&lt; Handle, CloseFn &gt;::<a class="el" href="classrad_1_1UniqueHandle.html">UniqueHandle</a> </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="classrad_1_1UniqueHandle.html">UniqueHandle</a>&lt; Handle, CloseFn &gt; &amp;&amp;&#160;</td>
-          <td class="paramname"><em>other</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<h2 class="groupheader">Member Function Documentation</h2>
-<a id="a1957d6494075bf66ed9a0deb11b465e1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1957d6494075bf66ed9a0deb11b465e1">&#9670;&nbsp;</a></span>get()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename Handle , void(*)(Handle) CloseFn&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">constexpr Handle <a class="el" href="classrad_1_1UniqueHandle.html">rad::UniqueHandle</a>&lt; Handle, CloseFn &gt;::get </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">constexpr</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="ab14c8f21702cbc2856b8494d406228d2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab14c8f21702cbc2856b8494d406228d2">&#9670;&nbsp;</a></span>operator bool()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename Handle , void(*)(Handle) CloseFn&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">constexpr <a class="el" href="classrad_1_1UniqueHandle.html">rad::UniqueHandle</a>&lt; Handle, CloseFn &gt;::operator bool </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">explicit</span><span class="mlabel">constexpr</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a4faa4316c587a6402de843ab0f78ef45"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4faa4316c587a6402de843ab0f78ef45">&#9670;&nbsp;</a></span>operator=() <span class="overload">[1/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename Handle , void(*)(Handle) CloseFn&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="classrad_1_1UniqueHandle.html">UniqueHandle</a>&amp; <a class="el" href="classrad_1_1UniqueHandle.html">rad::UniqueHandle</a>&lt; Handle, CloseFn &gt;::operator= </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="classrad_1_1UniqueHandle.html">UniqueHandle</a>&lt; Handle, CloseFn &gt; &amp;&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">delete</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a6dbcc1e26911ffcd6c95abc6bff30717"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6dbcc1e26911ffcd6c95abc6bff30717">&#9670;&nbsp;</a></span>operator=() <span class="overload">[2/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename Handle , void(*)(Handle) CloseFn&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="classrad_1_1UniqueHandle.html">UniqueHandle</a>&amp; <a class="el" href="classrad_1_1UniqueHandle.html">rad::UniqueHandle</a>&lt; Handle, CloseFn &gt;::operator= </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="classrad_1_1UniqueHandle.html">UniqueHandle</a>&lt; Handle, CloseFn &gt; &amp;&amp;&#160;</td>
-          <td class="paramname"><em>other</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a4377049b08ef19e5c1499e565da8c0a3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4377049b08ef19e5c1499e565da8c0a3">&#9670;&nbsp;</a></span>release()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename Handle , void(*)(Handle) CloseFn&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">Handle <a class="el" href="classrad_1_1UniqueHandle.html">rad::UniqueHandle</a>&lt; Handle, CloseFn &gt;::release </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a1082fabd1c54ef343c6d355be7b2c8e6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1082fabd1c54ef343c6d355be7b2c8e6">&#9670;&nbsp;</a></span>reset()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename Handle , void(*)(Handle) CloseFn&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void <a class="el" href="classrad_1_1UniqueHandle.html">rad::UniqueHandle</a>&lt; Handle, CloseFn &gt;::reset </td>
-          <td>(</td>
-          <td class="paramtype">Handle&#160;</td>
-          <td class="paramname"><em>handle</em> = <code>nullptr</code></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<hr/>The documentation for this class was generated from the following file:<ul>
+<p>Move-only RAII owner for nullable RADix handles. </p>
+</div><hr/>The documentation for this class was generated from the following file:<ul>
 <li>/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/headers/radixkernel/<a class="el" href="rad__cpp_8h_source.html">rad_cpp.h</a></li>
 </ul>
 </div><!-- contents -->
@@ -432,7 +155,7 @@ template&lt;typename Handle , void(*)(Handle) CloseFn&gt; </div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="namespacerad.html">rad</a></li><li class="navelem"><a class="el" href="classrad_1_1UniqueHandle.html">UniqueHandle</a></li>
+    <li class="navelem"><b>rad</b></li><li class="navelem"><a class="el" href="classrad_1_1UniqueHandle.html">UniqueHandle</a></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>

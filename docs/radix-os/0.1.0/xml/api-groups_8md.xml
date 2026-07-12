@@ -1,0 +1,62 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="api-groups_8md" kind="file" language="Markdown">
+    <compoundname>api-groups.md</compoundname>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline><highlight class="normal">#<sp/>API<sp/>Groups<sp/>{#api_groups}</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">The<sp/>Crimson<sp/>API<sp/>is<sp/>organized<sp/>around<sp/>a<sp/>small<sp/>number<sp/>of<sp/>kernel<sp/>subsystems.<sp/>Use</highlight></codeline>
+<codeline><highlight class="normal">this<sp/>page<sp/>as<sp/>the<sp/>human<sp/>index,<sp/>then<sp/>jump<sp/>to<sp/>the<sp/>generated<sp/>file<sp/>and<sp/>member</highlight></codeline>
+<codeline><highlight class="normal">references<sp/>for<sp/>exact<sp/>signatures.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>Kernel<sp/>And<sp/>Boot</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Use<sp/>`rad_kernel_init()`,<sp/>`rad_kernel_poll()`,<sp/>`rad_kernel_run()`,</highlight></codeline>
+<codeline><highlight class="normal">`rad_kernel_shutdown()`,<sp/>`rad_printk()`,<sp/>`rad_cpu_idle()`,<sp/>and<sp/>the</highlight></codeline>
+<codeline><highlight class="normal">`rad_boot_info_t`<sp/>helpers<sp/>to<sp/>bring<sp/>a<sp/>platform<sp/>online<sp/>and<sp/>report<sp/>early<sp/>state.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>Time,<sp/>Tasks,<sp/>And<sp/>Synchronization</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Use<sp/>`rad_time_micros()`,<sp/>timer-source<sp/>registration,<sp/>`rad_task_create_config()`,</highlight></codeline>
+<codeline><highlight class="normal">wait<sp/>queues,<sp/>mutexes,<sp/>and<sp/>events<sp/>for<sp/>in-kernel<sp/>scheduling<sp/>and<sp/>coordination.</highlight></codeline>
+<codeline><highlight class="normal">`rad_scheduler_info_get()`<sp/>and<sp/>`rad_core_info_get()`<sp/>expose<sp/>current<sp/>scheduling</highlight></codeline>
+<codeline><highlight class="normal">and<sp/>multicore<sp/>state.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>POSIX-Inspired<sp/>Runtime</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Use<sp/>VFS<sp/>handles<sp/>for<sp/>kernel<sp/>code<sp/>and<sp/>integer<sp/>file<sp/>descriptors<sp/>for<sp/>the<sp/>userspace</highlight></codeline>
+<codeline><highlight class="normal">path.<sp/>`rad_syscall_dispatch()`<sp/>is<sp/>the<sp/>stable<sp/>syscall<sp/>dispatch<sp/>table<sp/>boundary<sp/>for</highlight></codeline>
+<codeline><highlight class="normal">the<sp/>current<sp/>x86<sp/>VM<sp/>work.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>Device<sp/>Model</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Use<sp/>`rad_device_register()`<sp/>for<sp/>generic<sp/>device<sp/>nodes<sp/>and<sp/>subsystem<sp/>wrappers<sp/>for</highlight></codeline>
+<codeline><highlight class="normal">specialized<sp/>devices:<sp/>block,<sp/>network,<sp/>framebuffer,<sp/>input,<sp/>TTY,<sp/>PTY,<sp/>audio,<sp/>and</highlight></codeline>
+<codeline><highlight class="normal">serial.<sp/>Ioctl<sp/>request<sp/>macros<sp/>follow<sp/>a<sp/>Linux-style<sp/>direction/type/number/size</highlight></codeline>
+<codeline><highlight class="normal">layout.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>Driver<sp/>Binding</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Modules<sp/>advertise<sp/>name,<sp/>bus,<sp/>and<sp/>compatibility<sp/>metadata.<sp/>I2C<sp/>and<sp/>SPI<sp/>controllers</highlight></codeline>
+<codeline><highlight class="normal">register<sp/>a<sp/>bus,<sp/>child<sp/>drivers<sp/>match<sp/>overlay<sp/>children<sp/>by<sp/>`compatible`,<sp/>and<sp/>DMA</highlight></codeline>
+<codeline><highlight class="normal">controllers<sp/>provide<sp/>channels<sp/>for<sp/>peripherals<sp/>such<sp/>as<sp/>SPI<sp/>TX/RX.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>Overlay<sp/>Tree<sp/>And<sp/>IRQs</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Use<sp/>the<sp/>overlay<sp/>APIs<sp/>to<sp/>load<sp/>runtime<sp/>tree<sp/>blobs,<sp/>query<sp/>properties,<sp/>and<sp/>bind</highlight></codeline>
+<codeline><highlight class="normal">devices.<sp/>IRQ<sp/>domains<sp/>convert<sp/>tree-local<sp/>`interrupts`<sp/>cells<sp/>into<sp/>flat<sp/>RADix<sp/>IRQ</highlight></codeline>
+<codeline><highlight class="normal">resources<sp/>that<sp/>drivers<sp/>can<sp/>enable,<sp/>disable,<sp/>and<sp/>attach<sp/>handlers<sp/>to.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>Display<sp/>And<sp/>Input</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Framebuffers<sp/>describe<sp/>memory<sp/>layout,<sp/>output<sp/>type,<sp/>connector,<sp/>available<sp/>modes,</highlight></codeline>
+<codeline><highlight class="normal">and<sp/>primary<sp/>display<sp/>state.<sp/>Input<sp/>queues<sp/>provide<sp/>a<sp/>shared<sp/>event<sp/>path<sp/>for<sp/>keyboard,</highlight></codeline>
+<codeline><highlight class="normal">pointer,<sp/>terminal,<sp/>Slint,<sp/>shell,<sp/>and<sp/>future<sp/>GUI<sp/>consumers.</highlight></codeline>
+    </programlisting>
+    <location file="/media/jvincent/Kingspec512/repos/RADix-OS/docs/public/api-groups.md"/>
+  </compounddef>
+</doxygen>

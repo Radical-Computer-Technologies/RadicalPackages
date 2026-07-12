@@ -1,0 +1,48 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="crimson-status_8md" kind="file" language="Markdown">
+    <compoundname>crimson-status.md</compoundname>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline><highlight class="normal">#<sp/>Crimson<sp/>0.1.0<sp/>Status<sp/>{#crimson_status}</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Crimson<sp/>0.1.0<sp/>is<sp/>an<sp/>experimental<sp/>beta<sp/>line<sp/>for<sp/>RADix-OS.<sp/>The<sp/>branch<sp/>goal<sp/>is<sp/>to</highlight></codeline>
+<codeline><highlight class="normal">stabilize<sp/>the<sp/>kernel-facing<sp/>API,<sp/>x86<sp/>VM<sp/>smoke<sp/>path,<sp/>Slint<sp/>shell<sp/>integration,</highlight></codeline>
+<codeline><highlight class="normal">overlay<sp/>binding,<sp/>filesystem<sp/>profile,<sp/>and<sp/>driver<sp/>model<sp/>enough<sp/>for<sp/>repeatable</highlight></codeline>
+<codeline><highlight class="normal">testing.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>Stable-Beta<sp/>Surface</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">-<sp/>Kernel<sp/>lifecycle,<sp/>printk,<sp/>boot<sp/>info,<sp/>time,<sp/>memory<sp/>stats,<sp/>and<sp/>terminal</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>commands.</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>Task,<sp/>wait<sp/>queue,<sp/>mutex,<sp/>event,<sp/>timer,<sp/>scheduler,<sp/>and<sp/>basic<sp/>multicore</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>reporting<sp/>APIs.</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>Device<sp/>registry,<sp/>ioctl<sp/>encoding,<sp/>input<sp/>queues,<sp/>framebuffer<sp/>registration,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>TTY,<sp/>PTY,<sp/>block<sp/>device,<sp/>and<sp/>VFS<sp/>provider<sp/>APIs.</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>I2C,<sp/>SPI,<sp/>DMA,<sp/>module,<sp/>IRQ,<sp/>and<sp/>overlay<sp/>binding<sp/>APIs.</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>x86<sp/>GRUB<sp/>VM<sp/>smoke<sp/>target<sp/>with<sp/>framebuffer<sp/>shell,<sp/>PTY/TTY<sp/>terminal<sp/>path,<sp/>and</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>clean<sp/>no-journal<sp/>ext4<sp/>read/write<sp/>profile.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>Experimental<sp/>Surface</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">-<sp/>POSIX<sp/>process<sp/>and<sp/>syscall<sp/>coverage<sp/>is<sp/>usable<sp/>for<sp/>the<sp/>current<sp/>shell<sp/>tests<sp/>but</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>not<sp/>a<sp/>complete<sp/>Unix<sp/>userspace<sp/>contract.</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>Network<sp/>APIs<sp/>currently<sp/>describe<sp/>device/link/send/poll<sp/>shape<sp/>before<sp/>full</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>TCP/UDP<sp/>stack<sp/>work.</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>RP2350<sp/>HSTX/DVI<sp/>and<sp/>SPI<sp/>panel<sp/>output<sp/>are<sp/>documented<sp/>as<sp/>framebuffer<sp/>output</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>goals,<sp/>with<sp/>backend<sp/>completeness<sp/>still<sp/>target-dependent.</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>DMA<sp/>is<sp/>available<sp/>through<sp/>the<sp/>generic<sp/>core<sp/>and<sp/>first<sp/>consumed<sp/>by<sp/>SPI-style</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>transfer<sp/>paths.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>Not<sp/>Yet<sp/>Complete</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">-<sp/>Full<sp/>POSIX<sp/>userland<sp/>compatibility,<sp/>dynamic<sp/>ELF<sp/>loading,<sp/>complete<sp/>fork/exec</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>semantics<sp/>across<sp/>every<sp/>target,<sp/>full<sp/>ext4<sp/>journaling,<sp/>USB<sp/>stacks,<sp/>PCIe,<sp/>and</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>production<sp/>networking<sp/>are<sp/>beyond<sp/>the<sp/>current<sp/>Crimson<sp/>beta<sp/>surface.</highlight></codeline>
+    </programlisting>
+    <location file="/media/jvincent/Kingspec512/repos/RADix-OS/docs/public/crimson-status.md"/>
+  </compounddef>
+</doxygen>

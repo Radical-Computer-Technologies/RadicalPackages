@@ -90,6 +90,9 @@ $(document).ready(function(){initNavTree('radboot_8h.html',''); initResizable();
 <div class="title">radboot.h File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>Helpers for constructing rad_boot_info_t records during platform handoff.  
+<a href="#details">More...</a></p>
 <div class="textblock"><code>#include &lt;<a class="el" href="radixkernel_8h_source.html">radixkernel/radixkernel.h</a>&gt;</code><br />
 </div><div class="textblock"><div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Include dependency graph for radboot.h:</div>
@@ -104,219 +107,30 @@ $(document).ready(function(){initNavTree('radboot_8h.html',''); initResizable();
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:af026490d02914ba3083be131345ecf4c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="radboot_8h.html#af026490d02914ba3083be131345ecf4c">radboot_prepare_default</a> (<a class="el" href="radixkernel_8h.html#acbfa1f491bcf507c77435e9cc5606e54">rad_boot_info_t</a> *boot, const char *backend, const char *board, const char *console, const char *sd_mode)</td></tr>
+<tr class="memitem:af026490d02914ba3083be131345ecf4c"><td class="memItemLeft" align="right" valign="top"><a id="af026490d02914ba3083be131345ecf4c"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="radboot_8h.html#af026490d02914ba3083be131345ecf4c">radboot_prepare_default</a> (<a class="el" href="radixkernel_8h.html#acbfa1f491bcf507c77435e9cc5606e54">rad_boot_info_t</a> *boot, const char *backend, const char *board, const char *console, const char *sd_mode)</td></tr>
+<tr class="memdesc:af026490d02914ba3083be131345ecf4c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize a boot info record with common backend, board, console, and SD mode strings. <br /></td></tr>
 <tr class="separator:af026490d02914ba3083be131345ecf4c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a641f7f86e4d3c412501b8e6163a93c41"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="radboot_8h.html#a641f7f86e4d3c412501b8e6163a93c41">radboot_add_memory_region</a> (<a class="el" href="radixkernel_8h.html#acbfa1f491bcf507c77435e9cc5606e54">rad_boot_info_t</a> *boot, const char *name, uint64_t base, uint64_t size, uint32_t type, uint32_t flags)</td></tr>
+<tr class="memitem:a641f7f86e4d3c412501b8e6163a93c41"><td class="memItemLeft" align="right" valign="top"><a id="a641f7f86e4d3c412501b8e6163a93c41"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="radboot_8h.html#a641f7f86e4d3c412501b8e6163a93c41">radboot_add_memory_region</a> (<a class="el" href="radixkernel_8h.html#acbfa1f491bcf507c77435e9cc5606e54">rad_boot_info_t</a> *boot, const char *name, uint64_t base, uint64_t size, uint32_t type, uint32_t flags)</td></tr>
+<tr class="memdesc:a641f7f86e4d3c412501b8e6163a93c41"><td class="mdescLeft">&#160;</td><td class="mdescRight">Append a memory region to a boot info record when capacity remains. <br /></td></tr>
 <tr class="separator:a641f7f86e4d3c412501b8e6163a93c41"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac714b8d92ed60e449861ebb09788db52"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="radboot_8h.html#ac714b8d92ed60e449861ebb09788db52">radboot_add_arg</a> (<a class="el" href="radixkernel_8h.html#acbfa1f491bcf507c77435e9cc5606e54">rad_boot_info_t</a> *boot, const char *key, const char *value)</td></tr>
+<tr class="memitem:ac714b8d92ed60e449861ebb09788db52"><td class="memItemLeft" align="right" valign="top"><a id="ac714b8d92ed60e449861ebb09788db52"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="radboot_8h.html#ac714b8d92ed60e449861ebb09788db52">radboot_add_arg</a> (<a class="el" href="radixkernel_8h.html#acbfa1f491bcf507c77435e9cc5606e54">rad_boot_info_t</a> *boot, const char *key, const char *value)</td></tr>
+<tr class="memdesc:ac714b8d92ed60e449861ebb09788db52"><td class="mdescLeft">&#160;</td><td class="mdescRight">Append a key/value boot argument to a boot info record when capacity remains. <br /></td></tr>
 <tr class="separator:ac714b8d92ed60e449861ebb09788db52"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a07fd6961b0d400858187af0893d956a7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="radboot_8h.html#a07fd6961b0d400858187af0893d956a7">radboot_prepare_rp235x</a> (<a class="el" href="radixkernel_8h.html#acbfa1f491bcf507c77435e9cc5606e54">rad_boot_info_t</a> *boot, const char *board, const char *sd_mode)</td></tr>
+<tr class="memitem:a07fd6961b0d400858187af0893d956a7"><td class="memItemLeft" align="right" valign="top"><a id="a07fd6961b0d400858187af0893d956a7"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="radboot_8h.html#a07fd6961b0d400858187af0893d956a7">radboot_prepare_rp235x</a> (<a class="el" href="radixkernel_8h.html#acbfa1f491bcf507c77435e9cc5606e54">rad_boot_info_t</a> *boot, const char *board, const char *sd_mode)</td></tr>
+<tr class="memdesc:a07fd6961b0d400858187af0893d956a7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fill boot defaults for RP235x targets. <br /></td></tr>
 <tr class="separator:a07fd6961b0d400858187af0893d956a7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2ffb19760ded7dd509f68dcee60d8a52"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="radboot_8h.html#a2ffb19760ded7dd509f68dcee60d8a52">radboot_prepare_circle</a> (<a class="el" href="radixkernel_8h.html#acbfa1f491bcf507c77435e9cc5606e54">rad_boot_info_t</a> *boot, const char *board, const char *sd_mode)</td></tr>
+<tr class="memitem:a2ffb19760ded7dd509f68dcee60d8a52"><td class="memItemLeft" align="right" valign="top"><a id="a2ffb19760ded7dd509f68dcee60d8a52"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="radboot_8h.html#a2ffb19760ded7dd509f68dcee60d8a52">radboot_prepare_circle</a> (<a class="el" href="radixkernel_8h.html#acbfa1f491bcf507c77435e9cc5606e54">rad_boot_info_t</a> *boot, const char *board, const char *sd_mode)</td></tr>
+<tr class="memdesc:a2ffb19760ded7dd509f68dcee60d8a52"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fill boot defaults for Circle-backed Raspberry Pi targets. <br /></td></tr>
 <tr class="separator:a2ffb19760ded7dd509f68dcee60d8a52"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Function Documentation</h2>
-<a id="ac714b8d92ed60e449861ebb09788db52"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac714b8d92ed60e449861ebb09788db52">&#9670;&nbsp;</a></span>radboot_add_arg()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void radboot_add_arg </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="radixkernel_8h.html#acbfa1f491bcf507c77435e9cc5606e54">rad_boot_info_t</a> *&#160;</td>
-          <td class="paramname"><em>boot</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const char *&#160;</td>
-          <td class="paramname"><em>key</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const char *&#160;</td>
-          <td class="paramname"><em>value</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a641f7f86e4d3c412501b8e6163a93c41"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a641f7f86e4d3c412501b8e6163a93c41">&#9670;&nbsp;</a></span>radboot_add_memory_region()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void radboot_add_memory_region </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="radixkernel_8h.html#acbfa1f491bcf507c77435e9cc5606e54">rad_boot_info_t</a> *&#160;</td>
-          <td class="paramname"><em>boot</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const char *&#160;</td>
-          <td class="paramname"><em>name</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">uint64_t&#160;</td>
-          <td class="paramname"><em>base</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">uint64_t&#160;</td>
-          <td class="paramname"><em>size</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">uint32_t&#160;</td>
-          <td class="paramname"><em>type</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">uint32_t&#160;</td>
-          <td class="paramname"><em>flags</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a2ffb19760ded7dd509f68dcee60d8a52"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2ffb19760ded7dd509f68dcee60d8a52">&#9670;&nbsp;</a></span>radboot_prepare_circle()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void radboot_prepare_circle </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="radixkernel_8h.html#acbfa1f491bcf507c77435e9cc5606e54">rad_boot_info_t</a> *&#160;</td>
-          <td class="paramname"><em>boot</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const char *&#160;</td>
-          <td class="paramname"><em>board</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const char *&#160;</td>
-          <td class="paramname"><em>sd_mode</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="af026490d02914ba3083be131345ecf4c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af026490d02914ba3083be131345ecf4c">&#9670;&nbsp;</a></span>radboot_prepare_default()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void radboot_prepare_default </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="radixkernel_8h.html#acbfa1f491bcf507c77435e9cc5606e54">rad_boot_info_t</a> *&#160;</td>
-          <td class="paramname"><em>boot</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const char *&#160;</td>
-          <td class="paramname"><em>backend</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const char *&#160;</td>
-          <td class="paramname"><em>board</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const char *&#160;</td>
-          <td class="paramname"><em>console</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const char *&#160;</td>
-          <td class="paramname"><em>sd_mode</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a07fd6961b0d400858187af0893d956a7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a07fd6961b0d400858187af0893d956a7">&#9670;&nbsp;</a></span>radboot_prepare_rp235x()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void radboot_prepare_rp235x </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="radixkernel_8h.html#acbfa1f491bcf507c77435e9cc5606e54">rad_boot_info_t</a> *&#160;</td>
-          <td class="paramname"><em>boot</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const char *&#160;</td>
-          <td class="paramname"><em>board</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const char *&#160;</td>
-          <td class="paramname"><em>sd_mode</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-</div><!-- contents -->
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Helpers for constructing rad_boot_info_t records during platform handoff. </p>
+</div></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->

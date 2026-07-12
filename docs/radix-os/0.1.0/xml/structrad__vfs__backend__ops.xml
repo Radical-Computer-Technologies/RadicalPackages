@@ -10,12 +10,13 @@
         <argsstring></argsstring>
         <name>context</name>
         <briefdescription>
+<para>Public structure field. </para>
         </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/headers/radixkernel/radixkernel.h" line="524" column="10" bodyfile="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/headers/radixkernel/radixkernel.h" bodystart="524" bodyend="-1"/>
+        <location file="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/headers/radixkernel/radixkernel.h" line="574" column="10" bodyfile="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/headers/radixkernel/radixkernel.h" bodystart="574" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structrad__vfs__backend__ops_1a8ee1e9add67f5d4605421996b022a2d8" prot="public" static="no" mutable="no">
         <type><ref refid="radixkernel_8h_1aeb7c981d4b5f029daa65d3b928bab127" kindref="member">rad_status_t</ref>(*</type>
@@ -23,12 +24,13 @@
         <argsstring>)(void *context, const char *path, uint32_t flags, void **file)</argsstring>
         <name>open</name>
         <briefdescription>
+<para>Public callback slot. </para>
         </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/headers/radixkernel/radixkernel.h" line="525" column="5" bodyfile="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/headers/radixkernel/radixkernel.h" bodystart="525" bodyend="-1"/>
+        <location file="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/headers/radixkernel/radixkernel.h" line="575" column="5" bodyfile="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/headers/radixkernel/radixkernel.h" bodystart="575" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structrad__vfs__backend__ops_1ae564ae24b7813566be721229e39a872e" prot="public" static="no" mutable="no">
         <type><ref refid="radixkernel_8h_1aeb7c981d4b5f029daa65d3b928bab127" kindref="member">rad_status_t</ref>(*</type>
@@ -36,12 +38,13 @@
         <argsstring>)(void *file, void *buffer, size_t size, size_t *bytes_read)</argsstring>
         <name>read</name>
         <briefdescription>
+<para>Public callback slot. </para>
         </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/headers/radixkernel/radixkernel.h" line="526" column="5" bodyfile="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/headers/radixkernel/radixkernel.h" bodystart="526" bodyend="-1"/>
+        <location file="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/headers/radixkernel/radixkernel.h" line="576" column="5" bodyfile="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/headers/radixkernel/radixkernel.h" bodystart="576" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structrad__vfs__backend__ops_1a59a2b75ab24f82efb63c7db40b256b72" prot="public" static="no" mutable="no">
         <type><ref refid="radixkernel_8h_1aeb7c981d4b5f029daa65d3b928bab127" kindref="member">rad_status_t</ref>(*</type>
@@ -49,12 +52,13 @@
         <argsstring>)(void *file, const void *buffer, size_t size, size_t *bytes_written)</argsstring>
         <name>write</name>
         <briefdescription>
+<para>Public callback slot. </para>
         </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/headers/radixkernel/radixkernel.h" line="527" column="5" bodyfile="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/headers/radixkernel/radixkernel.h" bodystart="527" bodyend="-1"/>
+        <location file="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/headers/radixkernel/radixkernel.h" line="577" column="5" bodyfile="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/headers/radixkernel/radixkernel.h" bodystart="577" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structrad__vfs__backend__ops_1a6a66c03825c22218fa9afe3f63ec4787" prot="public" static="no" mutable="no">
         <type><ref refid="radixkernel_8h_1aeb7c981d4b5f029daa65d3b928bab127" kindref="member">rad_status_t</ref>(*</type>
@@ -62,12 +66,13 @@
         <argsstring>)(void *file, int64_t offset, rad_seek_origin_t origin)</argsstring>
         <name>seek</name>
         <briefdescription>
+<para>Public callback slot. </para>
         </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/headers/radixkernel/radixkernel.h" line="528" column="5" bodyfile="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/headers/radixkernel/radixkernel.h" bodystart="528" bodyend="-1"/>
+        <location file="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/headers/radixkernel/radixkernel.h" line="578" column="5" bodyfile="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/headers/radixkernel/radixkernel.h" bodystart="578" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structrad__vfs__backend__ops_1a9720d777e158569b0c7ab1057db78ba5" prot="public" static="no" mutable="no">
         <type>uint64_t(*</type>
@@ -75,12 +80,13 @@
         <argsstring>)(void *file)</argsstring>
         <name>tell</name>
         <briefdescription>
+<para>Public callback slot. </para>
         </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/headers/radixkernel/radixkernel.h" line="529" column="5" bodyfile="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/headers/radixkernel/radixkernel.h" bodystart="529" bodyend="-1"/>
+        <location file="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/headers/radixkernel/radixkernel.h" line="579" column="5" bodyfile="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/headers/radixkernel/radixkernel.h" bodystart="579" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structrad__vfs__backend__ops_1a82a5d992e8ce439e3b03d74ad2819cb6" prot="public" static="no" mutable="no">
         <type>void(*</type>
@@ -88,12 +94,13 @@
         <argsstring>)(void *file)</argsstring>
         <name>close</name>
         <briefdescription>
+<para>Public callback slot. </para>
         </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/headers/radixkernel/radixkernel.h" line="530" column="5" bodyfile="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/headers/radixkernel/radixkernel.h" bodystart="530" bodyend="-1"/>
+        <location file="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/headers/radixkernel/radixkernel.h" line="580" column="5" bodyfile="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/headers/radixkernel/radixkernel.h" bodystart="580" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structrad__vfs__backend__ops_1ace8a69d218a5824ce6c398819a2051d2" prot="public" static="no" mutable="no">
         <type><ref refid="radixkernel_8h_1aeb7c981d4b5f029daa65d3b928bab127" kindref="member">rad_status_t</ref>(*</type>
@@ -101,12 +108,13 @@
         <argsstring>)(void *context, const char *path, rad_vfs_stat_t *stat)</argsstring>
         <name>stat</name>
         <briefdescription>
+<para>Public callback slot. </para>
         </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/headers/radixkernel/radixkernel.h" line="531" column="5" bodyfile="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/headers/radixkernel/radixkernel.h" bodystart="531" bodyend="-1"/>
+        <location file="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/headers/radixkernel/radixkernel.h" line="581" column="5" bodyfile="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/headers/radixkernel/radixkernel.h" bodystart="581" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structrad__vfs__backend__ops_1a2f264334451a8bba0d50c9263b37b341" prot="public" static="no" mutable="no">
         <type><ref refid="radixkernel_8h_1aeb7c981d4b5f029daa65d3b928bab127" kindref="member">rad_status_t</ref>(*</type>
@@ -114,12 +122,13 @@
         <argsstring>)(void *context, const char *path, rad_vfs_list_callback_t callback, void *callback_context)</argsstring>
         <name>list</name>
         <briefdescription>
+<para>Public callback slot. </para>
         </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/headers/radixkernel/radixkernel.h" line="532" column="5" bodyfile="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/headers/radixkernel/radixkernel.h" bodystart="532" bodyend="-1"/>
+        <location file="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/headers/radixkernel/radixkernel.h" line="582" column="5" bodyfile="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/headers/radixkernel/radixkernel.h" bodystart="582" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structrad__vfs__backend__ops_1a22c30398b8f95b7404626e6e6920f449" prot="public" static="no" mutable="no">
         <type><ref refid="radixkernel_8h_1aeb7c981d4b5f029daa65d3b928bab127" kindref="member">rad_status_t</ref>(*</type>
@@ -127,12 +136,13 @@
         <argsstring>)(void *context, const char *path)</argsstring>
         <name>mkdir</name>
         <briefdescription>
+<para>Public callback slot. </para>
         </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/headers/radixkernel/radixkernel.h" line="533" column="5" bodyfile="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/headers/radixkernel/radixkernel.h" bodystart="533" bodyend="-1"/>
+        <location file="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/headers/radixkernel/radixkernel.h" line="583" column="5" bodyfile="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/headers/radixkernel/radixkernel.h" bodystart="583" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structrad__vfs__backend__ops_1a33a16dd63d3776b63d358567c4eba19e" prot="public" static="no" mutable="no">
         <type><ref refid="radixkernel_8h_1aeb7c981d4b5f029daa65d3b928bab127" kindref="member">rad_status_t</ref>(*</type>
@@ -140,12 +150,13 @@
         <argsstring>)(void *context, const char *path)</argsstring>
         <name>remove</name>
         <briefdescription>
+<para>Public callback slot. </para>
         </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/headers/radixkernel/radixkernel.h" line="534" column="5" bodyfile="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/headers/radixkernel/radixkernel.h" bodystart="534" bodyend="-1"/>
+        <location file="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/headers/radixkernel/radixkernel.h" line="584" column="5" bodyfile="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/headers/radixkernel/radixkernel.h" bodystart="584" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structrad__vfs__backend__ops_1a577440308a7e5c3c244a6e6fe3f4a88a" prot="public" static="no" mutable="no">
         <type><ref refid="radixkernel_8h_1aeb7c981d4b5f029daa65d3b928bab127" kindref="member">rad_status_t</ref>(*</type>
@@ -153,12 +164,13 @@
         <argsstring>)(void *context, const char *old_path, const char *new_path)</argsstring>
         <name>rename</name>
         <briefdescription>
+<para>Public callback slot. </para>
         </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/headers/radixkernel/radixkernel.h" line="535" column="5" bodyfile="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/headers/radixkernel/radixkernel.h" bodystart="535" bodyend="-1"/>
+        <location file="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/headers/radixkernel/radixkernel.h" line="585" column="5" bodyfile="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/headers/radixkernel/radixkernel.h" bodystart="585" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structrad__vfs__backend__ops_1af165ec538cf55741f7ab1edb95a4648a" prot="public" static="no" mutable="no">
         <type><ref refid="radixkernel_8h_1aeb7c981d4b5f029daa65d3b928bab127" kindref="member">rad_status_t</ref>(*</type>
@@ -166,12 +178,13 @@
         <argsstring>)(void *context, const char *path)</argsstring>
         <name>rmdir</name>
         <briefdescription>
+<para>Public callback slot. </para>
         </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/headers/radixkernel/radixkernel.h" line="536" column="5" bodyfile="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/headers/radixkernel/radixkernel.h" bodystart="536" bodyend="-1"/>
+        <location file="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/headers/radixkernel/radixkernel.h" line="586" column="5" bodyfile="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/headers/radixkernel/radixkernel.h" bodystart="586" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structrad__vfs__backend__ops_1abf85111b379274f14345126ec22b134c" prot="public" static="no" mutable="no">
         <type><ref refid="radixkernel_8h_1aeb7c981d4b5f029daa65d3b928bab127" kindref="member">rad_status_t</ref>(*</type>
@@ -179,12 +192,13 @@
         <argsstring>)(void *file)</argsstring>
         <name>fsync</name>
         <briefdescription>
+<para>Public callback slot. </para>
         </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/headers/radixkernel/radixkernel.h" line="537" column="5" bodyfile="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/headers/radixkernel/radixkernel.h" bodystart="537" bodyend="-1"/>
+        <location file="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/headers/radixkernel/radixkernel.h" line="587" column="5" bodyfile="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/headers/radixkernel/radixkernel.h" bodystart="587" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structrad__vfs__backend__ops_1a20eb4fa44653ecbba7de453cf7f9b13a" prot="public" static="no" mutable="no">
         <type><ref refid="radixkernel_8h_1aeb7c981d4b5f029daa65d3b928bab127" kindref="member">rad_status_t</ref>(*</type>
@@ -192,12 +206,13 @@
         <argsstring>)(void *context, const char *path, uint64_t size)</argsstring>
         <name>truncate</name>
         <briefdescription>
+<para>Public callback slot. </para>
         </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/headers/radixkernel/radixkernel.h" line="538" column="5" bodyfile="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/headers/radixkernel/radixkernel.h" bodystart="538" bodyend="-1"/>
+        <location file="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/headers/radixkernel/radixkernel.h" line="588" column="5" bodyfile="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/headers/radixkernel/radixkernel.h" bodystart="588" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structrad__vfs__backend__ops_1ac06c6056401a6d15c3bf4933f8035dee" prot="public" static="no" mutable="no">
         <type><ref refid="radixkernel_8h_1aeb7c981d4b5f029daa65d3b928bab127" kindref="member">rad_status_t</ref>(*</type>
@@ -205,12 +220,13 @@
         <argsstring>)(void *context, const char *path, char *buffer, size_t size)</argsstring>
         <name>readlink</name>
         <briefdescription>
+<para>Public callback slot. </para>
         </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/headers/radixkernel/radixkernel.h" line="539" column="5" bodyfile="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/headers/radixkernel/radixkernel.h" bodystart="539" bodyend="-1"/>
+        <location file="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/headers/radixkernel/radixkernel.h" line="589" column="5" bodyfile="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/headers/radixkernel/radixkernel.h" bodystart="589" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structrad__vfs__backend__ops_1a3be4c08922f295848b6f995d34810142" prot="public" static="no" mutable="no">
         <type><ref refid="radixkernel_8h_1aeb7c981d4b5f029daa65d3b928bab127" kindref="member">rad_status_t</ref>(*</type>
@@ -218,12 +234,13 @@
         <argsstring>)(void *context, const char *target, const char *link_path)</argsstring>
         <name>symlink</name>
         <briefdescription>
+<para>Public callback slot. </para>
         </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/headers/radixkernel/radixkernel.h" line="540" column="5" bodyfile="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/headers/radixkernel/radixkernel.h" bodystart="540" bodyend="-1"/>
+        <location file="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/headers/radixkernel/radixkernel.h" line="590" column="5" bodyfile="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/headers/radixkernel/radixkernel.h" bodystart="590" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structrad__vfs__backend__ops_1a1e9f71106fbc682b8a9b3831defa1aaa" prot="public" static="no" mutable="no">
         <type><ref refid="radixkernel_8h_1aeb7c981d4b5f029daa65d3b928bab127" kindref="member">rad_status_t</ref>(*</type>
@@ -231,12 +248,13 @@
         <argsstring>)(void *context, const char *old_path, const char *new_path)</argsstring>
         <name>link</name>
         <briefdescription>
+<para>Public callback slot. </para>
         </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/headers/radixkernel/radixkernel.h" line="541" column="5" bodyfile="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/headers/radixkernel/radixkernel.h" bodystart="541" bodyend="-1"/>
+        <location file="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/headers/radixkernel/radixkernel.h" line="591" column="5" bodyfile="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/headers/radixkernel/radixkernel.h" bodystart="591" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structrad__vfs__backend__ops_1a1a2de745ed9d8884f25e97f5fc3e2b93" prot="public" static="no" mutable="no">
         <type><ref refid="radixkernel_8h_1aeb7c981d4b5f029daa65d3b928bab127" kindref="member">rad_status_t</ref>(*</type>
@@ -244,19 +262,21 @@
         <argsstring>)(void *context, const char *path, uint32_t mode)</argsstring>
         <name>chmod</name>
         <briefdescription>
+<para>Public callback slot. </para>
         </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/headers/radixkernel/radixkernel.h" line="542" column="5" bodyfile="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/headers/radixkernel/radixkernel.h" bodystart="542" bodyend="-1"/>
+        <location file="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/headers/radixkernel/radixkernel.h" line="592" column="5" bodyfile="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/headers/radixkernel/radixkernel.h" bodystart="592" bodyend="-1"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
+<para>Public data structure for <ref refid="structrad__vfs__backend__ops" kindref="compound">rad_vfs_backend_ops</ref>. </para>
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/headers/radixkernel/radixkernel.h" line="523" column="1" bodyfile="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/headers/radixkernel/radixkernel.h" bodystart="523" bodyend="543"/>
+    <location file="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/headers/radixkernel/radixkernel.h" line="573" column="1" bodyfile="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/headers/radixkernel/radixkernel.h" bodystart="573" bodyend="593"/>
     <listofallmembers>
       <member refid="structrad__vfs__backend__ops_1a1a2de745ed9d8884f25e97f5fc3e2b93" prot="public" virt="non-virtual"><scope>rad_vfs_backend_ops</scope><name>chmod</name></member>
       <member refid="structrad__vfs__backend__ops_1a82a5d992e8ce439e3b03d74ad2819cb6" prot="public" virt="non-virtual"><scope>rad_vfs_backend_ops</scope><name>close</name></member>

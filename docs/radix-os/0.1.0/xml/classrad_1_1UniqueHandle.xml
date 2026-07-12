@@ -26,7 +26,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/headers/radixkernel/rad_cpp.h" line="66" column="12" bodyfile="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/headers/radixkernel/rad_cpp.h" bodystart="66" bodyend="-1"/>
+        <location file="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/headers/radixkernel/rad_cpp.h" line="93" column="12" bodyfile="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/headers/radixkernel/rad_cpp.h" bodystart="93" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
@@ -36,12 +36,13 @@
         <argsstring>()=default</argsstring>
         <name>UniqueHandle</name>
         <briefdescription>
+<para>Create an empty owner. </para>
         </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/headers/radixkernel/rad_cpp.h" line="44" column="15"/>
+        <location file="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/headers/radixkernel/rad_cpp.h" line="63" column="15"/>
       </memberdef>
       <memberdef kind="function" id="classrad_1_1UniqueHandle_1ae22ec2a848c5357ad9e8fe12e7882379" prot="public" static="no" constexpr="yes" const="no" explicit="yes" inline="yes" virt="non-virtual">
         <type>constexpr</type>
@@ -53,12 +54,13 @@
           <declname>handle</declname>
         </param>
         <briefdescription>
+<para>Take ownership of handle. </para>
         </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/headers/radixkernel/rad_cpp.h" line="45" column="24" bodyfile="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/headers/radixkernel/rad_cpp.h" bodystart="45" bodyend="45"/>
+        <location file="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/headers/radixkernel/rad_cpp.h" line="65" column="24" bodyfile="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/headers/radixkernel/rad_cpp.h" bodystart="65" bodyend="65"/>
       </memberdef>
       <memberdef kind="function" id="classrad_1_1UniqueHandle_1a9dec5db7f770d3dca3e76ebb59ac6088" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type></type>
@@ -66,12 +68,13 @@
         <argsstring>()</argsstring>
         <name>~UniqueHandle</name>
         <briefdescription>
+<para>Close the owned handle if present. </para>
         </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/headers/radixkernel/rad_cpp.h" line="46" column="5" bodyfile="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/headers/radixkernel/rad_cpp.h" bodystart="46" bodyend="46"/>
+        <location file="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/headers/radixkernel/rad_cpp.h" line="67" column="5" bodyfile="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/headers/radixkernel/rad_cpp.h" bodystart="67" bodyend="67"/>
       </memberdef>
       <memberdef kind="function" id="classrad_1_1UniqueHandle_1a535d3d5ccf11c0abc6a00ee4688b7a72" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
@@ -87,7 +90,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/headers/radixkernel/rad_cpp.h" line="47" column="5"/>
+        <location file="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/headers/radixkernel/rad_cpp.h" line="68" column="5"/>
       </memberdef>
       <memberdef kind="function" id="classrad_1_1UniqueHandle_1a4faa4316c587a6402de843ab0f78ef45" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="classrad_1_1UniqueHandle" kindref="compound">UniqueHandle</ref> &amp;</type>
@@ -103,7 +106,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/headers/radixkernel/rad_cpp.h" line="48" column="18"/>
+        <location file="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/headers/radixkernel/rad_cpp.h" line="69" column="18"/>
       </memberdef>
       <memberdef kind="function" id="classrad_1_1UniqueHandle_1a48425fea3f8e10faa7f170c3b0c66724" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type></type>
@@ -115,12 +118,13 @@
           <declname>other</declname>
         </param>
         <briefdescription>
+<para>Move ownership from another handle owner. </para>
         </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/headers/radixkernel/rad_cpp.h" line="49" column="5" bodyfile="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/headers/radixkernel/rad_cpp.h" bodystart="49" bodyend="49"/>
+        <location file="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/headers/radixkernel/rad_cpp.h" line="71" column="5" bodyfile="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/headers/radixkernel/rad_cpp.h" bodystart="71" bodyend="71"/>
       </memberdef>
       <memberdef kind="function" id="classrad_1_1UniqueHandle_1a6dbcc1e26911ffcd6c95abc6bff30717" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
         <type><ref refid="classrad_1_1UniqueHandle" kindref="compound">UniqueHandle</ref> &amp;</type>
@@ -132,12 +136,13 @@
           <declname>other</declname>
         </param>
         <briefdescription>
+<para>Replace this owner with another owner&apos;s handle. </para>
         </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/headers/radixkernel/rad_cpp.h" line="50" column="18" bodyfile="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/headers/radixkernel/rad_cpp.h" bodystart="50" bodyend="53"/>
+        <location file="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/headers/radixkernel/rad_cpp.h" line="73" column="18" bodyfile="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/headers/radixkernel/rad_cpp.h" bodystart="73" bodyend="76"/>
       </memberdef>
       <memberdef kind="function" id="classrad_1_1UniqueHandle_1a1957d6494075bf66ed9a0deb11b465e1" prot="public" static="no" constexpr="yes" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type>constexpr Handle</type>
@@ -145,12 +150,13 @@
         <argsstring>() const</argsstring>
         <name>get</name>
         <briefdescription>
+<para>Return the raw handle without releasing ownership. </para>
         </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/headers/radixkernel/rad_cpp.h" line="54" column="22" bodyfile="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/headers/radixkernel/rad_cpp.h" bodystart="54" bodyend="54"/>
+        <location file="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/headers/radixkernel/rad_cpp.h" line="78" column="22" bodyfile="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/headers/radixkernel/rad_cpp.h" bodystart="78" bodyend="78"/>
       </memberdef>
       <memberdef kind="function" id="classrad_1_1UniqueHandle_1ab14c8f21702cbc2856b8494d406228d2" prot="public" static="no" constexpr="yes" const="yes" explicit="yes" inline="yes" virt="non-virtual">
         <type>constexpr</type>
@@ -158,12 +164,13 @@
         <argsstring>() const</argsstring>
         <name>operator bool</name>
         <briefdescription>
+<para>Return true when a handle is owned. </para>
         </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/headers/radixkernel/rad_cpp.h" line="55" column="24" bodyfile="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/headers/radixkernel/rad_cpp.h" bodystart="55" bodyend="55"/>
+        <location file="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/headers/radixkernel/rad_cpp.h" line="80" column="24" bodyfile="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/headers/radixkernel/rad_cpp.h" bodystart="80" bodyend="80"/>
       </memberdef>
       <memberdef kind="function" id="classrad_1_1UniqueHandle_1a4377049b08ef19e5c1499e565da8c0a3" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>Handle</type>
@@ -171,12 +178,13 @@
         <argsstring>()</argsstring>
         <name>release</name>
         <briefdescription>
+<para>Release ownership and return the raw handle. </para>
         </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/headers/radixkernel/rad_cpp.h" line="56" column="12" bodyfile="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/headers/radixkernel/rad_cpp.h" bodystart="56" bodyend="60"/>
+        <location file="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/headers/radixkernel/rad_cpp.h" line="82" column="12" bodyfile="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/headers/radixkernel/rad_cpp.h" bodystart="82" bodyend="86"/>
       </memberdef>
       <memberdef kind="function" id="classrad_1_1UniqueHandle_1a1082fabd1c54ef343c6d355be7b2c8e6" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>void</type>
@@ -189,19 +197,21 @@
           <defval>nullptr</defval>
         </param>
         <briefdescription>
+<para>Close any current handle and optionally take a replacement. </para>
         </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/headers/radixkernel/rad_cpp.h" line="61" column="10" bodyfile="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/headers/radixkernel/rad_cpp.h" bodystart="61" bodyend="64"/>
+        <location file="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/headers/radixkernel/rad_cpp.h" line="88" column="10" bodyfile="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/headers/radixkernel/rad_cpp.h" bodystart="88" bodyend="91"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
+<para>Move-only RAII owner for nullable RADix handles. </para>
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/headers/radixkernel/rad_cpp.h" line="42" column="1" bodyfile="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/headers/radixkernel/rad_cpp.h" bodystart="42" bodyend="67"/>
+    <location file="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/headers/radixkernel/rad_cpp.h" line="60" column="1" bodyfile="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/headers/radixkernel/rad_cpp.h" bodystart="60" bodyend="94"/>
     <listofallmembers>
       <member refid="classrad_1_1UniqueHandle_1a1957d6494075bf66ed9a0deb11b465e1" prot="public" virt="non-virtual"><scope>rad::UniqueHandle</scope><name>get</name></member>
       <member refid="classrad_1_1UniqueHandle_1a22a64db330a3a26f3c38dbe7c89b1b24" prot="private" virt="non-virtual"><scope>rad::UniqueHandle</scope><name>handle_</name></member>

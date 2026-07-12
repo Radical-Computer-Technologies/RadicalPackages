@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['radix_2dos_20kernel_20api_1947',['RADix-OS Kernel API',['../index.html',1,'']]]
+  ['api_20groups_1900',['API Groups',['../api_groups.html',1,'']]],
+  ['api_20structure_1901',['API Structure',['../api_structure.html',1,'']]]
 ];

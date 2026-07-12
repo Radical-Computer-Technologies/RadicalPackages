@@ -1,0 +1,41 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="crimson_status" kind="page">
+    <compoundname>crimson_status</compoundname>
+    <title>Crimson 0.1.0 Status</title>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para><anchor id="crimson_status_1md__media_jvincent_Kingspec512_repos_RADix_OS_docs_public_crimson_status"/> Crimson 0.1.0 is an experimental beta line for RADix-OS. The branch goal is to stabilize the kernel-facing API, x86 VM smoke path, Slint shell integration, overlay binding, filesystem profile, and driver model enough for repeatable testing.</para>
+<sect1 id="crimson_status_1autotoc_md11">
+<title>Stable-Beta Surface</title>
+<para><itemizedlist>
+<listitem><para>Kernel lifecycle, printk, boot info, time, memory stats, and terminal commands.</para>
+</listitem><listitem><para>Task, wait queue, mutex, event, timer, scheduler, and basic multicore reporting APIs.</para>
+</listitem><listitem><para>Device registry, ioctl encoding, input queues, framebuffer registration, TTY, PTY, block device, and VFS provider APIs.</para>
+</listitem><listitem><para>I2C, SPI, DMA, module, IRQ, and overlay binding APIs.</para>
+</listitem><listitem><para>x86 GRUB VM smoke target with framebuffer shell, PTY/TTY terminal path, and clean no-journal ext4 read/write profile.</para>
+</listitem></itemizedlist>
+</para>
+</sect1>
+<sect1 id="crimson_status_1autotoc_md12">
+<title>Experimental Surface</title>
+<para><itemizedlist>
+<listitem><para>POSIX process and syscall coverage is usable for the current shell tests but not a complete Unix userspace contract.</para>
+</listitem><listitem><para>Network APIs currently describe device/link/send/poll shape before full TCP/UDP stack work.</para>
+</listitem><listitem><para>RP2350 HSTX/DVI and SPI panel output are documented as framebuffer output goals, with backend completeness still target-dependent.</para>
+</listitem><listitem><para>DMA is available through the generic core and first consumed by SPI-style transfer paths.</para>
+</listitem></itemizedlist>
+</para>
+</sect1>
+<sect1 id="crimson_status_1autotoc_md13">
+<title>Not Yet Complete</title>
+<para><itemizedlist>
+<listitem><para>Full POSIX userland compatibility, dynamic ELF loading, complete fork/exec semantics across every target, full ext4 journaling, USB stacks, PCIe, and production networking are beyond the current Crimson beta surface. </para>
+</listitem></itemizedlist>
+</para>
+</sect1>
+    </detaileddescription>
+    <location file="/media/jvincent/Kingspec512/repos/RADix-OS/docs/public/crimson-status.md"/>
+  </compounddef>
+</doxygen>

@@ -9,33 +9,42 @@
     <programlisting>
 <codeline><highlight class="normal">#<sp/>RADix-OS<sp/>Kernel<sp/>API</highlight></codeline>
 <codeline></codeline>
-<codeline><highlight class="normal">RADix-OS<sp/>is<sp/>a<sp/>POSIX-inspired<sp/>operating<sp/>system<sp/>kernel<sp/>aimed<sp/>at<sp/>embedded,</highlight></codeline>
-<codeline><highlight class="normal">desktop-VM,<sp/>and<sp/>future<sp/>SoC<sp/>targets.<sp/>The<sp/>kernel<sp/>keeps<sp/>an<sp/>RTOS-influenced<sp/>bias</highlight></codeline>
-<codeline><highlight class="normal">toward<sp/>explicit<sp/>subsystems<sp/>and<sp/>deterministic<sp/>control<sp/>while<sp/>exposing<sp/>familiar</highlight></codeline>
-<codeline><highlight class="normal">process,<sp/>file,<sp/>device,<sp/>terminal,<sp/>framebuffer,<sp/>and<sp/>filesystem<sp/>APIs.</highlight></codeline>
+<codeline><highlight class="normal">RADix-OS<sp/>is<sp/>a<sp/>POSIX-inspired<sp/>operating<sp/>system<sp/>kernel<sp/>aimed<sp/>at<sp/>embedded<sp/>boards,</highlight></codeline>
+<codeline><highlight class="normal">desktop<sp/>VM<sp/>testing,<sp/>and<sp/>future<sp/>SoC<sp/>targets.<sp/>The<sp/>Crimson<sp/>0.1.0<sp/>line<sp/>keeps<sp/>an</highlight></codeline>
+<codeline><highlight class="normal">RTOS-influenced<sp/>bias<sp/>toward<sp/>explicit<sp/>subsystems<sp/>while<sp/>exposing<sp/>familiar<sp/>process,</highlight></codeline>
+<codeline><highlight class="normal">file,<sp/>device,<sp/>terminal,<sp/>framebuffer,<sp/>filesystem,<sp/>and<sp/>driver<sp/>APIs.</highlight></codeline>
 <codeline></codeline>
-<codeline><highlight class="normal">This<sp/>documentation<sp/>covers<sp/>the<sp/>Crimson<sp/>0.1.0<sp/>experimental<sp/>kernel<sp/>API.</highlight></codeline>
+<codeline><highlight class="normal">This<sp/>hub<sp/>documents<sp/>the<sp/>experimental<sp/>Crimson<sp/>0.1.0<sp/>kernel<sp/>API.</highlight></codeline>
 <codeline></codeline>
-<codeline><highlight class="normal">##<sp/>Current<sp/>Kernel<sp/>Surface</highlight></codeline>
+<codeline><highlight class="normal">##<sp/>Start<sp/>Here</highlight></codeline>
 <codeline></codeline>
-<codeline><highlight class="normal">-<sp/>Boot<sp/>and<sp/>platform<sp/>handoff<sp/>helpers.</highlight></codeline>
-<codeline><highlight class="normal">-<sp/>Device<sp/>registry,<sp/>ioctl,<sp/>block,<sp/>network,<sp/>framebuffer,<sp/>serial,<sp/>input,<sp/>TTY,<sp/>and</highlight></codeline>
-<codeline><highlight class="normal"><sp/><sp/>PTY<sp/>APIs.</highlight></codeline>
-<codeline><highlight class="normal">-<sp/>VFS<sp/>provider<sp/>interface<sp/>with<sp/>open/read/write/seek/stat/list,<sp/>directory</highlight></codeline>
-<codeline><highlight class="normal"><sp/><sp/>mutation,<sp/>symlink,<sp/>truncate,<sp/>chmod,<sp/>and<sp/>fsync<sp/>hooks.</highlight></codeline>
-<codeline><highlight class="normal">-<sp/>POSIX-inspired<sp/>process,<sp/>file<sp/>descriptor,<sp/>syscall,<sp/>fork,<sp/>exec,<sp/>wait,<sp/>and</highlight></codeline>
-<codeline><highlight class="normal"><sp/><sp/>copy-on-write<sp/>interfaces.</highlight></codeline>
-<codeline><highlight class="normal">-<sp/>Module,<sp/>driver,<sp/>IRQ,<sp/>timer,<sp/>task,<sp/>wait<sp/>queue,<sp/>mutex,<sp/>and<sp/>event<sp/>primitives.</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>@ref<sp/>api_structure<sp/>explains<sp/>the<sp/>public<sp/>ABI<sp/>shape<sp/>and<sp/>subsystem<sp/>ownership.</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>@ref<sp/>api_groups<sp/>provides<sp/>a<sp/>subsystem-oriented<sp/>API<sp/>index.</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>@ref<sp/>device_tree_guide<sp/>documents<sp/>the<sp/>runtime<sp/>overlay/device-tree<sp/>model.</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>@ref<sp/>minimal_examples<sp/>provides<sp/>short<sp/>driver,<sp/>framebuffer,<sp/>input,<sp/>VFS,<sp/>and</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>syscall<sp/>examples.</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>@ref<sp/>crimson_status<sp/>separates<sp/>stable-beta<sp/>APIs<sp/>from<sp/>incomplete<sp/>areas.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>API<sp/>Groups</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">-<sp/>Kernel<sp/>lifecycle,<sp/>boot<sp/>handoff,<sp/>printk,<sp/>CPU<sp/>control,<sp/>time,<sp/>memory,<sp/>and</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>performance<sp/>counters.</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>Tasks,<sp/>scheduler<sp/>state,<sp/>wait<sp/>queues,<sp/>mutexes,<sp/>events,<sp/>and<sp/>timer<sp/>sources.</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>Processes,<sp/>file<sp/>descriptors,<sp/>syscall<sp/>dispatch,<sp/>programs,<sp/>and<sp/>POSIX-inspired</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>VFS<sp/>entry<sp/>points.</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>Device<sp/>registry,<sp/>ioctl,<sp/>block,<sp/>network,<sp/>framebuffer/display,<sp/>input,<sp/>TTY,<sp/>PTY,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>audio,<sp/>and<sp/>serial<sp/>APIs.</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>Overlay<sp/>tree,<sp/>IRQ<sp/>domains/resources,<sp/>modules,<sp/>I2C,<sp/>SPI,<sp/>and<sp/>DMA<sp/>driver<sp/>APIs.</highlight></codeline>
 <codeline></codeline>
 <codeline><highlight class="normal">##<sp/>Filesystem<sp/>Profile</highlight></codeline>
 <codeline></codeline>
-<codeline><highlight class="normal">The<sp/>x86_64<sp/>VM<sp/>target<sp/>currently<sp/>boots<sp/>from<sp/>ext4.<sp/>The<sp/>implemented<sp/>ext4<sp/>profile<sp/>is</highlight></codeline>
-<codeline><highlight class="normal">clean<sp/>no-journal<sp/>read/write<sp/>ext4<sp/>with<sp/>extent-backed<sp/>files,<sp/>allocation,<sp/>create,</highlight></codeline>
+<codeline><highlight class="normal">The<sp/>x86_64<sp/>VM<sp/>target<sp/>currently<sp/>boots<sp/>from<sp/>ext4.<sp/>Crimson<sp/>0.1.0<sp/>supports<sp/>a<sp/>clean</highlight></codeline>
+<codeline><highlight class="normal">no-journal<sp/>read/write<sp/>ext4<sp/>profile<sp/>with<sp/>extent-backed<sp/>files,<sp/>allocation,<sp/>create,</highlight></codeline>
 <codeline><highlight class="normal">mkdir,<sp/>rename,<sp/>truncate,<sp/>symlink/readlink,<sp/>unlink,<sp/>rmdir,<sp/>chmod,<sp/>and<sp/>fsync.</highlight></codeline>
-<codeline><highlight class="normal">Journal<sp/>replay<sp/>and<sp/>journaled<sp/>metadata<sp/>commits<sp/>are<sp/>intentionally<sp/>not<sp/>part<sp/>of</highlight></codeline>
-<codeline><highlight class="normal">Crimson<sp/>0.1.0.</highlight></codeline>
+<codeline><highlight class="normal">Journal<sp/>replay<sp/>and<sp/>journaled<sp/>metadata<sp/>commits<sp/>are<sp/>intentionally<sp/>outside<sp/>the</highlight></codeline>
+<codeline><highlight class="normal">current<sp/>beta<sp/>profile.</highlight></codeline>
 <codeline></codeline>
-<codeline><highlight class="normal">##<sp/>Build<sp/>And<sp/>Smoke<sp/>Checks</highlight></codeline>
+<codeline><highlight class="normal">##<sp/>Verification</highlight></codeline>
 <codeline></codeline>
 <codeline><highlight class="normal">Host<sp/>kernel<sp/>tests:</highlight></codeline>
 <codeline></codeline>

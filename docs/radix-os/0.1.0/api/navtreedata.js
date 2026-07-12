@@ -26,18 +26,46 @@ var NAVTREE =
 [
   [ "RADix-OS Kernel", "index.html", [
     [ "RADix-OS Kernel API", "index.html", [
-      [ "Current Kernel Surface", "index.html#autotoc_md1", null ],
-      [ "Filesystem Profile", "index.html#autotoc_md2", null ],
-      [ "Build And Smoke Checks", "index.html#autotoc_md3", null ]
+      [ "Start Here", "index.html#autotoc_md27", null ],
+      [ "API Groups", "index.html#autotoc_md28", null ],
+      [ "Filesystem Profile", "index.html#autotoc_md29", null ],
+      [ "Verification", "index.html#autotoc_md30", null ]
     ] ],
-    [ "Namespaces", "namespaces.html", [
-      [ "Namespace List", "namespaces.html", "namespaces_dup" ],
-      [ "Namespace Members", "namespacemembers.html", [
-        [ "All", "namespacemembers.html", null ],
-        [ "Functions", "namespacemembers_func.html", null ],
-        [ "Typedefs", "namespacemembers_type.html", null ],
-        [ "Enumerations", "namespacemembers_enum.html", null ]
-      ] ]
+    [ "API Groups", "api_groups.html", [
+      [ "Kernel And Boot", "api_groups.html#autotoc_md0", null ],
+      [ "Time, Tasks, And Synchronization", "api_groups.html#autotoc_md1", null ],
+      [ "POSIX-Inspired Runtime", "api_groups.html#autotoc_md2", null ],
+      [ "Device Model", "api_groups.html#autotoc_md3", null ],
+      [ "Driver Binding", "api_groups.html#autotoc_md4", null ],
+      [ "Overlay Tree And IRQs", "api_groups.html#autotoc_md5", null ],
+      [ "Display And Input", "api_groups.html#autotoc_md6", null ]
+    ] ],
+    [ "API Structure", "api_structure.html", [
+      [ "Initialization And Boot", "api_structure.html#autotoc_md7", null ],
+      [ "Runtime Services", "api_structure.html#autotoc_md8", null ],
+      [ "Handle Rules", "api_structure.html#autotoc_md9", null ],
+      [ "Crimson Stability", "api_structure.html#autotoc_md10", null ]
+    ] ],
+    [ "Crimson 0.1.0 Status", "crimson_status.html", [
+      [ "Stable-Beta Surface", "crimson_status.html#autotoc_md11", null ],
+      [ "Experimental Surface", "crimson_status.html#autotoc_md12", null ],
+      [ "Not Yet Complete", "crimson_status.html#autotoc_md13", null ]
+    ] ],
+    [ "Overlay And Device Tree Guide", "device_tree_guide.html", [
+      [ "Overlay Shape", "device_tree_guide.html#autotoc_md14", null ],
+      [ "Bus And Device Binding", "device_tree_guide.html#autotoc_md15", null ],
+      [ "Interrupt Domains", "device_tree_guide.html#autotoc_md16", null ],
+      [ "Framebuffer Outputs", "device_tree_guide.html#autotoc_md17", null ],
+      [ "Current Limits", "device_tree_guide.html#autotoc_md18", null ]
+    ] ],
+    [ "Minimal Examples", "minimal_examples.html", [
+      [ "Register A Kernel Module", "minimal_examples.html#autotoc_md19", null ],
+      [ "Register An I2C Controller And Child Driver", "minimal_examples.html#autotoc_md20", null ],
+      [ "Register DMA And Use SPI Auto Mode", "minimal_examples.html#autotoc_md21", null ],
+      [ "Register A Framebuffer", "minimal_examples.html#autotoc_md22", null ],
+      [ "Read Input Events", "minimal_examples.html#autotoc_md23", null ],
+      [ "Mount A VFS Provider", "minimal_examples.html#autotoc_md24", null ],
+      [ "Use File Descriptors Through The Syscall ABI", "minimal_examples.html#autotoc_md25", null ]
     ] ],
     [ "Classes", "annotated.html", [
       [ "Class List", "annotated.html", "annotated_dup" ],
@@ -65,10 +93,10 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "annotated.html",
-"radixkernel_8h.html#a0eb73ffa1819670b6789aafdecf5aa1e",
-"radixkernel_8h.html#a7f6a2162173e253ac2c896c38c83589b",
-"radixkernel_8h.html#adf7bbeb23054ca24451821557c27e1a2aee3a6717e899b7e9930cb39e3c064fa0",
-"structrad__input__event.html#a6c27188f9ace9781ee10b3a16c158383"
+"radixkernel_8h.html#a140ab5422d459ba07b75d08ff58e5359a41f33bd3656c948b9a3459ddbe4a9e92",
+"radixkernel_8h.html#a8784511e666b853ed1f04acdd8ff71b4",
+"radixkernel_8h.html#ae71015aba4424d838e93ee4a5c0f4389",
+"structrad__irq__domain__config.html#ac54754e09be6ed76e68ffcc3839ff049"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

@@ -1,6 +1,6 @@
 var annotated_dup =
 [
-    [ "rad", "namespacerad.html", [
+    [ "rad", null, [
       [ "Span", "classrad_1_1Span.html", "classrad_1_1Span" ],
       [ "UniqueHandle", "classrad_1_1UniqueHandle.html", "classrad_1_1UniqueHandle" ],
       [ "Mutex", "classrad_1_1Mutex.html", "classrad_1_1Mutex" ],
