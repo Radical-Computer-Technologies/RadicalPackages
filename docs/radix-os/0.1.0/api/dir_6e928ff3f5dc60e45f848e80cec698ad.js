@@ -25,6 +25,7 @@ var dir_6e928ff3f5dc60e45f848e80cec698ad =
     [ "rad_time.h", "rad__time_8h_source.html", null ],
     [ "rad_tree.h", "rad__tree_8h_source.html", null ],
     [ "rad_tty.h", "rad__tty_8h_source.html", null ],
+    [ "rad_usb.h", "rad__usb_8h_source.html", null ],
     [ "rad_vfs.h", "rad__vfs_8h_source.html", null ],
     [ "radixkernel.h", "radixkernel_8h.html", "radixkernel_8h" ]
 ];

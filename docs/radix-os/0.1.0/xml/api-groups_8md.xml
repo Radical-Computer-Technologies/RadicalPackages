@@ -35,9 +35,11 @@
 <codeline><highlight class="normal">##<sp/>Device<sp/>Model</highlight></codeline>
 <codeline></codeline>
 <codeline><highlight class="normal">Use<sp/>`rad_device_register()`<sp/>for<sp/>generic<sp/>device<sp/>nodes<sp/>and<sp/>subsystem<sp/>wrappers<sp/>for</highlight></codeline>
-<codeline><highlight class="normal">specialized<sp/>devices:<sp/>block,<sp/>network,<sp/>framebuffer,<sp/>input,<sp/>TTY,<sp/>PTY,<sp/>audio,<sp/>and</highlight></codeline>
-<codeline><highlight class="normal">serial.<sp/>Ioctl<sp/>request<sp/>macros<sp/>follow<sp/>a<sp/>Linux-style<sp/>direction/type/number/size</highlight></codeline>
-<codeline><highlight class="normal">layout.</highlight></codeline>
+<codeline><highlight class="normal">specialized<sp/>devices:<sp/>block,<sp/>network,<sp/>framebuffer,<sp/>input,<sp/>TTY,<sp/>PTY,<sp/>audio,</highlight></codeline>
+<codeline><highlight class="normal">serial,<sp/>and<sp/>USB.<sp/>Ioctl<sp/>request<sp/>macros<sp/>follow<sp/>a<sp/>Linux-style</highlight></codeline>
+<codeline><highlight class="normal">direction/type/number/size<sp/>layout.<sp/>The<sp/>first<sp/>USB<sp/>surface<sp/>is<sp/>host-info<sp/>discovery</highlight></codeline>
+<codeline><highlight class="normal">for<sp/>`/dev/usb0`,<sp/>with<sp/>HID<sp/>devices<sp/>expected<sp/>to<sp/>publish<sp/>input<sp/>events<sp/>through<sp/>the</highlight></codeline>
+<codeline><highlight class="normal">generic<sp/>input<sp/>queues.</highlight></codeline>
 <codeline></codeline>
 <codeline><highlight class="normal">##<sp/>Networking</highlight></codeline>
 <codeline></codeline>

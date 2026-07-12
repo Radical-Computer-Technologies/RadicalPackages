@@ -74,6 +74,7 @@ var annotated_dup =
     [ "rad_timer_source_ops", "structrad__timer__source__ops.html", "structrad__timer__source__ops" ],
     [ "rad_tree_node_info", "structrad__tree__node__info.html", "structrad__tree__node__info" ],
     [ "rad_tty_window_size", "structrad__tty__window__size.html", "structrad__tty__window__size" ],
+    [ "rad_usb_host_info", "structrad__usb__host__info.html", "structrad__usb__host__info" ],
     [ "rad_vfs_backend_ops", "structrad__vfs__backend__ops.html", "structrad__vfs__backend__ops" ],
     [ "rad_vfs_dirent", "structrad__vfs__dirent.html", "structrad__vfs__dirent" ],
     [ "rad_vfs_stat", "structrad__vfs__stat.html", "structrad__vfs__stat" ]

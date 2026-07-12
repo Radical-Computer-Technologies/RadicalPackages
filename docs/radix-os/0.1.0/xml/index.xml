@@ -587,6 +587,14 @@
     <member refid="structrad__tty__window__size_1a4fd9bbd2c7583b7df0fbeda8d33f10c8" kind="variable"><name>rows</name></member>
     <member refid="structrad__tty__window__size_1a651c8d88f5b985bcae9aa3c75a2ff508" kind="variable"><name>columns</name></member>
   </compound>
+  <compound refid="structrad__usb__host__info" kind="struct"><name>rad_usb_host_info</name>
+    <member refid="structrad__usb__host__info_1a0b7da4321334505105c4b353db8f375e" kind="variable"><name>size</name></member>
+    <member refid="structrad__usb__host__info_1a475b04017c62e2ef3ff8e1ba2a3f5752" kind="variable"><name>controller</name></member>
+    <member refid="structrad__usb__host__info_1aa2c81f829b2db5e72d28c43d8b10e994" kind="variable"><name>device_count</name></member>
+    <member refid="structrad__usb__host__info_1ad93c3083eaa9718c0b44e75b24920b70" kind="variable"><name>hid_keyboard_count</name></member>
+    <member refid="structrad__usb__host__info_1aeefbb3bc1dd4ef6fadf01c677ee1857b" kind="variable"><name>hid_mouse_count</name></member>
+    <member refid="structrad__usb__host__info_1a930d871ae205c75e5afde48857bfbcc0" kind="variable"><name>flags</name></member>
+  </compound>
   <compound refid="structrad__vfs__backend__ops" kind="struct"><name>rad_vfs_backend_ops</name>
     <member refid="structrad__vfs__backend__ops_1a49e38004b9410e2243e2d3c8ff7ab71c" kind="variable"><name>context</name></member>
     <member refid="structrad__vfs__backend__ops_1a8ee1e9add67f5d4605421996b022a2d8" kind="variable"><name>open</name></member>
@@ -740,6 +748,8 @@
   </compound>
   <compound refid="rad__tty_8h" kind="file"><name>rad_tty.h</name>
   </compound>
+  <compound refid="rad__usb_8h" kind="file"><name>rad_usb.h</name>
+  </compound>
   <compound refid="rad__vfs_8h" kind="file"><name>rad_vfs.h</name>
   </compound>
   <compound refid="radixkernel_8h" kind="file"><name>radixkernel.h</name>
@@ -768,6 +778,7 @@
     <member refid="radixkernel_8h_1ada1dce0ce9247be75a0658565a74afe6" kind="define"><name>RAD_IOCTL_TYPE_BLOCK</name></member>
     <member refid="radixkernel_8h_1a40c2ecf1d7cf45848f0ec4457a5d4728" kind="define"><name>RAD_IOCTL_TYPE_NET</name></member>
     <member refid="radixkernel_8h_1a226f9e25f4f4609e46a96dde831bf87e" kind="define"><name>RAD_IOCTL_TYPE_COMPOSITOR</name></member>
+    <member refid="radixkernel_8h_1aab1b97a857c5ffcf7e30f2dc9b2aead3" kind="define"><name>RAD_IOCTL_TYPE_USB</name></member>
     <member refid="radixkernel_8h_1acb88aa9be1110f8617727d35a47e9cad" kind="define"><name>RAD_DEVICE_IOCTL_I2C_TRANSFER</name></member>
     <member refid="radixkernel_8h_1a7f087f28224e3f845bd944702414b8c3" kind="define"><name>RAD_DEVICE_IOCTL_SPI_TRANSFER</name></member>
     <member refid="radixkernel_8h_1adec2622c8f3bff72f7bd352ea1f246ae" kind="define"><name>RAD_DEVICE_IOCTL_AUDIO_CONFIGURE</name></member>
@@ -785,6 +796,7 @@
     <member refid="radixkernel_8h_1a3ddbd0b40b0255b9fbbc5e23a8fa86a7" kind="define"><name>RAD_DEVICE_IOCTL_COMPOSITOR_CREATE_SURFACE</name></member>
     <member refid="radixkernel_8h_1a1e9ee4c188937326e2ca46f102e34b53" kind="define"><name>RAD_DEVICE_IOCTL_COMPOSITOR_QUEUE_DAMAGE</name></member>
     <member refid="radixkernel_8h_1a0593a678f0b825ca46f26d71f575a625" kind="define"><name>RAD_DEVICE_IOCTL_FRAMEBUFFER_PRESENT</name></member>
+    <member refid="radixkernel_8h_1a62dc617b80551f1cf972bb5e3e035b27" kind="define"><name>RAD_DEVICE_IOCTL_USB_HOST_INFO</name></member>
     <member refid="radixkernel_8h_1aaf6cf4aed5a89eb00fd66fd0c93c07f8" kind="define"><name>RAD_BOOT_MAX_ARGS</name></member>
     <member refid="radixkernel_8h_1ad2a9b8f76a8b04b0e749bd18d08e488f" kind="define"><name>RAD_BOOT_MAX_MEMORY_REGIONS</name></member>
     <member refid="radixkernel_8h_1ad0997d4a4608646ad408ec6fed19d2db" kind="define"><name>RAD_BOOT_MAX_STRING</name></member>
@@ -920,6 +932,15 @@
     <member refid="radixkernel_8h_1aa3bd03b48cec647d6a587dc04ef15bc9a3cd327e938dcfd771411ed5b8bba8fbd" kind="enumvalue"><name>RAD_DEVICE_BLOCK</name></member>
     <member refid="radixkernel_8h_1aa3bd03b48cec647d6a587dc04ef15bc9a714230a8419aa40c48b3d5d6ff28fc8d" kind="enumvalue"><name>RAD_DEVICE_NETWORK</name></member>
     <member refid="radixkernel_8h_1aa3bd03b48cec647d6a587dc04ef15bc9adbafb06ec7454317e57a963e8b79acc7" kind="enumvalue"><name>RAD_DEVICE_COMPOSITOR</name></member>
+    <member refid="radixkernel_8h_1aa3bd03b48cec647d6a587dc04ef15bc9a595bac50a00d08e6a116d788bfeb4e9e" kind="enumvalue"><name>RAD_DEVICE_USB</name></member>
+    <member refid="radixkernel_8h_1aaa2cbccb26d4934082e579dc1ae25573" kind="enum"><name>rad_usb_controller_type</name></member>
+    <member refid="radixkernel_8h_1aaa2cbccb26d4934082e579dc1ae25573aa1d461a26f99e2dddb6fb5229e943b61" kind="enumvalue"><name>RAD_USB_CONTROLLER_UNKNOWN</name></member>
+    <member refid="radixkernel_8h_1aaa2cbccb26d4934082e579dc1ae25573ae477d46753c59e31631a97eb8aec35e5" kind="enumvalue"><name>RAD_USB_CONTROLLER_DWC_OTG</name></member>
+    <member refid="radixkernel_8h_1a71b5a6ce065927acf22a8fb4e403de9f" kind="enum"><name>rad_usb_device_class</name></member>
+    <member refid="radixkernel_8h_1a71b5a6ce065927acf22a8fb4e403de9fa9af3c655235c32b77ef8d5b1de428454" kind="enumvalue"><name>RAD_USB_CLASS_UNKNOWN</name></member>
+    <member refid="radixkernel_8h_1a71b5a6ce065927acf22a8fb4e403de9fa6b66087a283ca1a3fabde8df436dc88b" kind="enumvalue"><name>RAD_USB_CLASS_HID_KEYBOARD</name></member>
+    <member refid="radixkernel_8h_1a71b5a6ce065927acf22a8fb4e403de9fabf4c9c77855bfed8f2c978cb8190af8c" kind="enumvalue"><name>RAD_USB_CLASS_HID_MOUSE</name></member>
+    <member refid="radixkernel_8h_1a71b5a6ce065927acf22a8fb4e403de9fa816bc121747e2c8620766042f01de535" kind="enumvalue"><name>RAD_USB_CLASS_MASS_STORAGE</name></member>
     <member refid="radixkernel_8h_1a93cacec5900b0c5f3b5dad82c20bbb6d" kind="enum"><name>rad_input_event_type</name></member>
     <member refid="radixkernel_8h_1a93cacec5900b0c5f3b5dad82c20bbb6dad67e0a95bb1bf581775bd209da2482ee" kind="enumvalue"><name>RAD_INPUT_EVENT_NONE</name></member>
     <member refid="radixkernel_8h_1a93cacec5900b0c5f3b5dad82c20bbb6dad9587f6c41802f43075ab35182cb8d9b" kind="enumvalue"><name>RAD_INPUT_EVENT_KEY</name></member>
@@ -1047,6 +1068,8 @@
     <member refid="radixkernel_8h_1a25aeeced3d96907babbde68432bca321" kind="typedef"><name>rad_vfs_open_flags_t</name></member>
     <member refid="radixkernel_8h_1a5400f68295a162b4523b835de3a64bbc" kind="typedef"><name>rad_seek_origin_t</name></member>
     <member refid="radixkernel_8h_1a167ec704dc03c192223efaa35eb9b507" kind="typedef"><name>rad_device_type_t</name></member>
+    <member refid="radixkernel_8h_1a18ae1fdd9bc5e14559b9629fec7b230f" kind="typedef"><name>rad_usb_controller_type_t</name></member>
+    <member refid="radixkernel_8h_1a82c6e82213bb242dd9cf4f140da2895d" kind="typedef"><name>rad_usb_device_class_t</name></member>
     <member refid="radixkernel_8h_1aed87b102d607fddb2ce65e8149a90002" kind="typedef"><name>rad_input_event_type_t</name></member>
     <member refid="radixkernel_8h_1a9783de6874b0958b3f0b7bbb68311eb9" kind="typedef"><name>rad_input_key_t</name></member>
     <member refid="radixkernel_8h_1ab7de5be84eadadf72ad8275d060cd774" kind="typedef"><name>rad_input_modifier_flags_t</name></member>
@@ -1082,6 +1105,7 @@
     <member refid="radixkernel_8h_1a2671126b91fe8a3f8c4f98aec6db67a7" kind="typedef"><name>rad_vfs_stat_t</name></member>
     <member refid="radixkernel_8h_1a6fa21e9f5063e97f9b4c6c57c14bc9fc" kind="typedef"><name>rad_block_info_t</name></member>
     <member refid="radixkernel_8h_1ab4b1532043bc0836d368b665054c16ba" kind="typedef"><name>rad_block_request_t</name></member>
+    <member refid="radixkernel_8h_1aa0eca65b9e75fbd05131bf790367d29a" kind="typedef"><name>rad_usb_host_info_t</name></member>
     <member refid="radixkernel_8h_1a3c47f095f5de18f56fb8eaa84b9d9b96" kind="typedef"><name>rad_mac_address_t</name></member>
     <member refid="radixkernel_8h_1a1af91900409430083f6d8cd89aae108a" kind="typedef"><name>rad_ipv4_address_t</name></member>
     <member refid="radixkernel_8h_1a6775d3f2c764f2f953b1f6a9549a0bcd" kind="typedef"><name>rad_net_packet_t</name></member>

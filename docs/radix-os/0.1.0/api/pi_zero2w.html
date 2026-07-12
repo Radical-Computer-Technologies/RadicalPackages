@@ -88,15 +88,16 @@ $(document).ready(function(){initNavTree('pi_zero2w.html',''); initResizable(); 
 <div class="title">Pi Zero 2 W Bring-Up </div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><p><a class="anchor" id="md__media_jvincent_Kingspec512_repos_RADix_OS_docs_public_pi_zero2w"></a> RADix-OS now has the first pieces of the two-stage Raspberry Pi Zero 2 W port. The intended final shape is:</p>
+<div class="textblock"><p><a class="anchor" id="md__media_jvincent_Kingspec512_repos_RADix_OS_docs_public_pi_zero2w"></a> RADix-OS now has the first pieces of the Raspberry Pi Zero 2 W port. Raspberry Pi firmware remains the real first-stage boot path: the GPU ROM, <code>bootcode.bin</code>, and <code>start4.elf</code> initialize RAM, read <code>config.txt</code>, load the ARM payload, and release the AArch64 cores. The RADix-specific second stage is optional, but it is still useful as a maintenance loader for future boot menus, kernel selection, reflash tools, handoff validation, and hardware policy.</p>
+<p>The intended final shape is:</p>
 <ul>
-<li>Circle remains a first-stage loader and hardware setup shim.</li>
-<li>Circle loads <code>RADIXKRN.IMG</code> from the FAT boot partition and jumps through <code>rad_boot_handoff_t</code>.</li>
+<li>Pi firmware performs first-stage hardware boot.</li>
+<li>A narrow Circle-based second-stage loader can load <code>RADIXKRN.IMG</code> from the FAT boot partition and jump through <code>rad_boot_handoff_t</code>.</li>
 <li>The standalone RADix payload uses the <code>bcm283x_pi</code> backend and does not link Circle.</li>
 </ul>
 <h1><a class="anchor" id="autotoc_md37"></a>
 Required Loader State</h1>
-<p>The handoff is intentionally strict for physical silicon. Before jumping to the RADix payload, the Circle loader must:</p>
+<p>The handoff is intentionally strict for physical silicon. Before jumping from any second-stage loader to the RADix payload, the loader must:</p>
 <ul>
 <li>Park secondary cores 1-3 in a clean <code>wfe</code> loop owned by the loader handoff.</li>
 <li>Mask interrupts on core 0.</li>
@@ -117,18 +118,26 @@ Current Payload</h1>
 </ul>
 <p>Run the RADix-owned QEMU smoke test with:</p>
 <div class="fragment"><div class="line">tools/embedded/radix_pi_zero2w_smoke.sh</div>
-</div><!-- fragment --><p>The script uses <code>qemu-system-aarch64 -M raspi3b</code> because QEMU does not expose a Pi Zero 2 W machine model. If <code>qemu-system-aarch64</code> is not installed, the smoke test downloads and extracts Ubuntu's <code>qemu-system-arm</code> package under <code>.radbuild/qemu-arm</code> and reuses it on later runs. A passing run verifies the early BCM283x HAL, PL011 UART, mailbox framebuffer, handoff validation, payload entry, and framebuffer text markers.</p>
+</div><!-- fragment --><p>The script uses <code>qemu-system-aarch64 -M raspi3b</code> because QEMU does not expose a Pi Zero 2 W machine model. If <code>qemu-system-aarch64</code> is not installed, the smoke test downloads and extracts Ubuntu's <code>qemu-system-arm</code> package under <code>.radbuild/qemu-arm</code> and reuses it on later runs. A passing run verifies the early BCM283x HAL, PL011 UART, mailbox framebuffer, handoff validation, payload entry, block and FAT mount scaffolds, USB/input scaffolds, framebuffer dirty present, AArch64 process markers, and Slint/RADCompositor parity markers.</p>
 <p>The current RAD-owned backend includes:</p>
 <ul>
 <li>PL011 serial console registration.</li>
 <li>System timer reads and busy sleep.</li>
 <li>Interrupt enable/disable hooks for the BCM interrupt controller.</li>
 <li>Mailbox property framebuffer allocation and <code>/dev/fb0</code> registration.</li>
-<li><code>/dev/mmcblk0</code> block-device registration scaffold.</li>
+<li><code>/dev/mmcblk0</code> block-device registration scaffold with in-memory sector backing for QEMU smoke reads.</li>
+<li><code>/dev/usb0</code> host-info scaffold and <code>/dev/input/event0</code> synthetic HID input event path.</li>
+<li>AArch64 process-architecture marker registration for EL0, SVC, user-copy, execve, fork, and COW page-fault parity gates.</li>
+<li>Slint/RADCompositor boot-shell, window-manager, terminal-window, and compositor-damage smoke markers.</li>
 </ul>
 <h1><a class="anchor" id="autotoc_md39"></a>
+Circle Loader Gate</h1>
+<p>Run the combined loader/payload smoke test with:</p>
+<div class="fragment"><div class="line">tools/embedded/qemu_pizero2w_smoke.sh</div>
+</div><!-- fragment --><p>The Circle loader source now builds a narrow second-stage handoff record and emits loader-intent markers when serial output is visible. On this workstation the Circle image currently reaches QEMU without serial markers, so the combined smoke script treats the Circle image as a build gate and then runs the standalone RADix payload gate. Physical Pi hardware remains the next authority for validating the actual Circle FAT load and jump sequence.</p>
+<h1><a class="anchor" id="autotoc_md40"></a>
 Current Limits</h1>
-<p>This page is experimental. The eMMC command path, Circle first-stage FAT load, secondary-core park, cache/MMU teardown, jump assembly, AArch64 EL0/syscall/MMU/fork/COW path, USB input, and Slint shell parity are still follow-up work. The older Circle-backed QEMU smoke reaches QEMU with the shared resolver but currently emits no expected UART markers; the standalone RADix payload smoke is the active Pi QEMU gate.</p>
+<p>This page is experimental. The current eMMC, USB, HID, AArch64 EL0/syscall/MMU, fork/COW, and Slint shell paths are QEMU-visible scaffolds and parity markers, not complete physical drivers or complete process isolation. The next Pi passes need the real BCM283x eMMC command engine, real DWC OTG host enumeration, hardware keyboard/mouse input, second-stage FAT load/jump validation on silicon, and full AArch64 page-table/trap/fork/COW behavior.</p>
 <p>Physical Pi Zero 2 W hardware remains the authority for mailbox framebuffer and SD behavior. </p>
 </div></div><!-- contents -->
 </div><!-- PageDoc -->

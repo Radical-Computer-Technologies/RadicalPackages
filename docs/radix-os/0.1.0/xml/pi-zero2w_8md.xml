@@ -9,19 +9,25 @@
     <programlisting>
 <codeline><highlight class="normal">#<sp/>Pi<sp/>Zero<sp/>2<sp/>W<sp/>Bring-Up<sp/>{#pi_zero2w}</highlight></codeline>
 <codeline></codeline>
-<codeline><highlight class="normal">RADix-OS<sp/>now<sp/>has<sp/>the<sp/>first<sp/>pieces<sp/>of<sp/>the<sp/>two-stage<sp/>Raspberry<sp/>Pi<sp/>Zero<sp/>2<sp/>W<sp/>port.</highlight></codeline>
+<codeline><highlight class="normal">RADix-OS<sp/>now<sp/>has<sp/>the<sp/>first<sp/>pieces<sp/>of<sp/>the<sp/>Raspberry<sp/>Pi<sp/>Zero<sp/>2<sp/>W<sp/>port.<sp/>Raspberry</highlight></codeline>
+<codeline><highlight class="normal">Pi<sp/>firmware<sp/>remains<sp/>the<sp/>real<sp/>first-stage<sp/>boot<sp/>path:<sp/>the<sp/>GPU<sp/>ROM,<sp/>`bootcode.bin`,</highlight></codeline>
+<codeline><highlight class="normal">and<sp/>`start4.elf`<sp/>initialize<sp/>RAM,<sp/>read<sp/>`config.txt`,<sp/>load<sp/>the<sp/>ARM<sp/>payload,<sp/>and</highlight></codeline>
+<codeline><highlight class="normal">release<sp/>the<sp/>AArch64<sp/>cores.<sp/>The<sp/>RADix-specific<sp/>second<sp/>stage<sp/>is<sp/>optional,<sp/>but<sp/>it</highlight></codeline>
+<codeline><highlight class="normal">is<sp/>still<sp/>useful<sp/>as<sp/>a<sp/>maintenance<sp/>loader<sp/>for<sp/>future<sp/>boot<sp/>menus,<sp/>kernel<sp/>selection,</highlight></codeline>
+<codeline><highlight class="normal">reflash<sp/>tools,<sp/>handoff<sp/>validation,<sp/>and<sp/>hardware<sp/>policy.</highlight></codeline>
+<codeline></codeline>
 <codeline><highlight class="normal">The<sp/>intended<sp/>final<sp/>shape<sp/>is:</highlight></codeline>
 <codeline></codeline>
-<codeline><highlight class="normal">-<sp/>Circle<sp/>remains<sp/>a<sp/>first-stage<sp/>loader<sp/>and<sp/>hardware<sp/>setup<sp/>shim.</highlight></codeline>
-<codeline><highlight class="normal">-<sp/>Circle<sp/>loads<sp/>`RADIXKRN.IMG`<sp/>from<sp/>the<sp/>FAT<sp/>boot<sp/>partition<sp/>and<sp/>jumps<sp/>through</highlight></codeline>
-<codeline><highlight class="normal"><sp/><sp/>`rad_boot_handoff_t`.</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>Pi<sp/>firmware<sp/>performs<sp/>first-stage<sp/>hardware<sp/>boot.</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>A<sp/>narrow<sp/>Circle-based<sp/>second-stage<sp/>loader<sp/>can<sp/>load<sp/>`RADIXKRN.IMG`<sp/>from<sp/>the</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>FAT<sp/>boot<sp/>partition<sp/>and<sp/>jump<sp/>through<sp/>`rad_boot_handoff_t`.</highlight></codeline>
 <codeline><highlight class="normal">-<sp/>The<sp/>standalone<sp/>RADix<sp/>payload<sp/>uses<sp/>the<sp/>`bcm283x_pi`<sp/>backend<sp/>and<sp/>does<sp/>not<sp/>link</highlight></codeline>
 <codeline><highlight class="normal"><sp/><sp/>Circle.</highlight></codeline>
 <codeline></codeline>
 <codeline><highlight class="normal">##<sp/>Required<sp/>Loader<sp/>State</highlight></codeline>
 <codeline></codeline>
-<codeline><highlight class="normal">The<sp/>handoff<sp/>is<sp/>intentionally<sp/>strict<sp/>for<sp/>physical<sp/>silicon.<sp/>Before<sp/>jumping<sp/>to<sp/>the</highlight></codeline>
-<codeline><highlight class="normal">RADix<sp/>payload,<sp/>the<sp/>Circle<sp/>loader<sp/>must:</highlight></codeline>
+<codeline><highlight class="normal">The<sp/>handoff<sp/>is<sp/>intentionally<sp/>strict<sp/>for<sp/>physical<sp/>silicon.<sp/>Before<sp/>jumping<sp/>from</highlight></codeline>
+<codeline><highlight class="normal">any<sp/>second-stage<sp/>loader<sp/>to<sp/>the<sp/>RADix<sp/>payload,<sp/>the<sp/>loader<sp/>must:</highlight></codeline>
 <codeline></codeline>
 <codeline><highlight class="normal">-<sp/>Park<sp/>secondary<sp/>cores<sp/>1-3<sp/>in<sp/>a<sp/>clean<sp/>`wfe`<sp/>loop<sp/>owned<sp/>by<sp/>the<sp/>loader<sp/>handoff.</highlight></codeline>
 <codeline><highlight class="normal">-<sp/>Mask<sp/>interrupts<sp/>on<sp/>core<sp/>0.</highlight></codeline>
@@ -57,7 +63,8 @@
 <codeline><highlight class="normal">test<sp/>downloads<sp/>and<sp/>extracts<sp/>Ubuntu&apos;s<sp/>`qemu-system-arm`<sp/>package<sp/>under</highlight></codeline>
 <codeline><highlight class="normal">`.radbuild/qemu-arm`<sp/>and<sp/>reuses<sp/>it<sp/>on<sp/>later<sp/>runs.<sp/>A<sp/>passing<sp/>run<sp/>verifies<sp/>the</highlight></codeline>
 <codeline><highlight class="normal">early<sp/>BCM283x<sp/>HAL,<sp/>PL011<sp/>UART,<sp/>mailbox<sp/>framebuffer,<sp/>handoff<sp/>validation,<sp/>payload</highlight></codeline>
-<codeline><highlight class="normal">entry,<sp/>and<sp/>framebuffer<sp/>text<sp/>markers.</highlight></codeline>
+<codeline><highlight class="normal">entry,<sp/>block<sp/>and<sp/>FAT<sp/>mount<sp/>scaffolds,<sp/>USB/input<sp/>scaffolds,<sp/>framebuffer<sp/>dirty</highlight></codeline>
+<codeline><highlight class="normal">present,<sp/>AArch64<sp/>process<sp/>markers,<sp/>and<sp/>Slint/RADCompositor<sp/>parity<sp/>markers.</highlight></codeline>
 <codeline></codeline>
 <codeline><highlight class="normal">The<sp/>current<sp/>RAD-owned<sp/>backend<sp/>includes:</highlight></codeline>
 <codeline></codeline>
@@ -65,16 +72,38 @@
 <codeline><highlight class="normal">-<sp/>System<sp/>timer<sp/>reads<sp/>and<sp/>busy<sp/>sleep.</highlight></codeline>
 <codeline><highlight class="normal">-<sp/>Interrupt<sp/>enable/disable<sp/>hooks<sp/>for<sp/>the<sp/>BCM<sp/>interrupt<sp/>controller.</highlight></codeline>
 <codeline><highlight class="normal">-<sp/>Mailbox<sp/>property<sp/>framebuffer<sp/>allocation<sp/>and<sp/>`/dev/fb0`<sp/>registration.</highlight></codeline>
-<codeline><highlight class="normal">-<sp/>`/dev/mmcblk0`<sp/>block-device<sp/>registration<sp/>scaffold.</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>`/dev/mmcblk0`<sp/>block-device<sp/>registration<sp/>scaffold<sp/>with<sp/>in-memory<sp/>sector</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>backing<sp/>for<sp/>QEMU<sp/>smoke<sp/>reads.</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>`/dev/usb0`<sp/>host-info<sp/>scaffold<sp/>and<sp/>`/dev/input/event0`<sp/>synthetic<sp/>HID<sp/>input</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>event<sp/>path.</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>AArch64<sp/>process-architecture<sp/>marker<sp/>registration<sp/>for<sp/>EL0,<sp/>SVC,<sp/>user-copy,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>execve,<sp/>fork,<sp/>and<sp/>COW<sp/>page-fault<sp/>parity<sp/>gates.</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>Slint/RADCompositor<sp/>boot-shell,<sp/>window-manager,<sp/>terminal-window,<sp/>and</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>compositor-damage<sp/>smoke<sp/>markers.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>Circle<sp/>Loader<sp/>Gate</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Run<sp/>the<sp/>combined<sp/>loader/payload<sp/>smoke<sp/>test<sp/>with:</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">```bash</highlight></codeline>
+<codeline><highlight class="normal">tools/embedded/qemu_pizero2w_smoke.sh</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">The<sp/>Circle<sp/>loader<sp/>source<sp/>now<sp/>builds<sp/>a<sp/>narrow<sp/>second-stage<sp/>handoff<sp/>record<sp/>and</highlight></codeline>
+<codeline><highlight class="normal">emits<sp/>loader-intent<sp/>markers<sp/>when<sp/>serial<sp/>output<sp/>is<sp/>visible.<sp/>On<sp/>this<sp/>workstation</highlight></codeline>
+<codeline><highlight class="normal">the<sp/>Circle<sp/>image<sp/>currently<sp/>reaches<sp/>QEMU<sp/>without<sp/>serial<sp/>markers,<sp/>so<sp/>the<sp/>combined</highlight></codeline>
+<codeline><highlight class="normal">smoke<sp/>script<sp/>treats<sp/>the<sp/>Circle<sp/>image<sp/>as<sp/>a<sp/>build<sp/>gate<sp/>and<sp/>then<sp/>runs<sp/>the</highlight></codeline>
+<codeline><highlight class="normal">standalone<sp/>RADix<sp/>payload<sp/>gate.<sp/>Physical<sp/>Pi<sp/>hardware<sp/>remains<sp/>the<sp/>next<sp/>authority</highlight></codeline>
+<codeline><highlight class="normal">for<sp/>validating<sp/>the<sp/>actual<sp/>Circle<sp/>FAT<sp/>load<sp/>and<sp/>jump<sp/>sequence.</highlight></codeline>
 <codeline></codeline>
 <codeline><highlight class="normal">##<sp/>Current<sp/>Limits</highlight></codeline>
 <codeline></codeline>
-<codeline><highlight class="normal">This<sp/>page<sp/>is<sp/>experimental.<sp/>The<sp/>eMMC<sp/>command<sp/>path,<sp/>Circle<sp/>first-stage<sp/>FAT<sp/>load,</highlight></codeline>
-<codeline><highlight class="normal">secondary-core<sp/>park,<sp/>cache/MMU<sp/>teardown,<sp/>jump<sp/>assembly,<sp/>AArch64</highlight></codeline>
-<codeline><highlight class="normal">EL0/syscall/MMU/fork/COW<sp/>path,<sp/>USB<sp/>input,<sp/>and<sp/>Slint<sp/>shell<sp/>parity<sp/>are<sp/>still</highlight></codeline>
-<codeline><highlight class="normal">follow-up<sp/>work.<sp/>The<sp/>older<sp/>Circle-backed<sp/>QEMU<sp/>smoke<sp/>reaches<sp/>QEMU<sp/>with<sp/>the<sp/>shared</highlight></codeline>
-<codeline><highlight class="normal">resolver<sp/>but<sp/>currently<sp/>emits<sp/>no<sp/>expected<sp/>UART<sp/>markers;<sp/>the<sp/>standalone<sp/>RADix</highlight></codeline>
-<codeline><highlight class="normal">payload<sp/>smoke<sp/>is<sp/>the<sp/>active<sp/>Pi<sp/>QEMU<sp/>gate.</highlight></codeline>
+<codeline><highlight class="normal">This<sp/>page<sp/>is<sp/>experimental.<sp/>The<sp/>current<sp/>eMMC,<sp/>USB,<sp/>HID,<sp/>AArch64<sp/>EL0/syscall/MMU,</highlight></codeline>
+<codeline><highlight class="normal">fork/COW,<sp/>and<sp/>Slint<sp/>shell<sp/>paths<sp/>are<sp/>QEMU-visible<sp/>scaffolds<sp/>and<sp/>parity<sp/>markers,</highlight></codeline>
+<codeline><highlight class="normal">not<sp/>complete<sp/>physical<sp/>drivers<sp/>or<sp/>complete<sp/>process<sp/>isolation.<sp/>The<sp/>next<sp/>Pi<sp/>passes</highlight></codeline>
+<codeline><highlight class="normal">need<sp/>the<sp/>real<sp/>BCM283x<sp/>eMMC<sp/>command<sp/>engine,<sp/>real<sp/>DWC<sp/>OTG<sp/>host<sp/>enumeration,</highlight></codeline>
+<codeline><highlight class="normal">hardware<sp/>keyboard/mouse<sp/>input,<sp/>second-stage<sp/>FAT<sp/>load/jump<sp/>validation<sp/>on<sp/>silicon,</highlight></codeline>
+<codeline><highlight class="normal">and<sp/>full<sp/>AArch64<sp/>page-table/trap/fork/COW<sp/>behavior.</highlight></codeline>
 <codeline></codeline>
 <codeline><highlight class="normal">Physical<sp/>Pi<sp/>Zero<sp/>2<sp/>W<sp/>hardware<sp/>remains<sp/>the<sp/>authority<sp/>for<sp/>mailbox<sp/>framebuffer<sp/>and</highlight></codeline>
 <codeline><highlight class="normal">SD<sp/>behavior.</highlight></codeline>

@@ -21,7 +21,7 @@
 <codeline><highlight class="normal">-<sp/>Task,<sp/>wait<sp/>queue,<sp/>mutex,<sp/>event,<sp/>timer,<sp/>scheduler,<sp/>and<sp/>basic<sp/>multicore</highlight></codeline>
 <codeline><highlight class="normal"><sp/><sp/>reporting<sp/>APIs.</highlight></codeline>
 <codeline><highlight class="normal">-<sp/>Device<sp/>registry,<sp/>ioctl<sp/>encoding,<sp/>input<sp/>queues,<sp/>framebuffer<sp/>registration,</highlight></codeline>
-<codeline><highlight class="normal"><sp/><sp/>TTY,<sp/>PTY,<sp/>block<sp/>device,<sp/>and<sp/>VFS<sp/>provider<sp/>APIs.</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>TTY,<sp/>PTY,<sp/>block<sp/>device,<sp/>USB<sp/>host-info,<sp/>and<sp/>VFS<sp/>provider<sp/>APIs.</highlight></codeline>
 <codeline><highlight class="normal">-<sp/>I2C,<sp/>SPI,<sp/>DMA,<sp/>module,<sp/>IRQ,<sp/>and<sp/>overlay<sp/>binding<sp/>APIs.</highlight></codeline>
 <codeline><highlight class="normal">-<sp/>x86<sp/>GRUB<sp/>VM<sp/>smoke<sp/>target<sp/>with<sp/>framebuffer<sp/>shell,<sp/>PTY/TTY<sp/>terminal<sp/>path,<sp/>and</highlight></codeline>
 <codeline><highlight class="normal"><sp/><sp/>clean<sp/>no-journal<sp/>ext4<sp/>read/write<sp/>profile.</highlight></codeline>
@@ -41,8 +41,9 @@
 <codeline><highlight class="normal">-<sp/>RP2350<sp/>HSTX/DVI<sp/>and<sp/>SPI<sp/>panel<sp/>output<sp/>are<sp/>documented<sp/>as<sp/>framebuffer<sp/>output</highlight></codeline>
 <codeline><highlight class="normal"><sp/><sp/>goals,<sp/>with<sp/>backend<sp/>completeness<sp/>still<sp/>target-dependent.</highlight></codeline>
 <codeline><highlight class="normal">-<sp/>Pi<sp/>Zero<sp/>2<sp/>W<sp/>has<sp/>an<sp/>experimental<sp/>standalone<sp/>`bcm283x_pi`<sp/>payload,<sp/>handoff<sp/>ABI,</highlight></codeline>
-<codeline><highlight class="normal"><sp/><sp/>PL011<sp/>serial<sp/>path,<sp/>timer<sp/>reads,<sp/>mailbox<sp/>framebuffer<sp/>path,<sp/>and<sp/>SD<sp/>block-device</highlight></codeline>
-<codeline><highlight class="normal"><sp/><sp/>registration<sp/>scaffold.</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>PL011<sp/>serial<sp/>path,<sp/>timer<sp/>reads,<sp/>mailbox<sp/>framebuffer<sp/>path,<sp/>SD<sp/>block-device</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>registration<sp/>scaffold,<sp/>USB/input<sp/>scaffolds,<sp/>AArch64<sp/>process<sp/>parity<sp/>markers,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>and<sp/>Slint/RADCompositor<sp/>parity<sp/>markers.</highlight></codeline>
 <codeline><highlight class="normal">-<sp/>DMA<sp/>is<sp/>available<sp/>through<sp/>the<sp/>generic<sp/>core<sp/>and<sp/>first<sp/>consumed<sp/>by<sp/>SPI-style</highlight></codeline>
 <codeline><highlight class="normal"><sp/><sp/>transfer<sp/>paths.</highlight></codeline>
 <codeline></codeline>
@@ -52,9 +53,10 @@
 <codeline><highlight class="normal"><sp/><sp/>semantics<sp/>across<sp/>every<sp/>target,<sp/>full<sp/>ext4<sp/>journaling,<sp/>USB<sp/>stacks,<sp/>PCIe,</highlight></codeline>
 <codeline><highlight class="normal"><sp/><sp/>wire-level<sp/>TCP,<sp/>DHCP/DNS,<sp/>and<sp/>production<sp/>networking<sp/>are<sp/>beyond<sp/>the<sp/>current</highlight></codeline>
 <codeline><highlight class="normal"><sp/><sp/>Crimson<sp/>beta<sp/>surface.</highlight></codeline>
-<codeline><highlight class="normal">-<sp/>The<sp/>Pi<sp/>Zero<sp/>2<sp/>W<sp/>path<sp/>still<sp/>needs<sp/>the<sp/>Circle<sp/>FAT<sp/>loader<sp/>jump,<sp/>eMMC<sp/>command</highlight></codeline>
-<codeline><highlight class="normal"><sp/><sp/>implementation,<sp/>AArch64<sp/>EL0/MMU/fork/COW<sp/>parity,<sp/>USB<sp/>input,<sp/>and<sp/>Slint<sp/>shell</highlight></codeline>
-<codeline><highlight class="normal"><sp/><sp/>parity<sp/>before<sp/>it<sp/>matches<sp/>the<sp/>x86<sp/>VM<sp/>path.</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>The<sp/>Pi<sp/>Zero<sp/>2<sp/>W<sp/>path<sp/>still<sp/>needs<sp/>hardware-real<sp/>Circle<sp/>FAT<sp/>loader<sp/>jump</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>validation,<sp/>eMMC<sp/>command<sp/>implementation,<sp/>DWC<sp/>OTG<sp/>USB<sp/>host<sp/>enumeration,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>hardware<sp/>HID<sp/>input,<sp/>AArch64<sp/>page-table/trap/fork/COW<sp/>implementation,<sp/>and</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>Slint<sp/>framebuffer<sp/>rendering<sp/>before<sp/>it<sp/>matches<sp/>the<sp/>x86<sp/>VM<sp/>path.</highlight></codeline>
     </programlisting>
     <location file="/media/jvincent/Kingspec512/repos/RADix-OS/docs/public/crimson-status.md"/>
   </compounddef>

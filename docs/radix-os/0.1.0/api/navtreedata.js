@@ -78,13 +78,14 @@ var NAVTREE =
     [ "Pi Zero 2 W Bring-Up", "pi_zero2w.html", [
       [ "Required Loader State", "pi_zero2w.html#autotoc_md37", null ],
       [ "Current Payload", "pi_zero2w.html#autotoc_md38", null ],
-      [ "Current Limits", "pi_zero2w.html#autotoc_md39", null ]
+      [ "Circle Loader Gate", "pi_zero2w.html#autotoc_md39", null ],
+      [ "Current Limits", "pi_zero2w.html#autotoc_md40", null ]
     ] ],
     [ "RADCompositor", "radcompositor.html", [
-      [ "Architecture", "radcompositor.html#autotoc_md40", null ],
-      [ "Shared-Memory IPC", "radcompositor.html#autotoc_md41", null ],
-      [ "Current Limits", "radcompositor.html#autotoc_md42", null ],
-      [ "Verification", "radcompositor.html#autotoc_md43", null ]
+      [ "Architecture", "radcompositor.html#autotoc_md41", null ],
+      [ "Shared-Memory IPC", "radcompositor.html#autotoc_md42", null ],
+      [ "Current Limits", "radcompositor.html#autotoc_md43", null ],
+      [ "Verification", "radcompositor.html#autotoc_md44", null ]
     ] ],
     [ "Classes", "annotated.html", [
       [ "Class List", "annotated.html", "annotated_dup" ],
@@ -112,11 +113,11 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "annotated.html",
-"radixkernel_8h.html#a07ba804df7a1cd06b87d874db478519b",
-"radixkernel_8h.html#a777d9419bfdaee0a25e4cb87309221e2a4d6aa9774459fdbfa88bdd7591200062",
-"radixkernel_8h.html#ac791a0a0e3266c0a8d5de15f74b406ba",
-"structrad__compositor__ipc__damage.html#ad79e004f2bc5d8d9d53293e99fd4ef1a",
-"structrad__scheduler__info.html#a9bbcac3457ad0f9ad14625dfa2cecacf"
+"radixkernel_8h.html#a06ad7dd6fa88504f161891fa6eaf5128",
+"radixkernel_8h.html#a777d9419bfdaee0a25e4cb87309221e2a10ee22da4cfba44b0b67b924f50d549e",
+"radixkernel_8h.html#ac0ced2f90b066fe2a4588574427107b5",
+"structrad__boot__info.html#aa65e6a646c795e1b825ec1db539147de",
+"structrad__process__info.html#aa45b9391b9802e12b736d2873979a259"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

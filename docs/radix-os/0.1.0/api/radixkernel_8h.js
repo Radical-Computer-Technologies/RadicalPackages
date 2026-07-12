@@ -19,6 +19,7 @@ var radixkernel_8h =
     [ "rad_vfs_stat", "structrad__vfs__stat.html", "structrad__vfs__stat" ],
     [ "rad_block_info", "structrad__block__info.html", "structrad__block__info" ],
     [ "rad_block_request", "structrad__block__request.html", "structrad__block__request" ],
+    [ "rad_usb_host_info", "structrad__usb__host__info.html", "structrad__usb__host__info" ],
     [ "rad_mac_address", "structrad__mac__address.html", "structrad__mac__address" ],
     [ "rad_ipv4_address", "structrad__ipv4__address.html", "structrad__ipv4__address" ],
     [ "rad_net_packet", "structrad__net__packet.html", "structrad__net__packet" ],
@@ -105,6 +106,7 @@ var radixkernel_8h =
     [ "RAD_DEVICE_IOCTL_NET_SEND", "radixkernel_8h.html#a80dc38b8b06a00a2bee4637ba6732334", null ],
     [ "RAD_DEVICE_IOCTL_SERIAL_CONFIGURE", "radixkernel_8h.html#ac9f7329b813470e22aee723bec71a21b", null ],
     [ "RAD_DEVICE_IOCTL_SPI_TRANSFER", "radixkernel_8h.html#a7f087f28224e3f845bd944702414b8c3", null ],
+    [ "RAD_DEVICE_IOCTL_USB_HOST_INFO", "radixkernel_8h.html#a62dc617b80551f1cf972bb5e3e035b27", null ],
     [ "RAD_DISPLAY_CONNECTOR_MAX", "radixkernel_8h.html#a877c479f46600d365a7dea23f1035032", null ],
     [ "RAD_DRIVER_NAME_MAX", "radixkernel_8h.html#aeeb230badc35c6d6f2b041a978c90ce1", null ],
     [ "RAD_FCNTL_GETFD", "radixkernel_8h.html#abbf6adfaf233eff72672cb1e14412dcb", null ],
@@ -133,6 +135,7 @@ var radixkernel_8h =
     [ "RAD_IOCTL_TYPE_NET", "radixkernel_8h.html#a40c2ecf1d7cf45848f0ec4457a5d4728", null ],
     [ "RAD_IOCTL_TYPE_SERIAL", "radixkernel_8h.html#a11091af7d9d4783542514525646e9a8e", null ],
     [ "RAD_IOCTL_TYPE_SPI", "radixkernel_8h.html#a00cec2047823899cc72a38b7c326c54d", null ],
+    [ "RAD_IOCTL_TYPE_USB", "radixkernel_8h.html#aab1b97a857c5ffcf7e30f2dc9b2aead3", null ],
     [ "RAD_IOCTL_WRITE", "radixkernel_8h.html#a06ad7dd6fa88504f161891fa6eaf5128", null ],
     [ "RAD_IOR", "radixkernel_8h.html#a2663296458de69e7208e6e7e64c2f0eb", null ],
     [ "RAD_IOW", "radixkernel_8h.html#a1988325ec4ad14e387161bad4f7eb912", null ],
@@ -284,6 +287,9 @@ var radixkernel_8h =
     [ "rad_tty_output_t", "radixkernel_8h.html#a7f0adb9f9cbec3c3fb09fe9e4cc49f59", null ],
     [ "rad_tty_t", "radixkernel_8h.html#ad3fc4d21810b665c46f1a5f28686036f", null ],
     [ "rad_tty_window_size_t", "radixkernel_8h.html#afc83eb6a9c61f783ee4ca1ec9873ae3b", null ],
+    [ "rad_usb_controller_type_t", "radixkernel_8h.html#a18ae1fdd9bc5e14559b9629fec7b230f", null ],
+    [ "rad_usb_device_class_t", "radixkernel_8h.html#a82c6e82213bb242dd9cf4f140da2895d", null ],
+    [ "rad_usb_host_info_t", "radixkernel_8h.html#aa0eca65b9e75fbd05131bf790367d29a", null ],
     [ "rad_vfs_backend_ops_t", "radixkernel_8h.html#ad036bb8dee779512b8c781b7e57228a8", null ],
     [ "rad_vfs_dirent_t", "radixkernel_8h.html#af9760be5f1fd89dc6031e51a551c8a25", null ],
     [ "rad_vfs_list_callback_t", "radixkernel_8h.html#a3970575968ce53bf5dbf9f8b8c4b9cba", null ],
@@ -303,7 +309,8 @@ var radixkernel_8h =
       [ "RAD_DEVICE_INPUT", "radixkernel_8h.html#aa3bd03b48cec647d6a587dc04ef15bc9a955cc117243839111ced9df5dbe8bc7a", null ],
       [ "RAD_DEVICE_BLOCK", "radixkernel_8h.html#aa3bd03b48cec647d6a587dc04ef15bc9a3cd327e938dcfd771411ed5b8bba8fbd", null ],
       [ "RAD_DEVICE_NETWORK", "radixkernel_8h.html#aa3bd03b48cec647d6a587dc04ef15bc9a714230a8419aa40c48b3d5d6ff28fc8d", null ],
-      [ "RAD_DEVICE_COMPOSITOR", "radixkernel_8h.html#aa3bd03b48cec647d6a587dc04ef15bc9adbafb06ec7454317e57a963e8b79acc7", null ]
+      [ "RAD_DEVICE_COMPOSITOR", "radixkernel_8h.html#aa3bd03b48cec647d6a587dc04ef15bc9adbafb06ec7454317e57a963e8b79acc7", null ],
+      [ "RAD_DEVICE_USB", "radixkernel_8h.html#aa3bd03b48cec647d6a587dc04ef15bc9a595bac50a00d08e6a116d788bfeb4e9e", null ]
     ] ],
     [ "rad_display_output_type", "radixkernel_8h.html#aeaf4bdbadb007735aad324a9f6c084b3", [
       [ "RAD_DISPLAY_OUTPUT_MEMORY", "radixkernel_8h.html#aeaf4bdbadb007735aad324a9f6c084b3aa14b1cec64ecf34f8951b015266657dd", null ],
@@ -506,6 +513,16 @@ var radixkernel_8h =
       [ "RAD_TTY_MODE_CANONICAL", "radixkernel_8h.html#a7f00c31def64b43ffa39a3d9e879507fa9ad8f9ba5ed790f7ee72ae4325797f59", null ],
       [ "RAD_TTY_MODE_ECHO", "radixkernel_8h.html#a7f00c31def64b43ffa39a3d9e879507fae9804179cb860b4fd49f0ee2847506eb", null ],
       [ "RAD_TTY_MODE_CRLF", "radixkernel_8h.html#a7f00c31def64b43ffa39a3d9e879507fac38d71465e7e8e453bc667e9e5e3c5fc", null ]
+    ] ],
+    [ "rad_usb_controller_type", "radixkernel_8h.html#aaa2cbccb26d4934082e579dc1ae25573", [
+      [ "RAD_USB_CONTROLLER_UNKNOWN", "radixkernel_8h.html#aaa2cbccb26d4934082e579dc1ae25573aa1d461a26f99e2dddb6fb5229e943b61", null ],
+      [ "RAD_USB_CONTROLLER_DWC_OTG", "radixkernel_8h.html#aaa2cbccb26d4934082e579dc1ae25573ae477d46753c59e31631a97eb8aec35e5", null ]
+    ] ],
+    [ "rad_usb_device_class", "radixkernel_8h.html#a71b5a6ce065927acf22a8fb4e403de9f", [
+      [ "RAD_USB_CLASS_UNKNOWN", "radixkernel_8h.html#a71b5a6ce065927acf22a8fb4e403de9fa9af3c655235c32b77ef8d5b1de428454", null ],
+      [ "RAD_USB_CLASS_HID_KEYBOARD", "radixkernel_8h.html#a71b5a6ce065927acf22a8fb4e403de9fa6b66087a283ca1a3fabde8df436dc88b", null ],
+      [ "RAD_USB_CLASS_HID_MOUSE", "radixkernel_8h.html#a71b5a6ce065927acf22a8fb4e403de9fabf4c9c77855bfed8f2c978cb8190af8c", null ],
+      [ "RAD_USB_CLASS_MASS_STORAGE", "radixkernel_8h.html#a71b5a6ce065927acf22a8fb4e403de9fa816bc121747e2c8620766042f01de535", null ]
     ] ],
     [ "rad_vfs_open_flags", "radixkernel_8h.html#ae76631a4c448d9e72b2bab8756348dea", [
       [ "RAD_VFS_READ", "radixkernel_8h.html#ae76631a4c448d9e72b2bab8756348deaa1426cc68f1daa1936523cca562d6f435", null ],

@@ -21,7 +21,7 @@
 </sect1>
 <sect1 id="api_groups_1autotoc_md3">
 <title>Device Model</title>
-<para>Use <computeroutput><ref refid="radixkernel_8h_1a7897b27e92463cf7bf7def7ba612b5a2" kindref="member">rad_device_register()</ref></computeroutput> for generic device nodes and subsystem wrappers for specialized devices: block, network, framebuffer, input, TTY, PTY, audio, and serial. Ioctl request macros follow a Linux-style direction/type/number/size layout.</para>
+<para>Use <computeroutput><ref refid="radixkernel_8h_1a7897b27e92463cf7bf7def7ba612b5a2" kindref="member">rad_device_register()</ref></computeroutput> for generic device nodes and subsystem wrappers for specialized devices: block, network, framebuffer, input, TTY, PTY, audio, serial, and USB. Ioctl request macros follow a Linux-style direction/type/number/size layout. The first USB surface is host-info discovery for <computeroutput>/dev/usb0</computeroutput>, with HID devices expected to publish input events through the generic input queues.</para>
 </sect1>
 <sect1 id="api_groups_1autotoc_md4">
 <title>Networking</title>
