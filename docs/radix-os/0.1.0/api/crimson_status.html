@@ -89,7 +89,7 @@ $(document).ready(function(){initNavTree('crimson_status.html',''); initResizabl
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><p><a class="anchor" id="md__media_jvincent_Kingspec512_repos_RADix_OS_docs_public_crimson_status"></a> Crimson 0.1.0 is an experimental beta line for RADix-OS. The branch goal is to stabilize the kernel-facing API, x86 VM smoke path, Slint shell integration, overlay binding, filesystem profile, and driver model enough for repeatable testing.</p>
-<h1><a class="anchor" id="autotoc_md13"></a>
+<h1><a class="anchor" id="autotoc_md15"></a>
 Stable-Beta Surface</h1>
 <ul>
 <li>Kernel lifecycle, printk, boot info, time, memory stats, and terminal commands.</li>
@@ -98,7 +98,7 @@ Stable-Beta Surface</h1>
 <li>I2C, SPI, DMA, module, IRQ, and overlay binding APIs.</li>
 <li>x86 GRUB VM smoke target with framebuffer shell, PTY/TTY terminal path, and clean no-journal ext4 read/write profile.</li>
 </ul>
-<h1><a class="anchor" id="autotoc_md14"></a>
+<h1><a class="anchor" id="autotoc_md16"></a>
 Experimental Surface</h1>
 <ul>
 <li>POSIX process and syscall coverage is usable for the current shell tests but not a complete Unix userspace contract.</li>
@@ -106,14 +106,14 @@ Experimental Surface</h1>
 <li>RADCompositor supports dirty-rectangle software composition and shm-backed producer surfaces; full Slint userspace apps and hardware page flip are still follow-up work.</li>
 <li>Network APIs now include device/link/send/receive/poll shape, experimental IPv4/UDP datagram sockets, local TCP stream socket lifecycle support, and legacy virtio-net RX/TX queue ownership markers for the x86 VM target.</li>
 <li>RP2350 HSTX/DVI and SPI panel output are documented as framebuffer output goals, with backend completeness still target-dependent.</li>
-<li>Pi Zero 2 W has an experimental standalone <code>bcm283x_pi</code> payload, handoff ABI, PL011 serial path, timer reads, mailbox framebuffer path, SD block-device registration scaffold, USB/input scaffolds, AArch64 process parity markers, and Slint/RADCompositor parity markers.</li>
+<li>Pi Zero 2 W has an experimental standalone <code>bcm283x_pi</code> payload, handoff ABI, platform split under <code>platforms/a53</code>, PL011 serial path, timer reads, mailbox framebuffer path, SD block-device registration scaffold, USB/input scaffolds, portable A53 process/COW self-tests, and Slint/RADCompositor parity markers.</li>
 <li>DMA is available through the generic core and first consumed by SPI-style transfer paths.</li>
 </ul>
-<h1><a class="anchor" id="autotoc_md15"></a>
+<h1><a class="anchor" id="autotoc_md17"></a>
 Not Yet Complete</h1>
 <ul>
 <li>Full POSIX userland compatibility, dynamic ELF loading, complete fork/exec semantics across every target, full ext4 journaling, USB stacks, PCIe, wire-level TCP, DHCP/DNS, and production networking are beyond the current Crimson beta surface.</li>
-<li>The Pi Zero 2 W path still needs hardware-real Circle FAT loader jump validation, eMMC command implementation, DWC OTG USB host enumeration, hardware HID input, AArch64 page-table/trap/fork/COW implementation, and Slint framebuffer rendering before it matches the x86 VM path. </li>
+<li>The Pi Zero 2 W path still needs hardware-real Circle FAT loader jump validation, eMMC command implementation, DWC OTG USB host enumeration, hardware HID input, privileged AArch64 page-table/trap/user-entry/fork/exec/COW implementation, and Slint framebuffer rendering before it matches the x86 VM path. </li>
 </ul>
 </div></div><!-- contents -->
 </div><!-- PageDoc -->

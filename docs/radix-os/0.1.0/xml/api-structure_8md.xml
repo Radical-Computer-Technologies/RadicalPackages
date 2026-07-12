@@ -36,6 +36,14 @@
 <codeline><highlight class="normal">-<sp/>The<sp/>overlay<sp/>tree<sp/>binds<sp/>platform<sp/>description<sp/>to<sp/>buses,<sp/>child<sp/>devices,</highlight></codeline>
 <codeline><highlight class="normal"><sp/><sp/>framebuffers,<sp/>and<sp/>interrupt<sp/>domains.</highlight></codeline>
 <codeline></codeline>
+<codeline><highlight class="normal">##<sp/>Platform<sp/>Layout</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Architecture<sp/>and<sp/>SoC<sp/>code<sp/>is<sp/>split<sp/>under<sp/>`RADixKernel/platforms`.<sp/>Portable<sp/>A53</highlight></codeline>
+<codeline><highlight class="normal">execution<sp/>code<sp/>belongs<sp/>in<sp/>`platforms/a53`;<sp/>Broadcom-specific<sp/>Pi<sp/>drivers<sp/>belong</highlight></codeline>
+<codeline><highlight class="normal">under<sp/>`platforms/a53/bcm283x`.<sp/>The<sp/>x86<sp/>VM<sp/>target<sp/>remains<sp/>the<sp/>parity<sp/>reference</highlight></codeline>
+<codeline><highlight class="normal">and<sp/>will<sp/>move<sp/>under<sp/>`platforms/x86`<sp/>once<sp/>its<sp/>target<sp/>wrapper<sp/>is<sp/>thin<sp/>enough<sp/>to</highlight></codeline>
+<codeline><highlight class="normal">avoid<sp/>behavior<sp/>changes.</highlight></codeline>
+<codeline></codeline>
 <codeline><highlight class="normal">##<sp/>Handle<sp/>Rules</highlight></codeline>
 <codeline></codeline>
 <codeline><highlight class="normal">Opaque<sp/>handles<sp/>are<sp/>owned<sp/>by<sp/>the<sp/>caller<sp/>after<sp/>a<sp/>successful<sp/>open/create<sp/>call.</highlight></codeline>

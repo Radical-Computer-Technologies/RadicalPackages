@@ -89,7 +89,7 @@ $(document).ready(function(){initNavTree('device_tree_guide.html',''); initResiz
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><p><a class="anchor" id="md__media_jvincent_Kingspec512_repos_RADix_OS_docs_public_device_tree"></a> RADix-OS uses <code>.radoverlay</code> blobs as its runtime device tree format. The JSON source is compiled by <code>tools/radoverlay_compile.py</code> and loaded through <code><a class="el" href="radixkernel_8h.html#a6ee08c87d9d0fa2b4b776697e5f96121" title="Public RADix kernel API entry point.">rad_overlay_load_file()</a></code> or <code><a class="el" href="radixkernel_8h.html#a8cfa77c89cec1f7493d69ef20fffce95" title="Public RADix kernel API entry point.">rad_overlay_load_memory()</a></code>.</p>
-<h1><a class="anchor" id="autotoc_md16"></a>
+<h1><a class="anchor" id="autotoc_md18"></a>
 Overlay Shape</h1>
 <p>An overlay document may contain:</p>
 <ul>
@@ -98,7 +98,7 @@ Overlay Shape</h1>
 <li><code>fragments</code>, each with an absolute <code>target</code>, optional <code>properties</code>, and optional <code>children</code>.</li>
 </ul>
 <p>Supported property types are booleans, 32-bit integers, strings, arrays of 32-bit integers, and arrays of strings.</p>
-<h1><a class="anchor" id="autotoc_md17"></a>
+<h1><a class="anchor" id="autotoc_md19"></a>
 Bus And Device Binding</h1>
 <p>Controller nodes use stable paths such as <code>/soc/i2c@0</code>, <code>/soc/spi@0</code>, or <code>/soc/interrupt-controller@20</code>. Child nodes live below their parent bus:</p>
 <div class="fragment"><div class="line">{</div>
@@ -118,11 +118,11 @@ Bus And Device Binding</h1>
 <div class="line">  }</div>
 <div class="line">}</div>
 </div><!-- fragment --><p>I2C child binding uses <code>compatible</code>, <code>reg</code>, and the parent controller <code>bus-id</code>. SPI child binding uses <code>compatible</code>, <code>cs</code>, <code>clock-frequency</code>, <code>mode</code>, <code>bits-per-word</code>, and <code>transfer-mode</code>. Valid SPI transfer modes are <code>pio</code>, <code>dma</code>, and <code>auto</code>.</p>
-<h1><a class="anchor" id="autotoc_md18"></a>
+<h1><a class="anchor" id="autotoc_md20"></a>
 Interrupt Domains</h1>
 <p>An interrupt controller node becomes an IRQ domain when it has <code>interrupt-controller</code>, <code>#interrupt-cells</code>, <code>interrupt-base</code>, and <code>interrupt-count</code>. Child device <code>interrupts</code> arrays are decoded relative to the domain. With two cells, the first value is the line and the second value is the trigger flag.</p>
 <p>Current trigger flags map to <code>rad_irq_trigger_t</code>: rising edge, falling edge, level high, and level low.</p>
-<h1><a class="anchor" id="autotoc_md19"></a>
+<h1><a class="anchor" id="autotoc_md21"></a>
 Framebuffer Outputs</h1>
 <p>Framebuffer overlays can choose the primary display by naming a registered framebuffer. This lets x86 GRUB framebuffers, Pi framebuffers, RP2350 HSTX/DVI, and future SPI panel backends share the same kernel framebuffer API.</p>
 <div class="fragment"><div class="line">{</div>
@@ -133,7 +133,7 @@ Framebuffer Outputs</h1>
 <div class="line">    &quot;primary&quot;: true</div>
 <div class="line">  }</div>
 <div class="line">}</div>
-</div><!-- fragment --><h1><a class="anchor" id="autotoc_md20"></a>
+</div><!-- fragment --><h1><a class="anchor" id="autotoc_md22"></a>
 Boot Services</h1>
 <p>Overlays may seed early boot services under <code>/services</code>. This is intentionally a small boot-time contract, not a systemd replacement. The long-term owner for service launch policy is the external <code>RADServiceManager</code> first process.</p>
 <div class="fragment"><div class="line">{</div>
@@ -151,7 +151,7 @@ Boot Services</h1>
 <div class="line">  }</div>
 <div class="line">}</div>
 </div><!-- fragment --><p>The kernel records service configuration, starts trusted early services when requested, and exposes the <code>services</code> terminal command. Scheduling internals, process policy, restart behavior, and dependency resolution stay outside the overlay format for now.</p>
-<h1><a class="anchor" id="autotoc_md21"></a>
+<h1><a class="anchor" id="autotoc_md23"></a>
 Current Limits</h1>
 <p>Crimson 0.1.0 overlays are a compact runtime binding format, not a full Linux DTB replacement. They intentionally cover the current RADix buses, IRQ domains, boot metadata, framebuffer selection, and boot-service seeds first. </p>
 </div></div><!-- contents -->

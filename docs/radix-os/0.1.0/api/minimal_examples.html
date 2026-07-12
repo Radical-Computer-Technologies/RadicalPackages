@@ -89,7 +89,7 @@ $(document).ready(function(){initNavTree('minimal_examples.html',''); initResiza
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><p><a class="anchor" id="md__media_jvincent_Kingspec512_repos_RADix_OS_docs_public_examples"></a> These examples show the intended public API shape. They omit platform-specific register setup and error logging for clarity.</p>
-<h1><a class="anchor" id="autotoc_md22"></a>
+<h1><a class="anchor" id="autotoc_md24"></a>
 Register A Kernel Module</h1>
 <div class="fragment"><div class="line"><span class="keyword">static</span> <a class="code" href="radixkernel_8h.html#aeb7c981d4b5f029daa65d3b928bab127">rad_status_t</a> my_driver_init(<span class="keywordtype">void</span> *context) {</div>
 <div class="line">    (void)context;</div>
@@ -116,7 +116,7 @@ Register A Kernel Module</h1>
 <div class="ttc" id="aradixkernel_8h_html_aeb7c981d4b5f029daa65d3b928bab127"><div class="ttname"><a href="radixkernel_8h.html#aeb7c981d4b5f029daa65d3b928bab127">rad_status_t</a></div><div class="ttdeci">enum rad_status rad_status_t</div><div class="ttdoc">Public enumeration for rad_status.</div></div>
 <div class="ttc" id="astructrad__module__descriptor_html"><div class="ttname"><a href="structrad__module__descriptor.html">rad_module_descriptor</a></div><div class="ttdoc">Public data structure for rad_module_descriptor.</div><div class="ttdef"><b>Definition:</b> radixkernel.h:989</div></div>
 <div class="ttc" id="astructrad__module__descriptor_html_a1bb8d8a4b6a2938d82bd92a6183c8513"><div class="ttname"><a href="structrad__module__descriptor.html#a1bb8d8a4b6a2938d82bd92a6183c8513">rad_module_descriptor::size</a></div><div class="ttdeci">uint32_t size</div><div class="ttdoc">Public structure field.</div><div class="ttdef"><b>Definition:</b> radixkernel.h:990</div></div>
-</div><!-- fragment --><h1><a class="anchor" id="autotoc_md23"></a>
+</div><!-- fragment --><h1><a class="anchor" id="autotoc_md25"></a>
 Register An I2C Controller And Child Driver</h1>
 <div class="fragment"><div class="line"><span class="keyword">static</span> <a class="code" href="radixkernel_8h.html#aeb7c981d4b5f029daa65d3b928bab127">rad_status_t</a> i2c_xfer(<span class="keywordtype">void</span> *context,</div>
 <div class="line">                             <span class="keyword">const</span> <a class="code" href="structrad__i2c__transfer.html">rad_i2c_transfer_t</a> *transfer) {</div>
@@ -170,7 +170,7 @@ Register An I2C Controller And Child Driver</h1>
 <div class="ttc" id="astructrad__i2c__driver_html_af5448ef486cc3ac765269d016b42e196"><div class="ttname"><a href="structrad__i2c__driver.html#af5448ef486cc3ac765269d016b42e196">rad_i2c_driver::size</a></div><div class="ttdeci">uint32_t size</div><div class="ttdoc">Public structure field.</div><div class="ttdef"><b>Definition:</b> radixkernel.h:902</div></div>
 <div class="ttc" id="astructrad__i2c__transfer_html"><div class="ttname"><a href="structrad__i2c__transfer.html">rad_i2c_transfer</a></div><div class="ttdoc">Public data structure for rad_i2c_transfer.</div><div class="ttdef"><b>Definition:</b> radixkernel.h:870</div></div>
 <div class="ttc" id="astructrad__irq__resource_html"><div class="ttname"><a href="structrad__irq__resource.html">rad_irq_resource</a></div><div class="ttdoc">Public data structure for rad_irq_resource.</div><div class="ttdef"><b>Definition:</b> radixkernel.h:1090</div></div>
-</div><!-- fragment --><h1><a class="anchor" id="autotoc_md24"></a>
+</div><!-- fragment --><h1><a class="anchor" id="autotoc_md26"></a>
 Register DMA And Use SPI Auto Mode</h1>
 <div class="fragment"><div class="line"><a class="code" href="structrad__dma__controller__config.html">rad_dma_controller_config_t</a> dma = {</div>
 <div class="line">    .<a class="code" href="structrad__dma__controller__config.html#ab105a7d3b1eb1aaf6e24db07af3990c2">size</a> = <span class="keyword">sizeof</span>(<a class="code" href="radixkernel_8h.html#ac791a0a0e3266c0a8d5de15f74b406ba">rad_dma_controller_config_t</a>),</div>
@@ -208,7 +208,7 @@ Register DMA And Use SPI Auto Mode</h1>
 <div class="ttc" id="astructrad__dma__controller__config_html_ab105a7d3b1eb1aaf6e24db07af3990c2"><div class="ttname"><a href="structrad__dma__controller__config.html#ab105a7d3b1eb1aaf6e24db07af3990c2">rad_dma_controller_config::size</a></div><div class="ttdeci">uint32_t size</div><div class="ttdoc">Public structure field.</div><div class="ttdef"><b>Definition:</b> radixkernel.h:953</div></div>
 <div class="ttc" id="astructrad__spi__transfer_html"><div class="ttname"><a href="structrad__spi__transfer.html">rad_spi_transfer</a></div><div class="ttdoc">Public data structure for rad_spi_transfer.</div><div class="ttdef"><b>Definition:</b> radixkernel.h:911</div></div>
 <div class="ttc" id="astructrad__spi__transfer_html_aafb5bd02278c6ae7d8614cd475d14f0a"><div class="ttname"><a href="structrad__spi__transfer.html#aafb5bd02278c6ae7d8614cd475d14f0a">rad_spi_transfer::tx_data</a></div><div class="ttdeci">const uint8_t * tx_data</div><div class="ttdoc">Public structure field.</div><div class="ttdef"><b>Definition:</b> radixkernel.h:912</div></div>
-</div><!-- fragment --><h1><a class="anchor" id="autotoc_md25"></a>
+</div><!-- fragment --><h1><a class="anchor" id="autotoc_md27"></a>
 Register A Framebuffer</h1>
 <div class="fragment"><div class="line"><a class="code" href="structrad__framebuffer__config.html">rad_framebuffer_config_t</a> fb = {</div>
 <div class="line">    .<a class="code" href="structrad__framebuffer__config.html#a327794f67f86a737412c9b1246595cbe">size</a> = <span class="keyword">sizeof</span>(<a class="code" href="radixkernel_8h.html#a0b2054e13e5b80e1247f4dbaac6b3115">rad_framebuffer_config_t</a>),</div>
@@ -239,7 +239,7 @@ Register A Framebuffer</h1>
 <div class="ttc" id="astructrad__framebuffer__info_html_a790840e28d7be58e8ef5789818d8e362"><div class="ttname"><a href="structrad__framebuffer__info.html#a790840e28d7be58e8ef5789818d8e362">rad_framebuffer_info::pixels</a></div><div class="ttdeci">void * pixels</div><div class="ttdoc">Public structure field.</div><div class="ttdef"><b>Definition:</b> radixkernel.h:776</div></div>
 <div class="ttc" id="astructrad__framebuffer__info_html_aab6139e7732fce26f208d5341cee6991"><div class="ttname"><a href="structrad__framebuffer__info.html#aab6139e7732fce26f208d5341cee6991">rad_framebuffer_info::height</a></div><div class="ttdeci">uint32_t height</div><div class="ttdoc">Public structure field.</div><div class="ttdef"><b>Definition:</b> radixkernel.h:773</div></div>
 <div class="ttc" id="astructrad__framebuffer__info_html_abe042872b9cb5f40ae4da78140384cc5"><div class="ttname"><a href="structrad__framebuffer__info.html#abe042872b9cb5f40ae4da78140384cc5">rad_framebuffer_info::size</a></div><div class="ttdeci">uint32_t size</div><div class="ttdoc">Public structure field.</div><div class="ttdef"><b>Definition:</b> radixkernel.h:771</div></div>
-</div><!-- fragment --><h1><a class="anchor" id="autotoc_md26"></a>
+</div><!-- fragment --><h1><a class="anchor" id="autotoc_md28"></a>
 Read Input Events</h1>
 <div class="fragment"><div class="line"><a class="code" href="radixkernel_8h.html#addb721bf345dc2785f09755b1f398646">rad_input_queue_t</a> queue;</div>
 <div class="line"><a class="code" href="radixkernel_8h.html#ad55e7dfc4c27ea46b3970c315a72bf06">rad_input_queue_create</a>(<span class="stringliteral">&quot;kbd0&quot;</span>, 64, &amp;queue);</div>
@@ -253,7 +253,7 @@ Read Input Events</h1>
 <div class="ttc" id="aradixkernel_8h_html_ad55e7dfc4c27ea46b3970c315a72bf06"><div class="ttname"><a href="radixkernel_8h.html#ad55e7dfc4c27ea46b3970c315a72bf06">rad_input_queue_create</a></div><div class="ttdeci">rad_status_t rad_input_queue_create(const char *name, size_t capacity, rad_input_queue_t *queue)</div><div class="ttdoc">Public RADix kernel API entry point.</div></div>
 <div class="ttc" id="aradixkernel_8h_html_addb721bf345dc2785f09755b1f398646"><div class="ttname"><a href="radixkernel_8h.html#addb721bf345dc2785f09755b1f398646">rad_input_queue_t</a></div><div class="ttdeci">struct rad_input_queue_handle * rad_input_queue_t</div><div class="ttdoc">Opaque handle type rad_input_queue_t backed by rad_input_queue_handle.</div><div class="ttdef"><b>Definition:</b> radixkernel.h:1201</div></div>
 <div class="ttc" id="astructrad__input__event_html"><div class="ttname"><a href="structrad__input__event.html">rad_input_event</a></div><div class="ttdoc">Public data structure for rad_input_event.</div><div class="ttdef"><b>Definition:</b> radixkernel.h:743</div></div>
-</div><!-- fragment --><h1><a class="anchor" id="autotoc_md27"></a>
+</div><!-- fragment --><h1><a class="anchor" id="autotoc_md29"></a>
 Mount A VFS Provider</h1>
 <div class="fragment"><div class="line"><a class="code" href="structrad__vfs__backend__ops.html">rad_vfs_backend_ops_t</a> ops = {</div>
 <div class="line">    .<a class="code" href="structrad__i2c__controller__ops.html#a1c8877ca69e9c246774a23f74df8a78b">context</a> = fs_context,</div>
@@ -269,7 +269,7 @@ Mount A VFS Provider</h1>
 <div class="ttc" id="aradixkernel_8h_html_af5671ff5bfdb029f839e31df4bc25100"><div class="ttname"><a href="radixkernel_8h.html#af5671ff5bfdb029f839e31df4bc25100">rad_vfs_mount_provider</a></div><div class="ttdeci">rad_status_t rad_vfs_mount_provider(const char *mount_point, const rad_vfs_backend_ops_t *ops)</div><div class="ttdoc">Public RADix kernel API entry point.</div></div>
 <div class="ttc" id="astructrad__i2c__controller__ops_html_a1c8877ca69e9c246774a23f74df8a78b"><div class="ttname"><a href="structrad__i2c__controller__ops.html#a1c8877ca69e9c246774a23f74df8a78b">rad_i2c_controller_ops::context</a></div><div class="ttdeci">void * context</div><div class="ttdoc">Public structure field.</div><div class="ttdef"><b>Definition:</b> radixkernel.h:885</div></div>
 <div class="ttc" id="astructrad__vfs__backend__ops_html"><div class="ttname"><a href="structrad__vfs__backend__ops.html">rad_vfs_backend_ops</a></div><div class="ttdoc">Public data structure for rad_vfs_backend_ops.</div><div class="ttdef"><b>Definition:</b> radixkernel.h:694</div></div>
-</div><!-- fragment --><h1><a class="anchor" id="autotoc_md28"></a>
+</div><!-- fragment --><h1><a class="anchor" id="autotoc_md30"></a>
 Use File Descriptors Through The Syscall ABI</h1>
 <div class="fragment"><div class="line">int32_t fd = <a class="code" href="radixkernel_8h.html#adc7d56d92c672f222d6c93dad98b257c">rad_fd_open</a>(<span class="stringliteral">&quot;/etc/init.radsh&quot;</span>, <a class="code" href="radixkernel_8h.html#ae76631a4c448d9e72b2bab8756348deaa1426cc68f1daa1936523cca562d6f435">RAD_VFS_READ</a>);</div>
 <div class="line"><span class="keywordtype">char</span> buffer[128];</div>

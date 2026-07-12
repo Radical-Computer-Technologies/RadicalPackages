@@ -7,7 +7,7 @@
     </briefdescription>
     <detaileddescription>
 <para><anchor id="device_tree_guide_1md__media_jvincent_Kingspec512_repos_RADix_OS_docs_public_device_tree"/> RADix-OS uses <computeroutput>.radoverlay</computeroutput> blobs as its runtime device tree format. The JSON source is compiled by <computeroutput>tools/radoverlay_compile.py</computeroutput> and loaded through <computeroutput><ref refid="radixkernel_8h_1a6ee08c87d9d0fa2b4b776697e5f96121" kindref="member">rad_overlay_load_file()</ref></computeroutput> or <computeroutput><ref refid="radixkernel_8h_1a8cfa77c89cec1f7493d69ef20fffce95" kindref="member">rad_overlay_load_memory()</ref></computeroutput>.</para>
-<sect1 id="device_tree_guide_1autotoc_md16">
+<sect1 id="device_tree_guide_1autotoc_md18">
 <title>Overlay Shape</title>
 <para>An overlay document may contain:</para>
 <para><itemizedlist>
@@ -18,7 +18,7 @@
 </para>
 <para>Supported property types are booleans, 32-bit integers, strings, arrays of 32-bit integers, and arrays of strings.</para>
 </sect1>
-<sect1 id="device_tree_guide_1autotoc_md17">
+<sect1 id="device_tree_guide_1autotoc_md19">
 <title>Bus And Device Binding</title>
 <para>Controller nodes use stable paths such as <computeroutput>/soc/i2c@0</computeroutput>, <computeroutput>/soc/spi@0</computeroutput>, or <computeroutput>/soc/interrupt-controller@20</computeroutput>. Child nodes live below their parent bus:</para>
 <para><programlisting filename=".json"><codeline><highlight class="normal">{</highlight></codeline>
@@ -40,12 +40,12 @@
 </programlisting></para>
 <para>I2C child binding uses <computeroutput>compatible</computeroutput>, <computeroutput>reg</computeroutput>, and the parent controller <computeroutput>bus-id</computeroutput>. SPI child binding uses <computeroutput>compatible</computeroutput>, <computeroutput>cs</computeroutput>, <computeroutput>clock-frequency</computeroutput>, <computeroutput>mode</computeroutput>, <computeroutput>bits-per-word</computeroutput>, and <computeroutput>transfer-mode</computeroutput>. Valid SPI transfer modes are <computeroutput>pio</computeroutput>, <computeroutput>dma</computeroutput>, and <computeroutput>auto</computeroutput>.</para>
 </sect1>
-<sect1 id="device_tree_guide_1autotoc_md18">
+<sect1 id="device_tree_guide_1autotoc_md20">
 <title>Interrupt Domains</title>
 <para>An interrupt controller node becomes an IRQ domain when it has <computeroutput>interrupt-controller</computeroutput>, <computeroutput>#interrupt-cells</computeroutput>, <computeroutput>interrupt-base</computeroutput>, and <computeroutput>interrupt-count</computeroutput>. Child device <computeroutput>interrupts</computeroutput> arrays are decoded relative to the domain. With two cells, the first value is the line and the second value is the trigger flag.</para>
 <para>Current trigger flags map to <computeroutput>rad_irq_trigger_t</computeroutput>: rising edge, falling edge, level high, and level low.</para>
 </sect1>
-<sect1 id="device_tree_guide_1autotoc_md19">
+<sect1 id="device_tree_guide_1autotoc_md21">
 <title>Framebuffer Outputs</title>
 <para>Framebuffer overlays can choose the primary display by naming a registered framebuffer. This lets x86 GRUB framebuffers, Pi framebuffers, RP2350 HSTX/DVI, and future SPI panel backends share the same kernel framebuffer API.</para>
 <para><programlisting filename=".json"><codeline><highlight class="normal">{</highlight></codeline>
@@ -58,7 +58,7 @@
 <codeline><highlight class="normal">}</highlight></codeline>
 </programlisting></para>
 </sect1>
-<sect1 id="device_tree_guide_1autotoc_md20">
+<sect1 id="device_tree_guide_1autotoc_md22">
 <title>Boot Services</title>
 <para>Overlays may seed early boot services under <computeroutput>/services</computeroutput>. This is intentionally a small boot-time contract, not a systemd replacement. The long-term owner for service launch policy is the external <computeroutput>RADServiceManager</computeroutput> first process.</para>
 <para><programlisting filename=".json"><codeline><highlight class="normal">{</highlight></codeline>
@@ -78,7 +78,7 @@
 </programlisting></para>
 <para>The kernel records service configuration, starts trusted early services when requested, and exposes the <computeroutput>services</computeroutput> terminal command. Scheduling internals, process policy, restart behavior, and dependency resolution stay outside the overlay format for now.</para>
 </sect1>
-<sect1 id="device_tree_guide_1autotoc_md21">
+<sect1 id="device_tree_guide_1autotoc_md23">
 <title>Current Limits</title>
 <para>Crimson 0.1.0 overlays are a compact runtime binding format, not a full Linux DTB replacement. They intentionally cover the current RADix buses, IRQ domains, boot metadata, framebuffer selection, and boot-service seeds first. </para>
 </sect1>

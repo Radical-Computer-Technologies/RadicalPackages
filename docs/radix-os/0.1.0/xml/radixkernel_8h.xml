@@ -33,6 +33,7 @@
     <includedby refid="rad__usb_8h" local="no">/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/headers/radixkernel/rad_usb.h</includedby>
     <includedby refid="rad__vfs_8h" local="no">/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/headers/radixkernel/rad_vfs.h</includedby>
     <includedby refid="radboot_8h" local="no">/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/boot/radboot.h</includedby>
+    <includedby refid="radixkernel__a53_8h" local="no">/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/platforms/a53/radixkernel_a53.h</includedby>
     <incdepgraph>
       <node id="4">
         <label>stdarg.h</label>
@@ -102,6 +103,10 @@
       <node id="3">
         <label>/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/headers/radixkernel/rad_block.h</label>
         <link refid="rad__block_8h_source"/>
+      </node>
+      <node id="30">
+        <label>/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/platforms/a53/radixkernel_a53.h</label>
+        <link refid="radixkernel__a53_8h_source"/>
       </node>
       <node id="12">
         <label>/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/headers/radixkernel/rad_irq.h</label>
@@ -225,6 +230,8 @@
         <childnode refid="28" relation="include">
         </childnode>
         <childnode refid="29" relation="include">
+        </childnode>
+        <childnode refid="30" relation="include">
         </childnode>
       </node>
     </invincdepgraph>

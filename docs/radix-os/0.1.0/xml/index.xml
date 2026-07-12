@@ -33,6 +33,22 @@
     <member refid="classrad_1_1Mutex_1af0a74fe502011c390468fddc225c9b79" kind="function"><name>unlock</name></member>
     <member refid="classrad_1_1Mutex_1a6563bb20bd9bedc96cdd66b41a07bd35" kind="function"><name>native</name></member>
   </compound>
+  <compound refid="structrad__a53__capabilities" kind="struct"><name>rad_a53_capabilities</name>
+    <member refid="structrad__a53__capabilities_1ab172e104ff009e6f480a340ea8d2d130" kind="variable"><name>size</name></member>
+    <member refid="structrad__a53__capabilities_1a937613a463f2b2db16bb5c3cfd09efa9" kind="variable"><name>boot_normalized</name></member>
+    <member refid="structrad__a53__capabilities_1a6c70a8f756fa9e3616ac1b5dbf816efa" kind="variable"><name>secondary_cores_parked</name></member>
+    <member refid="structrad__a53__capabilities_1a1eccc8f2d955656c05df58ea7d99b318" kind="variable"><name>exception_vectors_ready</name></member>
+    <member refid="structrad__a53__capabilities_1af3d0e994b8847a0a2e45352393362e24" kind="variable"><name>svc_ready</name></member>
+    <member refid="structrad__a53__capabilities_1a8fab3ecb1ed41943fbacc99249a23414" kind="variable"><name>user_copy_ready</name></member>
+    <member refid="structrad__a53__capabilities_1a74d6e93559a0725dfe59cd275882cc33" kind="variable"><name>fork_ready</name></member>
+    <member refid="structrad__a53__capabilities_1a287e008045724fad931470cd43165ad0" kind="variable"><name>exec_ready</name></member>
+    <member refid="structrad__a53__capabilities_1ad952d27588ccebbf13fc102a157498bf" kind="variable"><name>cow_ready</name></member>
+    <member refid="structrad__a53__capabilities_1aa73f525511c1bb8a7f2e053ba9ffb5f0" kind="variable"><name>boot_argument</name></member>
+    <member refid="structrad__a53__capabilities_1ac301c9b8e2df682c63463a2a6e6ef333" kind="variable"><name>boot_core</name></member>
+    <member refid="structrad__a53__capabilities_1a2efd778a828e28a1c737884f57d1713a" kind="variable"><name>user_base</name></member>
+    <member refid="structrad__a53__capabilities_1a54dfeb6d43a237129b8946c5046f8686" kind="variable"><name>user_limit</name></member>
+    <member refid="structrad__a53__capabilities_1a1977123007aae74f992f818cbc340390" kind="variable"><name>page_size</name></member>
+  </compound>
   <compound refid="structrad__audio__format" kind="struct"><name>rad_audio_format</name>
     <member refid="structrad__audio__format_1ab7cb5e55fe275bb3b07a29b0ace7bdb3" kind="variable"><name>sample_rate</name></member>
     <member refid="structrad__audio__format_1aebc33cef0aa1c0468269447c5725ccee" kind="variable"><name>channels</name></member>
@@ -1479,6 +1495,19 @@
     <member refid="radixkernel_8h_1a8b23db0d2194c61b5d5ed7ab4d3cec05" kind="function"><name>rad_terminal_poll_attached</name></member>
     <member refid="radixkernel_8h_1aac2fcaa295e0d1119bb5897d47f70c54" kind="function"><name>rad_terminal_command_count</name></member>
   </compound>
+  <compound refid="radixkernel__a53_8h" kind="file"><name>radixkernel_a53.h</name>
+    <member refid="radixkernel__a53_8h_1a425b406dbe151134cc472989af2fc2c0" kind="typedef"><name>rad_a53_capabilities_t</name></member>
+    <member refid="radixkernel__a53_8h_1a0897912b66bbde7bd3fa447bf18e8734" kind="function"><name>rad_a53_note_boot_normalized</name></member>
+    <member refid="radixkernel__a53_8h_1ab0abbf9676da8650cada7b4208f25a33" kind="function"><name>rad_a53_platform_init</name></member>
+    <member refid="radixkernel__a53_8h_1a922cfdcacd8c9ba66813953cd3c63f95" kind="function"><name>rad_a53_process_arch_init</name></member>
+    <member refid="radixkernel__a53_8h_1a8a3e0c12140f9ec58db57f3b4d2271ec" kind="function"><name>rad_a53_get_capabilities</name></member>
+    <member refid="radixkernel__a53_8h_1afa2dbd53c46ddb930934212b26d71389" kind="function"><name>rad_a53_process_self_test</name></member>
+    <member refid="radixkernel__a53_8h_1ae53eb432f19865f1e57ef726ee9800df" kind="function"><name>rad_a53_vm_self_test</name></member>
+  </compound>
+  <compound refid="README_8md" kind="file"><name>README.md</name>
+  </compound>
+  <compound refid="md__media_jvincent_Kingspec512_repos_RADix_OS_RADixKernel_platforms_README" kind="page"><name>md__media_jvincent_Kingspec512_repos_RADix_OS_RADixKernel_platforms_README</name>
+  </compound>
   <compound refid="api_groups" kind="page"><name>api_groups</name>
   </compound>
   <compound refid="api_structure" kind="page"><name>api_structure</name>
@@ -1495,11 +1524,15 @@
   </compound>
   <compound refid="radcompositor" kind="page"><name>radcompositor</name>
   </compound>
+  <compound refid="dir_9390953ee0b0003e6a4366422957859d" kind="dir"><name>/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/platforms/a53</name>
+  </compound>
   <compound refid="dir_e71d2c5dab3b5ff0864964e95174a67b" kind="dir"><name>/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/boot</name>
   </compound>
   <compound refid="dir_0b64faf0c6f767efcc8a4a380eefba79" kind="dir"><name>/media/jvincent/Kingspec512/repos/RADix-OS/docs</name>
   </compound>
   <compound refid="dir_d139445b9618bc029f90a26cd49e9c06" kind="dir"><name>/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/headers</name>
+  </compound>
+  <compound refid="dir_d3e8a5e38ac62c56c5e4dac4bdc22ab5" kind="dir"><name>/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/platforms</name>
   </compound>
   <compound refid="dir_fa6d51fa3df5030906eefcde5e8371ef" kind="dir"><name>/media/jvincent/Kingspec512/repos/RADix-OS/docs/public</name>
   </compound>

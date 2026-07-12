@@ -89,11 +89,11 @@ $(document).ready(function(){initNavTree('api_structure.html',''); initResizable
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><p><a class="anchor" id="md__media_jvincent_Kingspec512_repos_RADix_OS_docs_public_api_structure"></a> RADix-OS exposes one stable C ABI through <code><a class="el" href="radixkernel_8h.html" title="Portable RADix kernel service ABI for RADLib and RADix-OS targets.">radixkernel.h</a></code>. The smaller subsystem headers, such as <code><a class="el" href="rad__vfs_8h_source.html">rad_vfs.h</a></code> and <code><a class="el" href="rad__spi_8h_source.html">rad_spi.h</a></code>, include that ABI and exist so drivers and applications can include the subsystem they use.</p>
-<h1><a class="anchor" id="autotoc_md9"></a>
+<h1><a class="anchor" id="autotoc_md10"></a>
 Initialization And Boot</h1>
 <p>Platform code fills <code>rad_boot_info_t</code> when firmware or a bootloader has already provided memory maps, command-line arguments, an initrd pointer, or an FDT pointer. The kernel is then initialized with <code><a class="el" href="radixkernel_8h.html#a0464ae9d92f6b0c74daf6f4e7400f57c" title="Public RADix kernel API entry point.">rad_kernel_init()</a></code> and driven by <code><a class="el" href="radixkernel_8h.html#a924d9dcd4d6790a17ea5470015765c60" title="Public RADix kernel API entry point.">rad_kernel_poll()</a></code> or <code><a class="el" href="radixkernel_8h.html#a44d4005c886d90ca5f2dbbdaa387e303" title="Public RADix kernel API entry point.">rad_kernel_run()</a></code>.</p>
 <p>Use <code><a class="el" href="radixkernel_8h.html#a6f6074bebd67f3035aeeefd7660daf3d" title="Public RADix kernel API entry point.">rad_printk()</a></code> for normal kernel logging and <code><a class="el" href="radixkernel_8h.html#adb179e7f1a5adcbcdccc80a71fe48c81" title="Public RADix kernel API entry point.">rad_early_printk()</a></code> before the regular console path is registered.</p>
-<h1><a class="anchor" id="autotoc_md10"></a>
+<h1><a class="anchor" id="autotoc_md11"></a>
 Runtime Services</h1>
 <p>The core runtime is intentionally explicit:</p>
 <ul>
@@ -102,10 +102,13 @@ Runtime Services</h1>
 <li>Device, block, network, framebuffer, input, TTY, PTY, serial, audio, I2C, SPI, DMA, IRQ, and module APIs are the driver-facing kernel boundary.</li>
 <li>The overlay tree binds platform description to buses, child devices, framebuffers, and interrupt domains.</li>
 </ul>
-<h1><a class="anchor" id="autotoc_md11"></a>
+<h1><a class="anchor" id="autotoc_md12"></a>
+Platform Layout</h1>
+<p>Architecture and SoC code is split under <code>RADixKernel/platforms</code>. Portable A53 execution code belongs in <code>platforms/a53</code>; Broadcom-specific Pi drivers belong under <code>platforms/a53/bcm283x</code>. The x86 VM target remains the parity reference and will move under <code>platforms/x86</code> once its target wrapper is thin enough to avoid behavior changes.</p>
+<h1><a class="anchor" id="autotoc_md13"></a>
 Handle Rules</h1>
 <p>Opaque handles are owned by the caller after a successful open/create call. Close or destroy them with the matching close/destroy function. Functions return <code>RAD_STATUS_OK</code> on success, a negative <code>rad_status_t</code> value on kernel API errors, or a negative POSIX-style result for file descriptor/syscall wrappers.</p>
-<h1><a class="anchor" id="autotoc_md12"></a>
+<h1><a class="anchor" id="autotoc_md14"></a>
 Crimson Stability</h1>
 <p>Crimson 0.1.0 documents the intended public shape for beta work. APIs marked as experimental may change before the stable release; APIs marked stable-beta should keep source compatibility inside the Crimson branch unless a documented release note says otherwise. </p>
 </div></div><!-- contents -->

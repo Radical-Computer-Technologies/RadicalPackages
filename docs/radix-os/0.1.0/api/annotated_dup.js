@@ -7,6 +7,7 @@ var annotated_dup =
       [ "Event", "classrad_1_1Event.html", "classrad_1_1Event" ],
       [ "Module", "classrad_1_1Module.html", "classrad_1_1Module" ]
     ] ],
+    [ "rad_a53_capabilities", "structrad__a53__capabilities.html", "structrad__a53__capabilities" ],
     [ "rad_audio_format", "structrad__audio__format.html", "structrad__audio__format" ],
     [ "rad_block_info", "structrad__block__info.html", "structrad__block__info" ],
     [ "rad_block_request", "structrad__block__request.html", "structrad__block__request" ],

@@ -41,9 +41,9 @@
 <codeline><highlight class="normal">-<sp/>RP2350<sp/>HSTX/DVI<sp/>and<sp/>SPI<sp/>panel<sp/>output<sp/>are<sp/>documented<sp/>as<sp/>framebuffer<sp/>output</highlight></codeline>
 <codeline><highlight class="normal"><sp/><sp/>goals,<sp/>with<sp/>backend<sp/>completeness<sp/>still<sp/>target-dependent.</highlight></codeline>
 <codeline><highlight class="normal">-<sp/>Pi<sp/>Zero<sp/>2<sp/>W<sp/>has<sp/>an<sp/>experimental<sp/>standalone<sp/>`bcm283x_pi`<sp/>payload,<sp/>handoff<sp/>ABI,</highlight></codeline>
-<codeline><highlight class="normal"><sp/><sp/>PL011<sp/>serial<sp/>path,<sp/>timer<sp/>reads,<sp/>mailbox<sp/>framebuffer<sp/>path,<sp/>SD<sp/>block-device</highlight></codeline>
-<codeline><highlight class="normal"><sp/><sp/>registration<sp/>scaffold,<sp/>USB/input<sp/>scaffolds,<sp/>AArch64<sp/>process<sp/>parity<sp/>markers,</highlight></codeline>
-<codeline><highlight class="normal"><sp/><sp/>and<sp/>Slint/RADCompositor<sp/>parity<sp/>markers.</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>platform<sp/>split<sp/>under<sp/>`platforms/a53`,<sp/>PL011<sp/>serial<sp/>path,<sp/>timer<sp/>reads,<sp/>mailbox</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>framebuffer<sp/>path,<sp/>SD<sp/>block-device<sp/>registration<sp/>scaffold,<sp/>USB/input<sp/>scaffolds,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>portable<sp/>A53<sp/>process/COW<sp/>self-tests,<sp/>and<sp/>Slint/RADCompositor<sp/>parity<sp/>markers.</highlight></codeline>
 <codeline><highlight class="normal">-<sp/>DMA<sp/>is<sp/>available<sp/>through<sp/>the<sp/>generic<sp/>core<sp/>and<sp/>first<sp/>consumed<sp/>by<sp/>SPI-style</highlight></codeline>
 <codeline><highlight class="normal"><sp/><sp/>transfer<sp/>paths.</highlight></codeline>
 <codeline></codeline>
@@ -55,8 +55,9 @@
 <codeline><highlight class="normal"><sp/><sp/>Crimson<sp/>beta<sp/>surface.</highlight></codeline>
 <codeline><highlight class="normal">-<sp/>The<sp/>Pi<sp/>Zero<sp/>2<sp/>W<sp/>path<sp/>still<sp/>needs<sp/>hardware-real<sp/>Circle<sp/>FAT<sp/>loader<sp/>jump</highlight></codeline>
 <codeline><highlight class="normal"><sp/><sp/>validation,<sp/>eMMC<sp/>command<sp/>implementation,<sp/>DWC<sp/>OTG<sp/>USB<sp/>host<sp/>enumeration,</highlight></codeline>
-<codeline><highlight class="normal"><sp/><sp/>hardware<sp/>HID<sp/>input,<sp/>AArch64<sp/>page-table/trap/fork/COW<sp/>implementation,<sp/>and</highlight></codeline>
-<codeline><highlight class="normal"><sp/><sp/>Slint<sp/>framebuffer<sp/>rendering<sp/>before<sp/>it<sp/>matches<sp/>the<sp/>x86<sp/>VM<sp/>path.</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>hardware<sp/>HID<sp/>input,<sp/>privileged<sp/>AArch64<sp/>page-table/trap/user-entry/fork/exec/COW</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>implementation,<sp/>and<sp/>Slint<sp/>framebuffer<sp/>rendering<sp/>before<sp/>it<sp/>matches<sp/>the<sp/>x86<sp/>VM</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>path.</highlight></codeline>
     </programlisting>
     <location file="/media/jvincent/Kingspec512/repos/RADix-OS/docs/public/crimson-status.md"/>
   </compounddef>

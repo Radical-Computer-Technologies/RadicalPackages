@@ -8,7 +8,7 @@
     <detaileddescription>
 <para><anchor id="index_1md__media_jvincent_Kingspec512_repos_RADix_OS_docs_public_mainpage"/> RADix-OS is a POSIX-inspired operating system kernel aimed at embedded boards, desktop VM testing, and future SoC targets. The Crimson 0.1.0 line keeps an RTOS-influenced bias toward explicit subsystems while exposing familiar process, file, device, terminal, framebuffer, filesystem, and driver APIs.</para>
 <para>This hub documents the experimental Crimson 0.1.0 kernel API.</para>
-<sect1 id="index_1autotoc_md30">
+<sect1 id="index_1autotoc_md32">
 <title>Start Here</title>
 <para><itemizedlist>
 <listitem><para><ref refid="api_structure" kindref="compound">API Structure</ref> explains the public ABI shape and subsystem ownership.</para>
@@ -22,7 +22,7 @@
 </listitem></itemizedlist>
 </para>
 </sect1>
-<sect1 id="index_1autotoc_md31">
+<sect1 id="index_1autotoc_md33">
 <title>API Groups</title>
 <para><itemizedlist>
 <listitem><para>Kernel lifecycle, boot handoff, printk, CPU control, time, memory, and performance counters.</para>
@@ -35,11 +35,11 @@
 </listitem></itemizedlist>
 </para>
 </sect1>
-<sect1 id="index_1autotoc_md32">
+<sect1 id="index_1autotoc_md34">
 <title>Filesystem Profile</title>
 <para>The x86_64 VM target currently boots from ext4. Crimson 0.1.0 supports a clean no-journal read/write ext4 profile with extent-backed files, allocation, create, mkdir, rename, truncate, symlink/readlink, unlink, rmdir, chmod, and fsync. Journal replay and journaled metadata commits are intentionally outside the current beta profile.</para>
 </sect1>
-<sect1 id="index_1autotoc_md33">
+<sect1 id="index_1autotoc_md35">
 <title>Verification</title>
 <para>Host kernel tests:</para>
 <para><programlisting filename=".bash"><codeline><highlight class="normal">cmake<sp/>-S<sp/>.<sp/>-B<sp/>build-host<sp/>-DRADIX_OS_BUILD_TESTS=ON</highlight></codeline>

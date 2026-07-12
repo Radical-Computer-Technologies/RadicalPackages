@@ -90,7 +90,7 @@ $(document).ready(function(){initNavTree('index.html',''); initResizable(); });
 <div class="contents">
 <div class="textblock"><p><a class="anchor" id="md__media_jvincent_Kingspec512_repos_RADix_OS_docs_public_mainpage"></a> RADix-OS is a POSIX-inspired operating system kernel aimed at embedded boards, desktop VM testing, and future SoC targets. The Crimson 0.1.0 line keeps an RTOS-influenced bias toward explicit subsystems while exposing familiar process, file, device, terminal, framebuffer, filesystem, and driver APIs.</p>
 <p>This hub documents the experimental Crimson 0.1.0 kernel API.</p>
-<h1><a class="anchor" id="autotoc_md30"></a>
+<h1><a class="anchor" id="autotoc_md32"></a>
 Start Here</h1>
 <ul>
 <li><a class="el" href="api_structure.html">API Structure</a> explains the public ABI shape and subsystem ownership.</li>
@@ -102,7 +102,7 @@ Start Here</h1>
 <li><a class="el" href="minimal_examples.html">Minimal Examples</a> provides short driver, framebuffer, input, VFS, and syscall examples.</li>
 <li><a class="el" href="crimson_status.html">Crimson 0.1.0 Status</a> separates stable-beta APIs from incomplete areas.</li>
 </ul>
-<h1><a class="anchor" id="autotoc_md31"></a>
+<h1><a class="anchor" id="autotoc_md33"></a>
 API Groups</h1>
 <ul>
 <li>Kernel lifecycle, boot handoff, printk, CPU control, time, memory, and performance counters.</li>
@@ -113,10 +113,10 @@ API Groups</h1>
 <li>Experimental Pi Zero 2 W <code>bcm283x_pi</code> payload and handoff ABI.</li>
 <li>Overlay tree, IRQ domains/resources, modules, I2C, SPI, and DMA driver APIs.</li>
 </ul>
-<h1><a class="anchor" id="autotoc_md32"></a>
+<h1><a class="anchor" id="autotoc_md34"></a>
 Filesystem Profile</h1>
 <p>The x86_64 VM target currently boots from ext4. Crimson 0.1.0 supports a clean no-journal read/write ext4 profile with extent-backed files, allocation, create, mkdir, rename, truncate, symlink/readlink, unlink, rmdir, chmod, and fsync. Journal replay and journaled metadata commits are intentionally outside the current beta profile.</p>
-<h1><a class="anchor" id="autotoc_md33"></a>
+<h1><a class="anchor" id="autotoc_md35"></a>
 Verification</h1>
 <p>Host kernel tests:</p>
 <div class="fragment"><div class="line">cmake -S . -B build-host -DRADIX_OS_BUILD_TESTS=ON</div>

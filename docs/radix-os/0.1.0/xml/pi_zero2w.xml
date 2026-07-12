@@ -14,7 +14,7 @@
 </listitem><listitem><para>The standalone RADix payload uses the <computeroutput>bcm283x_pi</computeroutput> backend and does not link Circle.</para>
 </listitem></itemizedlist>
 </para>
-<sect1 id="pi_zero2w_1autotoc_md37">
+<sect1 id="pi_zero2w_1autotoc_md39">
 <title>Required Loader State</title>
 <para>The handoff is intentionally strict for physical silicon. Before jumping from any second-stage loader to the RADix payload, the loader must:</para>
 <para><itemizedlist>
@@ -28,7 +28,7 @@
 </para>
 <para><computeroutput><ref refid="radboot_8h_1aaf3d6ebb801a1c4ead09b3d4b7507c89" kindref="member">radboot_validate_handoff()</ref></computeroutput> rejects Pi handoff records that do not declare these conditions through the <computeroutput>RAD_BOOT_HANDOFF_FLAG_*</computeroutput> safety bits.</para>
 </sect1>
-<sect1 id="pi_zero2w_1autotoc_md38">
+<sect1 id="pi_zero2w_1autotoc_md40">
 <title>Current Payload</title>
 <para>Build the standalone payload with:</para>
 <para><programlisting filename=".bash"><codeline><highlight class="normal">make<sp/>-C<sp/>tools/embedded/radix_pi_zero2w</highlight></codeline>
@@ -42,30 +42,31 @@
 <para>Run the RADix-owned QEMU smoke test with:</para>
 <para><programlisting filename=".bash"><codeline><highlight class="normal">tools/embedded/radix_pi_zero2w_smoke.sh</highlight></codeline>
 </programlisting></para>
-<para>The script uses <computeroutput>qemu-system-aarch64 -M raspi3b</computeroutput> because QEMU does not expose a Pi Zero 2 W machine model. If <computeroutput>qemu-system-aarch64</computeroutput> is not installed, the smoke test downloads and extracts Ubuntu&apos;s <computeroutput>qemu-system-arm</computeroutput> package under <computeroutput>.radbuild/qemu-arm</computeroutput> and reuses it on later runs. A passing run verifies the early BCM283x HAL, PL011 UART, mailbox framebuffer, handoff validation, payload entry, block and FAT mount scaffolds, USB/input scaffolds, framebuffer dirty present, AArch64 process markers, and Slint/RADCompositor parity markers.</para>
+<para>The script uses <computeroutput>qemu-system-aarch64 -M raspi3b</computeroutput> because QEMU does not expose a Pi Zero 2 W machine model. If <computeroutput>qemu-system-aarch64</computeroutput> is not installed, the smoke test downloads and extracts Ubuntu&apos;s <computeroutput>qemu-system-arm</computeroutput> package under <computeroutput>.radbuild/qemu-arm</computeroutput> and reuses it on later runs. A passing run verifies the early BCM283x HAL, PL011 UART, mailbox framebuffer, handoff validation, payload entry, block and FAT mount scaffolds, USB/input scaffolds, framebuffer dirty present, portable A53 boot/process/COW checks, and Slint/RADCompositor parity markers.</para>
 <para>The current RAD-owned backend includes:</para>
 <para><itemizedlist>
-<listitem><para>PL011 serial console registration.</para>
+<listitem><para>A platform split under <computeroutput>RADixKernel/platforms</computeroutput>: portable A53 code in <computeroutput>platforms/a53</computeroutput> and Pi-specific BCM283x drivers in <computeroutput>platforms/a53/bcm283x</computeroutput>.</para>
+</listitem><listitem><para>PL011 serial console registration.</para>
 </listitem><listitem><para>System timer reads and busy sleep.</para>
 </listitem><listitem><para>Interrupt enable/disable hooks for the BCM interrupt controller.</para>
 </listitem><listitem><para>Mailbox property framebuffer allocation and <computeroutput>/dev/fb0</computeroutput> registration.</para>
 </listitem><listitem><para><computeroutput>/dev/mmcblk0</computeroutput> block-device registration scaffold with in-memory sector backing for QEMU smoke reads.</para>
 </listitem><listitem><para><computeroutput>/dev/usb0</computeroutput> host-info scaffold and <computeroutput>/dev/input/event0</computeroutput> synthetic HID input event path.</para>
-</listitem><listitem><para>AArch64 process-architecture marker registration for EL0, SVC, user-copy, execve, fork, and COW page-fault parity gates.</para>
+</listitem><listitem><para>A portable A53 process model that registers process arch hooks, performs kernel process-table fork/fd-clone/wait checks, and exercises deterministic parent/child COW isolation before the future privileged MMU implementation takes over the same interface.</para>
 </listitem><listitem><para>Slint/RADCompositor boot-shell, window-manager, terminal-window, and compositor-damage smoke markers.</para>
 </listitem></itemizedlist>
 </para>
 </sect1>
-<sect1 id="pi_zero2w_1autotoc_md39">
+<sect1 id="pi_zero2w_1autotoc_md41">
 <title>Circle Loader Gate</title>
 <para>Run the combined loader/payload smoke test with:</para>
 <para><programlisting filename=".bash"><codeline><highlight class="normal">tools/embedded/qemu_pizero2w_smoke.sh</highlight></codeline>
 </programlisting></para>
 <para>The Circle loader source now builds a narrow second-stage handoff record and emits loader-intent markers when serial output is visible. On this workstation the Circle image currently reaches QEMU without serial markers, so the combined smoke script treats the Circle image as a build gate and then runs the standalone RADix payload gate. Physical Pi hardware remains the next authority for validating the actual Circle FAT load and jump sequence.</para>
 </sect1>
-<sect1 id="pi_zero2w_1autotoc_md40">
+<sect1 id="pi_zero2w_1autotoc_md42">
 <title>Current Limits</title>
-<para>This page is experimental. The current eMMC, USB, HID, AArch64 EL0/syscall/MMU, fork/COW, and Slint shell paths are QEMU-visible scaffolds and parity markers, not complete physical drivers or complete process isolation. The next Pi passes need the real BCM283x eMMC command engine, real DWC OTG host enumeration, hardware keyboard/mouse input, second-stage FAT load/jump validation on silicon, and full AArch64 page-table/trap/fork/COW behavior.</para>
+<para>This page is experimental. The portable A53 layer now owns the boot/process/COW contract, but privileged AArch64 exception-vector entry, real EL0 execution, hardware page tables, and user ELF replacement are not complete yet. The eMMC, USB, HID, and Slint shell paths are still QEMU-visible scaffolds rather than complete physical drivers. The next Pi passes need the real BCM283x eMMC command engine, real DWC OTG host enumeration, hardware keyboard/mouse input, second-stage FAT load/jump validation on silicon, and full AArch64 page-table/trap/fork/exec/COW behavior.</para>
 <para>Physical Pi Zero 2 W hardware remains the authority for mailbox framebuffer and SD behavior. </para>
 </sect1>
     </detaileddescription>

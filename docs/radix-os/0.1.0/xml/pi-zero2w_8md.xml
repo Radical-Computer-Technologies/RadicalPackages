@@ -64,10 +64,13 @@
 <codeline><highlight class="normal">`.radbuild/qemu-arm`<sp/>and<sp/>reuses<sp/>it<sp/>on<sp/>later<sp/>runs.<sp/>A<sp/>passing<sp/>run<sp/>verifies<sp/>the</highlight></codeline>
 <codeline><highlight class="normal">early<sp/>BCM283x<sp/>HAL,<sp/>PL011<sp/>UART,<sp/>mailbox<sp/>framebuffer,<sp/>handoff<sp/>validation,<sp/>payload</highlight></codeline>
 <codeline><highlight class="normal">entry,<sp/>block<sp/>and<sp/>FAT<sp/>mount<sp/>scaffolds,<sp/>USB/input<sp/>scaffolds,<sp/>framebuffer<sp/>dirty</highlight></codeline>
-<codeline><highlight class="normal">present,<sp/>AArch64<sp/>process<sp/>markers,<sp/>and<sp/>Slint/RADCompositor<sp/>parity<sp/>markers.</highlight></codeline>
+<codeline><highlight class="normal">present,<sp/>portable<sp/>A53<sp/>boot/process/COW<sp/>checks,<sp/>and<sp/>Slint/RADCompositor<sp/>parity</highlight></codeline>
+<codeline><highlight class="normal">markers.</highlight></codeline>
 <codeline></codeline>
 <codeline><highlight class="normal">The<sp/>current<sp/>RAD-owned<sp/>backend<sp/>includes:</highlight></codeline>
 <codeline></codeline>
+<codeline><highlight class="normal">-<sp/>A<sp/>platform<sp/>split<sp/>under<sp/>`RADixKernel/platforms`:<sp/>portable<sp/>A53<sp/>code<sp/>in</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>`platforms/a53`<sp/>and<sp/>Pi-specific<sp/>BCM283x<sp/>drivers<sp/>in<sp/>`platforms/a53/bcm283x`.</highlight></codeline>
 <codeline><highlight class="normal">-<sp/>PL011<sp/>serial<sp/>console<sp/>registration.</highlight></codeline>
 <codeline><highlight class="normal">-<sp/>System<sp/>timer<sp/>reads<sp/>and<sp/>busy<sp/>sleep.</highlight></codeline>
 <codeline><highlight class="normal">-<sp/>Interrupt<sp/>enable/disable<sp/>hooks<sp/>for<sp/>the<sp/>BCM<sp/>interrupt<sp/>controller.</highlight></codeline>
@@ -76,8 +79,10 @@
 <codeline><highlight class="normal"><sp/><sp/>backing<sp/>for<sp/>QEMU<sp/>smoke<sp/>reads.</highlight></codeline>
 <codeline><highlight class="normal">-<sp/>`/dev/usb0`<sp/>host-info<sp/>scaffold<sp/>and<sp/>`/dev/input/event0`<sp/>synthetic<sp/>HID<sp/>input</highlight></codeline>
 <codeline><highlight class="normal"><sp/><sp/>event<sp/>path.</highlight></codeline>
-<codeline><highlight class="normal">-<sp/>AArch64<sp/>process-architecture<sp/>marker<sp/>registration<sp/>for<sp/>EL0,<sp/>SVC,<sp/>user-copy,</highlight></codeline>
-<codeline><highlight class="normal"><sp/><sp/>execve,<sp/>fork,<sp/>and<sp/>COW<sp/>page-fault<sp/>parity<sp/>gates.</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>A<sp/>portable<sp/>A53<sp/>process<sp/>model<sp/>that<sp/>registers<sp/>process<sp/>arch<sp/>hooks,<sp/>performs</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>kernel<sp/>process-table<sp/>fork/fd-clone/wait<sp/>checks,<sp/>and<sp/>exercises<sp/>deterministic</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>parent/child<sp/>COW<sp/>isolation<sp/>before<sp/>the<sp/>future<sp/>privileged<sp/>MMU<sp/>implementation</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>takes<sp/>over<sp/>the<sp/>same<sp/>interface.</highlight></codeline>
 <codeline><highlight class="normal">-<sp/>Slint/RADCompositor<sp/>boot-shell,<sp/>window-manager,<sp/>terminal-window,<sp/>and</highlight></codeline>
 <codeline><highlight class="normal"><sp/><sp/>compositor-damage<sp/>smoke<sp/>markers.</highlight></codeline>
 <codeline></codeline>
@@ -98,12 +103,14 @@
 <codeline></codeline>
 <codeline><highlight class="normal">##<sp/>Current<sp/>Limits</highlight></codeline>
 <codeline></codeline>
-<codeline><highlight class="normal">This<sp/>page<sp/>is<sp/>experimental.<sp/>The<sp/>current<sp/>eMMC,<sp/>USB,<sp/>HID,<sp/>AArch64<sp/>EL0/syscall/MMU,</highlight></codeline>
-<codeline><highlight class="normal">fork/COW,<sp/>and<sp/>Slint<sp/>shell<sp/>paths<sp/>are<sp/>QEMU-visible<sp/>scaffolds<sp/>and<sp/>parity<sp/>markers,</highlight></codeline>
-<codeline><highlight class="normal">not<sp/>complete<sp/>physical<sp/>drivers<sp/>or<sp/>complete<sp/>process<sp/>isolation.<sp/>The<sp/>next<sp/>Pi<sp/>passes</highlight></codeline>
-<codeline><highlight class="normal">need<sp/>the<sp/>real<sp/>BCM283x<sp/>eMMC<sp/>command<sp/>engine,<sp/>real<sp/>DWC<sp/>OTG<sp/>host<sp/>enumeration,</highlight></codeline>
-<codeline><highlight class="normal">hardware<sp/>keyboard/mouse<sp/>input,<sp/>second-stage<sp/>FAT<sp/>load/jump<sp/>validation<sp/>on<sp/>silicon,</highlight></codeline>
-<codeline><highlight class="normal">and<sp/>full<sp/>AArch64<sp/>page-table/trap/fork/COW<sp/>behavior.</highlight></codeline>
+<codeline><highlight class="normal">This<sp/>page<sp/>is<sp/>experimental.<sp/>The<sp/>portable<sp/>A53<sp/>layer<sp/>now<sp/>owns<sp/>the<sp/>boot/process/COW</highlight></codeline>
+<codeline><highlight class="normal">contract,<sp/>but<sp/>privileged<sp/>AArch64<sp/>exception-vector<sp/>entry,<sp/>real<sp/>EL0<sp/>execution,</highlight></codeline>
+<codeline><highlight class="normal">hardware<sp/>page<sp/>tables,<sp/>and<sp/>user<sp/>ELF<sp/>replacement<sp/>are<sp/>not<sp/>complete<sp/>yet.<sp/>The<sp/>eMMC,</highlight></codeline>
+<codeline><highlight class="normal">USB,<sp/>HID,<sp/>and<sp/>Slint<sp/>shell<sp/>paths<sp/>are<sp/>still<sp/>QEMU-visible<sp/>scaffolds<sp/>rather<sp/>than</highlight></codeline>
+<codeline><highlight class="normal">complete<sp/>physical<sp/>drivers.<sp/>The<sp/>next<sp/>Pi<sp/>passes<sp/>need<sp/>the<sp/>real<sp/>BCM283x<sp/>eMMC<sp/>command</highlight></codeline>
+<codeline><highlight class="normal">engine,<sp/>real<sp/>DWC<sp/>OTG<sp/>host<sp/>enumeration,<sp/>hardware<sp/>keyboard/mouse<sp/>input,</highlight></codeline>
+<codeline><highlight class="normal">second-stage<sp/>FAT<sp/>load/jump<sp/>validation<sp/>on<sp/>silicon,<sp/>and<sp/>full<sp/>AArch64</highlight></codeline>
+<codeline><highlight class="normal">page-table/trap/fork/exec/COW<sp/>behavior.</highlight></codeline>
 <codeline></codeline>
 <codeline><highlight class="normal">Physical<sp/>Pi<sp/>Zero<sp/>2<sp/>W<sp/>hardware<sp/>remains<sp/>the<sp/>authority<sp/>for<sp/>mailbox<sp/>framebuffer<sp/>and</highlight></codeline>
 <codeline><highlight class="normal">SD<sp/>behavior.</highlight></codeline>

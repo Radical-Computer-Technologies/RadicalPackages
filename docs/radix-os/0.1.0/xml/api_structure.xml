@@ -7,12 +7,12 @@
     </briefdescription>
     <detaileddescription>
 <para><anchor id="api_structure_1md__media_jvincent_Kingspec512_repos_RADix_OS_docs_public_api_structure"/> RADix-OS exposes one stable C ABI through <computeroutput><ref refid="radixkernel_8h" kindref="compound">radixkernel.h</ref></computeroutput>. The smaller subsystem headers, such as <computeroutput><ref refid="rad__vfs_8h_source" kindref="compound">rad_vfs.h</ref></computeroutput> and <computeroutput><ref refid="rad__spi_8h_source" kindref="compound">rad_spi.h</ref></computeroutput>, include that ABI and exist so drivers and applications can include the subsystem they use.</para>
-<sect1 id="api_structure_1autotoc_md9">
+<sect1 id="api_structure_1autotoc_md10">
 <title>Initialization And Boot</title>
 <para>Platform code fills <computeroutput>rad_boot_info_t</computeroutput> when firmware or a bootloader has already provided memory maps, command-line arguments, an initrd pointer, or an FDT pointer. The kernel is then initialized with <computeroutput><ref refid="radixkernel_8h_1a0464ae9d92f6b0c74daf6f4e7400f57c" kindref="member">rad_kernel_init()</ref></computeroutput> and driven by <computeroutput><ref refid="radixkernel_8h_1a924d9dcd4d6790a17ea5470015765c60" kindref="member">rad_kernel_poll()</ref></computeroutput> or <computeroutput><ref refid="radixkernel_8h_1a44d4005c886d90ca5f2dbbdaa387e303" kindref="member">rad_kernel_run()</ref></computeroutput>.</para>
 <para>Use <computeroutput><ref refid="radixkernel_8h_1a6f6074bebd67f3035aeeefd7660daf3d" kindref="member">rad_printk()</ref></computeroutput> for normal kernel logging and <computeroutput><ref refid="radixkernel_8h_1adb179e7f1a5adcbcdccc80a71fe48c81" kindref="member">rad_early_printk()</ref></computeroutput> before the regular console path is registered.</para>
 </sect1>
-<sect1 id="api_structure_1autotoc_md10">
+<sect1 id="api_structure_1autotoc_md11">
 <title>Runtime Services</title>
 <para>The core runtime is intentionally explicit:</para>
 <para><itemizedlist>
@@ -23,11 +23,15 @@
 </listitem></itemizedlist>
 </para>
 </sect1>
-<sect1 id="api_structure_1autotoc_md11">
+<sect1 id="api_structure_1autotoc_md12">
+<title>Platform Layout</title>
+<para>Architecture and SoC code is split under <computeroutput>RADixKernel/platforms</computeroutput>. Portable A53 execution code belongs in <computeroutput>platforms/a53</computeroutput>; Broadcom-specific Pi drivers belong under <computeroutput>platforms/a53/bcm283x</computeroutput>. The x86 VM target remains the parity reference and will move under <computeroutput>platforms/x86</computeroutput> once its target wrapper is thin enough to avoid behavior changes.</para>
+</sect1>
+<sect1 id="api_structure_1autotoc_md13">
 <title>Handle Rules</title>
 <para>Opaque handles are owned by the caller after a successful open/create call. Close or destroy them with the matching close/destroy function. Functions return <computeroutput>RAD_STATUS_OK</computeroutput> on success, a negative <computeroutput>rad_status_t</computeroutput> value on kernel API errors, or a negative POSIX-style result for file descriptor/syscall wrappers.</para>
 </sect1>
-<sect1 id="api_structure_1autotoc_md12">
+<sect1 id="api_structure_1autotoc_md14">
 <title>Crimson Stability</title>
 <para>Crimson 0.1.0 documents the intended public shape for beta work. APIs marked as experimental may change before the stable release; APIs marked stable-beta should keep source compatibility inside the Crimson branch unless a documented release note says otherwise. </para>
 </sect1>

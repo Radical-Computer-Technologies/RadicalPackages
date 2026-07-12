@@ -7,7 +7,7 @@
     </briefdescription>
     <detaileddescription>
 <para><anchor id="networking_1md__media_jvincent_Kingspec512_repos_RADix_OS_docs_public_networking"/> RADix-OS Crimson 0.1.0 includes an experimental networking path for the x86 VM target. The goal of this surface is to prove the kernel interfaces for network devices, packet receive, POSIX-inspired datagram sockets, and the first TCP stream socket lifecycle before adding a complete wire-level TCP/IP stack or target-specific production drivers.</para>
-<sect1 id="networking_1autotoc_md34">
+<sect1 id="networking_1autotoc_md36">
 <title>Current Stack</title>
 <para>The network device API exposes link information, frame transmit, frame receive, and polling. The x86 VM target registers a legacy virtio-net device as <computeroutput>/dev/net0</computeroutput> when QEMU exposes one. The VM backend now programs separate legacy virtio RX and TX rings and emits smoke markers when the rings are owned by the guest.</para>
 <para>The socket layer currently supports:</para>
@@ -31,11 +31,11 @@
 </listitem></itemizedlist>
 </para>
 </sect1>
-<sect1 id="networking_1autotoc_md35">
+<sect1 id="networking_1autotoc_md37">
 <title>Current Limits</title>
 <para>This page is intentionally marked experimental. UDP datagrams, local TCP stream sockets, and virtio-net queue setup are verified through host tests and x86 VM smoke markers, but the network stack is still minimal. DHCP, DNS, ICMP, full wire-level TCP, route tables, firewall rules, packet sockets, and non-x86 NIC drivers remain future work.</para>
 </sect1>
-<sect1 id="networking_1autotoc_md36">
+<sect1 id="networking_1autotoc_md38">
 <title>Verification</title>
 <para>Host tests cover network device registration, link info, transmit, receive, UDP datagram socket delivery, and the local TCP listener/connect/accept/stream socket lifecycle.</para>
 <para>The x86 Slint VM smoke gate checks:</para>
