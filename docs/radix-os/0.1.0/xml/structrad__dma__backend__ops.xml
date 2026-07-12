@@ -1,0 +1,100 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="structrad__dma__backend__ops" kind="struct" language="C++" prot="public">
+    <compoundname>rad_dma_backend_ops</compoundname>
+    <includes refid="radixkernel_8h" local="no">radixkernel.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structrad__dma__backend__ops_1a6cb32e541ce3af6f7ce39f3ce5a7bac3" prot="public" static="no" mutable="no">
+        <type>void *</type>
+        <definition>void* rad_dma_backend_ops::context</definition>
+        <argsstring></argsstring>
+        <name>context</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/headers/radixkernel/radixkernel.h" line="707" column="10" bodyfile="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/headers/radixkernel/radixkernel.h" bodystart="707" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structrad__dma__backend__ops_1a2bdcf81c84d1d97e99368f6f18403394" prot="public" static="no" mutable="no">
+        <type><ref refid="radixkernel_8h_1aeb7c981d4b5f029daa65d3b928bab127" kindref="member">rad_status_t</ref>(*</type>
+        <definition>rad_status_t(* rad_dma_backend_ops::request) (void *context, rad_dma_request_id_t request_id, void **backend_channel)</definition>
+        <argsstring>)(void *context, rad_dma_request_id_t request_id, void **backend_channel)</argsstring>
+        <name>request</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/headers/radixkernel/radixkernel.h" line="708" column="5" bodyfile="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/headers/radixkernel/radixkernel.h" bodystart="708" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structrad__dma__backend__ops_1aea52435520dd352c75bd638e23ee45da" prot="public" static="no" mutable="no">
+        <type>void(*</type>
+        <definition>void(* rad_dma_backend_ops::release) (void *context, void *backend_channel)</definition>
+        <argsstring>)(void *context, void *backend_channel)</argsstring>
+        <name>release</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/headers/radixkernel/radixkernel.h" line="709" column="5" bodyfile="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/headers/radixkernel/radixkernel.h" bodystart="709" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structrad__dma__backend__ops_1a2e582ea16dcf2c00e26506869200d7a3" prot="public" static="no" mutable="no">
+        <type><ref refid="radixkernel_8h_1aeb7c981d4b5f029daa65d3b928bab127" kindref="member">rad_status_t</ref>(*</type>
+        <definition>rad_status_t(* rad_dma_backend_ops::submit) (void *context, void *backend_channel, const rad_dma_transfer_t *transfer)</definition>
+        <argsstring>)(void *context, void *backend_channel, const rad_dma_transfer_t *transfer)</argsstring>
+        <name>submit</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/headers/radixkernel/radixkernel.h" line="710" column="5" bodyfile="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/headers/radixkernel/radixkernel.h" bodystart="710" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structrad__dma__backend__ops_1adb13bfdc1c41138cc905c4054fee8d96" prot="public" static="no" mutable="no">
+        <type><ref refid="radixkernel_8h_1aeb7c981d4b5f029daa65d3b928bab127" kindref="member">rad_status_t</ref>(*</type>
+        <definition>rad_status_t(* rad_dma_backend_ops::wait) (void *context, void *backend_channel, uint32_t timeout_ms)</definition>
+        <argsstring>)(void *context, void *backend_channel, uint32_t timeout_ms)</argsstring>
+        <name>wait</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/headers/radixkernel/radixkernel.h" line="711" column="5" bodyfile="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/headers/radixkernel/radixkernel.h" bodystart="711" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structrad__dma__backend__ops_1ad5bc5e3a2b620de0694ff373906259d4" prot="public" static="no" mutable="no">
+        <type><ref refid="radixkernel_8h_1aeb7c981d4b5f029daa65d3b928bab127" kindref="member">rad_status_t</ref>(*</type>
+        <definition>rad_status_t(* rad_dma_backend_ops::cancel) (void *context, void *backend_channel)</definition>
+        <argsstring>)(void *context, void *backend_channel)</argsstring>
+        <name>cancel</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/headers/radixkernel/radixkernel.h" line="712" column="5" bodyfile="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/headers/radixkernel/radixkernel.h" bodystart="712" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/headers/radixkernel/radixkernel.h" line="706" column="1" bodyfile="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/headers/radixkernel/radixkernel.h" bodystart="706" bodyend="713"/>
+    <listofallmembers>
+      <member refid="structrad__dma__backend__ops_1ad5bc5e3a2b620de0694ff373906259d4" prot="public" virt="non-virtual"><scope>rad_dma_backend_ops</scope><name>cancel</name></member>
+      <member refid="structrad__dma__backend__ops_1a6cb32e541ce3af6f7ce39f3ce5a7bac3" prot="public" virt="non-virtual"><scope>rad_dma_backend_ops</scope><name>context</name></member>
+      <member refid="structrad__dma__backend__ops_1aea52435520dd352c75bd638e23ee45da" prot="public" virt="non-virtual"><scope>rad_dma_backend_ops</scope><name>release</name></member>
+      <member refid="structrad__dma__backend__ops_1a2bdcf81c84d1d97e99368f6f18403394" prot="public" virt="non-virtual"><scope>rad_dma_backend_ops</scope><name>request</name></member>
+      <member refid="structrad__dma__backend__ops_1a2e582ea16dcf2c00e26506869200d7a3" prot="public" virt="non-virtual"><scope>rad_dma_backend_ops</scope><name>submit</name></member>
+      <member refid="structrad__dma__backend__ops_1adb13bfdc1c41138cc905c4054fee8d96" prot="public" virt="non-virtual"><scope>rad_dma_backend_ops</scope><name>wait</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

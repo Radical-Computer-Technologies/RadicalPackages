@@ -1,0 +1,24 @@
+var searchData=
+[
+  ['parent_139',['parent',['../structrad__tree__node__info.html#a4a85ea770f4f83d4fb525016d9c98113',1,'rad_tree_node_info']]],
+  ['parent_5fpid_140',['parent_pid',['../structrad__process__info.html#afb8d3cbc9cce2cb69c85ff1ee3e2eeb3',1,'rad_process_info']]],
+  ['parity_141',['parity',['../structrad__serial__config.html#a571c315f40c03517fda6e4b8e06ea620',1,'rad_serial_config']]],
+  ['path_142',['path',['../structrad__tree__node__info.html#a8993fef69906ead9116c772c5daa714a',1,'rad_tree_node_info::path()'],['../structrad__process__info.html#a525298dbb30a772ae99fc3948ef5f6ae',1,'rad_process_info::path()'],['../structrad__program__info.html#a2de90edbf1e450ad420d5cd045f71a9d',1,'rad_program_info::path()'],['../structrad__i2c__device__info.html#a121f0d15aedeab42c91ed67503b78847',1,'rad_i2c_device_info::path()'],['../structrad__spi__device__info.html#a04074e585b606e551ff0287c89920bb0',1,'rad_spi_device_info::path()']]],
+  ['peak_5fbytes_5flive_143',['peak_bytes_live',['../structrad__memory__stats.html#a75be5393a222e037cc5b731e1afafeef',1,'rad_memory_stats']]],
+  ['peripheral_5faddress_144',['peripheral_address',['../structrad__dma__transfer.html#abd0ac6138fe65a22a6fc12a319b9166f',1,'rad_dma_transfer']]],
+  ['pid_145',['pid',['../structrad__process__info.html#aa45b9391b9802e12b736d2873979a259',1,'rad_process_info']]],
+  ['pio_5finstance_146',['pio_instance',['../structrad__sd__config.html#af02b19289d2b0d2add634fc4ea28e74a',1,'rad_sd_config']]],
+  ['pixel_5fformat_147',['pixel_format',['../structrad__framebuffer__info.html#a67d2ba34f1c1a9231d623a0059e40714',1,'rad_framebuffer_info::pixel_format()'],['../structrad__display__mode.html#a5b231867ad73dc780605fe22602035fc',1,'rad_display_mode::pixel_format()']]],
+  ['pixels_148',['pixels',['../structrad__framebuffer__info.html#a790840e28d7be58e8ef5789818d8e362',1,'rad_framebuffer_info']]],
+  ['preemption_5fenabled_149',['preemption_enabled',['../structrad__scheduler__info.html#a79a734a44c6552cdc61a014367cdba29',1,'rad_scheduler_info']]],
+  ['preemption_5fsupported_150',['preemption_supported',['../structrad__scheduler__info.html#af11bd538f188b0225de78ad1091d2793',1,'rad_scheduler_info']]],
+  ['preferred_5fmode_151',['preferred_mode',['../structrad__framebuffer__config.html#ab153836346dac05b6345d881b4450420',1,'rad_framebuffer_config::preferred_mode()'],['../structrad__framebuffer__display__info.html#acaf471a4a73a427062eff64c112cd7c7',1,'rad_framebuffer_display_info::preferred_mode()']]],
+  ['pressed_152',['pressed',['../structrad__input__event.html#a728ac6eea60573e24bcf8980dc1488b5',1,'rad_input_event']]],
+  ['primary_153',['primary',['../structrad__framebuffer__config.html#ae1b6b8800e28d49cc72e95a61e8a73f8',1,'rad_framebuffer_config::primary()'],['../structrad__framebuffer__display__info.html#ad0812c75fac713c408554adef00e95d9',1,'rad_framebuffer_display_info::primary()']]],
+  ['priority_154',['priority',['../structrad__task__info.html#a1a1b5e8f6b29f12589096bf8784f8ebd',1,'rad_task_info::priority()'],['../structrad__task__config.html#a7c868dc0732d1377eb6191a5345149b6',1,'rad_task_config::priority()']]],
+  ['probe_155',['probe',['../structrad__i2c__driver.html#ac7158af6c04c56bcde0b4b26f08d19b7',1,'rad_i2c_driver::probe()'],['../structrad__spi__driver.html#acf5b2df97ef1f03bd71c7d95c210b3db',1,'rad_spi_driver::probe()']]],
+  ['process_5fcount_156',['process_count',['../structrad__scheduler__info.html#ae55ca0c847aaf1017abc42d8f4f1c3de',1,'rad_scheduler_info']]],
+  ['process_5freaped_157',['process_reaped',['../structrad__process__arch__ops.html#a84bde395ce45e1a0d1908b020d6219dc',1,'rad_process_arch_ops']]],
+  ['property_5fcount_158',['property_count',['../structrad__overlay__info.html#a49694b3a4e5c44fef6d47051ddddee3a',1,'rad_overlay_info']]],
+  ['pty_159',['Pty',['../namespacerad.html#ac94a87092632e76536a3f7bed27e517f',1,'rad']]]
+];

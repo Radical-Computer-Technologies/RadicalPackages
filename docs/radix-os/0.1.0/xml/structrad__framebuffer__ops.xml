@@ -1,0 +1,86 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="structrad__framebuffer__ops" kind="struct" language="C++" prot="public">
+    <compoundname>rad_framebuffer_ops</compoundname>
+    <includes refid="radixkernel_8h" local="no">radixkernel.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structrad__framebuffer__ops_1ae7c7d162846c1ed654b3317a3112c6f9" prot="public" static="no" mutable="no">
+        <type>void *</type>
+        <definition>void* rad_framebuffer_ops::context</definition>
+        <argsstring></argsstring>
+        <name>context</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/headers/radixkernel/radixkernel.h" line="611" column="10" bodyfile="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/headers/radixkernel/radixkernel.h" bodystart="611" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structrad__framebuffer__ops_1a249034b812081f6d0005975453d396cd" prot="public" static="no" mutable="no">
+        <type><ref refid="radixkernel_8h_1aeb7c981d4b5f029daa65d3b928bab127" kindref="member">rad_status_t</ref>(*</type>
+        <definition>rad_status_t(* rad_framebuffer_ops::flush) (void *context, const rad_framebuffer_rect_t *rect)</definition>
+        <argsstring>)(void *context, const rad_framebuffer_rect_t *rect)</argsstring>
+        <name>flush</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/headers/radixkernel/radixkernel.h" line="612" column="5" bodyfile="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/headers/radixkernel/radixkernel.h" bodystart="612" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structrad__framebuffer__ops_1ab5ac3fc4d14d7f1ea81a77732b591065" prot="public" static="no" mutable="no">
+        <type><ref refid="radixkernel_8h_1aeb7c981d4b5f029daa65d3b928bab127" kindref="member">rad_status_t</ref>(*</type>
+        <definition>rad_status_t(* rad_framebuffer_ops::set_mode) (void *context, const rad_display_mode_t *mode)</definition>
+        <argsstring>)(void *context, const rad_display_mode_t *mode)</argsstring>
+        <name>set_mode</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/headers/radixkernel/radixkernel.h" line="613" column="5" bodyfile="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/headers/radixkernel/radixkernel.h" bodystart="613" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structrad__framebuffer__ops_1a1a227c00f5b6240eb45b4bc9f99ab891" prot="public" static="no" mutable="no">
+        <type><ref refid="radixkernel_8h_1aeb7c981d4b5f029daa65d3b928bab127" kindref="member">rad_status_t</ref>(*</type>
+        <definition>rad_status_t(* rad_framebuffer_ops::blank) (void *context, int blanked)</definition>
+        <argsstring>)(void *context, int blanked)</argsstring>
+        <name>blank</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/headers/radixkernel/radixkernel.h" line="614" column="5" bodyfile="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/headers/radixkernel/radixkernel.h" bodystart="614" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structrad__framebuffer__ops_1ac4ec9adf6e1345742bbc6505d7f4948a" prot="public" static="no" mutable="no">
+        <type>uint64_t(*</type>
+        <definition>uint64_t(* rad_framebuffer_ops::get_vsync_counter) (void *context)</definition>
+        <argsstring>)(void *context)</argsstring>
+        <name>get_vsync_counter</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/headers/radixkernel/radixkernel.h" line="615" column="5" bodyfile="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/headers/radixkernel/radixkernel.h" bodystart="615" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/headers/radixkernel/radixkernel.h" line="610" column="1" bodyfile="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/headers/radixkernel/radixkernel.h" bodystart="610" bodyend="616"/>
+    <listofallmembers>
+      <member refid="structrad__framebuffer__ops_1a1a227c00f5b6240eb45b4bc9f99ab891" prot="public" virt="non-virtual"><scope>rad_framebuffer_ops</scope><name>blank</name></member>
+      <member refid="structrad__framebuffer__ops_1ae7c7d162846c1ed654b3317a3112c6f9" prot="public" virt="non-virtual"><scope>rad_framebuffer_ops</scope><name>context</name></member>
+      <member refid="structrad__framebuffer__ops_1a249034b812081f6d0005975453d396cd" prot="public" virt="non-virtual"><scope>rad_framebuffer_ops</scope><name>flush</name></member>
+      <member refid="structrad__framebuffer__ops_1ac4ec9adf6e1345742bbc6505d7f4948a" prot="public" virt="non-virtual"><scope>rad_framebuffer_ops</scope><name>get_vsync_counter</name></member>
+      <member refid="structrad__framebuffer__ops_1ab5ac3fc4d14d7f1ea81a77732b591065" prot="public" virt="non-virtual"><scope>rad_framebuffer_ops</scope><name>set_mode</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

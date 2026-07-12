@@ -1,0 +1,191 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="namespacerad" kind="namespace" language="C++">
+    <compoundname>rad</compoundname>
+    <innerclass refid="classrad_1_1Span" prot="public">rad::Span</innerclass>
+    <innerclass refid="classrad_1_1UniqueHandle" prot="public">rad::UniqueHandle</innerclass>
+    <innerclass refid="classrad_1_1Mutex" prot="public">rad::Mutex</innerclass>
+    <innerclass refid="classrad_1_1Event" prot="public">rad::Event</innerclass>
+    <innerclass refid="classrad_1_1Module" prot="public">rad::Module</innerclass>
+      <sectiondef kind="enum">
+      <memberdef kind="enum" id="namespacerad_1ac90c7293a399def0b7b53c3911005189" prot="public" static="no" strong="yes">
+        <type>int32_t</type>
+        <name>Status</name>
+        <enumvalue id="namespacerad_1ac90c7293a399def0b7b53c3911005189a444bcb3a3fcf8389296c49467f27e1d6" prot="public">
+          <name>ok</name>
+          <initializer>= RAD_STATUS_OK</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacerad_1ac90c7293a399def0b7b53c3911005189acb5e100e5a9a3e7f6d1fd97512215282" prot="public">
+          <name>error</name>
+          <initializer>= RAD_STATUS_ERROR</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacerad_1ac90c7293a399def0b7b53c3911005189ae55d43eabeefe5a8271b4a3c898bd18f" prot="public">
+          <name>invalid_argument</name>
+          <initializer>= RAD_STATUS_INVALID_ARGUMENT</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacerad_1ac90c7293a399def0b7b53c3911005189a7500611bf7030bc99d25c354e7b64714" prot="public">
+          <name>not_found</name>
+          <initializer>= RAD_STATUS_NOT_FOUND</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacerad_1ac90c7293a399def0b7b53c3911005189aca90ed663c5cead584d20c9ec6c9017b" prot="public">
+          <name>no_memory</name>
+          <initializer>= RAD_STATUS_NO_MEMORY</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacerad_1ac90c7293a399def0b7b53c3911005189a90272dda245ae1fb3cf197e91a8689dc" prot="public">
+          <name>timeout</name>
+          <initializer>= RAD_STATUS_TIMEOUT</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacerad_1ac90c7293a399def0b7b53c3911005189aa55e82356e9721946aa9ba954733c6f0" prot="public">
+          <name>not_supported</name>
+          <initializer>= RAD_STATUS_NOT_SUPPORTED</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacerad_1ac90c7293a399def0b7b53c3911005189a7a6f43ded24333b44b8a5d5dc159c4ea" prot="public">
+          <name>already_exists</name>
+          <initializer>= RAD_STATUS_ALREADY_EXISTS</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespacerad_1ac90c7293a399def0b7b53c3911005189a22cfe9abd8c119bb76a51d0fb2e8845f" prot="public">
+          <name>not_initialized</name>
+          <initializer>= RAD_STATUS_NOT_INITIALIZED</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/headers/radixkernel/rad_cpp.h" line="10" column="1" bodyfile="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/headers/radixkernel/rad_cpp.h" bodystart="10" bodyend="20"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="typedef">
+      <memberdef kind="typedef" id="namespacerad_1ab820aae3a8de424cd2e8799f06780abd" prot="public" static="no">
+        <type><ref refid="classrad_1_1UniqueHandle" kindref="compound">UniqueHandle</ref>&lt; <ref refid="radixkernel_8h_1a283dfa3a6253adfa1a530137296cc7c0" kindref="member">rad_device_t</ref>, <ref refid="radixkernel_8h_1a9a7c38008accf97e7bc949a0eb9d4038" kindref="member">rad_device_close</ref> &gt;</type>
+        <definition>using rad::Device = typedef UniqueHandle&lt;rad_device_t, rad_device_close&gt;</definition>
+        <argsstring></argsstring>
+        <name>Device</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/headers/radixkernel/rad_cpp.h" line="69" column="1" bodyfile="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/headers/radixkernel/rad_cpp.h" bodystart="69" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="namespacerad_1ad5c213ea9210463a102e0d3c907d7893" prot="public" static="no">
+        <type><ref refid="classrad_1_1UniqueHandle" kindref="compound">UniqueHandle</ref>&lt; <ref refid="radixkernel_8h_1a2c6be30dc69da216a008724eff149cde" kindref="member">rad_file_t</ref>, <ref refid="radixkernel_8h_1aed72ac1637aa55f7d88921924fdb3ec1" kindref="member">rad_vfs_close</ref> &gt;</type>
+        <definition>using rad::File = typedef UniqueHandle&lt;rad_file_t, rad_vfs_close&gt;</definition>
+        <argsstring></argsstring>
+        <name>File</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/headers/radixkernel/rad_cpp.h" line="70" column="1" bodyfile="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/headers/radixkernel/rad_cpp.h" bodystart="70" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="namespacerad_1ac93eb1d6ca79ad8f294057509a488b85" prot="public" static="no">
+        <type><ref refid="classrad_1_1UniqueHandle" kindref="compound">UniqueHandle</ref>&lt; <ref refid="radixkernel_8h_1ad3fc4d21810b665c46f1a5f28686036f" kindref="member">rad_tty_t</ref>, <ref refid="radixkernel_8h_1aa399f5f028772c2cbe9499264a8bafa5" kindref="member">rad_tty_close</ref> &gt;</type>
+        <definition>using rad::Tty = typedef UniqueHandle&lt;rad_tty_t, rad_tty_close&gt;</definition>
+        <argsstring></argsstring>
+        <name>Tty</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/headers/radixkernel/rad_cpp.h" line="71" column="1" bodyfile="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/headers/radixkernel/rad_cpp.h" bodystart="71" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="namespacerad_1ac94a87092632e76536a3f7bed27e517f" prot="public" static="no">
+        <type><ref refid="classrad_1_1UniqueHandle" kindref="compound">UniqueHandle</ref>&lt; <ref refid="radixkernel_8h_1a285fba0e7a32820cb932bf614122b7b4" kindref="member">rad_pty_t</ref>, <ref refid="radixkernel_8h_1aa97b911690a99ac569875485c4d500b1" kindref="member">rad_pty_close</ref> &gt;</type>
+        <definition>using rad::Pty = typedef UniqueHandle&lt;rad_pty_t, rad_pty_close&gt;</definition>
+        <argsstring></argsstring>
+        <name>Pty</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/headers/radixkernel/rad_cpp.h" line="72" column="1" bodyfile="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/headers/radixkernel/rad_cpp.h" bodystart="72" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="namespacerad_1aac98019e2a6e7cf7907080e8ed761724" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>constexpr bool</type>
+        <definition>constexpr bool rad::succeeded</definition>
+        <argsstring>(rad_status_t status)</argsstring>
+        <name>succeeded</name>
+        <param>
+          <type><ref refid="radixkernel_8h_1aeb7c981d4b5f029daa65d3b928bab127" kindref="member">rad_status_t</ref></type>
+          <declname>status</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/headers/radixkernel/rad_cpp.h" line="22" column="23" bodyfile="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/headers/radixkernel/rad_cpp.h" bodystart="22" bodyend="22"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacerad_1a26625952054a73b529e1ec1097d41c49" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>constexpr bool</type>
+        <definition>constexpr bool rad::failed</definition>
+        <argsstring>(rad_status_t status)</argsstring>
+        <name>failed</name>
+        <param>
+          <type><ref refid="radixkernel_8h_1aeb7c981d4b5f029daa65d3b928bab127" kindref="member">rad_status_t</ref></type>
+          <declname>status</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/headers/radixkernel/rad_cpp.h" line="23" column="23" bodyfile="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/headers/radixkernel/rad_cpp.h" bodystart="23" bodyend="23"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/headers/radixkernel/rad_cpp.h" line="8" column="1"/>
+  </compounddef>
+</doxygen>

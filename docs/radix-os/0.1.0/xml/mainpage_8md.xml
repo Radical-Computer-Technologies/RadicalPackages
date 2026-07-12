@@ -1,0 +1,59 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="mainpage_8md" kind="file" language="Markdown">
+    <compoundname>mainpage.md</compoundname>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline><highlight class="normal">#<sp/>RADix-OS<sp/>Kernel<sp/>API</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">RADix-OS<sp/>is<sp/>a<sp/>POSIX-inspired<sp/>operating<sp/>system<sp/>kernel<sp/>aimed<sp/>at<sp/>embedded,</highlight></codeline>
+<codeline><highlight class="normal">desktop-VM,<sp/>and<sp/>future<sp/>SoC<sp/>targets.<sp/>The<sp/>kernel<sp/>keeps<sp/>an<sp/>RTOS-influenced<sp/>bias</highlight></codeline>
+<codeline><highlight class="normal">toward<sp/>explicit<sp/>subsystems<sp/>and<sp/>deterministic<sp/>control<sp/>while<sp/>exposing<sp/>familiar</highlight></codeline>
+<codeline><highlight class="normal">process,<sp/>file,<sp/>device,<sp/>terminal,<sp/>framebuffer,<sp/>and<sp/>filesystem<sp/>APIs.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">This<sp/>documentation<sp/>covers<sp/>the<sp/>Crimson<sp/>0.1.0<sp/>experimental<sp/>kernel<sp/>API.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>Current<sp/>Kernel<sp/>Surface</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">-<sp/>Boot<sp/>and<sp/>platform<sp/>handoff<sp/>helpers.</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>Device<sp/>registry,<sp/>ioctl,<sp/>block,<sp/>network,<sp/>framebuffer,<sp/>serial,<sp/>input,<sp/>TTY,<sp/>and</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>PTY<sp/>APIs.</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>VFS<sp/>provider<sp/>interface<sp/>with<sp/>open/read/write/seek/stat/list,<sp/>directory</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>mutation,<sp/>symlink,<sp/>truncate,<sp/>chmod,<sp/>and<sp/>fsync<sp/>hooks.</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>POSIX-inspired<sp/>process,<sp/>file<sp/>descriptor,<sp/>syscall,<sp/>fork,<sp/>exec,<sp/>wait,<sp/>and</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>copy-on-write<sp/>interfaces.</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>Module,<sp/>driver,<sp/>IRQ,<sp/>timer,<sp/>task,<sp/>wait<sp/>queue,<sp/>mutex,<sp/>and<sp/>event<sp/>primitives.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>Filesystem<sp/>Profile</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">The<sp/>x86_64<sp/>VM<sp/>target<sp/>currently<sp/>boots<sp/>from<sp/>ext4.<sp/>The<sp/>implemented<sp/>ext4<sp/>profile<sp/>is</highlight></codeline>
+<codeline><highlight class="normal">clean<sp/>no-journal<sp/>read/write<sp/>ext4<sp/>with<sp/>extent-backed<sp/>files,<sp/>allocation,<sp/>create,</highlight></codeline>
+<codeline><highlight class="normal">mkdir,<sp/>rename,<sp/>truncate,<sp/>symlink/readlink,<sp/>unlink,<sp/>rmdir,<sp/>chmod,<sp/>and<sp/>fsync.</highlight></codeline>
+<codeline><highlight class="normal">Journal<sp/>replay<sp/>and<sp/>journaled<sp/>metadata<sp/>commits<sp/>are<sp/>intentionally<sp/>not<sp/>part<sp/>of</highlight></codeline>
+<codeline><highlight class="normal">Crimson<sp/>0.1.0.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>Build<sp/>And<sp/>Smoke<sp/>Checks</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Host<sp/>kernel<sp/>tests:</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">```bash</highlight></codeline>
+<codeline><highlight class="normal">cmake<sp/>-S<sp/>.<sp/>-B<sp/>build-host<sp/>-DRADIX_OS_BUILD_TESTS=ON</highlight></codeline>
+<codeline><highlight class="normal">cmake<sp/>--build<sp/>build-host<sp/>-j2</highlight></codeline>
+<codeline><highlight class="normal">./build-host/tests/RADixKernelTests</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">x86_64<sp/>GRUB<sp/>+<sp/>Slint<sp/>VM<sp/>smoke:</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">```bash</highlight></codeline>
+<codeline><highlight class="normal">tools/embedded/x86_64_grub_slint_smoke.sh</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">The<sp/>generated<sp/>ISO<sp/>is<sp/>a<sp/>development<sp/>artifact<sp/>and<sp/>is<sp/>not<sp/>published<sp/>in</highlight></codeline>
+<codeline><highlight class="normal">RadicalPackages.</highlight></codeline>
+    </programlisting>
+    <location file="/media/jvincent/Kingspec512/repos/RADix-OS/docs/public/mainpage.md"/>
+  </compounddef>
+</doxygen>

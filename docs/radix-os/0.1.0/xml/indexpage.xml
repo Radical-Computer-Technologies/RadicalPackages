@@ -1,0 +1,41 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="indexpage" kind="page">
+    <compoundname>index</compoundname>
+    <title>RADix-OS Kernel API</title>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para><anchor id="index_1md__media_jvincent_Kingspec512_repos_RADix_OS_docs_public_mainpage"/> RADix-OS is a POSIX-inspired operating system kernel aimed at embedded, desktop-VM, and future SoC targets. The kernel keeps an RTOS-influenced bias toward explicit subsystems and deterministic control while exposing familiar process, file, device, terminal, framebuffer, and filesystem APIs.</para>
+<para>This documentation covers the Crimson 0.1.0 experimental kernel API.</para>
+<sect1 id="index_1autotoc_md1">
+<title>Current Kernel Surface</title>
+<para><itemizedlist>
+<listitem><para>Boot and platform handoff helpers.</para>
+</listitem><listitem><para>Device registry, ioctl, block, network, framebuffer, serial, input, TTY, and PTY APIs.</para>
+</listitem><listitem><para>VFS provider interface with open/read/write/seek/stat/list, directory mutation, symlink, truncate, chmod, and fsync hooks.</para>
+</listitem><listitem><para>POSIX-inspired process, file descriptor, syscall, fork, exec, wait, and copy-on-write interfaces.</para>
+</listitem><listitem><para>Module, driver, IRQ, timer, task, wait queue, mutex, and event primitives.</para>
+</listitem></itemizedlist>
+</para>
+</sect1>
+<sect1 id="index_1autotoc_md2">
+<title>Filesystem Profile</title>
+<para>The x86_64 VM target currently boots from ext4. The implemented ext4 profile is clean no-journal read/write ext4 with extent-backed files, allocation, create, mkdir, rename, truncate, symlink/readlink, unlink, rmdir, chmod, and fsync. Journal replay and journaled metadata commits are intentionally not part of Crimson 0.1.0.</para>
+</sect1>
+<sect1 id="index_1autotoc_md3">
+<title>Build And Smoke Checks</title>
+<para>Host kernel tests:</para>
+<para><programlisting filename=".bash"><codeline><highlight class="normal">cmake<sp/>-S<sp/>.<sp/>-B<sp/>build-host<sp/>-DRADIX_OS_BUILD_TESTS=ON</highlight></codeline>
+<codeline><highlight class="normal">cmake<sp/>--build<sp/>build-host<sp/>-j2</highlight></codeline>
+<codeline><highlight class="normal">./build-host/tests/RADixKernelTests</highlight></codeline>
+</programlisting></para>
+<para>x86_64 GRUB + Slint VM smoke:</para>
+<para><programlisting filename=".bash"><codeline><highlight class="normal">tools/embedded/x86_64_grub_slint_smoke.sh</highlight></codeline>
+</programlisting></para>
+<para>The generated ISO is a development artifact and is not published in RadicalPackages. </para>
+</sect1>
+    </detaileddescription>
+    <location file="/media/jvincent/Kingspec512/repos/RADix-OS/docs/public/mainpage.md"/>
+  </compounddef>
+</doxygen>
