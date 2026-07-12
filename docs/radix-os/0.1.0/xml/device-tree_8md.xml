@@ -82,11 +82,39 @@
 <codeline><highlight class="normal">}</highlight></codeline>
 <codeline><highlight class="normal">```</highlight></codeline>
 <codeline></codeline>
+<codeline><highlight class="normal">##<sp/>Boot<sp/>Services</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Overlays<sp/>may<sp/>seed<sp/>early<sp/>boot<sp/>services<sp/>under<sp/>`/services`.<sp/>This<sp/>is<sp/>intentionally<sp/>a</highlight></codeline>
+<codeline><highlight class="normal">small<sp/>boot-time<sp/>contract,<sp/>not<sp/>a<sp/>systemd<sp/>replacement.<sp/>The<sp/>long-term<sp/>owner<sp/>for</highlight></codeline>
+<codeline><highlight class="normal">service<sp/>launch<sp/>policy<sp/>is<sp/>the<sp/>external<sp/>`RADServiceManager`<sp/>first<sp/>process.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">```json</highlight></codeline>
+<codeline><highlight class="normal">{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>&quot;target&quot;:<sp/>&quot;/services/rad-compositor&quot;,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>&quot;properties&quot;:<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>&quot;compatible&quot;:<sp/>&quot;rad,compositor&quot;,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>&quot;status&quot;:<sp/>&quot;okay&quot;,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>&quot;backend&quot;:<sp/>&quot;slint&quot;,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>&quot;display&quot;:<sp/>&quot;/dev/fb0&quot;,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>&quot;keyboard&quot;:<sp/>&quot;/dev/input/event0&quot;,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>&quot;pointer&quot;:<sp/>&quot;/dev/input/event1&quot;,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>&quot;terminal&quot;:<sp/>&quot;/dev/tty0&quot;,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>&quot;autostart&quot;:<sp/>true,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>&quot;order&quot;:<sp/>50</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline><highlight class="normal">}</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">The<sp/>kernel<sp/>records<sp/>service<sp/>configuration,<sp/>starts<sp/>trusted<sp/>early<sp/>services<sp/>when</highlight></codeline>
+<codeline><highlight class="normal">requested,<sp/>and<sp/>exposes<sp/>the<sp/>`services`<sp/>terminal<sp/>command.<sp/>Scheduling<sp/>internals,</highlight></codeline>
+<codeline><highlight class="normal">process<sp/>policy,<sp/>restart<sp/>behavior,<sp/>and<sp/>dependency<sp/>resolution<sp/>stay<sp/>outside<sp/>the</highlight></codeline>
+<codeline><highlight class="normal">overlay<sp/>format<sp/>for<sp/>now.</highlight></codeline>
+<codeline></codeline>
 <codeline><highlight class="normal">##<sp/>Current<sp/>Limits</highlight></codeline>
 <codeline></codeline>
 <codeline><highlight class="normal">Crimson<sp/>0.1.0<sp/>overlays<sp/>are<sp/>a<sp/>compact<sp/>runtime<sp/>binding<sp/>format,<sp/>not<sp/>a<sp/>full<sp/>Linux</highlight></codeline>
 <codeline><highlight class="normal">DTB<sp/>replacement.<sp/>They<sp/>intentionally<sp/>cover<sp/>the<sp/>current<sp/>RADix<sp/>buses,<sp/>IRQ<sp/>domains,</highlight></codeline>
-<codeline><highlight class="normal">boot<sp/>metadata,<sp/>and<sp/>framebuffer<sp/>selection<sp/>first.</highlight></codeline>
+<codeline><highlight class="normal">boot<sp/>metadata,<sp/>framebuffer<sp/>selection,<sp/>and<sp/>boot-service<sp/>seeds<sp/>first.</highlight></codeline>
     </programlisting>
     <location file="/media/jvincent/Kingspec512/repos/RADix-OS/docs/public/device-tree.md"/>
   </compounddef>

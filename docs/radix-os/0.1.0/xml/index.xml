@@ -55,6 +55,30 @@
     <member refid="structrad__boot__arg_1a30f2050566751450c25375c27f3716d7" kind="variable"><name>key</name></member>
     <member refid="structrad__boot__arg_1a8f4725476212cf6fc4c3cf8ca623ba03" kind="variable"><name>value</name></member>
   </compound>
+  <compound refid="structrad__boot__handoff" kind="struct"><name>rad_boot_handoff</name>
+    <member refid="structrad__boot__handoff_1a642793575126984a4ac596c1d2749483" kind="variable"><name>magic</name></member>
+    <member refid="structrad__boot__handoff_1a4aec0b01f477fd392bec772d25fa2ea8" kind="variable"><name>version</name></member>
+    <member refid="structrad__boot__handoff_1ab52468f11e07bbbc6b3f5e947dd4fdc3" kind="variable"><name>size</name></member>
+    <member refid="structrad__boot__handoff_1a0c10f5e945cb0208408d52324a6b0771" kind="variable"><name>flags</name></member>
+    <member refid="structrad__boot__handoff_1a99ce4c544507d9e2d3475612dba8f0f6" kind="variable"><name>boot</name></member>
+    <member refid="structrad__boot__handoff_1a4e092a4d717d01d10ba95a2e936a3675" kind="variable"><name>kernel_image_base</name></member>
+    <member refid="structrad__boot__handoff_1a76149aef3d903e4e388bad6580c564c1" kind="variable"><name>kernel_image_size</name></member>
+    <member refid="structrad__boot__handoff_1a2f443ad3de3256f12a9d4795112a22f3" kind="variable"><name>kernel_entry</name></member>
+    <member refid="structrad__boot__handoff_1af815b6a6aced2b543a2615c33e1062fe" kind="variable"><name>stack_base</name></member>
+    <member refid="structrad__boot__handoff_1ad9ab25bc490df8f19f66d6509271aabc" kind="variable"><name>stack_size</name></member>
+    <member refid="structrad__boot__handoff_1a990f20555b824b9bdf9f4337131cbf52" kind="variable"><name>fdt_pointer</name></member>
+    <member refid="structrad__boot__handoff_1a1c7964fb40fb4a81eb53fcf7144b85da" kind="variable"><name>initrd_pointer</name></member>
+    <member refid="structrad__boot__handoff_1abd1ed7fd0d81cb073cf74f46dc764ffc" kind="variable"><name>peripheral_base</name></member>
+    <member refid="structrad__boot__handoff_1a520d27cdfa6b542db8975b49ac9adabc" kind="variable"><name>mailbox_base</name></member>
+    <member refid="structrad__boot__handoff_1a07d8407f7776167a265e11eeeb3e7640" kind="variable"><name>local_interrupt_base</name></member>
+    <member refid="structrad__boot__handoff_1a4b201b83aa51117e48e5c702782d76fc" kind="variable"><name>arm_memory_base</name></member>
+    <member refid="structrad__boot__handoff_1affc3108fb9f90a4accaaee947b72f186" kind="variable"><name>arm_memory_size</name></member>
+    <member refid="structrad__boot__handoff_1a55d021b696ecd4ec4e138c816c2ebdda" kind="variable"><name>board_id</name></member>
+    <member refid="structrad__boot__handoff_1a2088b24b64f63e3a4b8aa261bd25b878" kind="variable"><name>entry_el</name></member>
+    <member refid="structrad__boot__handoff_1a52bbbfe089c32edb8d8aa7fd69116885" kind="variable"><name>core_count</name></member>
+    <member refid="structrad__boot__handoff_1a495de55f38c412a9fb2e9256555f008b" kind="variable"><name>parked_core_mask</name></member>
+    <member refid="structrad__boot__handoff_1add9e759ce08a96040e9a50746a119204" kind="variable"><name>payload_name</name></member>
+  </compound>
   <compound refid="structrad__boot__info" kind="struct"><name>rad_boot_info</name>
     <member refid="structrad__boot__info_1ada82aa7f5a10607532b128b2ab3ed0ce" kind="variable"><name>size</name></member>
     <member refid="structrad__boot__info_1a5bbf203d37d749e9afceb08896fe866b" kind="variable"><name>version</name></member>
@@ -76,6 +100,27 @@
     <member refid="structrad__boot__memory__region_1ae2c4cd3284978966e8449b21715ab1ed" kind="variable"><name>type</name></member>
     <member refid="structrad__boot__memory__region_1aa462a2376653417b7d2b5edf53f403d9" kind="variable"><name>flags</name></member>
     <member refid="structrad__boot__memory__region_1af62267b849c52c53ea2debfa3beaa068" kind="variable"><name>name</name></member>
+  </compound>
+  <compound refid="structrad__compositor__ipc__damage" kind="struct"><name>rad_compositor_ipc_damage</name>
+    <member refid="structrad__compositor__ipc__damage_1a4ba2fe27413733e59e0f67439853d6d0" kind="variable"><name>size</name></member>
+    <member refid="structrad__compositor__ipc__damage_1ae4d057089d2e99a1d95813a8423c883a" kind="variable"><name>surface_id</name></member>
+    <member refid="structrad__compositor__ipc__damage_1ab5e353d97263644393cb97de085e90a7" kind="variable"><name>x</name></member>
+    <member refid="structrad__compositor__ipc__damage_1ab3eabdcc71cec070c0b703642b4ffdd6" kind="variable"><name>y</name></member>
+    <member refid="structrad__compositor__ipc__damage_1ad79e004f2bc5d8d9d53293e99fd4ef1a" kind="variable"><name>width</name></member>
+    <member refid="structrad__compositor__ipc__damage_1a5e79fc387681dd9ace9725ab7bc35e33" kind="variable"><name>height</name></member>
+    <member refid="structrad__compositor__ipc__damage_1a65f9c46edde917129a2b984fefa49672" kind="variable"><name>flags</name></member>
+  </compound>
+  <compound refid="structrad__compositor__ipc__surface" kind="struct"><name>rad_compositor_ipc_surface</name>
+    <member refid="structrad__compositor__ipc__surface_1a5797347737952e24c80e11a3830adb64" kind="variable"><name>size</name></member>
+    <member refid="structrad__compositor__ipc__surface_1a848b823a2d2a06374f47139390773be6" kind="variable"><name>shm_fd</name></member>
+    <member refid="structrad__compositor__ipc__surface_1a3325f704a825a525b5d647e556b7b667" kind="variable"><name>width</name></member>
+    <member refid="structrad__compositor__ipc__surface_1a39b147df63a4f392b381be897bb89626" kind="variable"><name>height</name></member>
+    <member refid="structrad__compositor__ipc__surface_1a37b39f32d36a69c01fa9082cc5d5b2aa" kind="variable"><name>stride_pixels</name></member>
+    <member refid="structrad__compositor__ipc__surface_1a0f0e849fa9036bbe3010552359984299" kind="variable"><name>x</name></member>
+    <member refid="structrad__compositor__ipc__surface_1a69f73b00b6642420b26bb9a0e58e1101" kind="variable"><name>y</name></member>
+    <member refid="structrad__compositor__ipc__surface_1a6c77add100743a8633a8ffd1eebe26ff" kind="variable"><name>z</name></member>
+    <member refid="structrad__compositor__ipc__surface_1ae486cb6d3afe630fa5b0c4dedd23d375" kind="variable"><name>flags</name></member>
+    <member refid="structrad__compositor__ipc__surface_1a93948fb2913a6500e04f903c4095214f" kind="variable"><name>surface_id</name></member>
   </compound>
   <compound refid="structrad__core__info" kind="struct"><name>rad_core_info</name>
     <member refid="structrad__core__info_1a458018b0f2073c068dae538b78df3424" kind="variable"><name>detected_cores</name></member>
@@ -165,9 +210,16 @@
   <compound refid="structrad__framebuffer__ops" kind="struct"><name>rad_framebuffer_ops</name>
     <member refid="structrad__framebuffer__ops_1ae7c7d162846c1ed654b3317a3112c6f9" kind="variable"><name>context</name></member>
     <member refid="structrad__framebuffer__ops_1a249034b812081f6d0005975453d396cd" kind="variable"><name>flush</name></member>
+    <member refid="structrad__framebuffer__ops_1af06953deada361820ff22f6d7e27fbc2" kind="variable"><name>present</name></member>
     <member refid="structrad__framebuffer__ops_1ab5ac3fc4d14d7f1ea81a77732b591065" kind="variable"><name>set_mode</name></member>
     <member refid="structrad__framebuffer__ops_1a1a227c00f5b6240eb45b4bc9f99ab891" kind="variable"><name>blank</name></member>
     <member refid="structrad__framebuffer__ops_1ac4ec9adf6e1345742bbc6505d7f4948a" kind="variable"><name>get_vsync_counter</name></member>
+  </compound>
+  <compound refid="structrad__framebuffer__present" kind="struct"><name>rad_framebuffer_present</name>
+    <member refid="structrad__framebuffer__present_1a8d858f863c98bd459e42deb400d839b2" kind="variable"><name>size</name></member>
+    <member refid="structrad__framebuffer__present_1a1512a4fd35dc7025209da124284e3276" kind="variable"><name>pixels</name></member>
+    <member refid="structrad__framebuffer__present_1a70e8b2268025c63f73c8d4d2731be533" kind="variable"><name>stride_bytes</name></member>
+    <member refid="structrad__framebuffer__present_1a5f7b5e47bcdbe94e863cf1701ed3bb25" kind="variable"><name>rect</name></member>
   </compound>
   <compound refid="structrad__framebuffer__rect" kind="struct"><name>rad_framebuffer_rect</name>
     <member refid="structrad__framebuffer__rect_1ae02de5572964a51a11cf4d04f4b60e47" kind="variable"><name>x</name></member>
@@ -298,7 +350,7 @@
   </compound>
   <compound refid="structrad__net__packet" kind="struct"><name>rad_net_packet</name>
     <member refid="structrad__net__packet_1ade8de33820334fe28489df2788230fb6" kind="variable"><name>size</name></member>
-    <member refid="structrad__net__packet_1a765c443784e99c040971c0b1a384bd70" kind="variable"><name>data</name></member>
+    <member refid="structrad__net__packet_1acae98eca667715b0cc193efa09f41d7e" kind="variable"><name>data</name></member>
     <member refid="structrad__net__packet_1a6029de68fefc3f2ab5db2e00c3e320f9" kind="variable"><name>length</name></member>
   </compound>
   <compound refid="structrad__overlay__info" kind="struct"><name>rad_overlay_info</name>
@@ -376,6 +428,66 @@
     <member refid="structrad__serial__config_1a557a62db2e497427926b12895f43a308" kind="variable"><name>stop_bits</name></member>
     <member refid="structrad__serial__config_1a571c315f40c03517fda6e4b8e06ea620" kind="variable"><name>parity</name></member>
     <member refid="structrad__serial__config_1a5e135285023468a864b54c45c7758e4b" kind="variable"><name>flow_control</name></member>
+  </compound>
+  <compound refid="structrad__service__config" kind="struct"><name>rad_service_config</name>
+    <member refid="structrad__service__config_1af5f2de6e28506f4422a94d6bc8ed3db0" kind="variable"><name>size</name></member>
+    <member refid="structrad__service__config_1adf65bdfbf93669c496fa15b05099b354" kind="variable"><name>tree_path</name></member>
+    <member refid="structrad__service__config_1a6c88125d675ee0268ce9a25ca5dfbeee" kind="variable"><name>backend</name></member>
+    <member refid="structrad__service__config_1a5a7ad482fa93130513be8b7e4569bac0" kind="variable"><name>display</name></member>
+    <member refid="structrad__service__config_1a48d32b9731826d8e12eb4265b0cf5302" kind="variable"><name>keyboard</name></member>
+    <member refid="structrad__service__config_1a2eed66487400218397b6dbf8ff0eb252" kind="variable"><name>pointer</name></member>
+    <member refid="structrad__service__config_1adecc2910e0ccf4711b740a4781981506" kind="variable"><name>terminal</name></member>
+    <member refid="structrad__service__config_1ac95fd9bb0c762b6e09ba7bad7d9caa9f" kind="variable"><name>autostart</name></member>
+    <member refid="structrad__service__config_1aa1ad5e0b997a2949f8deab32ab94e375" kind="variable"><name>order</name></member>
+  </compound>
+  <compound refid="structrad__service__descriptor" kind="struct"><name>rad_service_descriptor</name>
+    <member refid="structrad__service__descriptor_1a05f00831e07e8c2b569468b69070bab6" kind="variable"><name>size</name></member>
+    <member refid="structrad__service__descriptor_1a58a0ddb3b28c51fb69e7e6b2d96fe935" kind="variable"><name>name</name></member>
+    <member refid="structrad__service__descriptor_1a5d686654abe9f340eb2bea0d5fe11d54" kind="variable"><name>compatible</name></member>
+    <member refid="structrad__service__descriptor_1a2f2dad45a34fd4087a0bbe3760c6c9c9" kind="variable"><name>capability</name></member>
+    <member refid="structrad__service__descriptor_1a9aa48e8c72dcb8bc2fb5afdc814045f3" kind="variable"><name>default_order</name></member>
+    <member refid="structrad__service__descriptor_1a2ac55da7f31c2c011a66ac258583351a" kind="variable"><name>start</name></member>
+    <member refid="structrad__service__descriptor_1a846259a7ec26163580ac54e3f7101d3b" kind="variable"><name>stop</name></member>
+    <member refid="structrad__service__descriptor_1a6b1220a52b70a4805bfa27216206f9b2" kind="variable"><name>poll</name></member>
+    <member refid="structrad__service__descriptor_1a5ed002fd9812141e16e616450867d3da" kind="variable"><name>context</name></member>
+  </compound>
+  <compound refid="structrad__service__info" kind="struct"><name>rad_service_info</name>
+    <member refid="structrad__service__info_1abf3d6eae77568c9d2e2df27c50c8c7ac" kind="variable"><name>name</name></member>
+    <member refid="structrad__service__info_1ac946d0d1774c393e8b8eaa3339dbd3d6" kind="variable"><name>compatible</name></member>
+    <member refid="structrad__service__info_1ab811eab1754bd2ccc21aa6c922c0004b" kind="variable"><name>capability</name></member>
+    <member refid="structrad__service__info_1a761775c29f588a31d90cfc93bc084ef1" kind="variable"><name>tree_path</name></member>
+    <member refid="structrad__service__info_1a7c0ad9ebc3d736e8910efe56be6189af" kind="variable"><name>backend</name></member>
+    <member refid="structrad__service__info_1a89e663417d54228cb677c02e6ed6494b" kind="variable"><name>display</name></member>
+    <member refid="structrad__service__info_1abd08b1c600956965752699de59ce78e9" kind="variable"><name>keyboard</name></member>
+    <member refid="structrad__service__info_1a9ccb3057110c2168bb7952465fda51da" kind="variable"><name>pointer</name></member>
+    <member refid="structrad__service__info_1a3607e096b4d554c994ec12437c032855" kind="variable"><name>terminal</name></member>
+    <member refid="structrad__service__info_1a685a6b5f7f7a5cf323146d1ee60ae470" kind="variable"><name>state</name></member>
+    <member refid="structrad__service__info_1aef9d5bfa9b20f204365edf3662892e89" kind="variable"><name>autostart</name></member>
+    <member refid="structrad__service__info_1a14c963b1d494cbb47941336fb7d93d8b" kind="variable"><name>order</name></member>
+    <member refid="structrad__service__info_1a6777fa4d76e3c7c6d7bd6473fe607cbe" kind="variable"><name>last_status</name></member>
+  </compound>
+  <compound refid="structrad__shm__info" kind="struct"><name>rad_shm_info</name>
+    <member refid="structrad__shm__info_1a45fbf30ce399c8f72ffc80720f1efd44" kind="variable"><name>size</name></member>
+    <member refid="structrad__shm__info_1ae33e09e2d56acbb4df950652ddd818bd" kind="variable"><name>name</name></member>
+    <member refid="structrad__shm__info_1ac0acf04573f7aca8524ad497226da349" kind="variable"><name>byte_size</name></member>
+    <member refid="structrad__shm__info_1a393e93034b4bafeed291c034b6594b49" kind="variable"><name>page_count</name></member>
+  </compound>
+  <compound refid="structrad__sockaddr__in" kind="struct"><name>rad_sockaddr_in</name>
+    <member refid="structrad__sockaddr__in_1a826586b7be5b7c61ac008e98e410e49d" kind="variable"><name>family</name></member>
+    <member refid="structrad__sockaddr__in_1afdfb0547c1733006046ff275e913e214" kind="variable"><name>port</name></member>
+    <member refid="structrad__sockaddr__in_1a1048ab5bea6e34189c16bd5ca4152030" kind="variable"><name>address</name></member>
+    <member refid="structrad__sockaddr__in_1a07a2a15ca7cf768be3bf16066a422755" kind="variable"><name>zero</name></member>
+  </compound>
+  <compound refid="structrad__socket__info" kind="struct"><name>rad_socket_info</name>
+    <member refid="structrad__socket__info_1a458c6824524c2d577e96b6f73af74a45" kind="variable"><name>size</name></member>
+    <member refid="structrad__socket__info_1a25601f73ec1ae7d86d65d2e6b47f546f" kind="variable"><name>domain</name></member>
+    <member refid="structrad__socket__info_1a15cd524a2e6f62523ae6f6f062f95e76" kind="variable"><name>type</name></member>
+    <member refid="structrad__socket__info_1a868a3d0724ae10efca656c6be8b4068b" kind="variable"><name>protocol</name></member>
+    <member refid="structrad__socket__info_1a365f7b8fdeff522005e692d6ee3a9030" kind="variable"><name>tcp_state</name></member>
+    <member refid="structrad__socket__info_1a273c8d1b152aa663e80852860cbee5be" kind="variable"><name>local_port</name></member>
+    <member refid="structrad__socket__info_1a9ac3d79d3bdc0495b7afc0073b06c3b1" kind="variable"><name>remote_port</name></member>
+    <member refid="structrad__socket__info_1a664ddb7ec8375c7ef21b636afc99698e" kind="variable"><name>local_address</name></member>
+    <member refid="structrad__socket__info_1a6d7634bb073cc6545f9b0c415644b3b3" kind="variable"><name>remote_address</name></member>
   </compound>
   <compound refid="structrad__spi__controller__config" kind="struct"><name>rad_spi_controller_config</name>
     <member refid="structrad__spi__controller__config_1a877a8eb6954772b62c7e5675a1188912" kind="variable"><name>size</name></member>
@@ -562,12 +674,21 @@
   </compound>
   <compound refid="mainpage_8md" kind="file"><name>mainpage.md</name>
   </compound>
+  <compound refid="networking_8md" kind="file"><name>networking.md</name>
+  </compound>
+  <compound refid="pi-zero2w_8md" kind="file"><name>pi-zero2w.md</name>
+  </compound>
+  <compound refid="radcompositor_8md" kind="file"><name>radcompositor.md</name>
+  </compound>
   <compound refid="radboot_8h" kind="file"><name>radboot.h</name>
     <member refid="radboot_8h_1af026490d02914ba3083be131345ecf4c" kind="function"><name>radboot_prepare_default</name></member>
     <member refid="radboot_8h_1a641f7f86e4d3c412501b8e6163a93c41" kind="function"><name>radboot_add_memory_region</name></member>
     <member refid="radboot_8h_1ac714b8d92ed60e449861ebb09788db52" kind="function"><name>radboot_add_arg</name></member>
     <member refid="radboot_8h_1a07fd6961b0d400858187af0893d956a7" kind="function"><name>radboot_prepare_rp235x</name></member>
     <member refid="radboot_8h_1a2ffb19760ded7dd509f68dcee60d8a52" kind="function"><name>radboot_prepare_circle</name></member>
+    <member refid="radboot_8h_1a157e7971eb5f00eed06a2e70ee49a7b0" kind="function"><name>radboot_prepare_bcm283x</name></member>
+    <member refid="radboot_8h_1af9b211b321864422ab5e2613a13ff2a1" kind="function"><name>radboot_prepare_pi_handoff</name></member>
+    <member refid="radboot_8h_1aaf3d6ebb801a1c4ead09b3d4b7507c89" kind="function"><name>radboot_validate_handoff</name></member>
   </compound>
   <compound refid="rad__audio_8h" kind="file"><name>rad_audio.h</name>
   </compound>
@@ -604,6 +725,8 @@
   <compound refid="rad__posix_8h" kind="file"><name>rad_posix.h</name>
   </compound>
   <compound refid="rad__pty_8h" kind="file"><name>rad_pty.h</name>
+  </compound>
+  <compound refid="rad__service_8h" kind="file"><name>rad_service.h</name>
   </compound>
   <compound refid="rad__spi_8h" kind="file"><name>rad_spi.h</name>
   </compound>
@@ -644,6 +767,7 @@
     <member refid="radixkernel_8h_1ac919ec47b199814f5dfd91b02271c000" kind="define"><name>RAD_IOCTL_TYPE_INPUT</name></member>
     <member refid="radixkernel_8h_1ada1dce0ce9247be75a0658565a74afe6" kind="define"><name>RAD_IOCTL_TYPE_BLOCK</name></member>
     <member refid="radixkernel_8h_1a40c2ecf1d7cf45848f0ec4457a5d4728" kind="define"><name>RAD_IOCTL_TYPE_NET</name></member>
+    <member refid="radixkernel_8h_1a226f9e25f4f4609e46a96dde831bf87e" kind="define"><name>RAD_IOCTL_TYPE_COMPOSITOR</name></member>
     <member refid="radixkernel_8h_1acb88aa9be1110f8617727d35a47e9cad" kind="define"><name>RAD_DEVICE_IOCTL_I2C_TRANSFER</name></member>
     <member refid="radixkernel_8h_1a7f087f28224e3f845bd944702414b8c3" kind="define"><name>RAD_DEVICE_IOCTL_SPI_TRANSFER</name></member>
     <member refid="radixkernel_8h_1adec2622c8f3bff72f7bd352ea1f246ae" kind="define"><name>RAD_DEVICE_IOCTL_AUDIO_CONFIGURE</name></member>
@@ -657,9 +781,21 @@
     <member refid="radixkernel_8h_1ab7c0e2d8196c11cbd20c262d24d051cf" kind="define"><name>RAD_DEVICE_IOCTL_NET_LINK_INFO</name></member>
     <member refid="radixkernel_8h_1a80dc38b8b06a00a2bee4637ba6732334" kind="define"><name>RAD_DEVICE_IOCTL_NET_SEND</name></member>
     <member refid="radixkernel_8h_1afd24144bc5033e5fa31a374ef247f8d4" kind="define"><name>RAD_DEVICE_IOCTL_NET_POLL</name></member>
+    <member refid="radixkernel_8h_1a0428a599ae1a6359bd7d3d290c246905" kind="define"><name>RAD_DEVICE_IOCTL_NET_RECV</name></member>
+    <member refid="radixkernel_8h_1a3ddbd0b40b0255b9fbbc5e23a8fa86a7" kind="define"><name>RAD_DEVICE_IOCTL_COMPOSITOR_CREATE_SURFACE</name></member>
+    <member refid="radixkernel_8h_1a1e9ee4c188937326e2ca46f102e34b53" kind="define"><name>RAD_DEVICE_IOCTL_COMPOSITOR_QUEUE_DAMAGE</name></member>
+    <member refid="radixkernel_8h_1a0593a678f0b825ca46f26d71f575a625" kind="define"><name>RAD_DEVICE_IOCTL_FRAMEBUFFER_PRESENT</name></member>
     <member refid="radixkernel_8h_1aaf6cf4aed5a89eb00fd66fd0c93c07f8" kind="define"><name>RAD_BOOT_MAX_ARGS</name></member>
     <member refid="radixkernel_8h_1ad2a9b8f76a8b04b0e749bd18d08e488f" kind="define"><name>RAD_BOOT_MAX_MEMORY_REGIONS</name></member>
     <member refid="radixkernel_8h_1ad0997d4a4608646ad408ec6fed19d2db" kind="define"><name>RAD_BOOT_MAX_STRING</name></member>
+    <member refid="radixkernel_8h_1a5d202a253890b636091579ac6061e201" kind="define"><name>RAD_BOOT_HANDOFF_MAGIC</name></member>
+    <member refid="radixkernel_8h_1addf715385fd15fc44cca21caef91d8e9" kind="define"><name>RAD_BOOT_HANDOFF_VERSION</name></member>
+    <member refid="radixkernel_8h_1a18e33eda42384c32fe2bb62cf7996c8c" kind="define"><name>RAD_BOOT_HANDOFF_FLAG_SECONDARIES_PARKED</name></member>
+    <member refid="radixkernel_8h_1a8ed7fb51e8ddfcd939a732fd0d15993e" kind="define"><name>RAD_BOOT_HANDOFF_FLAG_MMU_DISABLED</name></member>
+    <member refid="radixkernel_8h_1a42be44f1eb8eb49caf3743f74b2d40dc" kind="define"><name>RAD_BOOT_HANDOFF_FLAG_DCACHE_DISABLED</name></member>
+    <member refid="radixkernel_8h_1aac48943de5d938062d3edfb9ea1f3baa" kind="define"><name>RAD_BOOT_HANDOFF_FLAG_ICACHE_INVALIDATED</name></member>
+    <member refid="radixkernel_8h_1a113e4639c3617650c93a0c270b7d972a" kind="define"><name>RAD_BOOT_HANDOFF_FLAG_TLB_INVALIDATED</name></member>
+    <member refid="radixkernel_8h_1a05e5b2c65912301833070b14b3f62ed8" kind="define"><name>RAD_BOOT_HANDOFF_FLAG_INTERRUPTS_MASKED</name></member>
     <member refid="radixkernel_8h_1a1f195a17f6fa53eacdf44630f24de4fb" kind="define"><name>RAD_OVERLAY_MAGIC</name></member>
     <member refid="radixkernel_8h_1a7e198af091ac4cf22e2ef208f662e778" kind="define"><name>RAD_OVERLAY_VERSION</name></member>
     <member refid="radixkernel_8h_1a90d08fa55018436b77757fb5cbc2bc79" kind="define"><name>RAD_TREE_MAX_PROPERTY_NAME</name></member>
@@ -671,12 +807,27 @@
     <member refid="radixkernel_8h_1a0c037d2ee5948071654822f198006ea6" kind="define"><name>RAD_COMPATIBLE_MAX</name></member>
     <member refid="radixkernel_8h_1a8a23a8a729b8548ca62edca4d033350c" kind="define"><name>RAD_MODULE_NAME_MAX</name></member>
     <member refid="radixkernel_8h_1adfa95941daea5a79c60c98766f453bfb" kind="define"><name>RAD_MODULE_MAX_INFO</name></member>
+    <member refid="radixkernel_8h_1a992f163b97c29133170bdac3ca9fce31" kind="define"><name>RAD_SERVICE_NAME_MAX</name></member>
+    <member refid="radixkernel_8h_1a089d4681c29af4242e903029a425c63a" kind="define"><name>RAD_SERVICE_COMPATIBLE_MAX</name></member>
+    <member refid="radixkernel_8h_1a7197f64a6e821a2ff0d7a2160a879f2a" kind="define"><name>RAD_SERVICE_CAPABILITY_MAX</name></member>
     <member refid="radixkernel_8h_1ae0ef77026828c8d5ba0ffead952d8e99" kind="define"><name>RAD_IRQ_NAME_MAX</name></member>
     <member refid="radixkernel_8h_1a0eb73ffa1819670b6789aafdecf5aa1e" kind="define"><name>RAD_IRQ_DOMAIN_NAME_MAX</name></member>
     <member refid="radixkernel_8h_1a68ddaef68115f7c3b68c0e71f4bf1b2d" kind="define"><name>RAD_IRQ_MAX_RESOURCES</name></member>
     <member refid="radixkernel_8h_1a16ccee3f7540f07a12aee89cbc9abedb" kind="define"><name>RAD_FRAMEBUFFER_NAME_MAX</name></member>
     <member refid="radixkernel_8h_1a877c479f46600d365a7dea23f1035032" kind="define"><name>RAD_DISPLAY_CONNECTOR_MAX</name></member>
     <member refid="radixkernel_8h_1ace5c9ba0e8301922287e52f03ecd0c96" kind="define"><name>RAD_FRAMEBUFFER_MAX_MODES</name></member>
+    <member refid="radixkernel_8h_1adf2823a66e69b0b6763d932f7902e23d" kind="define"><name>RAD_SHM_NAME_MAX</name></member>
+    <member refid="radixkernel_8h_1a20f1f83f65e7971d2c7a66b60e343f55" kind="define"><name>RAD_SHM_MAX_PAGES</name></member>
+    <member refid="radixkernel_8h_1a6d6ef2be295fd63b466b05ec34cced8b" kind="define"><name>RAD_MMAP_PROT_READ</name></member>
+    <member refid="radixkernel_8h_1a6e47e42e0c931e7b911c083777f4db55" kind="define"><name>RAD_MMAP_PROT_WRITE</name></member>
+    <member refid="radixkernel_8h_1ada6f08d29c70fa82f043a8dd61bfb413" kind="define"><name>RAD_MMAP_SHARED</name></member>
+    <member refid="radixkernel_8h_1ae7ae72cf21a9442e5eb1e1e2971f1cf1" kind="define"><name>RAD_MMAP_PRIVATE</name></member>
+    <member refid="radixkernel_8h_1a3061716cc532ea92d8ec2ced9ac3a42a" kind="define"><name>RAD_COMPOSITOR_DAMAGE_EXPOSED</name></member>
+    <member refid="radixkernel_8h_1a5c348deab86862d991057236b6bcf137" kind="define"><name>RAD_AF_INET</name></member>
+    <member refid="radixkernel_8h_1a8074c5735148f634d2b83334ff2b4d38" kind="define"><name>RAD_SOCK_DGRAM</name></member>
+    <member refid="radixkernel_8h_1a89901ff3ac3185e910ee647708cbea18" kind="define"><name>RAD_SOCK_STREAM</name></member>
+    <member refid="radixkernel_8h_1a3b914287e99e3ea24443a80225c4bdb7" kind="define"><name>RAD_IPPROTO_UDP</name></member>
+    <member refid="radixkernel_8h_1a09531b43269b46e90a9839c673de2e16" kind="define"><name>RAD_IPPROTO_TCP</name></member>
     <member refid="radixkernel_8h_1a458038764484c6ccc47770fb41e886ca" kind="define"><name>RAD_PERF_NAME_MAX</name></member>
     <member refid="radixkernel_8h_1a3494985a416735026b66bae405c7aa25" kind="define"><name>RAD_TIMER_NAME_MAX</name></member>
     <member refid="radixkernel_8h_1ab8295e12bd368978749b08cc05fb22c2" kind="define"><name>RAD_INPUT_QUEUE_NAME_MAX</name></member>
@@ -738,6 +889,10 @@
     <member refid="radixkernel_8h_1a777d9419bfdaee0a25e4cb87309221e2a20ac084701ee7729ddf8527111ab63a5" kind="enumvalue"><name>RAD_SYSCALL_SHUTDOWN</name></member>
     <member refid="radixkernel_8h_1a777d9419bfdaee0a25e4cb87309221e2ad6bd353abfb60dd82e0badd54e806970" kind="enumvalue"><name>RAD_SYSCALL_SETSOCKOPT</name></member>
     <member refid="radixkernel_8h_1a777d9419bfdaee0a25e4cb87309221e2a961b73acf61f54a1aed33ba74f7f41e2" kind="enumvalue"><name>RAD_SYSCALL_GETSOCKOPT</name></member>
+    <member refid="radixkernel_8h_1a777d9419bfdaee0a25e4cb87309221e2ad6687bd6de7bc6b14e6560c139116bcf" kind="enumvalue"><name>RAD_SYSCALL_MMAP</name></member>
+    <member refid="radixkernel_8h_1a777d9419bfdaee0a25e4cb87309221e2a5ff4ab54339829879289a262aac89a03" kind="enumvalue"><name>RAD_SYSCALL_MUNMAP</name></member>
+    <member refid="radixkernel_8h_1a777d9419bfdaee0a25e4cb87309221e2a1b057f32624735a3155378eb9dec8d99" kind="enumvalue"><name>RAD_SYSCALL_SHM_OPEN</name></member>
+    <member refid="radixkernel_8h_1a777d9419bfdaee0a25e4cb87309221e2a4ee78c91b9070ab9b1a68c35c58fcb7a" kind="enumvalue"><name>RAD_SYSCALL_SHM_UNLINK</name></member>
     <member refid="radixkernel_8h_1ac625d0dd385950942d5216656f6ad50d" kind="enum"><name>rad_process_state</name></member>
     <member refid="radixkernel_8h_1ac625d0dd385950942d5216656f6ad50da37fe6d9c79793cbb42b077dd55588fad" kind="enumvalue"><name>RAD_PROCESS_RUNNING</name></member>
     <member refid="radixkernel_8h_1ac625d0dd385950942d5216656f6ad50da25554b41113284fd7736d75fa3ac213b" kind="enumvalue"><name>RAD_PROCESS_WAITING</name></member>
@@ -764,6 +919,7 @@
     <member refid="radixkernel_8h_1aa3bd03b48cec647d6a587dc04ef15bc9a955cc117243839111ced9df5dbe8bc7a" kind="enumvalue"><name>RAD_DEVICE_INPUT</name></member>
     <member refid="radixkernel_8h_1aa3bd03b48cec647d6a587dc04ef15bc9a3cd327e938dcfd771411ed5b8bba8fbd" kind="enumvalue"><name>RAD_DEVICE_BLOCK</name></member>
     <member refid="radixkernel_8h_1aa3bd03b48cec647d6a587dc04ef15bc9a714230a8419aa40c48b3d5d6ff28fc8d" kind="enumvalue"><name>RAD_DEVICE_NETWORK</name></member>
+    <member refid="radixkernel_8h_1aa3bd03b48cec647d6a587dc04ef15bc9adbafb06ec7454317e57a963e8b79acc7" kind="enumvalue"><name>RAD_DEVICE_COMPOSITOR</name></member>
     <member refid="radixkernel_8h_1a93cacec5900b0c5f3b5dad82c20bbb6d" kind="enum"><name>rad_input_event_type</name></member>
     <member refid="radixkernel_8h_1a93cacec5900b0c5f3b5dad82c20bbb6dad67e0a95bb1bf581775bd209da2482ee" kind="enumvalue"><name>RAD_INPUT_EVENT_NONE</name></member>
     <member refid="radixkernel_8h_1a93cacec5900b0c5f3b5dad82c20bbb6dad9587f6c41802f43075ab35182cb8d9b" kind="enumvalue"><name>RAD_INPUT_EVENT_KEY</name></member>
@@ -831,6 +987,7 @@
     <member refid="radixkernel_8h_1aeaf4bdbadb007735aad324a9f6c084b3a822095bec700656611b1207df8c21dc5" kind="enumvalue"><name>RAD_DISPLAY_OUTPUT_GRUB</name></member>
     <member refid="radixkernel_8h_1aeaf4bdbadb007735aad324a9f6c084b3ad8ea3278832b5285ac6e2668232d13f7" kind="enumvalue"><name>RAD_DISPLAY_OUTPUT_RP2350_HSTX</name></member>
     <member refid="radixkernel_8h_1aeaf4bdbadb007735aad324a9f6c084b3a9f44792d152413448e76ff796d62b08c" kind="enumvalue"><name>RAD_DISPLAY_OUTPUT_SPI_PANEL</name></member>
+    <member refid="radixkernel_8h_1aeaf4bdbadb007735aad324a9f6c084b3a156818c77b4e714fb431bca47d24e40f" kind="enumvalue"><name>RAD_DISPLAY_OUTPUT_BCM283X_MAILBOX</name></member>
     <member refid="radixkernel_8h_1a7f00c31def64b43ffa39a3d9e879507f" kind="enum"><name>rad_tty_mode_flags</name></member>
     <member refid="radixkernel_8h_1a7f00c31def64b43ffa39a3d9e879507fa9ad8f9ba5ed790f7ee72ae4325797f59" kind="enumvalue"><name>RAD_TTY_MODE_CANONICAL</name></member>
     <member refid="radixkernel_8h_1a7f00c31def64b43ffa39a3d9e879507fae9804179cb860b4fd49f0ee2847506eb" kind="enumvalue"><name>RAD_TTY_MODE_ECHO</name></member>
@@ -858,6 +1015,16 @@
     <member refid="radixkernel_8h_1a05c5d60a6604ffe8e3f2c13292305504a8daef65e8e337cc27a24618e45b73b6d" kind="enumvalue"><name>RAD_TREE_PROP_STRING</name></member>
     <member refid="radixkernel_8h_1a05c5d60a6604ffe8e3f2c13292305504a292a76e15758ab5e1756eededed084ac" kind="enumvalue"><name>RAD_TREE_PROP_U32_ARRAY</name></member>
     <member refid="radixkernel_8h_1a05c5d60a6604ffe8e3f2c13292305504ac4b5fc68d67cc3dcc40fe926f9f7a9c5" kind="enumvalue"><name>RAD_TREE_PROP_STRING_ARRAY</name></member>
+    <member refid="radixkernel_8h_1aaaefbe5b1c21fde376fb03115687b238" kind="enum"><name>rad_tcp_state</name></member>
+    <member refid="radixkernel_8h_1aaaefbe5b1c21fde376fb03115687b238ac3e1a1b0a577e7952691bb7adb8f5c10" kind="enumvalue"><name>RAD_TCP_CLOSED</name></member>
+    <member refid="radixkernel_8h_1aaaefbe5b1c21fde376fb03115687b238a44e5d17eeb04959fa0e690607f633962" kind="enumvalue"><name>RAD_TCP_LISTEN</name></member>
+    <member refid="radixkernel_8h_1aaaefbe5b1c21fde376fb03115687b238a4446503116b450ed8fefecca9baeb403" kind="enumvalue"><name>RAD_TCP_SYN_SENT</name></member>
+    <member refid="radixkernel_8h_1aaaefbe5b1c21fde376fb03115687b238a34dac37a87b34c7f18796ae57a0c03f9" kind="enumvalue"><name>RAD_TCP_SYN_RECEIVED</name></member>
+    <member refid="radixkernel_8h_1aaaefbe5b1c21fde376fb03115687b238a3f78571f5840d5d501db393c33ddd2fd" kind="enumvalue"><name>RAD_TCP_ESTABLISHED</name></member>
+    <member refid="radixkernel_8h_1aaaefbe5b1c21fde376fb03115687b238a2e53e36dbfe2e74a7439225015bc0e0c" kind="enumvalue"><name>RAD_TCP_FIN_WAIT</name></member>
+    <member refid="radixkernel_8h_1aaaefbe5b1c21fde376fb03115687b238ad7cbf582e7aa20285ea7ac194996f39d" kind="enumvalue"><name>RAD_TCP_CLOSE_WAIT</name></member>
+    <member refid="radixkernel_8h_1aaaefbe5b1c21fde376fb03115687b238a3dbd9c8b37154b3409e144fd46777b7c" kind="enumvalue"><name>RAD_TCP_LAST_ACK</name></member>
+    <member refid="radixkernel_8h_1aaaefbe5b1c21fde376fb03115687b238a62a31bc26ce1efce922b797185a31901" kind="enumvalue"><name>RAD_TCP_TIME_WAIT</name></member>
     <member refid="radixkernel_8h_1a140ab5422d459ba07b75d08ff58e5359" kind="enum"><name>rad_program_state</name></member>
     <member refid="radixkernel_8h_1a140ab5422d459ba07b75d08ff58e5359a41f33bd3656c948b9a3459ddbe4a9e92" kind="enumvalue"><name>RAD_PROGRAM_LOADED</name></member>
     <member refid="radixkernel_8h_1a140ab5422d459ba07b75d08ff58e5359af6dcaf953b6ad02b1fa7eae8752fc62d" kind="enumvalue"><name>RAD_PROGRAM_RUNNING</name></member>
@@ -868,6 +1035,12 @@
     <member refid="radixkernel_8h_1a02555ae996980220092af6e034eb516eaa364f5443a6b9e3faba5c688e9aab5a8" kind="enumvalue"><name>RAD_MODULE_INITIALIZED</name></member>
     <member refid="radixkernel_8h_1a02555ae996980220092af6e034eb516ea721360c188b9abd2d49ef599b2eeb633" kind="enumvalue"><name>RAD_MODULE_FAILED</name></member>
     <member refid="radixkernel_8h_1a02555ae996980220092af6e034eb516ea5f092aa907e6ce9ad7e8ff9cb9ba7557" kind="enumvalue"><name>RAD_MODULE_EXITED</name></member>
+    <member refid="radixkernel_8h_1adcf6367a73941b34af98086ca04208a7" kind="enum"><name>rad_service_state</name></member>
+    <member refid="radixkernel_8h_1adcf6367a73941b34af98086ca04208a7a9bad77b2d76e53ab3e564b736af57243" kind="enumvalue"><name>RAD_SERVICE_REGISTERED</name></member>
+    <member refid="radixkernel_8h_1adcf6367a73941b34af98086ca04208a7ad8cbd42283e2e9e94f07d18e7a4eeb34" kind="enumvalue"><name>RAD_SERVICE_CONFIGURED</name></member>
+    <member refid="radixkernel_8h_1adcf6367a73941b34af98086ca04208a7acd694ba59b277868beb2ae3352ced27c" kind="enumvalue"><name>RAD_SERVICE_RUNNING</name></member>
+    <member refid="radixkernel_8h_1adcf6367a73941b34af98086ca04208a7aece35909c781481a00c5e80756849839" kind="enumvalue"><name>RAD_SERVICE_FAILED</name></member>
+    <member refid="radixkernel_8h_1adcf6367a73941b34af98086ca04208a7af5477a297e1ff518454153b10bc5adfd" kind="enumvalue"><name>RAD_SERVICE_STOPPED</name></member>
     <member refid="radixkernel_8h_1aeb7c981d4b5f029daa65d3b928bab127" kind="typedef"><name>rad_status_t</name></member>
     <member refid="radixkernel_8h_1aaf1f287c1e61f3776faa6c6bc2b769e9" kind="typedef"><name>rad_posix_syscall_t</name></member>
     <member refid="radixkernel_8h_1a1985677615ed0bc7e6ed9e809fe1e639" kind="typedef"><name>rad_process_state_t</name></member>
@@ -891,6 +1064,7 @@
     <member refid="radixkernel_8h_1a6f96d190a1afbec08ac15a9b1b0cd6a8" kind="typedef"><name>rad_boot_arg_t</name></member>
     <member refid="radixkernel_8h_1af511c1b708f2a4246ae1b45e068cf208" kind="typedef"><name>rad_boot_memory_region_t</name></member>
     <member refid="radixkernel_8h_1acbfa1f491bcf507c77435e9cc5606e54" kind="typedef"><name>rad_boot_info_t</name></member>
+    <member refid="radixkernel_8h_1a91f8e3f33e19a13a0b9ab45d74bc7b70" kind="typedef"><name>rad_boot_handoff_t</name></member>
     <member refid="radixkernel_8h_1acac9b3ab9f4f42535172b4058b2e7c0d" kind="typedef"><name>rad_memory_stats_t</name></member>
     <member refid="radixkernel_8h_1adcc3e5ceb653871db646225e362c5e5e" kind="typedef"><name>rad_perf_counter_info_t</name></member>
     <member refid="radixkernel_8h_1ab0562b02fd4bdc67ea8a6a4f671a0239" kind="typedef"><name>rad_timer_source_config_t</name></member>
@@ -912,6 +1086,9 @@
     <member refid="radixkernel_8h_1a1af91900409430083f6d8cd89aae108a" kind="typedef"><name>rad_ipv4_address_t</name></member>
     <member refid="radixkernel_8h_1a6775d3f2c764f2f953b1f6a9549a0bcd" kind="typedef"><name>rad_net_packet_t</name></member>
     <member refid="radixkernel_8h_1a24766067d26a0cbdaf6054ba1e817857" kind="typedef"><name>rad_net_link_info_t</name></member>
+    <member refid="radixkernel_8h_1a4d83d71e68ca2997365f7129f00f3188" kind="typedef"><name>rad_sockaddr_in_t</name></member>
+    <member refid="radixkernel_8h_1a90c73a4ca198e2142d5c7f0d47a503de" kind="typedef"><name>rad_tcp_state_t</name></member>
+    <member refid="radixkernel_8h_1aefd38ec52b6f2dbdc9462d00ff13ddbe" kind="typedef"><name>rad_socket_info_t</name></member>
     <member refid="radixkernel_8h_1ac33416acf60401bde2bf1fffbd7f3924" kind="typedef"><name>rad_posix_timeval_t</name></member>
     <member refid="radixkernel_8h_1a2a966c8f5814f399d63caff136290580" kind="typedef"><name>rad_process_info_t</name></member>
     <member refid="radixkernel_8h_1ab74da7ea675a8aac81707071e2b689c7" kind="typedef"><name>rad_process_arch_ops_t</name></member>
@@ -924,11 +1101,15 @@
     <member refid="radixkernel_8h_1a2df38b4a67102717237159b2a6928353" kind="typedef"><name>rad_input_event_t</name></member>
     <member refid="radixkernel_8h_1a188d5dff5f963afb267c4ea9399b4800" kind="typedef"><name>rad_framebuffer_rect_t</name></member>
     <member refid="radixkernel_8h_1a859f50a328e076edb6e117e6926ae10a" kind="typedef"><name>rad_framebuffer_info_t</name></member>
+    <member refid="radixkernel_8h_1adc6cfd6c1eb337e83a1e3b4c3345dd29" kind="typedef"><name>rad_framebuffer_present_t</name></member>
     <member refid="radixkernel_8h_1ac625eecdfc36eecddc643a62b0a065b9" kind="typedef"><name>rad_display_mode_t</name></member>
     <member refid="radixkernel_8h_1a0f9eb80f930f2094a7ca31038fb55f5f" kind="typedef"><name>rad_framebuffer_ops_t</name></member>
     <member refid="radixkernel_8h_1a40c5fc1222c9a0f7d8b676d168064fed" kind="typedef"><name>rad_framebuffer_t</name></member>
     <member refid="radixkernel_8h_1a0b2054e13e5b80e1247f4dbaac6b3115" kind="typedef"><name>rad_framebuffer_config_t</name></member>
     <member refid="radixkernel_8h_1af9bcd5fe5763341019b6f213746b4ef0" kind="typedef"><name>rad_framebuffer_display_info_t</name></member>
+    <member refid="radixkernel_8h_1a30735cc4b10d59209c511fe60c1acdb3" kind="typedef"><name>rad_shm_info_t</name></member>
+    <member refid="radixkernel_8h_1a0e04618d0ac3c3854fdce52d7c15a474" kind="typedef"><name>rad_compositor_ipc_surface_t</name></member>
+    <member refid="radixkernel_8h_1aca4f62e14cd13828b2da4f167f4150cc" kind="typedef"><name>rad_compositor_ipc_damage_t</name></member>
     <member refid="radixkernel_8h_1a40a31837c6623b22aa6894997f0e2664" kind="typedef"><name>rad_i2c_transfer_t</name></member>
     <member refid="radixkernel_8h_1aeffadefe4213fd2d6b05df892a25e1f7" kind="typedef"><name>rad_i2c_bus_t</name></member>
     <member refid="radixkernel_8h_1acc00ff4e4ac2017e8d5039e1ff50ec90" kind="typedef"><name>rad_i2c_device_t</name></member>
@@ -947,7 +1128,11 @@
     <member refid="radixkernel_8h_1af1408de907721ffd0207c836b7afdc8d" kind="typedef"><name>rad_spi_driver_t</name></member>
     <member refid="radixkernel_8h_1aaf8ba4467e7ad0f37c3df2bfba318603" kind="typedef"><name>rad_module_descriptor_t</name></member>
     <member refid="radixkernel_8h_1acba0bf396852d0a5fd54ed76c76fe61b" kind="typedef"><name>rad_module_state_t</name></member>
+    <member refid="radixkernel_8h_1a77553e3feea55992d0f7d9001f21b377" kind="typedef"><name>rad_service_state_t</name></member>
     <member refid="radixkernel_8h_1a331544f08333704576625666c833bf9e" kind="typedef"><name>rad_module_info_t</name></member>
+    <member refid="radixkernel_8h_1afcfb3b9b94bc1779149e396553222aa8" kind="typedef"><name>rad_service_config_t</name></member>
+    <member refid="radixkernel_8h_1af6937160e3d1706001b8c69ffac361af" kind="typedef"><name>rad_service_descriptor_t</name></member>
+    <member refid="radixkernel_8h_1addc5d9fd425f146c8ba5c2fe2d00c4b4" kind="typedef"><name>rad_service_info_t</name></member>
     <member refid="radixkernel_8h_1aae668ee8348a17eb738d3cbba9f0fcb0" kind="typedef"><name>rad_driver_info_t</name></member>
     <member refid="radixkernel_8h_1a268734234ab809b1e27a653e16b6a46e" kind="typedef"><name>rad_irq_domain_t</name></member>
     <member refid="radixkernel_8h_1afdff2424ab12bc57e05798cae919b4e3" kind="typedef"><name>rad_irq_domain_config_t</name></member>
@@ -1092,6 +1277,13 @@
     <member refid="radixkernel_8h_1a66ffda8c781cea836af6642fb61d6ef6" kind="function"><name>rad_module_register</name></member>
     <member refid="radixkernel_8h_1a1242898763f7ee1176562ff1567e1d97" kind="function"><name>rad_module_unregister</name></member>
     <member refid="radixkernel_8h_1a0d3fbf1529766f273be535bf300d243b" kind="function"><name>rad_module_list</name></member>
+    <member refid="radixkernel_8h_1a439b427343fabc195643b177b4919ee9" kind="function"><name>rad_service_register</name></member>
+    <member refid="radixkernel_8h_1a78810c447560314a6b154657e24af865" kind="function"><name>rad_service_unregister</name></member>
+    <member refid="radixkernel_8h_1aec979bcddf06a1b809eed5035621730e" kind="function"><name>rad_service_configure_tree</name></member>
+    <member refid="radixkernel_8h_1a325239bb2603128d63d38e09f0945451" kind="function"><name>rad_service_start</name></member>
+    <member refid="radixkernel_8h_1afe134eba7603c5ddd61335bf1cb8ac23" kind="function"><name>rad_service_stop</name></member>
+    <member refid="radixkernel_8h_1a7d3a217ad848e6e367e37f9ead918ac8" kind="function"><name>rad_service_poll_all</name></member>
+    <member refid="radixkernel_8h_1a5a4249cecdfe8ab58425c9aa2d7b9a69" kind="function"><name>rad_service_list</name></member>
     <member refid="radixkernel_8h_1ab824924ae94d2cb68a340237217aa669" kind="function"><name>rad_irq_register</name></member>
     <member refid="radixkernel_8h_1ac05d3ee6e77c82585632feade26a86bc" kind="function"><name>rad_irq_unregister</name></member>
     <member refid="radixkernel_8h_1aa2eb9515cd0edb9b801b471e7fcabca9" kind="function"><name>rad_irq_enable</name></member>
@@ -1117,6 +1309,12 @@
     <member refid="radixkernel_8h_1a96ae01ffe4979589b1c0e2eb7d1a7525" kind="function"><name>rad_fd_dup2</name></member>
     <member refid="radixkernel_8h_1aa2164cc8ba9e27a409146f3e78edfdf1" kind="function"><name>rad_fd_fcntl</name></member>
     <member refid="radixkernel_8h_1a6748a841f8fac07e2bec23c3fa4314df" kind="function"><name>rad_pipe_create</name></member>
+    <member refid="radixkernel_8h_1a2933697fcbc19ae8e7e4232cf8a82c70" kind="function"><name>rad_shm_open</name></member>
+    <member refid="radixkernel_8h_1ad4d54651f2479270912b5a09448f7d8c" kind="function"><name>rad_shm_unlink</name></member>
+    <member refid="radixkernel_8h_1a0ef097ad79b00d6a1923ea9b698c4994" kind="function"><name>rad_shm_get_info</name></member>
+    <member refid="radixkernel_8h_1a7278688545522fa5c7564d679988b56b" kind="function"><name>rad_shm_set_page</name></member>
+    <member refid="radixkernel_8h_1a3178b9392a067e38a5d118fc3b49f68c" kind="function"><name>rad_shm_get_page</name></member>
+    <member refid="radixkernel_8h_1ad0cb0ad7872d6e7b141f833825871eae" kind="function"><name>rad_shm_kernel_pointer</name></member>
     <member refid="radixkernel_8h_1a5489db4dc23625651a656a9df4446d0e" kind="function"><name>rad_syscall_dispatch</name></member>
     <member refid="radixkernel_8h_1aee015a741e15d29c1ee3d646f844cd8f" kind="function"><name>rad_program_load</name></member>
     <member refid="radixkernel_8h_1ac1db1e94fb421569ea065d1c6e7659b1" kind="function"><name>rad_program_spawn</name></member>
@@ -1159,7 +1357,21 @@
     <member refid="radixkernel_8h_1a827fdd703932e52d14301da4f5ef2f79" kind="function"><name>rad_net_open</name></member>
     <member refid="radixkernel_8h_1aeb4c943b27e2a957d8e7ca2b84a75925" kind="function"><name>rad_net_link_info</name></member>
     <member refid="radixkernel_8h_1a5e287522d3943718d304533b061723b1" kind="function"><name>rad_net_send</name></member>
+    <member refid="radixkernel_8h_1ae52ffdb999f72797a583bf8b012d4dd3" kind="function"><name>rad_net_receive</name></member>
     <member refid="radixkernel_8h_1a1b27607485164da0ddc65b078c2fd91b" kind="function"><name>rad_net_poll</name></member>
+    <member refid="radixkernel_8h_1a5147721bf65cc563297795d8c13493af" kind="function"><name>rad_socket_create</name></member>
+    <member refid="radixkernel_8h_1ad5ef2e6bce169036cbee2004d1b0b685" kind="function"><name>rad_socket_bind</name></member>
+    <member refid="radixkernel_8h_1aa0e4321171701bf055496f3477dade3b" kind="function"><name>rad_socket_listen</name></member>
+    <member refid="radixkernel_8h_1aa0b84d7dd7a724d5fc2c0427864c3c11" kind="function"><name>rad_socket_accept</name></member>
+    <member refid="radixkernel_8h_1aa3e3a03cc652049663d1f844bef58a98" kind="function"><name>rad_socket_connect</name></member>
+    <member refid="radixkernel_8h_1ab945d4741318b5b994c4b94b58dc5095" kind="function"><name>rad_socket_sendto</name></member>
+    <member refid="radixkernel_8h_1a0bab154bb26460f43ff6e22f0d3ff2b3" kind="function"><name>rad_socket_recvfrom</name></member>
+    <member refid="radixkernel_8h_1a9a356134650d13e0c2345de383a436cc" kind="function"><name>rad_socket_send</name></member>
+    <member refid="radixkernel_8h_1a606269ea8915f9c3382e791db38a1cf0" kind="function"><name>rad_socket_recv</name></member>
+    <member refid="radixkernel_8h_1abca9a1273ec1627fc51c2500e177c93e" kind="function"><name>rad_socket_shutdown</name></member>
+    <member refid="radixkernel_8h_1aa06dbece6c00256b0c96ce0a3d780c5c" kind="function"><name>rad_socket_get_info</name></member>
+    <member refid="radixkernel_8h_1aa4a2fddd54b0f5752dc5f99103ee4c95" kind="function"><name>rad_socket_setsockopt</name></member>
+    <member refid="radixkernel_8h_1aecd6eb0ce56ed2a3f21002d361d84c2a" kind="function"><name>rad_socket_getsockopt</name></member>
     <member refid="radixkernel_8h_1a05d00ba37414857fa8b177b2f8eabdd8" kind="function"><name>rad_framebuffer_register</name></member>
     <member refid="radixkernel_8h_1a25c9b6d91ce95d5c5236cf666494b488" kind="function"><name>rad_framebuffer_register_ex</name></member>
     <member refid="radixkernel_8h_1a601dc50da794338ddbfe373fafdd5d35" kind="function"><name>rad_framebuffer_unregister</name></member>
@@ -1175,6 +1387,7 @@
     <member refid="radixkernel_8h_1acabf7954930b245f4b206d8365cc6321" kind="function"><name>rad_framebuffer_clear</name></member>
     <member refid="radixkernel_8h_1a9e0c183a021f51b2a60d1a007fb3aac6" kind="function"><name>rad_framebuffer_draw_text</name></member>
     <member refid="radixkernel_8h_1a230bf8f5f13f6cc4fd6f094dd14f9cc2" kind="function"><name>rad_framebuffer_flush</name></member>
+    <member refid="radixkernel_8h_1a2a70edb5a0a72255645eed0b91120290" kind="function"><name>rad_framebuffer_present</name></member>
     <member refid="radixkernel_8h_1aae42f39e073071564b356f5e23088610" kind="function"><name>rad_framebuffer_list</name></member>
     <member refid="radixkernel_8h_1a51affce79bdb532c87312d5f64c4c3ed" kind="function"><name>rad_framebuffer_list_ex</name></member>
     <member refid="radixkernel_8h_1a64408714c5433e9570418dfb17c17bf5" kind="function"><name>rad_i2c_controller_register</name></member>
@@ -1251,6 +1464,12 @@
   <compound refid="device_tree_guide" kind="page"><name>device_tree_guide</name>
   </compound>
   <compound refid="minimal_examples" kind="page"><name>minimal_examples</name>
+  </compound>
+  <compound refid="networking" kind="page"><name>networking</name>
+  </compound>
+  <compound refid="pi_zero2w" kind="page"><name>pi_zero2w</name>
+  </compound>
+  <compound refid="radcompositor" kind="page"><name>radcompositor</name>
   </compound>
   <compound refid="dir_e71d2c5dab3b5ff0864964e95174a67b" kind="dir"><name>/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/boot</name>
   </compound>

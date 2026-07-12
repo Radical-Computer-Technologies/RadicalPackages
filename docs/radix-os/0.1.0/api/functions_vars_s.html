@@ -143,16 +143,23 @@ $(document).ready(function(){initNavTree('functions_vars_s.html',''); initResiza
 <li>set_mode
 : <a class="el" href="structrad__framebuffer__ops.html#ab5ac3fc4d14d7f1ea81a77732b591065">rad_framebuffer_ops</a>
 </li>
+<li>shm_fd
+: <a class="el" href="structrad__compositor__ipc__surface.html#a848b823a2d2a06374f47139390773be6">rad_compositor_ipc_surface</a>
+</li>
 <li>size
 : <a class="el" href="structrad__block__info.html#a296d9df659bd3a4b4f1dc13a54c64979">rad_block_info</a>
 , <a class="el" href="structrad__block__request.html#a208fd6dbca53c47029cc237ba56378d9">rad_block_request</a>
+, <a class="el" href="structrad__boot__handoff.html#ab52468f11e07bbbc6b3f5e947dd4fdc3">rad_boot_handoff</a>
 , <a class="el" href="structrad__boot__info.html#ada82aa7f5a10607532b128b2ab3ed0ce">rad_boot_info</a>
 , <a class="el" href="structrad__boot__memory__region.html#a61cb0ba43f130ada5df310516f569dba">rad_boot_memory_region</a>
+, <a class="el" href="structrad__compositor__ipc__damage.html#a4ba2fe27413733e59e0f67439853d6d0">rad_compositor_ipc_damage</a>
+, <a class="el" href="structrad__compositor__ipc__surface.html#a5797347737952e24c80e11a3830adb64">rad_compositor_ipc_surface</a>
 , <a class="el" href="structrad__dma__controller__config.html#ab105a7d3b1eb1aaf6e24db07af3990c2">rad_dma_controller_config</a>
 , <a class="el" href="structrad__dma__transfer.html#aeb9ef987c74842bf1331b3019a28f2a6">rad_dma_transfer</a>
 , <a class="el" href="structrad__framebuffer__config.html#a327794f67f86a737412c9b1246595cbe">rad_framebuffer_config</a>
 , <a class="el" href="structrad__framebuffer__display__info.html#a948e727fb77c776a1af246531f81a951">rad_framebuffer_display_info</a>
 , <a class="el" href="structrad__framebuffer__info.html#abe042872b9cb5f40ae4da78140384cc5">rad_framebuffer_info</a>
+, <a class="el" href="structrad__framebuffer__present.html#a8d858f863c98bd459e42deb400d839b2">rad_framebuffer_present</a>
 , <a class="el" href="structrad__i2c__controller__config.html#ae96403759de501783bd9c89ad26d3ca8">rad_i2c_controller_config</a>
 , <a class="el" href="structrad__i2c__driver.html#af5448ef486cc3ac765269d016b42e196">rad_i2c_driver</a>
 , <a class="el" href="structrad__input__event.html#a4ffb6361606bb4943ea22302e80bc476">rad_input_event</a>
@@ -161,6 +168,10 @@ $(document).ready(function(){initNavTree('functions_vars_s.html',''); initResiza
 , <a class="el" href="structrad__net__link__info.html#a82e4455b617c928172212e7d3e4e4226">rad_net_link_info</a>
 , <a class="el" href="structrad__net__packet.html#ade8de33820334fe28489df2788230fb6">rad_net_packet</a>
 , <a class="el" href="structrad__process__arch__ops.html#a30bcb47a437c98c4c19b4a1204dac17d">rad_process_arch_ops</a>
+, <a class="el" href="structrad__service__config.html#af5f2de6e28506f4422a94d6bc8ed3db0">rad_service_config</a>
+, <a class="el" href="structrad__service__descriptor.html#a05f00831e07e8c2b569468b69070bab6">rad_service_descriptor</a>
+, <a class="el" href="structrad__shm__info.html#a45fbf30ce399c8f72ffc80720f1efd44">rad_shm_info</a>
+, <a class="el" href="structrad__socket__info.html#a458c6824524c2d577e96b6f73af74a45">rad_socket_info</a>
 , <a class="el" href="structrad__spi__controller__config.html#a877a8eb6954772b62c7e5675a1188912">rad_spi_controller_config</a>
 , <a class="el" href="structrad__spi__driver.html#a58679c8987b4ce4c594be4f0618e3084">rad_spi_driver</a>
 , <a class="el" href="structrad__spi__transfer.html#a98be7ff93dfcce4d8d129f688f1ca3f9">rad_spi_transfer</a>
@@ -181,9 +192,16 @@ $(document).ready(function(){initNavTree('functions_vars_s.html',''); initResiza
 <li>spi_instance
 : <a class="el" href="structrad__sd__config.html#a6d338ef0ece0ca22b07f8ce2aa562956">rad_sd_config</a>
 </li>
+<li>stack_base
+: <a class="el" href="structrad__boot__handoff.html#af815b6a6aced2b543a2615c33e1062fe">rad_boot_handoff</a>
+</li>
 <li>stack_size
-: <a class="el" href="structrad__task__config.html#a26a7c1a9f493c17111d33ddaa035211c">rad_task_config</a>
+: <a class="el" href="structrad__boot__handoff.html#ad9ab25bc490df8f19f66d6509271aabc">rad_boot_handoff</a>
+, <a class="el" href="structrad__task__config.html#a26a7c1a9f493c17111d33ddaa035211c">rad_task_config</a>
 , <a class="el" href="structrad__task__info.html#a22008a89cfd126718a51c65d770bf390">rad_task_info</a>
+</li>
+<li>start
+: <a class="el" href="structrad__service__descriptor.html#a2ac55da7f31c2c011a66ac258583351a">rad_service_descriptor</a>
 </li>
 <li>start_periodic
 : <a class="el" href="structrad__timer__source__ops.html#ac67fb0c8eb6ec767db50cd4ddd3b9c2f">rad_timer_source_ops</a>
@@ -196,7 +214,11 @@ $(document).ready(function(){initNavTree('functions_vars_s.html',''); initResiza
 : <a class="el" href="structrad__module__info.html#a6c48f396ac2542201ddfc6cef548d2c8">rad_module_info</a>
 , <a class="el" href="structrad__process__info.html#aa0520516eb73bef5dd74d43548209890">rad_process_info</a>
 , <a class="el" href="structrad__program__info.html#a00ece3393aceba0f2ef6c07aa486b43d">rad_program_info</a>
+, <a class="el" href="structrad__service__info.html#a685a6b5f7f7a5cf323146d1ee60ae470">rad_service_info</a>
 , <a class="el" href="structrad__task__info.html#aeadb553bc77b98732120acb86d4a893e">rad_task_info</a>
+</li>
+<li>stop
+: <a class="el" href="structrad__service__descriptor.html#a846259a7ec26163580ac54e3f7101d3b">rad_service_descriptor</a>
 </li>
 <li>stop_bits
 : <a class="el" href="structrad__serial__config.html#a557a62db2e497427926b12895f43a308">rad_serial_config</a>
@@ -204,6 +226,10 @@ $(document).ready(function(){initNavTree('functions_vars_s.html',''); initResiza
 <li>stride_bytes
 : <a class="el" href="structrad__display__mode.html#accc19088192b5e618ac674f5a18f4e1e">rad_display_mode</a>
 , <a class="el" href="structrad__framebuffer__info.html#a36c3c3a55b04d11d737116fd7ecc7bea">rad_framebuffer_info</a>
+, <a class="el" href="structrad__framebuffer__present.html#a70e8b2268025c63f73c8d4d2731be533">rad_framebuffer_present</a>
+</li>
+<li>stride_pixels
+: <a class="el" href="structrad__compositor__ipc__surface.html#a37b39f32d36a69c01fa9082cc5d5b2aa">rad_compositor_ipc_surface</a>
 </li>
 <li>submit
 : <a class="el" href="structrad__dma__backend__ops.html#a2e582ea16dcf2c00e26506869200d7a3">rad_dma_backend_ops</a>
@@ -211,6 +237,10 @@ $(document).ready(function(){initNavTree('functions_vars_s.html',''); initResiza
 <li>supports_oneshot
 : <a class="el" href="structrad__timer__source__config.html#a764cd8ea319eaf4e41cba5ac1e57060f">rad_timer_source_config</a>
 , <a class="el" href="structrad__timer__source__info.html#a7eccb0679cee8042950e2db534de5b5e">rad_timer_source_info</a>
+</li>
+<li>surface_id
+: <a class="el" href="structrad__compositor__ipc__damage.html#ae4d057089d2e99a1d95813a8423c883a">rad_compositor_ipc_damage</a>
+, <a class="el" href="structrad__compositor__ipc__surface.html#a93948fb2913a6500e04f903c4095214f">rad_compositor_ipc_surface</a>
 </li>
 <li>symlink
 : <a class="el" href="structrad__vfs__backend__ops.html#a3be4c08922f295848b6f995d34810142">rad_vfs_backend_ops</a>

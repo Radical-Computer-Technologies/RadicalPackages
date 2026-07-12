@@ -95,7 +95,7 @@ $(document).ready(function(){initNavTree('radixkernel_8h.html',''); initResizabl
 </div><!--header-->
 <div class="contents">
 
-<p>Portable embedded kernel service ABI for RADLib.  
+<p>Portable RADix kernel service ABI for RADLib and RADix-OS targets.
 <a href="#details">More...</a></p>
 <div class="textblock"><code>#include &lt;stddef.h&gt;</code><br />
 <code>#include &lt;stdint.h&gt;</code><br />
@@ -105,14 +105,15 @@ $(document).ready(function(){initNavTree('radixkernel_8h.html',''); initResizabl
 <div id="dynsection-0-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-0-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="radixkernel_8h__incl.svg" width="280" height="142"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="radixkernel_8h__incl.svg" width="280" height="142"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
 </div>
 </div><div class="textblock"><div id="dynsection-1" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-1-trigger" src="closed.png" alt="+"/> This graph shows which files directly or indirectly include this file:</div>
 <div id="dynsection-1-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-1-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="radixkernel_8h__dep__incl.svg" width="6618" height="171"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="radixkernel_8h__dep__incl.svg" width="6890" height="171"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 </div>
@@ -131,6 +132,9 @@ Classes</h2></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structrad__boot__info.html">rad_boot_info</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Public data structure for <a class="el" href="structrad__boot__info.html" title="Public data structure for rad_boot_info.">rad_boot_info</a>.  <a href="structrad__boot__info.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structrad__boot__handoff.html">rad_boot_handoff</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Public data structure for <a class="el" href="structrad__boot__handoff.html" title="Public data structure for rad_boot_handoff.">rad_boot_handoff</a>.  <a href="structrad__boot__handoff.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structrad__memory__stats.html">rad_memory_stats</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Public data structure for <a class="el" href="structrad__memory__stats.html" title="Public data structure for rad_memory_stats.">rad_memory_stats</a>.  <a href="structrad__memory__stats.html#details">More...</a><br /></td></tr>
@@ -186,6 +190,12 @@ Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structrad__net__link__info.html">rad_net_link_info</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Public data structure for <a class="el" href="structrad__net__link__info.html" title="Public data structure for rad_net_link_info.">rad_net_link_info</a>.  <a href="structrad__net__link__info.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structrad__sockaddr__in.html">rad_sockaddr_in</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Public data structure for <a class="el" href="structrad__sockaddr__in.html" title="Public data structure for rad_sockaddr_in.">rad_sockaddr_in</a>.  <a href="structrad__sockaddr__in.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structrad__socket__info.html">rad_socket_info</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Public data structure for <a class="el" href="structrad__socket__info.html" title="Public data structure for rad_socket_info.">rad_socket_info</a>.  <a href="structrad__socket__info.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structrad__posix__timeval.html">rad_posix_timeval</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Public data structure for <a class="el" href="structrad__posix__timeval.html" title="Public data structure for rad_posix_timeval.">rad_posix_timeval</a>.  <a href="structrad__posix__timeval.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -216,6 +226,9 @@ Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structrad__framebuffer__info.html">rad_framebuffer_info</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Public data structure for <a class="el" href="structrad__framebuffer__info.html" title="Public data structure for rad_framebuffer_info.">rad_framebuffer_info</a>.  <a href="structrad__framebuffer__info.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structrad__framebuffer__present.html">rad_framebuffer_present</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Public data structure for <a class="el" href="structrad__framebuffer__present.html" title="Public data structure for rad_framebuffer_present.">rad_framebuffer_present</a>.  <a href="structrad__framebuffer__present.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structrad__display__mode.html">rad_display_mode</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Public data structure for <a class="el" href="structrad__display__mode.html" title="Public data structure for rad_display_mode.">rad_display_mode</a>.  <a href="structrad__display__mode.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -227,6 +240,15 @@ Classes</h2></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structrad__framebuffer__display__info.html">rad_framebuffer_display_info</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Public data structure for <a class="el" href="structrad__framebuffer__display__info.html" title="Public data structure for rad_framebuffer_display_info.">rad_framebuffer_display_info</a>.  <a href="structrad__framebuffer__display__info.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structrad__shm__info.html">rad_shm_info</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Public data structure for <a class="el" href="structrad__shm__info.html" title="Public data structure for rad_shm_info.">rad_shm_info</a>.  <a href="structrad__shm__info.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structrad__compositor__ipc__surface.html">rad_compositor_ipc_surface</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Public data structure for <a class="el" href="structrad__compositor__ipc__surface.html" title="Public data structure for rad_compositor_ipc_surface.">rad_compositor_ipc_surface</a>.  <a href="structrad__compositor__ipc__surface.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structrad__compositor__ipc__damage.html">rad_compositor_ipc_damage</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Public data structure for <a class="el" href="structrad__compositor__ipc__damage.html" title="Public data structure for rad_compositor_ipc_damage.">rad_compositor_ipc_damage</a>.  <a href="structrad__compositor__ipc__damage.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structrad__i2c__transfer.html">rad_i2c_transfer</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Public data structure for <a class="el" href="structrad__i2c__transfer.html" title="Public data structure for rad_i2c_transfer.">rad_i2c_transfer</a>.  <a href="structrad__i2c__transfer.html#details">More...</a><br /></td></tr>
@@ -266,6 +288,15 @@ Classes</h2></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structrad__module__info.html">rad_module_info</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Public data structure for <a class="el" href="structrad__module__info.html" title="Public data structure for rad_module_info.">rad_module_info</a>.  <a href="structrad__module__info.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structrad__service__config.html">rad_service_config</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Public data structure for <a class="el" href="structrad__service__config.html" title="Public data structure for rad_service_config.">rad_service_config</a>.  <a href="structrad__service__config.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structrad__service__descriptor.html">rad_service_descriptor</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Public data structure for <a class="el" href="structrad__service__descriptor.html" title="Public data structure for rad_service_descriptor.">rad_service_descriptor</a>.  <a href="structrad__service__descriptor.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structrad__service__info.html">rad_service_info</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Public data structure for <a class="el" href="structrad__service__info.html" title="Public data structure for rad_service_info.">rad_service_info</a>.  <a href="structrad__service__info.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structrad__driver__info.html">rad_driver_info</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Public data structure for <a class="el" href="structrad__driver__info.html" title="Public data structure for rad_driver_info.">rad_driver_info</a>.  <a href="structrad__driver__info.html#details">More...</a><br /></td></tr>
@@ -399,6 +430,10 @@ Macros</h2></td></tr>
 #define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="radixkernel_8h.html#a40c2ecf1d7cf45848f0ec4457a5d4728">RAD_IOCTL_TYPE_NET</a>&#160;&#160;&#160;'N'</td></tr>
 <tr class="memdesc:a40c2ecf1d7cf45848f0ec4457a5d4728"><td class="mdescLeft">&#160;</td><td class="mdescRight">Public constant or ioctl helper. <br /></td></tr>
 <tr class="separator:a40c2ecf1d7cf45848f0ec4457a5d4728"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a226f9e25f4f4609e46a96dde831bf87e"><td class="memItemLeft" align="right" valign="top"><a id="a226f9e25f4f4609e46a96dde831bf87e"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="radixkernel_8h.html#a226f9e25f4f4609e46a96dde831bf87e">RAD_IOCTL_TYPE_COMPOSITOR</a>&#160;&#160;&#160;'C'</td></tr>
+<tr class="memdesc:a226f9e25f4f4609e46a96dde831bf87e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Public constant or ioctl helper. <br /></td></tr>
+<tr class="separator:a226f9e25f4f4609e46a96dde831bf87e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acb88aa9be1110f8617727d35a47e9cad"><td class="memItemLeft" align="right" valign="top"><a id="acb88aa9be1110f8617727d35a47e9cad"></a>
 #define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="radixkernel_8h.html#acb88aa9be1110f8617727d35a47e9cad">RAD_DEVICE_IOCTL_I2C_TRANSFER</a>&#160;&#160;&#160;<a class="el" href="radixkernel_8h.html#aecfcb3a837dc6429f0b76d19656ecd48">RAD_IOWR</a>(<a class="el" href="radixkernel_8h.html#a605ea47d244f4f0557b5c4ccc70a48a5">RAD_IOCTL_TYPE_I2C</a>, 1u, struct <a class="el" href="structrad__i2c__transfer.html">rad_i2c_transfer</a>)</td></tr>
 <tr class="memdesc:acb88aa9be1110f8617727d35a47e9cad"><td class="mdescLeft">&#160;</td><td class="mdescRight">Public constant or ioctl helper. <br /></td></tr>
@@ -451,6 +486,22 @@ Macros</h2></td></tr>
 #define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="radixkernel_8h.html#afd24144bc5033e5fa31a374ef247f8d4">RAD_DEVICE_IOCTL_NET_POLL</a>&#160;&#160;&#160;<a class="el" href="radixkernel_8h.html#a1a149d40001db029f8c2491688da47e5">RAD_IO</a>(<a class="el" href="radixkernel_8h.html#a40c2ecf1d7cf45848f0ec4457a5d4728">RAD_IOCTL_TYPE_NET</a>, 3u)</td></tr>
 <tr class="memdesc:afd24144bc5033e5fa31a374ef247f8d4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Public constant or ioctl helper. <br /></td></tr>
 <tr class="separator:afd24144bc5033e5fa31a374ef247f8d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0428a599ae1a6359bd7d3d290c246905"><td class="memItemLeft" align="right" valign="top"><a id="a0428a599ae1a6359bd7d3d290c246905"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="radixkernel_8h.html#a0428a599ae1a6359bd7d3d290c246905">RAD_DEVICE_IOCTL_NET_RECV</a>&#160;&#160;&#160;<a class="el" href="radixkernel_8h.html#aecfcb3a837dc6429f0b76d19656ecd48">RAD_IOWR</a>(<a class="el" href="radixkernel_8h.html#a40c2ecf1d7cf45848f0ec4457a5d4728">RAD_IOCTL_TYPE_NET</a>, 4u, struct <a class="el" href="structrad__net__packet.html">rad_net_packet</a>)</td></tr>
+<tr class="memdesc:a0428a599ae1a6359bd7d3d290c246905"><td class="mdescLeft">&#160;</td><td class="mdescRight">Public constant or ioctl helper. <br /></td></tr>
+<tr class="separator:a0428a599ae1a6359bd7d3d290c246905"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3ddbd0b40b0255b9fbbc5e23a8fa86a7"><td class="memItemLeft" align="right" valign="top"><a id="a3ddbd0b40b0255b9fbbc5e23a8fa86a7"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="radixkernel_8h.html#a3ddbd0b40b0255b9fbbc5e23a8fa86a7">RAD_DEVICE_IOCTL_COMPOSITOR_CREATE_SURFACE</a>&#160;&#160;&#160;<a class="el" href="radixkernel_8h.html#aecfcb3a837dc6429f0b76d19656ecd48">RAD_IOWR</a>(<a class="el" href="radixkernel_8h.html#a226f9e25f4f4609e46a96dde831bf87e">RAD_IOCTL_TYPE_COMPOSITOR</a>, 1u, struct <a class="el" href="structrad__compositor__ipc__surface.html">rad_compositor_ipc_surface</a>)</td></tr>
+<tr class="memdesc:a3ddbd0b40b0255b9fbbc5e23a8fa86a7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Public constant or ioctl helper. <br /></td></tr>
+<tr class="separator:a3ddbd0b40b0255b9fbbc5e23a8fa86a7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1e9ee4c188937326e2ca46f102e34b53"><td class="memItemLeft" align="right" valign="top"><a id="a1e9ee4c188937326e2ca46f102e34b53"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="radixkernel_8h.html#a1e9ee4c188937326e2ca46f102e34b53">RAD_DEVICE_IOCTL_COMPOSITOR_QUEUE_DAMAGE</a>&#160;&#160;&#160;<a class="el" href="radixkernel_8h.html#a1988325ec4ad14e387161bad4f7eb912">RAD_IOW</a>(<a class="el" href="radixkernel_8h.html#a226f9e25f4f4609e46a96dde831bf87e">RAD_IOCTL_TYPE_COMPOSITOR</a>, 2u, struct <a class="el" href="structrad__compositor__ipc__damage.html">rad_compositor_ipc_damage</a>)</td></tr>
+<tr class="memdesc:a1e9ee4c188937326e2ca46f102e34b53"><td class="mdescLeft">&#160;</td><td class="mdescRight">Public constant or ioctl helper. <br /></td></tr>
+<tr class="separator:a1e9ee4c188937326e2ca46f102e34b53"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0593a678f0b825ca46f26d71f575a625"><td class="memItemLeft" align="right" valign="top"><a id="a0593a678f0b825ca46f26d71f575a625"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="radixkernel_8h.html#a0593a678f0b825ca46f26d71f575a625">RAD_DEVICE_IOCTL_FRAMEBUFFER_PRESENT</a>&#160;&#160;&#160;<a class="el" href="radixkernel_8h.html#a1988325ec4ad14e387161bad4f7eb912">RAD_IOW</a>(<a class="el" href="radixkernel_8h.html#a18002daadcc0360f58c35f33a69cd213">RAD_IOCTL_TYPE_FRAMEBUFFER</a>, 3u, struct <a class="el" href="structrad__framebuffer__present.html">rad_framebuffer_present</a>)</td></tr>
+<tr class="memdesc:a0593a678f0b825ca46f26d71f575a625"><td class="mdescLeft">&#160;</td><td class="mdescRight">Public constant or ioctl helper. <br /></td></tr>
+<tr class="separator:a0593a678f0b825ca46f26d71f575a625"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aaf6cf4aed5a89eb00fd66fd0c93c07f8"><td class="memItemLeft" align="right" valign="top"><a id="aaf6cf4aed5a89eb00fd66fd0c93c07f8"></a>
 #define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="radixkernel_8h.html#aaf6cf4aed5a89eb00fd66fd0c93c07f8">RAD_BOOT_MAX_ARGS</a>&#160;&#160;&#160;16u</td></tr>
 <tr class="memdesc:aaf6cf4aed5a89eb00fd66fd0c93c07f8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Public constant or ioctl helper. <br /></td></tr>
@@ -463,6 +514,38 @@ Macros</h2></td></tr>
 #define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="radixkernel_8h.html#ad0997d4a4608646ad408ec6fed19d2db">RAD_BOOT_MAX_STRING</a>&#160;&#160;&#160;64u</td></tr>
 <tr class="memdesc:ad0997d4a4608646ad408ec6fed19d2db"><td class="mdescLeft">&#160;</td><td class="mdescRight">Public constant or ioctl helper. <br /></td></tr>
 <tr class="separator:ad0997d4a4608646ad408ec6fed19d2db"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5d202a253890b636091579ac6061e201"><td class="memItemLeft" align="right" valign="top"><a id="a5d202a253890b636091579ac6061e201"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="radixkernel_8h.html#a5d202a253890b636091579ac6061e201">RAD_BOOT_HANDOFF_MAGIC</a>&#160;&#160;&#160;0x52414448u</td></tr>
+<tr class="memdesc:a5d202a253890b636091579ac6061e201"><td class="mdescLeft">&#160;</td><td class="mdescRight">Public constant or ioctl helper. <br /></td></tr>
+<tr class="separator:a5d202a253890b636091579ac6061e201"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:addf715385fd15fc44cca21caef91d8e9"><td class="memItemLeft" align="right" valign="top"><a id="addf715385fd15fc44cca21caef91d8e9"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="radixkernel_8h.html#addf715385fd15fc44cca21caef91d8e9">RAD_BOOT_HANDOFF_VERSION</a>&#160;&#160;&#160;1u</td></tr>
+<tr class="memdesc:addf715385fd15fc44cca21caef91d8e9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Public constant or ioctl helper. <br /></td></tr>
+<tr class="separator:addf715385fd15fc44cca21caef91d8e9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a18e33eda42384c32fe2bb62cf7996c8c"><td class="memItemLeft" align="right" valign="top"><a id="a18e33eda42384c32fe2bb62cf7996c8c"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="radixkernel_8h.html#a18e33eda42384c32fe2bb62cf7996c8c">RAD_BOOT_HANDOFF_FLAG_SECONDARIES_PARKED</a>&#160;&#160;&#160;0x00000001u</td></tr>
+<tr class="memdesc:a18e33eda42384c32fe2bb62cf7996c8c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Public constant or ioctl helper. <br /></td></tr>
+<tr class="separator:a18e33eda42384c32fe2bb62cf7996c8c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8ed7fb51e8ddfcd939a732fd0d15993e"><td class="memItemLeft" align="right" valign="top"><a id="a8ed7fb51e8ddfcd939a732fd0d15993e"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="radixkernel_8h.html#a8ed7fb51e8ddfcd939a732fd0d15993e">RAD_BOOT_HANDOFF_FLAG_MMU_DISABLED</a>&#160;&#160;&#160;0x00000002u</td></tr>
+<tr class="memdesc:a8ed7fb51e8ddfcd939a732fd0d15993e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Public constant or ioctl helper. <br /></td></tr>
+<tr class="separator:a8ed7fb51e8ddfcd939a732fd0d15993e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a42be44f1eb8eb49caf3743f74b2d40dc"><td class="memItemLeft" align="right" valign="top"><a id="a42be44f1eb8eb49caf3743f74b2d40dc"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="radixkernel_8h.html#a42be44f1eb8eb49caf3743f74b2d40dc">RAD_BOOT_HANDOFF_FLAG_DCACHE_DISABLED</a>&#160;&#160;&#160;0x00000004u</td></tr>
+<tr class="memdesc:a42be44f1eb8eb49caf3743f74b2d40dc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Public constant or ioctl helper. <br /></td></tr>
+<tr class="separator:a42be44f1eb8eb49caf3743f74b2d40dc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aac48943de5d938062d3edfb9ea1f3baa"><td class="memItemLeft" align="right" valign="top"><a id="aac48943de5d938062d3edfb9ea1f3baa"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="radixkernel_8h.html#aac48943de5d938062d3edfb9ea1f3baa">RAD_BOOT_HANDOFF_FLAG_ICACHE_INVALIDATED</a>&#160;&#160;&#160;0x00000008u</td></tr>
+<tr class="memdesc:aac48943de5d938062d3edfb9ea1f3baa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Public constant or ioctl helper. <br /></td></tr>
+<tr class="separator:aac48943de5d938062d3edfb9ea1f3baa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a113e4639c3617650c93a0c270b7d972a"><td class="memItemLeft" align="right" valign="top"><a id="a113e4639c3617650c93a0c270b7d972a"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="radixkernel_8h.html#a113e4639c3617650c93a0c270b7d972a">RAD_BOOT_HANDOFF_FLAG_TLB_INVALIDATED</a>&#160;&#160;&#160;0x00000010u</td></tr>
+<tr class="memdesc:a113e4639c3617650c93a0c270b7d972a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Public constant or ioctl helper. <br /></td></tr>
+<tr class="separator:a113e4639c3617650c93a0c270b7d972a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a05e5b2c65912301833070b14b3f62ed8"><td class="memItemLeft" align="right" valign="top"><a id="a05e5b2c65912301833070b14b3f62ed8"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="radixkernel_8h.html#a05e5b2c65912301833070b14b3f62ed8">RAD_BOOT_HANDOFF_FLAG_INTERRUPTS_MASKED</a>&#160;&#160;&#160;0x00000020u</td></tr>
+<tr class="memdesc:a05e5b2c65912301833070b14b3f62ed8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Public constant or ioctl helper. <br /></td></tr>
+<tr class="separator:a05e5b2c65912301833070b14b3f62ed8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1f195a17f6fa53eacdf44630f24de4fb"><td class="memItemLeft" align="right" valign="top"><a id="a1f195a17f6fa53eacdf44630f24de4fb"></a>
 #define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="radixkernel_8h.html#a1f195a17f6fa53eacdf44630f24de4fb">RAD_OVERLAY_MAGIC</a>&#160;&#160;&#160;0x4f444152u</td></tr>
 <tr class="memdesc:a1f195a17f6fa53eacdf44630f24de4fb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Public constant or ioctl helper. <br /></td></tr>
@@ -507,6 +590,18 @@ Macros</h2></td></tr>
 #define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="radixkernel_8h.html#adfa95941daea5a79c60c98766f453bfb">RAD_MODULE_MAX_INFO</a>&#160;&#160;&#160;32u</td></tr>
 <tr class="memdesc:adfa95941daea5a79c60c98766f453bfb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Public constant or ioctl helper. <br /></td></tr>
 <tr class="separator:adfa95941daea5a79c60c98766f453bfb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a992f163b97c29133170bdac3ca9fce31"><td class="memItemLeft" align="right" valign="top"><a id="a992f163b97c29133170bdac3ca9fce31"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="radixkernel_8h.html#a992f163b97c29133170bdac3ca9fce31">RAD_SERVICE_NAME_MAX</a>&#160;&#160;&#160;32u</td></tr>
+<tr class="memdesc:a992f163b97c29133170bdac3ca9fce31"><td class="mdescLeft">&#160;</td><td class="mdescRight">Public constant or ioctl helper. <br /></td></tr>
+<tr class="separator:a992f163b97c29133170bdac3ca9fce31"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a089d4681c29af4242e903029a425c63a"><td class="memItemLeft" align="right" valign="top"><a id="a089d4681c29af4242e903029a425c63a"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="radixkernel_8h.html#a089d4681c29af4242e903029a425c63a">RAD_SERVICE_COMPATIBLE_MAX</a>&#160;&#160;&#160;64u</td></tr>
+<tr class="memdesc:a089d4681c29af4242e903029a425c63a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Public constant or ioctl helper. <br /></td></tr>
+<tr class="separator:a089d4681c29af4242e903029a425c63a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7197f64a6e821a2ff0d7a2160a879f2a"><td class="memItemLeft" align="right" valign="top"><a id="a7197f64a6e821a2ff0d7a2160a879f2a"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="radixkernel_8h.html#a7197f64a6e821a2ff0d7a2160a879f2a">RAD_SERVICE_CAPABILITY_MAX</a>&#160;&#160;&#160;32u</td></tr>
+<tr class="memdesc:a7197f64a6e821a2ff0d7a2160a879f2a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Public constant or ioctl helper. <br /></td></tr>
+<tr class="separator:a7197f64a6e821a2ff0d7a2160a879f2a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae0ef77026828c8d5ba0ffead952d8e99"><td class="memItemLeft" align="right" valign="top"><a id="ae0ef77026828c8d5ba0ffead952d8e99"></a>
 #define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="radixkernel_8h.html#ae0ef77026828c8d5ba0ffead952d8e99">RAD_IRQ_NAME_MAX</a>&#160;&#160;&#160;32u</td></tr>
 <tr class="memdesc:ae0ef77026828c8d5ba0ffead952d8e99"><td class="mdescLeft">&#160;</td><td class="mdescRight">Public constant or ioctl helper. <br /></td></tr>
@@ -531,6 +626,54 @@ Macros</h2></td></tr>
 #define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="radixkernel_8h.html#ace5c9ba0e8301922287e52f03ecd0c96">RAD_FRAMEBUFFER_MAX_MODES</a>&#160;&#160;&#160;8u</td></tr>
 <tr class="memdesc:ace5c9ba0e8301922287e52f03ecd0c96"><td class="mdescLeft">&#160;</td><td class="mdescRight">Public constant or ioctl helper. <br /></td></tr>
 <tr class="separator:ace5c9ba0e8301922287e52f03ecd0c96"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adf2823a66e69b0b6763d932f7902e23d"><td class="memItemLeft" align="right" valign="top"><a id="adf2823a66e69b0b6763d932f7902e23d"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="radixkernel_8h.html#adf2823a66e69b0b6763d932f7902e23d">RAD_SHM_NAME_MAX</a>&#160;&#160;&#160;64u</td></tr>
+<tr class="memdesc:adf2823a66e69b0b6763d932f7902e23d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Public constant or ioctl helper. <br /></td></tr>
+<tr class="separator:adf2823a66e69b0b6763d932f7902e23d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a20f1f83f65e7971d2c7a66b60e343f55"><td class="memItemLeft" align="right" valign="top"><a id="a20f1f83f65e7971d2c7a66b60e343f55"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="radixkernel_8h.html#a20f1f83f65e7971d2c7a66b60e343f55">RAD_SHM_MAX_PAGES</a>&#160;&#160;&#160;16u</td></tr>
+<tr class="memdesc:a20f1f83f65e7971d2c7a66b60e343f55"><td class="mdescLeft">&#160;</td><td class="mdescRight">Public constant or ioctl helper. <br /></td></tr>
+<tr class="separator:a20f1f83f65e7971d2c7a66b60e343f55"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6d6ef2be295fd63b466b05ec34cced8b"><td class="memItemLeft" align="right" valign="top"><a id="a6d6ef2be295fd63b466b05ec34cced8b"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="radixkernel_8h.html#a6d6ef2be295fd63b466b05ec34cced8b">RAD_MMAP_PROT_READ</a>&#160;&#160;&#160;1u</td></tr>
+<tr class="memdesc:a6d6ef2be295fd63b466b05ec34cced8b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Public constant or ioctl helper. <br /></td></tr>
+<tr class="separator:a6d6ef2be295fd63b466b05ec34cced8b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6e47e42e0c931e7b911c083777f4db55"><td class="memItemLeft" align="right" valign="top"><a id="a6e47e42e0c931e7b911c083777f4db55"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="radixkernel_8h.html#a6e47e42e0c931e7b911c083777f4db55">RAD_MMAP_PROT_WRITE</a>&#160;&#160;&#160;2u</td></tr>
+<tr class="memdesc:a6e47e42e0c931e7b911c083777f4db55"><td class="mdescLeft">&#160;</td><td class="mdescRight">Public constant or ioctl helper. <br /></td></tr>
+<tr class="separator:a6e47e42e0c931e7b911c083777f4db55"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ada6f08d29c70fa82f043a8dd61bfb413"><td class="memItemLeft" align="right" valign="top"><a id="ada6f08d29c70fa82f043a8dd61bfb413"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="radixkernel_8h.html#ada6f08d29c70fa82f043a8dd61bfb413">RAD_MMAP_SHARED</a>&#160;&#160;&#160;1u</td></tr>
+<tr class="memdesc:ada6f08d29c70fa82f043a8dd61bfb413"><td class="mdescLeft">&#160;</td><td class="mdescRight">Public constant or ioctl helper. <br /></td></tr>
+<tr class="separator:ada6f08d29c70fa82f043a8dd61bfb413"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae7ae72cf21a9442e5eb1e1e2971f1cf1"><td class="memItemLeft" align="right" valign="top"><a id="ae7ae72cf21a9442e5eb1e1e2971f1cf1"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="radixkernel_8h.html#ae7ae72cf21a9442e5eb1e1e2971f1cf1">RAD_MMAP_PRIVATE</a>&#160;&#160;&#160;2u</td></tr>
+<tr class="memdesc:ae7ae72cf21a9442e5eb1e1e2971f1cf1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Public constant or ioctl helper. <br /></td></tr>
+<tr class="separator:ae7ae72cf21a9442e5eb1e1e2971f1cf1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3061716cc532ea92d8ec2ced9ac3a42a"><td class="memItemLeft" align="right" valign="top"><a id="a3061716cc532ea92d8ec2ced9ac3a42a"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="radixkernel_8h.html#a3061716cc532ea92d8ec2ced9ac3a42a">RAD_COMPOSITOR_DAMAGE_EXPOSED</a>&#160;&#160;&#160;1u</td></tr>
+<tr class="memdesc:a3061716cc532ea92d8ec2ced9ac3a42a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Public constant or ioctl helper. <br /></td></tr>
+<tr class="separator:a3061716cc532ea92d8ec2ced9ac3a42a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5c348deab86862d991057236b6bcf137"><td class="memItemLeft" align="right" valign="top"><a id="a5c348deab86862d991057236b6bcf137"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="radixkernel_8h.html#a5c348deab86862d991057236b6bcf137">RAD_AF_INET</a>&#160;&#160;&#160;2u</td></tr>
+<tr class="memdesc:a5c348deab86862d991057236b6bcf137"><td class="mdescLeft">&#160;</td><td class="mdescRight">Public constant or ioctl helper. <br /></td></tr>
+<tr class="separator:a5c348deab86862d991057236b6bcf137"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8074c5735148f634d2b83334ff2b4d38"><td class="memItemLeft" align="right" valign="top"><a id="a8074c5735148f634d2b83334ff2b4d38"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="radixkernel_8h.html#a8074c5735148f634d2b83334ff2b4d38">RAD_SOCK_DGRAM</a>&#160;&#160;&#160;2u</td></tr>
+<tr class="memdesc:a8074c5735148f634d2b83334ff2b4d38"><td class="mdescLeft">&#160;</td><td class="mdescRight">Public constant or ioctl helper. <br /></td></tr>
+<tr class="separator:a8074c5735148f634d2b83334ff2b4d38"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a89901ff3ac3185e910ee647708cbea18"><td class="memItemLeft" align="right" valign="top"><a id="a89901ff3ac3185e910ee647708cbea18"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="radixkernel_8h.html#a89901ff3ac3185e910ee647708cbea18">RAD_SOCK_STREAM</a>&#160;&#160;&#160;1u</td></tr>
+<tr class="memdesc:a89901ff3ac3185e910ee647708cbea18"><td class="mdescLeft">&#160;</td><td class="mdescRight">Public constant or ioctl helper. <br /></td></tr>
+<tr class="separator:a89901ff3ac3185e910ee647708cbea18"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3b914287e99e3ea24443a80225c4bdb7"><td class="memItemLeft" align="right" valign="top"><a id="a3b914287e99e3ea24443a80225c4bdb7"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="radixkernel_8h.html#a3b914287e99e3ea24443a80225c4bdb7">RAD_IPPROTO_UDP</a>&#160;&#160;&#160;17u</td></tr>
+<tr class="memdesc:a3b914287e99e3ea24443a80225c4bdb7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Public constant or ioctl helper. <br /></td></tr>
+<tr class="separator:a3b914287e99e3ea24443a80225c4bdb7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a09531b43269b46e90a9839c673de2e16"><td class="memItemLeft" align="right" valign="top"><a id="a09531b43269b46e90a9839c673de2e16"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="radixkernel_8h.html#a09531b43269b46e90a9839c673de2e16">RAD_IPPROTO_TCP</a>&#160;&#160;&#160;6u</td></tr>
+<tr class="memdesc:a09531b43269b46e90a9839c673de2e16"><td class="mdescLeft">&#160;</td><td class="mdescRight">Public constant or ioctl helper. <br /></td></tr>
+<tr class="separator:a09531b43269b46e90a9839c673de2e16"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a458038764484c6ccc47770fb41e886ca"><td class="memItemLeft" align="right" valign="top"><a id="a458038764484c6ccc47770fb41e886ca"></a>
 #define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="radixkernel_8h.html#a458038764484c6ccc47770fb41e886ca">RAD_PERF_NAME_MAX</a>&#160;&#160;&#160;32u</td></tr>
 <tr class="memdesc:a458038764484c6ccc47770fb41e886ca"><td class="mdescLeft">&#160;</td><td class="mdescRight">Public constant or ioctl helper. <br /></td></tr>
@@ -663,6 +806,9 @@ Typedefs</h2></td></tr>
 <tr class="memitem:acbfa1f491bcf507c77435e9cc5606e54"><td class="memItemLeft" align="right" valign="top">typedef struct <a class="el" href="structrad__boot__info.html">rad_boot_info</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="radixkernel_8h.html#acbfa1f491bcf507c77435e9cc5606e54">rad_boot_info_t</a></td></tr>
 <tr class="memdesc:acbfa1f491bcf507c77435e9cc5606e54"><td class="mdescLeft">&#160;</td><td class="mdescRight">Public data structure for <a class="el" href="structrad__boot__info.html" title="Public data structure for rad_boot_info.">rad_boot_info</a>.  <a href="radixkernel_8h.html#acbfa1f491bcf507c77435e9cc5606e54">More...</a><br /></td></tr>
 <tr class="separator:acbfa1f491bcf507c77435e9cc5606e54"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a91f8e3f33e19a13a0b9ab45d74bc7b70"><td class="memItemLeft" align="right" valign="top">typedef struct <a class="el" href="structrad__boot__handoff.html">rad_boot_handoff</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="radixkernel_8h.html#a91f8e3f33e19a13a0b9ab45d74bc7b70">rad_boot_handoff_t</a></td></tr>
+<tr class="memdesc:a91f8e3f33e19a13a0b9ab45d74bc7b70"><td class="mdescLeft">&#160;</td><td class="mdescRight">Public data structure for <a class="el" href="structrad__boot__handoff.html" title="Public data structure for rad_boot_handoff.">rad_boot_handoff</a>.  <a href="radixkernel_8h.html#a91f8e3f33e19a13a0b9ab45d74bc7b70">More...</a><br /></td></tr>
+<tr class="separator:a91f8e3f33e19a13a0b9ab45d74bc7b70"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acac9b3ab9f4f42535172b4058b2e7c0d"><td class="memItemLeft" align="right" valign="top">typedef struct <a class="el" href="structrad__memory__stats.html">rad_memory_stats</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="radixkernel_8h.html#acac9b3ab9f4f42535172b4058b2e7c0d">rad_memory_stats_t</a></td></tr>
 <tr class="memdesc:acac9b3ab9f4f42535172b4058b2e7c0d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Public data structure for <a class="el" href="structrad__memory__stats.html" title="Public data structure for rad_memory_stats.">rad_memory_stats</a>.  <a href="radixkernel_8h.html#acac9b3ab9f4f42535172b4058b2e7c0d">More...</a><br /></td></tr>
 <tr class="separator:acac9b3ab9f4f42535172b4058b2e7c0d"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -727,6 +873,15 @@ typedef struct rad_tree_node_handle *&#160;</td><td class="memItemRight" valign=
 <tr class="memitem:a24766067d26a0cbdaf6054ba1e817857"><td class="memItemLeft" align="right" valign="top">typedef struct <a class="el" href="structrad__net__link__info.html">rad_net_link_info</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="radixkernel_8h.html#a24766067d26a0cbdaf6054ba1e817857">rad_net_link_info_t</a></td></tr>
 <tr class="memdesc:a24766067d26a0cbdaf6054ba1e817857"><td class="mdescLeft">&#160;</td><td class="mdescRight">Public data structure for <a class="el" href="structrad__net__link__info.html" title="Public data structure for rad_net_link_info.">rad_net_link_info</a>.  <a href="radixkernel_8h.html#a24766067d26a0cbdaf6054ba1e817857">More...</a><br /></td></tr>
 <tr class="separator:a24766067d26a0cbdaf6054ba1e817857"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4d83d71e68ca2997365f7129f00f3188"><td class="memItemLeft" align="right" valign="top">typedef struct <a class="el" href="structrad__sockaddr__in.html">rad_sockaddr_in</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="radixkernel_8h.html#a4d83d71e68ca2997365f7129f00f3188">rad_sockaddr_in_t</a></td></tr>
+<tr class="memdesc:a4d83d71e68ca2997365f7129f00f3188"><td class="mdescLeft">&#160;</td><td class="mdescRight">Public data structure for <a class="el" href="structrad__sockaddr__in.html" title="Public data structure for rad_sockaddr_in.">rad_sockaddr_in</a>.  <a href="radixkernel_8h.html#a4d83d71e68ca2997365f7129f00f3188">More...</a><br /></td></tr>
+<tr class="separator:a4d83d71e68ca2997365f7129f00f3188"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a90c73a4ca198e2142d5c7f0d47a503de"><td class="memItemLeft" align="right" valign="top">typedef enum <a class="el" href="radixkernel_8h.html#aaaefbe5b1c21fde376fb03115687b238">rad_tcp_state</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="radixkernel_8h.html#a90c73a4ca198e2142d5c7f0d47a503de">rad_tcp_state_t</a></td></tr>
+<tr class="memdesc:a90c73a4ca198e2142d5c7f0d47a503de"><td class="mdescLeft">&#160;</td><td class="mdescRight">Public enumeration for rad_tcp_state.  <a href="radixkernel_8h.html#a90c73a4ca198e2142d5c7f0d47a503de">More...</a><br /></td></tr>
+<tr class="separator:a90c73a4ca198e2142d5c7f0d47a503de"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aefd38ec52b6f2dbdc9462d00ff13ddbe"><td class="memItemLeft" align="right" valign="top">typedef struct <a class="el" href="structrad__socket__info.html">rad_socket_info</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="radixkernel_8h.html#aefd38ec52b6f2dbdc9462d00ff13ddbe">rad_socket_info_t</a></td></tr>
+<tr class="memdesc:aefd38ec52b6f2dbdc9462d00ff13ddbe"><td class="mdescLeft">&#160;</td><td class="mdescRight">Public data structure for <a class="el" href="structrad__socket__info.html" title="Public data structure for rad_socket_info.">rad_socket_info</a>.  <a href="radixkernel_8h.html#aefd38ec52b6f2dbdc9462d00ff13ddbe">More...</a><br /></td></tr>
+<tr class="separator:aefd38ec52b6f2dbdc9462d00ff13ddbe"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac33416acf60401bde2bf1fffbd7f3924"><td class="memItemLeft" align="right" valign="top">typedef struct <a class="el" href="structrad__posix__timeval.html">rad_posix_timeval</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="radixkernel_8h.html#ac33416acf60401bde2bf1fffbd7f3924">rad_posix_timeval_t</a></td></tr>
 <tr class="memdesc:ac33416acf60401bde2bf1fffbd7f3924"><td class="mdescLeft">&#160;</td><td class="mdescRight">Public data structure for <a class="el" href="structrad__posix__timeval.html" title="Public data structure for rad_posix_timeval.">rad_posix_timeval</a>.  <a href="radixkernel_8h.html#ac33416acf60401bde2bf1fffbd7f3924">More...</a><br /></td></tr>
 <tr class="separator:ac33416acf60401bde2bf1fffbd7f3924"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -764,6 +919,9 @@ typedef int(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" h
 <tr class="memitem:a859f50a328e076edb6e117e6926ae10a"><td class="memItemLeft" align="right" valign="top">typedef struct <a class="el" href="structrad__framebuffer__info.html">rad_framebuffer_info</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="radixkernel_8h.html#a859f50a328e076edb6e117e6926ae10a">rad_framebuffer_info_t</a></td></tr>
 <tr class="memdesc:a859f50a328e076edb6e117e6926ae10a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Public data structure for <a class="el" href="structrad__framebuffer__info.html" title="Public data structure for rad_framebuffer_info.">rad_framebuffer_info</a>.  <a href="radixkernel_8h.html#a859f50a328e076edb6e117e6926ae10a">More...</a><br /></td></tr>
 <tr class="separator:a859f50a328e076edb6e117e6926ae10a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adc6cfd6c1eb337e83a1e3b4c3345dd29"><td class="memItemLeft" align="right" valign="top">typedef struct <a class="el" href="structrad__framebuffer__present.html">rad_framebuffer_present</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="radixkernel_8h.html#adc6cfd6c1eb337e83a1e3b4c3345dd29">rad_framebuffer_present_t</a></td></tr>
+<tr class="memdesc:adc6cfd6c1eb337e83a1e3b4c3345dd29"><td class="mdescLeft">&#160;</td><td class="mdescRight">Public data structure for <a class="el" href="structrad__framebuffer__present.html" title="Public data structure for rad_framebuffer_present.">rad_framebuffer_present</a>.  <a href="radixkernel_8h.html#adc6cfd6c1eb337e83a1e3b4c3345dd29">More...</a><br /></td></tr>
+<tr class="separator:adc6cfd6c1eb337e83a1e3b4c3345dd29"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac625eecdfc36eecddc643a62b0a065b9"><td class="memItemLeft" align="right" valign="top">typedef struct <a class="el" href="structrad__display__mode.html">rad_display_mode</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="radixkernel_8h.html#ac625eecdfc36eecddc643a62b0a065b9">rad_display_mode_t</a></td></tr>
 <tr class="memdesc:ac625eecdfc36eecddc643a62b0a065b9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Public data structure for <a class="el" href="structrad__display__mode.html" title="Public data structure for rad_display_mode.">rad_display_mode</a>.  <a href="radixkernel_8h.html#ac625eecdfc36eecddc643a62b0a065b9">More...</a><br /></td></tr>
 <tr class="separator:ac625eecdfc36eecddc643a62b0a065b9"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -780,6 +938,15 @@ typedef struct rad_framebuffer_handle *&#160;</td><td class="memItemRight" valig
 <tr class="memitem:af9bcd5fe5763341019b6f213746b4ef0"><td class="memItemLeft" align="right" valign="top">typedef struct <a class="el" href="structrad__framebuffer__display__info.html">rad_framebuffer_display_info</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="radixkernel_8h.html#af9bcd5fe5763341019b6f213746b4ef0">rad_framebuffer_display_info_t</a></td></tr>
 <tr class="memdesc:af9bcd5fe5763341019b6f213746b4ef0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Public data structure for <a class="el" href="structrad__framebuffer__display__info.html" title="Public data structure for rad_framebuffer_display_info.">rad_framebuffer_display_info</a>.  <a href="radixkernel_8h.html#af9bcd5fe5763341019b6f213746b4ef0">More...</a><br /></td></tr>
 <tr class="separator:af9bcd5fe5763341019b6f213746b4ef0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a30735cc4b10d59209c511fe60c1acdb3"><td class="memItemLeft" align="right" valign="top">typedef struct <a class="el" href="structrad__shm__info.html">rad_shm_info</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="radixkernel_8h.html#a30735cc4b10d59209c511fe60c1acdb3">rad_shm_info_t</a></td></tr>
+<tr class="memdesc:a30735cc4b10d59209c511fe60c1acdb3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Public data structure for <a class="el" href="structrad__shm__info.html" title="Public data structure for rad_shm_info.">rad_shm_info</a>.  <a href="radixkernel_8h.html#a30735cc4b10d59209c511fe60c1acdb3">More...</a><br /></td></tr>
+<tr class="separator:a30735cc4b10d59209c511fe60c1acdb3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0e04618d0ac3c3854fdce52d7c15a474"><td class="memItemLeft" align="right" valign="top">typedef struct <a class="el" href="structrad__compositor__ipc__surface.html">rad_compositor_ipc_surface</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="radixkernel_8h.html#a0e04618d0ac3c3854fdce52d7c15a474">rad_compositor_ipc_surface_t</a></td></tr>
+<tr class="memdesc:a0e04618d0ac3c3854fdce52d7c15a474"><td class="mdescLeft">&#160;</td><td class="mdescRight">Public data structure for <a class="el" href="structrad__compositor__ipc__surface.html" title="Public data structure for rad_compositor_ipc_surface.">rad_compositor_ipc_surface</a>.  <a href="radixkernel_8h.html#a0e04618d0ac3c3854fdce52d7c15a474">More...</a><br /></td></tr>
+<tr class="separator:a0e04618d0ac3c3854fdce52d7c15a474"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aca4f62e14cd13828b2da4f167f4150cc"><td class="memItemLeft" align="right" valign="top">typedef struct <a class="el" href="structrad__compositor__ipc__damage.html">rad_compositor_ipc_damage</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="radixkernel_8h.html#aca4f62e14cd13828b2da4f167f4150cc">rad_compositor_ipc_damage_t</a></td></tr>
+<tr class="memdesc:aca4f62e14cd13828b2da4f167f4150cc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Public data structure for <a class="el" href="structrad__compositor__ipc__damage.html" title="Public data structure for rad_compositor_ipc_damage.">rad_compositor_ipc_damage</a>.  <a href="radixkernel_8h.html#aca4f62e14cd13828b2da4f167f4150cc">More...</a><br /></td></tr>
+<tr class="separator:aca4f62e14cd13828b2da4f167f4150cc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a40a31837c6623b22aa6894997f0e2664"><td class="memItemLeft" align="right" valign="top">typedef struct <a class="el" href="structrad__i2c__transfer.html">rad_i2c_transfer</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="radixkernel_8h.html#a40a31837c6623b22aa6894997f0e2664">rad_i2c_transfer_t</a></td></tr>
 <tr class="memdesc:a40a31837c6623b22aa6894997f0e2664"><td class="mdescLeft">&#160;</td><td class="mdescRight">Public data structure for <a class="el" href="structrad__i2c__transfer.html" title="Public data structure for rad_i2c_transfer.">rad_i2c_transfer</a>.  <a href="radixkernel_8h.html#a40a31837c6623b22aa6894997f0e2664">More...</a><br /></td></tr>
 <tr class="separator:a40a31837c6623b22aa6894997f0e2664"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -839,9 +1006,21 @@ typedef struct rad_dma_channel_handle *&#160;</td><td class="memItemRight" valig
 <tr class="memitem:acba0bf396852d0a5fd54ed76c76fe61b"><td class="memItemLeft" align="right" valign="top">typedef enum <a class="el" href="radixkernel_8h.html#a02555ae996980220092af6e034eb516e">rad_module_state</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="radixkernel_8h.html#acba0bf396852d0a5fd54ed76c76fe61b">rad_module_state_t</a></td></tr>
 <tr class="memdesc:acba0bf396852d0a5fd54ed76c76fe61b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Public enumeration for rad_module_state.  <a href="radixkernel_8h.html#acba0bf396852d0a5fd54ed76c76fe61b">More...</a><br /></td></tr>
 <tr class="separator:acba0bf396852d0a5fd54ed76c76fe61b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a77553e3feea55992d0f7d9001f21b377"><td class="memItemLeft" align="right" valign="top">typedef enum <a class="el" href="radixkernel_8h.html#adcf6367a73941b34af98086ca04208a7">rad_service_state</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="radixkernel_8h.html#a77553e3feea55992d0f7d9001f21b377">rad_service_state_t</a></td></tr>
+<tr class="memdesc:a77553e3feea55992d0f7d9001f21b377"><td class="mdescLeft">&#160;</td><td class="mdescRight">Public enumeration for rad_service_state.  <a href="radixkernel_8h.html#a77553e3feea55992d0f7d9001f21b377">More...</a><br /></td></tr>
+<tr class="separator:a77553e3feea55992d0f7d9001f21b377"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a331544f08333704576625666c833bf9e"><td class="memItemLeft" align="right" valign="top">typedef struct <a class="el" href="structrad__module__info.html">rad_module_info</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="radixkernel_8h.html#a331544f08333704576625666c833bf9e">rad_module_info_t</a></td></tr>
 <tr class="memdesc:a331544f08333704576625666c833bf9e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Public data structure for <a class="el" href="structrad__module__info.html" title="Public data structure for rad_module_info.">rad_module_info</a>.  <a href="radixkernel_8h.html#a331544f08333704576625666c833bf9e">More...</a><br /></td></tr>
 <tr class="separator:a331544f08333704576625666c833bf9e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afcfb3b9b94bc1779149e396553222aa8"><td class="memItemLeft" align="right" valign="top">typedef struct <a class="el" href="structrad__service__config.html">rad_service_config</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="radixkernel_8h.html#afcfb3b9b94bc1779149e396553222aa8">rad_service_config_t</a></td></tr>
+<tr class="memdesc:afcfb3b9b94bc1779149e396553222aa8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Public data structure for <a class="el" href="structrad__service__config.html" title="Public data structure for rad_service_config.">rad_service_config</a>.  <a href="radixkernel_8h.html#afcfb3b9b94bc1779149e396553222aa8">More...</a><br /></td></tr>
+<tr class="separator:afcfb3b9b94bc1779149e396553222aa8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af6937160e3d1706001b8c69ffac361af"><td class="memItemLeft" align="right" valign="top">typedef struct <a class="el" href="structrad__service__descriptor.html">rad_service_descriptor</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="radixkernel_8h.html#af6937160e3d1706001b8c69ffac361af">rad_service_descriptor_t</a></td></tr>
+<tr class="memdesc:af6937160e3d1706001b8c69ffac361af"><td class="mdescLeft">&#160;</td><td class="mdescRight">Public data structure for <a class="el" href="structrad__service__descriptor.html" title="Public data structure for rad_service_descriptor.">rad_service_descriptor</a>.  <a href="radixkernel_8h.html#af6937160e3d1706001b8c69ffac361af">More...</a><br /></td></tr>
+<tr class="separator:af6937160e3d1706001b8c69ffac361af"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:addc5d9fd425f146c8ba5c2fe2d00c4b4"><td class="memItemLeft" align="right" valign="top">typedef struct <a class="el" href="structrad__service__info.html">rad_service_info</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="radixkernel_8h.html#addc5d9fd425f146c8ba5c2fe2d00c4b4">rad_service_info_t</a></td></tr>
+<tr class="memdesc:addc5d9fd425f146c8ba5c2fe2d00c4b4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Public data structure for <a class="el" href="structrad__service__info.html" title="Public data structure for rad_service_info.">rad_service_info</a>.  <a href="radixkernel_8h.html#addc5d9fd425f146c8ba5c2fe2d00c4b4">More...</a><br /></td></tr>
+<tr class="separator:addc5d9fd425f146c8ba5c2fe2d00c4b4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aae668ee8348a17eb738d3cbba9f0fcb0"><td class="memItemLeft" align="right" valign="top">typedef struct <a class="el" href="structrad__driver__info.html">rad_driver_info</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="radixkernel_8h.html#aae668ee8348a17eb738d3cbba9f0fcb0">rad_driver_info_t</a></td></tr>
 <tr class="memdesc:aae668ee8348a17eb738d3cbba9f0fcb0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Public data structure for <a class="el" href="structrad__driver__info.html" title="Public data structure for rad_driver_info.">rad_driver_info</a>.  <a href="radixkernel_8h.html#aae668ee8348a17eb738d3cbba9f0fcb0">More...</a><br /></td></tr>
 <tr class="separator:aae668ee8348a17eb738d3cbba9f0fcb0"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -1010,6 +1189,11 @@ Enumerations</h2></td></tr>
 &#160;&#160;<a class="el" href="radixkernel_8h.html#a777d9419bfdaee0a25e4cb87309221e2a20ac084701ee7729ddf8527111ab63a5">RAD_SYSCALL_SHUTDOWN</a> = 32
 , <a class="el" href="radixkernel_8h.html#a777d9419bfdaee0a25e4cb87309221e2ad6bd353abfb60dd82e0badd54e806970">RAD_SYSCALL_SETSOCKOPT</a> = 33
 , <a class="el" href="radixkernel_8h.html#a777d9419bfdaee0a25e4cb87309221e2a961b73acf61f54a1aed33ba74f7f41e2">RAD_SYSCALL_GETSOCKOPT</a> = 34
+, <a class="el" href="radixkernel_8h.html#a777d9419bfdaee0a25e4cb87309221e2ad6687bd6de7bc6b14e6560c139116bcf">RAD_SYSCALL_MMAP</a> = 35
+, <br />
+&#160;&#160;<a class="el" href="radixkernel_8h.html#a777d9419bfdaee0a25e4cb87309221e2a5ff4ab54339829879289a262aac89a03">RAD_SYSCALL_MUNMAP</a> = 36
+, <a class="el" href="radixkernel_8h.html#a777d9419bfdaee0a25e4cb87309221e2a1b057f32624735a3155378eb9dec8d99">RAD_SYSCALL_SHM_OPEN</a> = 37
+, <a class="el" href="radixkernel_8h.html#a777d9419bfdaee0a25e4cb87309221e2a4ee78c91b9070ab9b1a68c35c58fcb7a">RAD_SYSCALL_SHM_UNLINK</a> = 38
 <br />
  }</td></tr>
 <tr class="memdesc:a777d9419bfdaee0a25e4cb87309221e2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Public enumeration for rad_posix_syscall.  <a href="radixkernel_8h.html#a777d9419bfdaee0a25e4cb87309221e2">More...</a><br /></td></tr>
@@ -1051,6 +1235,7 @@ Enumerations</h2></td></tr>
 &#160;&#160;<a class="el" href="radixkernel_8h.html#aa3bd03b48cec647d6a587dc04ef15bc9a955cc117243839111ced9df5dbe8bc7a">RAD_DEVICE_INPUT</a> = 8
 , <a class="el" href="radixkernel_8h.html#aa3bd03b48cec647d6a587dc04ef15bc9a3cd327e938dcfd771411ed5b8bba8fbd">RAD_DEVICE_BLOCK</a> = 9
 , <a class="el" href="radixkernel_8h.html#aa3bd03b48cec647d6a587dc04ef15bc9a714230a8419aa40c48b3d5d6ff28fc8d">RAD_DEVICE_NETWORK</a> = 10
+, <a class="el" href="radixkernel_8h.html#aa3bd03b48cec647d6a587dc04ef15bc9adbafb06ec7454317e57a963e8b79acc7">RAD_DEVICE_COMPOSITOR</a> = 11
 <br />
  }</td></tr>
 <tr class="memdesc:aa3bd03b48cec647d6a587dc04ef15bc9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Public enumeration for rad_device_type.  <a href="radixkernel_8h.html#aa3bd03b48cec647d6a587dc04ef15bc9">More...</a><br /></td></tr>
@@ -1157,6 +1342,7 @@ Enumerations</h2></td></tr>
 , <a class="el" href="radixkernel_8h.html#aeaf4bdbadb007735aad324a9f6c084b3ad8ea3278832b5285ac6e2668232d13f7">RAD_DISPLAY_OUTPUT_RP2350_HSTX</a> = 3
 , <br />
 &#160;&#160;<a class="el" href="radixkernel_8h.html#aeaf4bdbadb007735aad324a9f6c084b3a9f44792d152413448e76ff796d62b08c">RAD_DISPLAY_OUTPUT_SPI_PANEL</a> = 4
+, <a class="el" href="radixkernel_8h.html#aeaf4bdbadb007735aad324a9f6c084b3a156818c77b4e714fb431bca47d24e40f">RAD_DISPLAY_OUTPUT_BCM283X_MAILBOX</a> = 5
 <br />
  }</td></tr>
 <tr class="memdesc:aeaf4bdbadb007735aad324a9f6c084b3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Public enumeration for rad_display_output_type.  <a href="radixkernel_8h.html#aeaf4bdbadb007735aad324a9f6c084b3">More...</a><br /></td></tr>
@@ -1207,6 +1393,22 @@ Enumerations</h2></td></tr>
  }</td></tr>
 <tr class="memdesc:a05c5d60a6604ffe8e3f2c13292305504"><td class="mdescLeft">&#160;</td><td class="mdescRight">Public enumeration for rad_tree_property_type.  <a href="radixkernel_8h.html#a05c5d60a6604ffe8e3f2c13292305504">More...</a><br /></td></tr>
 <tr class="separator:a05c5d60a6604ffe8e3f2c13292305504"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaaefbe5b1c21fde376fb03115687b238"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="radixkernel_8h.html#aaaefbe5b1c21fde376fb03115687b238">rad_tcp_state</a> { <br />
+&#160;&#160;<a class="el" href="radixkernel_8h.html#aaaefbe5b1c21fde376fb03115687b238ac3e1a1b0a577e7952691bb7adb8f5c10">RAD_TCP_CLOSED</a> = 0
+, <a class="el" href="radixkernel_8h.html#aaaefbe5b1c21fde376fb03115687b238a44e5d17eeb04959fa0e690607f633962">RAD_TCP_LISTEN</a> = 1
+, <a class="el" href="radixkernel_8h.html#aaaefbe5b1c21fde376fb03115687b238a4446503116b450ed8fefecca9baeb403">RAD_TCP_SYN_SENT</a> = 2
+, <a class="el" href="radixkernel_8h.html#aaaefbe5b1c21fde376fb03115687b238a34dac37a87b34c7f18796ae57a0c03f9">RAD_TCP_SYN_RECEIVED</a> = 3
+, <br />
+&#160;&#160;<a class="el" href="radixkernel_8h.html#aaaefbe5b1c21fde376fb03115687b238a3f78571f5840d5d501db393c33ddd2fd">RAD_TCP_ESTABLISHED</a> = 4
+, <a class="el" href="radixkernel_8h.html#aaaefbe5b1c21fde376fb03115687b238a2e53e36dbfe2e74a7439225015bc0e0c">RAD_TCP_FIN_WAIT</a> = 5
+, <a class="el" href="radixkernel_8h.html#aaaefbe5b1c21fde376fb03115687b238ad7cbf582e7aa20285ea7ac194996f39d">RAD_TCP_CLOSE_WAIT</a> = 6
+, <a class="el" href="radixkernel_8h.html#aaaefbe5b1c21fde376fb03115687b238a3dbd9c8b37154b3409e144fd46777b7c">RAD_TCP_LAST_ACK</a> = 7
+, <br />
+&#160;&#160;<a class="el" href="radixkernel_8h.html#aaaefbe5b1c21fde376fb03115687b238a62a31bc26ce1efce922b797185a31901">RAD_TCP_TIME_WAIT</a> = 8
+<br />
+ }</td></tr>
+<tr class="memdesc:aaaefbe5b1c21fde376fb03115687b238"><td class="mdescLeft">&#160;</td><td class="mdescRight">Public enumeration for rad_tcp_state.  <a href="radixkernel_8h.html#aaaefbe5b1c21fde376fb03115687b238">More...</a><br /></td></tr>
+<tr class="separator:aaaefbe5b1c21fde376fb03115687b238"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a140ab5422d459ba07b75d08ff58e5359"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="radixkernel_8h.html#a140ab5422d459ba07b75d08ff58e5359">rad_program_state</a> { <a class="el" href="radixkernel_8h.html#a140ab5422d459ba07b75d08ff58e5359a41f33bd3656c948b9a3459ddbe4a9e92">RAD_PROGRAM_LOADED</a> = 0
 , <a class="el" href="radixkernel_8h.html#a140ab5422d459ba07b75d08ff58e5359af6dcaf953b6ad02b1fa7eae8752fc62d">RAD_PROGRAM_RUNNING</a> = 1
 , <a class="el" href="radixkernel_8h.html#a140ab5422d459ba07b75d08ff58e5359aa874bb32fb28e985f6fe1b6a078f7e6e">RAD_PROGRAM_FINISHED</a> = 2
@@ -1221,6 +1423,17 @@ Enumerations</h2></td></tr>
  }</td></tr>
 <tr class="memdesc:a02555ae996980220092af6e034eb516e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Public enumeration for rad_module_state.  <a href="radixkernel_8h.html#a02555ae996980220092af6e034eb516e">More...</a><br /></td></tr>
 <tr class="separator:a02555ae996980220092af6e034eb516e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adcf6367a73941b34af98086ca04208a7"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="radixkernel_8h.html#adcf6367a73941b34af98086ca04208a7">rad_service_state</a> { <br />
+&#160;&#160;<a class="el" href="radixkernel_8h.html#adcf6367a73941b34af98086ca04208a7a9bad77b2d76e53ab3e564b736af57243">RAD_SERVICE_REGISTERED</a> = 1
+, <a class="el" href="radixkernel_8h.html#adcf6367a73941b34af98086ca04208a7ad8cbd42283e2e9e94f07d18e7a4eeb34">RAD_SERVICE_CONFIGURED</a> = 2
+, <a class="el" href="radixkernel_8h.html#adcf6367a73941b34af98086ca04208a7acd694ba59b277868beb2ae3352ced27c">RAD_SERVICE_RUNNING</a> = 3
+, <a class="el" href="radixkernel_8h.html#adcf6367a73941b34af98086ca04208a7aece35909c781481a00c5e80756849839">RAD_SERVICE_FAILED</a> = 4
+, <br />
+&#160;&#160;<a class="el" href="radixkernel_8h.html#adcf6367a73941b34af98086ca04208a7af5477a297e1ff518454153b10bc5adfd">RAD_SERVICE_STOPPED</a> = 5
+<br />
+ }</td></tr>
+<tr class="memdesc:adcf6367a73941b34af98086ca04208a7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Public enumeration for rad_service_state.  <a href="radixkernel_8h.html#adcf6367a73941b34af98086ca04208a7">More...</a><br /></td></tr>
+<tr class="separator:adcf6367a73941b34af98086ca04208a7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
@@ -1684,6 +1897,34 @@ int32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="r
 size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="radixkernel_8h.html#a0d3fbf1529766f273be535bf300d243b">rad_module_list</a> (<a class="el" href="radixkernel_8h.html#a331544f08333704576625666c833bf9e">rad_module_info_t</a> *modules, size_t capacity)</td></tr>
 <tr class="memdesc:a0d3fbf1529766f273be535bf300d243b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Public RADix kernel API entry point. <br /></td></tr>
 <tr class="separator:a0d3fbf1529766f273be535bf300d243b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a439b427343fabc195643b177b4919ee9"><td class="memItemLeft" align="right" valign="top"><a id="a439b427343fabc195643b177b4919ee9"></a>
+<a class="el" href="radixkernel_8h.html#aeb7c981d4b5f029daa65d3b928bab127">rad_status_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="radixkernel_8h.html#a439b427343fabc195643b177b4919ee9">rad_service_register</a> (const <a class="el" href="radixkernel_8h.html#af6937160e3d1706001b8c69ffac361af">rad_service_descriptor_t</a> *descriptor)</td></tr>
+<tr class="memdesc:a439b427343fabc195643b177b4919ee9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Public RADix kernel API entry point. <br /></td></tr>
+<tr class="separator:a439b427343fabc195643b177b4919ee9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a78810c447560314a6b154657e24af865"><td class="memItemLeft" align="right" valign="top"><a id="a78810c447560314a6b154657e24af865"></a>
+<a class="el" href="radixkernel_8h.html#aeb7c981d4b5f029daa65d3b928bab127">rad_status_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="radixkernel_8h.html#a78810c447560314a6b154657e24af865">rad_service_unregister</a> (const char *name)</td></tr>
+<tr class="memdesc:a78810c447560314a6b154657e24af865"><td class="mdescLeft">&#160;</td><td class="mdescRight">Public RADix kernel API entry point. <br /></td></tr>
+<tr class="separator:a78810c447560314a6b154657e24af865"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aec979bcddf06a1b809eed5035621730e"><td class="memItemLeft" align="right" valign="top"><a id="aec979bcddf06a1b809eed5035621730e"></a>
+<a class="el" href="radixkernel_8h.html#aeb7c981d4b5f029daa65d3b928bab127">rad_status_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="radixkernel_8h.html#aec979bcddf06a1b809eed5035621730e">rad_service_configure_tree</a> (<a class="el" href="radixkernel_8h.html#a709ccf7c74e397fb0ab3b0a50aa5b4fd">rad_tree_node_t</a> node)</td></tr>
+<tr class="memdesc:aec979bcddf06a1b809eed5035621730e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Public RADix kernel API entry point. <br /></td></tr>
+<tr class="separator:aec979bcddf06a1b809eed5035621730e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a325239bb2603128d63d38e09f0945451"><td class="memItemLeft" align="right" valign="top"><a id="a325239bb2603128d63d38e09f0945451"></a>
+<a class="el" href="radixkernel_8h.html#aeb7c981d4b5f029daa65d3b928bab127">rad_status_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="radixkernel_8h.html#a325239bb2603128d63d38e09f0945451">rad_service_start</a> (const char *name)</td></tr>
+<tr class="memdesc:a325239bb2603128d63d38e09f0945451"><td class="mdescLeft">&#160;</td><td class="mdescRight">Public RADix kernel API entry point. <br /></td></tr>
+<tr class="separator:a325239bb2603128d63d38e09f0945451"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afe134eba7603c5ddd61335bf1cb8ac23"><td class="memItemLeft" align="right" valign="top"><a id="afe134eba7603c5ddd61335bf1cb8ac23"></a>
+<a class="el" href="radixkernel_8h.html#aeb7c981d4b5f029daa65d3b928bab127">rad_status_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="radixkernel_8h.html#afe134eba7603c5ddd61335bf1cb8ac23">rad_service_stop</a> (const char *name)</td></tr>
+<tr class="memdesc:afe134eba7603c5ddd61335bf1cb8ac23"><td class="mdescLeft">&#160;</td><td class="mdescRight">Public RADix kernel API entry point. <br /></td></tr>
+<tr class="separator:afe134eba7603c5ddd61335bf1cb8ac23"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7d3a217ad848e6e367e37f9ead918ac8"><td class="memItemLeft" align="right" valign="top"><a id="a7d3a217ad848e6e367e37f9ead918ac8"></a>
+<a class="el" href="radixkernel_8h.html#aeb7c981d4b5f029daa65d3b928bab127">rad_status_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="radixkernel_8h.html#a7d3a217ad848e6e367e37f9ead918ac8">rad_service_poll_all</a> (void)</td></tr>
+<tr class="memdesc:a7d3a217ad848e6e367e37f9ead918ac8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Public RADix kernel API entry point. <br /></td></tr>
+<tr class="separator:a7d3a217ad848e6e367e37f9ead918ac8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5a4249cecdfe8ab58425c9aa2d7b9a69"><td class="memItemLeft" align="right" valign="top"><a id="a5a4249cecdfe8ab58425c9aa2d7b9a69"></a>
+size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="radixkernel_8h.html#a5a4249cecdfe8ab58425c9aa2d7b9a69">rad_service_list</a> (<a class="el" href="radixkernel_8h.html#addc5d9fd425f146c8ba5c2fe2d00c4b4">rad_service_info_t</a> *services, size_t capacity)</td></tr>
+<tr class="memdesc:a5a4249cecdfe8ab58425c9aa2d7b9a69"><td class="mdescLeft">&#160;</td><td class="mdescRight">Public RADix kernel API entry point. <br /></td></tr>
+<tr class="separator:a5a4249cecdfe8ab58425c9aa2d7b9a69"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab824924ae94d2cb68a340237217aa669"><td class="memItemLeft" align="right" valign="top"><a id="ab824924ae94d2cb68a340237217aa669"></a>
 <a class="el" href="radixkernel_8h.html#aeb7c981d4b5f029daa65d3b928bab127">rad_status_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="radixkernel_8h.html#ab824924ae94d2cb68a340237217aa669">rad_irq_register</a> (uint32_t irq, const char *name, <a class="el" href="radixkernel_8h.html#ae01a3003d6bf546499e3f0ddf14e2972">rad_irq_handler_t</a> handler, void *context)</td></tr>
 <tr class="memdesc:ab824924ae94d2cb68a340237217aa669"><td class="mdescLeft">&#160;</td><td class="mdescRight">Public RADix kernel API entry point. <br /></td></tr>
@@ -1784,6 +2025,30 @@ int32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="r
 int32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="radixkernel_8h.html#a6748a841f8fac07e2bec23c3fa4314df">rad_pipe_create</a> (int32_t pipefd[2])</td></tr>
 <tr class="memdesc:a6748a841f8fac07e2bec23c3fa4314df"><td class="mdescLeft">&#160;</td><td class="mdescRight">Public RADix kernel API entry point. <br /></td></tr>
 <tr class="separator:a6748a841f8fac07e2bec23c3fa4314df"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2933697fcbc19ae8e7e4232cf8a82c70"><td class="memItemLeft" align="right" valign="top"><a id="a2933697fcbc19ae8e7e4232cf8a82c70"></a>
+int32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="radixkernel_8h.html#a2933697fcbc19ae8e7e4232cf8a82c70">rad_shm_open</a> (const char *name, size_t byte_size, uint32_t flags)</td></tr>
+<tr class="memdesc:a2933697fcbc19ae8e7e4232cf8a82c70"><td class="mdescLeft">&#160;</td><td class="mdescRight">Public RADix kernel API entry point. <br /></td></tr>
+<tr class="separator:a2933697fcbc19ae8e7e4232cf8a82c70"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad4d54651f2479270912b5a09448f7d8c"><td class="memItemLeft" align="right" valign="top"><a id="ad4d54651f2479270912b5a09448f7d8c"></a>
+int32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="radixkernel_8h.html#ad4d54651f2479270912b5a09448f7d8c">rad_shm_unlink</a> (const char *name)</td></tr>
+<tr class="memdesc:ad4d54651f2479270912b5a09448f7d8c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Public RADix kernel API entry point. <br /></td></tr>
+<tr class="separator:ad4d54651f2479270912b5a09448f7d8c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0ef097ad79b00d6a1923ea9b698c4994"><td class="memItemLeft" align="right" valign="top"><a id="a0ef097ad79b00d6a1923ea9b698c4994"></a>
+int32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="radixkernel_8h.html#a0ef097ad79b00d6a1923ea9b698c4994">rad_shm_get_info</a> (int32_t fd, <a class="el" href="radixkernel_8h.html#a30735cc4b10d59209c511fe60c1acdb3">rad_shm_info_t</a> *info)</td></tr>
+<tr class="memdesc:a0ef097ad79b00d6a1923ea9b698c4994"><td class="mdescLeft">&#160;</td><td class="mdescRight">Public RADix kernel API entry point. <br /></td></tr>
+<tr class="separator:a0ef097ad79b00d6a1923ea9b698c4994"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7278688545522fa5c7564d679988b56b"><td class="memItemLeft" align="right" valign="top"><a id="a7278688545522fa5c7564d679988b56b"></a>
+int32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="radixkernel_8h.html#a7278688545522fa5c7564d679988b56b">rad_shm_set_page</a> (int32_t fd, size_t page_index, uintptr_t page_token)</td></tr>
+<tr class="memdesc:a7278688545522fa5c7564d679988b56b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Public RADix kernel API entry point. <br /></td></tr>
+<tr class="separator:a7278688545522fa5c7564d679988b56b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3178b9392a067e38a5d118fc3b49f68c"><td class="memItemLeft" align="right" valign="top"><a id="a3178b9392a067e38a5d118fc3b49f68c"></a>
+int32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="radixkernel_8h.html#a3178b9392a067e38a5d118fc3b49f68c">rad_shm_get_page</a> (int32_t fd, size_t page_index, uintptr_t *page_token)</td></tr>
+<tr class="memdesc:a3178b9392a067e38a5d118fc3b49f68c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Public RADix kernel API entry point. <br /></td></tr>
+<tr class="separator:a3178b9392a067e38a5d118fc3b49f68c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad0cb0ad7872d6e7b141f833825871eae"><td class="memItemLeft" align="right" valign="top"><a id="ad0cb0ad7872d6e7b141f833825871eae"></a>
+void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="radixkernel_8h.html#ad0cb0ad7872d6e7b141f833825871eae">rad_shm_kernel_pointer</a> (int32_t fd)</td></tr>
+<tr class="memdesc:ad0cb0ad7872d6e7b141f833825871eae"><td class="mdescLeft">&#160;</td><td class="mdescRight">Public RADix kernel API entry point. <br /></td></tr>
+<tr class="separator:ad0cb0ad7872d6e7b141f833825871eae"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5489db4dc23625651a656a9df4446d0e"><td class="memItemLeft" align="right" valign="top"><a id="a5489db4dc23625651a656a9df4446d0e"></a>
 intptr_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="radixkernel_8h.html#a5489db4dc23625651a656a9df4446d0e">rad_syscall_dispatch</a> (uintptr_t number, uintptr_t arg0, uintptr_t arg1, uintptr_t arg2, uintptr_t arg3, uintptr_t arg4, uintptr_t arg5)</td></tr>
 <tr class="memdesc:a5489db4dc23625651a656a9df4446d0e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Public RADix kernel API entry point. <br /></td></tr>
@@ -1952,10 +2217,66 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="radi
 <a class="el" href="radixkernel_8h.html#aeb7c981d4b5f029daa65d3b928bab127">rad_status_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="radixkernel_8h.html#a5e287522d3943718d304533b061723b1">rad_net_send</a> (<a class="el" href="radixkernel_8h.html#a283dfa3a6253adfa1a530137296cc7c0">rad_device_t</a> device, const void *data, size_t length)</td></tr>
 <tr class="memdesc:a5e287522d3943718d304533b061723b1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Public RADix kernel API entry point. <br /></td></tr>
 <tr class="separator:a5e287522d3943718d304533b061723b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae52ffdb999f72797a583bf8b012d4dd3"><td class="memItemLeft" align="right" valign="top"><a id="ae52ffdb999f72797a583bf8b012d4dd3"></a>
+intptr_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="radixkernel_8h.html#ae52ffdb999f72797a583bf8b012d4dd3">rad_net_receive</a> (<a class="el" href="radixkernel_8h.html#a283dfa3a6253adfa1a530137296cc7c0">rad_device_t</a> device, void *data, size_t length)</td></tr>
+<tr class="memdesc:ae52ffdb999f72797a583bf8b012d4dd3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Public RADix kernel API entry point. <br /></td></tr>
+<tr class="separator:ae52ffdb999f72797a583bf8b012d4dd3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1b27607485164da0ddc65b078c2fd91b"><td class="memItemLeft" align="right" valign="top"><a id="a1b27607485164da0ddc65b078c2fd91b"></a>
 <a class="el" href="radixkernel_8h.html#aeb7c981d4b5f029daa65d3b928bab127">rad_status_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="radixkernel_8h.html#a1b27607485164da0ddc65b078c2fd91b">rad_net_poll</a> (<a class="el" href="radixkernel_8h.html#a283dfa3a6253adfa1a530137296cc7c0">rad_device_t</a> device)</td></tr>
 <tr class="memdesc:a1b27607485164da0ddc65b078c2fd91b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Public RADix kernel API entry point. <br /></td></tr>
 <tr class="separator:a1b27607485164da0ddc65b078c2fd91b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5147721bf65cc563297795d8c13493af"><td class="memItemLeft" align="right" valign="top"><a id="a5147721bf65cc563297795d8c13493af"></a>
+int32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="radixkernel_8h.html#a5147721bf65cc563297795d8c13493af">rad_socket_create</a> (int domain, int type, int protocol)</td></tr>
+<tr class="memdesc:a5147721bf65cc563297795d8c13493af"><td class="mdescLeft">&#160;</td><td class="mdescRight">Public RADix kernel API entry point. <br /></td></tr>
+<tr class="separator:a5147721bf65cc563297795d8c13493af"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad5ef2e6bce169036cbee2004d1b0b685"><td class="memItemLeft" align="right" valign="top"><a id="ad5ef2e6bce169036cbee2004d1b0b685"></a>
+int32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="radixkernel_8h.html#ad5ef2e6bce169036cbee2004d1b0b685">rad_socket_bind</a> (int32_t fd, const <a class="el" href="radixkernel_8h.html#a4d83d71e68ca2997365f7129f00f3188">rad_sockaddr_in_t</a> *address, size_t address_length)</td></tr>
+<tr class="memdesc:ad5ef2e6bce169036cbee2004d1b0b685"><td class="mdescLeft">&#160;</td><td class="mdescRight">Public RADix kernel API entry point. <br /></td></tr>
+<tr class="separator:ad5ef2e6bce169036cbee2004d1b0b685"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa0e4321171701bf055496f3477dade3b"><td class="memItemLeft" align="right" valign="top"><a id="aa0e4321171701bf055496f3477dade3b"></a>
+int32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="radixkernel_8h.html#aa0e4321171701bf055496f3477dade3b">rad_socket_listen</a> (int32_t fd, int backlog)</td></tr>
+<tr class="memdesc:aa0e4321171701bf055496f3477dade3b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Public RADix kernel API entry point. <br /></td></tr>
+<tr class="separator:aa0e4321171701bf055496f3477dade3b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa0b84d7dd7a724d5fc2c0427864c3c11"><td class="memItemLeft" align="right" valign="top"><a id="aa0b84d7dd7a724d5fc2c0427864c3c11"></a>
+int32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="radixkernel_8h.html#aa0b84d7dd7a724d5fc2c0427864c3c11">rad_socket_accept</a> (int32_t fd, <a class="el" href="radixkernel_8h.html#a4d83d71e68ca2997365f7129f00f3188">rad_sockaddr_in_t</a> *address, size_t *address_length)</td></tr>
+<tr class="memdesc:aa0b84d7dd7a724d5fc2c0427864c3c11"><td class="mdescLeft">&#160;</td><td class="mdescRight">Public RADix kernel API entry point. <br /></td></tr>
+<tr class="separator:aa0b84d7dd7a724d5fc2c0427864c3c11"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa3e3a03cc652049663d1f844bef58a98"><td class="memItemLeft" align="right" valign="top"><a id="aa3e3a03cc652049663d1f844bef58a98"></a>
+int32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="radixkernel_8h.html#aa3e3a03cc652049663d1f844bef58a98">rad_socket_connect</a> (int32_t fd, const <a class="el" href="radixkernel_8h.html#a4d83d71e68ca2997365f7129f00f3188">rad_sockaddr_in_t</a> *address, size_t address_length)</td></tr>
+<tr class="memdesc:aa3e3a03cc652049663d1f844bef58a98"><td class="mdescLeft">&#160;</td><td class="mdescRight">Public RADix kernel API entry point. <br /></td></tr>
+<tr class="separator:aa3e3a03cc652049663d1f844bef58a98"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab945d4741318b5b994c4b94b58dc5095"><td class="memItemLeft" align="right" valign="top"><a id="ab945d4741318b5b994c4b94b58dc5095"></a>
+intptr_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="radixkernel_8h.html#ab945d4741318b5b994c4b94b58dc5095">rad_socket_sendto</a> (int32_t fd, const void *buffer, size_t size, uint32_t flags, const <a class="el" href="radixkernel_8h.html#a4d83d71e68ca2997365f7129f00f3188">rad_sockaddr_in_t</a> *address, size_t address_length)</td></tr>
+<tr class="memdesc:ab945d4741318b5b994c4b94b58dc5095"><td class="mdescLeft">&#160;</td><td class="mdescRight">Public RADix kernel API entry point. <br /></td></tr>
+<tr class="separator:ab945d4741318b5b994c4b94b58dc5095"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0bab154bb26460f43ff6e22f0d3ff2b3"><td class="memItemLeft" align="right" valign="top"><a id="a0bab154bb26460f43ff6e22f0d3ff2b3"></a>
+intptr_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="radixkernel_8h.html#a0bab154bb26460f43ff6e22f0d3ff2b3">rad_socket_recvfrom</a> (int32_t fd, void *buffer, size_t size, uint32_t flags, <a class="el" href="radixkernel_8h.html#a4d83d71e68ca2997365f7129f00f3188">rad_sockaddr_in_t</a> *address, size_t *address_length)</td></tr>
+<tr class="memdesc:a0bab154bb26460f43ff6e22f0d3ff2b3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Public RADix kernel API entry point. <br /></td></tr>
+<tr class="separator:a0bab154bb26460f43ff6e22f0d3ff2b3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9a356134650d13e0c2345de383a436cc"><td class="memItemLeft" align="right" valign="top"><a id="a9a356134650d13e0c2345de383a436cc"></a>
+intptr_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="radixkernel_8h.html#a9a356134650d13e0c2345de383a436cc">rad_socket_send</a> (int32_t fd, const void *buffer, size_t size, uint32_t flags)</td></tr>
+<tr class="memdesc:a9a356134650d13e0c2345de383a436cc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Public RADix kernel API entry point. <br /></td></tr>
+<tr class="separator:a9a356134650d13e0c2345de383a436cc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a606269ea8915f9c3382e791db38a1cf0"><td class="memItemLeft" align="right" valign="top"><a id="a606269ea8915f9c3382e791db38a1cf0"></a>
+intptr_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="radixkernel_8h.html#a606269ea8915f9c3382e791db38a1cf0">rad_socket_recv</a> (int32_t fd, void *buffer, size_t size, uint32_t flags)</td></tr>
+<tr class="memdesc:a606269ea8915f9c3382e791db38a1cf0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Public RADix kernel API entry point. <br /></td></tr>
+<tr class="separator:a606269ea8915f9c3382e791db38a1cf0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abca9a1273ec1627fc51c2500e177c93e"><td class="memItemLeft" align="right" valign="top"><a id="abca9a1273ec1627fc51c2500e177c93e"></a>
+int32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="radixkernel_8h.html#abca9a1273ec1627fc51c2500e177c93e">rad_socket_shutdown</a> (int32_t fd, int how)</td></tr>
+<tr class="memdesc:abca9a1273ec1627fc51c2500e177c93e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Public RADix kernel API entry point. <br /></td></tr>
+<tr class="separator:abca9a1273ec1627fc51c2500e177c93e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa06dbece6c00256b0c96ce0a3d780c5c"><td class="memItemLeft" align="right" valign="top"><a id="aa06dbece6c00256b0c96ce0a3d780c5c"></a>
+int32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="radixkernel_8h.html#aa06dbece6c00256b0c96ce0a3d780c5c">rad_socket_get_info</a> (int32_t fd, <a class="el" href="radixkernel_8h.html#aefd38ec52b6f2dbdc9462d00ff13ddbe">rad_socket_info_t</a> *info)</td></tr>
+<tr class="memdesc:aa06dbece6c00256b0c96ce0a3d780c5c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Public RADix kernel API entry point. <br /></td></tr>
+<tr class="separator:aa06dbece6c00256b0c96ce0a3d780c5c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa4a2fddd54b0f5752dc5f99103ee4c95"><td class="memItemLeft" align="right" valign="top"><a id="aa4a2fddd54b0f5752dc5f99103ee4c95"></a>
+int32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="radixkernel_8h.html#aa4a2fddd54b0f5752dc5f99103ee4c95">rad_socket_setsockopt</a> (int32_t fd, int level, int option, const void *value, size_t value_length)</td></tr>
+<tr class="memdesc:aa4a2fddd54b0f5752dc5f99103ee4c95"><td class="mdescLeft">&#160;</td><td class="mdescRight">Public RADix kernel API entry point. <br /></td></tr>
+<tr class="separator:aa4a2fddd54b0f5752dc5f99103ee4c95"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aecd6eb0ce56ed2a3f21002d361d84c2a"><td class="memItemLeft" align="right" valign="top"><a id="aecd6eb0ce56ed2a3f21002d361d84c2a"></a>
+int32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="radixkernel_8h.html#aecd6eb0ce56ed2a3f21002d361d84c2a">rad_socket_getsockopt</a> (int32_t fd, int level, int option, void *value, size_t *value_length)</td></tr>
+<tr class="memdesc:aecd6eb0ce56ed2a3f21002d361d84c2a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Public RADix kernel API entry point. <br /></td></tr>
+<tr class="separator:aecd6eb0ce56ed2a3f21002d361d84c2a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a05d00ba37414857fa8b177b2f8eabdd8"><td class="memItemLeft" align="right" valign="top"><a id="a05d00ba37414857fa8b177b2f8eabdd8"></a>
 <a class="el" href="radixkernel_8h.html#aeb7c981d4b5f029daa65d3b928bab127">rad_status_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="radixkernel_8h.html#a05d00ba37414857fa8b177b2f8eabdd8">rad_framebuffer_register</a> (const char *name, const <a class="el" href="radixkernel_8h.html#a859f50a328e076edb6e117e6926ae10a">rad_framebuffer_info_t</a> *info, const <a class="el" href="radixkernel_8h.html#a0f9eb80f930f2094a7ca31038fb55f5f">rad_framebuffer_ops_t</a> *ops)</td></tr>
 <tr class="memdesc:a05d00ba37414857fa8b177b2f8eabdd8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Public RADix kernel API entry point. <br /></td></tr>
@@ -2016,6 +2337,10 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="radi
 <a class="el" href="radixkernel_8h.html#aeb7c981d4b5f029daa65d3b928bab127">rad_status_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="radixkernel_8h.html#a230bf8f5f13f6cc4fd6f094dd14f9cc2">rad_framebuffer_flush</a> (<a class="el" href="radixkernel_8h.html#a40c5fc1222c9a0f7d8b676d168064fed">rad_framebuffer_t</a> framebuffer, const <a class="el" href="radixkernel_8h.html#a188d5dff5f963afb267c4ea9399b4800">rad_framebuffer_rect_t</a> *rect)</td></tr>
 <tr class="memdesc:a230bf8f5f13f6cc4fd6f094dd14f9cc2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Public RADix kernel API entry point. <br /></td></tr>
 <tr class="separator:a230bf8f5f13f6cc4fd6f094dd14f9cc2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2a70edb5a0a72255645eed0b91120290"><td class="memItemLeft" align="right" valign="top"><a id="a2a70edb5a0a72255645eed0b91120290"></a>
+<a class="el" href="radixkernel_8h.html#aeb7c981d4b5f029daa65d3b928bab127">rad_status_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="radixkernel_8h.html#a2a70edb5a0a72255645eed0b91120290">rad_framebuffer_present</a> (<a class="el" href="radixkernel_8h.html#a40c5fc1222c9a0f7d8b676d168064fed">rad_framebuffer_t</a> framebuffer, const <a class="el" href="radixkernel_8h.html#adc6cfd6c1eb337e83a1e3b4c3345dd29">rad_framebuffer_present_t</a> *present)</td></tr>
+<tr class="memdesc:a2a70edb5a0a72255645eed0b91120290"><td class="mdescLeft">&#160;</td><td class="mdescRight">Public RADix kernel API entry point. <br /></td></tr>
+<tr class="separator:a2a70edb5a0a72255645eed0b91120290"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aae42f39e073071564b356f5e23088610"><td class="memItemLeft" align="right" valign="top"><a id="aae42f39e073071564b356f5e23088610"></a>
 size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="radixkernel_8h.html#aae42f39e073071564b356f5e23088610">rad_framebuffer_list</a> (<a class="el" href="radixkernel_8h.html#a859f50a328e076edb6e117e6926ae10a">rad_framebuffer_info_t</a> *framebuffers, char names[][64], size_t capacity)</td></tr>
 <tr class="memdesc:aae42f39e073071564b356f5e23088610"><td class="mdescLeft">&#160;</td><td class="mdescRight">Public RADix kernel API entry point. <br /></td></tr>
@@ -2282,7 +2607,7 @@ size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ra
 <tr class="separator:aac2fcaa295e0d1119bb5897d47f70c54"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Portable embedded kernel service ABI for RADLib. </p>
+<div class="textblock"><p>Portable RADix kernel service ABI for RADLib and RADix-OS targets. </p>
 <p>RADixKernel exposes a small POSIX-like service contract for bare-metal and simulator backends. The C ABI is the stable boundary; the C++ wrappers are convenience helpers for RADLib applications and examples. </p>
 </div><h2 class="groupheader">Typedef Documentation</h2>
 <a id="a6ca941df69db8fcc67231488d67f408a"></a>
@@ -2353,6 +2678,23 @@ size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ra
 
 </div>
 </div>
+<a id="a91f8e3f33e19a13a0b9ab45d74bc7b70"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a91f8e3f33e19a13a0b9ab45d74bc7b70">&#9670;&nbsp;</a></span>rad_boot_handoff_t</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef struct <a class="el" href="structrad__boot__handoff.html">rad_boot_handoff</a> <a class="el" href="radixkernel_8h.html#a91f8e3f33e19a13a0b9ab45d74bc7b70">rad_boot_handoff_t</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Public data structure for <a class="el" href="structrad__boot__handoff.html" title="Public data structure for rad_boot_handoff.">rad_boot_handoff</a>. </p>
+<p>Public typedef alias. </p>
+
+</div>
+</div>
 <a id="acbfa1f491bcf507c77435e9cc5606e54"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#acbfa1f491bcf507c77435e9cc5606e54">&#9670;&nbsp;</a></span>rad_boot_info_t</h2>
 
@@ -2383,6 +2725,40 @@ size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ra
 </div><div class="memdoc">
 
 <p>Public data structure for <a class="el" href="structrad__boot__memory__region.html" title="Public data structure for rad_boot_memory_region.">rad_boot_memory_region</a>. </p>
+<p>Public typedef alias. </p>
+
+</div>
+</div>
+<a id="aca4f62e14cd13828b2da4f167f4150cc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aca4f62e14cd13828b2da4f167f4150cc">&#9670;&nbsp;</a></span>rad_compositor_ipc_damage_t</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef struct <a class="el" href="structrad__compositor__ipc__damage.html">rad_compositor_ipc_damage</a> <a class="el" href="radixkernel_8h.html#aca4f62e14cd13828b2da4f167f4150cc">rad_compositor_ipc_damage_t</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Public data structure for <a class="el" href="structrad__compositor__ipc__damage.html" title="Public data structure for rad_compositor_ipc_damage.">rad_compositor_ipc_damage</a>. </p>
+<p>Public typedef alias. </p>
+
+</div>
+</div>
+<a id="a0e04618d0ac3c3854fdce52d7c15a474"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0e04618d0ac3c3854fdce52d7c15a474">&#9670;&nbsp;</a></span>rad_compositor_ipc_surface_t</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef struct <a class="el" href="structrad__compositor__ipc__surface.html">rad_compositor_ipc_surface</a> <a class="el" href="radixkernel_8h.html#a0e04618d0ac3c3854fdce52d7c15a474">rad_compositor_ipc_surface_t</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Public data structure for <a class="el" href="structrad__compositor__ipc__surface.html" title="Public data structure for rad_compositor_ipc_surface.">rad_compositor_ipc_surface</a>. </p>
 <p>Public typedef alias. </p>
 
 </div>
@@ -2655,6 +3031,23 @@ size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ra
 </div><div class="memdoc">
 
 <p>Public data structure for <a class="el" href="structrad__framebuffer__ops.html" title="Public data structure for rad_framebuffer_ops.">rad_framebuffer_ops</a>. </p>
+<p>Public typedef alias. </p>
+
+</div>
+</div>
+<a id="adc6cfd6c1eb337e83a1e3b4c3345dd29"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adc6cfd6c1eb337e83a1e3b4c3345dd29">&#9670;&nbsp;</a></span>rad_framebuffer_present_t</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef struct <a class="el" href="structrad__framebuffer__present.html">rad_framebuffer_present</a> <a class="el" href="radixkernel_8h.html#adc6cfd6c1eb337e83a1e3b4c3345dd29">rad_framebuffer_present_t</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Public data structure for <a class="el" href="structrad__framebuffer__present.html" title="Public data structure for rad_framebuffer_present.">rad_framebuffer_present</a>. </p>
 <p>Public typedef alias. </p>
 
 </div>
@@ -3339,6 +3732,125 @@ size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ra
 
 </div>
 </div>
+<a id="afcfb3b9b94bc1779149e396553222aa8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afcfb3b9b94bc1779149e396553222aa8">&#9670;&nbsp;</a></span>rad_service_config_t</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef struct <a class="el" href="structrad__service__config.html">rad_service_config</a> <a class="el" href="radixkernel_8h.html#afcfb3b9b94bc1779149e396553222aa8">rad_service_config_t</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Public data structure for <a class="el" href="structrad__service__config.html" title="Public data structure for rad_service_config.">rad_service_config</a>. </p>
+<p>Public typedef alias. </p>
+
+</div>
+</div>
+<a id="af6937160e3d1706001b8c69ffac361af"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af6937160e3d1706001b8c69ffac361af">&#9670;&nbsp;</a></span>rad_service_descriptor_t</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef struct <a class="el" href="structrad__service__descriptor.html">rad_service_descriptor</a> <a class="el" href="radixkernel_8h.html#af6937160e3d1706001b8c69ffac361af">rad_service_descriptor_t</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Public data structure for <a class="el" href="structrad__service__descriptor.html" title="Public data structure for rad_service_descriptor.">rad_service_descriptor</a>. </p>
+<p>Public typedef alias. </p>
+
+</div>
+</div>
+<a id="addc5d9fd425f146c8ba5c2fe2d00c4b4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#addc5d9fd425f146c8ba5c2fe2d00c4b4">&#9670;&nbsp;</a></span>rad_service_info_t</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef struct <a class="el" href="structrad__service__info.html">rad_service_info</a> <a class="el" href="radixkernel_8h.html#addc5d9fd425f146c8ba5c2fe2d00c4b4">rad_service_info_t</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Public data structure for <a class="el" href="structrad__service__info.html" title="Public data structure for rad_service_info.">rad_service_info</a>. </p>
+<p>Public typedef alias. </p>
+
+</div>
+</div>
+<a id="a77553e3feea55992d0f7d9001f21b377"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a77553e3feea55992d0f7d9001f21b377">&#9670;&nbsp;</a></span>rad_service_state_t</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef enum <a class="el" href="radixkernel_8h.html#adcf6367a73941b34af98086ca04208a7">rad_service_state</a> <a class="el" href="radixkernel_8h.html#a77553e3feea55992d0f7d9001f21b377">rad_service_state_t</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Public enumeration for rad_service_state. </p>
+<p>Public typedef alias. </p>
+
+</div>
+</div>
+<a id="a30735cc4b10d59209c511fe60c1acdb3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a30735cc4b10d59209c511fe60c1acdb3">&#9670;&nbsp;</a></span>rad_shm_info_t</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef struct <a class="el" href="structrad__shm__info.html">rad_shm_info</a> <a class="el" href="radixkernel_8h.html#a30735cc4b10d59209c511fe60c1acdb3">rad_shm_info_t</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Public data structure for <a class="el" href="structrad__shm__info.html" title="Public data structure for rad_shm_info.">rad_shm_info</a>. </p>
+<p>Public typedef alias. </p>
+
+</div>
+</div>
+<a id="a4d83d71e68ca2997365f7129f00f3188"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4d83d71e68ca2997365f7129f00f3188">&#9670;&nbsp;</a></span>rad_sockaddr_in_t</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef struct <a class="el" href="structrad__sockaddr__in.html">rad_sockaddr_in</a> <a class="el" href="radixkernel_8h.html#a4d83d71e68ca2997365f7129f00f3188">rad_sockaddr_in_t</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Public data structure for <a class="el" href="structrad__sockaddr__in.html" title="Public data structure for rad_sockaddr_in.">rad_sockaddr_in</a>. </p>
+<p>Public typedef alias. </p>
+
+</div>
+</div>
+<a id="aefd38ec52b6f2dbdc9462d00ff13ddbe"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aefd38ec52b6f2dbdc9462d00ff13ddbe">&#9670;&nbsp;</a></span>rad_socket_info_t</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef struct <a class="el" href="structrad__socket__info.html">rad_socket_info</a> <a class="el" href="radixkernel_8h.html#aefd38ec52b6f2dbdc9462d00ff13ddbe">rad_socket_info_t</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Public data structure for <a class="el" href="structrad__socket__info.html" title="Public data structure for rad_socket_info.">rad_socket_info</a>. </p>
+<p>Public typedef alias. </p>
+
+</div>
+</div>
 <a id="a1677dee4d673121270fc5c45d4980e83"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a1677dee4d673121270fc5c45d4980e83">&#9670;&nbsp;</a></span>rad_spi_controller_config_t</h2>
 
@@ -3505,6 +4017,23 @@ size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ra
 </div><div class="memdoc">
 
 <p>Public enumeration for rad_task_state. </p>
+<p>Public typedef alias. </p>
+
+</div>
+</div>
+<a id="a90c73a4ca198e2142d5c7f0d47a503de"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a90c73a4ca198e2142d5c7f0d47a503de">&#9670;&nbsp;</a></span>rad_tcp_state_t</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef enum <a class="el" href="radixkernel_8h.html#aaaefbe5b1c21fde376fb03115687b238">rad_tcp_state</a> <a class="el" href="radixkernel_8h.html#a90c73a4ca198e2142d5c7f0d47a503de">rad_tcp_state_t</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Public enumeration for rad_tcp_state. </p>
 <p>Public typedef alias. </p>
 
 </div>
@@ -3733,6 +4262,8 @@ size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ra
 </td></tr>
 <tr><td class="fieldname"><a id="aa3bd03b48cec647d6a587dc04ef15bc9a714230a8419aa40c48b3d5d6ff28fc8d"></a>RAD_DEVICE_NETWORK&#160;</td><td class="fielddoc"><p>RAD_DEVICE_NETWORK. </p>
 </td></tr>
+<tr><td class="fieldname"><a id="aa3bd03b48cec647d6a587dc04ef15bc9adbafb06ec7454317e57a963e8b79acc7"></a>RAD_DEVICE_COMPOSITOR&#160;</td><td class="fielddoc"><p>RAD_DEVICE_COMPOSITOR. </p>
+</td></tr>
 </table>
 
 </div>
@@ -3760,6 +4291,8 @@ size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ra
 <tr><td class="fieldname"><a id="aeaf4bdbadb007735aad324a9f6c084b3ad8ea3278832b5285ac6e2668232d13f7"></a>RAD_DISPLAY_OUTPUT_RP2350_HSTX&#160;</td><td class="fielddoc"><p>RAD_DISPLAY_OUTPUT_RP2350_HSTX. </p>
 </td></tr>
 <tr><td class="fieldname"><a id="aeaf4bdbadb007735aad324a9f6c084b3a9f44792d152413448e76ff796d62b08c"></a>RAD_DISPLAY_OUTPUT_SPI_PANEL&#160;</td><td class="fielddoc"><p>RAD_DISPLAY_OUTPUT_SPI_PANEL. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="aeaf4bdbadb007735aad324a9f6c084b3a156818c77b4e714fb431bca47d24e40f"></a>RAD_DISPLAY_OUTPUT_BCM283X_MAILBOX&#160;</td><td class="fielddoc"><p>RAD_DISPLAY_OUTPUT_BCM283X_MAILBOX. </p>
 </td></tr>
 </table>
 
@@ -4121,6 +4654,14 @@ size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ra
 </td></tr>
 <tr><td class="fieldname"><a id="a777d9419bfdaee0a25e4cb87309221e2a961b73acf61f54a1aed33ba74f7f41e2"></a>RAD_SYSCALL_GETSOCKOPT&#160;</td><td class="fielddoc"><p>RAD_SYSCALL_GETSOCKOPT. </p>
 </td></tr>
+<tr><td class="fieldname"><a id="a777d9419bfdaee0a25e4cb87309221e2ad6687bd6de7bc6b14e6560c139116bcf"></a>RAD_SYSCALL_MMAP&#160;</td><td class="fielddoc"><p>RAD_SYSCALL_MMAP. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a777d9419bfdaee0a25e4cb87309221e2a5ff4ab54339829879289a262aac89a03"></a>RAD_SYSCALL_MUNMAP&#160;</td><td class="fielddoc"><p>RAD_SYSCALL_MUNMAP. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a777d9419bfdaee0a25e4cb87309221e2a1b057f32624735a3155378eb9dec8d99"></a>RAD_SYSCALL_SHM_OPEN&#160;</td><td class="fielddoc"><p>RAD_SYSCALL_SHM_OPEN. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a777d9419bfdaee0a25e4cb87309221e2a4ee78c91b9070ab9b1a68c35c58fcb7a"></a>RAD_SYSCALL_SHM_UNLINK&#160;</td><td class="fielddoc"><p>RAD_SYSCALL_SHM_UNLINK. </p>
+</td></tr>
 </table>
 
 </div>
@@ -4245,6 +4786,34 @@ size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ra
 
 </div>
 </div>
+<a id="adcf6367a73941b34af98086ca04208a7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adcf6367a73941b34af98086ca04208a7">&#9670;&nbsp;</a></span>rad_service_state</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="radixkernel_8h.html#adcf6367a73941b34af98086ca04208a7">rad_service_state</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Public enumeration for rad_service_state. </p>
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="adcf6367a73941b34af98086ca04208a7a9bad77b2d76e53ab3e564b736af57243"></a>RAD_SERVICE_REGISTERED&#160;</td><td class="fielddoc"><p>RAD_SERVICE_REGISTERED. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="adcf6367a73941b34af98086ca04208a7ad8cbd42283e2e9e94f07d18e7a4eeb34"></a>RAD_SERVICE_CONFIGURED&#160;</td><td class="fielddoc"><p>RAD_SERVICE_CONFIGURED. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="adcf6367a73941b34af98086ca04208a7acd694ba59b277868beb2ae3352ced27c"></a>RAD_SERVICE_RUNNING&#160;</td><td class="fielddoc"><p>RAD_SERVICE_RUNNING. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="adcf6367a73941b34af98086ca04208a7aece35909c781481a00c5e80756849839"></a>RAD_SERVICE_FAILED&#160;</td><td class="fielddoc"><p>RAD_SERVICE_FAILED. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="adcf6367a73941b34af98086ca04208a7af5477a297e1ff518454153b10bc5adfd"></a>RAD_SERVICE_STOPPED&#160;</td><td class="fielddoc"><p>RAD_SERVICE_STOPPED. </p>
+</td></tr>
+</table>
+
+</div>
+</div>
 <a id="ab13a9c8c96c069cbeac892b9e56c89cf"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ab13a9c8c96c069cbeac892b9e56c89cf">&#9670;&nbsp;</a></span>rad_spi_transfer_mode</h2>
 
@@ -4332,6 +4901,42 @@ size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ra
 <tr><td class="fieldname"><a id="a253520a55acf68bac100d85384f0eff6ad484cdf90661427571a5d43382b2ce01"></a>RAD_TASK_FINISHED&#160;</td><td class="fielddoc"><p>RAD_TASK_FINISHED. </p>
 </td></tr>
 <tr><td class="fieldname"><a id="a253520a55acf68bac100d85384f0eff6a2f9d590c71c7f19f93d580da6ed16346"></a>RAD_TASK_DETACHED&#160;</td><td class="fielddoc"><p>RAD_TASK_DETACHED. </p>
+</td></tr>
+</table>
+
+</div>
+</div>
+<a id="aaaefbe5b1c21fde376fb03115687b238"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaaefbe5b1c21fde376fb03115687b238">&#9670;&nbsp;</a></span>rad_tcp_state</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="radixkernel_8h.html#aaaefbe5b1c21fde376fb03115687b238">rad_tcp_state</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Public enumeration for rad_tcp_state. </p>
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="aaaefbe5b1c21fde376fb03115687b238ac3e1a1b0a577e7952691bb7adb8f5c10"></a>RAD_TCP_CLOSED&#160;</td><td class="fielddoc"><p>RAD_TCP_CLOSED. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="aaaefbe5b1c21fde376fb03115687b238a44e5d17eeb04959fa0e690607f633962"></a>RAD_TCP_LISTEN&#160;</td><td class="fielddoc"><p>RAD_TCP_LISTEN. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="aaaefbe5b1c21fde376fb03115687b238a4446503116b450ed8fefecca9baeb403"></a>RAD_TCP_SYN_SENT&#160;</td><td class="fielddoc"><p>RAD_TCP_SYN_SENT. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="aaaefbe5b1c21fde376fb03115687b238a34dac37a87b34c7f18796ae57a0c03f9"></a>RAD_TCP_SYN_RECEIVED&#160;</td><td class="fielddoc"><p>RAD_TCP_SYN_RECEIVED. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="aaaefbe5b1c21fde376fb03115687b238a3f78571f5840d5d501db393c33ddd2fd"></a>RAD_TCP_ESTABLISHED&#160;</td><td class="fielddoc"><p>RAD_TCP_ESTABLISHED. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="aaaefbe5b1c21fde376fb03115687b238a2e53e36dbfe2e74a7439225015bc0e0c"></a>RAD_TCP_FIN_WAIT&#160;</td><td class="fielddoc"><p>RAD_TCP_FIN_WAIT. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="aaaefbe5b1c21fde376fb03115687b238ad7cbf582e7aa20285ea7ac194996f39d"></a>RAD_TCP_CLOSE_WAIT&#160;</td><td class="fielddoc"><p>RAD_TCP_CLOSE_WAIT. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="aaaefbe5b1c21fde376fb03115687b238a3dbd9c8b37154b3409e144fd46777b7c"></a>RAD_TCP_LAST_ACK&#160;</td><td class="fielddoc"><p>RAD_TCP_LAST_ACK. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="aaaefbe5b1c21fde376fb03115687b238a62a31bc26ce1efce922b797185a31901"></a>RAD_TCP_TIME_WAIT&#160;</td><td class="fielddoc"><p>RAD_TCP_TIME_WAIT. </p>
 </td></tr>
 </table>
 

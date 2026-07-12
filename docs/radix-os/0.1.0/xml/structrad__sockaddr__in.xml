@@ -1,0 +1,90 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="structrad__sockaddr__in" kind="struct" language="C++" prot="public">
+    <compoundname>rad_sockaddr_in</compoundname>
+    <includes refid="radixkernel_8h" local="no">radixkernel.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structrad__sockaddr__in_1a826586b7be5b7c61ac008e98e410e49d" prot="public" static="no" mutable="no">
+        <type>uint16_t</type>
+        <definition>uint16_t rad_sockaddr_in::family</definition>
+        <argsstring></argsstring>
+        <name>family</name>
+        <briefdescription>
+<para>Public structure field. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/headers/radixkernel/radixkernel.h" line="601" column="14" bodyfile="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/headers/radixkernel/radixkernel.h" bodystart="601" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structrad__sockaddr__in_1afdfb0547c1733006046ff275e913e214" prot="public" static="no" mutable="no">
+        <type>uint16_t</type>
+        <definition>uint16_t rad_sockaddr_in::port</definition>
+        <argsstring></argsstring>
+        <name>port</name>
+        <briefdescription>
+<para>Public structure field. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/headers/radixkernel/radixkernel.h" line="602" column="14" bodyfile="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/headers/radixkernel/radixkernel.h" bodystart="602" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structrad__sockaddr__in_1a1048ab5bea6e34189c16bd5ca4152030" prot="public" static="no" mutable="no">
+        <type><ref refid="radixkernel_8h_1a1af91900409430083f6d8cd89aae108a" kindref="member">rad_ipv4_address_t</ref></type>
+        <definition>rad_ipv4_address_t rad_sockaddr_in::address</definition>
+        <argsstring></argsstring>
+        <name>address</name>
+        <briefdescription>
+<para>Public structure field. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/headers/radixkernel/radixkernel.h" line="603" column="24" bodyfile="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/headers/radixkernel/radixkernel.h" bodystart="603" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structrad__sockaddr__in_1a07a2a15ca7cf768be3bf16066a422755" prot="public" static="no" mutable="no">
+        <type>uint8_t</type>
+        <definition>uint8_t rad_sockaddr_in::zero[8]</definition>
+        <argsstring>[8]</argsstring>
+        <name>zero</name>
+        <briefdescription>
+<para>Public structure field. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/headers/radixkernel/radixkernel.h" line="604" column="13" bodyfile="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/headers/radixkernel/radixkernel.h" bodystart="604" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Public data structure for <ref refid="structrad__sockaddr__in" kindref="compound">rad_sockaddr_in</ref>. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="1">
+        <label>rad_sockaddr_in</label>
+        <link refid="structrad__sockaddr__in"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>address</edgelabel>
+        </childnode>
+      </node>
+      <node id="2">
+        <label>rad_ipv4_address</label>
+        <link refid="structrad__ipv4__address"/>
+      </node>
+    </collaborationgraph>
+    <location file="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/headers/radixkernel/radixkernel.h" line="600" column="1" bodyfile="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/headers/radixkernel/radixkernel.h" bodystart="600" bodyend="605"/>
+    <listofallmembers>
+      <member refid="structrad__sockaddr__in_1a1048ab5bea6e34189c16bd5ca4152030" prot="public" virt="non-virtual"><scope>rad_sockaddr_in</scope><name>address</name></member>
+      <member refid="structrad__sockaddr__in_1a826586b7be5b7c61ac008e98e410e49d" prot="public" virt="non-virtual"><scope>rad_sockaddr_in</scope><name>family</name></member>
+      <member refid="structrad__sockaddr__in_1afdfb0547c1733006046ff275e913e214" prot="public" virt="non-virtual"><scope>rad_sockaddr_in</scope><name>port</name></member>
+      <member refid="structrad__sockaddr__in_1a07a2a15ca7cf768be3bf16066a422755" prot="public" virt="non-virtual"><scope>rad_sockaddr_in</scope><name>zero</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

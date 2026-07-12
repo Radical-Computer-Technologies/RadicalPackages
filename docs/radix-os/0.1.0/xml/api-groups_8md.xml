@@ -39,6 +39,13 @@
 <codeline><highlight class="normal">serial.<sp/>Ioctl<sp/>request<sp/>macros<sp/>follow<sp/>a<sp/>Linux-style<sp/>direction/type/number/size</highlight></codeline>
 <codeline><highlight class="normal">layout.</highlight></codeline>
 <codeline></codeline>
+<codeline><highlight class="normal">##<sp/>Networking</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">The<sp/>experimental<sp/>network<sp/>path<sp/>registers<sp/>`/dev/net0`<sp/>on<sp/>the<sp/>x86<sp/>VM<sp/>when</highlight></codeline>
+<codeline><highlight class="normal">virtio-net<sp/>is<sp/>present,<sp/>supports<sp/>Ethernet<sp/>frame<sp/>send/receive<sp/>operations,<sp/>and</highlight></codeline>
+<codeline><highlight class="normal">provides<sp/>small<sp/>IPv4/UDP<sp/>datagram<sp/>and<sp/>local<sp/>TCP<sp/>stream<sp/>socket<sp/>subsets<sp/>through</highlight></codeline>
+<codeline><highlight class="normal">the<sp/>POSIX-inspired<sp/>syscall<sp/>table.<sp/>Full<sp/>wire-level<sp/>TCP/IP<sp/>remains<sp/>future<sp/>work.</highlight></codeline>
+<codeline></codeline>
 <codeline><highlight class="normal">##<sp/>Driver<sp/>Binding</highlight></codeline>
 <codeline></codeline>
 <codeline><highlight class="normal">Modules<sp/>advertise<sp/>name,<sp/>bus,<sp/>and<sp/>compatibility<sp/>metadata.<sp/>I2C<sp/>and<sp/>SPI<sp/>controllers</highlight></codeline>
@@ -56,6 +63,15 @@
 <codeline><highlight class="normal">Framebuffers<sp/>describe<sp/>memory<sp/>layout,<sp/>output<sp/>type,<sp/>connector,<sp/>available<sp/>modes,</highlight></codeline>
 <codeline><highlight class="normal">and<sp/>primary<sp/>display<sp/>state.<sp/>Input<sp/>queues<sp/>provide<sp/>a<sp/>shared<sp/>event<sp/>path<sp/>for<sp/>keyboard,</highlight></codeline>
 <codeline><highlight class="normal">pointer,<sp/>terminal,<sp/>Slint,<sp/>shell,<sp/>and<sp/>future<sp/>GUI<sp/>consumers.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>Experimental<sp/>Compositor</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">RADCompositor<sp/>is<sp/>the<sp/>current<sp/>Slint-backed<sp/>windowing<sp/>service.<sp/>It<sp/>renders<sp/>desktop</highlight></codeline>
+<codeline><highlight class="normal">and<sp/>application<sp/>surfaces<sp/>into<sp/>off-screen<sp/>buffers,<sp/>tracks<sp/>dirty<sp/>rectangles,</highlight></codeline>
+<codeline><highlight class="normal">composes<sp/>damaged<sp/>regions<sp/>into<sp/>a<sp/>software<sp/>back<sp/>buffer,<sp/>presents<sp/>only<sp/>dirty</highlight></codeline>
+<codeline><highlight class="normal">framebuffer<sp/>rectangles,<sp/>and<sp/>translates<sp/>global<sp/>pointer<sp/>events<sp/>into<sp/>per-surface</highlight></codeline>
+<codeline><highlight class="normal">Slint<sp/>input<sp/>events.<sp/>The<sp/>x86<sp/>smoke<sp/>path<sp/>also<sp/>accepts<sp/>a<sp/>shm-backed<sp/>userspace</highlight></codeline>
+<codeline><highlight class="normal">surface<sp/>through<sp/>`/dev/compositor0`.</highlight></codeline>
     </programlisting>
     <location file="/media/jvincent/Kingspec512/repos/RADix-OS/docs/public/api-groups.md"/>
   </compounddef>

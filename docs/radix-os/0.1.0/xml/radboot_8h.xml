@@ -181,6 +181,84 @@
         </inbodydescription>
         <location file="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/boot/radboot.h" line="25" column="6" declfile="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/boot/radboot.h" declline="25" declcolumn="6"/>
       </memberdef>
+      <memberdef kind="function" id="radboot_8h_1a157e7971eb5f00eed06a2e70ee49a7b0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void radboot_prepare_bcm283x</definition>
+        <argsstring>(rad_boot_info_t *boot, const char *board, const char *sd_mode)</argsstring>
+        <name>radboot_prepare_bcm283x</name>
+        <param>
+          <type><ref refid="radixkernel_8h_1acbfa1f491bcf507c77435e9cc5606e54" kindref="member">rad_boot_info_t</ref> *</type>
+          <declname>boot</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>board</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>sd_mode</declname>
+        </param>
+        <briefdescription>
+<para>Fill boot defaults for the standalone RAD-owned BCM283x Raspberry Pi backend. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/boot/radboot.h" line="27" column="6" declfile="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/boot/radboot.h" declline="27" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="radboot_8h_1af9b211b321864422ab5e2613a13ff2a1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void radboot_prepare_pi_handoff</definition>
+        <argsstring>(rad_boot_handoff_t *handoff, const char *payload_name, uintptr_t payload_base, uintptr_t payload_size, uintptr_t payload_entry)</argsstring>
+        <name>radboot_prepare_pi_handoff</name>
+        <param>
+          <type><ref refid="radixkernel_8h_1a91f8e3f33e19a13a0b9ab45d74bc7b70" kindref="member">rad_boot_handoff_t</ref> *</type>
+          <declname>handoff</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>payload_name</declname>
+        </param>
+        <param>
+          <type>uintptr_t</type>
+          <declname>payload_base</declname>
+        </param>
+        <param>
+          <type>uintptr_t</type>
+          <declname>payload_size</declname>
+        </param>
+        <param>
+          <type>uintptr_t</type>
+          <declname>payload_entry</declname>
+        </param>
+        <briefdescription>
+<para>Initialize a RADix boot handoff record with Pi Zero 2 W defaults. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/boot/radboot.h" line="29" column="6" declfile="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/boot/radboot.h" declline="29" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="radboot_8h_1aaf3d6ebb801a1c4ead09b3d4b7507c89" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="radixkernel_8h_1aeb7c981d4b5f029daa65d3b928bab127" kindref="member">rad_status_t</ref></type>
+        <definition>rad_status_t radboot_validate_handoff</definition>
+        <argsstring>(const rad_boot_handoff_t *handoff)</argsstring>
+        <name>radboot_validate_handoff</name>
+        <param>
+          <type>const <ref refid="radixkernel_8h_1a91f8e3f33e19a13a0b9ab45d74bc7b70" kindref="member">rad_boot_handoff_t</ref> *</type>
+          <declname>handoff</declname>
+        </param>
+        <briefdescription>
+<para>Validate a RADix boot handoff record before entering the standalone kernel. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/boot/radboot.h" line="31" column="14" declfile="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/boot/radboot.h" declline="31" declcolumn="14"/>
+      </memberdef>
       </sectiondef>
     <briefdescription>
 <para>Helpers for constructing rad_boot_info_t records during platform handoff. </para>
@@ -204,12 +282,15 @@
 <codeline lineno="21"><highlight class="normal"></highlight></codeline>
 <codeline lineno="23" refid="radboot_8h_1a07fd6961b0d400858187af0893d956a7" refkind="member"><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="radboot_8h_1a07fd6961b0d400858187af0893d956a7" kindref="member">radboot_prepare_rp235x</ref>(<ref refid="structrad__boot__info" kindref="compound">rad_boot_info_t</ref><sp/>*boot,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*board,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*sd_mode);</highlight></codeline>
 <codeline lineno="25" refid="radboot_8h_1a2ffb19760ded7dd509f68dcee60d8a52" refkind="member"><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="radboot_8h_1a2ffb19760ded7dd509f68dcee60d8a52" kindref="member">radboot_prepare_circle</ref>(<ref refid="structrad__boot__info" kindref="compound">rad_boot_info_t</ref><sp/>*boot,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*board,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*sd_mode);</highlight></codeline>
-<codeline lineno="26"><highlight class="normal"></highlight></codeline>
-<codeline lineno="27"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>__cplusplus</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="28"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="29"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="30"><highlight class="normal"></highlight></codeline>
-<codeline lineno="31"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+<codeline lineno="27" refid="radboot_8h_1a157e7971eb5f00eed06a2e70ee49a7b0" refkind="member"><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="radboot_8h_1a157e7971eb5f00eed06a2e70ee49a7b0" kindref="member">radboot_prepare_bcm283x</ref>(<ref refid="structrad__boot__info" kindref="compound">rad_boot_info_t</ref><sp/>*boot,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*board,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*sd_mode);</highlight></codeline>
+<codeline lineno="29" refid="radboot_8h_1af9b211b321864422ab5e2613a13ff2a1" refkind="member"><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="radboot_8h_1af9b211b321864422ab5e2613a13ff2a1" kindref="member">radboot_prepare_pi_handoff</ref>(<ref refid="structrad__boot__handoff" kindref="compound">rad_boot_handoff_t</ref><sp/>*handoff,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*payload_name,<sp/>uintptr_t<sp/>payload_base,<sp/>uintptr_t<sp/>payload_size,<sp/>uintptr_t<sp/>payload_entry);</highlight></codeline>
+<codeline lineno="31" refid="radboot_8h_1aaf3d6ebb801a1c4ead09b3d4b7507c89" refkind="member"><highlight class="normal"><ref refid="radixkernel_8h_1aeb7c981d4b5f029daa65d3b928bab127" kindref="member">rad_status_t</ref><sp/><ref refid="radboot_8h_1aaf3d6ebb801a1c4ead09b3d4b7507c89" kindref="member">radboot_validate_handoff</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structrad__boot__handoff" kindref="compound">rad_boot_handoff_t</ref><sp/>*handoff);</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"></highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>__cplusplus</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="34"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="36"><highlight class="normal"></highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
     </programlisting>
     <location file="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/boot/radboot.h"/>
   </compounddef>

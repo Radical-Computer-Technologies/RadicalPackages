@@ -7,7 +7,7 @@
     </briefdescription>
     <detaileddescription>
 <para><anchor id="minimal_examples_1md__media_jvincent_Kingspec512_repos_RADix_OS_docs_public_examples"/> These examples show the intended public API shape. They omit platform-specific register setup and error logging for clarity.</para>
-<sect1 id="minimal_examples_1autotoc_md19">
+<sect1 id="minimal_examples_1autotoc_md22">
 <title>Register A Kernel Module</title>
 <para><programlisting filename=".c"><codeline><highlight class="keyword">static</highlight><highlight class="normal"><sp/><ref refid="radixkernel_8h_1aeb7c981d4b5f029daa65d3b928bab127" kindref="member">rad_status_t</ref><sp/>my_driver_init(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>*context)<sp/>{</highlight></codeline>
 <codeline><highlight class="normal"><sp/><sp/><sp/><sp/>(void)context;</highlight></codeline>
@@ -30,7 +30,7 @@
 <codeline><highlight class="normal"><ref refid="radixkernel_8h_1a66ffda8c781cea836af6642fb61d6ef6" kindref="member">rad_module_register</ref>(&amp;module);</highlight></codeline>
 </programlisting></para>
 </sect1>
-<sect1 id="minimal_examples_1autotoc_md20">
+<sect1 id="minimal_examples_1autotoc_md23">
 <title>Register An I2C Controller And Child Driver</title>
 <para><programlisting filename=".c"><codeline><highlight class="keyword">static</highlight><highlight class="normal"><sp/><ref refid="radixkernel_8h_1aeb7c981d4b5f029daa65d3b928bab127" kindref="member">rad_status_t</ref><sp/>i2c_xfer(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>*context,</highlight></codeline>
 <codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structrad__i2c__transfer" kindref="compound">rad_i2c_transfer_t</ref><sp/>*transfer)<sp/>{</highlight></codeline>
@@ -69,7 +69,7 @@
 <codeline><highlight class="normal"><ref refid="radixkernel_8h_1a89b3650f64b6c6d2fa26fe0ed6b3a180" kindref="member">rad_i2c_bind_tree</ref>();</highlight></codeline>
 </programlisting></para>
 </sect1>
-<sect1 id="minimal_examples_1autotoc_md21">
+<sect1 id="minimal_examples_1autotoc_md24">
 <title>Register DMA And Use SPI Auto Mode</title>
 <para><programlisting filename=".c"><codeline><highlight class="normal"><ref refid="structrad__dma__controller__config" kindref="compound">rad_dma_controller_config_t</ref><sp/>dma<sp/>=<sp/>{</highlight></codeline>
 <codeline><highlight class="normal"><sp/><sp/><sp/><sp/>.<ref refid="structrad__dma__controller__config_1ab105a7d3b1eb1aaf6e24db07af3990c2" kindref="member">size</ref><sp/>=<sp/></highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(<ref refid="radixkernel_8h_1ac791a0a0e3266c0a8d5de15f74b406ba" kindref="member">rad_dma_controller_config_t</ref>),</highlight></codeline>
@@ -99,7 +99,7 @@
 <codeline><highlight class="normal"><ref refid="radixkernel_8h_1a67bcfffefb05abc1e338c27a4bcf62ea" kindref="member">rad_spi_device_transfer</ref>(device,<sp/>&amp;transfer);</highlight></codeline>
 </programlisting></para>
 </sect1>
-<sect1 id="minimal_examples_1autotoc_md22">
+<sect1 id="minimal_examples_1autotoc_md25">
 <title>Register A Framebuffer</title>
 <para><programlisting filename=".c"><codeline><highlight class="normal"><ref refid="structrad__framebuffer__config" kindref="compound">rad_framebuffer_config_t</ref><sp/>fb<sp/>=<sp/>{</highlight></codeline>
 <codeline><highlight class="normal"><sp/><sp/><sp/><sp/>.<ref refid="structrad__framebuffer__config_1a327794f67f86a737412c9b1246595cbe" kindref="member">size</ref><sp/>=<sp/></highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(<ref refid="radixkernel_8h_1a0b2054e13e5b80e1247f4dbaac6b3115" kindref="member">rad_framebuffer_config_t</ref>),</highlight></codeline>
@@ -118,7 +118,7 @@
 <codeline><highlight class="normal"><ref refid="radixkernel_8h_1a25c9b6d91ce95d5c5236cf666494b488" kindref="member">rad_framebuffer_register_ex</ref>(&amp;fb,<sp/>&amp;fb_ops);</highlight></codeline>
 </programlisting></para>
 </sect1>
-<sect1 id="minimal_examples_1autotoc_md23">
+<sect1 id="minimal_examples_1autotoc_md26">
 <title>Read Input Events</title>
 <para><programlisting filename=".c"><codeline><highlight class="normal"><ref refid="radixkernel_8h_1addb721bf345dc2785f09755b1f398646" kindref="member">rad_input_queue_t</ref><sp/>queue;</highlight></codeline>
 <codeline><highlight class="normal"><ref refid="radixkernel_8h_1ad55e7dfc4c27ea46b3970c315a72bf06" kindref="member">rad_input_queue_create</ref>(</highlight><highlight class="stringliteral">&quot;kbd0&quot;</highlight><highlight class="normal">,<sp/>64,<sp/>&amp;queue);</highlight></codeline>
@@ -129,7 +129,7 @@
 <codeline><highlight class="normal"><ref refid="radixkernel_8h_1a9ec14b4685316695469cea1c1cc05f1d" kindref="member">rad_input_queue_read</ref>(queue,<sp/>events,<sp/>8,<sp/>16,<sp/>&amp;count);</highlight></codeline>
 </programlisting></para>
 </sect1>
-<sect1 id="minimal_examples_1autotoc_md24">
+<sect1 id="minimal_examples_1autotoc_md27">
 <title>Mount A VFS Provider</title>
 <para><programlisting filename=".c"><codeline><highlight class="normal"><ref refid="structrad__vfs__backend__ops" kindref="compound">rad_vfs_backend_ops_t</ref><sp/>ops<sp/>=<sp/>{</highlight></codeline>
 <codeline><highlight class="normal"><sp/><sp/><sp/><sp/>.<ref refid="structrad__i2c__controller__ops_1a1c8877ca69e9c246774a23f74df8a78b" kindref="member">context</ref><sp/>=<sp/>fs_context,</highlight></codeline>
@@ -144,7 +144,7 @@
 <codeline><highlight class="normal"><ref refid="radixkernel_8h_1af5671ff5bfdb029f839e31df4bc25100" kindref="member">rad_vfs_mount_provider</ref>(</highlight><highlight class="stringliteral">&quot;/&quot;</highlight><highlight class="normal">,<sp/>&amp;ops);</highlight></codeline>
 </programlisting></para>
 </sect1>
-<sect1 id="minimal_examples_1autotoc_md25">
+<sect1 id="minimal_examples_1autotoc_md28">
 <title>Use File Descriptors Through The Syscall ABI</title>
 <para><programlisting filename=".c"><codeline><highlight class="normal">int32_t<sp/>fd<sp/>=<sp/><ref refid="radixkernel_8h_1adc7d56d92c672f222d6c93dad98b257c" kindref="member">rad_fd_open</ref>(</highlight><highlight class="stringliteral">&quot;/etc/init.radsh&quot;</highlight><highlight class="normal">,<sp/><ref refid="radixkernel_8h_1ae76631a4c448d9e72b2bab8756348deaa1426cc68f1daa1936523cca562d6f435" kindref="member">RAD_VFS_READ</ref>);</highlight></codeline>
 <codeline><highlight class="normal"></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>buffer[128];</highlight></codeline>

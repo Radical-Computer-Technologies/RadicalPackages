@@ -92,6 +92,7 @@ Experimental packages are allowed to move faster than stable. RADBard and RadBui
 | `radbuild-server` | Optional RadBuild server, client, worker, and review DB tools. | `sudo apt install radbuild-server` |
 | `radbuild-vscode-support` | VSCode extension source and compiled support files for RadBuild. | `sudo apt install radbuild-vscode-support` |
 | `radbuild-doc` | RadBuild documentation package. | `sudo apt install radbuild-doc` |
+| `radlib-embedded-kernel` | Experimental RADix-OS kernel service layer for simulator and bare-metal HAL backends. | `sudo apt install radlib-embedded-kernel` |
 
 ## Documentation
 

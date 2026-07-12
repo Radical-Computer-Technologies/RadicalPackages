@@ -127,6 +127,18 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="radb
 void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="radboot_8h.html#a2ffb19760ded7dd509f68dcee60d8a52">radboot_prepare_circle</a> (<a class="el" href="radixkernel_8h.html#acbfa1f491bcf507c77435e9cc5606e54">rad_boot_info_t</a> *boot, const char *board, const char *sd_mode)</td></tr>
 <tr class="memdesc:a2ffb19760ded7dd509f68dcee60d8a52"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fill boot defaults for Circle-backed Raspberry Pi targets. <br /></td></tr>
 <tr class="separator:a2ffb19760ded7dd509f68dcee60d8a52"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a157e7971eb5f00eed06a2e70ee49a7b0"><td class="memItemLeft" align="right" valign="top"><a id="a157e7971eb5f00eed06a2e70ee49a7b0"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="radboot_8h.html#a157e7971eb5f00eed06a2e70ee49a7b0">radboot_prepare_bcm283x</a> (<a class="el" href="radixkernel_8h.html#acbfa1f491bcf507c77435e9cc5606e54">rad_boot_info_t</a> *boot, const char *board, const char *sd_mode)</td></tr>
+<tr class="memdesc:a157e7971eb5f00eed06a2e70ee49a7b0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fill boot defaults for the standalone RAD-owned BCM283x Raspberry Pi backend. <br /></td></tr>
+<tr class="separator:a157e7971eb5f00eed06a2e70ee49a7b0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af9b211b321864422ab5e2613a13ff2a1"><td class="memItemLeft" align="right" valign="top"><a id="af9b211b321864422ab5e2613a13ff2a1"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="radboot_8h.html#af9b211b321864422ab5e2613a13ff2a1">radboot_prepare_pi_handoff</a> (<a class="el" href="radixkernel_8h.html#a91f8e3f33e19a13a0b9ab45d74bc7b70">rad_boot_handoff_t</a> *handoff, const char *payload_name, uintptr_t payload_base, uintptr_t payload_size, uintptr_t payload_entry)</td></tr>
+<tr class="memdesc:af9b211b321864422ab5e2613a13ff2a1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize a RADix boot handoff record with Pi Zero 2 W defaults. <br /></td></tr>
+<tr class="separator:af9b211b321864422ab5e2613a13ff2a1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaf3d6ebb801a1c4ead09b3d4b7507c89"><td class="memItemLeft" align="right" valign="top"><a id="aaf3d6ebb801a1c4ead09b3d4b7507c89"></a>
+<a class="el" href="radixkernel_8h.html#aeb7c981d4b5f029daa65d3b928bab127">rad_status_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="radboot_8h.html#aaf3d6ebb801a1c4ead09b3d4b7507c89">radboot_validate_handoff</a> (const <a class="el" href="radixkernel_8h.html#a91f8e3f33e19a13a0b9ab45d74bc7b70">rad_boot_handoff_t</a> *handoff)</td></tr>
+<tr class="memdesc:aaf3d6ebb801a1c4ead09b3d4b7507c89"><td class="mdescLeft">&#160;</td><td class="mdescRight">Validate a RADix boot handoff record before entering the standalone kernel. <br /></td></tr>
+<tr class="separator:aaf3d6ebb801a1c4ead09b3d4b7507c89"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Helpers for constructing rad_boot_info_t records during platform handoff. </p>

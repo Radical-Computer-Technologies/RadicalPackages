@@ -14,10 +14,11 @@
     <h1>RADLib Packages</h1>
     <p class="lead">
       RADLib packages are split into ABI-pinned runtime modules, unversioned convenience packages, development headers, documentation, examples, and tools.
-      Stable currently tracks RADLib 0.1.0.
+      Stable currently tracks RADLib 0.1.0. Experimental tracks RADLib 0.1.1 development packages for RADix-OS kernel integration.
     </p>
     <div class="status-row">
       <span class="pill"><strong>Version:</strong> 0.1.0</span>
+      <span class="pill"><strong>Experimental:</strong> 0.1.1</span>
       <span class="pill"><strong>ABI line:</strong> 0.1</span>
       <span class="pill"><strong>Architectures:</strong> amd64, arm64</span>
     </div>
@@ -64,6 +65,7 @@ sudo apt install radlib-media radlib-fpga radlib-web</code></div>
       <div class="package"><code>radlib-dsp</code><br><span>DSP primitives and transforms.</span></div>
       <div class="package"><code>radlib-media</code><br><span>Audio, MIDI, SoundFont, WAV, and MusicXML support.</span></div>
       <div class="package"><code>radlib-fpga</code><br><span>FPGA transport and register-map helpers.</span></div>
+      <div class="package"><code>radlib-embedded-kernel</code><br><span>Experimental RADix-OS kernel services and HAL-facing runtime.</span></div>
       <div class="package"><code>radlib-web</code><br><span>WebKit-backed RADWeb browser components.</span></div>
       <div class="package"><code>radlib-net</code><br><span>Networking and protocol helpers.</span></div>
       <div class="package"><code>radlib-database</code><br><span>SQLite-backed database primitives.</span></div>

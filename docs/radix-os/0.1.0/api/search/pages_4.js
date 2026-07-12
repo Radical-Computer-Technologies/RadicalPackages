@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['radix_2dos_20kernel_20api_1905',['RADix-OS Kernel API',['../index.html',1,'']]]
+  ['overlay_20and_20device_20tree_20guide_2199',['Overlay And Device Tree Guide',['../device_tree_guide.html',1,'']]]
 ];

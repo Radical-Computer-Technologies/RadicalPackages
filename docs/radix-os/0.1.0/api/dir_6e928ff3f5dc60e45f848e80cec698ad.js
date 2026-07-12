@@ -18,6 +18,7 @@ var dir_6e928ff3f5dc60e45f848e80cec698ad =
     [ "rad_overlay.h", "rad__overlay_8h_source.html", null ],
     [ "rad_posix.h", "rad__posix_8h_source.html", null ],
     [ "rad_pty.h", "rad__pty_8h_source.html", null ],
+    [ "rad_service.h", "rad__service_8h_source.html", null ],
     [ "rad_spi.h", "rad__spi_8h_source.html", null ],
     [ "rad_task.h", "rad__task_8h_source.html", null ],
     [ "rad_terminal.h", "rad__terminal_8h_source.html", null ],

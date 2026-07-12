@@ -62,6 +62,13 @@
           <a class="package package-link" href="radbard.html"><code>radbard</code><span>Experimental music and audio composition suite beta.</span></a>
         </div>
       </details>
+      <details class="doc-release" data-search-item data-search-text="radlib radical radix os experimental 0.1.1 crimson kernel radekernel bare metal hal simulator circle rtos vfs device terminal tasks memory">
+        <summary>RADLib 0 - Crimson Experimental</summary>
+        <div class="package-list">
+          <a class="package package-link" href="radlib.html"><code>radlib-embedded-kernel</code><span>RADix-OS kernel service layer for simulator and bare-metal HAL backends.</span></a>
+          <a class="package package-link" href="radlib.html"><code>radlib-embedded-kernel-0-1</code><span>ABI-pinned RADix-OS kernel runtime for RADLib 0.1.</span></a>
+        </div>
+      </details>
     </details>
   </section>
 </main>

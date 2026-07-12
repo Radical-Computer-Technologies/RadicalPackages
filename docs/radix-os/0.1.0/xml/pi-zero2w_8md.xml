@@ -1,0 +1,84 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="pi-zero2w_8md" kind="file" language="Markdown">
+    <compoundname>pi-zero2w.md</compoundname>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline><highlight class="normal">#<sp/>Pi<sp/>Zero<sp/>2<sp/>W<sp/>Bring-Up<sp/>{#pi_zero2w}</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">RADix-OS<sp/>now<sp/>has<sp/>the<sp/>first<sp/>pieces<sp/>of<sp/>the<sp/>two-stage<sp/>Raspberry<sp/>Pi<sp/>Zero<sp/>2<sp/>W<sp/>port.</highlight></codeline>
+<codeline><highlight class="normal">The<sp/>intended<sp/>final<sp/>shape<sp/>is:</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">-<sp/>Circle<sp/>remains<sp/>a<sp/>first-stage<sp/>loader<sp/>and<sp/>hardware<sp/>setup<sp/>shim.</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>Circle<sp/>loads<sp/>`RADIXKRN.IMG`<sp/>from<sp/>the<sp/>FAT<sp/>boot<sp/>partition<sp/>and<sp/>jumps<sp/>through</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>`rad_boot_handoff_t`.</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>The<sp/>standalone<sp/>RADix<sp/>payload<sp/>uses<sp/>the<sp/>`bcm283x_pi`<sp/>backend<sp/>and<sp/>does<sp/>not<sp/>link</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>Circle.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>Required<sp/>Loader<sp/>State</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">The<sp/>handoff<sp/>is<sp/>intentionally<sp/>strict<sp/>for<sp/>physical<sp/>silicon.<sp/>Before<sp/>jumping<sp/>to<sp/>the</highlight></codeline>
+<codeline><highlight class="normal">RADix<sp/>payload,<sp/>the<sp/>Circle<sp/>loader<sp/>must:</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">-<sp/>Park<sp/>secondary<sp/>cores<sp/>1-3<sp/>in<sp/>a<sp/>clean<sp/>`wfe`<sp/>loop<sp/>owned<sp/>by<sp/>the<sp/>loader<sp/>handoff.</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>Mask<sp/>interrupts<sp/>on<sp/>core<sp/>0.</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>Disable<sp/>the<sp/>MMU<sp/>and<sp/>data<sp/>cache.</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>Clean/invalidate<sp/>data<sp/>cache<sp/>state<sp/>covering<sp/>the<sp/>payload<sp/>and<sp/>handoff<sp/>record.</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>Invalidate<sp/>the<sp/>instruction<sp/>cache<sp/>and<sp/>TLB.</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>Jump<sp/>to<sp/>the<sp/>RADix<sp/>entry<sp/>in<sp/>AArch64<sp/>EL1.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">`radboot_validate_handoff()`<sp/>rejects<sp/>Pi<sp/>handoff<sp/>records<sp/>that<sp/>do<sp/>not<sp/>declare</highlight></codeline>
+<codeline><highlight class="normal">these<sp/>conditions<sp/>through<sp/>the<sp/>`RAD_BOOT_HANDOFF_FLAG_*`<sp/>safety<sp/>bits.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>Current<sp/>Payload</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Build<sp/>the<sp/>standalone<sp/>payload<sp/>with:</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">```bash</highlight></codeline>
+<codeline><highlight class="normal">make<sp/>-C<sp/>tools/embedded/radix_pi_zero2w</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">The<sp/>output<sp/>files<sp/>are:</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">-<sp/>`tools/embedded/radix_pi_zero2w/RADIXKRN.ELF`</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>`tools/embedded/radix_pi_zero2w/RADIXKRN.IMG`</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Run<sp/>the<sp/>RADix-owned<sp/>QEMU<sp/>smoke<sp/>test<sp/>with:</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">```bash</highlight></codeline>
+<codeline><highlight class="normal">tools/embedded/radix_pi_zero2w_smoke.sh</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">The<sp/>script<sp/>uses<sp/>`qemu-system-aarch64<sp/>-M<sp/>raspi3b`<sp/>because<sp/>QEMU<sp/>does<sp/>not<sp/>expose<sp/>a</highlight></codeline>
+<codeline><highlight class="normal">Pi<sp/>Zero<sp/>2<sp/>W<sp/>machine<sp/>model.<sp/>If<sp/>`qemu-system-aarch64`<sp/>is<sp/>not<sp/>installed,<sp/>the<sp/>smoke</highlight></codeline>
+<codeline><highlight class="normal">test<sp/>downloads<sp/>and<sp/>extracts<sp/>Ubuntu&apos;s<sp/>`qemu-system-arm`<sp/>package<sp/>under</highlight></codeline>
+<codeline><highlight class="normal">`.radbuild/qemu-arm`<sp/>and<sp/>reuses<sp/>it<sp/>on<sp/>later<sp/>runs.<sp/>A<sp/>passing<sp/>run<sp/>verifies<sp/>the</highlight></codeline>
+<codeline><highlight class="normal">early<sp/>BCM283x<sp/>HAL,<sp/>PL011<sp/>UART,<sp/>mailbox<sp/>framebuffer,<sp/>handoff<sp/>validation,<sp/>payload</highlight></codeline>
+<codeline><highlight class="normal">entry,<sp/>and<sp/>framebuffer<sp/>text<sp/>markers.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">The<sp/>current<sp/>RAD-owned<sp/>backend<sp/>includes:</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">-<sp/>PL011<sp/>serial<sp/>console<sp/>registration.</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>System<sp/>timer<sp/>reads<sp/>and<sp/>busy<sp/>sleep.</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>Interrupt<sp/>enable/disable<sp/>hooks<sp/>for<sp/>the<sp/>BCM<sp/>interrupt<sp/>controller.</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>Mailbox<sp/>property<sp/>framebuffer<sp/>allocation<sp/>and<sp/>`/dev/fb0`<sp/>registration.</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>`/dev/mmcblk0`<sp/>block-device<sp/>registration<sp/>scaffold.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>Current<sp/>Limits</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">This<sp/>page<sp/>is<sp/>experimental.<sp/>The<sp/>eMMC<sp/>command<sp/>path,<sp/>Circle<sp/>first-stage<sp/>FAT<sp/>load,</highlight></codeline>
+<codeline><highlight class="normal">secondary-core<sp/>park,<sp/>cache/MMU<sp/>teardown,<sp/>jump<sp/>assembly,<sp/>AArch64</highlight></codeline>
+<codeline><highlight class="normal">EL0/syscall/MMU/fork/COW<sp/>path,<sp/>USB<sp/>input,<sp/>and<sp/>Slint<sp/>shell<sp/>parity<sp/>are<sp/>still</highlight></codeline>
+<codeline><highlight class="normal">follow-up<sp/>work.<sp/>The<sp/>older<sp/>Circle-backed<sp/>QEMU<sp/>smoke<sp/>reaches<sp/>QEMU<sp/>with<sp/>the<sp/>shared</highlight></codeline>
+<codeline><highlight class="normal">resolver<sp/>but<sp/>currently<sp/>emits<sp/>no<sp/>expected<sp/>UART<sp/>markers;<sp/>the<sp/>standalone<sp/>RADix</highlight></codeline>
+<codeline><highlight class="normal">payload<sp/>smoke<sp/>is<sp/>the<sp/>active<sp/>Pi<sp/>QEMU<sp/>gate.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Physical<sp/>Pi<sp/>Zero<sp/>2<sp/>W<sp/>hardware<sp/>remains<sp/>the<sp/>authority<sp/>for<sp/>mailbox<sp/>framebuffer<sp/>and</highlight></codeline>
+<codeline><highlight class="normal">SD<sp/>behavior.</highlight></codeline>
+    </programlisting>
+    <location file="/media/jvincent/Kingspec512/repos/RADix-OS/docs/public/pi-zero2w.md"/>
+  </compounddef>
+</doxygen>
