@@ -105,14 +105,16 @@ curl -fsSL https://radical-computer-technologies.github.io/RadicalPackages/keys/
   </section>
 
   <section class="card">
-    <h2>Current Release Install Path</h2>
-    <p>RadBuild runtime packages are published as frozen executable packages. Install from the experimental APT channel, then use the versioned docs for FPGA, OS, and package workflows.</p>
+    <h2>Install Packages</h2>
+    <p>After adding the stable or experimental APT channel, install the package family you need from the catalog. Stable is for release-pinned packages; experimental is for beta and active development releases.</p>
     <div class="command"><code>sudo apt update
-sudo apt install radbuild radbuild-doc
-radbuild --help</code></div>
+sudo apt install radlib
+sudo apt install radbuild
+sudo apt install radbard</code></div>
     <div class="links">
-      <a class="link-card" href="radbuild.html"><strong>RadBuild Packages</strong><span>Frozen CLI package, optional server, VSCode support, and docs.</span></a>
-      <a class="link-card" href="docs/radbuild/0.2.1/"><strong>RadBuild 0.2.1 Docs</strong><span>Install, FPGA builds, OS builds, packaging, and examples.</span></a>
+      <a class="link-card" href="packages.html"><strong>Package Catalog</strong><span>Search stable and experimental package families.</span></a>
+      <a class="link-card" href="docs/"><strong>Documentation</strong><span>Versioned product docs, APIs, and HDL datasheets.</span></a>
+      <a class="link-card" href="https://github.com/Radical-Computer-Technologies/RadicalPackages/releases"><strong>Release Assets</strong><span>APT channel assets, package files, and OS image bundles.</span></a>
     </div>
   </section>
 </main>
