@@ -36,6 +36,8 @@ sudo apt install radbuild-radhdl radbuild-server radbuild-vscode-support radbuil
       <div class="package-list">
         <div class="package"><code>radbuild project validate</code><br><span>Validate graph settings.</span></div>
         <div class="package"><code>radbuild build os --json-events</code><br><span>Build and smoke RADix-OS images.</span></div>
+        <div class="package"><code>settings.terminal.json / settings.wm.json</code><br><span>Select terminal-only or RADCompositor/Slint RADix profiles.</span></div>
+        <div class="package"><code>rkconfig</code><br><span>Configure RADix hostname, root password, terminal scale, and rootfs sizing.</span></div>
         <div class="package"><code>radbuild build all --json-events</code><br><span>Run graph builds with machine-readable progress.</span></div>
         <div class="package"><code>radbuild-graph</code><br><span>Inspect dependency order.</span></div>
         <div class="package"><code>radbuild-hdlgen</code><br><span>Browse/generate RadHDL assets.</span></div>

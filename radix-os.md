@@ -33,8 +33,23 @@
 
     <article class="card">
       <h2>Build With RadBuild</h2>
-      <p>RadBuild 0.2.1 owns the canonical x86_64 GRUB + Slint VM image build and QEMU smoke path.</p>
+      <p>RadBuild 0.2.1 owns the canonical x86_64 GRUB VM image builds. Crimson currently publishes separate terminal and RADCompositor/Slint profiles, both under the experimental suite.</p>
       <div class="command"><code>radbuild build os --settings settings.json --json-events</code></div>
+    </article>
+  </section>
+
+  <section class="grid">
+    <article class="card">
+      <h2>Crimson VM Profiles</h2>
+      <p>The terminal profile boots directly to the framebuffer login prompt and <code>rash</code>. The window-manager profile packages the Slint-backed RADCompositor path for UI stabilization.</p>
+      <div class="command"><code>radbuild build os --settings settings.terminal.json --json-events
+radbuild build os --settings settings.wm.json --json-events</code></div>
+    </article>
+
+    <article class="card">
+      <h2>Root Filesystem</h2>
+      <p><code>rkconfig</code> controls the generated hostname, initial root password, terminal scale, and ext4 size. The image stages Unix-style directories including <code>/bin</code>, <code>/dev</code>, <code>/etc</code>, <code>/home/root</code>, <code>/lib</code>, <code>/mnt</code>, <code>/usr</code>, <code>/tmp</code>, and <code>/var/log</code>.</p>
+      <p>RADix kernel modules use <code>.rko</code>; future RADix shared objects use <code>.rso</code>.</p>
     </article>
   </section>
 

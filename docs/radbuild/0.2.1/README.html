@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>RadBuild Repository README</title>
+  <link rel="stylesheet" href="../../../assets/site.css">
+</head>
+<body>
+<main class="page">
+  <nav class="nav">
+    <a class="brand" href="../../../"><img src="../../../assets/rad-logo.png" alt="">Radical Packages</a>
+    <div class="nav-links">
+      <a href="../../../packages.html">Packages</a>
+      <a href="./">RadBuild 0.2.1</a>
+    </div>
+  </nav>
+  <section class="hero compact-hero">
+    <div class="eyebrow">RadBuild 0.2.1</div>
+    <h1>RadBuild Repository README</h1>
+  </section>
+  <article class="card doc-content">
+<h1>RadBuild</h1>
+<p>RadBuild is an embedded-systems build toolset with two normal operating modes:</p>
+<ul>
+<li><strong>Local CLI mode:</strong> source <code>radbuild.sh</code>, then run <code>radsetup</code>,</li>
+<p><code>build_vivado</code>, <code>build_litex</code>, <code>build_petalinux</code>, and <code>radbuildserver</code> by hand.</p>
+<li><strong>Server/worker mode:</strong> run the RadBuild web/API server, assign tasks in the</li>
+<p>browser, and let registered clients, workers, Codex, or local LLM helpers report progress and database evidence.</p>
+</ul>
+<p>The current implementation focuses on graph-driven FPGA, Linux, firmware, software, package, OS image, VSCode, and optional server workflows, plus a SQLite-backed review database for curated build/test/live-verification evidence.</p>
+<p>RadBuild 0.2.1 adds the graph-based multi-system project model described in <a href="docs/RADBUILD_V2.md">docs/RADBUILD_V2.md</a>. It keeps the legacy build commands available while adding schema v2 migration, Buildroot/Yocto/package metadata generation, RADix-OS image builds, RadHDL catalog/generation commands, JSON progress events, Debian packaging metadata, and a CLI-driven VSCode extension.</p>
+<h2>Repository Layout</h2>
+<pre><code>RadBuild/
+  build_release.py       Builds native PyInstaller executables.
+  radbuildinstall.py     Installs a frozen release into a chosen directory.
+  RadTools/              Public release repository submodule.
+  radbuild/
+    radbuild.sh          Source-tree shell entry point.
+    USAGE.md             CLI and build-monitor usage.
+    .tools/              Dispatchers and versioned build scripts.
+    .tools/v0.2.1/       Current graph-native RadBuild implementation.
+    .tools/v1.0.1/       Preserved legacy implementation.
+    .radmeta/            Local workspace registry metadata.
+  radserver/
+    app.py               HTTPS web UI and API.
+    raddb.py             SQLite database CLI.
+    radbuildserver.py    Git branch monitor/build runner.
+    radclient.py         Client API wrapper.
+    radworker.py         Generic command worker.
+    radcodex_worker.py   Codex CLI worker.
+    radllm.py            Local LLM JSON drafting/validation helper.</code></pre>
+<p>Generated release folders contain native executables at the install root and runtime state under <code>radserver_data/</code>.</p>
+<h2>Build A Native Release</h2>
+<p>PyInstaller is required for frozen native executables:</p>
+<pre><code>python3 -m pip install --user --upgrade pyinstaller
+cd /mnt/TEAMV_FILES/radbuild_workspace/RadBuild
+python3 build_release.py --mode native</code></pre>
+<p>This writes:</p>
+<pre><code>/mnt/TEAMV_FILES/radbuild_workspace/radbuild-release1v01/
+RadBuild/release/radbuild-release1v01/
+RadBuild/release/radbuild-release1v01-native.tar.gz
+RadBuild/RadTools/installers/linux-x86_64/radbuild-server/v1.0.1/</code></pre>
+<p>Executables currently produced:</p>
+<pre><code>radbuild
+build_vivado
+build_petalinux
+build_litex
+radsetup
+radserver
+raddb
+radbuildserver
+radclient
+radworker
+radcodex_worker
+radllm</code></pre>
+<p>When the <code>RadTools</code> submodule is present, <code>build_release.py</code> also republishes the RadBuild payload, docs, and runtime templates into the public RadTools installer tree. To publish the release repository in the same command:</p>
+<pre><code>python3 build_release.py --mode native --radtools-commit --radtools-push</code></pre>
+<p>Use <code>--no-radtools-publish</code> to build only the local release directory and <code>RadBuild/release</code> mirror.</p>
+<p>The release builder intentionally excludes live SQLite databases, uploaded logs, worker logs, private TLS keys, and machine-specific server config from the embedded payload. Fresh runtime config is created in <code>radserver_data/</code>.</p>
+<h2>Install A Frozen Release</h2>
+<p>Flat install target:</p>
+<pre><code>cd /mnt/TEAMV_FILES/radbuild_workspace/RadBuild
+python3 radbuildinstall.py \
+  --source /mnt/TEAMV_FILES/radbuild_workspace/radbuild-release1v01 \
+  --install-dir /home/jvincent/RadBuild</code></pre>
+<p>Versioned install target with <code>/usr/bin</code>-style dispatch wrappers:</p>
+<pre><code>python3 radbuildinstall.py \
+  --source /mnt/TEAMV_FILES/radbuild_workspace/radbuild-release1v01 \
+  --install-dir /home/jvincent/RadTools/RadBuild/v1.0.1 \
+  --layout versioned \
+  --wrapper-dir /usr/bin \
+  --radbuild-root /home/jvincent/RadTools/RadBuild</code></pre>
+<p>The installer preserves existing <code>radserver_data/server_config.json</code>, <code>radserver_data/radbuildserver.json</code>, <code>.radmeta/toolchains.json</code>, and runtime data unless <code>--overwrite-config</code> is passed. The versioned layout places executables under <code>bin/</code>, runtime state under <code>radserver_data/</code>, and the global tool registry under <code>.radmeta/toolchains.json</code>.</p>
+<p>After install:</p>
+<pre><code>source /home/jvincent/RadBuild/radbuild.sh
+radsetup /path/to/radbuild-workspace
+build_vivado --help
+build_litex --help
+build_petalinux --help
+radserver serve --host 0.0.0.0 --port 8767</code></pre>
+<p>When <code>/usr/bin</code> wrappers are installed, commands such as <code>build_litex</code> dispatch through <code>RADBUILD_ROOT/&lt;radbuild_version&gt;/bin/&lt;tool&gt;</code>, defaulting to the configured install root.</p>
+<p>Open:</p>
+<pre><code>https://SERVER:8767/setup</code></pre>
+<p>On a fresh install, login is <code>admin</code> / <code>admin</code>; the server requires changing the password before write actions.</p>
+<h2>Source-Tree CLI Usage</h2>
+<p>Without frozen executables:</p>
+<pre><code>source /mnt/TEAMV_FILES/radbuild_workspace/RadBuild/radbuild/radbuild.sh
+radsetup /mnt/TEAMV_FILES/radbuild_workspace/radbuild_workspace --non-interactive
+cd /path/to/project-with-settings-json
+build_vivado
+build_litex --list
+build_petalinux --dry-run</code></pre>
+<p>Project settings select tool versions, vendor/model family, Vivado part number, and PetaLinux project details. See <a href="radbuild/USAGE.md">radbuild/USAGE.md</a>.</p>
+<h2>Server Usage</h2>
+<p>Installed executable:</p>
+<pre><code>/home/jvincent/RadBuild/radserver serve --host 0.0.0.0 --port 8767</code></pre>
+<p>Source tree:</p>
+<pre><code>python3 radserver/radserver.py serve --host 0.0.0.0 --port 8767</code></pre>
+<p>The server provides:</p>
+<ul>
+<li>HTTPS web UI</li>
+<li>setup page and database migration</li>
+<li>pending/verified build evidence review</li>
+<li>task hierarchy with subtasks and events</li>
+<li>client/worker registration</li>
+<li>uploaded log storage and cleanup</li>
+<li>role-based users: <code>admin</code>, <code>reviewer</code>, <code>developer</code></li>
+<li>API tokens for clients/workers</li>
+</ul>
+<p>See <a href="radserver/README.md">radserver/README.md</a> and <a href="radserver/DATABASEUSAGE.md">radserver/DATABASEUSAGE.md</a>.</p>
+<h2>Client, Worker, And LLM Driver</h2>
+<p>Clients discover/configure a server and register themselves:</p>
+<pre><code>radclient discover
+radclient configure --server https://SERVER:8767
+radclient register --name codex-local --type codex --capability codex-cli
+radclient tasks
+radclient task-summary 1</code></pre>
+<p>Generic command worker:</p>
+<pre><code>radworker --name command-local --server https://SERVER:8767</code></pre>
+<p>Codex CLI worker:</p>
+<pre><code>radcodex_worker --agent codex-local --server https://SERVER:8767</code></pre>
+<p>Local LLM helper for Qwen/Ollama-style intake:</p>
+<pre><code>radllm draft-result --task-id 1 --log /path/to/build.log --notes &quot;summary&quot; --out draft.json
+radllm validate-result-json draft.json
+raddb import-files draft.json</code></pre>
+<p>Automation should create pending evidence and task events. Human reviewers approve or reject evidence in the browser or with <code>raddb</code>.</p>
+<h2>Guardrails</h2>
+<ul>
+<li>Do not modify RadBuild tooling unless Joseph Vincent explicitly requests it.</li>
+<li>Do not approve evidence from automation.</li>
+<li>Use git fields only when real git state exists.</li>
+<li>Use task/subtask IDs for workflow order when no real git repo applies.</li>
+<li>Store large logs as files and link paths; keep database rows concise.</li>
+<li>Record failures with command, exit code, log path, and relevant error lines.</li>
+</ul>
+  </article>
+</main>
+</body>
+</html>

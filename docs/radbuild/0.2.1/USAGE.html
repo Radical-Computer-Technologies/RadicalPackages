@@ -1,0 +1,283 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>RadBuild CLI Usage</title>
+  <link rel="stylesheet" href="../../../assets/site.css">
+</head>
+<body>
+<main class="page">
+  <nav class="nav">
+    <a class="brand" href="../../../"><img src="../../../assets/rad-logo.png" alt="">Radical Packages</a>
+    <div class="nav-links">
+      <a href="../../../packages.html">Packages</a>
+      <a href="./">RadBuild 0.2.1</a>
+    </div>
+  </nav>
+  <section class="hero compact-hero">
+    <div class="eyebrow">RadBuild 0.2.1</div>
+    <h1>RadBuild CLI Usage</h1>
+  </section>
+  <article class="card doc-content">
+<h1>RadBuild CLI Usage</h1>
+<p>This file covers direct CLI usage. For server/database/worker usage, see <code>radserver/README.md</code> and <code>radserver/DATABASEUSAGE.md</code>.</p>
+<h2>Source-Tree Mode</h2>
+<pre><code>source /path/to/RadBuild/radbuild/radbuild.sh</code></pre>
+<p>After sourcing:</p>
+<pre><code>radbuild
+radsetup
+build_vivado
+build_petalinux
+build_litex
+radbuildserver.py</code></pre>
+<h2>Installed Frozen Mode</h2>
+<pre><code>source /home/jvincent/RadBuild/radbuild.sh</code></pre>
+<p>For versioned installs, source the versioned install root or use the generated <code>/usr/bin</code> wrappers:</p>
+<pre><code>source /home/jvincent/RadTools/RadBuild/v1.0.1/radbuild.sh
+build_litex --help</code></pre>
+<p>After sourcing:</p>
+<pre><code>radbuild
+radsetup
+build_vivado
+build_petalinux
+build_litex
+radserver
+raddb
+radbuildserver
+radclient
+radworker
+radcodex_worker
+radllm</code></pre>
+<p>The installed release keeps runtime state in:</p>
+<pre><code>/home/jvincent/RadBuild/radserver_data/</code></pre>
+<p>Versioned installs keep the same state under the version root:</p>
+<pre><code>/home/jvincent/RadTools/RadBuild/v1.0.1/radserver_data/</code></pre>
+<h2>Workspace Setup</h2>
+<p>Register or create a workspace:</p>
+<pre><code>radsetup /path/to/radbuild-workspace</code></pre>
+<p>Create a workspace symlink:</p>
+<pre><code>radsetup /path/to/radbuild-workspace --link-target /real/workspace/path</code></pre>
+<p>Fail instead of prompting for missing toolchains:</p>
+<pre><code>radsetup /path/to/radbuild-workspace --non-interactive</code></pre>
+<p>Refresh this machine&#x27;s profile:</p>
+<pre><code>radsetup /path/to/radbuild-workspace --force</code></pre>
+<p><code>radsetup</code> writes machine-local toolchain data to:</p>
+<pre><code>radbuild-workspace/.userconfig/&lt;username&gt;-&lt;hostname&gt;.json</code></pre>
+<p>The RadBuild source/release registry is stored under <code>.radmeta/</code>. Versioned installs use <code>.radmeta/toolchains.json</code> for global toolchain defaults and <code>.radmeta/radworkspaces.json</code> for registered workspaces.</p>
+<h2>Project Creation</h2>
+<p>Open the curses project wizard:</p>
+<pre><code>radbuild --createproject .</code></pre>
+<p>The wizard supports FPGA and FPGA-MPSoC templates. It lists registered workspaces, asks for project name, vendor, part family, FPGA part number, Vivado version, and for FPGA-MPSoC projects also asks for PetaLinux version.</p>
+<p>Force the curses UI or plain text fallback:</p>
+<pre><code>radbuild --createproject . --ui curses
+radbuild --createproject . --ui text</code></pre>
+<p>Create a project noninteractively:</p>
+<pre><code>radbuild --createproject /path/to/radbuild-workspace \
+  --non-interactive \
+  --workspace /path/to/radbuild-workspace \
+  --project-type FPGA \
+  --project-name example_fpga \
+  --vendor xilinx \
+  --modelseries artix7 \
+  --part-number xc7a35tcsg324-1 \
+  --tool vivado \
+  --tool-version 2023.1</code></pre>
+<p>Create an FPGA-MPSoC project:</p>
+<pre><code>radbuild --createproject /path/to/radbuild-workspace \
+  --non-interactive \
+  --workspace /path/to/radbuild-workspace \
+  --project-type FPGA-MPSoC \
+  --project-name example_mpsoc \
+  --vendor xilinx \
+  --modelseries zus+ \
+  --part-number xczu3eg-sfvc784-1-e \
+  --tool vivado \
+  --tool-version 2023.1 \
+  --linux-build-system petalinux \
+  --linux-version 2023.2</code></pre>
+<h2>Project Settings</h2>
+<p>Most commands run from a project directory containing <code>settings.json</code>, or from a child directory below it. You can also pass an explicit settings file:</p>
+<pre><code>build_vivado --settings /path/to/project/settings.json --list
+build_petalinux --settings /path/to/project/settings.json --dry-run
+build_litex --settings /path/to/project/settings.json --list</code></pre>
+<p>Minimal shape:</p>
+<pre><code>{
+  &quot;radbuild_version&quot;: &quot;v1.0.1&quot;,
+  &quot;vendor&quot;: &quot;xilinx&quot;,
+  &quot;modelseries&quot;: &quot;zus+&quot;,
+  &quot;projects&quot;: {
+    &quot;vivado&quot;: {
+      &quot;version&quot;: &quot;2024.1&quot;,
+      &quot;project_name&quot;: &quot;example_hw&quot;,
+      &quot;part_number&quot;: &quot;xczu3eg-sbva484-1-e&quot;
+    },
+    &quot;petalinux&quot;: {
+      &quot;version&quot;: &quot;2024.1&quot;,
+      &quot;project_name&quot;: &quot;example_linux&quot;,
+      &quot;template&quot;: &quot;zynqMP&quot;,
+      &quot;bsp_release_dir&quot;: &quot;bsp_release&quot;
+    },
+    &quot;litex&quot;: {
+      &quot;version&quot;: &quot;local&quot;,
+      &quot;project_name&quot;: &quot;example_litex&quot;,
+      &quot;source_dir&quot;: &quot;.&quot;,
+      &quot;script&quot;: &quot;litex_m2sdr.py&quot;,
+      &quot;backend_tool&quot;: &quot;vivado&quot;,
+      &quot;default_args&quot;: [&quot;--variant=m2&quot;],
+      &quot;build_args&quot;: [&quot;--build&quot;]
+    }
+  }
+}</code></pre>
+<p>The top-level dispatchers load the requested implementation from:</p>
+<pre><code>radbuild/.tools/v1.0.1/</code></pre>
+<h2>Vivado Commands</h2>
+<p>List discovered IP package scripts and testbenches:</p>
+<pre><code>build_vivado --list</code></pre>
+<p>Run package scripts and testbenches:</p>
+<pre><code>build_vivado</code></pre>
+<p>Run package scripts, testbenches, and the project design build:</p>
+<pre><code>build_vivado --build-design</code></pre>
+<p>After a successful design build, RadBuild runs <code>bootgen</code> to create an FPGA-manager-ready <code>.bit.bin</code> next to the Vivado <code>.bit</code> file. Use <code>--skip-bitbin</code> when only the raw Vivado bitstream is needed.</p>
+<p>Package IP only:</p>
+<pre><code>build_vivado --skip-testbenches</code></pre>
+<p>Run testbenches only:</p>
+<pre><code>build_vivado --skip-packages</code></pre>
+<p>Run one target:</p>
+<pre><code>build_vivado --skip-packages tb_example.vhd
+build_vivado example_ip/package_example_ip.tcl</code></pre>
+<p>Launch a generated Vivado testbench GUI project:</p>
+<pre><code>build_vivado --skip-packages --launch-testbench-gui tb_example.vhd</code></pre>
+<p>Generated outputs are normally under:</p>
+<pre><code>hdl/testbench/
+hdl/iprepo/</code></pre>
+<p>Package scripts receive:</p>
+<pre><code>RADBUILD_VIVADO_PART</code></pre>
+<h2>LiteX Commands</h2>
+<p>Print the resolved LiteX command, backend settings, and configured artifact copies:</p>
+<pre><code>build_litex --list</code></pre>
+<p>Run the configured LiteX command:</p>
+<pre><code>build_litex</code></pre>
+<p>Print the command without running it:</p>
+<pre><code>build_litex --dry-run</code></pre>
+<p>Append one-off LiteX arguments:</p>
+<pre><code>build_litex --extra-arg --with-pcie-dma-probe
+build_litex -- --with-pcie-dma-probe</code></pre>
+<p>Run the SoC script without the configured <code>--build</code> argument:</p>
+<pre><code>build_litex --no-build</code></pre>
+<p>The <code>projects.litex</code> settings object supports:</p>
+<pre><code>{
+  &quot;version&quot;: &quot;local&quot;,
+  &quot;project_name&quot;: &quot;litex_m2sdr_m2_pcie_x1_neuma_spi_hopper_neuma_axi_ila_no_jtagbone&quot;,
+  &quot;source_dir&quot;: &quot;.&quot;,
+  &quot;script&quot;: &quot;litex_m2sdr.py&quot;,
+  &quot;backend_tool&quot;: &quot;vivado&quot;,
+  &quot;default_args&quot;: [
+    &quot;--variant=m2&quot;,
+    &quot;--with-pcie&quot;,
+    &quot;--pcie-lanes=1&quot;,
+    &quot;--without-jtagbone&quot;,
+    &quot;--with-neuma-native-spi-hopper&quot;,
+    &quot;--with-neuma-axi-ila&quot;
+  ],
+  &quot;build_args&quot;: [&quot;--build&quot;],
+  &quot;copy_bitstreams&quot;: [
+    {
+      &quot;source&quot;: &quot;build/{build_name}/gateware/{build_name}.bin&quot;,
+      &quot;dest&quot;: &quot;host/litex-m2sdr-base-macos-port/neuma_litexm2sdr_operational.bin&quot;
+    }
+  ]
+}</code></pre>
+<p><code>backend_tool</code> defaults to <code>vivado</code>; keep a matching <code>projects.vivado</code> section in the same <code>settings.json</code> so RadBuild can source Vivado before invoking the LiteX script. Set <code>backend_tool</code> to <code>false</code> only for non-synthesis utility flows that do not need a vendor backend.</p>
+<h2>PetaLinux Commands</h2>
+<p>Dry run:</p>
+<pre><code>build_petalinux --dry-run</code></pre>
+<p>Build/package:</p>
+<pre><code>build_petalinux</code></pre>
+<p>Package a BSP release:</p>
+<pre><code>build_petalinux --minor
+build_petalinux --major</code></pre>
+<p>Package a smaller BSP without PetaLinux pre-built images:</p>
+<pre><code>build_petalinux --minor --small-bsp
+build_petalinux --minor --no-prebuilt</code></pre>
+<p><code>--small-bsp</code> and <code>--no-prebuilt</code> skip <code>petalinux-package --prebuilt</code> and pass an exclude file to <code>petalinux-package --bsp --exclude-from-file</code>. This keeps generated <code>pre-built</code>, <code>images</code>, <code>build</code>, workspace, download, and sstate cache payloads out of the BSP while preserving the source/config project content.</p>
+<p>Build one PetaLinux component:</p>
+<pre><code>build_petalinux --component ad9363-neuma-fasthop
+build_petalinux -c ad9363-neuma-fasthop-spifix
+build_petalinux -c ad9363-neuma-fasthop-spifix --clean-component</code></pre>
+<p>Force rebuild:</p>
+<pre><code>build_petalinux --force</code></pre>
+<p>Deploy fast-update artifacts:</p>
+<pre><code>build_petalinux --deploy</code></pre>
+<p>Build SDK/sysroot:</p>
+<pre><code>build_petalinux --sdk-only
+build_petalinux --sdk --sdk-dir /tmp/example-sdk</code></pre>
+<p>For PetaLinux 2024.1, RadBuild uses:</p>
+<pre><code>petalinux-build --sdk
+petalinux-package sysroot --sdk &lt;sdk.sh&gt; --dir &lt;sdk_dir&gt;</code></pre>
+<h2>Build Monitor</h2>
+<p>The branch monitor can run from source or installed release.</p>
+<p>Source-tree mode:</p>
+<pre><code>radbuildserver.py --config /path/to/radbuildserver.json --once</code></pre>
+<p>Installed mode:</p>
+<pre><code>radbuildserver --config /home/jvincent/RadBuild/radserver_data/radbuildserver.json --once</code></pre>
+<p>When <code>workspace_dir</code> is configured, the monitor verifies setup first by running <code>radsetup &lt;workspace_dir&gt; --non-interactive</code> through <code>radbuild.sh</code>. Build steps run in a shell that has sourced <code>radbuild.sh</code>, so configs should prefer command names such as <code>build_vivado</code>, <code>build_litex</code>, and <code>build_petalinux</code>.</p>
+<p>Example:</p>
+<pre><code>{
+  &quot;workspace_dir&quot;: &quot;/path/to/radbuild-workspace&quot;,
+  &quot;radbuild_dir&quot;: &quot;/home/jvincent/RadBuild&quot;,
+  &quot;auto_radsetup&quot;: true,
+  &quot;use_radbuild_shell&quot;: true,
+  &quot;review_db_cli&quot;: &quot;/home/jvincent/RadBuild/raddb&quot;,
+  &quot;projects&quot;: [
+    {
+      &quot;name&quot;: &quot;example&quot;,
+      &quot;path&quot;: &quot;/path/to/project&quot;,
+      &quot;remote&quot;: &quot;origin&quot;,
+      &quot;branch&quot;: &quot;main&quot;,
+      &quot;enabled&quot;: true,
+      &quot;build_steps&quot;: [
+        {
+          &quot;name&quot;: &quot;vivado&quot;,
+          &quot;issue_type&quot;: &quot;hdl&quot;,
+          &quot;command&quot;: [&quot;build_vivado&quot;, &quot;--skip-testbenches&quot;]
+        }
+      ]
+    }
+  ]
+}</code></pre>
+<h2>Toolchain Resolution</h2>
+<p>RadBuild resolves toolchains using:</p>
+<p>1. The active project&#x27;s <code>vendor</code>, <code>modelseries</code>, and requested tool version. 2. The current machine&#x27;s <code>.userconfig/&lt;profile&gt;.json</code>. 3. Typical install locations. 4. An interactive prompt, unless <code>--non-interactive</code> is used.</p>
+<p>Typical Vivado locations:</p>
+<pre><code>~/xilinx/Vivado/&lt;version&gt;
+~/Xilinx/Vivado/&lt;version&gt;
+/opt/Xilinx/Vivado/&lt;version&gt;
+/tools/Xilinx/Vivado/&lt;version&gt;</code></pre>
+<p>Typical PetaLinux locations:</p>
+<pre><code>~/xilinx/petalinux/&lt;version&gt;
+~/Xilinx/petalinux/&lt;version&gt;
+/opt/pkg/petalinux/&lt;version&gt;
+/tools/Xilinx/petalinux/&lt;version&gt;</code></pre>
+<p>LiteX normally uses the active Python environment. RadBuild records it under the <code>litex</code> tool entry with a <code>/bin/true</code> settings placeholder unless a global toolchain registry overrides it. Xilinx LiteX bitstream builds still source the configured Vivado backend through <code>projects.vivado</code>.</p>
+<h2>Publishing The RadTools Release</h2>
+<p><code>build_release.py</code> builds native PyInstaller executables and, when the <code>RadTools</code> submodule exists, republishes the RadBuild payload into:</p>
+<pre><code>RadTools/installers/linux-x86_64/radbuild-server/v1.0.1/</code></pre>
+<p>The RadTools payload layout is installer-native:</p>
+<pre><code>payload/bin/&lt;radbuild-command&gt;
+payload/radbuild.sh
+docs/
+templates/server_config.json
+templates/radbuildserver.json</code></pre>
+<p>Build and publish into the submodule without committing:</p>
+<pre><code>python3 build_release.py --mode native</code></pre>
+<p>Build, commit the updated RadTools payload from inside the submodule, and push that public release repository:</p>
+<pre><code>python3 build_release.py --mode native --radtools-commit --radtools-push</code></pre>
+<p>Useful options:</p>
+<pre><code>--radtools-dir &lt;path&gt;       Use a RadTools checkout outside ./RadTools.
+--no-radtools-publish      Skip RadTools publishing.
+--radtools-commit-message  Override the RadTools release commit message.</code></pre>
+  </article>
+</main>
+</body>
+</html>

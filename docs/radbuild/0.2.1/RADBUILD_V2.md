@@ -143,24 +143,36 @@ the other graph systems.
 
 ## RADix-OS
 
-RADix-OS repositories can be driven directly by a schema v2 `settings.json`:
+RADix-OS repositories can be driven directly by schema v2 JSON project files.
+Crimson uses separate project JSONs for independent OS profiles, such as a
+terminal-only image and a Slint/RADCompositor window-manager image:
 
 ```json
 {
   "radbuild_schema": "2.0",
   "radbuild_version": "0.2.1",
-  "project_name": "RADix-OS",
+  "project_name": "RADix-OS Terminal",
   "systems": [
     {
-      "id": "radix-x86-64-grub-slint",
+      "id": "radix-x86-64-grub-terminal",
       "type": "os.radix",
       "provider": "radix-os",
       "depends_on": [],
       "config": {
-        "build_dir": "build/embedded/x86_64_grub_slint",
+        "ui_profile": "terminal",
+        "feature_chunks": ["kernel.core", "services.base-terminal", "userspace.rash"],
+        "build_dir": "build/embedded/x86_64_grub_terminal",
         "smoke_script": "tools/embedded/x86_64_grub_slint_smoke.sh",
-        "artifact_dir": "artifacts/radix/x86_64-grub-slint",
-        "qemu_smp": [2, 4]
+        "artifact_dir": "artifacts/radix/x86_64-grub-terminal",
+        "qemu_smp": [2, 4],
+        "rkconfig": {
+          "hostname": "radix",
+          "root_password": "radix",
+          "rootfs_size_mb": 256,
+          "terminal_scale": "auto",
+          "terminal_font": "radix-default",
+          "terminal_theme": "radix-dark"
+        }
       }
     }
   ],
@@ -172,14 +184,42 @@ RADix-OS repositories can be driven directly by a schema v2 `settings.json`:
 ```
 
 The provider keeps JSON output clean for IDEs by writing CMake/QEMU output to
-logs under `.radmeta/radix-os/logs`. The default artifact set includes:
+logs under the configured `.radmeta/radix-os/.../logs` path. The default
+artifact set includes:
 
-- `radixkernel-x86-64-grub-slint.iso`
-- `radixkernel-x86-64-grub-slint`
+- `radixkernel-x86-64-grub-<profile>.iso`
+- `radixkernel-x86-64-grub-<profile>`
 - `radix-rootfs.ext4`
 - `radix-fat32.img`
+- `run-radix-vm.sh`
 - one serial log per configured SMP smoke
 - `SHA256SUMS`
+
+The `ui_profile` field selects the compiled OS chunk set. The `terminal`
+profile omits Slint/RADCompositor, while the `wm` profile includes the
+Slint-backed RADCompositor shell.
+
+The optional `rkconfig` object is passed through to the RADix-OS image
+generator and currently supports `hostname`, `root_password`,
+`rootfs_size_mb`, `terminal_scale`, `terminal_font`, and `terminal_theme`. The
+generated root filesystem follows a Unix-like layout with `/bin`, `/dev`, `/etc`, `/home/root`, `/lib`,
+`/lib/radix/modules`, `/mnt/fat`, `/sbin`, `/tmp`, `/usr/bin`, `/usr/lib`, and
+`/var/log`. RADix kernel modules use `.rko`; future RADix dynamic shared
+objects use `.rso`.
+
+RADix settings can be inspected or edited through the first `menuconfig`
+command:
+
+```sh
+radbuild menuconfig --settings settings.terminal.json --list
+radbuild menuconfig --settings settings.terminal.json --set-rkconfig terminal_theme=radix-dark
+radbuild menuconfig --settings settings.terminal.json --enable-chunk fs.ext4
+```
+
+When package metadata is generated, RadBuild now emits a RADix package section
+beside Debian, Buildroot, and Yocto metadata. RADix packages use the `.radpm`
+archive suffix and can carry dependencies plus supported kernel-version ranges
+for eventual rootfs installation.
 
 ## Debian Packaging
 
