@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Compatibility Appendix</title>
+  <link rel="stylesheet" href="../../../assets/site.css">
+</head>
+<body>
+<main class="page">
+  <nav class="nav">
+    <a class="brand" href="../../../"><img src="../../../assets/rad-logo.png" alt="">Radical Packages</a>
+    <div class="nav-links">
+      <a href="../../../">Home</a>
+      <a href="../../../packages.html">Packages</a>
+      <a href="../../../radix-os.html">RADix OS</a>
+      <a href="../../../docs/">Docs</a>
+    </div>
+  </nav>
+  <section class="hero compact-hero">
+    <div class="eyebrow">RadBuild 0.2.1</div>
+    <h1>Compatibility Appendix</h1>
+  </section>
+  <article class="card doc-content">
+<h1>Compatibility Appendix</h1>
+<p>RadBuild 0.2.1 keeps compatibility commands for existing projects while the main documentation focuses on schema v2 graph builds.</p>
+<h2>Preserved Commands</h2>
+<ul>
+<li><code>build_vivado</code></li>
+<li><code>sim_vivado</code></li>
+<li><code>synth_vivado</code></li>
+<li><code>build_litex</code></li>
+<li><code>build_petalinux</code></li>
+<li><code>radsetup</code></li>
+</ul>
+<h2>Migration</h2>
+<p>Legacy project files can be migrated into schema v2:</p>
+<pre><code>radbuild project migrate --settings settings.json</code></pre>
+<p>Migration writes <code>settings.json.bak</code> before replacing the file.</p>
+<h2>When To Use This Appendix</h2>
+<p>Use these commands for existing projects that have not moved to graph-native schema v2 builds yet. New documentation and examples should use <code>radbuild project</code>, <code>radbuild graph</code>, <code>radbuild generate</code>, and <code>radbuild build</code>.</p>
+  </article>
+</main>
+</body>
+</html>

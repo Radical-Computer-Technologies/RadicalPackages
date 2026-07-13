@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>FPGA Builds</title>
+  <link rel="stylesheet" href="../../../assets/site.css">
+</head>
+<body>
+<main class="page">
+  <nav class="nav">
+    <a class="brand" href="../../../"><img src="../../../assets/rad-logo.png" alt="">Radical Packages</a>
+    <div class="nav-links">
+      <a href="../../../">Home</a>
+      <a href="../../../packages.html">Packages</a>
+      <a href="../../../radix-os.html">RADix OS</a>
+      <a href="../../../docs/">Docs</a>
+    </div>
+  </nav>
+  <section class="hero compact-hero">
+    <div class="eyebrow">RadBuild 0.2.1</div>
+    <h1>FPGA Builds</h1>
+  </section>
+  <article class="card doc-content">
+<h1>FPGA Builds</h1>
+<p>RadBuild models FPGA work as graph systems. A project can contain one FPGA system or an FPGA system that feeds Linux, firmware, software, package, and deployment systems.</p>
+<h2>Minimal Vivado System</h2>
+<pre><code>{
+  &quot;radbuild_schema&quot;: &quot;2.0&quot;,
+  &quot;radbuild_version&quot;: &quot;0.2.1&quot;,
+  &quot;project_name&quot;: &quot;example-fpga&quot;,
+  &quot;systems&quot;: [
+    {
+      &quot;id&quot;: &quot;vivado&quot;,
+      &quot;type&quot;: &quot;fpga.vivado&quot;,
+      &quot;provider&quot;: &quot;vivado&quot;,
+      &quot;depends_on&quot;: [],
+      &quot;config&quot;: {
+        &quot;project_name&quot;: &quot;example_hw&quot;,
+        &quot;part_number&quot;: &quot;xc7a35tcsg324-1&quot;,
+        &quot;version&quot;: &quot;2024.1&quot;
+      }
+    }
+  ],
+  &quot;connections&quot;: [],
+  &quot;artifacts&quot;: [],
+  &quot;deploy&quot;: [],
+  &quot;packages&quot;: {}
+}</code></pre>
+<h2>Commands</h2>
+<pre><code>radbuild project validate --settings settings.json
+radbuild graph --settings settings.json --json
+radbuild build fpga --settings settings.json --dry-run --json-events</code></pre>
+<p>Expected dry-run output:</p>
+<pre><code>{&quot;event&quot;:&quot;build_started&quot;,&quot;systems&quot;:1}
+{&quot;event&quot;:&quot;system_planned&quot;,&quot;system&quot;:&quot;vivado&quot;,&quot;type&quot;:&quot;fpga.vivado&quot;}
+{&quot;event&quot;:&quot;build_finished&quot;,&quot;status&quot;:&quot;dry-run&quot;}</code></pre>
+<h2>Generated Evidence</h2>
+<p>RadBuild writes build metadata under <code>.radmeta/</code>, including artifact manifests and JSON event streams suitable for IDE integration.</p>
+  </article>
+</main>
+</body>
+</html>

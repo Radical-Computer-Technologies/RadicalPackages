@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Install</title>
+  <link rel="stylesheet" href="../../../assets/site.css">
+</head>
+<body>
+<main class="page">
+  <nav class="nav">
+    <a class="brand" href="../../../"><img src="../../../assets/rad-logo.png" alt="">Radical Packages</a>
+    <div class="nav-links">
+      <a href="../../../">Home</a>
+      <a href="../../../packages.html">Packages</a>
+      <a href="../../../radix-os.html">RADix OS</a>
+      <a href="../../../docs/">Docs</a>
+    </div>
+  </nav>
+  <section class="hero compact-hero">
+    <div class="eyebrow">RadBuild 0.2.1</div>
+    <h1>Install</h1>
+  </section>
+  <article class="card doc-content">
+<h1>Install</h1>
+<p>RadBuild 0.2.1 release packages install frozen executables. The main <code>radbuild</code> package must not install loose runtime Python source.</p>
+<h2>Debian Package Install</h2>
+<pre><code>sudo apt install ./radbuild_0.2.1_amd64.deb
+sudo apt install ./radbuild-doc_0.2.1_all.deb</code></pre>
+<p>Optional packages:</p>
+<pre><code>sudo apt install ./radbuild-radhdl_0.2.1_all.deb
+sudo apt install ./radbuild-vscode-support_0.2.1_all.deb
+sudo apt install ./radbuild-server_0.2.1_amd64.deb</code></pre>
+<h2>Verify The Install</h2>
+<pre><code>radbuild --help
+radbuild project validate --settings settings.json</code></pre>
+<p>Expected command shape:</p>
+<pre><code>usage: radbuild [-h] [--createproject CREATEPROJECT] ...</code></pre>
+<h2>Package Trust</h2>
+<p>Install packages only from a RadicalPackages release or repository that has valid package metadata signatures. For local development repositories, <code>--allow-unsigned</code> is acceptable only when testing private package indexes.</p>
+  </article>
+</main>
+</body>
+</html>

@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Example: FPGA + PetaLinux MPSoC Project</title>
+  <link rel="stylesheet" href="../../../../assets/site.css">
+</head>
+<body>
+<main class="page">
+  <nav class="nav">
+    <a class="brand" href="../../../../"><img src="../../../../assets/rad-logo.png" alt="">Radical Packages</a>
+    <div class="nav-links">
+      <a href="../../../../">Home</a>
+      <a href="../../../../packages.html">Packages</a>
+      <a href="../../../../radix-os.html">RADix OS</a>
+      <a href="../../../../docs/">Docs</a>
+    </div>
+  </nav>
+  <section class="hero compact-hero">
+    <div class="eyebrow">RadBuild 0.2.1</div>
+    <h1>Example: FPGA + PetaLinux MPSoC Project</h1>
+  </section>
+  <article class="card doc-content">
+<h1>Example: FPGA + PetaLinux MPSoC Project</h1>
+<h2>settings.json</h2>
+<pre><code>{
+  &quot;radbuild_schema&quot;: &quot;2.0&quot;,
+  &quot;radbuild_version&quot;: &quot;0.2.1&quot;,
+  &quot;project_name&quot;: &quot;mpsoc-demo&quot;,
+  &quot;systems&quot;: [
+    {
+      &quot;id&quot;: &quot;vivado&quot;,
+      &quot;type&quot;: &quot;fpga.vivado&quot;,
+      &quot;provider&quot;: &quot;vivado&quot;,
+      &quot;depends_on&quot;: [],
+      &quot;config&quot;: {
+        &quot;project_name&quot;: &quot;mpsoc_hw&quot;,
+        &quot;part_number&quot;: &quot;xczu3eg-sbva484-1-e&quot;,
+        &quot;version&quot;: &quot;2024.1&quot;
+      }
+    },
+    {
+      &quot;id&quot;: &quot;petalinux&quot;,
+      &quot;type&quot;: &quot;linux.petalinux&quot;,
+      &quot;provider&quot;: &quot;petalinux&quot;,
+      &quot;depends_on&quot;: [&quot;vivado&quot;],
+      &quot;config&quot;: {
+        &quot;project_name&quot;: &quot;mpsoc_linux&quot;,
+        &quot;template&quot;: &quot;zynqMP&quot;,
+        &quot;version&quot;: &quot;2024.1&quot;
+      }
+    }
+  ],
+  &quot;connections&quot;: [],
+  &quot;artifacts&quot;: [],
+  &quot;deploy&quot;: [],
+  &quot;packages&quot;: {}
+}</code></pre>
+<h2>Commands</h2>
+<pre><code>radbuild graph --settings settings.json --json
+radbuild build all --settings settings.json --dry-run --json-events</code></pre>
+<h2>Expected Output</h2>
+<pre><code>{&quot;event&quot;:&quot;system_planned&quot;,&quot;system&quot;:&quot;vivado&quot;,&quot;type&quot;:&quot;fpga.vivado&quot;}
+{&quot;event&quot;:&quot;system_planned&quot;,&quot;system&quot;:&quot;petalinux&quot;,&quot;type&quot;:&quot;linux.petalinux&quot;}</code></pre>
+  </article>
+</main>
+</body>
+</html>

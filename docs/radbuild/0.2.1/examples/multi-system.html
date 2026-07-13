@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Example: Multi-System Graph</title>
+  <link rel="stylesheet" href="../../../../assets/site.css">
+</head>
+<body>
+<main class="page">
+  <nav class="nav">
+    <a class="brand" href="../../../../"><img src="../../../../assets/rad-logo.png" alt="">Radical Packages</a>
+    <div class="nav-links">
+      <a href="../../../../">Home</a>
+      <a href="../../../../packages.html">Packages</a>
+      <a href="../../../../radix-os.html">RADix OS</a>
+      <a href="../../../../docs/">Docs</a>
+    </div>
+  </nav>
+  <section class="hero compact-hero">
+    <div class="eyebrow">RadBuild 0.2.1</div>
+    <h1>Example: Multi-System Graph</h1>
+  </section>
+  <article class="card doc-content">
+<h1>Example: Multi-System Graph</h1>
+<h2>settings.json</h2>
+<pre><code>{
+  &quot;radbuild_schema&quot;: &quot;2.0&quot;,
+  &quot;radbuild_version&quot;: &quot;0.2.1&quot;,
+  &quot;project_name&quot;: &quot;graph-demo&quot;,
+  &quot;systems&quot;: [
+    {
+      &quot;id&quot;: &quot;vivado&quot;,
+      &quot;type&quot;: &quot;fpga.vivado&quot;,
+      &quot;provider&quot;: &quot;vivado&quot;,
+      &quot;depends_on&quot;: [],
+      &quot;config&quot;: {
+        &quot;project_name&quot;: &quot;graph_hw&quot;,
+        &quot;part_number&quot;: &quot;xczu3eg-sbva484-1-e&quot;,
+        &quot;version&quot;: &quot;2024.1&quot;
+      }
+    },
+    {
+      &quot;id&quot;: &quot;buildroot&quot;,
+      &quot;type&quot;: &quot;linux.buildroot&quot;,
+      &quot;provider&quot;: &quot;buildroot&quot;,
+      &quot;depends_on&quot;: [&quot;vivado&quot;],
+      &quot;config&quot;: {
+        &quot;version&quot;: &quot;2024.02&quot;,
+        &quot;external_tree&quot;: &quot;buildroot/buildroot-external&quot;
+      }
+    },
+    {
+      &quot;id&quot;: &quot;target-apps&quot;,
+      &quot;type&quot;: &quot;software.cross&quot;,
+      &quot;provider&quot;: &quot;make&quot;,
+      &quot;depends_on&quot;: [&quot;buildroot&quot;],
+      &quot;config&quot;: {
+        &quot;source_dir&quot;: &quot;software/target&quot;
+      }
+    }
+  ],
+  &quot;connections&quot;: [],
+  &quot;artifacts&quot;: [],
+  &quot;deploy&quot;: [],
+  &quot;packages&quot;: {}
+}</code></pre>
+<h2>Commands</h2>
+<pre><code>radbuild graph --settings settings.json --json
+radbuild generate --settings settings.json
+radbuild build all --settings settings.json --dry-run --json-events</code></pre>
+<h2>Expected Generated Paths</h2>
+<pre><code>buildroot/buildroot-external/external.desc
+software/target/Makefile
+.radmeta/artifacts/radbuild-artifacts.json</code></pre>
+  </article>
+</main>
+</body>
+</html>

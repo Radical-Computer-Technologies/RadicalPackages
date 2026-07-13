@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>RadBuild 0.2.1 Documentation</title>
+  <title>RadBuild 0.2.1</title>
   <link rel="stylesheet" href="../../../assets/site.css">
 </head>
 <body>
@@ -17,41 +17,42 @@
       <a href="../../../docs/">Docs</a>
     </div>
   </nav>
-
-  <section class="hero">
-    <div class="eyebrow">Experimental Build Framework</div>
+  <section class="hero compact-hero">
+    <div class="eyebrow">RadBuild 0.2.1</div>
     <h1>RadBuild 0.2.1</h1>
-    <p class="lead">
-      Graph-based builds for FPGA, Linux, firmware, software, package, deployment, RADix-OS image, VSCode, and server workflows.
-    </p>
-    <div class="status-row">
-      <span class="pill"><strong>Suite:</strong> experimental</span>
-      <span class="pill"><strong>Schema:</strong> 2.0</span>
-      <span class="pill"><strong>JSON events:</strong> supported</span>
-    </div>
   </section>
-
-  <section class="grid">
-    <article class="card">
-      <h2>RADix-OS Build</h2>
-      <p>Use the <code>os.radix</code> system type and <code>radix-os</code> provider to build and smoke-test RADix-OS VM images.</p>
-      <div class="command"><code>radbuild build os --settings settings.json --json-events</code></div>
-    </article>
-    <article class="card">
-      <h2>IDE Integration</h2>
-      <p>The VSCode command consumes line-delimited JSON events from the CLI and reads the same artifact manifest as other graph systems.</p>
-      <div class="command"><code>radbuild build all --json-events</code></div>
-    </article>
-  </section>
-
-  <section class="card">
-    <h2>Source Documents</h2>
-    <div class="links">
-      <a class="link-card" href="RADBUILD_V2.html"><strong>Graph Framework</strong><span>Schema v2, providers, RADix-OS, packages, and VSCode notes.</span></a>
-      <a class="link-card" href="USAGE.html"><strong>CLI Usage</strong><span>Legacy and source-tree command usage.</span></a>
-      <a class="link-card" href="README.html"><strong>Repository README</strong><span>Repository layout and maintainer workflow.</span></a>
-    </div>
-  </section>
+  <article class="card doc-content">
+<h1>RadBuild 0.2.1</h1>
+<p>RadBuild 0.2.1 is the Crimson experimental build framework for Radical Computer Technologies projects. It uses schema v2 JSON project files to build FPGA designs, Linux/embedded software graphs, RADix OS images, package metadata, and deployment artifacts through one CLI.</p>
+<h2>Release Channels</h2>
+<ul>
+<li>Suite: experimental</li>
+<li>Schema: 2.0</li>
+<li>Package format: frozen release executables for RadBuild runtime packages</li>
+<li>Primary CLI: <code>radbuild</code></li>
+<li>IDE integration: line-delimited JSON events for VSCode and other frontends</li>
+</ul>
+<h2>Documentation Sections</h2>
+<ul>
+<li><a href="install.html">Install</a></li>
+<li><a href="fpga-builds.html">FPGA Builds</a></li>
+<li><a href="os-builds.html">OS Builds</a></li>
+<li><a href="packaging.html">Packaging</a></li>
+<li><a href="examples/index.html">Examples</a></li>
+<li><a href="reference.html">Reference</a></li>
+<li><a href="compatibility.html">Compatibility Appendix</a></li>
+</ul>
+<h2>Quick Start</h2>
+<pre><code>sudo apt install ./radbuild_0.2.1_amd64.deb
+radbuild project create ./workspace --non-interactive --project-name demo --project-type FPGA-MPSoC
+radbuild project validate --settings ./workspace/demo/settings.json
+radbuild build all --settings ./workspace/demo/settings.json --dry-run --json-events</code></pre>
+<p>Expected dry-run output begins with JSON events:</p>
+<pre><code>{&quot;event&quot;:&quot;build_started&quot;,&quot;systems&quot;:2}
+{&quot;event&quot;:&quot;system_planned&quot;,&quot;system&quot;:&quot;vivado&quot;,&quot;type&quot;:&quot;fpga.vivado&quot;}
+{&quot;event&quot;:&quot;system_planned&quot;,&quot;system&quot;:&quot;petalinux&quot;,&quot;type&quot;:&quot;linux.petalinux&quot;}
+{&quot;event&quot;:&quot;build_finished&quot;,&quot;status&quot;:&quot;dry-run&quot;}</code></pre>
+  </article>
 </main>
 </body>
 </html>

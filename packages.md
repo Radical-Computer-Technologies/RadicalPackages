@@ -63,7 +63,7 @@
       <details class="doc-release" data-search-item data-search-text="radbuild experimental 0.2.1 crimson cli server vscode support radhdl docs graph build framework project fpga linux firmware software packages deploy all radix os image">
         <summary>RadBuild 0 - Crimson</summary>
         <div class="package-list">
-          <a class="package package-link" href="radbuild.html"><code>radbuild</code><span>CLI tools, schemas, templates, providers, and packaging scripts.</span></a>
+          <a class="package package-link" href="radbuild.html"><code>radbuild</code><span>Frozen CLI and graph build helper executables.</span></a>
           <a class="package package-link" href="radbuild.html"><code>radbuild-radhdl</code><span>Packaged RadHDL catalog and source assets.</span></a>
           <a class="package package-link" href="radbuild.html"><code>radbuild-server</code><span>Optional web server, review DB, client, workers, and LLM helpers.</span></a>
           <a class="package package-link" href="radbuild.html"><code>radbuild-vscode-support</code><span>VSCode extension support package.</span></a>

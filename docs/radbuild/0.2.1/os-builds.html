@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>OS Builds</title>
+  <link rel="stylesheet" href="../../../assets/site.css">
+</head>
+<body>
+<main class="page">
+  <nav class="nav">
+    <a class="brand" href="../../../"><img src="../../../assets/rad-logo.png" alt="">Radical Packages</a>
+    <div class="nav-links">
+      <a href="../../../">Home</a>
+      <a href="../../../packages.html">Packages</a>
+      <a href="../../../radix-os.html">RADix OS</a>
+      <a href="../../../docs/">Docs</a>
+    </div>
+  </nav>
+  <section class="hero compact-hero">
+    <div class="eyebrow">RadBuild 0.2.1</div>
+    <h1>OS Builds</h1>
+  </section>
+  <article class="card doc-content">
+<h1>OS Builds</h1>
+<p>The <code>os.radix</code> system type builds RADix OS images. Crimson currently uses this for x86 GRUB VM images with either a framebuffer terminal profile or a RADCompositor window-manager profile.</p>
+<h2>Terminal Profile</h2>
+<pre><code>radbuild build os --settings settings.terminal.json --json-events</code></pre>
+<p>Expected artifacts:</p>
+<pre><code>radixkernel-x86-64-grub-terminal.iso
+radixkernel-x86-64-grub-terminal
+radix-rootfs.ext4
+radix-fat32.img
+run-radix-vm.sh
+SHA256SUMS</code></pre>
+<h2>Window Manager Profile</h2>
+<pre><code>radbuild build os --settings settings.wm.json --json-events</code></pre>
+<p>The window-manager profile enables RADCompositor and Slint shell chunks while keeping the same package and artifact flow.</p>
+<h2>RADix Menuconfig</h2>
+<pre><code>radbuild menuconfig --settings settings.terminal.json --list
+radbuild menuconfig --settings settings.terminal.json --apply-profile wm --json
+radbuild menuconfig --settings settings.terminal.json --enable-package radlib-ui --resolve-packages --json</code></pre>
+<p>Package edits are dependency-aware. Enabling a package automatically enables its required packages from the configured <code>.radpm</code> index.</p>
+  </article>
+</main>
+</body>
+</html>

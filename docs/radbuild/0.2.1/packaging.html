@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Packaging</title>
+  <link rel="stylesheet" href="../../../assets/site.css">
+</head>
+<body>
+<main class="page">
+  <nav class="nav">
+    <a class="brand" href="../../../"><img src="../../../assets/rad-logo.png" alt="">Radical Packages</a>
+    <div class="nav-links">
+      <a href="../../../">Home</a>
+      <a href="../../../packages.html">Packages</a>
+      <a href="../../../radix-os.html">RADix OS</a>
+      <a href="../../../docs/">Docs</a>
+    </div>
+  </nav>
+  <section class="hero compact-hero">
+    <div class="eyebrow">RadBuild 0.2.1</div>
+    <h1>Packaging</h1>
+  </section>
+  <article class="card doc-content">
+<h1>Packaging</h1>
+<p>This page covers user-facing package installation and package trust. Maintainer publishing commands are intentionally not part of the public 0.2.1 release guide.</p>
+<h2>Runtime Packages</h2>
+<ul>
+<li><code>radbuild</code>: frozen RadBuild CLI and build helpers</li>
+<li><code>radbuild-server</code>: optional frozen server and worker commands</li>
+<li><code>radbuild-vscode-support</code>: VSCode support files</li>
+<li><code>radbuild-radhdl</code>: RadHDL catalog and documentation generator assets</li>
+<li><code>radbuild-doc</code>: installed documentation</li>
+</ul>
+<h2>Install From Downloaded Packages</h2>
+<pre><code>sudo apt install ./radbuild_0.2.1_amd64.deb
+sudo apt install ./radbuild-doc_0.2.1_all.deb</code></pre>
+<h2>Verify Package Contents</h2>
+<p>The main runtime package should contain frozen executables and shell launchers, not loose runtime Python source:</p>
+<pre><code>dpkg-deb -c radbuild_0.2.1_amd64.deb</code></pre>
+<p>Expected shape:</p>
+<pre><code>./usr/bin/radbuild
+./usr/bin/build_vivado
+./usr/lib/radbuild/bin/radbuild
+./usr/lib/radbuild/bin/build_vivado</code></pre>
+<h2>RADix Packages</h2>
+<p>RADix OS packages use <code>.radpm</code> metadata and archives. RadBuild verifies package index signatures, archive signatures, SHA-256 hashes, and byte counts when resolving package locks.</p>
+<pre><code>radbuild packages resolve-radpm --settings settings.terminal.json --json</code></pre>
+  </article>
+</main>
+</body>
+</html>

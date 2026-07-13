@@ -28,14 +28,13 @@
   <section class="grid">
     <article class="card">
       <h2>Stable Repository</h2>
-      <p>Use stable for the RADLib 0.1.0 release line.</p>
+      <p>Use stable for release-pinned packages such as the RADLib 0.1.0 line. Debian metadata is signed and hosted through GitHub Releases.</p>
       <div class="command"><code>sudo tee /etc/apt/sources.list.d/radical-computer-technologies.sources &gt;/dev/null &lt;&lt;'EOF'
 Types: deb
-URIs: https://radical-computer-technologies.github.io/RadicalPackages/debian/
-Suites: stable
-Components: main
+URIs: https://github.com/Radical-Computer-Technologies/RadicalPackages/releases/download/apt-stable
+Suites: ./
+Signed-By: /etc/apt/keyrings/radical-packages.gpg
 Architectures: amd64 arm64
-Trusted: yes
 EOF
 
 sudo apt update</code></div>
@@ -43,18 +42,25 @@ sudo apt update</code></div>
 
     <article class="card">
       <h2>Experimental Repository</h2>
-      <p>Use experimental for beta applications and development releases before promotion to stable.</p>
+      <p>Use experimental for beta applications and development releases before promotion to stable, including RadBuild 0.2.1 and RADix OS Crimson assets.</p>
       <div class="command"><code>sudo tee /etc/apt/sources.list.d/radical-computer-technologies-experimental.sources &gt;/dev/null &lt;&lt;'EOF'
 Types: deb
-URIs: https://radical-computer-technologies.github.io/RadicalPackages/debian/
-Suites: experimental
-Components: main
+URIs: https://github.com/Radical-Computer-Technologies/RadicalPackages/releases/download/apt-experimental
+Suites: ./
+Signed-By: /etc/apt/keyrings/radical-packages.gpg
 Architectures: amd64 arm64
-Trusted: yes
 EOF
 
 sudo apt update</code></div>
     </article>
+  </section>
+
+  <section class="card">
+    <h2>Install The Signing Key</h2>
+    <p>Install the RadicalPackages public key before adding either APT channel.</p>
+    <div class="command"><code>sudo install -d -m 0755 /etc/apt/keyrings
+curl -fsSL https://radical-computer-technologies.github.io/RadicalPackages/keys/radical-packages-archive-key.asc \
+  | sudo gpg --dearmor -o /etc/apt/keyrings/radical-packages.gpg</code></div>
   </section>
 
   <section class="card">
@@ -98,9 +104,17 @@ sudo apt update</code></div>
     </div>
   </section>
 
-  <p class="note">
-    <code>Trusted: yes</code> is temporary for the unsigned beta repository. Replace this with signed repository metadata before broad public release.
-  </p>
+  <section class="card">
+    <h2>Current Release Install Path</h2>
+    <p>RadBuild runtime packages are published as frozen executable packages. Install from the experimental APT channel, then use the versioned docs for FPGA, OS, and package workflows.</p>
+    <div class="command"><code>sudo apt update
+sudo apt install radbuild radbuild-doc
+radbuild --help</code></div>
+    <div class="links">
+      <a class="link-card" href="radbuild.html"><strong>RadBuild Packages</strong><span>Frozen CLI package, optional server, VSCode support, and docs.</span></a>
+      <a class="link-card" href="docs/radbuild/0.2.1/"><strong>RadBuild 0.2.1 Docs</strong><span>Install, FPGA builds, OS builds, packaging, and examples.</span></a>
+    </div>
+  </section>
 </main>
 
 <script>

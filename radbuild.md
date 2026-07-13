@@ -20,15 +20,28 @@
     <div class="status-row">
       <span class="pill"><strong>Version:</strong> 0.2.1</span>
       <span class="pill"><strong>Suite:</strong> experimental</span>
-      <span class="pill"><strong>Architecture:</strong> all</span>
+      <span class="pill"><strong>Runtime:</strong> frozen executables</span>
+      <span class="pill"><strong>Architectures:</strong> amd64 runtime, all docs/assets</span>
     </div>
   </section>
 
   <section class="grid">
     <article class="card">
       <h2>Install RadBuild</h2>
-      <p>Add the experimental repository from the home page, then install the CLI and optional components.</p>
-      <div class="command"><code>sudo apt update
+      <p>Add the signed experimental repository from the home page, then install the frozen CLI and optional components.</p>
+      <div class="command"><code>sudo install -d -m 0755 /etc/apt/keyrings
+curl -fsSL https://radical-computer-technologies.github.io/RadicalPackages/keys/radical-packages-archive-key.asc \
+  | sudo gpg --dearmor -o /etc/apt/keyrings/radical-packages.gpg
+
+sudo tee /etc/apt/sources.list.d/radical-computer-technologies-experimental.sources &gt;/dev/null &lt;&lt;'EOF'
+Types: deb
+URIs: https://github.com/Radical-Computer-Technologies/RadicalPackages/releases/download/apt-experimental
+Suites: ./
+Signed-By: /etc/apt/keyrings/radical-packages.gpg
+Architectures: amd64 arm64
+EOF
+
+sudo apt update
 sudo apt install radbuild
 sudo apt install radbuild-radhdl radbuild-server radbuild-vscode-support radbuild-doc</code></div>
     </article>
@@ -52,7 +65,7 @@ sudo apt install radbuild-radhdl radbuild-server radbuild-vscode-support radbuil
     <table class="package-table">
       <thead><tr><th>Package</th><th>Purpose</th><th>Install</th></tr></thead>
       <tbody>
-        <tr><td><code>radbuild</code></td><td>CLI tools, schemas, templates, provider generators, and packaging scripts.</td><td><code>sudo apt install radbuild</code></td></tr>
+        <tr><td><code>radbuild</code></td><td>Frozen CLI tools, graph build providers, and helper commands.</td><td><code>sudo apt install radbuild</code></td></tr>
         <tr><td><code>radbuild-radhdl</code></td><td>Packaged RadHDL catalog and source assets installed at <code>/usr/share/radbuild/radhdl</code>.</td><td><code>sudo apt install radbuild-radhdl</code></td></tr>
         <tr><td><code>radbuild-server</code></td><td>Optional web server, review DB, client, worker, and LLM helper tools.</td><td><code>sudo apt install radbuild-server</code></td></tr>
         <tr><td><code>radbuild-vscode-support</code></td><td>VSCode extension source and compiled support files.</td><td><code>sudo apt install radbuild-vscode-support</code></td></tr>
@@ -64,11 +77,9 @@ sudo apt install radbuild-radhdl radbuild-server radbuild-vscode-support radbuil
   <details class="doc-group">
     <summary>Repository Metadata</summary>
       <div class="links">
-        <a class="link-card" href="debian/dists/experimental/main/binary-all/Packages"><strong>Experimental all</strong><span>Package index</span></a>
-        <a class="link-card" href="debian/pool/main/r/radbuild/"><strong>radbuild Pool</strong><span>Published CLI package</span></a>
-        <a class="link-card" href="debian/pool/main/r/radbuild-radhdl/"><strong>radbuild-radhdl Pool</strong><span>Published RadHDL package</span></a>
-        <a class="link-card" href="debian/pool/main/r/radbuild-server/"><strong>radbuild-server Pool</strong><span>Published server package</span></a>
-        <a class="link-card" href="docs/radbuild/0.2.1/"><strong>RadBuild 0.2.1 Docs</strong><span>Graph, package, VSCode, and RADix-OS build documentation</span></a>
+        <a class="link-card" href="https://github.com/Radical-Computer-Technologies/RadicalPackages/releases/tag/apt-experimental"><strong>Experimental APT Release</strong><span>Signed package-manager metadata and package assets.</span></a>
+        <a class="link-card" href="keys/radical-packages-archive-key.asc"><strong>APT Signing Key</strong><span>Public key for <code>Signed-By</code> install instructions.</span></a>
+        <a class="link-card" href="docs/radbuild/0.2.1/"><strong>RadBuild 0.2.1 Docs</strong><span>Install, FPGA builds, OS builds, packaging, examples, and compatibility notes.</span></a>
       </div>
   </details>
 
