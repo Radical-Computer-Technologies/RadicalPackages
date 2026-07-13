@@ -21,6 +21,17 @@
       <span class="pill"><strong>Version:</strong> Crimson 0.1.0</span>
       <span class="pill"><strong>Suite:</strong> experimental</span>
       <span class="pill"><strong>Build:</strong> RadBuild os.radix</span>
+      <span class="pill"><strong>Current x86:</strong> 0.1.0 beta 1</span>
+    </div>
+  </section>
+
+  <section class="card">
+    <h2>Current Crimson x86 Release</h2>
+    <p>The current x86_64 GRUB release bundles include the bootable ISO, ext4 root filesystem image, FAT image, checksums, and helper scripts where available.</p>
+    <div class="links">
+      <a class="link-card" href="https://github.com/Radical-Computer-Technologies/RadicalPackages/releases/tag/radix-os-0.1.0-beta.1"><strong>RADix OS 0.1.0 beta 1</strong><span>Versioned GitHub Release for Crimson x86 terminal and RADCompositor images.</span></a>
+      <a class="link-card" href="https://github.com/Radical-Computer-Technologies/RadicalPackages/releases/download/radix-os-0.1.0-beta.1/radix-os-crimson_0.1.0-beta.1_x86_64-grub-terminal.tar.gz"><strong>x86_64 Terminal Bundle</strong><span>Framebuffer login shell profile with ISO, ext4, and FAT images.</span></a>
+      <a class="link-card" href="https://github.com/Radical-Computer-Technologies/RadicalPackages/releases/download/radix-os-0.1.0-beta.1/radix-os-crimson_0.1.0-beta.1_x86_64-grub-wm.tar.gz"><strong>x86_64 RADCompositor Bundle</strong><span>Slint/RADCompositor profile with ISO, ext4, and FAT images.</span></a>
     </div>
   </section>
 
@@ -57,7 +68,7 @@ radbuild build os --settings settings.wm.json --json-events</code></div>
 
   <section class="card">
     <h2>RADix Package Repository</h2>
-    <p>RadicalPackages can host RADix <code>.radpm</code> metadata beside Debian packages. In this release line, RadBuild is the installer: it resolves package metadata and stages installable package archives into generated root filesystems when archives become available.</p>
+    <p>RadicalPackages hosts RADix <code>.radpm</code> metadata and release archives beside Debian packages. In this release line, RadBuild is the installer: it resolves package metadata and stages package archives into generated root filesystems.</p>
     <div class="package-list">
       <a class="package package-link" href="radpm/dists/experimental/main/packages.json"><code>radix-core</code><span>Core RADix userspace layout and boot support metadata.</span></a>
       <a class="package package-link" href="radpm/dists/experimental/main/packages.json"><code>radlib</code><span>RADLib aggregate metadata for future RADix userspace and service packages.</span></a>
@@ -66,6 +77,7 @@ radbuild build os --settings settings.wm.json --json-events</code></div>
     </div>
     <div class="links">
       <a class="link-card" href="radpm/dists/experimental/main/packages.json"><strong>Experimental .radpm Index</strong><span>Machine-readable package records for RadBuild.</span></a>
+      <a class="link-card" href="https://github.com/Radical-Computer-Technologies/RadicalPackages/releases/tag/radix-os-0.1.0-beta.1"><strong>RADix Release Assets</strong><span>Current <code>.radpm</code> archives and x86 image bundles.</span></a>
       <a class="link-card" href="packages.html"><strong>Package Catalog</strong><span>Debian and RADix package listings.</span></a>
     </div>
   </section>

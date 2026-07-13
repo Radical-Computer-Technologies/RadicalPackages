@@ -95,7 +95,7 @@
 
   <section class="card">
     <h2>RADix OS Packages</h2>
-    <p>RADix packages use metadata-first <code>.radpm</code> package records. RadBuild is currently the installer for generated RADix root filesystems; in-OS package management is not enabled yet.</p>
+    <p>RADix packages use <code>.radpm</code> records with release-hosted archives. RadBuild is currently the installer for generated RADix root filesystems; in-OS package management is not enabled yet.</p>
     <div class="package-list">
       <a class="package package-link" href="radpm/dists/experimental/main/packages.json"><code>radix-core</code><span>Core RADix userspace layout and boot support metadata.</span></a>
       <a class="package package-link" href="radpm/dists/experimental/main/packages.json"><code>radlib</code><span>RADLib aggregate metadata for future RADix OS userspace and services.</span></a>
@@ -105,6 +105,7 @@
     <div class="links">
       <a class="link-card" href="radix-os.html"><strong>RADix OS Hub</strong><span>Build profiles, API docs, and package repository notes.</span></a>
       <a class="link-card" href="radpm/dists/experimental/main/packages.json"><strong>Experimental .radpm Index</strong><span>Machine-readable RADix package metadata.</span></a>
+      <a class="link-card" href="https://github.com/Radical-Computer-Technologies/RadicalPackages/releases/tag/radix-os-0.1.0-beta.1"><strong>RADix Release Assets</strong><span>Current <code>.radpm</code> package archives and x86 images.</span></a>
       <a class="link-card" href="radpm/dists/stable/main/packages.json"><strong>Stable .radpm Index</strong><span>Reserved stable RADix package metadata.</span></a>
     </div>
   </section>
