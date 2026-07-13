@@ -4,16 +4,18 @@
   <nav class="nav">
     <a class="brand" href="./">Radical Packages</a>
     <div class="nav-links">
+      <a href="./">Home</a>
       <a href="packages.html">Packages</a>
+      <a href="radix-os.html">RADix OS</a>
       <a href="docs/">Docs</a>
     </div>
   </nav>
 
   <section class="hero">
     <div class="eyebrow">Experimental Operating System</div>
-    <h1>RADix-OS</h1>
+    <h1>RADix OS</h1>
     <p class="lead">
-      RADix-OS is the Crimson 0.1.0 POSIX-inspired kernel and VM image track for embedded boards, desktop VM verification, and future SoC targets.
+      RADix OS is the Crimson 0.1.0 POSIX-inspired kernel and VM image track for embedded boards, desktop VM verification, future SoC targets, and RADix <code>.radpm</code> package metadata.
     </p>
     <div class="status-row">
       <span class="pill"><strong>Version:</strong> Crimson 0.1.0</span>
@@ -54,7 +56,22 @@ radbuild build os --settings settings.wm.json --json-events</code></div>
   </section>
 
   <section class="card">
-    <h2>Related Packages</h2>
+    <h2>RADix Package Repository</h2>
+    <p>RadicalPackages can host RADix <code>.radpm</code> metadata beside Debian packages. In this release line, RadBuild is the installer: it resolves package metadata and stages installable package archives into generated root filesystems when archives become available.</p>
+    <div class="package-list">
+      <a class="package package-link" href="radpm/dists/experimental/main/packages.json"><code>radix-core</code><span>Core RADix userspace layout and boot support metadata.</span></a>
+      <a class="package package-link" href="radpm/dists/experimental/main/packages.json"><code>radlib</code><span>RADLib aggregate metadata for future RADix userspace and service packages.</span></a>
+      <a class="package package-link" href="radpm/dists/experimental/main/packages.json"><code>radlib-runtime</code><span>RADLib runtime package metadata for generated RADix root filesystems.</span></a>
+      <a class="package package-link" href="radpm/dists/experimental/main/packages.json"><code>radlib-ui</code><span>RADLib UI and Slint-facing metadata for RADix OS builds.</span></a>
+    </div>
+    <div class="links">
+      <a class="link-card" href="radpm/dists/experimental/main/packages.json"><strong>Experimental .radpm Index</strong><span>Machine-readable package records for RadBuild.</span></a>
+      <a class="link-card" href="packages.html"><strong>Package Catalog</strong><span>Debian and RADix package listings.</span></a>
+    </div>
+  </section>
+
+  <section class="card">
+    <h2>Related Tools</h2>
     <div class="links">
       <a class="link-card" href="radbuild.html"><strong>RadBuild</strong><span>Build graph, VSCode support, and RADix-OS image provider.</span></a>
       <a class="link-card" href="radlib.html"><strong>RADLib</strong><span>Runtime and UI library packages that can target RADix-OS over time.</span></a>

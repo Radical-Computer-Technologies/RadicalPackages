@@ -55,7 +55,9 @@ cat > "$ROOT/docs/radhdl/index.html" <<'HTML'
   <nav class="nav">
     <a class="brand" href="../../"><img src="../../assets/rad-logo.png" alt="">Radical Packages</a>
     <div class="nav-links">
+      <a href="../../">Home</a>
       <a href="../../packages.html">Packages</a>
+      <a href="../../radix-os.html">RADix OS</a>
       <a href="../">Docs</a>
     </div>
   </nav>

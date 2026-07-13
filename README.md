@@ -10,18 +10,21 @@ GitHub Pages URL:
 
 ### Debian Systems / Ubuntu Stable
 
-This repository publishes Debian packages for `amd64` and `arm64` where builds are available.
+RadicalPackages publishes Debian packages as flat APT repositories stored in GitHub Releases. The Git repository keeps docs, suite manifests, signing keys, and automation scripts; package binaries are not committed.
 
 Add the stable repository:
 
 ```bash
+sudo install -d -m 0755 /etc/apt/keyrings
+curl -fsSL https://radical-computer-technologies.github.io/RadicalPackages/keys/radical-packages-archive-key.asc \
+  | sudo gpg --dearmor -o /etc/apt/keyrings/radical-packages.gpg
+
 sudo tee /etc/apt/sources.list.d/radical-computer-technologies.sources >/dev/null <<'EOF'
 Types: deb
-URIs: https://radical-computer-technologies.github.io/RadicalPackages/debian/
-Suites: stable
-Components: main
+URIs: https://github.com/Radical-Computer-Technologies/RadicalPackages/releases/download/apt-stable
+Suites: ./
+Signed-By: /etc/apt/keyrings/radical-packages.gpg
 Architectures: amd64 arm64
-Trusted: yes
 EOF
 
 sudo apt update
@@ -32,13 +35,16 @@ sudo apt update
 Add the experimental repository when you want beta applications such as RADBard or development RADLib releases:
 
 ```bash
+sudo install -d -m 0755 /etc/apt/keyrings
+curl -fsSL https://radical-computer-technologies.github.io/RadicalPackages/keys/radical-packages-archive-key.asc \
+  | sudo gpg --dearmor -o /etc/apt/keyrings/radical-packages.gpg
+
 sudo tee /etc/apt/sources.list.d/radical-computer-technologies-experimental.sources >/dev/null <<'EOF'
 Types: deb
-URIs: https://radical-computer-technologies.github.io/RadicalPackages/debian/
-Suites: experimental
-Components: main
+URIs: https://github.com/Radical-Computer-Technologies/RadicalPackages/releases/download/apt-experimental
+Suites: ./
+Signed-By: /etc/apt/keyrings/radical-packages.gpg
 Architectures: amd64 arm64
-Trusted: yes
 EOF
 
 sudo apt update
@@ -50,7 +56,7 @@ Install a package:
 sudo apt install <package>
 ```
 
-`Trusted: yes` is used while the repository is in early unsigned beta form. Replace this with a signed repository key before broad public release.
+The public signing key is tracked at `keys/radical-packages-archive-key.asc`. The private signing key is never committed.
 
 ## Stable Packages
 
@@ -108,32 +114,62 @@ Documentation is organized by product, release channel, and major version family
 
 ```text
 debian/
-  dists/stable/main/binary-amd64/
-  dists/stable/main/binary-arm64/
-  dists/experimental/main/binary-amd64/
-  dists/experimental/main/binary-arm64/
-  pool/main/
   suites/
+keys/
+  radical-packages-archive-key.asc
 docs/
   radlib/0.1.0/api/
   radhdl/0.2.1/
   radbuild/0.2.1/
   radix-os/0.1.0/api/
 scripts/
+  stage_github_release_apt_repo.py
+  publish_github_release_assets.py
   update_debian_repo.sh
   update_radlib_docs.sh
 ```
 
 ## Maintainer Workflow
 
-Publish Debian packages:
+Create a signed flat APT repository for the stable channel:
 
 ```bash
-scripts/update_debian_repo.sh \
+export RADICAL_PACKAGE_GPG_KEY=F3731ADBB37AFA120A7D5EBD20B2754CF3894789
+
+scripts/stage_github_release_apt_repo.py \
+  --suite stable \
+  --version 0.1.0 \
+  --out-dir release-staging/apt-stable \
+  --force \
   ../RADLib/build/package/deb/out/*.deb \
+  ../RadBuild/dist/debian/*.deb
+```
+
+Create an experimental channel:
+
+```bash
+scripts/stage_github_release_apt_repo.py \
+  --suite experimental \
+  --version 0.2.1-beta.1 \
+  --out-dir release-staging/apt-experimental \
+  --force \
   ../RADBard/release/radbard-0.1.0-x86_64.deb \
   ../RadBuild/dist/debian/*.deb
 ```
+
+Publish the staged assets to GitHub Releases:
+
+```bash
+gh auth login
+
+scripts/publish_github_release_assets.py \
+  --tag apt-experimental \
+  --title "RadicalPackages Experimental APT Channel" \
+  --clobber \
+  release-staging/apt-experimental
+```
+
+Use `--dry-run` on the publish script to inspect the `gh` command without changing GitHub.
 
 Regenerate RADLib Doxygen documentation:
 

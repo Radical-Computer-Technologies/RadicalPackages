@@ -171,7 +171,13 @@ terminal-only image and a Slint/RADCompositor window-manager image:
           "rootfs_size_mb": 256,
           "terminal_scale": "auto",
           "terminal_font": "radix-default",
-          "terminal_theme": "radix-dark"
+          "terminal_theme": "radix-dark",
+          "terminal_autocomplete": true
+        },
+        "radpm": {
+          "repository": "../RadicalPackages",
+          "suite": "experimental",
+          "packages": ["radix-core", "radlib"]
         }
       }
     }
@@ -202,6 +208,8 @@ Slint-backed RADCompositor shell.
 The optional `rkconfig` object is passed through to the RADix-OS image
 generator and currently supports `hostname`, `root_password`,
 `rootfs_size_mb`, `terminal_scale`, `terminal_font`, and `terminal_theme`. The
+`terminal_autocomplete` flag enables bounded command/path Tab completion in
+`rash` for VM profiles and can be disabled for constrained embedded builds. The
 generated root filesystem follows a Unix-like layout with `/bin`, `/dev`, `/etc`, `/home/root`, `/lib`,
 `/lib/radix/modules`, `/mnt/fat`, `/sbin`, `/tmp`, `/usr/bin`, `/usr/lib`, and
 `/var/log`. RADix kernel modules use `.rko`; future RADix dynamic shared
@@ -216,10 +224,18 @@ radbuild menuconfig --settings settings.terminal.json --set-rkconfig terminal_th
 radbuild menuconfig --settings settings.terminal.json --enable-chunk fs.ext4
 ```
 
-When package metadata is generated, RadBuild now emits a RADix package section
+When package metadata is generated, RadBuild emits a RADix package section
 beside Debian, Buildroot, and Yocto metadata. RADix packages use the `.radpm`
-archive suffix and can carry dependencies plus supported kernel-version ranges
-for eventual rootfs installation.
+archive suffix and can carry dependencies plus supported kernel-version ranges.
+For Crimson, `config.radpm.repository`, `config.radpm.suite`, and
+`config.radpm.packages` resolve metadata from RadicalPackages and write a lock
+file under `.radmeta/radix-os/<system>/radpm/radpm-lock.json`. Metadata-only
+packages are recorded and skipped; package archive extraction remains a future
+RadBuild rootfs staging step.
+
+```sh
+radbuild packages resolve-radpm --settings settings.terminal.json --json
+```
 
 ## Debian Packaging
 

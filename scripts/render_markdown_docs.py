@@ -97,8 +97,10 @@ def page(title: str, body: str) -> str:
   <nav class="nav">
     <a class="brand" href="../../../"><img src="../../../assets/rad-logo.png" alt="">Radical Packages</a>
     <div class="nav-links">
+      <a href="../../../">Home</a>
       <a href="../../../packages.html">Packages</a>
-      <a href="./">RadBuild 0.2.1</a>
+      <a href="../../../radix-os.html">RADix OS</a>
+      <a href="../../../docs/">Docs</a>
     </div>
   </nav>
   <section class="hero compact-hero">

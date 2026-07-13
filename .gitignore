@@ -1,1 +1,20 @@
 docs_src/
+
+# Generated package repositories and large release assets are published through
+# GitHub Releases, not committed to this repository.
+debian/dists/
+debian/pool/
+release-staging/
+*.deb
+*.rpm
+*.radpm
+*.iso
+*.img
+*.ext4
+*.tar.zst
+*.tar.gz
+*.zip
+
+# Private signing material must never be committed.
+*private-key*
+*.rev

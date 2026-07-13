@@ -4,7 +4,9 @@
   <nav class="nav">
     <a class="brand" href="./">Radical Packages</a>
     <div class="nav-links">
+      <a href="./">Home</a>
       <a href="packages.html">Packages</a>
+      <a href="radix-os.html">RADix OS</a>
       <a href="docs/">Docs</a>
     </div>
   </nav>
@@ -13,7 +15,7 @@
     <div class="eyebrow">Radical Computer Technologies</div>
     <h1>Package Repository And Documentation Hub</h1>
     <p class="lead">
-      Debian packages and generated documentation for RADLib, RADBard, RadBuild, RADix-OS, and related Radical Computer Technologies releases.
+      GitHub Release-backed Debian packages, RADix <code>.radpm</code> metadata, and generated documentation for RADLib, RADBard, RadBuild, RADix OS, and related Radical Computer Technologies releases.
       Stable packages stay pinned to known runtime lines; experimental packages move faster for active beta work.
     </p>
     <div class="status-row">
@@ -79,7 +81,7 @@ sudo apt update</code></div>
       <details class="doc-release" data-search-item data-search-text="radix os experimental crimson 0.1.0 kernel vm image x86 slint posix radbuild">
         <summary>RADix-OS 0 - Crimson</summary>
         <div class="links">
-          <a class="link-card" href="radix-os.html"><strong>RADix-OS</strong><span>Experimental POSIX-inspired kernel, VM image path, and API documentation.</span></a>
+          <a class="link-card" href="radix-os.html"><strong>RADix OS</strong><span>Experimental POSIX-inspired kernel, VM image path, API documentation, and RADix package hub.</span></a>
         </div>
       </details>
       <details class="doc-release" data-search-item data-search-text="radbard experimental 0.1.0 beta music audio composition daw editor">
@@ -91,6 +93,8 @@ sudo apt update</code></div>
     </details>
     <div class="links">
       <a class="link-card" href="packages.html"><strong>Packages Page</strong><span>Full searchable package catalog.</span></a>
+      <a class="link-card" href="radix-os.html"><strong>RADix OS Hub</strong><span>RADix OS builds, docs, and <code>.radpm</code> package metadata.</span></a>
+      <a class="link-card" href="https://github.com/Radical-Computer-Technologies/RadicalPackages/releases"><strong>Release Assets</strong><span>APT channel assets, package files, and OS image bundles.</span></a>
     </div>
   </section>
 

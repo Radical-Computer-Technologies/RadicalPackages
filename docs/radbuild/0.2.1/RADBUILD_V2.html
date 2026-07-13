@@ -11,8 +11,10 @@
   <nav class="nav">
     <a class="brand" href="../../../"><img src="../../../assets/rad-logo.png" alt="">Radical Packages</a>
     <div class="nav-links">
+      <a href="../../../">Home</a>
       <a href="../../../packages.html">Packages</a>
-      <a href="./">RadBuild 0.2.1</a>
+      <a href="../../../radix-os.html">RADix OS</a>
+      <a href="../../../docs/">Docs</a>
     </div>
   </nav>
   <section class="hero compact-hero">
@@ -123,7 +125,13 @@ radbuild hdl docs --theme dark --run-sims --stop-time 100us --out docs/radhdl/0.
           &quot;rootfs_size_mb&quot;: 256,
           &quot;terminal_scale&quot;: &quot;auto&quot;,
           &quot;terminal_font&quot;: &quot;radix-default&quot;,
-          &quot;terminal_theme&quot;: &quot;radix-dark&quot;
+          &quot;terminal_theme&quot;: &quot;radix-dark&quot;,
+          &quot;terminal_autocomplete&quot;: true
+        },
+        &quot;radpm&quot;: {
+          &quot;repository&quot;: &quot;../RadicalPackages&quot;,
+          &quot;suite&quot;: &quot;experimental&quot;,
+          &quot;packages&quot;: [&quot;radix-core&quot;, &quot;radlib&quot;]
         }
       }
     }
@@ -144,12 +152,13 @@ radbuild hdl docs --theme dark --run-sims --stop-time 100us --out docs/radhdl/0.
 <li><code>SHA256SUMS</code></li>
 </ul>
 <p>The <code>ui_profile</code> field selects the compiled OS chunk set. The <code>terminal</code> profile omits Slint/RADCompositor, while the <code>wm</code> profile includes the Slint-backed RADCompositor shell.</p>
-<p>The optional <code>rkconfig</code> object is passed through to the RADix-OS image generator and currently supports <code>hostname</code>, <code>root_password</code>, <code>rootfs_size_mb</code>, <code>terminal_scale</code>, <code>terminal_font</code>, and <code>terminal_theme</code>. The generated root filesystem follows a Unix-like layout with <code>/bin</code>, <code>/dev</code>, <code>/etc</code>, <code>/home/root</code>, <code>/lib</code>, <code>/lib/radix/modules</code>, <code>/mnt/fat</code>, <code>/sbin</code>, <code>/tmp</code>, <code>/usr/bin</code>, <code>/usr/lib</code>, and <code>/var/log</code>. RADix kernel modules use <code>.rko</code>; future RADix dynamic shared objects use <code>.rso</code>.</p>
+<p>The optional <code>rkconfig</code> object is passed through to the RADix-OS image generator and currently supports <code>hostname</code>, <code>root_password</code>, <code>rootfs_size_mb</code>, <code>terminal_scale</code>, <code>terminal_font</code>, and <code>terminal_theme</code>. The <code>terminal_autocomplete</code> flag enables bounded command/path Tab completion in <code>rash</code> for VM profiles and can be disabled for constrained embedded builds. The generated root filesystem follows a Unix-like layout with <code>/bin</code>, <code>/dev</code>, <code>/etc</code>, <code>/home/root</code>, <code>/lib</code>, <code>/lib/radix/modules</code>, <code>/mnt/fat</code>, <code>/sbin</code>, <code>/tmp</code>, <code>/usr/bin</code>, <code>/usr/lib</code>, and <code>/var/log</code>. RADix kernel modules use <code>.rko</code>; future RADix dynamic shared objects use <code>.rso</code>.</p>
 <p>RADix settings can be inspected or edited through the first <code>menuconfig</code> command:</p>
 <pre><code>radbuild menuconfig --settings settings.terminal.json --list
 radbuild menuconfig --settings settings.terminal.json --set-rkconfig terminal_theme=radix-dark
 radbuild menuconfig --settings settings.terminal.json --enable-chunk fs.ext4</code></pre>
-<p>When package metadata is generated, RadBuild now emits a RADix package section beside Debian, Buildroot, and Yocto metadata. RADix packages use the <code>.radpm</code> archive suffix and can carry dependencies plus supported kernel-version ranges for eventual rootfs installation.</p>
+<p>When package metadata is generated, RadBuild emits a RADix package section beside Debian, Buildroot, and Yocto metadata. RADix packages use the <code>.radpm</code> archive suffix and can carry dependencies plus supported kernel-version ranges. For Crimson, <code>config.radpm.repository</code>, <code>config.radpm.suite</code>, and <code>config.radpm.packages</code> resolve metadata from RadicalPackages and write a lock file under <code>.radmeta/radix-os/&lt;system&gt;/radpm/radpm-lock.json</code>. Metadata-only packages are recorded and skipped; package archive extraction remains a future RadBuild rootfs staging step.</p>
+<pre><code>radbuild packages resolve-radpm --settings settings.terminal.json --json</code></pre>
 <h2>Debian Packaging</h2>
 <p>Repository package metadata lives in <code>packaging/debian</code> and defines:</p>
 <ul>

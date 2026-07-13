@@ -1,0 +1,85 @@
+{
+  "schema": "radpm-package-index",
+  "schema_version": 1,
+  "repository": "RadicalPackages RADix Package Repository",
+  "suite": "experimental",
+  "component": "main",
+  "packages": [
+    {
+      "name": "radix-core",
+      "version": "0.1.0-crimson",
+      "suite": "experimental",
+      "architecture": "radix-any",
+      "summary": "Core RADix userspace layout and boot support metadata.",
+      "dependencies": [],
+      "provides": [
+        "radix-base"
+      ],
+      "supported_kernel_versions": [
+        ">=0.1.0 <0.2.0"
+      ],
+      "archive": null,
+      "sha256": null,
+      "bytes": 0,
+      "docs": "docs/radix-os/0.1.0/api/"
+    },
+    {
+      "name": "radlib",
+      "version": "0.1.1-radix",
+      "suite": "experimental",
+      "architecture": "radix-any",
+      "summary": "RADLib aggregate metadata for future RADix OS userspace and service packages.",
+      "dependencies": [
+        "radix-core"
+      ],
+      "provides": [
+        "radlib-runtime"
+      ],
+      "supported_kernel_versions": [
+        ">=0.1.0 <0.2.0"
+      ],
+      "archive": null,
+      "sha256": null,
+      "bytes": 0,
+      "docs": "docs/radlib/0.1.0/api/"
+    },
+    {
+      "name": "radlib-runtime",
+      "version": "0.1.1-radix",
+      "suite": "experimental",
+      "architecture": "radix-any",
+      "summary": "RADLib runtime package metadata for generated RADix root filesystems.",
+      "dependencies": [
+        "radix-core"
+      ],
+      "provides": [],
+      "supported_kernel_versions": [
+        ">=0.1.0 <0.2.0"
+      ],
+      "archive": null,
+      "sha256": null,
+      "bytes": 0,
+      "docs": "docs/radlib/0.1.0/api/"
+    },
+    {
+      "name": "radlib-ui",
+      "version": "0.1.1-radix",
+      "suite": "experimental",
+      "architecture": "radix-any",
+      "summary": "RADLib UI and Slint-facing metadata for RADix OS builds.",
+      "dependencies": [
+        "radlib-runtime"
+      ],
+      "provides": [
+        "radix-ui-runtime"
+      ],
+      "supported_kernel_versions": [
+        ">=0.1.0 <0.2.0"
+      ],
+      "archive": null,
+      "sha256": null,
+      "bytes": 0,
+      "docs": "docs/radlib/0.1.0/api/"
+    }
+  ]
+}

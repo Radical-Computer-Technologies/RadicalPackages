@@ -4,7 +4,9 @@
   <nav class="nav">
     <a class="brand" href="./">Radical Packages</a>
     <div class="nav-links">
+      <a href="./">Home</a>
       <a href="packages.html">Packages</a>
+      <a href="radix-os.html">RADix OS</a>
       <a href="docs/">Docs</a>
     </div>
   </nav>
@@ -37,6 +39,15 @@
       <div class="command"><code>sudo apt install radlib-core radlib-ui radlib-dsp
 sudo apt install radlib-media radlib-fpga radlib-web</code></div>
     </article>
+  </section>
+
+  <section class="card">
+    <h2>RADix <code>.radpm</code> Metadata</h2>
+    <p>RADLib is also listed in the experimental RADix package index for RadBuild-managed rootfs staging. These records are metadata-only until RADix userspace ABI packaging is finalized.</p>
+    <div class="links">
+      <a class="link-card" href="radpm/dists/experimental/main/packages.json"><strong>RADLib .radpm Records</strong><span><code>radlib</code>, <code>radlib-runtime</code>, and <code>radlib-ui</code> metadata.</span></a>
+      <a class="link-card" href="radix-os.html"><strong>RADix OS Hub</strong><span>RADix package repository and OS build notes.</span></a>
+    </div>
   </section>
 
   <section class="card">

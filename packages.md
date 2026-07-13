@@ -4,7 +4,9 @@
   <nav class="nav">
     <a class="brand" href="./">Radical Packages</a>
     <div class="nav-links">
+      <a href="./">Home</a>
       <a href="packages.html">Packages</a>
+      <a href="radix-os.html">RADix OS</a>
       <a href="docs/">Docs</a>
     </div>
   </nav>
@@ -13,13 +15,25 @@
     <div class="eyebrow">Package Catalog</div>
     <h1>Packages</h1>
     <p class="lead">
-      Search the published Radical package families by product, release channel, version line, package name, or purpose.
+      Search the published Radical package families by product, release channel, version line, package name, package format, or purpose.
       Product package pages contain install commands, package tables, and repository metadata links.
     </p>
     <div class="status-row">
       <span class="pill"><strong>Stable:</strong> RADLib 0.1.0</span>
       <span class="pill"><strong>Experimental:</strong> RadBuild 0.2.1, RADix-OS Crimson 0.1.0, RADBard 0.1.0 beta</span>
       <span class="pill"><strong>Architectures:</strong> amd64, arm64, all</span>
+      <span class="pill"><strong>Hosting:</strong> GitHub Releases</span>
+    </div>
+  </section>
+
+  <section class="card">
+    <h2>APT Channels</h2>
+    <p>Debian packages are published as signed flat APT repositories in GitHub Releases. GitHub Pages hosts the package catalog, docs, and public signing key.</p>
+    <div class="links">
+      <a class="link-card" href="https://github.com/Radical-Computer-Technologies/RadicalPackages/releases/tag/apt-stable"><strong>Stable APT Release</strong><span>Stable package-manager channel assets.</span></a>
+      <a class="link-card" href="https://github.com/Radical-Computer-Technologies/RadicalPackages/releases/tag/apt-experimental"><strong>Experimental APT Release</strong><span>Beta and active development package-manager channel assets.</span></a>
+      <a class="link-card" href="keys/radical-packages-archive-key.asc"><strong>APT Signing Key</strong><span>Public key for <code>signed-by</code> install instructions.</span></a>
+      <a class="link-card" href="RELEASES.html"><strong>Release Runbook</strong><span>Maintainer workflow for staging and publishing release assets.</span></a>
     </div>
   </section>
 
@@ -56,10 +70,10 @@
           <a class="package package-link" href="radbuild.html"><code>radbuild-doc</code><span>RadBuild documentation package.</span></a>
         </div>
       </details>
-      <details class="doc-release" data-search-item data-search-text="radix os experimental crimson 0.1.0 kernel vm image x86 slint posix radbuild docs">
+      <details class="doc-release" data-search-item data-search-text="radix os experimental crimson 0.1.0 kernel vm image x86 slint posix radbuild docs radpm package repository">
         <summary>RADix-OS 0 - Crimson</summary>
         <div class="package-list">
-          <a class="package package-link" href="radix-os.html"><code>radix-os</code><span>Experimental OS source, kernel API documentation, and VM image build path.</span></a>
+          <a class="package package-link" href="radix-os.html"><code>RADix OS</code><span>Experimental OS hub, kernel API documentation, and VM image build path.</span></a>
           <a class="package package-link" href="radix-os.html"><code>docs/radix-os/0.1.0</code><span>Published Crimson kernel API documentation.</span></a>
         </div>
       </details>
@@ -77,6 +91,22 @@
         </div>
       </details>
     </details>
+  </section>
+
+  <section class="card">
+    <h2>RADix OS Packages</h2>
+    <p>RADix packages use metadata-first <code>.radpm</code> package records. RadBuild is currently the installer for generated RADix root filesystems; in-OS package management is not enabled yet.</p>
+    <div class="package-list">
+      <a class="package package-link" href="radpm/dists/experimental/main/packages.json"><code>radix-core</code><span>Core RADix userspace layout and boot support metadata.</span></a>
+      <a class="package package-link" href="radpm/dists/experimental/main/packages.json"><code>radlib</code><span>RADLib aggregate metadata for future RADix OS userspace and services.</span></a>
+      <a class="package package-link" href="radpm/dists/experimental/main/packages.json"><code>radlib-runtime</code><span>RADLib runtime metadata for generated RADix root filesystems.</span></a>
+      <a class="package package-link" href="radpm/dists/experimental/main/packages.json"><code>radlib-ui</code><span>RADLib UI and Slint-facing metadata for RADix OS builds.</span></a>
+    </div>
+    <div class="links">
+      <a class="link-card" href="radix-os.html"><strong>RADix OS Hub</strong><span>Build profiles, API docs, and package repository notes.</span></a>
+      <a class="link-card" href="radpm/dists/experimental/main/packages.json"><strong>Experimental .radpm Index</strong><span>Machine-readable RADix package metadata.</span></a>
+      <a class="link-card" href="radpm/dists/stable/main/packages.json"><strong>Stable .radpm Index</strong><span>Reserved stable RADix package metadata.</span></a>
+    </div>
   </section>
 </main>
 
