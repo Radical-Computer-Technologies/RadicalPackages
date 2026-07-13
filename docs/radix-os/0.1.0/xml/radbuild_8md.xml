@@ -1,0 +1,57 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="radbuild_8md" kind="file" language="Markdown">
+    <compoundname>radbuild.md</compoundname>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline><highlight class="normal">#<sp/>RadBuild<sp/>Integration<sp/>{#radbuild_integration}</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">RADix-OS<sp/>uses<sp/>RadBuild<sp/>0.2.1<sp/>as<sp/>the<sp/>canonical<sp/>graph<sp/>entrypoint<sp/>for<sp/>repeatable</highlight></codeline>
+<codeline><highlight class="normal">x86<sp/>VM<sp/>image<sp/>builds.<sp/>The<sp/>repository<sp/>root<sp/>`settings.json`<sp/>defines<sp/>one</highlight></codeline>
+<codeline><highlight class="normal">`os.radix`<sp/>system<sp/>named<sp/>`radix-x86-64-grub-slint`<sp/>and<sp/>uses<sp/>the<sp/>`radix-os`</highlight></codeline>
+<codeline><highlight class="normal">provider.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>Build<sp/>Command</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Run<sp/>from<sp/>the<sp/>RADix-OS<sp/>repository<sp/>root:</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">```bash</highlight></codeline>
+<codeline><highlight class="normal">../RadBuild/radbuild/.tools/radbuild.py<sp/>build<sp/>os<sp/>--settings<sp/>settings.json<sp/>--json-events</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">The<sp/>provider<sp/>executes<sp/>`tools/embedded/x86_64_grub_slint_smoke.sh`<sp/>for<sp/>the</highlight></codeline>
+<codeline><highlight class="normal">configured<sp/>QEMU<sp/>SMP<sp/>counts.<sp/>The<sp/>Crimson<sp/>0.1.0<sp/>default<sp/>is<sp/>two<sp/>smoke<sp/>passes:</highlight></codeline>
+<codeline><highlight class="normal">2<sp/>vCPUs<sp/>and<sp/>4<sp/>vCPUs.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>Artifact<sp/>Output</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Successful<sp/>builds<sp/>stage<sp/>development<sp/>artifacts<sp/>under:</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">```text</highlight></codeline>
+<codeline><highlight class="normal">artifacts/radix/x86_64-grub-slint/</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">The<sp/>staged<sp/>set<sp/>includes<sp/>the<sp/>GRUB<sp/>ISO,<sp/>kernel<sp/>ELF,<sp/>ext4<sp/>root<sp/>filesystem,<sp/>FAT32</highlight></codeline>
+<codeline><highlight class="normal">image,<sp/>one<sp/>serial<sp/>log<sp/>per<sp/>SMP<sp/>smoke,<sp/>and<sp/>`SHA256SUMS`.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">RadBuild<sp/>writes<sp/>the<sp/>machine-readable<sp/>manifest<sp/>at:</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">```text</highlight></codeline>
+<codeline><highlight class="normal">.radmeta/artifacts/radbuild-artifacts.json</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">`artifacts/`<sp/>and<sp/>`.radmeta/`<sp/>are<sp/>local<sp/>build<sp/>outputs<sp/>and<sp/>are<sp/>intentionally<sp/>not</highlight></codeline>
+<codeline><highlight class="normal">tracked<sp/>in<sp/>the<sp/>RADix-OS<sp/>source<sp/>repository.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>Publication</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">RADix-OS<sp/>source<sp/>and<sp/>API<sp/>documentation<sp/>are<sp/>published<sp/>through<sp/>RadicalPackages<sp/>as</highlight></codeline>
+<codeline><highlight class="normal">experimental<sp/>Crimson<sp/>documentation.<sp/>Generated<sp/>VM<sp/>images<sp/>remain<sp/>local<sp/>development</highlight></codeline>
+<codeline><highlight class="normal">artifacts<sp/>until<sp/>a<sp/>separate<sp/>binary<sp/>image<sp/>release<sp/>channel<sp/>is<sp/>defined.</highlight></codeline>
+    </programlisting>
+    <location file="/media/jvincent/Kingspec512/repos/RADix-OS/docs/public/radbuild.md"/>
+  </compounddef>
+</doxygen>

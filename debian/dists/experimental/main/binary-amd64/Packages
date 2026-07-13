@@ -34,14 +34,14 @@ Package: radbuild
 Version: 0.2.1
 Architecture: all
 Maintainer: Radical AI <maintainers@example.invalid>
-Installed-Size: 337
+Installed-Size: 456
 Depends: python3
 Recommends: radbuild-radhdl
 Filename: pool/main/r/radbuild/radbuild_0.2.1_all.deb
-Size: 46474
-MD5sum: ef9d4a28b8416855e748b519c1c0ce31
-SHA1: d4b25440e3831a195fe730288b2bebd6092d0878
-SHA256: 775a284239b2793f700b3199fac424e3df3848abb60eb9852139f465e66bfcbd
+Size: 48638
+MD5sum: 85540fe9da4640f39b0aa52d530d42a9
+SHA1: 7a48caf29fbfa9583436acf861f8dfb7342e76ba
+SHA256: 913b03012cf290a958e5c420467b6673f8826d78ec993dfa6b5de5d8ba002ae1
 Section: devel
 Priority: optional
 Description: Unified embedded-system build framework
@@ -57,6 +57,21 @@ Size: 9428
 MD5sum: 60bda4a694db3acbd5feb79ba3329e41
 SHA1: 0a0def7c58c4866afa96f619469b7e992383513f
 SHA256: 836b9c6894493e8cbab90d147b53212e51459e111fcbd4e516d62c7af7c80efe
+Section: devel
+Priority: optional
+Description: RadBuild documentation
+ RadBuild graph build, packaging, VSCode, server, and worker integration.
+
+Package: radbuild-doc
+Version: 0.2.1
+Architecture: all
+Maintainer: Radical AI <maintainers@example.invalid>
+Installed-Size: 28
+Filename: pool/main/r/radbuild-doc/radbuild-doc_0.2.1_all.deb
+Size: 9880
+MD5sum: e44c47376507d8dc2446fb6c848800dc
+SHA1: 83e72a878a04aae1b908fc15677bdaf8634b4d0f
+SHA256: 785bacb5c02c4448b273669f1e16b2d6711a6bc4fccd5f4876fd19787d0e0579
 Section: devel
 Priority: optional
 Description: RadBuild documentation
@@ -82,13 +97,13 @@ Package: radbuild-radhdl
 Version: 0.2.1
 Architecture: all
 Maintainer: Radical AI <maintainers@example.invalid>
-Installed-Size: 3951
+Installed-Size: 4303
 Depends: radbuild
 Filename: pool/main/r/radbuild-radhdl/radbuild-radhdl_0.2.1_all.deb
-Size: 383230
-MD5sum: b85290520d364d5324086f85700f8526
-SHA1: 44fa324eb59a7ce811fb8050a737ecbfcf2385ef
-SHA256: c356bd7541ce5e081f39314e67ab69eb97e11e666d06a5e50fbf3ca6c6534f31
+Size: 418888
+MD5sum: 563cbd40e6b1d624ed8a3f775f545413
+SHA1: f3c6b034ceff2bc98eb6c7e4f04863e5d8e6b3b3
+SHA256: 875e313bd7a57b4ab022f63ece9b603cc37a183970cc736b2d23f35239d98aba
 Section: devel
 Priority: optional
 Description: Packaged RadHDL catalog, source assets, and documentation generator
@@ -110,6 +125,22 @@ Priority: optional
 Description: Optional RadBuild server and worker tools
  RadBuild graph build, packaging, VSCode, server, and worker integration.
 
+Package: radbuild-server
+Version: 0.2.1
+Architecture: all
+Maintainer: Radical AI <maintainers@example.invalid>
+Installed-Size: 257
+Depends: python3, radbuild
+Filename: pool/main/r/radbuild-server/radbuild-server_0.2.1_all.deb
+Size: 50138
+MD5sum: 5a5fd75661933656dc0c8021634b2ea1
+SHA1: b37e3f0a8ebbd1117096563cf71da8b9ee10cb10
+SHA256: b1087039d030030c7c33d5020d42170b9cef32c07a5950b27f39b059137d2032
+Section: devel
+Priority: optional
+Description: Optional RadBuild server and worker tools
+ RadBuild graph build, packaging, VSCode, server, and worker integration.
+
 Package: radbuild-vscode-support
 Version: 0.2.0
 Architecture: all
@@ -121,6 +152,22 @@ Size: 6260
 MD5sum: ab9790c20c64496dbbb816aef626b50e
 SHA1: 4986e5ce05298b99cb3b44deee15da27544ef679
 SHA256: 7c37b9f17ffe9b64d067701f591fadb8498084f8f6ea8898dc9be798b58597aa
+Section: devel
+Priority: optional
+Description: VSCode support files for RadBuild
+ RadBuild graph build, packaging, VSCode, server, and worker integration.
+
+Package: radbuild-vscode-support
+Version: 0.2.1
+Architecture: all
+Maintainer: Radical AI <maintainers@example.invalid>
+Installed-Size: 29
+Depends: radbuild
+Filename: pool/main/r/radbuild-vscode-support/radbuild-vscode-support_0.2.1_all.deb
+Size: 6294
+MD5sum: 30dd734f00ee9aa01d08e192ea10028e
+SHA1: 824f2537dc2ad5efc004a911ea1c81c467b843d8
+SHA256: edd0e0f404e416d49617c7c70c5a88f0c191c94874023593259434cfa5d4f380
 Section: devel
 Priority: optional
 Description: VSCode support files for RadBuild

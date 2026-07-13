@@ -13,12 +13,12 @@
     <div class="eyebrow">Radical Computer Technologies</div>
     <h1>Package Repository And Documentation Hub</h1>
     <p class="lead">
-      Debian packages and generated documentation for RADLib, RADBard, and related Radical Computer Technologies releases.
+      Debian packages and generated documentation for RADLib, RADBard, RadBuild, RADix-OS, and related Radical Computer Technologies releases.
       Stable packages stay pinned to known runtime lines; experimental packages move faster for active beta work.
     </p>
     <div class="status-row">
       <span class="pill"><strong>Stable:</strong> RADLib 0.1.0</span>
-      <span class="pill"><strong>Experimental:</strong> RADBard beta, RadBuild 0.2.0, future RADLib 0.1.1</span>
+      <span class="pill"><strong>Experimental:</strong> RADBard beta, RadBuild 0.2.1, RADix-OS Crimson 0.1.0</span>
       <span class="pill"><strong>Architectures:</strong> amd64, arm64, all</span>
     </div>
   </section>
@@ -70,10 +70,16 @@ sudo apt update</code></div>
     </details>
     <details class="doc-group package-search-group" data-search-group>
       <summary>Experimental</summary>
-      <details class="doc-release" data-search-item data-search-text="radbuild experimental 0.2.0 cli server vscode radhdl docs graph build framework">
+      <details class="doc-release" data-search-item data-search-text="radbuild experimental 0.2.1 cli server vscode radhdl docs graph build framework radix os image">
         <summary>RadBuild 0 - Crimson</summary>
         <div class="links">
-          <a class="link-card" href="radbuild.html"><strong>RadBuild Packages</strong><span>Graph build framework, server, VSCode support, RadHDL package, and docs.</span></a>
+          <a class="link-card" href="radbuild.html"><strong>RadBuild Packages</strong><span>Graph build framework, server, VSCode support, RADix-OS provider, RadHDL package, and docs.</span></a>
+        </div>
+      </details>
+      <details class="doc-release" data-search-item data-search-text="radix os experimental crimson 0.1.0 kernel vm image x86 slint posix radbuild">
+        <summary>RADix-OS 0 - Crimson</summary>
+        <div class="links">
+          <a class="link-card" href="radix-os.html"><strong>RADix-OS</strong><span>Experimental POSIX-inspired kernel, VM image path, and API documentation.</span></a>
         </div>
       </details>
       <details class="doc-release" data-search-item data-search-text="radbard experimental 0.1.0 beta music audio composition daw editor">

@@ -83,11 +83,16 @@ var NAVTREE =
       [ "Circle Loader Gate", "pi_zero2w.html#autotoc_md41", null ],
       [ "Current Limits", "pi_zero2w.html#autotoc_md42", null ]
     ] ],
+    [ "RadBuild Integration", "radbuild_integration.html", [
+      [ "Build Command", "radbuild_integration.html#autotoc_md43", null ],
+      [ "Artifact Output", "radbuild_integration.html#autotoc_md44", null ],
+      [ "Publication", "radbuild_integration.html#autotoc_md45", null ]
+    ] ],
     [ "RADCompositor", "radcompositor.html", [
-      [ "Architecture", "radcompositor.html#autotoc_md43", null ],
-      [ "Shared-Memory IPC", "radcompositor.html#autotoc_md44", null ],
-      [ "Current Limits", "radcompositor.html#autotoc_md45", null ],
-      [ "Verification", "radcompositor.html#autotoc_md46", null ]
+      [ "Architecture", "radcompositor.html#autotoc_md46", null ],
+      [ "Shared-Memory IPC", "radcompositor.html#autotoc_md47", null ],
+      [ "Current Limits", "radcompositor.html#autotoc_md48", null ],
+      [ "Verification", "radcompositor.html#autotoc_md49", null ]
     ] ],
     [ "Classes", "annotated.html", [
       [ "Class List", "annotated.html", "annotated_dup" ],
@@ -115,11 +120,12 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "annotated.html",
-"radixkernel_8h.html#a05d00ba37414857fa8b177b2f8eabdd8",
-"radixkernel_8h.html#a77553e3feea55992d0f7d9001f21b377",
-"radixkernel_8h.html#abec614992e64e5dbf537f3c2113c2867",
-"structrad__boot__handoff.html#a642793575126984a4ac596c1d2749483",
-"structrad__overlay__info.html#a35c47f9af352d2d33be1bbbf280c22da"
+"radixkernel_8h.html#a05c5d60a6604ffe8e3f2c13292305504a292a76e15758ab5e1756eededed084ac",
+"radixkernel_8h.html#a71b5a6ce065927acf22a8fb4e403de9fa9af3c655235c32b77ef8d5b1de428454",
+"radixkernel_8h.html#ab50b14550381993540d9ee0868a75de7",
+"structrad__a53__capabilities.html#aa73f525511c1bb8a7f2e053ba9ffb5f0",
+"structrad__irq__domain__config.html#a044778c740b065e11888ba8c37ca4135",
+"structrad__timer__source__info.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

@@ -1,0 +1,35 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="radbuild_integration" kind="page">
+    <compoundname>radbuild_integration</compoundname>
+    <title>RadBuild Integration</title>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para><anchor id="radbuild_integration_1md__media_jvincent_Kingspec512_repos_RADix_OS_docs_public_radbuild"/> RADix-OS uses RadBuild 0.2.1 as the canonical graph entrypoint for repeatable x86 VM image builds. The repository root <computeroutput>settings.json</computeroutput> defines one <computeroutput>os.radix</computeroutput> system named <computeroutput>radix-x86-64-grub-slint</computeroutput> and uses the <computeroutput>radix-os</computeroutput> provider.</para>
+<sect1 id="radbuild_integration_1autotoc_md43">
+<title>Build Command</title>
+<para>Run from the RADix-OS repository root:</para>
+<para><programlisting filename=".bash"><codeline><highlight class="normal">../RadBuild/radbuild/.tools/radbuild.py<sp/>build<sp/>os<sp/>--settings<sp/>settings.json<sp/>--json-events</highlight></codeline>
+</programlisting></para>
+<para>The provider executes <computeroutput>tools/embedded/x86_64_grub_slint_smoke.sh</computeroutput> for the configured QEMU SMP counts. The Crimson 0.1.0 default is two smoke passes: 2 vCPUs and 4 vCPUs.</para>
+</sect1>
+<sect1 id="radbuild_integration_1autotoc_md44">
+<title>Artifact Output</title>
+<para>Successful builds stage development artifacts under:</para>
+<para><programlisting filename=".text"><codeline><highlight class="normal">artifacts/radix/x86_64-grub-slint/</highlight></codeline>
+</programlisting></para>
+<para>The staged set includes the GRUB ISO, kernel ELF, ext4 root filesystem, FAT32 image, one serial log per SMP smoke, and <computeroutput>SHA256SUMS</computeroutput>.</para>
+<para>RadBuild writes the machine-readable manifest at:</para>
+<para><programlisting filename=".text"><codeline><highlight class="normal">.radmeta/artifacts/radbuild-artifacts.json</highlight></codeline>
+</programlisting></para>
+<para><computeroutput>artifacts/</computeroutput> and <computeroutput>.radmeta/</computeroutput> are local build outputs and are intentionally not tracked in the RADix-OS source repository.</para>
+</sect1>
+<sect1 id="radbuild_integration_1autotoc_md45">
+<title>Publication</title>
+<para>RADix-OS source and API documentation are published through RadicalPackages as experimental Crimson documentation. Generated VM images remain local development artifacts until a separate binary image release channel is defined. </para>
+</sect1>
+    </detaileddescription>
+    <location file="/media/jvincent/Kingspec512/repos/RADix-OS/docs/public/radbuild.md"/>
+  </compounddef>
+</doxygen>

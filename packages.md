@@ -18,7 +18,7 @@
     </p>
     <div class="status-row">
       <span class="pill"><strong>Stable:</strong> RADLib 0.1.0</span>
-      <span class="pill"><strong>Experimental:</strong> RadBuild 0.2.0, RADBard 0.1.0 beta</span>
+      <span class="pill"><strong>Experimental:</strong> RadBuild 0.2.1, RADix-OS Crimson 0.1.0, RADBard 0.1.0 beta</span>
       <span class="pill"><strong>Architectures:</strong> amd64, arm64, all</span>
     </div>
   </section>
@@ -46,7 +46,7 @@
 
     <details class="doc-group package-search-group" data-search-group>
       <summary>Experimental</summary>
-      <details class="doc-release" data-search-item data-search-text="radbuild experimental 0.2.0 crimson cli server vscode support radhdl docs graph build framework project fpga linux firmware software packages deploy all">
+      <details class="doc-release" data-search-item data-search-text="radbuild experimental 0.2.1 crimson cli server vscode support radhdl docs graph build framework project fpga linux firmware software packages deploy all radix os image">
         <summary>RadBuild 0 - Crimson</summary>
         <div class="package-list">
           <a class="package package-link" href="radbuild.html"><code>radbuild</code><span>CLI tools, schemas, templates, providers, and packaging scripts.</span></a>
@@ -54,6 +54,13 @@
           <a class="package package-link" href="radbuild.html"><code>radbuild-server</code><span>Optional web server, review DB, client, workers, and LLM helpers.</span></a>
           <a class="package package-link" href="radbuild.html"><code>radbuild-vscode-support</code><span>VSCode extension support package.</span></a>
           <a class="package package-link" href="radbuild.html"><code>radbuild-doc</code><span>RadBuild documentation package.</span></a>
+        </div>
+      </details>
+      <details class="doc-release" data-search-item data-search-text="radix os experimental crimson 0.1.0 kernel vm image x86 slint posix radbuild docs">
+        <summary>RADix-OS 0 - Crimson</summary>
+        <div class="package-list">
+          <a class="package package-link" href="radix-os.html"><code>radix-os</code><span>Experimental OS source, kernel API documentation, and VM image build path.</span></a>
+          <a class="package package-link" href="radix-os.html"><code>docs/radix-os/0.1.0</code><span>Published Crimson kernel API documentation.</span></a>
         </div>
       </details>
       <details class="doc-release" data-search-item data-search-text="radbard experimental 0.1.0 beta music audio composition editor notation mixer automation daw amd64 radlib ui media dsp">

@@ -1,0 +1,107 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="structrad__a53__trap__frame" kind="struct" language="C++" prot="public">
+    <compoundname>rad_a53_trap_frame</compoundname>
+    <includes refid="radixkernel__a53_8h" local="no">radixkernel_a53.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structrad__a53__trap__frame_1ab78413340ac3e4b85a9c49d99b432edf" prot="public" static="no" mutable="no">
+        <type>uint64_t</type>
+        <definition>uint64_t rad_a53_trap_frame::x[31]</definition>
+        <argsstring>[31]</argsstring>
+        <name>x</name>
+        <briefdescription>
+<para>General-purpose registers x0-x30 captured at exception entry. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/platforms/a53/radixkernel_a53.h" line="57" column="14" bodyfile="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/platforms/a53/radixkernel_a53.h" bodystart="57" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structrad__a53__trap__frame_1a2e591abb24dd677d3635af669b50c18a" prot="public" static="no" mutable="no">
+        <type>uintptr_t</type>
+        <definition>uintptr_t rad_a53_trap_frame::sp_el0</definition>
+        <argsstring></argsstring>
+        <name>sp_el0</name>
+        <briefdescription>
+<para>Lower-exception-level stack pointer. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/platforms/a53/radixkernel_a53.h" line="58" column="15" bodyfile="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/platforms/a53/radixkernel_a53.h" bodystart="58" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structrad__a53__trap__frame_1a279dca66df0e4da2b5195affcf6d5ce9" prot="public" static="no" mutable="no">
+        <type>uintptr_t</type>
+        <definition>uintptr_t rad_a53_trap_frame::elr_el1</definition>
+        <argsstring></argsstring>
+        <name>elr_el1</name>
+        <briefdescription>
+<para>Exception link register used to resume EL0. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/platforms/a53/radixkernel_a53.h" line="59" column="15" bodyfile="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/platforms/a53/radixkernel_a53.h" bodystart="59" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structrad__a53__trap__frame_1a711c1a1627d95c2c0f3dbbdd5b6651df" prot="public" static="no" mutable="no">
+        <type>uint64_t</type>
+        <definition>uint64_t rad_a53_trap_frame::spsr_el1</definition>
+        <argsstring></argsstring>
+        <name>spsr_el1</name>
+        <briefdescription>
+<para>Saved processor state for the interrupted EL0 context. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/platforms/a53/radixkernel_a53.h" line="60" column="14" bodyfile="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/platforms/a53/radixkernel_a53.h" bodystart="60" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structrad__a53__trap__frame_1ab2801971ec7da550514e4a9073e3f4c1" prot="public" static="no" mutable="no">
+        <type>uint64_t</type>
+        <definition>uint64_t rad_a53_trap_frame::esr_el1</definition>
+        <argsstring></argsstring>
+        <name>esr_el1</name>
+        <briefdescription>
+<para>Exception syndrome register value. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/platforms/a53/radixkernel_a53.h" line="61" column="14" bodyfile="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/platforms/a53/radixkernel_a53.h" bodystart="61" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structrad__a53__trap__frame_1a781c432b7555dc78238779cfd9bb68c4" prot="public" static="no" mutable="no">
+        <type>uintptr_t</type>
+        <definition>uintptr_t rad_a53_trap_frame::far_el1</definition>
+        <argsstring></argsstring>
+        <name>far_el1</name>
+        <briefdescription>
+<para>Fault address register value for abort handling. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/platforms/a53/radixkernel_a53.h" line="62" column="15" bodyfile="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/platforms/a53/radixkernel_a53.h" bodystart="62" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Minimal AArch64 lower-EL trap frame used for syscall/fork handoff. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/platforms/a53/radixkernel_a53.h" line="56" column="1" bodyfile="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/platforms/a53/radixkernel_a53.h" bodystart="56" bodyend="63"/>
+    <listofallmembers>
+      <member refid="structrad__a53__trap__frame_1a279dca66df0e4da2b5195affcf6d5ce9" prot="public" virt="non-virtual"><scope>rad_a53_trap_frame</scope><name>elr_el1</name></member>
+      <member refid="structrad__a53__trap__frame_1ab2801971ec7da550514e4a9073e3f4c1" prot="public" virt="non-virtual"><scope>rad_a53_trap_frame</scope><name>esr_el1</name></member>
+      <member refid="structrad__a53__trap__frame_1a781c432b7555dc78238779cfd9bb68c4" prot="public" virt="non-virtual"><scope>rad_a53_trap_frame</scope><name>far_el1</name></member>
+      <member refid="structrad__a53__trap__frame_1a2e591abb24dd677d3635af669b50c18a" prot="public" virt="non-virtual"><scope>rad_a53_trap_frame</scope><name>sp_el0</name></member>
+      <member refid="structrad__a53__trap__frame_1a711c1a1627d95c2c0f3dbbdd5b6651df" prot="public" virt="non-virtual"><scope>rad_a53_trap_frame</scope><name>spsr_el1</name></member>
+      <member refid="structrad__a53__trap__frame_1ab78413340ac3e4b85a9c49d99b432edf" prot="public" virt="non-virtual"><scope>rad_a53_trap_frame</scope><name>x</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

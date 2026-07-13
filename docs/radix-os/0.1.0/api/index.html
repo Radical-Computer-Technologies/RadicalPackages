@@ -98,6 +98,7 @@ Start Here</h1>
 <li><a class="el" href="device_tree_guide.html">Overlay And Device Tree Guide</a> documents the runtime overlay/device-tree model.</li>
 <li><a class="el" href="radcompositor.html">RADCompositor</a> describes the experimental Slint/RADCompositor windowing path.</li>
 <li><a class="el" href="networking.html">Experimental Networking</a> describes the experimental IPv4/UDP and TCP stream socket foundation.</li>
+<li><a class="el" href="radbuild_integration.html">RadBuild Integration</a> describes the RadBuild 0.2.1 OS build and artifact publication flow.</li>
 <li><a class="el" href="pi_zero2w.html">Pi Zero 2 W Bring-Up</a> tracks the experimental two-stage Pi Zero 2 W bring-up.</li>
 <li><a class="el" href="minimal_examples.html">Minimal Examples</a> provides short driver, framebuffer, input, VFS, and syscall examples.</li>
 <li><a class="el" href="crimson_status.html">Crimson 0.1.0 Status</a> separates stable-beta APIs from incomplete areas.</li>
@@ -124,6 +125,8 @@ Verification</h1>
 <div class="line">./build-host/tests/RADixKernelTests</div>
 </div><!-- fragment --><p>x86_64 GRUB + Slint VM smoke:</p>
 <div class="fragment"><div class="line">tools/embedded/x86_64_grub_slint_smoke.sh</div>
+</div><!-- fragment --><p>Canonical RadBuild OS build:</p>
+<div class="fragment"><div class="line">../RadBuild/radbuild/.tools/radbuild.py build os --settings settings.json --json-events</div>
 </div><!-- fragment --><p>The generated ISO is a development artifact and is not published in RadicalPackages. </p>
 </div></div><!-- PageDoc -->
 </div><!-- contents -->

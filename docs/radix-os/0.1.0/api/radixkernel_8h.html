@@ -112,8 +112,7 @@ $(document).ready(function(){initNavTree('radixkernel_8h.html',''); initResizabl
 <div id="dynsection-1-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-1-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="radixkernel_8h__dep__incl.svg" width="7398" height="171"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
-</div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="radixkernel_8h__dep__incl.svg" width="7398" height="171"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 </div>
 <p><a href="radixkernel_8h_source.html">Go to the source code of this file.</a></p>
@@ -209,6 +208,9 @@ Classes</h2></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structrad__vfs__dirent.html">rad_vfs_dirent</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Public data structure for <a class="el" href="structrad__vfs__dirent.html" title="Public data structure for rad_vfs_dirent.">rad_vfs_dirent</a>.  <a href="structrad__vfs__dirent.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structrad__dirent__user.html">rad_dirent_user</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Public data structure for userspace directory enumeration.  <a href="structrad__dirent__user.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structrad__vfs__backend__ops.html">rad_vfs_backend_ops</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Public data structure for <a class="el" href="structrad__vfs__backend__ops.html" title="Public data structure for rad_vfs_backend_ops.">rad_vfs_backend_ops</a>.  <a href="structrad__vfs__backend__ops.html#details">More...</a><br /></td></tr>
@@ -332,6 +334,9 @@ Classes</h2></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structrad__tty__window__size.html">rad_tty_window_size</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Public data structure for <a class="el" href="structrad__tty__window__size.html" title="Public data structure for rad_tty_window_size.">rad_tty_window_size</a>.  <a href="structrad__tty__window__size.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structrad__log__entry.html">rad_log_entry</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Public data structure for <a class="el" href="structrad__log__entry.html" title="Public data structure for rad_log_entry.">rad_log_entry</a>.  <a href="structrad__log__entry.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
@@ -700,6 +705,14 @@ Macros</h2></td></tr>
 #define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="radixkernel_8h.html#af56de6482eb4fa1261e7429099053a2c">RAD_WAIT_FOREVER</a>&#160;&#160;&#160;0xffffffffu</td></tr>
 <tr class="memdesc:af56de6482eb4fa1261e7429099053a2c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Public constant or ioctl helper. <br /></td></tr>
 <tr class="separator:af56de6482eb4fa1261e7429099053a2c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a33fc08ec83fbe384ebbe730a41e50291"><td class="memItemLeft" align="right" valign="top"><a id="a33fc08ec83fbe384ebbe730a41e50291"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="radixkernel_8h.html#a33fc08ec83fbe384ebbe730a41e50291">RAD_LOG_CATEGORY_MAX</a>&#160;&#160;&#160;32u</td></tr>
+<tr class="memdesc:a33fc08ec83fbe384ebbe730a41e50291"><td class="mdescLeft">&#160;</td><td class="mdescRight">Public constant or ioctl helper. <br /></td></tr>
+<tr class="separator:a33fc08ec83fbe384ebbe730a41e50291"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a257e8b2acaad524c4e28ad0b193dddf3"><td class="memItemLeft" align="right" valign="top"><a id="a257e8b2acaad524c4e28ad0b193dddf3"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="radixkernel_8h.html#a257e8b2acaad524c4e28ad0b193dddf3">RAD_LOG_MESSAGE_MAX</a>&#160;&#160;&#160;192u</td></tr>
+<tr class="memdesc:a257e8b2acaad524c4e28ad0b193dddf3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Public constant or ioctl helper. <br /></td></tr>
+<tr class="separator:a257e8b2acaad524c4e28ad0b193dddf3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4332981c0c5bce9b2b5693385120d39c"><td class="memItemLeft" align="right" valign="top"><a id="a4332981c0c5bce9b2b5693385120d39c"></a>
 #define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="radixkernel_8h.html#a4332981c0c5bce9b2b5693385120d39c">RAD_BOOT_MEMORY_USABLE</a>&#160;&#160;&#160;1u</td></tr>
 <tr class="memdesc:a4332981c0c5bce9b2b5693385120d39c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Public constant or ioctl helper. <br /></td></tr>
@@ -750,6 +763,9 @@ Typedefs</h2></td></tr>
 <tr class="memitem:aeb7c981d4b5f029daa65d3b928bab127"><td class="memItemLeft" align="right" valign="top">typedef enum <a class="el" href="radixkernel_8h.html#aa694fb66cb1a6852963a4d4acd69ea0a">rad_status</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="radixkernel_8h.html#aeb7c981d4b5f029daa65d3b928bab127">rad_status_t</a></td></tr>
 <tr class="memdesc:aeb7c981d4b5f029daa65d3b928bab127"><td class="mdescLeft">&#160;</td><td class="mdescRight">Public enumeration for rad_status.  <a href="radixkernel_8h.html#aeb7c981d4b5f029daa65d3b928bab127">More...</a><br /></td></tr>
 <tr class="separator:aeb7c981d4b5f029daa65d3b928bab127"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae51a389dfa5bb506690583671eba120a"><td class="memItemLeft" align="right" valign="top">typedef enum <a class="el" href="radixkernel_8h.html#a758da4e81d6fa5df07791f71ece53046">rad_log_level</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="radixkernel_8h.html#ae51a389dfa5bb506690583671eba120a">rad_log_level_t</a></td></tr>
+<tr class="memdesc:ae51a389dfa5bb506690583671eba120a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Public enumeration for rad_log_level.  <a href="radixkernel_8h.html#ae51a389dfa5bb506690583671eba120a">More...</a><br /></td></tr>
+<tr class="separator:ae51a389dfa5bb506690583671eba120a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aaf1f287c1e61f3776faa6c6bc2b769e9"><td class="memItemLeft" align="right" valign="top">typedef enum <a class="el" href="radixkernel_8h.html#a777d9419bfdaee0a25e4cb87309221e2">rad_posix_syscall</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="radixkernel_8h.html#aaf1f287c1e61f3776faa6c6bc2b769e9">rad_posix_syscall_t</a></td></tr>
 <tr class="memdesc:aaf1f287c1e61f3776faa6c6bc2b769e9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Public enumeration for rad_posix_syscall.  <a href="radixkernel_8h.html#aaf1f287c1e61f3776faa6c6bc2b769e9">More...</a><br /></td></tr>
 <tr class="separator:aaf1f287c1e61f3776faa6c6bc2b769e9"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -913,6 +929,9 @@ typedef struct rad_tree_node_handle *&#160;</td><td class="memItemRight" valign=
 <tr class="memitem:af9760be5f1fd89dc6031e51a551c8a25"><td class="memItemLeft" align="right" valign="top">typedef struct <a class="el" href="structrad__vfs__dirent.html">rad_vfs_dirent</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="radixkernel_8h.html#af9760be5f1fd89dc6031e51a551c8a25">rad_vfs_dirent_t</a></td></tr>
 <tr class="memdesc:af9760be5f1fd89dc6031e51a551c8a25"><td class="mdescLeft">&#160;</td><td class="mdescRight">Public data structure for <a class="el" href="structrad__vfs__dirent.html" title="Public data structure for rad_vfs_dirent.">rad_vfs_dirent</a>.  <a href="radixkernel_8h.html#af9760be5f1fd89dc6031e51a551c8a25">More...</a><br /></td></tr>
 <tr class="separator:af9760be5f1fd89dc6031e51a551c8a25"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aac504fb40488dd588340cbcd07e11cd6"><td class="memItemLeft" align="right" valign="top">typedef struct <a class="el" href="structrad__dirent__user.html">rad_dirent_user</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="radixkernel_8h.html#aac504fb40488dd588340cbcd07e11cd6">rad_dirent_user_t</a></td></tr>
+<tr class="memdesc:aac504fb40488dd588340cbcd07e11cd6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Public data structure for userspace directory enumeration.  <a href="radixkernel_8h.html#aac504fb40488dd588340cbcd07e11cd6">More...</a><br /></td></tr>
+<tr class="separator:aac504fb40488dd588340cbcd07e11cd6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3970575968ce53bf5dbf9f8b8c4b9cba"><td class="memItemLeft" align="right" valign="top"><a id="a3970575968ce53bf5dbf9f8b8c4b9cba"></a>
 typedef int(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="radixkernel_8h.html#a3970575968ce53bf5dbf9f8b8c4b9cba">rad_vfs_list_callback_t</a>) (const char *name, const <a class="el" href="radixkernel_8h.html#a2671126b91fe8a3f8c4f98aec6db67a7">rad_vfs_stat_t</a> *stat, void *context)</td></tr>
 <tr class="memdesc:a3970575968ce53bf5dbf9f8b8c4b9cba"><td class="mdescLeft">&#160;</td><td class="mdescRight">Public callback typedef used by the RADix API. <br /></td></tr>
@@ -1145,6 +1164,9 @@ typedef struct rad_pty_handle *&#160;</td><td class="memItemRight" valign="botto
 <tr class="memitem:afc83eb6a9c61f783ee4ca1ec9873ae3b"><td class="memItemLeft" align="right" valign="top">typedef struct <a class="el" href="structrad__tty__window__size.html">rad_tty_window_size</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="radixkernel_8h.html#afc83eb6a9c61f783ee4ca1ec9873ae3b">rad_tty_window_size_t</a></td></tr>
 <tr class="memdesc:afc83eb6a9c61f783ee4ca1ec9873ae3b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Public data structure for <a class="el" href="structrad__tty__window__size.html" title="Public data structure for rad_tty_window_size.">rad_tty_window_size</a>.  <a href="radixkernel_8h.html#afc83eb6a9c61f783ee4ca1ec9873ae3b">More...</a><br /></td></tr>
 <tr class="separator:afc83eb6a9c61f783ee4ca1ec9873ae3b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7634dfcf1d90314a3018dfdc038452f9"><td class="memItemLeft" align="right" valign="top">typedef struct <a class="el" href="structrad__log__entry.html">rad_log_entry</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="radixkernel_8h.html#a7634dfcf1d90314a3018dfdc038452f9">rad_log_entry_t</a></td></tr>
+<tr class="memdesc:a7634dfcf1d90314a3018dfdc038452f9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Public data structure for <a class="el" href="structrad__log__entry.html" title="Public data structure for rad_log_entry.">rad_log_entry</a>.  <a href="radixkernel_8h.html#a7634dfcf1d90314a3018dfdc038452f9">More...</a><br /></td></tr>
+<tr class="separator:a7634dfcf1d90314a3018dfdc038452f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="enum-members"></a>
 Enumerations</h2></td></tr>
@@ -1164,6 +1186,18 @@ Enumerations</h2></td></tr>
  }</td></tr>
 <tr class="memdesc:aa694fb66cb1a6852963a4d4acd69ea0a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Public enumeration for rad_status.  <a href="radixkernel_8h.html#aa694fb66cb1a6852963a4d4acd69ea0a">More...</a><br /></td></tr>
 <tr class="separator:aa694fb66cb1a6852963a4d4acd69ea0a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a758da4e81d6fa5df07791f71ece53046"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="radixkernel_8h.html#a758da4e81d6fa5df07791f71ece53046">rad_log_level</a> { <br />
+&#160;&#160;<a class="el" href="radixkernel_8h.html#a758da4e81d6fa5df07791f71ece53046ae1552d65d050b8685b27c05311b9f391">RAD_LOG_TRACE</a> = 0
+, <a class="el" href="radixkernel_8h.html#a758da4e81d6fa5df07791f71ece53046a50d6a1db32ad6e6d662b0bb81306fb23">RAD_LOG_DEBUG</a> = 1
+, <a class="el" href="radixkernel_8h.html#a758da4e81d6fa5df07791f71ece53046aa50aa991ab115ee6adbe82d1d6cf758e">RAD_LOG_INFO</a> = 2
+, <a class="el" href="radixkernel_8h.html#a758da4e81d6fa5df07791f71ece53046a660651f4e0026bbb3c44080e9dc3bbb9">RAD_LOG_WARNING</a> = 3
+, <br />
+&#160;&#160;<a class="el" href="radixkernel_8h.html#a758da4e81d6fa5df07791f71ece53046a273a7c9354e2c69c34541042bca3f60c">RAD_LOG_ERROR</a> = 4
+, <a class="el" href="radixkernel_8h.html#a758da4e81d6fa5df07791f71ece53046ab8646ce001e74d31179dcb58f5c0fed4">RAD_LOG_CRITICAL</a> = 5
+<br />
+ }</td></tr>
+<tr class="memdesc:a758da4e81d6fa5df07791f71ece53046"><td class="mdescLeft">&#160;</td><td class="mdescRight">Public enumeration for rad_log_level.  <a href="radixkernel_8h.html#a758da4e81d6fa5df07791f71ece53046">More...</a><br /></td></tr>
+<tr class="separator:a758da4e81d6fa5df07791f71ece53046"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a777d9419bfdaee0a25e4cb87309221e2"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="radixkernel_8h.html#a777d9419bfdaee0a25e4cb87309221e2">rad_posix_syscall</a> { <br />
 &#160;&#160;<a class="el" href="radixkernel_8h.html#a777d9419bfdaee0a25e4cb87309221e2ae820a793ed986a935a1a4087c3dbe903">RAD_SYSCALL_READ</a> = 0
 , <a class="el" href="radixkernel_8h.html#a777d9419bfdaee0a25e4cb87309221e2a2e8b7a50bb0bdbea7caf3789e3f3d3b4">RAD_SYSCALL_WRITE</a> = 1
@@ -1213,6 +1247,16 @@ Enumerations</h2></td></tr>
 &#160;&#160;<a class="el" href="radixkernel_8h.html#a777d9419bfdaee0a25e4cb87309221e2a5ff4ab54339829879289a262aac89a03">RAD_SYSCALL_MUNMAP</a> = 36
 , <a class="el" href="radixkernel_8h.html#a777d9419bfdaee0a25e4cb87309221e2a1b057f32624735a3155378eb9dec8d99">RAD_SYSCALL_SHM_OPEN</a> = 37
 , <a class="el" href="radixkernel_8h.html#a777d9419bfdaee0a25e4cb87309221e2a4ee78c91b9070ab9b1a68c35c58fcb7a">RAD_SYSCALL_SHM_UNLINK</a> = 38
+, <a class="el" href="radixkernel_8h.html#a777d9419bfdaee0a25e4cb87309221e2a731aa982ceb7a114d7793ee48c5a4059">RAD_SYSCALL_GETDENTS</a> = 1000
+, <br />
+&#160;&#160;<a class="el" href="radixkernel_8h.html#a777d9419bfdaee0a25e4cb87309221e2ab71e5c280c125e8ed0a9c1e4aff38b04">RAD_SYSCALL_REMOVE</a> = 1001
+, <a class="el" href="radixkernel_8h.html#a777d9419bfdaee0a25e4cb87309221e2ae82f460a91fef13c08a28d29fa0c78b6">RAD_SYSCALL_MKDIR</a> = 1002
+, <a class="el" href="radixkernel_8h.html#a777d9419bfdaee0a25e4cb87309221e2ae439e7735051cdb92c03cafd555bbaa0">RAD_SYSCALL_RMDIR</a> = 1003
+, <a class="el" href="radixkernel_8h.html#a777d9419bfdaee0a25e4cb87309221e2a046cbd3e21e5d63cd39ffdd930c16226">RAD_SYSCALL_RENAME</a> = 1004
+, <br />
+&#160;&#160;<a class="el" href="radixkernel_8h.html#a777d9419bfdaee0a25e4cb87309221e2a5de5392f0823025249eaa65f7515677b">RAD_SYSCALL_TRUNCATE</a> = 1005
+, <a class="el" href="radixkernel_8h.html#a777d9419bfdaee0a25e4cb87309221e2a09cc10c3c14a563168201f73457b7074">RAD_SYSCALL_LOG_READ</a> = 1006
+, <a class="el" href="radixkernel_8h.html#a777d9419bfdaee0a25e4cb87309221e2a24a1edd6bac6a8f0c3db6a98cff8d567">RAD_SYSCALL_LOG_FLUSH</a> = 1007
 <br />
  }</td></tr>
 <tr class="memdesc:a777d9419bfdaee0a25e4cb87309221e2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Public enumeration for rad_posix_syscall.  <a href="radixkernel_8h.html#a777d9419bfdaee0a25e4cb87309221e2">More...</a><br /></td></tr>
@@ -1230,6 +1274,7 @@ Enumerations</h2></td></tr>
 , <a class="el" href="radixkernel_8h.html#ae76631a4c448d9e72b2bab8756348deaab41be8734d00ca4c83b335bd9907766d">RAD_VFS_TRUNCATE</a> = 1u &lt;&lt; 3
 , <br />
 &#160;&#160;<a class="el" href="radixkernel_8h.html#ae76631a4c448d9e72b2bab8756348deaa919b94b1e57324e993dd8a9e4a606917">RAD_VFS_APPEND</a> = 1u &lt;&lt; 4
+, <a class="el" href="radixkernel_8h.html#ae76631a4c448d9e72b2bab8756348deaa82b5b061383b4865a0d63f55876ac8c0">RAD_VFS_DIRECTORY</a> = 1u &lt;&lt; 5
 <br />
  }</td></tr>
 <tr class="memdesc:ae76631a4c448d9e72b2bab8756348dea"><td class="mdescLeft">&#160;</td><td class="mdescRight">Public enumeration for rad_vfs_open_flags.  <a href="radixkernel_8h.html#ae76631a4c448d9e72b2bab8756348dea">More...</a><br /></td></tr>
@@ -1526,6 +1571,18 @@ int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="radix
 void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="radixkernel_8h.html#a4d079e0dfecaa08b2b4f473c867e85ff">rad_debug_marker</a> (const char *marker)</td></tr>
 <tr class="memdesc:a4d079e0dfecaa08b2b4f473c867e85ff"><td class="mdescLeft">&#160;</td><td class="mdescRight">Public RADix kernel API entry point. <br /></td></tr>
 <tr class="separator:a4d079e0dfecaa08b2b4f473c867e85ff"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a67462f7be4e7f2bb8007bd7bc3907c69"><td class="memItemLeft" align="right" valign="top"><a id="a67462f7be4e7f2bb8007bd7bc3907c69"></a>
+<a class="el" href="radixkernel_8h.html#aeb7c981d4b5f029daa65d3b928bab127">rad_status_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="radixkernel_8h.html#a67462f7be4e7f2bb8007bd7bc3907c69">rad_log_write</a> (<a class="el" href="radixkernel_8h.html#ae51a389dfa5bb506690583671eba120a">rad_log_level_t</a> level, const char *category, const char *message)</td></tr>
+<tr class="memdesc:a67462f7be4e7f2bb8007bd7bc3907c69"><td class="mdescLeft">&#160;</td><td class="mdescRight">Public RADix kernel API entry point. <br /></td></tr>
+<tr class="separator:a67462f7be4e7f2bb8007bd7bc3907c69"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa71ac27cc10671a90ffe18386ef57d2f"><td class="memItemLeft" align="right" valign="top"><a id="aa71ac27cc10671a90ffe18386ef57d2f"></a>
+size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="radixkernel_8h.html#aa71ac27cc10671a90ffe18386ef57d2f">rad_log_read</a> (<a class="el" href="radixkernel_8h.html#a7634dfcf1d90314a3018dfdc038452f9">rad_log_entry_t</a> *entries, size_t capacity, uint64_t after_sequence)</td></tr>
+<tr class="memdesc:aa71ac27cc10671a90ffe18386ef57d2f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Public RADix kernel API entry point. <br /></td></tr>
+<tr class="separator:aa71ac27cc10671a90ffe18386ef57d2f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a048e6c9616eeb58d64a03ac188369bb8"><td class="memItemLeft" align="right" valign="top"><a id="a048e6c9616eeb58d64a03ac188369bb8"></a>
+<a class="el" href="radixkernel_8h.html#aeb7c981d4b5f029daa65d3b928bab127">rad_status_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="radixkernel_8h.html#a048e6c9616eeb58d64a03ac188369bb8">rad_log_flush_to_path</a> (const char *path)</td></tr>
+<tr class="memdesc:a048e6c9616eeb58d64a03ac188369bb8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Public RADix kernel API entry point. <br /></td></tr>
+<tr class="separator:a048e6c9616eeb58d64a03ac188369bb8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4e7fd63dfb850458729de57bccc63b34"><td class="memItemLeft" align="right" valign="top"><a id="a4e7fd63dfb850458729de57bccc63b34"></a>
 <a class="el" href="radixkernel_8h.html#aeb7c981d4b5f029daa65d3b928bab127">rad_status_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="radixkernel_8h.html#a4e7fd63dfb850458729de57bccc63b34">rad_cpu_interrupts_enable</a> (void)</td></tr>
 <tr class="memdesc:a4e7fd63dfb850458729de57bccc63b34"><td class="mdescLeft">&#160;</td><td class="mdescRight">Public RADix kernel API entry point. <br /></td></tr>
@@ -1938,6 +1995,10 @@ size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ra
 <a class="el" href="radixkernel_8h.html#aeb7c981d4b5f029daa65d3b928bab127">rad_status_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="radixkernel_8h.html#a78810c447560314a6b154657e24af865">rad_service_unregister</a> (const char *name)</td></tr>
 <tr class="memdesc:a78810c447560314a6b154657e24af865"><td class="mdescLeft">&#160;</td><td class="mdescRight">Public RADix kernel API entry point. <br /></td></tr>
 <tr class="separator:a78810c447560314a6b154657e24af865"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9a9aef6d464fe8522184855aea62f359"><td class="memItemLeft" align="right" valign="top"><a id="a9a9aef6d464fe8522184855aea62f359"></a>
+<a class="el" href="radixkernel_8h.html#aeb7c981d4b5f029daa65d3b928bab127">rad_status_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="radixkernel_8h.html#a9a9aef6d464fe8522184855aea62f359">rad_service_configure</a> (const char *name, const <a class="el" href="radixkernel_8h.html#afcfb3b9b94bc1779149e396553222aa8">rad_service_config_t</a> *config)</td></tr>
+<tr class="memdesc:a9a9aef6d464fe8522184855aea62f359"><td class="mdescLeft">&#160;</td><td class="mdescRight">Public RADix kernel API entry point. <br /></td></tr>
+<tr class="separator:a9a9aef6d464fe8522184855aea62f359"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aec979bcddf06a1b809eed5035621730e"><td class="memItemLeft" align="right" valign="top"><a id="aec979bcddf06a1b809eed5035621730e"></a>
 <a class="el" href="radixkernel_8h.html#aeb7c981d4b5f029daa65d3b928bab127">rad_status_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="radixkernel_8h.html#aec979bcddf06a1b809eed5035621730e">rad_service_configure_tree</a> (<a class="el" href="radixkernel_8h.html#a709ccf7c74e397fb0ab3b0a50aa5b4fd">rad_tree_node_t</a> node)</td></tr>
 <tr class="memdesc:aec979bcddf06a1b809eed5035621730e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Public RADix kernel API entry point. <br /></td></tr>
@@ -2034,6 +2095,10 @@ int64_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="r
 int32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="radixkernel_8h.html#ab5c1f45f94204a9d4bd5c1bb7d96e3a2">rad_fd_ioctl</a> (int32_t fd, uint32_t request, void *argument)</td></tr>
 <tr class="memdesc:ab5c1f45f94204a9d4bd5c1bb7d96e3a2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Public RADix kernel API entry point. <br /></td></tr>
 <tr class="separator:ab5c1f45f94204a9d4bd5c1bb7d96e3a2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6d5908cd01a5d50c461b9ce00c6c2d45"><td class="memItemLeft" align="right" valign="top"><a id="a6d5908cd01a5d50c461b9ce00c6c2d45"></a>
+intptr_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="radixkernel_8h.html#a6d5908cd01a5d50c461b9ce00c6c2d45">rad_fd_getdents</a> (int32_t fd, <a class="el" href="radixkernel_8h.html#aac504fb40488dd588340cbcd07e11cd6">rad_dirent_user_t</a> *entries, size_t capacity)</td></tr>
+<tr class="memdesc:a6d5908cd01a5d50c461b9ce00c6c2d45"><td class="mdescLeft">&#160;</td><td class="mdescRight">Public RADix kernel API entry point. <br /></td></tr>
+<tr class="separator:a6d5908cd01a5d50c461b9ce00c6c2d45"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8788292ada81ea4050e58d87336a19ad"><td class="memItemLeft" align="right" valign="top"><a id="a8788292ada81ea4050e58d87336a19ad"></a>
 int32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="radixkernel_8h.html#a8788292ada81ea4050e58d87336a19ad">rad_fd_stat</a> (const char *path, <a class="el" href="radixkernel_8h.html#a2671126b91fe8a3f8c4f98aec6db67a7">rad_vfs_stat_t</a> *stat)</td></tr>
 <tr class="memdesc:a8788292ada81ea4050e58d87336a19ad"><td class="mdescLeft">&#160;</td><td class="mdescRight">Public RADix kernel API entry point. <br /></td></tr>
@@ -2847,6 +2912,23 @@ size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ra
 
 </div>
 </div>
+<a id="aac504fb40488dd588340cbcd07e11cd6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aac504fb40488dd588340cbcd07e11cd6">&#9670;&nbsp;</a></span>rad_dirent_user_t</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef struct <a class="el" href="structrad__dirent__user.html">rad_dirent_user</a> <a class="el" href="radixkernel_8h.html#aac504fb40488dd588340cbcd07e11cd6">rad_dirent_user_t</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Public data structure for userspace directory enumeration. </p>
+<p>Public typedef alias. </p>
+
+</div>
+</div>
 <a id="ac625eecdfc36eecddc643a62b0a065b9"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ac625eecdfc36eecddc643a62b0a065b9">&#9670;&nbsp;</a></span>rad_display_mode_t</h2>
 
@@ -3370,6 +3452,40 @@ size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ra
 </div><div class="memdoc">
 
 <p>Public data structure for <a class="el" href="structrad__kernel__config.html" title="Public data structure for rad_kernel_config.">rad_kernel_config</a>. </p>
+<p>Public typedef alias. </p>
+
+</div>
+</div>
+<a id="a7634dfcf1d90314a3018dfdc038452f9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7634dfcf1d90314a3018dfdc038452f9">&#9670;&nbsp;</a></span>rad_log_entry_t</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef struct <a class="el" href="structrad__log__entry.html">rad_log_entry</a> <a class="el" href="radixkernel_8h.html#a7634dfcf1d90314a3018dfdc038452f9">rad_log_entry_t</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Public data structure for <a class="el" href="structrad__log__entry.html" title="Public data structure for rad_log_entry.">rad_log_entry</a>. </p>
+<p>Public typedef alias. </p>
+
+</div>
+</div>
+<a id="ae51a389dfa5bb506690583671eba120a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae51a389dfa5bb506690583671eba120a">&#9670;&nbsp;</a></span>rad_log_level_t</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef enum <a class="el" href="radixkernel_8h.html#a758da4e81d6fa5df07791f71ece53046">rad_log_level</a> <a class="el" href="radixkernel_8h.html#ae51a389dfa5bb506690583671eba120a">rad_log_level_t</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Public enumeration for rad_log_level. </p>
 <p>Public typedef alias. </p>
 
 </div>
@@ -4608,6 +4724,36 @@ size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ra
 
 </div>
 </div>
+<a id="a758da4e81d6fa5df07791f71ece53046"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a758da4e81d6fa5df07791f71ece53046">&#9670;&nbsp;</a></span>rad_log_level</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="radixkernel_8h.html#a758da4e81d6fa5df07791f71ece53046">rad_log_level</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Public enumeration for rad_log_level. </p>
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a758da4e81d6fa5df07791f71ece53046ae1552d65d050b8685b27c05311b9f391"></a>RAD_LOG_TRACE&#160;</td><td class="fielddoc"><p>RAD_LOG_TRACE. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a758da4e81d6fa5df07791f71ece53046a50d6a1db32ad6e6d662b0bb81306fb23"></a>RAD_LOG_DEBUG&#160;</td><td class="fielddoc"><p>RAD_LOG_DEBUG. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a758da4e81d6fa5df07791f71ece53046aa50aa991ab115ee6adbe82d1d6cf758e"></a>RAD_LOG_INFO&#160;</td><td class="fielddoc"><p>RAD_LOG_INFO. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a758da4e81d6fa5df07791f71ece53046a660651f4e0026bbb3c44080e9dc3bbb9"></a>RAD_LOG_WARNING&#160;</td><td class="fielddoc"><p>RAD_LOG_WARNING. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a758da4e81d6fa5df07791f71ece53046a273a7c9354e2c69c34541042bca3f60c"></a>RAD_LOG_ERROR&#160;</td><td class="fielddoc"><p>RAD_LOG_ERROR. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a758da4e81d6fa5df07791f71ece53046ab8646ce001e74d31179dcb58f5c0fed4"></a>RAD_LOG_CRITICAL&#160;</td><td class="fielddoc"><p>RAD_LOG_CRITICAL. </p>
+</td></tr>
+</table>
+
+</div>
+</div>
 <a id="a02555ae996980220092af6e034eb516e"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a02555ae996980220092af6e034eb516e">&#9670;&nbsp;</a></span>rad_module_state</h2>
 
@@ -4747,6 +4893,22 @@ size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ra
 <tr><td class="fieldname"><a id="a777d9419bfdaee0a25e4cb87309221e2a1b057f32624735a3155378eb9dec8d99"></a>RAD_SYSCALL_SHM_OPEN&#160;</td><td class="fielddoc"><p>RAD_SYSCALL_SHM_OPEN. </p>
 </td></tr>
 <tr><td class="fieldname"><a id="a777d9419bfdaee0a25e4cb87309221e2a4ee78c91b9070ab9b1a68c35c58fcb7a"></a>RAD_SYSCALL_SHM_UNLINK&#160;</td><td class="fielddoc"><p>RAD_SYSCALL_SHM_UNLINK. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a777d9419bfdaee0a25e4cb87309221e2a731aa982ceb7a114d7793ee48c5a4059"></a>RAD_SYSCALL_GETDENTS&#160;</td><td class="fielddoc"><p>RAD_SYSCALL_GETDENTS. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a777d9419bfdaee0a25e4cb87309221e2ab71e5c280c125e8ed0a9c1e4aff38b04"></a>RAD_SYSCALL_REMOVE&#160;</td><td class="fielddoc"><p>RAD_SYSCALL_REMOVE. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a777d9419bfdaee0a25e4cb87309221e2ae82f460a91fef13c08a28d29fa0c78b6"></a>RAD_SYSCALL_MKDIR&#160;</td><td class="fielddoc"><p>RAD_SYSCALL_MKDIR. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a777d9419bfdaee0a25e4cb87309221e2ae439e7735051cdb92c03cafd555bbaa0"></a>RAD_SYSCALL_RMDIR&#160;</td><td class="fielddoc"><p>RAD_SYSCALL_RMDIR. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a777d9419bfdaee0a25e4cb87309221e2a046cbd3e21e5d63cd39ffdd930c16226"></a>RAD_SYSCALL_RENAME&#160;</td><td class="fielddoc"><p>RAD_SYSCALL_RENAME. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a777d9419bfdaee0a25e4cb87309221e2a5de5392f0823025249eaa65f7515677b"></a>RAD_SYSCALL_TRUNCATE&#160;</td><td class="fielddoc"><p>RAD_SYSCALL_TRUNCATE. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a777d9419bfdaee0a25e4cb87309221e2a09cc10c3c14a563168201f73457b7074"></a>RAD_SYSCALL_LOG_READ&#160;</td><td class="fielddoc"><p>RAD_SYSCALL_LOG_READ. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a777d9419bfdaee0a25e4cb87309221e2a24a1edd6bac6a8f0c3db6a98cff8d567"></a>RAD_SYSCALL_LOG_FLUSH&#160;</td><td class="fielddoc"><p>RAD_SYSCALL_LOG_FLUSH. </p>
 </td></tr>
 </table>
 
@@ -5151,6 +5313,8 @@ size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ra
 <tr><td class="fieldname"><a id="ae76631a4c448d9e72b2bab8756348deaab41be8734d00ca4c83b335bd9907766d"></a>RAD_VFS_TRUNCATE&#160;</td><td class="fielddoc"><p>RAD_VFS_TRUNCATE. </p>
 </td></tr>
 <tr><td class="fieldname"><a id="ae76631a4c448d9e72b2bab8756348deaa919b94b1e57324e993dd8a9e4a606917"></a>RAD_VFS_APPEND&#160;</td><td class="fielddoc"><p>RAD_VFS_APPEND. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ae76631a4c448d9e72b2bab8756348deaa82b5b061383b4865a0d63f55876ac8c0"></a>RAD_VFS_DIRECTORY&#160;</td><td class="fielddoc"><p>RAD_VFS_DIRECTORY. </p>
 </td></tr>
 </table>
 

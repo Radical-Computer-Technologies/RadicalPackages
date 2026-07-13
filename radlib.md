@@ -65,7 +65,7 @@ sudo apt install radlib-media radlib-fpga radlib-web</code></div>
       <div class="package"><code>radlib-dsp</code><br><span>DSP primitives and transforms.</span></div>
       <div class="package"><code>radlib-media</code><br><span>Audio, MIDI, SoundFont, WAV, and MusicXML support.</span></div>
       <div class="package"><code>radlib-fpga</code><br><span>FPGA transport and register-map helpers.</span></div>
-      <div class="package"><code>radlib-embedded-kernel</code><br><span>Experimental RADix-OS kernel services and HAL-facing runtime.</span></div>
+      <a class="package package-link" href="radix-os.html"><code>radlib-embedded-kernel</code><span>Experimental RADix-OS kernel services and HAL-facing runtime.</span></a>
       <div class="package"><code>radlib-web</code><br><span>WebKit-backed RADWeb browser components.</span></div>
       <div class="package"><code>radlib-net</code><br><span>Networking and protocol helpers.</span></div>
       <div class="package"><code>radlib-database</code><br><span>SQLite-backed database primitives.</span></div>

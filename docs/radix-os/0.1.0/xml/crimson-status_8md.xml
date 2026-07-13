@@ -23,13 +23,17 @@
 <codeline><highlight class="normal">-<sp/>Device<sp/>registry,<sp/>ioctl<sp/>encoding,<sp/>input<sp/>queues,<sp/>framebuffer<sp/>registration,</highlight></codeline>
 <codeline><highlight class="normal"><sp/><sp/>TTY,<sp/>PTY,<sp/>block<sp/>device,<sp/>USB<sp/>host-info,<sp/>and<sp/>VFS<sp/>provider<sp/>APIs.</highlight></codeline>
 <codeline><highlight class="normal">-<sp/>I2C,<sp/>SPI,<sp/>DMA,<sp/>module,<sp/>IRQ,<sp/>and<sp/>overlay<sp/>binding<sp/>APIs.</highlight></codeline>
-<codeline><highlight class="normal">-<sp/>x86<sp/>GRUB<sp/>VM<sp/>smoke<sp/>target<sp/>with<sp/>framebuffer<sp/>shell,<sp/>PTY/TTY<sp/>terminal<sp/>path,<sp/>and</highlight></codeline>
-<codeline><highlight class="normal"><sp/><sp/>clean<sp/>no-journal<sp/>ext4<sp/>read/write<sp/>profile.</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>x86<sp/>GRUB<sp/>VM<sp/>smoke<sp/>target<sp/>with<sp/>`rash`<sp/>as<sp/>the<sp/>default<sp/>shell,<sp/>framebuffer</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>terminal,<sp/>PTY/TTY<sp/>path,<sp/>JSON<sp/>`radinit`<sp/>services,<sp/>persistent<sp/>logs,<sp/>FAT32<sp/>test</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>volume,<sp/>clean<sp/>no-journal<sp/>ext4<sp/>read/write<sp/>profile,<sp/>and<sp/>RadBuild<sp/>0.2.1</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>`os.radix`<sp/>build<sp/>orchestration.</highlight></codeline>
 <codeline></codeline>
 <codeline><highlight class="normal">##<sp/>Experimental<sp/>Surface</highlight></codeline>
 <codeline></codeline>
 <codeline><highlight class="normal">-<sp/>POSIX<sp/>process<sp/>and<sp/>syscall<sp/>coverage<sp/>is<sp/>usable<sp/>for<sp/>the<sp/>current<sp/>shell<sp/>tests<sp/>but</highlight></codeline>
 <codeline><highlight class="normal"><sp/><sp/>not<sp/>a<sp/>complete<sp/>Unix<sp/>userspace<sp/>contract.</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>`/bin/sh`<sp/>is<sp/>currently<sp/>pointed<sp/>at<sp/>`rash`<sp/>for<sp/>the<sp/>x86<sp/>image<sp/>so<sp/>shebang<sp/>scripts</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>exercise<sp/>the<sp/>same<sp/>shell<sp/>implementation<sp/>as<sp/>the<sp/>interactive<sp/>path.</highlight></codeline>
 <codeline><highlight class="normal">-<sp/>Shared-memory<sp/>`mmap`/`shm_open`<sp/>support<sp/>is<sp/>present<sp/>for<sp/>the<sp/>x86<sp/>compositor</highlight></codeline>
 <codeline><highlight class="normal"><sp/><sp/>smoke<sp/>path,<sp/>but<sp/>not<sp/>yet<sp/>a<sp/>complete<sp/>POSIX<sp/>memory-mapping<sp/>implementation.</highlight></codeline>
 <codeline><highlight class="normal">-<sp/>RADCompositor<sp/>supports<sp/>dirty-rectangle<sp/>software<sp/>composition<sp/>and<sp/>shm-backed</highlight></codeline>
@@ -43,7 +47,8 @@
 <codeline><highlight class="normal">-<sp/>Pi<sp/>Zero<sp/>2<sp/>W<sp/>has<sp/>an<sp/>experimental<sp/>standalone<sp/>`bcm283x_pi`<sp/>payload,<sp/>handoff<sp/>ABI,</highlight></codeline>
 <codeline><highlight class="normal"><sp/><sp/>platform<sp/>split<sp/>under<sp/>`platforms/a53`,<sp/>PL011<sp/>serial<sp/>path,<sp/>timer<sp/>reads,<sp/>mailbox</highlight></codeline>
 <codeline><highlight class="normal"><sp/><sp/>framebuffer<sp/>path,<sp/>SD<sp/>block-device<sp/>registration<sp/>scaffold,<sp/>USB/input<sp/>scaffolds,</highlight></codeline>
-<codeline><highlight class="normal"><sp/><sp/>portable<sp/>A53<sp/>process/COW<sp/>self-tests,<sp/>and<sp/>Slint/RADCompositor<sp/>parity<sp/>markers.</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>A53<sp/>MMU/table<sp/>setup,<sp/>process/COW<sp/>self-tests,<sp/>and<sp/>Slint/RADCompositor<sp/>parity</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>markers.</highlight></codeline>
 <codeline><highlight class="normal">-<sp/>DMA<sp/>is<sp/>available<sp/>through<sp/>the<sp/>generic<sp/>core<sp/>and<sp/>first<sp/>consumed<sp/>by<sp/>SPI-style</highlight></codeline>
 <codeline><highlight class="normal"><sp/><sp/>transfer<sp/>paths.</highlight></codeline>
 <codeline></codeline>
@@ -55,9 +60,8 @@
 <codeline><highlight class="normal"><sp/><sp/>Crimson<sp/>beta<sp/>surface.</highlight></codeline>
 <codeline><highlight class="normal">-<sp/>The<sp/>Pi<sp/>Zero<sp/>2<sp/>W<sp/>path<sp/>still<sp/>needs<sp/>hardware-real<sp/>Circle<sp/>FAT<sp/>loader<sp/>jump</highlight></codeline>
 <codeline><highlight class="normal"><sp/><sp/>validation,<sp/>eMMC<sp/>command<sp/>implementation,<sp/>DWC<sp/>OTG<sp/>USB<sp/>host<sp/>enumeration,</highlight></codeline>
-<codeline><highlight class="normal"><sp/><sp/>hardware<sp/>HID<sp/>input,<sp/>privileged<sp/>AArch64<sp/>page-table/trap/user-entry/fork/exec/COW</highlight></codeline>
-<codeline><highlight class="normal"><sp/><sp/>implementation,<sp/>and<sp/>Slint<sp/>framebuffer<sp/>rendering<sp/>before<sp/>it<sp/>matches<sp/>the<sp/>x86<sp/>VM</highlight></codeline>
-<codeline><highlight class="normal"><sp/><sp/>path.</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>hardware<sp/>HID<sp/>input,<sp/>full<sp/>AArch64<sp/>EL0<sp/>ELF<sp/>execution/fork/exec<sp/>parity,<sp/>and<sp/>Slint</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>framebuffer<sp/>rendering<sp/>before<sp/>it<sp/>matches<sp/>the<sp/>x86<sp/>VM<sp/>path.</highlight></codeline>
     </programlisting>
     <location file="/media/jvincent/Kingspec512/repos/RADix-OS/docs/public/crimson-status.md"/>
   </compounddef>

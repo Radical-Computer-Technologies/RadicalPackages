@@ -64,8 +64,8 @@
 <codeline><highlight class="normal">`.radbuild/qemu-arm`<sp/>and<sp/>reuses<sp/>it<sp/>on<sp/>later<sp/>runs.<sp/>A<sp/>passing<sp/>run<sp/>verifies<sp/>the</highlight></codeline>
 <codeline><highlight class="normal">early<sp/>BCM283x<sp/>HAL,<sp/>PL011<sp/>UART,<sp/>mailbox<sp/>framebuffer,<sp/>handoff<sp/>validation,<sp/>payload</highlight></codeline>
 <codeline><highlight class="normal">entry,<sp/>block<sp/>and<sp/>FAT<sp/>mount<sp/>scaffolds,<sp/>USB/input<sp/>scaffolds,<sp/>framebuffer<sp/>dirty</highlight></codeline>
-<codeline><highlight class="normal">present,<sp/>portable<sp/>A53<sp/>boot/process/COW<sp/>checks,<sp/>and<sp/>Slint/RADCompositor<sp/>parity</highlight></codeline>
-<codeline><highlight class="normal">markers.</highlight></codeline>
+<codeline><highlight class="normal">present,<sp/>A53<sp/>MMU/table<sp/>setup,<sp/>process/COW<sp/>checks,<sp/>and<sp/>Slint/RADCompositor</highlight></codeline>
+<codeline><highlight class="normal">parity<sp/>markers.</highlight></codeline>
 <codeline></codeline>
 <codeline><highlight class="normal">The<sp/>current<sp/>RAD-owned<sp/>backend<sp/>includes:</highlight></codeline>
 <codeline></codeline>
@@ -79,10 +79,10 @@
 <codeline><highlight class="normal"><sp/><sp/>backing<sp/>for<sp/>QEMU<sp/>smoke<sp/>reads.</highlight></codeline>
 <codeline><highlight class="normal">-<sp/>`/dev/usb0`<sp/>host-info<sp/>scaffold<sp/>and<sp/>`/dev/input/event0`<sp/>synthetic<sp/>HID<sp/>input</highlight></codeline>
 <codeline><highlight class="normal"><sp/><sp/>event<sp/>path.</highlight></codeline>
-<codeline><highlight class="normal">-<sp/>A<sp/>portable<sp/>A53<sp/>process<sp/>model<sp/>that<sp/>registers<sp/>process<sp/>arch<sp/>hooks,<sp/>performs</highlight></codeline>
-<codeline><highlight class="normal"><sp/><sp/>kernel<sp/>process-table<sp/>fork/fd-clone/wait<sp/>checks,<sp/>and<sp/>exercises<sp/>deterministic</highlight></codeline>
-<codeline><highlight class="normal"><sp/><sp/>parent/child<sp/>COW<sp/>isolation<sp/>before<sp/>the<sp/>future<sp/>privileged<sp/>MMU<sp/>implementation</highlight></codeline>
-<codeline><highlight class="normal"><sp/><sp/>takes<sp/>over<sp/>the<sp/>same<sp/>interface.</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>A<sp/>portable<sp/>A53<sp/>MMU/process<sp/>layer<sp/>with<sp/>4<sp/>KiB<sp/>translation-table<sp/>construction,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>TTBR0<sp/>process<sp/>roots,<sp/>a<sp/>TTBR1<sp/>kernel<sp/>root,<sp/>user-copy<sp/>validation,<sp/>COW</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>page-fault<sp/>handling,<sp/>syscall<sp/>dispatch<sp/>framing,<sp/>and<sp/>kernel<sp/>process-table</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>fork/fd-clone/wait<sp/>checks.</highlight></codeline>
 <codeline><highlight class="normal">-<sp/>Slint/RADCompositor<sp/>boot-shell,<sp/>window-manager,<sp/>terminal-window,<sp/>and</highlight></codeline>
 <codeline><highlight class="normal"><sp/><sp/>compositor-damage<sp/>smoke<sp/>markers.</highlight></codeline>
 <codeline></codeline>
@@ -103,14 +103,14 @@
 <codeline></codeline>
 <codeline><highlight class="normal">##<sp/>Current<sp/>Limits</highlight></codeline>
 <codeline></codeline>
-<codeline><highlight class="normal">This<sp/>page<sp/>is<sp/>experimental.<sp/>The<sp/>portable<sp/>A53<sp/>layer<sp/>now<sp/>owns<sp/>the<sp/>boot/process/COW</highlight></codeline>
-<codeline><highlight class="normal">contract,<sp/>but<sp/>privileged<sp/>AArch64<sp/>exception-vector<sp/>entry,<sp/>real<sp/>EL0<sp/>execution,</highlight></codeline>
-<codeline><highlight class="normal">hardware<sp/>page<sp/>tables,<sp/>and<sp/>user<sp/>ELF<sp/>replacement<sp/>are<sp/>not<sp/>complete<sp/>yet.<sp/>The<sp/>eMMC,</highlight></codeline>
-<codeline><highlight class="normal">USB,<sp/>HID,<sp/>and<sp/>Slint<sp/>shell<sp/>paths<sp/>are<sp/>still<sp/>QEMU-visible<sp/>scaffolds<sp/>rather<sp/>than</highlight></codeline>
-<codeline><highlight class="normal">complete<sp/>physical<sp/>drivers.<sp/>The<sp/>next<sp/>Pi<sp/>passes<sp/>need<sp/>the<sp/>real<sp/>BCM283x<sp/>eMMC<sp/>command</highlight></codeline>
-<codeline><highlight class="normal">engine,<sp/>real<sp/>DWC<sp/>OTG<sp/>host<sp/>enumeration,<sp/>hardware<sp/>keyboard/mouse<sp/>input,</highlight></codeline>
-<codeline><highlight class="normal">second-stage<sp/>FAT<sp/>load/jump<sp/>validation<sp/>on<sp/>silicon,<sp/>and<sp/>full<sp/>AArch64</highlight></codeline>
-<codeline><highlight class="normal">page-table/trap/fork/exec/COW<sp/>behavior.</highlight></codeline>
+<codeline><highlight class="normal">This<sp/>page<sp/>is<sp/>experimental.<sp/>The<sp/>portable<sp/>A53<sp/>layer<sp/>now<sp/>builds<sp/>real<sp/>page<sp/>tables</highlight></codeline>
+<codeline><highlight class="normal">and<sp/>enables<sp/>the<sp/>MMU<sp/>in<sp/>the<sp/>standalone<sp/>payload,<sp/>but<sp/>full<sp/>EL0<sp/>ELF<sp/>execution,</highlight></codeline>
+<codeline><highlight class="normal">preemptive<sp/>user<sp/>scheduling,<sp/>and<sp/>complete<sp/>exec<sp/>image<sp/>replacement<sp/>are<sp/>still<sp/>not<sp/>at</highlight></codeline>
+<codeline><highlight class="normal">x86<sp/>parity.<sp/>The<sp/>eMMC,<sp/>USB,<sp/>HID,<sp/>and<sp/>Slint<sp/>shell<sp/>paths<sp/>are<sp/>still<sp/>QEMU-visible</highlight></codeline>
+<codeline><highlight class="normal">scaffolds<sp/>rather<sp/>than<sp/>complete<sp/>physical<sp/>drivers.<sp/>The<sp/>next<sp/>Pi<sp/>passes<sp/>need<sp/>the</highlight></codeline>
+<codeline><highlight class="normal">real<sp/>BCM283x<sp/>eMMC<sp/>command<sp/>engine,<sp/>real<sp/>DWC<sp/>OTG<sp/>host<sp/>enumeration,<sp/>hardware</highlight></codeline>
+<codeline><highlight class="normal">keyboard/mouse<sp/>input,<sp/>second-stage<sp/>FAT<sp/>load/jump<sp/>validation<sp/>on<sp/>silicon,<sp/>and<sp/>full</highlight></codeline>
+<codeline><highlight class="normal">AArch64<sp/>userspace<sp/>execution<sp/>parity.</highlight></codeline>
 <codeline></codeline>
 <codeline><highlight class="normal">Physical<sp/>Pi<sp/>Zero<sp/>2<sp/>W<sp/>hardware<sp/>remains<sp/>the<sp/>authority<sp/>for<sp/>mailbox<sp/>framebuffer<sp/>and</highlight></codeline>
 <codeline><highlight class="normal">SD<sp/>behavior.</highlight></codeline>

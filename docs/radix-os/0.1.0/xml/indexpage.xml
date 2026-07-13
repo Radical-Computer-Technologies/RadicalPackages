@@ -16,6 +16,7 @@
 </listitem><listitem><para><ref refid="device_tree_guide" kindref="compound">Overlay And Device Tree Guide</ref> documents the runtime overlay/device-tree model.</para>
 </listitem><listitem><para><ref refid="radcompositor" kindref="compound">RADCompositor</ref> describes the experimental Slint/RADCompositor windowing path.</para>
 </listitem><listitem><para><ref refid="networking" kindref="compound">Experimental Networking</ref> describes the experimental IPv4/UDP and TCP stream socket foundation.</para>
+</listitem><listitem><para><ref refid="radbuild_integration" kindref="compound">RadBuild Integration</ref> describes the RadBuild 0.2.1 OS build and artifact publication flow.</para>
 </listitem><listitem><para><ref refid="pi_zero2w" kindref="compound">Pi Zero 2 W Bring-Up</ref> tracks the experimental two-stage Pi Zero 2 W bring-up.</para>
 </listitem><listitem><para><ref refid="minimal_examples" kindref="compound">Minimal Examples</ref> provides short driver, framebuffer, input, VFS, and syscall examples.</para>
 </listitem><listitem><para><ref refid="crimson_status" kindref="compound">Crimson 0.1.0 Status</ref> separates stable-beta APIs from incomplete areas.</para>
@@ -48,6 +49,9 @@
 </programlisting></para>
 <para>x86_64 GRUB + Slint VM smoke:</para>
 <para><programlisting filename=".bash"><codeline><highlight class="normal">tools/embedded/x86_64_grub_slint_smoke.sh</highlight></codeline>
+</programlisting></para>
+<para>Canonical RadBuild OS build:</para>
+<para><programlisting filename=".bash"><codeline><highlight class="normal">../RadBuild/radbuild/.tools/radbuild.py<sp/>build<sp/>os<sp/>--settings<sp/>settings.json<sp/>--json-events</highlight></codeline>
 </programlisting></para>
 <para>The generated ISO is a development artifact and is not published in RadicalPackages. </para>
 </sect1>

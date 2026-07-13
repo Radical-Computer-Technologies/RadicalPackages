@@ -33,6 +33,12 @@
     <member refid="classrad_1_1Mutex_1af0a74fe502011c390468fddc225c9b79" kind="function"><name>unlock</name></member>
     <member refid="classrad_1_1Mutex_1a6563bb20bd9bedc96cdd66b41a07bd35" kind="function"><name>native</name></member>
   </compound>
+  <compound refid="structrad__a53__address__space" kind="struct"><name>rad_a53_address_space</name>
+    <member refid="structrad__a53__address__space_1a642ac49963c5ac4962e390beaabef3d3" kind="variable"><name>ttbr0</name></member>
+    <member refid="structrad__a53__address__space_1acf76e03292b6f8ac02a1fc96d38df585" kind="variable"><name>owned_pages</name></member>
+    <member refid="structrad__a53__address__space_1afda791fa58767619d534582286bda060" kind="variable"><name>owned_page_count</name></member>
+    <member refid="structrad__a53__address__space_1a1985bbf3ca100c5e9fecbf88941e6deb" kind="variable"><name>next_mmap</name></member>
+  </compound>
   <compound refid="structrad__a53__capabilities" kind="struct"><name>rad_a53_capabilities</name>
     <member refid="structrad__a53__capabilities_1ab172e104ff009e6f480a340ea8d2d130" kind="variable"><name>size</name></member>
     <member refid="structrad__a53__capabilities_1a937613a463f2b2db16bb5c3cfd09efa9" kind="variable"><name>boot_normalized</name></member>
@@ -48,6 +54,28 @@
     <member refid="structrad__a53__capabilities_1a2efd778a828e28a1c737884f57d1713a" kind="variable"><name>user_base</name></member>
     <member refid="structrad__a53__capabilities_1a54dfeb6d43a237129b8946c5046f8686" kind="variable"><name>user_limit</name></member>
     <member refid="structrad__a53__capabilities_1a1977123007aae74f992f818cbc340390" kind="variable"><name>page_size</name></member>
+    <member refid="structrad__a53__capabilities_1ac6d6df1a60dbadb7b496ec2140c8c232" kind="variable"><name>mmu_ready</name></member>
+    <member refid="structrad__a53__capabilities_1a6985d131d84c140160a5ae9ed43e9f42" kind="variable"><name>ttbr0_user_ready</name></member>
+    <member refid="structrad__a53__capabilities_1afcc9dd4f9afbcb56897e8d7fd6ae1f3e" kind="variable"><name>ttbr1_kernel_ready</name></member>
+  </compound>
+  <compound refid="structrad__a53__trap__frame" kind="struct"><name>rad_a53_trap_frame</name>
+    <member refid="structrad__a53__trap__frame_1ab78413340ac3e4b85a9c49d99b432edf" kind="variable"><name>x</name></member>
+    <member refid="structrad__a53__trap__frame_1a2e591abb24dd677d3635af669b50c18a" kind="variable"><name>sp_el0</name></member>
+    <member refid="structrad__a53__trap__frame_1a279dca66df0e4da2b5195affcf6d5ce9" kind="variable"><name>elr_el1</name></member>
+    <member refid="structrad__a53__trap__frame_1a711c1a1627d95c2c0f3dbbdd5b6651df" kind="variable"><name>spsr_el1</name></member>
+    <member refid="structrad__a53__trap__frame_1ab2801971ec7da550514e4a9073e3f4c1" kind="variable"><name>esr_el1</name></member>
+    <member refid="structrad__a53__trap__frame_1a781c432b7555dc78238779cfd9bb68c4" kind="variable"><name>far_el1</name></member>
+  </compound>
+  <compound refid="structrad__a53__vm__summary" kind="struct"><name>rad_a53_vm_summary</name>
+    <member refid="structrad__a53__vm__summary_1acf6ade1a931626ff9b32ca4910d9860a" kind="variable"><name>size</name></member>
+    <member refid="structrad__a53__vm__summary_1a1f9e0c445a20021c183b8dcbdbfce08b" kind="variable"><name>kernel_table</name></member>
+    <member refid="structrad__a53__vm__summary_1acbba377a36350627532e8bf8b6ea71c3" kind="variable"><name>active_table</name></member>
+    <member refid="structrad__a53__vm__summary_1ac775aac80acf174c73c4bca7e0073677" kind="variable"><name>usable_base</name></member>
+    <member refid="structrad__a53__vm__summary_1a056928f0d62c42c9d4aa213190bb73ed" kind="variable"><name>usable_limit</name></member>
+    <member refid="structrad__a53__vm__summary_1a251cfb9d54d617c8e7a8d31e53a4fdce" kind="variable"><name>tracked_pages</name></member>
+    <member refid="structrad__a53__vm__summary_1aeb10c7c90012318a69ea8722491f2a97" kind="variable"><name>free_pages</name></member>
+    <member refid="structrad__a53__vm__summary_1aa056191c27a4dc5e98a5db6351c990df" kind="variable"><name>reserved_pages</name></member>
+    <member refid="structrad__a53__vm__summary_1aaf937649659fb4403c0d87750c37b44d" kind="variable"><name>hardware_mmu_enabled</name></member>
   </compound>
   <compound refid="structrad__audio__format" kind="struct"><name>rad_audio_format</name>
     <member refid="structrad__audio__format_1ab7cb5e55fe275bb3b07a29b0ace7bdb3" kind="variable"><name>sample_rate</name></member>
@@ -149,6 +177,10 @@
     <member refid="structrad__device__ops_1ab07d11b0b7518224275645d1820e781c" kind="variable"><name>read</name></member>
     <member refid="structrad__device__ops_1a17a502c9b57a12f2e10d8dc171230e2b" kind="variable"><name>write</name></member>
     <member refid="structrad__device__ops_1acd3b60c003cc2bad830ca1891aea9d13" kind="variable"><name>ioctl</name></member>
+  </compound>
+  <compound refid="structrad__dirent__user" kind="struct"><name>rad_dirent_user</name>
+    <member refid="structrad__dirent__user_1a6183e5ecf4120fcb37d62e312b7a0757" kind="variable"><name>type</name></member>
+    <member refid="structrad__dirent__user_1ae46c5bbf0d3558db6e25fe1beeb49705" kind="variable"><name>name</name></member>
   </compound>
   <compound refid="structrad__display__mode" kind="struct"><name>rad_display_mode</name>
     <member refid="structrad__display__mode_1a766affdbdde86da8b257c8a98647d02b" kind="variable"><name>width</name></member>
@@ -328,6 +360,13 @@
   <compound refid="structrad__kernel__config" kind="struct"><name>rad_kernel_config</name>
     <member refid="structrad__kernel__config_1a38b11e9cd8fd0465865af671eeb247da" kind="variable"><name>backend_name</name></member>
     <member refid="structrad__kernel__config_1a8f8047f6e69d1a473e29e76b0f1ba453" kind="variable"><name>boot_info</name></member>
+  </compound>
+  <compound refid="structrad__log__entry" kind="struct"><name>rad_log_entry</name>
+    <member refid="structrad__log__entry_1abee76f8314970fd2ca2691539f8586c0" kind="variable"><name>sequence</name></member>
+    <member refid="structrad__log__entry_1a757eb14fb22def55a89e7cf152ac1f05" kind="variable"><name>time_millis</name></member>
+    <member refid="structrad__log__entry_1a5b5deddf20979c4d4b8fb13015c6cd5e" kind="variable"><name>level</name></member>
+    <member refid="structrad__log__entry_1afb4cd74d109b0cf0c5b197f9abcf93d5" kind="variable"><name>category</name></member>
+    <member refid="structrad__log__entry_1acd6b81637d013164eee0088f2aeda693" kind="variable"><name>message</name></member>
   </compound>
   <compound refid="structrad__mac__address" kind="struct"><name>rad_mac_address</name>
     <member refid="structrad__mac__address_1a639752f5631246e0f14a84db98268ed2" kind="variable"><name>bytes</name></member>
@@ -702,6 +741,8 @@
   </compound>
   <compound refid="pi-zero2w_8md" kind="file"><name>pi-zero2w.md</name>
   </compound>
+  <compound refid="radbuild_8md" kind="file"><name>radbuild.md</name>
+  </compound>
   <compound refid="radcompositor_8md" kind="file"><name>radcompositor.md</name>
   </compound>
   <compound refid="radboot_8h" kind="file"><name>radboot.h</name>
@@ -860,6 +901,8 @@
     <member refid="radixkernel_8h_1a3494985a416735026b66bae405c7aa25" kind="define"><name>RAD_TIMER_NAME_MAX</name></member>
     <member refid="radixkernel_8h_1ab8295e12bd368978749b08cc05fb22c2" kind="define"><name>RAD_INPUT_QUEUE_NAME_MAX</name></member>
     <member refid="radixkernel_8h_1af56de6482eb4fa1261e7429099053a2c" kind="define"><name>RAD_WAIT_FOREVER</name></member>
+    <member refid="radixkernel_8h_1a33fc08ec83fbe384ebbe730a41e50291" kind="define"><name>RAD_LOG_CATEGORY_MAX</name></member>
+    <member refid="radixkernel_8h_1a257e8b2acaad524c4e28ad0b193dddf3" kind="define"><name>RAD_LOG_MESSAGE_MAX</name></member>
     <member refid="radixkernel_8h_1a4332981c0c5bce9b2b5693385120d39c" kind="define"><name>RAD_BOOT_MEMORY_USABLE</name></member>
     <member refid="radixkernel_8h_1a532793cf5432378492735696c42512f9" kind="define"><name>RAD_BOOT_MEMORY_RESERVED</name></member>
     <member refid="radixkernel_8h_1a87505ca38edf94f9cbe6c4d8377d3be8" kind="define"><name>RAD_BOOT_MEMORY_PSRAM</name></member>
@@ -881,6 +924,13 @@
     <member refid="radixkernel_8h_1aa694fb66cb1a6852963a4d4acd69ea0aa44d55fada7795537572a25542dfb480a" kind="enumvalue"><name>RAD_STATUS_NOT_SUPPORTED</name></member>
     <member refid="radixkernel_8h_1aa694fb66cb1a6852963a4d4acd69ea0aacbadda5f00d6916b443188c3a8504835" kind="enumvalue"><name>RAD_STATUS_ALREADY_EXISTS</name></member>
     <member refid="radixkernel_8h_1aa694fb66cb1a6852963a4d4acd69ea0aa04729699be9d6bcbe0ab4c605d149c83" kind="enumvalue"><name>RAD_STATUS_NOT_INITIALIZED</name></member>
+    <member refid="radixkernel_8h_1a758da4e81d6fa5df07791f71ece53046" kind="enum"><name>rad_log_level</name></member>
+    <member refid="radixkernel_8h_1a758da4e81d6fa5df07791f71ece53046ae1552d65d050b8685b27c05311b9f391" kind="enumvalue"><name>RAD_LOG_TRACE</name></member>
+    <member refid="radixkernel_8h_1a758da4e81d6fa5df07791f71ece53046a50d6a1db32ad6e6d662b0bb81306fb23" kind="enumvalue"><name>RAD_LOG_DEBUG</name></member>
+    <member refid="radixkernel_8h_1a758da4e81d6fa5df07791f71ece53046aa50aa991ab115ee6adbe82d1d6cf758e" kind="enumvalue"><name>RAD_LOG_INFO</name></member>
+    <member refid="radixkernel_8h_1a758da4e81d6fa5df07791f71ece53046a660651f4e0026bbb3c44080e9dc3bbb9" kind="enumvalue"><name>RAD_LOG_WARNING</name></member>
+    <member refid="radixkernel_8h_1a758da4e81d6fa5df07791f71ece53046a273a7c9354e2c69c34541042bca3f60c" kind="enumvalue"><name>RAD_LOG_ERROR</name></member>
+    <member refid="radixkernel_8h_1a758da4e81d6fa5df07791f71ece53046ab8646ce001e74d31179dcb58f5c0fed4" kind="enumvalue"><name>RAD_LOG_CRITICAL</name></member>
     <member refid="radixkernel_8h_1a777d9419bfdaee0a25e4cb87309221e2" kind="enum"><name>rad_posix_syscall</name></member>
     <member refid="radixkernel_8h_1a777d9419bfdaee0a25e4cb87309221e2ae820a793ed986a935a1a4087c3dbe903" kind="enumvalue"><name>RAD_SYSCALL_READ</name></member>
     <member refid="radixkernel_8h_1a777d9419bfdaee0a25e4cb87309221e2a2e8b7a50bb0bdbea7caf3789e3f3d3b4" kind="enumvalue"><name>RAD_SYSCALL_WRITE</name></member>
@@ -921,6 +971,14 @@
     <member refid="radixkernel_8h_1a777d9419bfdaee0a25e4cb87309221e2a5ff4ab54339829879289a262aac89a03" kind="enumvalue"><name>RAD_SYSCALL_MUNMAP</name></member>
     <member refid="radixkernel_8h_1a777d9419bfdaee0a25e4cb87309221e2a1b057f32624735a3155378eb9dec8d99" kind="enumvalue"><name>RAD_SYSCALL_SHM_OPEN</name></member>
     <member refid="radixkernel_8h_1a777d9419bfdaee0a25e4cb87309221e2a4ee78c91b9070ab9b1a68c35c58fcb7a" kind="enumvalue"><name>RAD_SYSCALL_SHM_UNLINK</name></member>
+    <member refid="radixkernel_8h_1a777d9419bfdaee0a25e4cb87309221e2a731aa982ceb7a114d7793ee48c5a4059" kind="enumvalue"><name>RAD_SYSCALL_GETDENTS</name></member>
+    <member refid="radixkernel_8h_1a777d9419bfdaee0a25e4cb87309221e2ab71e5c280c125e8ed0a9c1e4aff38b04" kind="enumvalue"><name>RAD_SYSCALL_REMOVE</name></member>
+    <member refid="radixkernel_8h_1a777d9419bfdaee0a25e4cb87309221e2ae82f460a91fef13c08a28d29fa0c78b6" kind="enumvalue"><name>RAD_SYSCALL_MKDIR</name></member>
+    <member refid="radixkernel_8h_1a777d9419bfdaee0a25e4cb87309221e2ae439e7735051cdb92c03cafd555bbaa0" kind="enumvalue"><name>RAD_SYSCALL_RMDIR</name></member>
+    <member refid="radixkernel_8h_1a777d9419bfdaee0a25e4cb87309221e2a046cbd3e21e5d63cd39ffdd930c16226" kind="enumvalue"><name>RAD_SYSCALL_RENAME</name></member>
+    <member refid="radixkernel_8h_1a777d9419bfdaee0a25e4cb87309221e2a5de5392f0823025249eaa65f7515677b" kind="enumvalue"><name>RAD_SYSCALL_TRUNCATE</name></member>
+    <member refid="radixkernel_8h_1a777d9419bfdaee0a25e4cb87309221e2a09cc10c3c14a563168201f73457b7074" kind="enumvalue"><name>RAD_SYSCALL_LOG_READ</name></member>
+    <member refid="radixkernel_8h_1a777d9419bfdaee0a25e4cb87309221e2a24a1edd6bac6a8f0c3db6a98cff8d567" kind="enumvalue"><name>RAD_SYSCALL_LOG_FLUSH</name></member>
     <member refid="radixkernel_8h_1ac625d0dd385950942d5216656f6ad50d" kind="enum"><name>rad_process_state</name></member>
     <member refid="radixkernel_8h_1ac625d0dd385950942d5216656f6ad50da37fe6d9c79793cbb42b077dd55588fad" kind="enumvalue"><name>RAD_PROCESS_RUNNING</name></member>
     <member refid="radixkernel_8h_1ac625d0dd385950942d5216656f6ad50da25554b41113284fd7736d75fa3ac213b" kind="enumvalue"><name>RAD_PROCESS_WAITING</name></member>
@@ -931,6 +989,7 @@
     <member refid="radixkernel_8h_1ae76631a4c448d9e72b2bab8756348deaa8453791acde0aa33e6ff2436fd7b5cab" kind="enumvalue"><name>RAD_VFS_CREATE</name></member>
     <member refid="radixkernel_8h_1ae76631a4c448d9e72b2bab8756348deaab41be8734d00ca4c83b335bd9907766d" kind="enumvalue"><name>RAD_VFS_TRUNCATE</name></member>
     <member refid="radixkernel_8h_1ae76631a4c448d9e72b2bab8756348deaa919b94b1e57324e993dd8a9e4a606917" kind="enumvalue"><name>RAD_VFS_APPEND</name></member>
+    <member refid="radixkernel_8h_1ae76631a4c448d9e72b2bab8756348deaa82b5b061383b4865a0d63f55876ac8c0" kind="enumvalue"><name>RAD_VFS_DIRECTORY</name></member>
     <member refid="radixkernel_8h_1a14c06d6f6b4947c57af9c796b5e2d275" kind="enum"><name>rad_seek_origin</name></member>
     <member refid="radixkernel_8h_1a14c06d6f6b4947c57af9c796b5e2d275ac70705612f6816c77878314f0af78691" kind="enumvalue"><name>RAD_SEEK_SET</name></member>
     <member refid="radixkernel_8h_1a14c06d6f6b4947c57af9c796b5e2d275a3538ecd4e8bafd0282b508b424ff2abd" kind="enumvalue"><name>RAD_SEEK_CUR</name></member>
@@ -1079,6 +1138,7 @@
     <member refid="radixkernel_8h_1adcf6367a73941b34af98086ca04208a7aece35909c781481a00c5e80756849839" kind="enumvalue"><name>RAD_SERVICE_FAILED</name></member>
     <member refid="radixkernel_8h_1adcf6367a73941b34af98086ca04208a7af5477a297e1ff518454153b10bc5adfd" kind="enumvalue"><name>RAD_SERVICE_STOPPED</name></member>
     <member refid="radixkernel_8h_1aeb7c981d4b5f029daa65d3b928bab127" kind="typedef"><name>rad_status_t</name></member>
+    <member refid="radixkernel_8h_1ae51a389dfa5bb506690583671eba120a" kind="typedef"><name>rad_log_level_t</name></member>
     <member refid="radixkernel_8h_1aaf1f287c1e61f3776faa6c6bc2b769e9" kind="typedef"><name>rad_posix_syscall_t</name></member>
     <member refid="radixkernel_8h_1a1985677615ed0bc7e6ed9e809fe1e639" kind="typedef"><name>rad_process_state_t</name></member>
     <member refid="radixkernel_8h_1a25aeeced3d96907babbde68432bca321" kind="typedef"><name>rad_vfs_open_flags_t</name></member>
@@ -1133,6 +1193,7 @@
     <member refid="radixkernel_8h_1a2a966c8f5814f399d63caff136290580" kind="typedef"><name>rad_process_info_t</name></member>
     <member refid="radixkernel_8h_1ab74da7ea675a8aac81707071e2b689c7" kind="typedef"><name>rad_process_arch_ops_t</name></member>
     <member refid="radixkernel_8h_1af9760be5f1fd89dc6031e51a551c8a25" kind="typedef"><name>rad_vfs_dirent_t</name></member>
+    <member refid="radixkernel_8h_1aac504fb40488dd588340cbcd07e11cd6" kind="typedef"><name>rad_dirent_user_t</name></member>
     <member refid="radixkernel_8h_1a3970575968ce53bf5dbf9f8b8c4b9cba" kind="typedef"><name>rad_vfs_list_callback_t</name></member>
     <member refid="radixkernel_8h_1ad036bb8dee779512b8c781b7e57228a8" kind="typedef"><name>rad_vfs_backend_ops_t</name></member>
     <member refid="radixkernel_8h_1a4a7194a8f4ef7aeff150e3984239af46" kind="typedef"><name>rad_program_state_t</name></member>
@@ -1202,6 +1263,7 @@
     <member refid="radixkernel_8h_1ad3fc4d21810b665c46f1a5f28686036f" kind="typedef"><name>rad_tty_t</name></member>
     <member refid="radixkernel_8h_1a285fba0e7a32820cb932bf614122b7b4" kind="typedef"><name>rad_pty_t</name></member>
     <member refid="radixkernel_8h_1afc83eb6a9c61f783ee4ca1ec9873ae3b" kind="typedef"><name>rad_tty_window_size_t</name></member>
+    <member refid="radixkernel_8h_1a7634dfcf1d90314a3018dfdc038452f9" kind="typedef"><name>rad_log_entry_t</name></member>
     <member refid="radixkernel_8h_1a0464ae9d92f6b0c74daf6f4e7400f57c" kind="function"><name>rad_kernel_init</name></member>
     <member refid="radixkernel_8h_1af78d5a597506f6df6b65818d8747356f" kind="function"><name>rad_kernel_shutdown</name></member>
     <member refid="radixkernel_8h_1a87c777047068df479a93bc308c7dbbac" kind="function"><name>rad_kernel_is_initialized</name></member>
@@ -1216,6 +1278,9 @@
     <member refid="radixkernel_8h_1ae119b4315af54b3fb453732c432900fd" kind="function"><name>rad_early_vprintk</name></member>
     <member refid="radixkernel_8h_1adb179e7f1a5adcbcdccc80a71fe48c81" kind="function"><name>rad_early_printk</name></member>
     <member refid="radixkernel_8h_1a4d079e0dfecaa08b2b4f473c867e85ff" kind="function"><name>rad_debug_marker</name></member>
+    <member refid="radixkernel_8h_1a67462f7be4e7f2bb8007bd7bc3907c69" kind="function"><name>rad_log_write</name></member>
+    <member refid="radixkernel_8h_1aa71ac27cc10671a90ffe18386ef57d2f" kind="function"><name>rad_log_read</name></member>
+    <member refid="radixkernel_8h_1a048e6c9616eeb58d64a03ac188369bb8" kind="function"><name>rad_log_flush_to_path</name></member>
     <member refid="radixkernel_8h_1a4e7fd63dfb850458729de57bccc63b34" kind="function"><name>rad_cpu_interrupts_enable</name></member>
     <member refid="radixkernel_8h_1a3550bde710304a54273f93374a30a6b3" kind="function"><name>rad_cpu_interrupts_disable</name></member>
     <member refid="radixkernel_8h_1ab50b14550381993540d9ee0868a75de7" kind="function"><name>rad_cpu_interrupts_enabled</name></member>
@@ -1319,6 +1384,7 @@
     <member refid="radixkernel_8h_1a0d3fbf1529766f273be535bf300d243b" kind="function"><name>rad_module_list</name></member>
     <member refid="radixkernel_8h_1a439b427343fabc195643b177b4919ee9" kind="function"><name>rad_service_register</name></member>
     <member refid="radixkernel_8h_1a78810c447560314a6b154657e24af865" kind="function"><name>rad_service_unregister</name></member>
+    <member refid="radixkernel_8h_1a9a9aef6d464fe8522184855aea62f359" kind="function"><name>rad_service_configure</name></member>
     <member refid="radixkernel_8h_1aec979bcddf06a1b809eed5035621730e" kind="function"><name>rad_service_configure_tree</name></member>
     <member refid="radixkernel_8h_1a325239bb2603128d63d38e09f0945451" kind="function"><name>rad_service_start</name></member>
     <member refid="radixkernel_8h_1afe134eba7603c5ddd61335bf1cb8ac23" kind="function"><name>rad_service_stop</name></member>
@@ -1343,6 +1409,7 @@
     <member refid="radixkernel_8h_1a87e8a52f0644c94d2e297f331dcdce70" kind="function"><name>rad_fd_write</name></member>
     <member refid="radixkernel_8h_1a75e350714de1d14bce229445c6e0797b" kind="function"><name>rad_fd_lseek</name></member>
     <member refid="radixkernel_8h_1ab5c1f45f94204a9d4bd5c1bb7d96e3a2" kind="function"><name>rad_fd_ioctl</name></member>
+    <member refid="radixkernel_8h_1a6d5908cd01a5d50c461b9ce00c6c2d45" kind="function"><name>rad_fd_getdents</name></member>
     <member refid="radixkernel_8h_1a8788292ada81ea4050e58d87336a19ad" kind="function"><name>rad_fd_stat</name></member>
     <member refid="radixkernel_8h_1a2c1d6680b8f652013c12a268a3906e1e" kind="function"><name>rad_fd_fstat</name></member>
     <member refid="radixkernel_8h_1a15b47219890573a94088ce94d553355c" kind="function"><name>rad_fd_dup</name></member>
@@ -1497,8 +1564,33 @@
   </compound>
   <compound refid="radixkernel__a53_8h" kind="file"><name>radixkernel_a53.h</name>
     <member refid="radixkernel__a53_8h_1a425b406dbe151134cc472989af2fc2c0" kind="typedef"><name>rad_a53_capabilities_t</name></member>
+    <member refid="radixkernel__a53_8h_1a27fc0b85f035877550d64c8d8848d50b" kind="typedef"><name>rad_a53_vm_summary_t</name></member>
+    <member refid="radixkernel__a53_8h_1ac5048be74e2fa692f279319fd1a68322" kind="typedef"><name>rad_a53_address_space_t</name></member>
+    <member refid="radixkernel__a53_8h_1a95015c7daec8da01a8689f400a0fe47f" kind="typedef"><name>rad_a53_trap_frame_t</name></member>
     <member refid="radixkernel__a53_8h_1a0897912b66bbde7bd3fa447bf18e8734" kind="function"><name>rad_a53_note_boot_normalized</name></member>
     <member refid="radixkernel__a53_8h_1ab0abbf9676da8650cada7b4208f25a33" kind="function"><name>rad_a53_platform_init</name></member>
+    <member refid="radixkernel__a53_8h_1a62e9d90ef51e3837dc44245f6f58a94a" kind="function"><name>rad_a53_vm_init</name></member>
+    <member refid="radixkernel__a53_8h_1a482492e991da2b68ec863daed8e09ebc" kind="function"><name>rad_a53_vm_alloc_page</name></member>
+    <member refid="radixkernel__a53_8h_1a1d12069084c11377bc75c316db67526a" kind="function"><name>rad_a53_vm_retain_page</name></member>
+    <member refid="radixkernel__a53_8h_1a7d91ad8fbd7b35548648d1f3a915c95d" kind="function"><name>rad_a53_vm_free_page</name></member>
+    <member refid="radixkernel__a53_8h_1ab2469dbf3f32cc9cee245cef47971adc" kind="function"><name>rad_a53_create_address_space</name></member>
+    <member refid="radixkernel__a53_8h_1ab004e337a39f37bbb658ceba4b46a88a" kind="function"><name>rad_a53_destroy_address_space</name></member>
+    <member refid="radixkernel__a53_8h_1a8ad55cf601081bab6919118055be75b2" kind="function"><name>rad_a53_activate_address_space</name></member>
+    <member refid="radixkernel__a53_8h_1a265cb7a7e4a3f5a2b12cef02554aa00c" kind="function"><name>rad_a53_activate_kernel_address_space</name></member>
+    <member refid="radixkernel__a53_8h_1adf6a8cea216e3aff017eec9cb040b5f6" kind="function"><name>rad_a53_map_user_page</name></member>
+    <member refid="radixkernel__a53_8h_1a01d02e90da1ce9aeb0b349ae961d36d5" kind="function"><name>rad_a53_clone_cow</name></member>
+    <member refid="radixkernel__a53_8h_1ad04cf5f4653fd090ee60265e363168ae" kind="function"><name>rad_a53_handle_data_abort</name></member>
+    <member refid="radixkernel__a53_8h_1afd2aa3698afadc99805ee3403e41ceed" kind="function"><name>rad_a53_validate_user_range</name></member>
+    <member refid="radixkernel__a53_8h_1a30cf570372b1cedd24e2242d13ec7704" kind="function"><name>rad_a53_copy_from_user</name></member>
+    <member refid="radixkernel__a53_8h_1ad407c47306021d792d47aa2d7ba4397e" kind="function"><name>rad_a53_copy_to_user</name></member>
+    <member refid="radixkernel__a53_8h_1a196bc6bc7173baf66e48a746a6844b23" kind="function"><name>rad_a53_copy_string_from_user</name></member>
+    <member refid="radixkernel__a53_8h_1ae600124ae09f34eeb31c99da00a9ea85" kind="function"><name>rad_a53_syscall_dispatch_frame</name></member>
+    <member refid="radixkernel__a53_8h_1a2a5be90ecf2bb608388edc037ab7eaac" kind="function"><name>rad_a53_syscall_dispatch</name></member>
+    <member refid="radixkernel__a53_8h_1abe8e3aaf4f94ffa1a34bad965c713ef3" kind="function"><name>rad_a53_user_spawn_process</name></member>
+    <member refid="radixkernel__a53_8h_1a1fe2f33bb91d5d6ed68b2d728f30048a" kind="function"><name>rad_a53_user_spawn_process_with_stdio</name></member>
+    <member refid="radixkernel__a53_8h_1a5f460ea66c5b50458b36d5573b94e498" kind="function"><name>rad_a53_user_run_init</name></member>
+    <member refid="radixkernel__a53_8h_1a825ee48cebae7461b1dab2584e1c1cf9" kind="function"><name>rad_a53_exception_dispatch</name></member>
+    <member refid="radixkernel__a53_8h_1a27317de5ab1716743de94e6971b35b47" kind="function"><name>rad_a53_enter_user_context</name></member>
     <member refid="radixkernel__a53_8h_1a922cfdcacd8c9ba66813953cd3c63f95" kind="function"><name>rad_a53_process_arch_init</name></member>
     <member refid="radixkernel__a53_8h_1a8a3e0c12140f9ec58db57f3b4d2271ec" kind="function"><name>rad_a53_get_capabilities</name></member>
     <member refid="radixkernel__a53_8h_1afa2dbd53c46ddb930934212b26d71389" kind="function"><name>rad_a53_process_self_test</name></member>
@@ -1521,6 +1613,8 @@
   <compound refid="networking" kind="page"><name>networking</name>
   </compound>
   <compound refid="pi_zero2w" kind="page"><name>pi_zero2w</name>
+  </compound>
+  <compound refid="radbuild_integration" kind="page"><name>radbuild_integration</name>
   </compound>
   <compound refid="radcompositor" kind="page"><name>radcompositor</name>
   </compound>

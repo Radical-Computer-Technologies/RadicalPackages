@@ -88,7 +88,7 @@ $(document).ready(function(){initNavTree('md__media_jvincent_Kingspec512_repos_R
 <div class="title">RADix Platform Layout </div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><p><code>platforms/a53</code> contains portable ARMv8-A/Cortex-A53 execution support: boot normalization contracts, process architecture registration, user-copy/MMU/COW interfaces, and generic A53 capability reporting. Code in this directory must not depend on Broadcom peripheral addresses.</p>
+<div class="textblock"><p><code>platforms/a53</code> contains portable ARMv8-A/Cortex-A53 execution support: boot normalization contracts, 4 KiB page-table setup, TTBR0 process roots, TTBR1 kernel-root setup, process architecture registration, user-copy/COW interfaces, and generic A53 capability reporting. Code in this directory must not depend on Broadcom peripheral addresses.</p>
 <p><code>platforms/a53/bcm283x</code> contains Raspberry Pi Zero 2 W / BCM283x platform drivers: PL011, mailbox framebuffer, Broadcom interrupt routing, eMMC, DWC OTG, and handoff binding.</p>
 <p><code>platforms/x86</code> is reserved for the x86 parity implementation. The current x86 VM target still builds from <code>tools/embedded/x86_64_grub_slint</code>; files should move here once the target wrapper is thin enough to avoid changing behavior during the Pi parity work. </p>
 </div></div><!-- contents -->

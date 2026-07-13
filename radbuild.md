@@ -13,10 +13,10 @@
     <div class="eyebrow">Experimental Build Framework</div>
     <h1>RadBuild Packages</h1>
     <p class="lead">
-      RadBuild is the graph-based build framework for FPGA, Linux, firmware, software, package, deployment, VSCode, and optional server workflows.
+      RadBuild is the graph-based build framework for FPGA, Linux, firmware, software, package, deployment, RADix-OS image, VSCode, and optional server workflows.
     </p>
     <div class="status-row">
-      <span class="pill"><strong>Version:</strong> 0.2.0</span>
+      <span class="pill"><strong>Version:</strong> 0.2.1</span>
       <span class="pill"><strong>Suite:</strong> experimental</span>
       <span class="pill"><strong>Architecture:</strong> all</span>
     </div>
@@ -35,6 +35,7 @@ sudo apt install radbuild-radhdl radbuild-server radbuild-vscode-support radbuil
       <h2>Commands</h2>
       <div class="package-list">
         <div class="package"><code>radbuild project validate</code><br><span>Validate graph settings.</span></div>
+        <div class="package"><code>radbuild build os --json-events</code><br><span>Build and smoke RADix-OS images.</span></div>
         <div class="package"><code>radbuild build all --json-events</code><br><span>Run graph builds with machine-readable progress.</span></div>
         <div class="package"><code>radbuild-graph</code><br><span>Inspect dependency order.</span></div>
         <div class="package"><code>radbuild-hdlgen</code><br><span>Browse/generate RadHDL assets.</span></div>
@@ -63,6 +64,7 @@ sudo apt install radbuild-radhdl radbuild-server radbuild-vscode-support radbuil
         <a class="link-card" href="debian/pool/main/r/radbuild/"><strong>radbuild Pool</strong><span>Published CLI package</span></a>
         <a class="link-card" href="debian/pool/main/r/radbuild-radhdl/"><strong>radbuild-radhdl Pool</strong><span>Published RadHDL package</span></a>
         <a class="link-card" href="debian/pool/main/r/radbuild-server/"><strong>radbuild-server Pool</strong><span>Published server package</span></a>
+        <a class="link-card" href="docs/radbuild/0.2.1/"><strong>RadBuild 0.2.1 Docs</strong><span>Graph, package, VSCode, and RADix-OS build documentation</span></a>
       </div>
   </details>
 
@@ -70,6 +72,7 @@ sudo apt install radbuild-radhdl radbuild-server radbuild-vscode-support radbuil
       <h2>Related Packages</h2>
       <div class="links">
         <a class="link-card" href="radlib.html"><strong>RADLib</strong><span>Runtime libraries consumed by target systems</span></a>
+        <a class="link-card" href="radix-os.html"><strong>RADix-OS</strong><span>Experimental OS image and kernel API track</span></a>
         <a class="link-card" href="radbard.html"><strong>RADBard</strong><span>Experimental application package track</span></a>
       </div>
   </section>

@@ -82,12 +82,12 @@ Current module package names include `radlib-core`, `radlib-ui`, `radlib-net`, `
 
 ## Experimental Packages
 
-Experimental packages are allowed to move faster than stable. RADBard and RadBuild live here while they are still beta, and RADLib `0.1.1` development packages should be published here until promoted.
+Experimental packages are allowed to move faster than stable. RADBard, RadBuild, and RADix-OS documentation live here while they are still beta, and RADLib `0.1.1` development packages should be published here until promoted.
 
 | Package | Description | Install |
 | --- | --- | --- |
 | `radbard` | RADBard music and audio composition suite beta. | `sudo apt install radbard` |
-| `radbuild` | Graph-based embedded-system build framework CLI. | `sudo apt install radbuild` |
+| `radbuild` | Graph-based embedded-system build framework CLI with RADix-OS image provider support. | `sudo apt install radbuild` |
 | `radbuild-radhdl` | Packaged RadHDL catalog and source assets for RadBuild. | `sudo apt install radbuild-radhdl` |
 | `radbuild-server` | Optional RadBuild server, client, worker, and review DB tools. | `sudo apt install radbuild-server` |
 | `radbuild-vscode-support` | VSCode extension source and compiled support files for RadBuild. | `sudo apt install radbuild-vscode-support` |
@@ -98,7 +98,9 @@ Experimental packages are allowed to move faster than stable. RADBard and RadBui
 
 - [Documentation Index](docs/)
 - [RADLib 0.1.0 API Documentation](docs/radlib/0.1.0/api/)
-- [RadHDL 0.2.0 Documentation](docs/radhdl/0.2.0/)
+- [RadHDL 0.2.1 Documentation](docs/radhdl/0.2.1/)
+- [RadBuild 0.2.1 Documentation](docs/radbuild/0.2.1/)
+- [RADix-OS Crimson 0.1.0 API Documentation](docs/radix-os/0.1.0/api/)
 
 Documentation is organized by product, release channel, and major version family. Use exact version paths such as `docs/radlib/0.1.0/` and `docs/radhdl/0.2.0/`; newer exact versions supersede older versions without a `current` alias.
 
@@ -114,7 +116,9 @@ debian/
   suites/
 docs/
   radlib/0.1.0/api/
-  radhdl/0.2.0/
+  radhdl/0.2.1/
+  radbuild/0.2.1/
+  radix-os/0.1.0/api/
 scripts/
   update_debian_repo.sh
   update_radlib_docs.sh
@@ -136,4 +140,11 @@ Regenerate RADLib Doxygen documentation:
 ```bash
 scripts/update_radlib_docs.sh ../RADLib
 scripts/update_radlib_docs.sh ../RADLib 0.1.0
+```
+
+Regenerate RADix-OS and RadBuild documentation:
+
+```bash
+scripts/update_radix_docs.sh ../RADix-OS 0.1.0
+scripts/update_radbuild_docs.sh ../RadBuild 0.2.1
 ```
