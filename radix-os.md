@@ -71,6 +71,7 @@ radbuild build os --settings settings.wm.json --json-events</code></div>
     <p>RadicalPackages hosts RADix <code>.radpm</code> metadata and release archives beside Debian packages. In this release line, RadBuild is the installer: it resolves package metadata and stages package archives into generated root filesystems.</p>
     <div class="package-list">
       <a class="package package-link" href="radpm/dists/experimental/main/packages.json"><code>radix-core</code><span>Core RADix userspace layout and boot support metadata.</span></a>
+      <a class="package package-link" href="radpm/dists/experimental/main/packages.json"><code>radix-vim-tiny</code><span>Tiny upstream Vim port metadata, RADix defaults, and Vim license for terminal images.</span></a>
       <a class="package package-link" href="radpm/dists/experimental/main/packages.json"><code>radlib</code><span>RADLib aggregate metadata for future RADix userspace and service packages.</span></a>
       <a class="package package-link" href="radpm/dists/experimental/main/packages.json"><code>radlib-runtime</code><span>RADLib runtime package metadata for generated RADix root filesystems.</span></a>
       <a class="package package-link" href="radpm/dists/experimental/main/packages.json"><code>radlib-ui</code><span>RADLib UI and Slint-facing metadata for RADix OS builds.</span></a>

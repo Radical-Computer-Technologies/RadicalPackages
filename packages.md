@@ -73,8 +73,9 @@
       <details class="doc-release" data-search-item data-search-text="radix os experimental crimson 0.1.0 kernel vm image x86 slint posix radbuild docs radpm package repository">
         <summary>RADix-OS 0 - Crimson</summary>
         <div class="package-list">
-          <a class="package package-link" href="radix-os.html"><code>RADix OS</code><span>Experimental OS hub, kernel API documentation, and VM image build path.</span></a>
-          <a class="package package-link" href="radix-os.html"><code>docs/radix-os/0.1.0</code><span>Published Crimson kernel API documentation.</span></a>
+      <a class="package package-link" href="radix-os.html"><code>RADix OS</code><span>Experimental OS hub, kernel API documentation, and VM image build path.</span></a>
+      <a class="package package-link" href="radix-os.html"><code>docs/radix-os/0.1.0</code><span>Published Crimson kernel API documentation.</span></a>
+      <a class="package package-link" href="radix-os.html"><code>radix-vim-tiny</code><span>Tiny upstream Vim package for RADix terminal root filesystems.</span></a>
         </div>
       </details>
       <details class="doc-release" data-search-item data-search-text="radbard experimental 0.1.0 beta music audio composition editor notation mixer automation daw amd64 radlib ui media dsp">
@@ -98,6 +99,7 @@
     <p>RADix packages use <code>.radpm</code> records with release-hosted archives. RadBuild is currently the installer for generated RADix root filesystems; in-OS package management is not enabled yet.</p>
     <div class="package-list">
       <a class="package package-link" href="radpm/dists/experimental/main/packages.json"><code>radix-core</code><span>Core RADix userspace layout and boot support metadata.</span></a>
+      <a class="package package-link" href="radpm/dists/experimental/main/packages.json"><code>radix-vim-tiny</code><span>Tiny upstream Vim port metadata, RADix defaults, and Vim license for terminal images.</span></a>
       <a class="package package-link" href="radpm/dists/experimental/main/packages.json"><code>radlib</code><span>RADLib aggregate metadata for future RADix OS userspace and services.</span></a>
       <a class="package package-link" href="radpm/dists/experimental/main/packages.json"><code>radlib-runtime</code><span>RADLib runtime metadata for generated RADix root filesystems.</span></a>
       <a class="package package-link" href="radpm/dists/experimental/main/packages.json"><code>radlib-ui</code><span>RADLib UI and Slint-facing metadata for RADix OS builds.</span></a>
