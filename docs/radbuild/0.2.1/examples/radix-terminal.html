@@ -63,7 +63,9 @@
   &quot;packages&quot;: {}
 }</code></pre>
 <h2>Commands</h2>
-<pre><code>radbuild build os --settings settings.json --json-events</code></pre>
+<pre><code>radbuild project create ./workspace --non-interactive --template radix-os-terminal --project-name radix-terminal
+radbuild menuconfig --settings ./workspace/radix-terminal/settings.json --list
+radbuild build os --settings settings.json --json-events</code></pre>
 <h2>Expected Artifacts</h2>
 <pre><code>artifacts/radix/x86_64-grub-terminal/radixkernel-x86-64-grub-terminal.iso
 artifacts/radix/x86_64-grub-terminal/radix-rootfs.ext4

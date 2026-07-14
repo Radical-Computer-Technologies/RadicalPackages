@@ -25,6 +25,8 @@
 <h1>Reference</h1>
 <h2>Core Commands</h2>
 <pre><code>radbuild project create ./workspace --non-interactive --project-name demo
+radbuild project create --list-templates
+radbuild project create ./workspace --non-interactive --template fpga-mpsoc-buildroot --project-name demo
 radbuild project validate --settings ./workspace/demo/settings.json
 radbuild graph --settings settings.json --json
 radbuild generate --settings settings.json
@@ -56,6 +58,15 @@ radbuild deploy --settings settings.json --json-events</code></pre>
 <li><code>firmware.generic</code></li>
 <li><code>package.debian</code></li>
 </ul>
+<h2>Packaged Project Templates</h2>
+<ul>
+<li><code>fpga-vivado</code></li>
+<li><code>fpga-mpsoc-petalinux</code></li>
+<li><code>fpga-mpsoc-buildroot</code></li>
+<li><code>radix-os-terminal</code></li>
+<li><code>radix-os-wm</code></li>
+</ul>
+<p>Use <code>radbuild project create --list-templates --json</code> for machine-readable template metadata.</p>
 <h2>JSON Events</h2>
 <p>Build commands with <code>--json-events</code> emit line-delimited JSON for IDEs and automation. Consumers should read stdout one line at a time and treat unknown event fields as forward-compatible metadata.</p>
   </article>

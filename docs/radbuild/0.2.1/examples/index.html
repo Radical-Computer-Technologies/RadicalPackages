@@ -24,6 +24,11 @@
   <article class="card doc-content">
 <h1>Examples</h1>
 <p>These examples are intentionally small and copyable. Each one includes a valid schema v2 JSON file, commands, expected output shape, and artifact notes.</p>
+<p>Start by listing packaged templates:</p>
+<pre><code>radbuild project create --list-templates</code></pre>
+<p>Then create a project from a template and generate provider assets:</p>
+<pre><code>radbuild project create ./workspace --non-interactive --template fpga-mpsoc-buildroot --project-name demo
+radbuild generate --settings ./workspace/demo/settings.json</code></pre>
 <ul>
 <li><a href="fpga-vivado.html">FPGA Vivado Project</a></li>
 <li><a href="fpga-mpsoc.html">FPGA + PetaLinux MPSoC Project</a></li>

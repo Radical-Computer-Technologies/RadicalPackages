@@ -39,13 +39,16 @@
 <li><a href="os-builds.html">OS Builds</a></li>
 <li><a href="packaging.html">Packaging</a></li>
 <li><a href="examples/index.html">Examples</a></li>
+<li><a href="settings-fields.html">Settings Fields</a></li>
 <li><a href="reference.html">Reference</a></li>
 <li><a href="compatibility.html">Compatibility Appendix</a></li>
 </ul>
 <h2>Quick Start</h2>
 <pre><code>sudo apt install ./radbuild_0.2.1_amd64.deb
-radbuild project create ./workspace --non-interactive --project-name demo --project-type FPGA-MPSoC
+radbuild project create --list-templates
+radbuild project create ./workspace --non-interactive --template fpga-mpsoc-buildroot --project-name demo
 radbuild project validate --settings ./workspace/demo/settings.json
+radbuild generate --settings ./workspace/demo/settings.json
 radbuild build all --settings ./workspace/demo/settings.json --dry-run --json-events</code></pre>
 <p>Expected dry-run output begins with JSON events:</p>
 <pre><code>{&quot;event&quot;:&quot;build_started&quot;,&quot;systems&quot;:2}

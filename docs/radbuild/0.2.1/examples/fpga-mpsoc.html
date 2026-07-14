@@ -58,7 +58,9 @@
   &quot;packages&quot;: {}
 }</code></pre>
 <h2>Commands</h2>
-<pre><code>radbuild graph --settings settings.json --json
+<pre><code>radbuild project create ./workspace --non-interactive --template fpga-mpsoc-petalinux --project-name mpsoc-demo
+radbuild graph --settings settings.json --json
+radbuild generate --settings settings.json
 radbuild build all --settings settings.json --dry-run --json-events</code></pre>
 <h2>Expected Output</h2>
 <pre><code>{&quot;event&quot;:&quot;system_planned&quot;,&quot;system&quot;:&quot;vivado&quot;,&quot;type&quot;:&quot;fpga.vivado&quot;}

@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Settings Fields</title>
+  <link rel="stylesheet" href="../../../assets/site.css">
+</head>
+<body>
+<main class="page">
+  <nav class="nav">
+    <a class="brand" href="../../../"><img src="../../../assets/rad-logo.png" alt="">Radical Packages</a>
+    <div class="nav-links">
+      <a href="../../../">Home</a>
+      <a href="../../../packages.html">Packages</a>
+      <a href="../../../radix-os.html">RADix OS</a>
+      <a href="../../../docs/">Docs</a>
+    </div>
+  </nav>
+  <section class="hero compact-hero">
+    <div class="eyebrow">RadBuild 0.2.1</div>
+    <h1>Settings Fields</h1>
+  </section>
+  <article class="card doc-content">
+<h1>Settings Fields</h1>
+<p>RadBuild projects use <code>settings.json</code> with schema v2. Packaged templates live in the RadBuild payload and are selected by <code>radbuild project create --template</code>.</p>
+<h2>Top-Level Fields</h2>
+<ul>
+<li><code>radbuild_schema</code>: required schema identifier. Use <code>2.0</code>.</li>
+<li><code>radbuild_version</code>: required RadBuild implementation version. Use <code>0.2.1</code>.</li>
+<li><code>project_name</code>: required project name.</li>
+<li><code>systems</code>: required build graph node array.</li>
+<li><code>connections</code>: required graph connection metadata array. May be empty.</li>
+<li><code>artifacts</code>: required expected artifact metadata array. May be empty.</li>
+<li><code>deploy</code>: required deployment metadata array. May be empty.</li>
+<li><code>packages</code>: required package metadata object. May be empty.</li>
+<li><code>legacy</code>: optional compatibility metadata for migrated projects.</li>
+</ul>
+<h2>System Fields</h2>
+<ul>
+<li><code>id</code>: unique system id used by <code>depends_on</code> and <code>--system</code>.</li>
+<li><code>type</code>: namespaced system type such as <code>fpga.vivado</code>, <code>linux.buildroot</code>, <code>os.radix</code>, or <code>package.debian</code>.</li>
+<li><code>name</code>: display name.</li>
+<li><code>provider</code>: provider implementation name.</li>
+<li><code>depends_on</code>: array of system ids this system depends on.</li>
+<li><code>toolchain</code>: toolchain/platform metadata.</li>
+<li><code>config</code>: provider-specific settings.</li>
+<li><code>hdl</code>: optional HDL instance metadata for FPGA systems.</li>
+</ul>
+<h2>Common Config Fields</h2>
+<ul>
+<li><code>version</code>: tool, package, or image version.</li>
+<li><code>project_name</code>: provider-local project name.</li>
+<li><code>source_dir</code>: source directory for software providers.</li>
+<li><code>binary</code>: expected binary name for software providers.</li>
+<li><code>artifact_dir</code>: copied artifact output directory.</li>
+<li><code>log_dir</code>: provider log directory.</li>
+</ul>
+<h2>Provider Config Fields</h2>
+<ul>
+<li><code>fpga.vivado.part_number</code>: Vivado part number.</li>
+<li><code>fpga.vivado.testbench_stop_time</code>: HDL simulation stop time.</li>
+<li><code>linux.petalinux.target_ip</code>: deploy target address.</li>
+<li><code>linux.petalinux.modules</code>: kernel module list.</li>
+<li><code>linux.petalinux.firmware</code>: firmware file globs.</li>
+<li><code>linux.petalinux.xsa_dir</code>: hardware handoff directory.</li>
+<li><code>linux.petalinux.template</code>: PetaLinux template such as <code>zynqMP</code>.</li>
+<li><code>linux.petalinux.bsp_release_dir</code>: BSP release directory.</li>
+<li><code>linux.petalinux.fast_update_dir</code>: fast update deploy directory.</li>
+<li><code>linux.buildroot.board</code>: board/platform label.</li>
+<li><code>linux.buildroot.external_tree</code>: generated Buildroot external tree path.</li>
+<li><code>linux.yocto.layer</code>: generated Yocto layer.</li>
+<li><code>os.radix.target</code>: RADix build target.</li>
+<li><code>os.radix.ui_profile</code>: RADix UI profile such as <code>terminal</code> or <code>wm</code>.</li>
+<li><code>os.radix.feature_chunks</code>: RADix kernel/userspace chunks.</li>
+<li><code>os.radix.rkconfig</code>: RADix runtime kernel/image configuration.</li>
+<li><code>os.radix.radpm</code>: RADix package repository, suite, and packages.</li>
+<li><code>os.radix.build_dir</code>: RADix build output directory.</li>
+<li><code>os.radix.smoke_script</code>: script invoked by RadBuild.</li>
+<li><code>os.radix.qemu_smp</code>: QEMU SMP counts used by smoke testing.</li>
+<li><code>os.radix.skip_qemu</code>: skip VM execution when true.</li>
+</ul>
+<p>The machine-readable catalog is packaged as <code>radbuild/schemas/project-fields-v0.2.1.json</code>.</p>
+  </article>
+</main>
+</body>
+</html>

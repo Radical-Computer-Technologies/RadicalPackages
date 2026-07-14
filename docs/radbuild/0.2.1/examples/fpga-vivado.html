@@ -47,7 +47,9 @@
   &quot;packages&quot;: {}
 }</code></pre>
 <h2>Commands</h2>
-<pre><code>radbuild project validate --settings settings.json
+<pre><code>radbuild project create ./workspace --non-interactive --template fpga-vivado --project-name fpga-vivado-demo
+radbuild project validate --settings settings.json
+radbuild generate --settings settings.json
 radbuild build fpga --settings settings.json --dry-run --json-events</code></pre>
 <h2>Expected Output</h2>
 <pre><code>{&quot;event&quot;:&quot;build_started&quot;,&quot;systems&quot;:1}

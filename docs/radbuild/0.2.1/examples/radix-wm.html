@@ -64,7 +64,8 @@
   &quot;packages&quot;: {}
 }</code></pre>
 <h2>Commands</h2>
-<pre><code>radbuild menuconfig --settings settings.json --apply-profile wm --json
+<pre><code>radbuild project create ./workspace --non-interactive --template radix-os-wm --project-name radix-wm
+radbuild menuconfig --settings settings.json --apply-profile wm --json
 radbuild build os --settings settings.json --json-events</code></pre>
 <h2>Expected Output</h2>
 <pre><code>{&quot;event&quot;:&quot;system_started&quot;,&quot;system&quot;:&quot;radix-x86-64-grub-wm&quot;}
