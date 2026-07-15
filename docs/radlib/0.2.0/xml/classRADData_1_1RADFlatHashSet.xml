@@ -1,0 +1,168 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="classRADData_1_1RADFlatHashSet" kind="class" language="C++" prot="public">
+    <compoundname>RADData::RADFlatHashSet</compoundname>
+    <includes refid="RADDataStructures_8h" local="no">RADDataStructures.h</includes>
+    <innerclass refid="structRADData_1_1RADFlatHashSet_1_1Empty" prot="private">RADData::RADFlatHashSet::Empty</innerclass>
+    <templateparamlist>
+      <param>
+        <type>typename K</type>
+      </param>
+      <param>
+        <type>typename Hash</type>
+        <defval>std::hash&lt;K&gt;</defval>
+      </param>
+      <param>
+        <type>typename Eq</type>
+        <defval>std::equal_to&lt;K&gt;</defval>
+      </param>
+    </templateparamlist>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classRADData_1_1RADFlatHashSet_1a8be83f2170235416ab8fc2fb5d6c38b9" prot="private" static="no" mutable="no">
+        <type><ref refid="classRADData_1_1RADFlatHashMap" kindref="compound">RADFlatHashMap</ref>&lt; K, Empty, Hash, Eq &gt;</type>
+        <definition>RADFlatHashMap&lt;K, Empty, Hash, Eq&gt; RADData::RADFlatHashSet&lt; K, Hash, Eq &gt;::map_</definition>
+        <argsstring></argsstring>
+        <name>map_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" line="1406" column="24" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" bodystart="1406" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classRADData_1_1RADFlatHashSet_1aff6cafe3ac6776caac9dc1c09574608b" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool RADData::RADFlatHashSet&lt; K, Hash, Eq &gt;::empty</definition>
+        <argsstring>() const noexcept</argsstring>
+        <name>empty</name>
+        <briefdescription>
+<para>Returns true when the set contains no keys. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" line="1390" column="14" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" bodystart="1390" bodyend="1390"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADData_1_1RADFlatHashSet_1a25f67866b287dae8d34d224ad394a99b" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type>size_t</type>
+        <definition>size_t RADData::RADFlatHashSet&lt; K, Hash, Eq &gt;::size</definition>
+        <argsstring>() const noexcept</argsstring>
+        <name>size</name>
+        <briefdescription>
+<para>Returns number of stored keys. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" line="1392" column="16" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" bodystart="1392" bodyend="1392"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADData_1_1RADFlatHashSet_1ae8127c1b0046e0ab02824b557f436a8f" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void RADData::RADFlatHashSet&lt; K, Hash, Eq &gt;::clear</definition>
+        <argsstring>() noexcept</argsstring>
+        <name>clear</name>
+        <briefdescription>
+<para>Removes all keys. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" line="1394" column="14" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" bodystart="1394" bodyend="1394"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADData_1_1RADFlatHashSet_1a686fffe5844737bb93ff673c8130d7a1" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void RADData::RADFlatHashSet&lt; K, Hash, Eq &gt;::reserve</definition>
+        <argsstring>(size_t desired)</argsstring>
+        <name>reserve</name>
+        <param>
+          <type>size_t</type>
+          <declname>desired</declname>
+        </param>
+        <briefdescription>
+<para>Reserves capacity for desired keys. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" line="1396" column="14" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" bodystart="1396" bodyend="1396"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADData_1_1RADFlatHashSet_1a5831691480d2d82b331024240b511fc3" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool RADData::RADFlatHashSet&lt; K, Hash, Eq &gt;::contains</definition>
+        <argsstring>(const K &amp;key) const</argsstring>
+        <name>contains</name>
+        <param>
+          <type>const K &amp;</type>
+          <declname>key</declname>
+        </param>
+        <briefdescription>
+<para>Returns true when key exists. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" line="1398" column="14" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" bodystart="1398" bodyend="1398"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADData_1_1RADFlatHashSet_1a30a65c5a0191dac59c2598176919f8c0" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool RADData::RADFlatHashSet&lt; K, Hash, Eq &gt;::insert</definition>
+        <argsstring>(const K &amp;key)</argsstring>
+        <name>insert</name>
+        <param>
+          <type>const K &amp;</type>
+          <declname>key</declname>
+        </param>
+        <briefdescription>
+<para>Inserts key and returns true when newly inserted. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" line="1400" column="14" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" bodystart="1400" bodyend="1400"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADData_1_1RADFlatHashSet_1a09a0b7fb8065fd891cb1c61987f31080" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool RADData::RADFlatHashSet&lt; K, Hash, Eq &gt;::erase</definition>
+        <argsstring>(const K &amp;key)</argsstring>
+        <name>erase</name>
+        <param>
+          <type>const K &amp;</type>
+          <declname>key</declname>
+        </param>
+        <briefdescription>
+<para>Removes key and returns true when it existed. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" line="1402" column="14" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" bodystart="1402" bodyend="1402"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Flat hash set implemented on top of <ref refid="classRADData_1_1RADFlatHashMap" kindref="compound">RADFlatHashMap</ref>. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" line="1387" column="5" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" bodystart="1387" bodyend="1407"/>
+    <listofallmembers>
+      <member refid="classRADData_1_1RADFlatHashSet_1ae8127c1b0046e0ab02824b557f436a8f" prot="public" virt="non-virtual"><scope>RADData::RADFlatHashSet</scope><name>clear</name></member>
+      <member refid="classRADData_1_1RADFlatHashSet_1a5831691480d2d82b331024240b511fc3" prot="public" virt="non-virtual"><scope>RADData::RADFlatHashSet</scope><name>contains</name></member>
+      <member refid="classRADData_1_1RADFlatHashSet_1aff6cafe3ac6776caac9dc1c09574608b" prot="public" virt="non-virtual"><scope>RADData::RADFlatHashSet</scope><name>empty</name></member>
+      <member refid="classRADData_1_1RADFlatHashSet_1a09a0b7fb8065fd891cb1c61987f31080" prot="public" virt="non-virtual"><scope>RADData::RADFlatHashSet</scope><name>erase</name></member>
+      <member refid="classRADData_1_1RADFlatHashSet_1a30a65c5a0191dac59c2598176919f8c0" prot="public" virt="non-virtual"><scope>RADData::RADFlatHashSet</scope><name>insert</name></member>
+      <member refid="classRADData_1_1RADFlatHashSet_1a8be83f2170235416ab8fc2fb5d6c38b9" prot="private" virt="non-virtual"><scope>RADData::RADFlatHashSet</scope><name>map_</name></member>
+      <member refid="classRADData_1_1RADFlatHashSet_1a686fffe5844737bb93ff673c8130d7a1" prot="public" virt="non-virtual"><scope>RADData::RADFlatHashSet</scope><name>reserve</name></member>
+      <member refid="classRADData_1_1RADFlatHashSet_1a25f67866b287dae8d34d224ad394a99b" prot="public" virt="non-virtual"><scope>RADData::RADFlatHashSet</scope><name>size</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

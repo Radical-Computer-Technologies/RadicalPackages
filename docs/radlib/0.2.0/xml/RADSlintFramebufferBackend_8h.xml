@@ -1,0 +1,77 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="RADSlintFramebufferBackend_8h" kind="file" language="C++">
+    <compoundname>RADSlintFramebufferBackend.h</compoundname>
+    <includes local="no">RADUi/RADSlintBackend.h</includes>
+    <includes local="no">radixkernel/rad_display.h</includes>
+    <includes local="no">cstdint</includes>
+    <includes local="no">memory</includes>
+    <incdepgraph>
+      <node id="4">
+        <label>cstdint</label>
+      </node>
+      <node id="3">
+        <label>radixkernel/rad_display.h</label>
+      </node>
+      <node id="2">
+        <label>RADUi/RADSlintBackend.h</label>
+      </node>
+      <node id="1">
+        <label>/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADSlintFramebufferBackend.h</label>
+        <link refid="RADSlintFramebufferBackend_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>memory</label>
+      </node>
+    </incdepgraph>
+    <innerclass refid="structRADUi_1_1Slint_1_1FramebufferPlatformConfig" prot="public">RADUi::Slint::FramebufferPlatformConfig</innerclass>
+    <innernamespace refid="namespaceRADUi">RADUi</innernamespace>
+    <innernamespace refid="namespaceRADUi_1_1Slint">RADUi::Slint</innernamespace>
+    <briefdescription>
+<para>Slint platform bridge for RADixKernel framebuffers. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#ifndef<sp/>RADSLINTFRAMEBUFFERBACKEND_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>RADSLINTFRAMEBUFFERBACKEND_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="preprocessor">#pragma<sp/>once</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;RADUi/RADSlintBackend.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;radixkernel/rad_display.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;cstdint&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;memory&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal"><ref refid="namespaceRADUi_1_1Slint" kindref="compound">RADUi::Slint</ref><sp/>{</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight></codeline>
+<codeline lineno="21" refid="structRADUi_1_1Slint_1_1FramebufferPlatformConfig" refkind="compound"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structRADUi_1_1Slint_1_1FramebufferPlatformConfig" kindref="compound">FramebufferPlatformConfig</ref><sp/>{</highlight></codeline>
+<codeline lineno="24" refid="structRADUi_1_1Slint_1_1FramebufferPlatformConfig_1ae86495e637c26c9098df8f41b5f82671" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="structRADUi_1_1Slint_1_1FramebufferPlatformConfig_1ae86495e637c26c9098df8f41b5f82671" kindref="member">framebufferDevice</ref><sp/>=<sp/></highlight><highlight class="stringliteral">&quot;auto&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="27" refid="structRADUi_1_1Slint_1_1FramebufferPlatformConfig_1a7cb63cca6d954b5cb5e67413de045405" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>uint32_t<sp/><ref refid="structRADUi_1_1Slint_1_1FramebufferPlatformConfig_1a7cb63cca6d954b5cb5e67413de045405" kindref="member">maxFrames</ref><sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="29" refid="structRADUi_1_1Slint_1_1FramebufferPlatformConfig_1a3da39d7a3f23802eaafaf1386e2b2ba6" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="structRADUi_1_1Slint_1_1FramebufferPlatformConfig_1a3da39d7a3f23802eaafaf1386e2b2ba6" kindref="member">keyboardInputDevice</ref><sp/>=<sp/></highlight><highlight class="keyword">nullptr</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="30" refid="structRADUi_1_1Slint_1_1FramebufferPlatformConfig_1a280a13d03a9afe410c6c03eed5cba41c" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="structRADUi_1_1Slint_1_1FramebufferPlatformConfig_1a280a13d03a9afe410c6c03eed5cba41c" kindref="member">pointerInputDevice</ref><sp/>=<sp/></highlight><highlight class="keyword">nullptr</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/><sp/><sp/>};</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"></highlight></codeline>
+<codeline lineno="35" refid="namespaceRADUi_1_1Slint_1aadcf3e17c9a56a4a74561dcd72e92894" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>std::shared_ptr&lt;SlintBackend&gt;<sp/><ref refid="namespaceRADUi_1_1Slint_1aadcf3e17c9a56a4a74561dcd72e92894" kindref="member">installFramebufferBackend</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structRADUi_1_1Slint_1_1FramebufferPlatformConfig" kindref="compound">FramebufferPlatformConfig</ref>&amp;<sp/>config<sp/>=<sp/>{});</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"></highlight></codeline>
+<codeline lineno="38" refid="namespaceRADUi_1_1Slint_1a01c2b796a9df78a09cf014deb504e849" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="radekernel_8h_1aeb7c981d4b5f029daa65d3b928bab127" kindref="member">rad_status_t</ref><sp/><ref refid="namespaceRADUi_1_1Slint_1a01c2b796a9df78a09cf014deb504e849" kindref="member">tryInstallFramebufferBackend</ref>(</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structRADUi_1_1Slint_1_1FramebufferPlatformConfig" kindref="compound">FramebufferPlatformConfig</ref>&amp;<sp/>config,</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::shared_ptr&lt;SlintBackend&gt;*<sp/><ref refid="namespaceRADUi_1a775ff59d5a0176422573219cd6c330fb" kindref="member">backend</ref>);</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"></highlight></codeline>
+<codeline lineno="42"><highlight class="normal">}<sp/></highlight><highlight class="comment">//<sp/>namespace<sp/>RADUi::Slint</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="43"><highlight class="normal"></highlight></codeline>
+<codeline lineno="44"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+    </programlisting>
+    <location file="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADSlintFramebufferBackend.h"/>
+  </compounddef>
+</doxygen>

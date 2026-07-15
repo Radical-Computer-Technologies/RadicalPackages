@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Example: RADix From Scratch</title>
+  <link rel="stylesheet" href="../../../../assets/site.css">
+</head>
+<body>
+<main class="page">
+  <nav class="nav">
+    <a class="brand" href="../../../../"><img src="../../../../assets/rad-logo.png" alt="">Radical Packages</a>
+    <div class="nav-links">
+      <a href="../../../../">Home</a>
+      <a href="../../../../packages.html">Packages</a>
+      <a href="../../../../radix-os.html">RADix OS</a>
+      <a href="../../../../docs/">Docs</a>
+    </div>
+  </nav>
+  <section class="hero compact-hero">
+    <div class="eyebrow">RadBuild 0.2.1</div>
+    <h1>Example: RADix From Scratch</h1>
+  </section>
+  <article class="card doc-content">
+<h1>Example: RADix From Scratch</h1>
+<p>This example starts with a clean Ubuntu/KDE or terminal workstation where only RadBuild has been installed from RadicalPackages.</p>
+<h2>Install</h2>
+<pre><code>sudo apt update
+sudo apt install radbuild</code></pre>
+<h2>Create the Project</h2>
+<pre><code>mkdir -p ~/radix-work
+radbuild project create ~/radix-work --non-interactive --template radix-os-terminal --project-name radix-terminal
+cd ~/radix-work/radix-terminal</code></pre>
+<p>The template contains an <code>os.radix</code> system with a Git source checkout, the terminal feature chunks, RADix packagegroups, and SDK export defaults.</p>
+<h2>Configure</h2>
+<pre><code>radbuild menuconfig --settings settings.json
+radbuild menuconfig --settings settings.json --enable-packagegroup radix-networking --resolve-packages --json
+radbuild menuconfig --settings settings.json --set-source branch=crimson-v0.1.3 --json</code></pre>
+<p>Recommended first-image settings:</p>
+<pre><code>{
+  &quot;hostname&quot;: &quot;radix&quot;,
+  &quot;root_password&quot;: &quot;radix&quot;,
+  &quot;terminal_theme&quot;: &quot;radix-dark&quot;,
+  &quot;terminal_autocomplete&quot;: true,
+  &quot;terminal_ncurses&quot;: true,
+  &quot;terminal_vim&quot;: true,
+  &quot;network_enabled&quot;: true,
+  &quot;net_ntp_server&quot;: &quot;time.google.com&quot;,
+  &quot;timezone&quot;: &quot;America/Los_Angeles&quot;
+}</code></pre>
+<h2>Build and Run</h2>
+<pre><code>radbuild build os --settings settings.json --json-events
+./artifacts/radix/x86_64-grub-terminal/run-radix-vm.sh</code></pre>
+<p>Expected artifact layout:</p>
+<pre><code>artifacts/radix/x86_64-grub-terminal/
+  radixkernel-x86-64-grub-terminal.iso
+  radix-rootfs.ext4
+  radix-fat32.img
+  run-radix-vm.sh
+  radix-sdk-x86_64-grub-terminal.tar.gz
+  SHA256SUMS</code></pre>
+<p>Inside the VM, log in with the configured root password and test the staged terminal packages:</p>
+<pre><code>login: root
+password: radix
+root@radix:/$ ls /
+root@radix:/$ vi /tmp/hello.txt
+root@radix:/$ date</code></pre>
+  </article>
+</main>
+</body>
+</html>

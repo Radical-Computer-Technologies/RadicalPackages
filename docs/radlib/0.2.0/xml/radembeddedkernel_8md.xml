@@ -1,0 +1,137 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="radembeddedkernel_8md" kind="file" language="Markdown">
+    <compoundname>radembeddedkernel.md</compoundname>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline><highlight class="normal">#<sp/>RADEmbeddedKernel</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">RADEmbeddedKernel<sp/>is<sp/>RADLib&apos;s<sp/>portable<sp/>embedded<sp/>kernel<sp/>service<sp/>layer.<sp/>It<sp/>gives</highlight></codeline>
+<codeline><highlight class="normal">bare-metal<sp/>and<sp/>simulator<sp/>targets<sp/>a<sp/>small<sp/>POSIX-like<sp/>contract<sp/>for<sp/>tasks,<sp/>events,</highlight></codeline>
+<codeline><highlight class="normal">time,<sp/>VFS<sp/>access,<sp/>devices,<sp/>bus<sp/>transfers,<sp/>audio<sp/>devices,<sp/>terminal<sp/>commands,<sp/>and</highlight></codeline>
+<codeline><highlight class="normal">memory<sp/>accounting.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">RADix<sp/>OS<sp/>is<sp/>now<sp/>the<sp/>main<sp/>operating-system<sp/>repository<sp/>for<sp/>x86<sp/>VM<sp/>work,</highlight></codeline>
+<codeline><highlight class="normal">processes,<sp/>POSIX<sp/>compatibility,<sp/>packageable<sp/>services,<sp/>and<sp/>broader<sp/>architecture</highlight></codeline>
+<codeline><highlight class="normal">ports.<sp/>RADEmbeddedKernel<sp/>remains<sp/>useful<sp/>as<sp/>the<sp/>RADLib-side<sp/>embedded<sp/>runtime</highlight></codeline>
+<codeline><highlight class="normal">module<sp/>and<sp/>as<sp/>a<sp/>source-compatible<sp/>bridge<sp/>for<sp/>MCU-class<sp/>and<sp/>simple<sp/>bare-metal</highlight></codeline>
+<codeline><highlight class="normal">targets.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">The<sp/>public<sp/>interface<sp/>is<sp/>a<sp/>C<sp/>ABI<sp/>with<sp/>lightweight<sp/>C++<sp/>wrappers.<sp/>The<sp/>C<sp/>ABI<sp/>is<sp/>the</highlight></codeline>
+<codeline><highlight class="normal">stable<sp/>boundary<sp/>for<sp/>future<sp/>embedded<sp/>plugins<sp/>and<sp/>for<sp/>source-distributable<sp/>HAL</highlight></codeline>
+<codeline><highlight class="normal">adapters.<sp/>The<sp/>C++<sp/>wrappers<sp/>are<sp/>convenience<sp/>helpers<sp/>for<sp/>RADLib<sp/>applications.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>Backends</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">`linux_sim`<sp/>is<sp/>the<sp/>first<sp/>functional<sp/>backend.<sp/>It<sp/>maps<sp/>kernel<sp/>services<sp/>to<sp/>desktop</highlight></codeline>
+<codeline><highlight class="normal">threads,<sp/>filesystems,<sp/>clocks,<sp/>mutexes,<sp/>events,<sp/>and<sp/>fake<sp/>devices<sp/>so<sp/>behavior<sp/>can</highlight></codeline>
+<codeline><highlight class="normal">be<sp/>validated<sp/>in<sp/>CI<sp/>before<sp/>hardware<sp/>testing.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">`rp235x_pico`<sp/>is<sp/>the<sp/>first<sp/>MCU-class<sp/>backend.<sp/>It<sp/>targets<sp/>RP2350/RP2354<sp/>A/B</highlight></codeline>
+<codeline><highlight class="normal">Cortex-M33<sp/>devices<sp/>through<sp/>the<sp/>Pico<sp/>SDK,<sp/>defaults<sp/>to<sp/>`PICO_BOARD=pico2`<sp/>and</highlight></codeline>
+<codeline><highlight class="normal">`PICO_PLATFORM=rp2350-arm-s`,<sp/>and<sp/>is<sp/>configured<sp/>by<sp/>RADLib&apos;s<sp/>Python/JSON<sp/>build</highlight></codeline>
+<codeline><highlight class="normal">flow<sp/>before<sp/>CMake<sp/>is<sp/>invoked.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">`circle_pi`<sp/>is<sp/>the<sp/>first<sp/>Raspberry<sp/>Pi<sp/>bare-metal<sp/>backend.<sp/>It<sp/>targets<sp/>Pi<sp/>Zero<sp/>2<sp/>W</highlight></codeline>
+<codeline><highlight class="normal">through<sp/>Circle<sp/>and<sp/>uses<sp/>Circle&apos;s<sp/>native<sp/>Makefile<sp/>flow<sp/>for<sp/>the<sp/>smoke<sp/>image.</highlight></codeline>
+<codeline><highlight class="normal">Circle<sp/>remains<sp/>optional;<sp/>RADEmbeddedKernel<sp/>is<sp/>not<sp/>architecturally<sp/>tied<sp/>to</highlight></codeline>
+<codeline><highlight class="normal">Circle.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>Service<sp/>Model</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">The<sp/>first-pass<sp/>kernel<sp/>surface<sp/>includes:</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">-<sp/>task<sp/>creation,<sp/>join,<sp/>yield,<sp/>sleep,<sp/>current<sp/>task<sp/>id,<sp/>and<sp/>task<sp/>listing</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>mutex<sp/>and<sp/>event<sp/>synchronization</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>monotonic<sp/>time<sp/>and<sp/>sleep<sp/>helpers</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>VFS<sp/>mount/open/read/write/seek/stat/list<sp/>APIs</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>typed<sp/>device<sp/>registry<sp/>and<sp/>dispatch</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>I2C,<sp/>SPI,<sp/>and<sp/>audio<sp/>control<sp/>dispatch<sp/>through<sp/>registered<sp/>devices</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>terminal<sp/>command<sp/>registration<sp/>and<sp/>built-in<sp/>shell<sp/>commands</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>memory<sp/>allocation<sp/>wrappers<sp/>and<sp/>memory<sp/>usage<sp/>counters</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>serial<sp/>console<sp/>attachment<sp/>through<sp/>`/dev/console`,<sp/>`/dev/serial0`,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>`/dev/uart0`,<sp/>and<sp/>`/dev/ttyS0`</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>boot<sp/>handoff<sp/>records<sp/>for<sp/>board<sp/>name,<sp/>backend,<sp/>console,<sp/>SD<sp/>mode,<sp/>memory</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>regions,<sp/>and<sp/>boot<sp/>arguments</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>cooperative<sp/>embedded<sp/>run-loop<sp/>APIs:<sp/>`rad_kernel_poll()`,<sp/>`rad_kernel_run()`,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>`rad_kernel_request_shutdown()`,<sp/>and<sp/>`rad_kernel_is_shutdown_requested()`</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Built-in<sp/>terminal<sp/>commands<sp/>include<sp/>`help`,<sp/>`tasks`,<sp/>`mem`,<sp/>`mounts`,<sp/>`ls`,</highlight></codeline>
+<codeline><highlight class="normal">`cat`,<sp/>`devices`,<sp/>`time`,<sp/>and<sp/>`bootinfo`.<sp/>On<sp/>embedded<sp/>backends,<sp/>unsupported</highlight></codeline>
+<codeline><highlight class="normal">commands<sp/>return<sp/>`RAD_STATUS_NOT_SUPPORTED`<sp/>instead<sp/>of<sp/>failing<sp/>silently.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>RP235x<sp/>Storage</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">RP235x<sp/>normal<sp/>VFS<sp/>storage<sp/>is<sp/>SD-card<sp/>only<sp/>in<sp/>this<sp/>pass.<sp/>Flash<sp/>is<sp/>intentionally</highlight></codeline>
+<codeline><highlight class="normal">not<sp/>exposed<sp/>as<sp/>a<sp/>normal<sp/>writable<sp/>filesystem.<sp/>SPI<sp/>SD<sp/>is<sp/>the<sp/>conservative<sp/>baseline</highlight></codeline>
+<codeline><highlight class="normal">path.<sp/>Optional<sp/>4-bit<sp/>PIO<sp/>SDIO<sp/>is<sp/>exposed<sp/>behind</highlight></codeline>
+<codeline><highlight class="normal">`RADEKERNEL_ENABLE_SDIO_PIO=ON`<sp/>and<sp/>`RADEKERNEL_SD_MODE=pio_sdio`<sp/>or<sp/>`auto`.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">PIO<sp/>SDIO<sp/>requires<sp/>correct<sp/>board<sp/>wiring:<sp/>SD<sp/>CLK,<sp/>CMD,<sp/>and<sp/>four<sp/>consecutive<sp/>data</highlight></codeline>
+<codeline><highlight class="normal">GPIOs.<sp/>The<sp/>preferred<sp/>integration<sp/>candidate<sp/>is<sp/>`inindev/pico-fatfs-sd`,<sp/>a</highlight></codeline>
+<codeline><highlight class="normal">trimmed<sp/>RP2040/RP2350<sp/>FatFs<sp/>SDIO/SPI<sp/>driver<sp/>with<sp/>RP2350B<sp/>GPIO<sp/>support.<sp/>The</highlight></codeline>
+<codeline><highlight class="normal">kernel<sp/>exposes<sp/>the<sp/>HAL<sp/>seam<sp/>for<sp/>this<sp/>driver,<sp/>but<sp/>the<sp/>external<sp/>driver<sp/>is<sp/>not</highlight></codeline>
+<codeline><highlight class="normal">vendored<sp/>into<sp/>RADLib<sp/>by<sp/>default.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>Build<sp/>Configuration</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Embedded<sp/>settings<sp/>live<sp/>in<sp/>`buildconfig.json`<sp/>under<sp/>`embedded`<sp/>and<sp/>can<sp/>be</highlight></codeline>
+<codeline><highlight class="normal">overridden<sp/>by<sp/>`build.py`<sp/>flags.<sp/>Committed<sp/>defaults<sp/>are<sp/>intentionally<sp/>portable:</highlight></codeline>
+<codeline><highlight class="normal">machine-local<sp/>SDK,<sp/>Circle,<sp/>and<sp/>toolchain<sp/>paths<sp/>should<sp/>be<sp/>supplied<sp/>by<sp/>local</highlight></codeline>
+<codeline><highlight class="normal">config,<sp/>environment,<sp/>or<sp/>command-line<sp/>flags<sp/>instead<sp/>of<sp/>being<sp/>committed.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">-<sp/>`pico_sdk_path`</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>`circle_root`</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>`toolchain_dir`</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>`pico_board`</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>`pico_platform`</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>`sd_mode`</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>`enable_sdio_pio`</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>`enable_psram`</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">`./build.py<sp/>--build-embedded<sp/>--embedded-target<sp/>rp235x`<sp/>configures<sp/>the<sp/>Pico<sp/>SDK</highlight></codeline>
+<codeline><highlight class="normal">smoke<sp/>project<sp/>and<sp/>emits<sp/>the<sp/>usual<sp/>Pico<sp/>artifacts<sp/>when<sp/>`arm-none-eabi`<sp/>is</highlight></codeline>
+<codeline><highlight class="normal">available.<sp/>`./build.py<sp/>--build-embedded<sp/>--embedded-target<sp/>circle`<sp/>builds<sp/>the</highlight></codeline>
+<codeline><highlight class="normal">Circle<sp/>Pi<sp/>Zero<sp/>2<sp/>W<sp/>smoke<sp/>image<sp/>when<sp/>Circle<sp/>and<sp/>`aarch64-none-elf`<sp/>are<sp/>available.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">RADpm<sp/>package-manager<sp/>development<sp/>is<sp/>separate<sp/>from<sp/>embedded<sp/>HAL<sp/>builds:</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">```bash</highlight></codeline>
+<codeline><highlight class="normal">cmake<sp/>-S<sp/>.<sp/>-B<sp/>build-radpm<sp/>-DBUILD_RADPM_TOOL=ON<sp/>-DBUILD_RADUi=OFF</highlight></codeline>
+<codeline><highlight class="normal">cmake<sp/>--build<sp/>build-radpm<sp/>--target<sp/>radpm</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>Embedded<sp/>Portability</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Small<sp/>targets<sp/>compile<sp/>only<sp/>the<sp/>services<sp/>they<sp/>need<sp/>and<sp/>provide<sp/>fixed-pool<sp/>or</highlight></codeline>
+<codeline><highlight class="normal">static<sp/>backing<sp/>storage<sp/>through<sp/>the<sp/>HAL.<sp/>Pi-class<sp/>and<sp/>Zynq-class<sp/>targets<sp/>can</highlight></codeline>
+<codeline><highlight class="normal">enable<sp/>the<sp/>fuller<sp/>VFS,<sp/>terminal,<sp/>and<sp/>device<sp/>registry<sp/>model.<sp/>MCU-class<sp/>targets</highlight></codeline>
+<codeline><highlight class="normal">such<sp/>as<sp/>RP2040<sp/>and<sp/>RP2350<sp/>start<sp/>with<sp/>time,<sp/>events,<sp/>device<sp/>registry,<sp/>bus</highlight></codeline>
+<codeline><highlight class="normal">dispatch,<sp/>memory<sp/>pools,<sp/>serial<sp/>shell,<sp/>and<sp/>SD-card<sp/>VFS<sp/>hooks.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">The<sp/>public<sp/>headers<sp/>and<sp/>HAL<sp/>adapter<sp/>sources<sp/>can<sp/>be<sp/>shared<sp/>across<sp/>ports,<sp/>but<sp/>the</highlight></codeline>
+<codeline><highlight class="normal">kernel<sp/>archive<sp/>itself<sp/>must<sp/>be<sp/>built<sp/>per<sp/>architecture,<sp/>ABI,<sp/>and<sp/>toolchain.<sp/>A</highlight></codeline>
+<codeline><highlight class="normal">Cortex-M<sp/>RP2350<sp/>build,<sp/>a<sp/>Cortex-A<sp/>AArch64<sp/>Raspberry<sp/>Pi<sp/>build,<sp/>and<sp/>a<sp/>Zynq<sp/>A9</highlight></codeline>
+<codeline><highlight class="normal">build<sp/>cannot<sp/>consume<sp/>one<sp/>universal<sp/>static<sp/>archive.<sp/>They<sp/>should<sp/>instead<sp/>ship<sp/>as</highlight></codeline>
+<codeline><highlight class="normal">target-specific<sp/>archives<sp/>such<sp/>as<sp/>`libradekernel-rp2350-cortex-m33.a`,</highlight></codeline>
+<codeline><highlight class="normal">`libradekernel-aarch64-none-elf.a`,<sp/>or<sp/>`libradekernel-zynq-a9.a`,<sp/>all<sp/>exposing</highlight></codeline>
+<codeline><highlight class="normal">the<sp/>same<sp/>`radekernel`<sp/>C<sp/>ABI.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>Current<sp/>Limits</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Dynamic<sp/>ELF/plugin<sp/>loading<sp/>is<sp/>not<sp/>part<sp/>of<sp/>the<sp/>first<sp/>pass.<sp/>The<sp/>ABI<sp/>is<sp/>shaped<sp/>so<sp/>a</highlight></codeline>
+<codeline><highlight class="normal">future<sp/>loader<sp/>can<sp/>pass<sp/>a<sp/>kernel<sp/>API<sp/>table<sp/>to<sp/>trusted<sp/>plugins.<sp/>User/kernel</highlight></codeline>
+<codeline><highlight class="normal">privilege<sp/>separation<sp/>is<sp/>also<sp/>out<sp/>of<sp/>scope<sp/>for<sp/>this<sp/>preview;<sp/>early<sp/>embedded</highlight></codeline>
+<codeline><highlight class="normal">plugins<sp/>and<sp/>tasks<sp/>should<sp/>be<sp/>treated<sp/>as<sp/>trusted<sp/>code.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">The<sp/>RP235x<sp/>boot<sp/>shim<sp/>is<sp/>deliberately<sp/>small:<sp/>no<sp/>filesystem,<sp/>no<sp/>dynamic</highlight></codeline>
+<codeline><highlight class="normal">allocation,<sp/>and<sp/>no<sp/>shell.<sp/>It<sp/>prepares<sp/>the<sp/>boot<sp/>handoff<sp/>struct<sp/>and<sp/>jumps<sp/>into<sp/>the</highlight></codeline>
+<codeline><highlight class="normal">kernel<sp/>entry<sp/>path.<sp/>The<sp/>target<sp/>budget<sp/>is<sp/>under<sp/>8<sp/>KiB<sp/>of<sp/>code<sp/>and<sp/>under<sp/>1<sp/>KiB<sp/>of</highlight></codeline>
+<codeline><highlight class="normal">RAM<sp/>for<sp/>the<sp/>shim.</highlight></codeline>
+    </programlisting>
+    <location file="/media/jvincent/Kingspec512/repos/RADLib/docs/public/radembeddedkernel.md"/>
+  </compounddef>
+</doxygen>

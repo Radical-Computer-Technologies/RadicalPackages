@@ -23,7 +23,25 @@
   </section>
   <article class="card doc-content">
 <h1>OS Builds</h1>
-<p>The <code>os.radix</code> system type builds RADix OS images. Crimson currently uses this for x86 GRUB VM images with either a framebuffer terminal profile or a RADCompositor window-manager profile.</p>
+<p>RadBuild 0.2.1 supports three OS build families:</p>
+<ul>
+<li><code>os.radix</code> for RADix OS images, packagegroups, SDK/sysroot export, and QEMU</li>
+<p>verification.</p>
+<li><code>linux.petalinux</code> for Xilinx/Zynq MPSoC projects that already rely on</li>
+<p>PetaLinux tooling.</p>
+<li><code>linux.buildroot</code> for projects that need a smaller generated Buildroot</li>
+<p>external tree.</p>
+</ul>
+<p>The RADix provider is the most integrated path. It owns source checkout, feature selection, <code>rkconfig</code>, <code>.radpm</code> package staging, rootfs generation, SDK export, and VM launch scripts. PetaLinux and Buildroot support remain useful FPGA/Linux companion flows, but they do not currently expose the same packagegroup and RADix rootfs automation.</p>
+<h2>RADix From Scratch</h2>
+<p>Starting with only the packaged RadBuild CLI installed:</p>
+<pre><code>mkdir -p ~/radix-work
+radbuild project create ~/radix-work --non-interactive --template radix-os-terminal --project-name radix-terminal
+cd ~/radix-work/radix-terminal
+radbuild menuconfig --settings settings.json
+radbuild build os --settings settings.json --json-events
+./artifacts/radix/x86_64-grub-terminal/run-radix-vm.sh</code></pre>
+<p>The template pulls RADix OS from the configured Git branch, resolves the selected RadicalPackages <code>.radpm</code> packagegroups, creates the ext4/FAT images, and emits a runnable x86_64 GRUB VM bundle.</p>
 <h2>Terminal Profile</h2>
 <pre><code>radbuild build os --settings settings.terminal.json --json-events</code></pre>
 <p>Expected artifacts:</p>
@@ -42,6 +60,18 @@ radbuild menuconfig --settings settings.terminal.json --apply-profile wm --json
 radbuild menuconfig --settings settings.terminal.json --enable-packagegroup radix-networking --resolve-packages --json
 radbuild menuconfig --settings settings.terminal.json --enable-package radlib-ui --resolve-packages --json</code></pre>
 <p>Packagegroup edits select coherent RADix OS feature sets from the configured <code>.radpm</code> repository. Individual package edits stay explicit: RadBuild reports missing dependencies with the package or packagegroup that can satisfy them instead of silently mutating the project.</p>
+<h2>PetaLinux Profile</h2>
+<p>Use <code>fpga-mpsoc-petalinux</code> when a Vivado hardware handoff should feed a PetaLinux project. RadBuild generates and validates the graph, carries the XSA directory and firmware/module lists, and can drive PetaLinux commands when the Xilinx tools are installed on the host.</p>
+<pre><code>radbuild project create ./workspace --non-interactive --template fpga-mpsoc-petalinux --project-name zynq-demo
+radbuild generate --settings ./workspace/zynq-demo/settings.json
+radbuild build linux --settings ./workspace/zynq-demo/settings.json --system petalinux --json-events</code></pre>
+<p>Important fields live under the <code>linux.petalinux</code> system config: <code>target_ip</code>, <code>modules</code>, <code>firmware</code>, <code>xsa_dir</code>, <code>template</code>, <code>bsp_release_dir</code>, and <code>fast_update_dir</code>.</p>
+<h2>Buildroot Profile</h2>
+<p>Use <code>fpga-mpsoc-buildroot</code> when a project needs a generated Buildroot external tree without the heavier PetaLinux flow.</p>
+<pre><code>radbuild project create ./workspace --non-interactive --template fpga-mpsoc-buildroot --project-name buildroot-demo
+radbuild generate --settings ./workspace/buildroot-demo/settings.json
+radbuild build linux --settings ./workspace/buildroot-demo/settings.json --system buildroot --json-events</code></pre>
+<p>Important fields live under the <code>linux.buildroot</code> system config: <code>board</code> and <code>external_tree</code>. This path is intentionally simple today; board defconfigs and full package policy should stay in the generated external tree until RadBuild adds deeper Buildroot package orchestration.</p>
   </article>
 </main>
 </body>

@@ -1,0 +1,107 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="mainpage_8md" kind="file" language="Markdown">
+    <compoundname>mainpage.md</compoundname>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline><highlight class="normal">#<sp/>RADLib<sp/>0.2.0<sp/>Beta<sp/>SDK<sp/>Documentation</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">RADLib<sp/>is<sp/>a<sp/>modular<sp/>C++20<sp/>application<sp/>framework<sp/>for<sp/>Linux<sp/>desktop,<sp/>embedded</highlight></codeline>
+<codeline><highlight class="normal">Linux,<sp/>instrumentation,<sp/>media,<sp/>networking,<sp/>and<sp/>UI<sp/>applications.<sp/>The<sp/>beta<sp/>SDK</highlight></codeline>
+<codeline><highlight class="normal">includes<sp/>public<sp/>headers,<sp/>shared<sp/>libraries,<sp/>examples,<sp/>package<sp/>metadata,<sp/>and<sp/>this</highlight></codeline>
+<codeline><highlight class="normal">searchable<sp/>API<sp/>reference.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">RADLib<sp/>0.2.0<sp/>also<sp/>provides<sp/>the<sp/>RADpm<sp/>package-manager<sp/>executable<sp/>used<sp/>by</highlight></codeline>
+<codeline><highlight class="normal">RadBuild<sp/>and<sp/>RADix<sp/>package<sp/>flows.<sp/>RADpm<sp/>is<sp/>built<sp/>as<sp/>a<sp/>RADLib-owned<sp/>tool<sp/>so</highlight></codeline>
+<codeline><highlight class="normal">package<sp/>resolution,<sp/>packagegroup<sp/>handling,<sp/>sysroot<sp/>staging,<sp/>and<sp/>future<sp/>RADix</highlight></codeline>
+<codeline><highlight class="normal">live-package<sp/>operations<sp/>share<sp/>the<sp/>same<sp/>library<sp/>foundation.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">The<sp/>documentation<sp/>below<sp/>is<sp/>written<sp/>for<sp/>application<sp/>developers<sp/>consuming<sp/>the</highlight></codeline>
+<codeline><highlight class="normal">RADLib<sp/>SDK.<sp/>It<sp/>does<sp/>not<sp/>require<sp/>access<sp/>to<sp/>RADLib<sp/>implementation<sp/>source<sp/>files.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>License<sp/>Acknowledgement</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">External<sp/>builds<sp/>must<sp/>define<sp/>`RADLIB_LICENSE_ACCEPTED=1`<sp/>and<sp/>one<sp/>license<sp/>tier</highlight></codeline>
+<codeline><highlight class="normal">macro<sp/>before<sp/>including<sp/>public<sp/>RADLib<sp/>headers.<sp/>Valid<sp/>tier<sp/>macros<sp/>are</highlight></codeline>
+<codeline><highlight class="normal">`RADLIB_LICENSE_TIER_COMMUNITY`,<sp/>`RADLIB_LICENSE_TIER_SMALL_BUSINESS`,</highlight></codeline>
+<codeline><highlight class="normal">`RADLIB_LICENSE_TIER_COMMERCIAL`,<sp/>and<sp/>`RADLIB_LICENSE_TIER_PARTNER`.</highlight></codeline>
+<codeline><highlight class="normal">Commercial<sp/>applications<sp/>should<sp/>verify<sp/>signed<sp/>node-locked<sp/>license<sp/>files<sp/>at</highlight></codeline>
+<codeline><highlight class="normal">runtime<sp/>with<sp/>`RADSecurity::LicenseManager`.</highlight></codeline>
+<codeline><highlight class="normal">Expose<sp/>`RADLicense::compileAuditStamp()`<sp/>in<sp/>diagnostics<sp/>or<sp/>about<sp/>dialogs<sp/>so</highlight></codeline>
+<codeline><highlight class="normal">compiled<sp/>license<sp/>tier<sp/>declarations<sp/>are<sp/>easy<sp/>to<sp/>audit<sp/>on<sp/>running<sp/>systems.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">RADLib<sp/>runtime<sp/>binaries<sp/>also<sp/>expose<sp/>an<sp/>edition<sp/>stamp<sp/>through</highlight></codeline>
+<codeline><highlight class="normal">`RADCore::runtimeAuditStamp()`.<sp/>Public<sp/>beta<sp/>packages<sp/>are<sp/>Community<sp/>Edition<sp/>and</highlight></codeline>
+<codeline><highlight class="normal">report<sp/>`RADLIB_EDITION=community-edition`;<sp/>future<sp/>paid<sp/>packages<sp/>should<sp/>report</highlight></codeline>
+<codeline><highlight class="normal">`RADLIB_EDITION=paid-edition`<sp/>and<sp/>verify<sp/>signed<sp/>licenses<sp/>with</highlight></codeline>
+<codeline><highlight class="normal">`RADSecurity::LicenseManager`.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Crimson<sp/>releases<sp/>can<sp/>include<sp/>a<sp/>signed<sp/>universal<sp/>community<sp/>license<sp/>file<sp/>under</highlight></codeline>
+<codeline><highlight class="normal">`licenses/`.<sp/>License<sp/>documents<sp/>include<sp/>a<sp/>public<sp/>issuer<sp/>`key_id`<sp/>so<sp/>applications</highlight></codeline>
+<codeline><highlight class="normal">can<sp/>select<sp/>the<sp/>correct<sp/>trusted<sp/>public<sp/>key.<sp/>Commercial<sp/>licenses<sp/>should<sp/>be</highlight></codeline>
+<codeline><highlight class="normal">customer-specific<sp/>and<sp/>node-locked.<sp/>Issuer<sp/>private<sp/>keys<sp/>are<sp/>never<sp/>part<sp/>of<sp/>the<sp/>SDK.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>Modules</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">-<sp/>[RADCore](radcore.md):<sp/>events,<sp/>event<sp/>loops,<sp/>timers,<sp/>IODevice,<sp/>files,<sp/>JSON,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>settings,<sp/>process<sp/>handling,<sp/>thread<sp/>pool,<sp/>filesystem<sp/>helpers,<sp/>and<sp/>utility<sp/>types.</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>[RADDataStructures](raddatastructures.md):<sp/>RAD-owned<sp/>vector,<sp/>small-vector,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>ring<sp/>buffer,<sp/>queue,<sp/>stack,<sp/>SPSC<sp/>queue,<sp/>flat<sp/>hash<sp/>map/set,<sp/>and<sp/>list<sp/>containers.</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>[RADUi](radui.md):<sp/>UI<sp/>thread<sp/>bridge,<sp/>Slint<sp/>backend,<sp/>theme<sp/>system,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>app-shell/dock/workspace<sp/>models,<sp/>model-backed<sp/>widgets,<sp/>plotting,<sp/>terminal</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>helpers,<sp/>and<sp/>frame<sp/>scheduling.</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>[RADNet](radnet.md):<sp/>UDP/TCP<sp/>sockets,<sp/>server<sp/>primitives,<sp/>socket<sp/>reactor,<sp/>and</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>HTTP<sp/>client.</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>[RADSerial](radserial.md):<sp/>event-loop<sp/>integrated<sp/>Linux<sp/>serial<sp/>ports.</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>[RADLogging](radlogging.md):<sp/>async<sp/>category<sp/>logging<sp/>with<sp/>console,<sp/>file,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>rotating<sp/>file,<sp/>and<sp/>syslog<sp/>sinks.</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>[RADSettings](radsettings.md):<sp/>JSON<sp/>and<sp/>INI<sp/>application<sp/>settings.</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>[RADCLI](radcli.md):<sp/>command-line<sp/>parsing<sp/>and<sp/>app<sp/>utility<sp/>helpers.</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>[RADInstaller](radinstaller.md):<sp/>manifest-driven<sp/>install,<sp/>rollback,<sp/>uninstall,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>package<sp/>metadata,<sp/>and<sp/>RADUi<sp/>installer<sp/>example<sp/>support.</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>[RADSecurity](radsecurity.md):<sp/>SHA-256,<sp/>secure<sp/>random,<sp/>RSA-SHA256<sp/>signing,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>capability<sp/>reporting,<sp/>and<sp/>declarative<sp/>sandbox<sp/>profiles.</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>[RADInput](radinput.md):<sp/>evdev<sp/>input<sp/>discovery,<sp/>input<sp/>event<sp/>delivery,<sp/>and</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>pointer/touch<sp/>calibration<sp/>helpers.</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>[RADDisplay](raddisplay.md):<sp/>DRM/KMS<sp/>and<sp/>framebuffer<sp/>discovery,<sp/>backlight</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>control,<sp/>orientation<sp/>helpers,<sp/>and<sp/>display<sp/>capability<sp/>reporting.</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>[RADDevice](raddevice.md):<sp/>GPIO,<sp/>I2C,<sp/>SPI,<sp/>PWM,<sp/>ADC,<sp/>watchdog,<sp/>and<sp/>LED<sp/>helpers</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>for<sp/>embedded<sp/>Linux<sp/>devices.</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>[RADEmbeddedKernel](radembeddedkernel.md):<sp/>POSIX-like<sp/>embedded<sp/>kernel<sp/>services</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>for<sp/>simulator<sp/>and<sp/>bare-metal<sp/>HAL<sp/>backends.<sp/>RADix<sp/>OS<sp/>now<sp/>owns<sp/>the<sp/>broader</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>POSIX<sp/>kernel<sp/>direction;<sp/>this<sp/>RADLib<sp/>module<sp/>remains<sp/>the<sp/>portable<sp/>embedded</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>service/runtime<sp/>layer<sp/>and<sp/>historical<sp/>compatibility<sp/>surface.</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>[RADPower](radpower.md):<sp/>battery/charger,<sp/>thermal,<sp/>CPU<sp/>governor,<sp/>and<sp/>guarded</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>suspend/reboot/shutdown<sp/>helpers.</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>[RADService](radservice.md):<sp/>systemd<sp/>unit<sp/>generation,<sp/>daemon<sp/>helpers,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>watchdog<sp/>notification,<sp/>and<sp/>single-instance<sp/>app<sp/>locks.</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>[RADUpdate](radupdate.md):<sp/>signed<sp/>app-bundle<sp/>manifests,<sp/>payload<sp/>verification,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>RADInstaller<sp/>handoff,<sp/>and<sp/>A/B<sp/>metadata<sp/>tracking.</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>[RADDsp](raddsp.md):<sp/>reusable<sp/>audio/SDR/DSP<sp/>helpers<sp/>including<sp/>level,<sp/>channel,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>resampling,<sp/>FIR,<sp/>window,<sp/>and<sp/>IQ<sp/>primitives.</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>[RADMedia](radmedia.md):<sp/>WAV<sp/>parsing/streaming,<sp/>audio<sp/>device<sp/>enumeration,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>audio<sp/>input/output,<sp/>player<sp/>convenience<sp/>APIs,<sp/>and<sp/>decoder<sp/>streams.</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>[RADDatabase](raddatabase.md):<sp/>SQLite-backed<sp/>database<sp/>access.</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>[RADWeb](radweb.md):<sp/>WebKitGTK<sp/>browser<sp/>window<sp/>API<sp/>with<sp/>tabs,<sp/>history,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>bookmarks,<sp/>downloads,<sp/>settings,<sp/>permissions,<sp/>and<sp/>profiles.</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>[RADNet<sp/>Protocol<sp/>Generation](radprotocol.md):<sp/>JSON-defined<sp/>generated<sp/>C++</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>message<sp/>structs<sp/>and<sp/>binary<sp/>TCP<sp/>frame<sp/>helpers.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>Package<sp/>and<sp/>Release<sp/>Status</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">RADLib<sp/>is<sp/>currently<sp/>a<sp/>beta<sp/>SDK.<sp/>APIs<sp/>are<sp/>suitable<sp/>for<sp/>evaluation<sp/>and<sp/>early</highlight></codeline>
+<codeline><highlight class="normal">application<sp/>development,<sp/>but<sp/>ABI<sp/>compatibility<sp/>is<sp/>not<sp/>yet<sp/>guaranteed<sp/>across</highlight></codeline>
+<codeline><highlight class="normal">minor<sp/>beta<sp/>updates.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Host<sp/>Linux<sp/>packages<sp/>are<sp/>published<sp/>as<sp/>Debian<sp/>packages<sp/>through<sp/>RadicalPackages.</highlight></codeline>
+<codeline><highlight class="normal">RADix<sp/>image<sp/>builds<sp/>consume<sp/>RADLib<sp/>through<sp/>`.radpm`<sp/>metadata<sp/>and<sp/>RADix-specific</highlight></codeline>
+<codeline><highlight class="normal">payloads.<sp/>For<sp/>normal<sp/>RADix<sp/>image<sp/>creation,<sp/>select<sp/>RADLib<sp/>through<sp/>the</highlight></codeline>
+<codeline><highlight class="normal">`radix-terminal-base`<sp/>or<sp/>`radix-desktop-base`<sp/>packagegroups<sp/>rather<sp/>than<sp/>adding</highlight></codeline>
+<codeline><highlight class="normal">individual<sp/>RADLib<sp/>packages<sp/>by<sp/>hand.</highlight></codeline>
+    </programlisting>
+    <location file="/media/jvincent/Kingspec512/repos/RADLib/docs/public/mainpage.md"/>
+  </compounddef>
+</doxygen>

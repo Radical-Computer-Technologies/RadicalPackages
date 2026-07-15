@@ -1,0 +1,139 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="x86__storage_8h" kind="file" language="C++">
+    <compoundname>x86_storage.h</compoundname>
+    <includes local="no">stddef.h</includes>
+    <includes local="no">stdint.h</includes>
+    <incdepgraph>
+      <node id="3">
+        <label>stdint.h</label>
+      </node>
+      <node id="2">
+        <label>stddef.h</label>
+      </node>
+      <node id="1">
+        <label>/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/platforms/x86_64/x86_storage.h</label>
+        <link refid="x86__storage_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+    </incdepgraph>
+    <innerclass refid="structx86__storage__summary" prot="public">x86_storage_summary</innerclass>
+      <sectiondef kind="typedef">
+      <memberdef kind="typedef" id="x86__storage_8h_1a70700ac67a6e8deeac577618f6b5e16e" prot="public" static="no">
+        <type>struct <ref refid="structx86__storage__summary" kindref="compound">x86_storage_summary</ref></type>
+        <definition>typedef struct x86_storage_summary x86_storage_summary_t</definition>
+        <argsstring></argsstring>
+        <name>x86_storage_summary_t</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Summary of x86_64 PCI/virtio storage and network device discovery. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/platforms/x86_64/x86_storage.h" line="27" column="23"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="x86__storage_8h_1ac1aeb64b51b734929887b2e7df614292" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void x86_storage_probe</definition>
+        <argsstring>(x86_storage_summary_t *summary)</argsstring>
+        <name>x86_storage_probe</name>
+        <param>
+          <type><ref refid="structx86__storage__summary" kindref="compound">x86_storage_summary_t</ref> *</type>
+          <declname>summary</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/platforms/x86_64/x86_storage.h" line="29" column="17" declfile="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/platforms/x86_64/x86_storage.h" declline="29" declcolumn="17"/>
+      </memberdef>
+      <memberdef kind="function" id="x86__storage_8h_1a569a82acec7f702268c4a9c833779ee9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int x86_storage_self_test</definition>
+        <argsstring>(void)</argsstring>
+        <name>x86_storage_self_test</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/platforms/x86_64/x86_storage.h" line="30" column="16" declfile="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/platforms/x86_64/x86_storage.h" declline="30" declcolumn="16"/>
+      </memberdef>
+      <memberdef kind="function" id="x86__storage_8h_1a26143cb01dd00a13065eb80c28b59f51" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int x86_network_self_test</definition>
+        <argsstring>(void)</argsstring>
+        <name>x86_network_self_test</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/platforms/x86_64/x86_storage.h" line="31" column="16" declfile="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/platforms/x86_64/x86_storage.h" declline="31" declcolumn="16"/>
+      </memberdef>
+      <memberdef kind="function" id="x86__storage_8h_1a6ee786b3aa5aae78800e0998a5c48c6c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void x86_virtio_input_poll</definition>
+        <argsstring>(void)</argsstring>
+        <name>x86_virtio_input_poll</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/platforms/x86_64/x86_storage.h" line="32" column="17" declfile="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/platforms/x86_64/x86_storage.h" declline="32" declcolumn="17"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#ifndef<sp/>RAD_X86_64_GRUB_SLINT_STORAGE_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>RAD_X86_64_GRUB_SLINT_STORAGE_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;stddef.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;stdint.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight></codeline>
+<codeline lineno="8" refid="structx86__storage__summary" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structx86__storage__summary" kindref="compound">x86_storage_summary</ref><sp/>{</highlight></codeline>
+<codeline lineno="10" refid="structx86__storage__summary_1ad5ed341396a6dc555ab4fbacd8da903c" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>uint32_t<sp/><ref refid="structx86__storage__summary_1ad5ed341396a6dc555ab4fbacd8da903c" kindref="member">pci_devices</ref>;</highlight></codeline>
+<codeline lineno="12" refid="structx86__storage__summary_1a3053e0fdc353bf8629c63191615e91b0" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>uint32_t<sp/><ref refid="structx86__storage__summary_1a3053e0fdc353bf8629c63191615e91b0" kindref="member">virtio_block_devices</ref>;</highlight></codeline>
+<codeline lineno="14" refid="structx86__storage__summary_1a830991b54e0fd27baade4f25fad55419" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>uint32_t<sp/><ref refid="structx86__storage__summary_1a830991b54e0fd27baade4f25fad55419" kindref="member">registered_block_devices</ref>;</highlight></codeline>
+<codeline lineno="16" refid="structx86__storage__summary_1aed23704a13029584e4162e72b5a10424" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>uint32_t<sp/><ref refid="structx86__storage__summary_1aed23704a13029584e4162e72b5a10424" kindref="member">virtio_net_devices</ref>;</highlight></codeline>
+<codeline lineno="18" refid="structx86__storage__summary_1ad6a95159b13531fad313d0303219b037" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>uint32_t<sp/><ref refid="structx86__storage__summary_1ad6a95159b13531fad313d0303219b037" kindref="member">registered_net_devices</ref>;</highlight></codeline>
+<codeline lineno="20" refid="structx86__storage__summary_1a506a57bc551730894517c2fefefac814" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>uint8_t<sp/><ref refid="structx86__storage__summary_1a506a57bc551730894517c2fefefac814" kindref="member">virtio_bus</ref>;</highlight></codeline>
+<codeline lineno="22" refid="structx86__storage__summary_1a5d5bac3ab9a74097c1532a27e1186f50" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>uint8_t<sp/><ref refid="structx86__storage__summary_1a5d5bac3ab9a74097c1532a27e1186f50" kindref="member">virtio_slot</ref>;</highlight></codeline>
+<codeline lineno="24" refid="structx86__storage__summary_1ae8a872b09e744cdcd9f5aca5fd666a82" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>uint8_t<sp/><ref refid="structx86__storage__summary_1ae8a872b09e744cdcd9f5aca5fd666a82" kindref="member">virtio_function</ref>;</highlight></codeline>
+<codeline lineno="26" refid="structx86__storage__summary_1aa1cff393b57c7db5efa6dd625843c58d" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>uint8_t<sp/><ref refid="structx86__storage__summary_1aa1cff393b57c7db5efa6dd625843c58d" kindref="member">reserved</ref>;</highlight></codeline>
+<codeline lineno="27"><highlight class="normal">}<sp/><ref refid="structx86__storage__summary" kindref="compound">x86_storage_summary_t</ref>;</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="stringliteral">&quot;C&quot;</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>x86_storage_probe(<ref refid="structx86__storage__summary" kindref="compound">x86_storage_summary_t</ref><sp/>*summary);</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="stringliteral">&quot;C&quot;</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>x86_storage_self_test(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="stringliteral">&quot;C&quot;</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>x86_network_self_test(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="stringliteral">&quot;C&quot;</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>x86_virtio_input_poll(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+    </programlisting>
+    <location file="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/platforms/x86_64/x86_storage.h"/>
+  </compounddef>
+</doxygen>

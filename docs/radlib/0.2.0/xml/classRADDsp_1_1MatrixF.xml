@@ -1,0 +1,332 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="classRADDsp_1_1MatrixF" kind="class" language="C++" prot="public">
+    <compoundname>RADDsp::MatrixF</compoundname>
+    <includes refid="RADDsp_8h" local="no">RADDsp.h</includes>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classRADDsp_1_1MatrixF_1a760d22c3c4a07b0e7f2b7b891e9353bb" prot="private" static="no" mutable="no">
+        <type>size_t</type>
+        <definition>size_t RADDsp::MatrixF::rows_</definition>
+        <argsstring></argsstring>
+        <name>rows_</name>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDsp/headers/RADDsp.h" line="110" column="16" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADDsp/headers/RADDsp.h" bodystart="110" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classRADDsp_1_1MatrixF_1a46b3e83b13801dd134ca4d8a97d21c3e" prot="private" static="no" mutable="no">
+        <type>size_t</type>
+        <definition>size_t RADDsp::MatrixF::columns_</definition>
+        <argsstring></argsstring>
+        <name>columns_</name>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDsp/headers/RADDsp.h" line="111" column="16" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADDsp/headers/RADDsp.h" bodystart="111" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classRADDsp_1_1MatrixF_1a78e65fb530eab07badf2b24c75c60d7a" prot="private" static="no" mutable="no">
+        <type>std::vector&lt; float &gt;</type>
+        <definition>std::vector&lt;float&gt; RADDsp::MatrixF::data_</definition>
+        <argsstring></argsstring>
+        <name>data_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDsp/headers/RADDsp.h" line="112" column="21" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADDsp/headers/RADDsp.h" bodystart="112" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classRADDsp_1_1MatrixF_1a0efe68ea2e0d7d6f9746d3d47c3ab062" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>RADDsp::MatrixF::MatrixF</definition>
+        <argsstring>()=default</argsstring>
+        <name>MatrixF</name>
+        <briefdescription>
+<para>Creates an empty matrix. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDsp/headers/RADDsp.h" line="82" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADDsp_1_1MatrixF_1ad3eb931696851eec27c5de138a3bc17c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>RADDsp::MatrixF::MatrixF</definition>
+        <argsstring>(size_t rows, size_t columns, float value=0.0f)</argsstring>
+        <name>MatrixF</name>
+        <param>
+          <type>size_t</type>
+          <declname>rows</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>columns</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>value</declname>
+          <defval>0.0f</defval>
+        </param>
+        <briefdescription>
+<para>Creates a rows x columns matrix initialized to value. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDsp/headers/RADDsp.h" line="84" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADDsp_1_1MatrixF_1a08cc129a5c370dfb6bc545c888627933" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>RADDsp::MatrixF::MatrixF</definition>
+        <argsstring>(size_t rows, size_t columns, const std::vector&lt; float &gt; &amp;rowMajor)</argsstring>
+        <name>MatrixF</name>
+        <param>
+          <type>size_t</type>
+          <declname>rows</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>columns</declname>
+        </param>
+        <param>
+          <type>const std::vector&lt; float &gt; &amp;</type>
+          <declname>rowMajor</declname>
+        </param>
+        <briefdescription>
+<para>Creates a rows x columns matrix from row-major values; missing values are zero-filled. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDsp/headers/RADDsp.h" line="86" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADDsp_1_1MatrixF_1a272ec47152cc683ca14654eccafcb77a" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>size_t</type>
+        <definition>size_t RADDsp::MatrixF::rows</definition>
+        <argsstring>() const</argsstring>
+        <name>rows</name>
+        <briefdescription>
+<para>Returns the number of rows. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDsp/headers/RADDsp.h" line="89" column="16"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADDsp_1_1MatrixF_1aa9915e5d7eccd8098f0281234a71c263" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>size_t</type>
+        <definition>size_t RADDsp::MatrixF::columns</definition>
+        <argsstring>() const</argsstring>
+        <name>columns</name>
+        <briefdescription>
+<para>Returns the number of columns. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDsp/headers/RADDsp.h" line="91" column="16"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADDsp_1_1MatrixF_1a5f4c087d08dbbb425410b6bbb9b09bb2" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool RADDsp::MatrixF::empty</definition>
+        <argsstring>() const</argsstring>
+        <name>empty</name>
+        <briefdescription>
+<para>Returns true when either dimension is zero. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDsp/headers/RADDsp.h" line="93" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADDsp_1_1MatrixF_1a77b2a7f1e97ae8e4444a2b2f9b18507a" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>const std::vector&lt; float &gt; &amp;</type>
+        <definition>const std::vector&lt;float&gt;&amp; RADDsp::MatrixF::data</definition>
+        <argsstring>() const</argsstring>
+        <name>data</name>
+        <briefdescription>
+<para>Returns the matrix backing storage in row-major order. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDsp/headers/RADDsp.h" line="95" column="27"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADDsp_1_1MatrixF_1a07d2c4765b30af0be7fd97d1e516cc3e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::vector&lt; float &gt; &amp;</type>
+        <definition>std::vector&lt;float&gt;&amp; RADDsp::MatrixF::data</definition>
+        <argsstring>()</argsstring>
+        <name>data</name>
+        <briefdescription>
+<para>Returns the mutable matrix backing storage in row-major order. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDsp/headers/RADDsp.h" line="97" column="21"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADDsp_1_1MatrixF_1ab54332c84624cea57f32ac8f3e04f643" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void RADDsp::MatrixF::resize</definition>
+        <argsstring>(size_t rows, size_t columns, float value=0.0f)</argsstring>
+        <name>resize</name>
+        <param>
+          <type>size_t</type>
+          <declname>rows</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>columns</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>value</declname>
+          <defval>0.0f</defval>
+        </param>
+        <briefdescription>
+<para>Resizes the matrix and fills all values with value. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDsp/headers/RADDsp.h" line="99" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADDsp_1_1MatrixF_1a180e97a1abc97934767bc80dc4911ab9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>float &amp;</type>
+        <definition>float&amp; RADDsp::MatrixF::operator()</definition>
+        <argsstring>(size_t row, size_t column)</argsstring>
+        <name>operator()</name>
+        <param>
+          <type>size_t</type>
+          <declname>row</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>column</declname>
+        </param>
+        <briefdescription>
+<para>Fast unchecked element access for hot DSP loops. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDsp/headers/RADDsp.h" line="101" column="15"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADDsp_1_1MatrixF_1aa73c3a3db87c7c038c3a3f33c36c6ba2" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>float</type>
+        <definition>float RADDsp::MatrixF::operator()</definition>
+        <argsstring>(size_t row, size_t column) const</argsstring>
+        <name>operator()</name>
+        <param>
+          <type>size_t</type>
+          <declname>row</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>column</declname>
+        </param>
+        <briefdescription>
+<para>Fast unchecked element access for hot DSP loops. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDsp/headers/RADDsp.h" line="103" column="15"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADDsp_1_1MatrixF_1ac8cfa5bbcb62c7baf3342a2ad639e2d9" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>float</type>
+        <definition>float RADDsp::MatrixF::get</definition>
+        <argsstring>(size_t row, size_t column) const</argsstring>
+        <name>get</name>
+        <param>
+          <type>size_t</type>
+          <declname>row</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>column</declname>
+        </param>
+        <briefdescription>
+<para>Safely reads one value, returning 0 for invalid indices. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDsp/headers/RADDsp.h" line="105" column="15"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADDsp_1_1MatrixF_1ab2b83cc383edbc5407b7eaf2cd9b0e78" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool RADDsp::MatrixF::set</definition>
+        <argsstring>(size_t row, size_t column, float value)</argsstring>
+        <name>set</name>
+        <param>
+          <type>size_t</type>
+          <declname>row</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>column</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+<para>Safely writes one value and returns false for invalid indices. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDsp/headers/RADDsp.h" line="107" column="14"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Row-major dense floating-point matrix for DSP transforms and small linear algebra. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDsp/headers/RADDsp.h" line="79" column="5" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADDsp/headers/RADDsp.h" bodystart="79" bodyend="113"/>
+    <listofallmembers>
+      <member refid="classRADDsp_1_1MatrixF_1aa9915e5d7eccd8098f0281234a71c263" prot="public" virt="non-virtual"><scope>RADDsp::MatrixF</scope><name>columns</name></member>
+      <member refid="classRADDsp_1_1MatrixF_1a46b3e83b13801dd134ca4d8a97d21c3e" prot="private" virt="non-virtual"><scope>RADDsp::MatrixF</scope><name>columns_</name></member>
+      <member refid="classRADDsp_1_1MatrixF_1a77b2a7f1e97ae8e4444a2b2f9b18507a" prot="public" virt="non-virtual"><scope>RADDsp::MatrixF</scope><name>data</name></member>
+      <member refid="classRADDsp_1_1MatrixF_1a07d2c4765b30af0be7fd97d1e516cc3e" prot="public" virt="non-virtual"><scope>RADDsp::MatrixF</scope><name>data</name></member>
+      <member refid="classRADDsp_1_1MatrixF_1a78e65fb530eab07badf2b24c75c60d7a" prot="private" virt="non-virtual"><scope>RADDsp::MatrixF</scope><name>data_</name></member>
+      <member refid="classRADDsp_1_1MatrixF_1a5f4c087d08dbbb425410b6bbb9b09bb2" prot="public" virt="non-virtual"><scope>RADDsp::MatrixF</scope><name>empty</name></member>
+      <member refid="classRADDsp_1_1MatrixF_1ac8cfa5bbcb62c7baf3342a2ad639e2d9" prot="public" virt="non-virtual"><scope>RADDsp::MatrixF</scope><name>get</name></member>
+      <member refid="classRADDsp_1_1MatrixF_1a0efe68ea2e0d7d6f9746d3d47c3ab062" prot="public" virt="non-virtual"><scope>RADDsp::MatrixF</scope><name>MatrixF</name></member>
+      <member refid="classRADDsp_1_1MatrixF_1ad3eb931696851eec27c5de138a3bc17c" prot="public" virt="non-virtual"><scope>RADDsp::MatrixF</scope><name>MatrixF</name></member>
+      <member refid="classRADDsp_1_1MatrixF_1a08cc129a5c370dfb6bc545c888627933" prot="public" virt="non-virtual"><scope>RADDsp::MatrixF</scope><name>MatrixF</name></member>
+      <member refid="classRADDsp_1_1MatrixF_1a180e97a1abc97934767bc80dc4911ab9" prot="public" virt="non-virtual"><scope>RADDsp::MatrixF</scope><name>operator()</name></member>
+      <member refid="classRADDsp_1_1MatrixF_1aa73c3a3db87c7c038c3a3f33c36c6ba2" prot="public" virt="non-virtual"><scope>RADDsp::MatrixF</scope><name>operator()</name></member>
+      <member refid="classRADDsp_1_1MatrixF_1ab54332c84624cea57f32ac8f3e04f643" prot="public" virt="non-virtual"><scope>RADDsp::MatrixF</scope><name>resize</name></member>
+      <member refid="classRADDsp_1_1MatrixF_1a272ec47152cc683ca14654eccafcb77a" prot="public" virt="non-virtual"><scope>RADDsp::MatrixF</scope><name>rows</name></member>
+      <member refid="classRADDsp_1_1MatrixF_1a760d22c3c4a07b0e7f2b7b891e9353bb" prot="private" virt="non-virtual"><scope>RADDsp::MatrixF</scope><name>rows_</name></member>
+      <member refid="classRADDsp_1_1MatrixF_1ab2b83cc383edbc5407b7eaf2cd9b0e78" prot="public" virt="non-virtual"><scope>RADDsp::MatrixF</scope><name>set</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

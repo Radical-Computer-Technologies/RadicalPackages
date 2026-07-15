@@ -1,0 +1,441 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="x86__vm_8h" kind="file" language="C++">
+    <compoundname>x86_vm.h</compoundname>
+    <includes refid="radixkernel_8h" local="no">radixkernel/radixkernel.h</includes>
+    <includes local="no">stddef.h</includes>
+    <includes local="no">stdint.h</includes>
+    <incdepgraph>
+      <node id="5">
+        <label>stdarg.h</label>
+      </node>
+      <node id="4">
+        <label>stdint.h</label>
+      </node>
+      <node id="3">
+        <label>stddef.h</label>
+      </node>
+      <node id="1">
+        <label>/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/platforms/x86_64/x86_vm.h</label>
+        <link refid="x86__vm_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>radixkernel/radixkernel.h</label>
+        <link refid="radixkernel_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+    </incdepgraph>
+    <innerclass refid="structx86__vm__summary" prot="public">x86_vm_summary</innerclass>
+    <innerclass refid="structx86__address__space" prot="public">x86_address_space</innerclass>
+      <sectiondef kind="typedef">
+      <memberdef kind="typedef" id="x86__vm_8h_1a226a8c965e16ea15e814897ec2ace42a" prot="public" static="no">
+        <type>struct <ref refid="structx86__vm__summary" kindref="compound">x86_vm_summary</ref></type>
+        <definition>typedef struct x86_vm_summary x86_vm_summary_t</definition>
+        <argsstring></argsstring>
+        <name>x86_vm_summary_t</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Summary of the x86_64 early virtual-memory allocator and address-space state. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/platforms/x86_64/x86_vm.h" line="27" column="18"/>
+      </memberdef>
+      <memberdef kind="typedef" id="x86__vm_8h_1a15ffe670c3b793427fb327860f88b975" prot="public" static="no">
+        <type>struct <ref refid="structx86__address__space" kindref="compound">x86_address_space</ref></type>
+        <definition>typedef struct x86_address_space x86_address_space_t</definition>
+        <argsstring></argsstring>
+        <name>x86_address_space_t</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>x86_64 process address space descriptor owned by the RADix process layer. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/platforms/x86_64/x86_vm.h" line="37" column="21"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="x86__vm_8h_1ac50df6c1674738fabce9889253247d28" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void x86_vm_init</definition>
+        <argsstring>(const rad_boot_info_t *boot, x86_vm_summary_t *summary)</argsstring>
+        <name>x86_vm_init</name>
+        <param>
+          <type>const <ref refid="radixkernel_8h_1acbfa1f491bcf507c77435e9cc5606e54" kindref="member">rad_boot_info_t</ref> *</type>
+          <declname>boot</declname>
+        </param>
+        <param>
+          <type><ref refid="structx86__vm__summary" kindref="compound">x86_vm_summary_t</ref> *</type>
+          <declname>summary</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/platforms/x86_64/x86_vm.h" line="39" column="17" declfile="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/platforms/x86_64/x86_vm.h" declline="39" declcolumn="17"/>
+      </memberdef>
+      <memberdef kind="function" id="x86__vm_8h_1a33c70f6b98920231c01fec0b377448f1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>uint64_t</type>
+        <definition>uint64_t x86_vm_alloc_page</definition>
+        <argsstring>(void)</argsstring>
+        <name>x86_vm_alloc_page</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/platforms/x86_64/x86_vm.h" line="40" column="21" declfile="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/platforms/x86_64/x86_vm.h" declline="40" declcolumn="21"/>
+      </memberdef>
+      <memberdef kind="function" id="x86__vm_8h_1aad912948f5dd0300e446117536f08448" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int x86_vm_retain_page</definition>
+        <argsstring>(uint64_t physical_address)</argsstring>
+        <name>x86_vm_retain_page</name>
+        <param>
+          <type>uint64_t</type>
+          <declname>physical_address</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/platforms/x86_64/x86_vm.h" line="41" column="16" declfile="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/platforms/x86_64/x86_vm.h" declline="41" declcolumn="16"/>
+      </memberdef>
+      <memberdef kind="function" id="x86__vm_8h_1afe3474c2844ad13cda8fa3d73825d47c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void x86_vm_free_page</definition>
+        <argsstring>(uint64_t physical_address)</argsstring>
+        <name>x86_vm_free_page</name>
+        <param>
+          <type>uint64_t</type>
+          <declname>physical_address</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/platforms/x86_64/x86_vm.h" line="42" column="17" declfile="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/platforms/x86_64/x86_vm.h" declline="42" declcolumn="17"/>
+      </memberdef>
+      <memberdef kind="function" id="x86__vm_8h_1a1f006357f9b60bfe16dbc79bce2841b3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int x86_vm_create_address_space</definition>
+        <argsstring>(x86_address_space_t *space)</argsstring>
+        <name>x86_vm_create_address_space</name>
+        <param>
+          <type><ref refid="structx86__address__space" kindref="compound">x86_address_space_t</ref> *</type>
+          <declname>space</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/platforms/x86_64/x86_vm.h" line="43" column="16" declfile="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/platforms/x86_64/x86_vm.h" declline="43" declcolumn="16"/>
+      </memberdef>
+      <memberdef kind="function" id="x86__vm_8h_1a2b581bb8da74b6486da0fcbaeb105bc9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int x86_vm_map_user_page</definition>
+        <argsstring>(x86_address_space_t *space, uint64_t virtual_address, uint64_t physical_address, int writable)</argsstring>
+        <name>x86_vm_map_user_page</name>
+        <param>
+          <type><ref refid="structx86__address__space" kindref="compound">x86_address_space_t</ref> *</type>
+          <declname>space</declname>
+        </param>
+        <param>
+          <type>uint64_t</type>
+          <declname>virtual_address</declname>
+        </param>
+        <param>
+          <type>uint64_t</type>
+          <declname>physical_address</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>writable</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/platforms/x86_64/x86_vm.h" line="44" column="16" declfile="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/platforms/x86_64/x86_vm.h" declline="44" declcolumn="16"/>
+      </memberdef>
+      <memberdef kind="function" id="x86__vm_8h_1a4b76ae71c7c50f9e2c79b40a25e6e257" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int x86_vm_map_shared_page</definition>
+        <argsstring>(x86_address_space_t *space, uint64_t virtual_address, uint64_t physical_address, int writable)</argsstring>
+        <name>x86_vm_map_shared_page</name>
+        <param>
+          <type><ref refid="structx86__address__space" kindref="compound">x86_address_space_t</ref> *</type>
+          <declname>space</declname>
+        </param>
+        <param>
+          <type>uint64_t</type>
+          <declname>virtual_address</declname>
+        </param>
+        <param>
+          <type>uint64_t</type>
+          <declname>physical_address</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>writable</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/platforms/x86_64/x86_vm.h" line="45" column="16" declfile="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/platforms/x86_64/x86_vm.h" declline="45" declcolumn="16"/>
+      </memberdef>
+      <memberdef kind="function" id="x86__vm_8h_1a300aef5f8493a017e5a27336f7c7e952" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int x86_vm_map_kernel_mmio</definition>
+        <argsstring>(uint64_t physical_address, uint64_t size)</argsstring>
+        <name>x86_vm_map_kernel_mmio</name>
+        <param>
+          <type>uint64_t</type>
+          <declname>physical_address</declname>
+        </param>
+        <param>
+          <type>uint64_t</type>
+          <declname>size</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/platforms/x86_64/x86_vm.h" line="46" column="16" declfile="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/platforms/x86_64/x86_vm.h" declline="46" declcolumn="16"/>
+      </memberdef>
+      <memberdef kind="function" id="x86__vm_8h_1ab680f5d53c37140f76187455e8dc1e38" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int x86_vm_clone_cow</definition>
+        <argsstring>(x86_address_space_t *child, x86_address_space_t *parent)</argsstring>
+        <name>x86_vm_clone_cow</name>
+        <param>
+          <type><ref refid="structx86__address__space" kindref="compound">x86_address_space_t</ref> *</type>
+          <declname>child</declname>
+        </param>
+        <param>
+          <type><ref refid="structx86__address__space" kindref="compound">x86_address_space_t</ref> *</type>
+          <declname>parent</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/platforms/x86_64/x86_vm.h" line="47" column="16" declfile="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/platforms/x86_64/x86_vm.h" declline="47" declcolumn="16"/>
+      </memberdef>
+      <memberdef kind="function" id="x86__vm_8h_1a65edc8720b7f2b611e184696b77fe30f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int x86_vm_handle_page_fault</definition>
+        <argsstring>(uint64_t fault_address, uint64_t error_code)</argsstring>
+        <name>x86_vm_handle_page_fault</name>
+        <param>
+          <type>uint64_t</type>
+          <declname>fault_address</declname>
+        </param>
+        <param>
+          <type>uint64_t</type>
+          <declname>error_code</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/platforms/x86_64/x86_vm.h" line="48" column="16" declfile="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/platforms/x86_64/x86_vm.h" declline="48" declcolumn="16"/>
+      </memberdef>
+      <memberdef kind="function" id="x86__vm_8h_1aa9e623f77e630db234700c3c14dd90f1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void x86_vm_destroy_address_space</definition>
+        <argsstring>(x86_address_space_t *space)</argsstring>
+        <name>x86_vm_destroy_address_space</name>
+        <param>
+          <type><ref refid="structx86__address__space" kindref="compound">x86_address_space_t</ref> *</type>
+          <declname>space</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/platforms/x86_64/x86_vm.h" line="49" column="17" declfile="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/platforms/x86_64/x86_vm.h" declline="49" declcolumn="17"/>
+      </memberdef>
+      <memberdef kind="function" id="x86__vm_8h_1a286136b13cf498f33d5ab41b414199db" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void x86_vm_activate_address_space</definition>
+        <argsstring>(const x86_address_space_t *space)</argsstring>
+        <name>x86_vm_activate_address_space</name>
+        <param>
+          <type>const <ref refid="structx86__address__space" kindref="compound">x86_address_space_t</ref> *</type>
+          <declname>space</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/platforms/x86_64/x86_vm.h" line="50" column="17" declfile="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/platforms/x86_64/x86_vm.h" declline="50" declcolumn="17"/>
+      </memberdef>
+      <memberdef kind="function" id="x86__vm_8h_1a2d1d831e9e0343d871246045caf81476" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void x86_vm_activate_kernel_address_space</definition>
+        <argsstring>(void)</argsstring>
+        <name>x86_vm_activate_kernel_address_space</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/platforms/x86_64/x86_vm.h" line="51" column="17" declfile="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/platforms/x86_64/x86_vm.h" declline="51" declcolumn="17"/>
+      </memberdef>
+      <memberdef kind="function" id="x86__vm_8h_1ad3808bf995336f63f127435a200b43bc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int x86_vm_validate_user_range</definition>
+        <argsstring>(uint64_t virtual_address, uint64_t size, int write)</argsstring>
+        <name>x86_vm_validate_user_range</name>
+        <param>
+          <type>uint64_t</type>
+          <declname>virtual_address</declname>
+        </param>
+        <param>
+          <type>uint64_t</type>
+          <declname>size</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>write</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/platforms/x86_64/x86_vm.h" line="52" column="16" declfile="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/platforms/x86_64/x86_vm.h" declline="52" declcolumn="16"/>
+      </memberdef>
+      <memberdef kind="function" id="x86__vm_8h_1a71c3003d62c6e474c2a1d5297711a62f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int x86_vm_address_space_isolated</definition>
+        <argsstring>(const x86_address_space_t *space)</argsstring>
+        <name>x86_vm_address_space_isolated</name>
+        <param>
+          <type>const <ref refid="structx86__address__space" kindref="compound">x86_address_space_t</ref> *</type>
+          <declname>space</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/platforms/x86_64/x86_vm.h" line="53" column="16" declfile="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/platforms/x86_64/x86_vm.h" declline="53" declcolumn="16"/>
+      </memberdef>
+      <memberdef kind="function" id="x86__vm_8h_1a53c46fff28f95b954b058ba77242dfbd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int x86_vm_self_test</definition>
+        <argsstring>(void)</argsstring>
+        <name>x86_vm_self_test</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/platforms/x86_64/x86_vm.h" line="54" column="16" declfile="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/platforms/x86_64/x86_vm.h" declline="54" declcolumn="16"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#ifndef<sp/>RAD_X86_64_GRUB_SLINT_VM_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>RAD_X86_64_GRUB_SLINT_VM_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="radixkernel_8h" kindref="compound">radixkernel/radixkernel.h</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;stddef.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;stdint.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight></codeline>
+<codeline lineno="10" refid="structx86__vm__summary" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structx86__vm__summary" kindref="compound">x86_vm_summary</ref><sp/>{</highlight></codeline>
+<codeline lineno="12" refid="structx86__vm__summary_1aa5f0c39222b7de923b30827501a4541f" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>uint64_t<sp/><ref refid="structx86__vm__summary_1aa5f0c39222b7de923b30827501a4541f" kindref="member">usable_bytes</ref>;</highlight></codeline>
+<codeline lineno="14" refid="structx86__vm__summary_1a8926cde00b5a7036cd87c5630f4e7840" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>uint64_t<sp/><ref refid="structx86__vm__summary_1a8926cde00b5a7036cd87c5630f4e7840" kindref="member">tracked_pages</ref>;</highlight></codeline>
+<codeline lineno="16" refid="structx86__vm__summary_1a5a569b887a75f18241f80fbbb2e4b827" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>uint64_t<sp/><ref refid="structx86__vm__summary_1a5a569b887a75f18241f80fbbb2e4b827" kindref="member">free_pages</ref>;</highlight></codeline>
+<codeline lineno="18" refid="structx86__vm__summary_1a0cbcce807d8082875e594e8f4b80963d" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>uint64_t<sp/><ref refid="structx86__vm__summary_1a0cbcce807d8082875e594e8f4b80963d" kindref="member">reserved_pages</ref>;</highlight></codeline>
+<codeline lineno="20" refid="structx86__vm__summary_1a9c05108a7fed8f73fc6c3045c6c1c3b4" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>uint64_t<sp/><ref refid="structx86__vm__summary_1a9c05108a7fed8f73fc6c3045c6c1c3b4" kindref="member">kernel_start</ref>;</highlight></codeline>
+<codeline lineno="22" refid="structx86__vm__summary_1a3911c3724024aea87b33d7a723568063" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>uint64_t<sp/><ref refid="structx86__vm__summary_1a3911c3724024aea87b33d7a723568063" kindref="member">kernel_end</ref>;</highlight></codeline>
+<codeline lineno="24" refid="structx86__vm__summary_1a2c1ec1af03ebb2243e6dfd5efadba0ac" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="structx86__vm__summary_1a2c1ec1af03ebb2243e6dfd5efadba0ac" kindref="member">page_allocator_ready</ref>;</highlight></codeline>
+<codeline lineno="26" refid="structx86__vm__summary_1a45fe4c5143afde8c4814494dd021ea7f" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="structx86__vm__summary_1a45fe4c5143afde8c4814494dd021ea7f" kindref="member">user_address_space_ready</ref>;</highlight></codeline>
+<codeline lineno="27"><highlight class="normal">}<sp/><ref refid="structx86__vm__summary" kindref="compound">x86_vm_summary_t</ref>;</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight></codeline>
+<codeline lineno="30" refid="structx86__address__space" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structx86__address__space" kindref="compound">x86_address_space</ref><sp/>{</highlight></codeline>
+<codeline lineno="32" refid="structx86__address__space_1a83e5d2f758ee19817040831260b38766" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>uint64_t<sp/><ref refid="structx86__address__space_1a83e5d2f758ee19817040831260b38766" kindref="member">pml4</ref>;</highlight></codeline>
+<codeline lineno="34" refid="structx86__address__space_1a55db914293f2325fab4f1ed25b470d9e" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>uint64_t<sp/><ref refid="structx86__address__space_1a55db914293f2325fab4f1ed25b470d9e" kindref="member">owned_pages</ref>[16384];</highlight></codeline>
+<codeline lineno="36" refid="structx86__address__space_1acb0c01b24438979a84810615575f4cb9" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/><ref refid="structx86__address__space_1acb0c01b24438979a84810615575f4cb9" kindref="member">owned_page_count</ref>;</highlight></codeline>
+<codeline lineno="37"><highlight class="normal">}<sp/><ref refid="structx86__address__space" kindref="compound">x86_address_space_t</ref>;</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"></highlight></codeline>
+<codeline lineno="39"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="stringliteral">&quot;C&quot;</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>x86_vm_init(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structrad__boot__info" kindref="compound">rad_boot_info_t</ref><sp/>*boot,<sp/><ref refid="structx86__vm__summary" kindref="compound">x86_vm_summary_t</ref><sp/>*summary);</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="stringliteral">&quot;C&quot;</highlight><highlight class="normal"><sp/>uint64_t<sp/>x86_vm_alloc_page(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="stringliteral">&quot;C&quot;</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>x86_vm_retain_page(uint64_t<sp/>physical_address);</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="stringliteral">&quot;C&quot;</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>x86_vm_free_page(uint64_t<sp/>physical_address);</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="stringliteral">&quot;C&quot;</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>x86_vm_create_address_space(<ref refid="structx86__address__space" kindref="compound">x86_address_space_t</ref><sp/>*space);</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="stringliteral">&quot;C&quot;</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>x86_vm_map_user_page(<ref refid="structx86__address__space" kindref="compound">x86_address_space_t</ref><sp/>*space,<sp/>uint64_t<sp/>virtual_address,<sp/>uint64_t<sp/>physical_address,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>writable);</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="stringliteral">&quot;C&quot;</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>x86_vm_map_shared_page(<ref refid="structx86__address__space" kindref="compound">x86_address_space_t</ref><sp/>*space,<sp/>uint64_t<sp/>virtual_address,<sp/>uint64_t<sp/>physical_address,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>writable);</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="stringliteral">&quot;C&quot;</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>x86_vm_map_kernel_mmio(uint64_t<sp/>physical_address,<sp/>uint64_t<sp/>size);</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="stringliteral">&quot;C&quot;</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>x86_vm_clone_cow(<ref refid="structx86__address__space" kindref="compound">x86_address_space_t</ref><sp/>*child,<sp/><ref refid="structx86__address__space" kindref="compound">x86_address_space_t</ref><sp/>*parent);</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="stringliteral">&quot;C&quot;</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>x86_vm_handle_page_fault(uint64_t<sp/>fault_address,<sp/>uint64_t<sp/>error_code);</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="stringliteral">&quot;C&quot;</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>x86_vm_destroy_address_space(<ref refid="structx86__address__space" kindref="compound">x86_address_space_t</ref><sp/>*space);</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="stringliteral">&quot;C&quot;</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>x86_vm_activate_address_space(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structx86__address__space" kindref="compound">x86_address_space_t</ref><sp/>*space);</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="stringliteral">&quot;C&quot;</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>x86_vm_activate_kernel_address_space(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="stringliteral">&quot;C&quot;</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>x86_vm_validate_user_range(uint64_t<sp/>virtual_address,<sp/>uint64_t<sp/>size,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>write);</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="stringliteral">&quot;C&quot;</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>x86_vm_address_space_isolated(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structx86__address__space" kindref="compound">x86_address_space_t</ref><sp/>*space);</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="stringliteral">&quot;C&quot;</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>x86_vm_self_test(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"></highlight></codeline>
+<codeline lineno="56"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+    </programlisting>
+    <location file="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/platforms/x86_64/x86_vm.h"/>
+  </compounddef>
+</doxygen>

@@ -98,4 +98,4 @@ tar --sparse -czf radix-os-crimson_0.1.3-beta.1_x86_64-grub-terminal-interactive
   SHA256SUMS
 ```
 
-Upload these bundles and any `.radpm` archives with `scripts/publish_github_release_assets.py` to the matching immutable release, such as `radix-os-0.1.3-beta.1`.
+Upload these bundles and any `.radpm` archives with `scripts/publish_github_release_assets.py` to the matching immutable release, such as `radix-os-0.2.0-beta.1`.

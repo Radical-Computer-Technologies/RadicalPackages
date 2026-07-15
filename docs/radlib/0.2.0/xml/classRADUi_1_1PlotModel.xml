@@ -1,0 +1,474 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="classRADUi_1_1PlotModel" kind="class" language="C++" prot="public">
+    <compoundname>RADUi::PlotModel</compoundname>
+    <basecompoundref refid="classRADCore_1_1RADObject" prot="public" virt="non-virtual">RADCore::RADObject</basecompoundref>
+    <includes refid="RADPlot_8h" local="no">RADPlot.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="classRADUi_1_1PlotModel_1a835f0f74eddf961e168a8940491ab7d7" prot="public" static="no" mutable="no">
+        <type><ref refid="classRADCore_1_1Event" kindref="compound">RADCore::Event</ref>&lt; void() &gt;</type>
+        <definition>RADCore::Event&lt;void () &gt; RADUi::PlotModel::dataChanged</definition>
+        <argsstring></argsstring>
+        <name>dataChanged</name>
+        <briefdescription>
+<para>Raised when series data, ranges, or styles change. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADPlot.h" line="177" column="30" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADPlot.h" bodystart="177" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classRADUi_1_1PlotModel_1afccaff3dfe1095946ccc78dd0aace173" prot="private" static="no" mutable="no">
+        <type>std::unique_ptr&lt; Impl &gt;</type>
+        <definition>std::unique_ptr&lt;Impl&gt; RADUi::PlotModel::pImpl_</definition>
+        <argsstring></argsstring>
+        <name>pImpl_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADPlot.h" line="231" column="25" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADPlot.h" bodystart="230" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classRADUi_1_1PlotModel_1a155ac28d6301daefaeba759d12eefcc3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>RADUi::PlotModel::PlotModel</definition>
+        <argsstring>()</argsstring>
+        <name>PlotModel</name>
+        <briefdescription>
+<para>Creates an empty plot model. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADPlot.h" line="180" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADUi_1_1PlotModel_1a00c2b73594231bc11da02a7c648d85bc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>RADUi::PlotModel::~PlotModel</definition>
+        <argsstring>() override</argsstring>
+        <name>~PlotModel</name>
+        <briefdescription>
+<para>Destroys the model implementation. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADPlot.h" line="182" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADUi_1_1PlotModel_1a83261614314d16e25aa619fab23c9bfe" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>size_t</type>
+        <definition>size_t RADUi::PlotModel::addSeries</definition>
+        <argsstring>(std::string name, PlotSeriesStyle style={})</argsstring>
+        <name>addSeries</name>
+        <param>
+          <type>std::string</type>
+          <declname>name</declname>
+        </param>
+        <param>
+          <type><ref refid="structRADUi_1_1PlotSeriesStyle" kindref="compound">PlotSeriesStyle</ref></type>
+          <declname>style</declname>
+          <defval>{}</defval>
+        </param>
+        <briefdescription>
+<para>Adds a named series and returns its index. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADPlot.h" line="185" column="16"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADUi_1_1PlotModel_1ae1bdf928fbb797bc47782716a0cdb621" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>size_t</type>
+        <definition>size_t RADUi::PlotModel::seriesCount</definition>
+        <argsstring>() const</argsstring>
+        <name>seriesCount</name>
+        <briefdescription>
+<para>Returns the number of series in the model. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADPlot.h" line="187" column="16"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADUi_1_1PlotModel_1a8aefd8593d31dba424be827a30d4fc19" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void RADUi::PlotModel::clear</definition>
+        <argsstring>()</argsstring>
+        <name>clear</name>
+        <briefdescription>
+<para>Removes all series data. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADPlot.h" line="189" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADUi_1_1PlotModel_1af4129df215b10d6e307602cf361c0372" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void RADUi::PlotModel::clearSeries</definition>
+        <argsstring>(size_t seriesIndex)</argsstring>
+        <name>clearSeries</name>
+        <param>
+          <type>size_t</type>
+          <declname>seriesIndex</declname>
+        </param>
+        <briefdescription>
+<para>Removes all points from one series. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADPlot.h" line="191" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADUi_1_1PlotModel_1ac28d1009db7ea2d5ef6696880d602cb3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void RADUi::PlotModel::append</definition>
+        <argsstring>(size_t seriesIndex, double x, double y)</argsstring>
+        <name>append</name>
+        <param>
+          <type>size_t</type>
+          <declname>seriesIndex</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>x</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>y</declname>
+        </param>
+        <briefdescription>
+<para>Appends one X/Y point to a series. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADPlot.h" line="194" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADUi_1_1PlotModel_1afd4191498757abb258664f170a7970db" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void RADUi::PlotModel::append</definition>
+        <argsstring>(size_t seriesIndex, PlotPoint point)</argsstring>
+        <name>append</name>
+        <param>
+          <type>size_t</type>
+          <declname>seriesIndex</declname>
+        </param>
+        <param>
+          <type><ref refid="structRADUi_1_1PlotPoint" kindref="compound">PlotPoint</ref></type>
+          <declname>point</declname>
+        </param>
+        <briefdescription>
+<para>Appends one point to a series. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADPlot.h" line="196" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADUi_1_1PlotModel_1ac0242afbde4f006b79af445c0610e319" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void RADUi::PlotModel::appendBatch</definition>
+        <argsstring>(size_t seriesIndex, const std::vector&lt; PlotPoint &gt; &amp;points)</argsstring>
+        <name>appendBatch</name>
+        <param>
+          <type>size_t</type>
+          <declname>seriesIndex</declname>
+        </param>
+        <param>
+          <type>const std::vector&lt; <ref refid="structRADUi_1_1PlotPoint" kindref="compound">PlotPoint</ref> &gt; &amp;</type>
+          <declname>points</declname>
+        </param>
+        <briefdescription>
+<para>Appends a batch of points to a series. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADPlot.h" line="198" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADUi_1_1PlotModel_1ae71b1206cb5f1aceffec05ff586209ba" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void RADUi::PlotModel::setMaxPointCount</definition>
+        <argsstring>(size_t maxPointCount)</argsstring>
+        <name>setMaxPointCount</name>
+        <param>
+          <type>size_t</type>
+          <declname>maxPointCount</declname>
+        </param>
+        <briefdescription>
+<para>Sets the maximum retained points per series; 0 means unlimited. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADPlot.h" line="201" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADUi_1_1PlotModel_1a41dc3d8dcd563aac8abd72d1ed136dfb" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>size_t</type>
+        <definition>size_t RADUi::PlotModel::maxPointCount</definition>
+        <argsstring>() const</argsstring>
+        <name>maxPointCount</name>
+        <briefdescription>
+<para>Returns the maximum retained points per series. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADPlot.h" line="203" column="16"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADUi_1_1PlotModel_1a532762076e6cabdbd5f78ae68e192945" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void RADUi::PlotModel::setRollingXWindow</definition>
+        <argsstring>(double width)</argsstring>
+        <name>setRollingXWindow</name>
+        <param>
+          <type>double</type>
+          <declname>width</declname>
+        </param>
+        <briefdescription>
+<para>Sets a rolling X-axis window width; 0 disables rolling range. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADPlot.h" line="206" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADUi_1_1PlotModel_1a91412845c57dcae84b22422437b3319e" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>double RADUi::PlotModel::rollingXWindow</definition>
+        <argsstring>() const</argsstring>
+        <name>rollingXWindow</name>
+        <briefdescription>
+<para>Returns the rolling X-axis window width. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADPlot.h" line="208" column="16"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADUi_1_1PlotModel_1a16a507bd30415b4a700c14b8a91ffb74" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void RADUi::PlotModel::setAutoRange</definition>
+        <argsstring>(bool enabled)</argsstring>
+        <name>setAutoRange</name>
+        <param>
+          <type>bool</type>
+          <declname>enabled</declname>
+        </param>
+        <briefdescription>
+<para>Enables or disables automatic range calculation. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADPlot.h" line="211" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADUi_1_1PlotModel_1a60af11c4e03e1d27b7278e045dbf185b" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool RADUi::PlotModel::autoRange</definition>
+        <argsstring>() const</argsstring>
+        <name>autoRange</name>
+        <briefdescription>
+<para>Returns true when ranges are calculated from data. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADPlot.h" line="213" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADUi_1_1PlotModel_1a1c2de0f6c44e924f601ed0c6aacf7a14" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void RADUi::PlotModel::setXRange</definition>
+        <argsstring>(PlotRange range)</argsstring>
+        <name>setXRange</name>
+        <param>
+          <type><ref refid="structRADUi_1_1PlotRange" kindref="compound">PlotRange</ref></type>
+          <declname>range</declname>
+        </param>
+        <briefdescription>
+<para>Sets the manual X-axis range. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADPlot.h" line="215" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADUi_1_1PlotModel_1a427c663f515d6d37692f806637ba7cf0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void RADUi::PlotModel::setYRange</definition>
+        <argsstring>(PlotRange range)</argsstring>
+        <name>setYRange</name>
+        <param>
+          <type><ref refid="structRADUi_1_1PlotRange" kindref="compound">PlotRange</ref></type>
+          <declname>range</declname>
+        </param>
+        <briefdescription>
+<para>Sets the manual Y-axis range. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADPlot.h" line="217" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADUi_1_1PlotModel_1aea88fa9817e7e0a6f459495108651b83" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structRADUi_1_1PlotRange" kindref="compound">PlotRange</ref></type>
+        <definition>PlotRange RADUi::PlotModel::xRange</definition>
+        <argsstring>() const</argsstring>
+        <name>xRange</name>
+        <briefdescription>
+<para>Returns the current X-axis range. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADPlot.h" line="219" column="19"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADUi_1_1PlotModel_1a66748413e0f33aaad56f9ebdac418c07" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structRADUi_1_1PlotRange" kindref="compound">PlotRange</ref></type>
+        <definition>PlotRange RADUi::PlotModel::yRange</definition>
+        <argsstring>() const</argsstring>
+        <name>yRange</name>
+        <briefdescription>
+<para>Returns the current Y-axis range. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADPlot.h" line="221" column="19"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADUi_1_1PlotModel_1a3e75673765e2934421b0d96c381117a1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void RADUi::PlotModel::setSeriesStyle</definition>
+        <argsstring>(size_t seriesIndex, PlotSeriesStyle style)</argsstring>
+        <name>setSeriesStyle</name>
+        <param>
+          <type>size_t</type>
+          <declname>seriesIndex</declname>
+        </param>
+        <param>
+          <type><ref refid="structRADUi_1_1PlotSeriesStyle" kindref="compound">PlotSeriesStyle</ref></type>
+          <declname>style</declname>
+        </param>
+        <briefdescription>
+<para>Updates the rendering style for one series. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADPlot.h" line="224" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADUi_1_1PlotModel_1a67090de1acf329bf4d58568f605e85fc" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structRADUi_1_1PlotModelSnapshot" kindref="compound">PlotModelSnapshot</ref></type>
+        <definition>PlotModelSnapshot RADUi::PlotModel::snapshot</definition>
+        <argsstring>() const</argsstring>
+        <name>snapshot</name>
+        <briefdescription>
+<para>Returns an immutable model snapshot for rendering. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADPlot.h" line="226" column="27"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Mutable X/Y plot data model that emits dataChanged on edits. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>RADCore::RADObject</label>
+        <link refid="classRADCore_1_1RADObject"/>
+      </node>
+      <node id="1">
+        <label>RADUi::PlotModel</label>
+        <link refid="classRADUi_1_1PlotModel"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>RADCore::RADObject</label>
+        <link refid="classRADCore_1_1RADObject"/>
+      </node>
+      <node id="1">
+        <label>RADUi::PlotModel</label>
+        <link refid="classRADUi_1_1PlotModel"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="3" relation="usage">
+          <edgelabel>dataChanged</edgelabel>
+        </childnode>
+      </node>
+      <node id="3">
+        <label>RADCore::Event&lt; void() &gt;</label>
+        <link refid="classRADCore_1_1Event"/>
+      </node>
+    </collaborationgraph>
+    <location file="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADPlot.h" line="173" column="5" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADPlot.h" bodystart="173" bodyend="232"/>
+    <listofallmembers>
+      <member refid="classRADUi_1_1PlotModel_1a83261614314d16e25aa619fab23c9bfe" prot="public" virt="non-virtual"><scope>RADUi::PlotModel</scope><name>addSeries</name></member>
+      <member refid="classRADUi_1_1PlotModel_1ac28d1009db7ea2d5ef6696880d602cb3" prot="public" virt="non-virtual"><scope>RADUi::PlotModel</scope><name>append</name></member>
+      <member refid="classRADUi_1_1PlotModel_1afd4191498757abb258664f170a7970db" prot="public" virt="non-virtual"><scope>RADUi::PlotModel</scope><name>append</name></member>
+      <member refid="classRADUi_1_1PlotModel_1ac0242afbde4f006b79af445c0610e319" prot="public" virt="non-virtual"><scope>RADUi::PlotModel</scope><name>appendBatch</name></member>
+      <member refid="classRADCore_1_1RADObject_1a06cdf252ffb5e2f88332ebda12a62080" prot="public" virt="non-virtual"><scope>RADUi::PlotModel</scope><name>associatedEventLoop</name></member>
+      <member refid="classRADUi_1_1PlotModel_1a60af11c4e03e1d27b7278e045dbf185b" prot="public" virt="non-virtual"><scope>RADUi::PlotModel</scope><name>autoRange</name></member>
+      <member refid="classRADUi_1_1PlotModel_1a8aefd8593d31dba424be827a30d4fc19" prot="public" virt="non-virtual"><scope>RADUi::PlotModel</scope><name>clear</name></member>
+      <member refid="classRADUi_1_1PlotModel_1af4129df215b10d6e307602cf361c0372" prot="public" virt="non-virtual"><scope>RADUi::PlotModel</scope><name>clearSeries</name></member>
+      <member refid="classRADUi_1_1PlotModel_1a835f0f74eddf961e168a8940491ab7d7" prot="public" virt="non-virtual"><scope>RADUi::PlotModel</scope><name>dataChanged</name></member>
+      <member refid="classRADCore_1_1RADObject_1ad2ddfd066d14be9adc2f96bfca417fc6" prot="public" virt="non-virtual"><scope>RADUi::PlotModel</scope><name>lifetimeToken</name></member>
+      <member refid="classRADUi_1_1PlotModel_1a41dc3d8dcd563aac8abd72d1ed136dfb" prot="public" virt="non-virtual"><scope>RADUi::PlotModel</scope><name>maxPointCount</name></member>
+      <member refid="classRADCore_1_1RADObject_1a1f7f7f2fb40211e28455cd74a029339a" prot="public" virt="non-virtual"><scope>RADUi::PlotModel</scope><name>moveToThread</name></member>
+      <member refid="classRADUi_1_1PlotModel_1afccaff3dfe1095946ccc78dd0aace173" prot="private" virt="non-virtual"><scope>RADUi::PlotModel</scope><name>pImpl_</name></member>
+      <member refid="classRADUi_1_1PlotModel_1a155ac28d6301daefaeba759d12eefcc3" prot="public" virt="non-virtual"><scope>RADUi::PlotModel</scope><name>PlotModel</name></member>
+      <member refid="classRADCore_1_1RADObject_1a9bc3fed915f7c71232e68c2628d34708" prot="public" virt="non-virtual"><scope>RADUi::PlotModel</scope><name>RADObject</name></member>
+      <member refid="classRADCore_1_1RADObject_1af3e26b970c8080418f0d6b80cad986a2" prot="public" virt="non-virtual"><scope>RADUi::PlotModel</scope><name>registerLink</name></member>
+      <member refid="classRADUi_1_1PlotModel_1a91412845c57dcae84b22422437b3319e" prot="public" virt="non-virtual"><scope>RADUi::PlotModel</scope><name>rollingXWindow</name></member>
+      <member refid="classRADUi_1_1PlotModel_1ae1bdf928fbb797bc47782716a0cdb621" prot="public" virt="non-virtual"><scope>RADUi::PlotModel</scope><name>seriesCount</name></member>
+      <member refid="classRADUi_1_1PlotModel_1a16a507bd30415b4a700c14b8a91ffb74" prot="public" virt="non-virtual"><scope>RADUi::PlotModel</scope><name>setAutoRange</name></member>
+      <member refid="classRADUi_1_1PlotModel_1ae71b1206cb5f1aceffec05ff586209ba" prot="public" virt="non-virtual"><scope>RADUi::PlotModel</scope><name>setMaxPointCount</name></member>
+      <member refid="classRADUi_1_1PlotModel_1a532762076e6cabdbd5f78ae68e192945" prot="public" virt="non-virtual"><scope>RADUi::PlotModel</scope><name>setRollingXWindow</name></member>
+      <member refid="classRADUi_1_1PlotModel_1a3e75673765e2934421b0d96c381117a1" prot="public" virt="non-virtual"><scope>RADUi::PlotModel</scope><name>setSeriesStyle</name></member>
+      <member refid="classRADUi_1_1PlotModel_1a1c2de0f6c44e924f601ed0c6aacf7a14" prot="public" virt="non-virtual"><scope>RADUi::PlotModel</scope><name>setXRange</name></member>
+      <member refid="classRADUi_1_1PlotModel_1a427c663f515d6d37692f806637ba7cf0" prot="public" virt="non-virtual"><scope>RADUi::PlotModel</scope><name>setYRange</name></member>
+      <member refid="classRADUi_1_1PlotModel_1a67090de1acf329bf4d58568f605e85fc" prot="public" virt="non-virtual"><scope>RADUi::PlotModel</scope><name>snapshot</name></member>
+      <member refid="classRADCore_1_1RADObject_1a8b11df0b951d0db1ba99cfb851e34f31" prot="public" virt="non-virtual"><scope>RADUi::PlotModel</scope><name>threadAffinity</name></member>
+      <member refid="classRADCore_1_1RADObject_1ac7ca67b41523794ae5a6b3634d6ce3b6" prot="public" virt="non-virtual"><scope>RADUi::PlotModel</scope><name>threadId</name></member>
+      <member refid="classRADUi_1_1PlotModel_1aea88fa9817e7e0a6f459495108651b83" prot="public" virt="non-virtual"><scope>RADUi::PlotModel</scope><name>xRange</name></member>
+      <member refid="classRADUi_1_1PlotModel_1a66748413e0f33aaad56f9ebdac418c07" prot="public" virt="non-virtual"><scope>RADUi::PlotModel</scope><name>yRange</name></member>
+      <member refid="classRADUi_1_1PlotModel_1a00c2b73594231bc11da02a7c648d85bc" prot="public" virt="non-virtual"><scope>RADUi::PlotModel</scope><name>~PlotModel</name></member>
+      <member refid="classRADCore_1_1RADObject_1a7369e27a46c163ee89c63227db650ce5" prot="public" virt="virtual"><scope>RADUi::PlotModel</scope><name>~RADObject</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

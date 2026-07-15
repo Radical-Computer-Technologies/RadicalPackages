@@ -1,0 +1,360 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="namespaceRADUi_1_1Slint" kind="namespace" language="C++">
+    <compoundname>RADUi::Slint</compoundname>
+    <innerclass refid="classRADUi_1_1Slint_1_1SlintBackend" prot="public">RADUi::Slint::SlintBackend</innerclass>
+    <innerclass refid="structRADUi_1_1Slint_1_1FramebufferPlatformConfig" prot="public">RADUi::Slint::FramebufferPlatformConfig</innerclass>
+    <innernamespace refid="namespaceRADUi_1_1Slint_1_1Detail">RADUi::Slint::Detail</innernamespace>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="namespaceRADUi_1_1Slint_1a1c6249005d1f28a5d8bb4dc4ca2651b6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::shared_ptr&lt; <ref refid="classRADUi_1_1Slint_1_1SlintBackend" kindref="compound">SlintBackend</ref> &gt;</type>
+        <definition>std::shared_ptr&lt;SlintBackend&gt; RADUi::Slint::installBackend</definition>
+        <argsstring>()</argsstring>
+        <name>installBackend</name>
+        <briefdescription>
+<para>Installs and returns a shared <ref refid="namespaceRADUi_1_1Slint" kindref="compound">Slint</ref> backend for <ref refid="namespaceRADUi" kindref="compound">RADUi</ref>. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADSlintBackend.h" line="42" column="21" declfile="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADSlintBackend.h" declline="42" declcolumn="21"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceRADUi_1_1Slint_1ae806f7baf3e4a42faa88ba35d7e7f0e1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename Component</type>
+          </param>
+          <param>
+            <type>typename F</type>
+          </param>
+        </templateparamlist>
+        <type>void</type>
+        <definition>void RADUi::Slint::postToComponent</definition>
+        <argsstring>(const slint::ComponentHandle&lt; Component &gt; &amp;component, F &amp;&amp;action)</argsstring>
+        <name>postToComponent</name>
+        <param>
+          <type>const slint::ComponentHandle&lt; Component &gt; &amp;</type>
+          <declname>component</declname>
+        </param>
+        <param>
+          <type>F &amp;&amp;</type>
+          <declname>action</declname>
+        </param>
+        <briefdescription>
+<para>Posts action to the UI thread and invokes it only if component is still alive. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADSlintBackend.h" line="46" column="10" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADSlintBackend.h" bodystart="46" bodyend="53"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceRADUi_1_1Slint_1a9e480eb4f649dd1c3c645e9c2f54e8d1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename Component</type>
+          </param>
+          <param>
+            <type>typename...</type>
+            <declname>Args</declname>
+            <defname>Args</defname>
+          </param>
+          <param>
+            <type>typename F</type>
+          </param>
+        </templateparamlist>
+        <type><ref refid="classRADUi_1_1Binding" kindref="compound">RADUi::Binding</ref></type>
+        <definition>RADUi::Binding RADUi::Slint::connectEventToComponent</definition>
+        <argsstring>(RADCore::Event&lt; void(Args...)&gt; &amp;event, const slint::ComponentHandle&lt; Component &gt; &amp;component, F &amp;&amp;callback)</argsstring>
+        <name>connectEventToComponent</name>
+        <param>
+          <type><ref refid="classRADCore_1_1Event" kindref="compound">RADCore::Event</ref>&lt; void(Args...)&gt; &amp;</type>
+          <declname>event</declname>
+        </param>
+        <param>
+          <type>const slint::ComponentHandle&lt; Component &gt; &amp;</type>
+          <declname>component</declname>
+        </param>
+        <param>
+          <type>F &amp;&amp;</type>
+          <declname>callback</declname>
+        </param>
+        <briefdescription>
+<para>Connects a <ref refid="namespaceRADCore" kindref="compound">RADCore</ref> event to a <ref refid="namespaceRADUi_1_1Slint" kindref="compound">Slint</ref> component callback and returns a binding handle. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADSlintBackend.h" line="127" column="20" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADSlintBackend.h" bodystart="127" bodyend="133"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceRADUi_1_1Slint_1a94b961064f95f76f32866ac717a49586" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename Component</type>
+          </param>
+          <param>
+            <type>typename...</type>
+            <declname>Args</declname>
+            <defname>Args</defname>
+          </param>
+          <param>
+            <type>typename F</type>
+          </param>
+        </templateparamlist>
+        <type><ref refid="classRADUi_1_1Binding" kindref="compound">RADUi::Binding</ref></type>
+        <definition>RADUi::Binding RADUi::Slint::bindEventToComponent</definition>
+        <argsstring>(RADCore::Event&lt; void(Args...)&gt; &amp;event, const slint::ComponentHandle&lt; Component &gt; &amp;component, F &amp;&amp;callback)</argsstring>
+        <name>bindEventToComponent</name>
+        <param>
+          <type><ref refid="classRADCore_1_1Event" kindref="compound">RADCore::Event</ref>&lt; void(Args...)&gt; &amp;</type>
+          <declname>event</declname>
+        </param>
+        <param>
+          <type>const slint::ComponentHandle&lt; Component &gt; &amp;</type>
+          <declname>component</declname>
+        </param>
+        <param>
+          <type>F &amp;&amp;</type>
+          <declname>callback</declname>
+        </param>
+        <briefdescription>
+<para>Alias for connectEventToComponent used by property-oriented bridge code. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADSlintBackend.h" line="137" column="20" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADSlintBackend.h" bodystart="137" bodyend="142"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceRADUi_1_1Slint_1aa3ffad0bebb47c25ec898690fb7a90a0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename Component</type>
+          </param>
+          <param>
+            <type>typename Value</type>
+          </param>
+          <param>
+            <type>typename Setter</type>
+          </param>
+        </templateparamlist>
+        <type><ref refid="classRADUi_1_1Binding" kindref="compound">RADUi::Binding</ref></type>
+        <definition>RADUi::Binding RADUi::Slint::bindProperty</definition>
+        <argsstring>(RADCore::Event&lt; void(Value)&gt; &amp;event, const slint::ComponentHandle&lt; Component &gt; &amp;component, Setter setter)</argsstring>
+        <name>bindProperty</name>
+        <param>
+          <type><ref refid="classRADCore_1_1Event" kindref="compound">RADCore::Event</ref>&lt; void(Value)&gt; &amp;</type>
+          <declname>event</declname>
+        </param>
+        <param>
+          <type>const slint::ComponentHandle&lt; Component &gt; &amp;</type>
+          <declname>component</declname>
+        </param>
+        <param>
+          <type>Setter</type>
+          <declname>setter</declname>
+        </param>
+        <briefdescription>
+<para>Binds an event value directly to a generated <ref refid="namespaceRADUi_1_1Slint" kindref="compound">Slint</ref> property setter. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADSlintBackend.h" line="146" column="20" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADSlintBackend.h" bodystart="146" bodyend="154"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceRADUi_1_1Slint_1ae14a6bb653e7c488eefcd64951cd929d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename Component</type>
+          </param>
+          <param>
+            <type>typename Value</type>
+          </param>
+          <param>
+            <type>typename Setter</type>
+          </param>
+          <param>
+            <type>typename Transform</type>
+          </param>
+        </templateparamlist>
+        <type><ref refid="classRADUi_1_1Binding" kindref="compound">RADUi::Binding</ref></type>
+        <definition>RADUi::Binding RADUi::Slint::bindProperty</definition>
+        <argsstring>(RADCore::Event&lt; void(Value)&gt; &amp;event, const slint::ComponentHandle&lt; Component &gt; &amp;component, Setter setter, Transform transform)</argsstring>
+        <name>bindProperty</name>
+        <param>
+          <type><ref refid="classRADCore_1_1Event" kindref="compound">RADCore::Event</ref>&lt; void(Value)&gt; &amp;</type>
+          <declname>event</declname>
+        </param>
+        <param>
+          <type>const slint::ComponentHandle&lt; Component &gt; &amp;</type>
+          <declname>component</declname>
+        </param>
+        <param>
+          <type>Setter</type>
+          <declname>setter</declname>
+        </param>
+        <param>
+          <type>Transform</type>
+          <declname>transform</declname>
+        </param>
+        <briefdescription>
+<para>Binds an event value to a generated <ref refid="namespaceRADUi_1_1Slint" kindref="compound">Slint</ref> property setter after transform. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADSlintBackend.h" line="158" column="20" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADSlintBackend.h" bodystart="158" bodyend="167"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceRADUi_1_1Slint_1a365381bdb513b75e70477c80c8a0a323" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename Component</type>
+          </param>
+          <param>
+            <type>typename F</type>
+          </param>
+        </templateparamlist>
+        <type><ref refid="classRADUi_1_1Binding" kindref="compound">RADUi::Binding</ref></type>
+        <definition>RADUi::Binding RADUi::Slint::bindTheme</definition>
+        <argsstring>(RADUi::ThemeManager &amp;manager, const slint::ComponentHandle&lt; Component &gt; &amp;component, F &amp;&amp;callback)</argsstring>
+        <name>bindTheme</name>
+        <param>
+          <type><ref refid="classRADUi_1_1ThemeManager" kindref="compound">RADUi::ThemeManager</ref> &amp;</type>
+          <declname>manager</declname>
+        </param>
+        <param>
+          <type>const slint::ComponentHandle&lt; Component &gt; &amp;</type>
+          <declname>component</declname>
+        </param>
+        <param>
+          <type>F &amp;&amp;</type>
+          <declname>callback</declname>
+        </param>
+        <briefdescription>
+<para>Binds <ref refid="classRADUi_1_1ThemeManager" kindref="compound">ThemeManager</ref> changes to a generated <ref refid="namespaceRADUi_1_1Slint" kindref="compound">Slint</ref> component callback. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADSlintBackend.h" line="171" column="20" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADSlintBackend.h" bodystart="171" bodyend="177"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceRADUi_1_1Slint_1aadcf3e17c9a56a4a74561dcd72e92894" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::shared_ptr&lt; <ref refid="classRADUi_1_1Slint_1_1SlintBackend" kindref="compound">SlintBackend</ref> &gt;</type>
+        <definition>std::shared_ptr&lt;SlintBackend&gt; RADUi::Slint::installFramebufferBackend</definition>
+        <argsstring>(const FramebufferPlatformConfig &amp;config={})</argsstring>
+        <name>installFramebufferBackend</name>
+        <param>
+          <type>const <ref refid="structRADUi_1_1Slint_1_1FramebufferPlatformConfig" kindref="compound">FramebufferPlatformConfig</ref> &amp;</type>
+          <declname>config</declname>
+          <defval>{}</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Installs <ref refid="namespaceRADUi_1_1Slint" kindref="compound">Slint</ref>&apos;s embedded platform against a RADixKernel framebuffer and returns the <ref refid="namespaceRADUi" kindref="compound">RADUi</ref> <ref refid="namespaceRADUi_1_1Slint" kindref="compound">Slint</ref> backend. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADSlintFramebufferBackend.h" line="35" column="21" declfile="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADSlintFramebufferBackend.h" declline="35" declcolumn="21"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceRADUi_1_1Slint_1a01c2b796a9df78a09cf014deb504e849" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="radekernel_8h_1aeb7c981d4b5f029daa65d3b928bab127" kindref="member">rad_status_t</ref></type>
+        <definition>rad_status_t RADUi::Slint::tryInstallFramebufferBackend</definition>
+        <argsstring>(const FramebufferPlatformConfig &amp;config, std::shared_ptr&lt; SlintBackend &gt; *backend)</argsstring>
+        <name>tryInstallFramebufferBackend</name>
+        <param>
+          <type>const <ref refid="structRADUi_1_1Slint_1_1FramebufferPlatformConfig" kindref="compound">FramebufferPlatformConfig</ref> &amp;</type>
+          <declname>config</declname>
+        </param>
+        <param>
+          <type>std::shared_ptr&lt; <ref refid="classRADUi_1_1Slint_1_1SlintBackend" kindref="compound">SlintBackend</ref> &gt; *</type>
+          <declname>backend</declname>
+        </param>
+        <briefdescription>
+<para>Embedded-safe variant that reports RAD status instead of throwing on setup errors. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADSlintFramebufferBackend.h" line="38" column="18" declfile="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADSlintFramebufferBackend.h" declline="38" declcolumn="18"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceRADUi_1_1Slint_1a1fa780bb2dc61f5b8cb1664b2d3d2664" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>slint::Image</type>
+        <definition>slint::Image RADUi::Slint::toSlintImage</definition>
+        <argsstring>(const RADUi::PlotImage &amp;image)</argsstring>
+        <name>toSlintImage</name>
+        <param>
+          <type>const <ref refid="structRADUi_1_1PlotImage" kindref="compound">RADUi::PlotImage</ref> &amp;</type>
+          <declname>image</declname>
+        </param>
+        <briefdescription>
+<para>Converts a <ref refid="namespaceRADUi" kindref="compound">RADUi</ref> plot image to a <ref refid="namespaceRADUi_1_1Slint" kindref="compound">Slint</ref> image. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADSlintPlot.h" line="25" column="25" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADSlintPlot.h" bodystart="25" bodyend="40"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceRADUi_1_1Slint_1ac0be7cbf1988cfd40b70e154ea640123" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename Component</type>
+          </param>
+          <param>
+            <type>typename Setter</type>
+          </param>
+        </templateparamlist>
+        <type><ref refid="classRADUi_1_1Binding" kindref="compound">RADUi::Binding</ref></type>
+        <definition>RADUi::Binding RADUi::Slint::bindPlotToImageProperty</definition>
+        <argsstring>(RADUi::PlotModel &amp;model, const slint::ComponentHandle&lt; Component &gt; &amp;component, Setter setter, RADUi::PlotViewport viewport, double framesPerSecond=60.0, RADUi::PlotRenderMode renderMode=RADUi::PlotRenderMode::Software)</argsstring>
+        <name>bindPlotToImageProperty</name>
+        <param>
+          <type><ref refid="classRADUi_1_1PlotModel" kindref="compound">RADUi::PlotModel</ref> &amp;</type>
+          <declname>model</declname>
+        </param>
+        <param>
+          <type>const slint::ComponentHandle&lt; Component &gt; &amp;</type>
+          <declname>component</declname>
+        </param>
+        <param>
+          <type>Setter</type>
+          <declname>setter</declname>
+        </param>
+        <param>
+          <type><ref refid="structRADUi_1_1PlotViewport" kindref="compound">RADUi::PlotViewport</ref></type>
+          <declname>viewport</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>framesPerSecond</declname>
+          <defval>60.0</defval>
+        </param>
+        <param>
+          <type><ref refid="namespaceRADUi_1aae1cf4ed7a7c53a1a58507d311d90da1" kindref="member">RADUi::PlotRenderMode</ref></type>
+          <declname>renderMode</declname>
+          <defval><ref refid="namespaceRADUi_1aae1cf4ed7a7c53a1a58507d311d90da1a719d067b229178f03bcfa1da4ac4dede" kindref="member">RADUi::PlotRenderMode::Software</ref></defval>
+        </param>
+        <briefdescription>
+<para>Binds model rendering to a generated <ref refid="namespaceRADUi_1_1Slint" kindref="compound">Slint</ref> image property setter. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADSlintPlot.h" line="110" column="20" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADSlintPlot.h" bodystart="110" bodyend="120"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADSlintBackend.h" line="20" column="1"/>
+  </compounddef>
+</doxygen>

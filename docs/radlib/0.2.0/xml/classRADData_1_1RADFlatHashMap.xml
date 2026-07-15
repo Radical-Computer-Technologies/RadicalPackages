@@ -1,0 +1,699 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="classRADData_1_1RADFlatHashMap" kind="class" language="C++" prot="public">
+    <compoundname>RADData::RADFlatHashMap</compoundname>
+    <includes refid="RADDataStructures_8h" local="no">RADDataStructures.h</includes>
+    <innerclass refid="classRADData_1_1RADFlatHashMap_1_1const__iterator" prot="public">RADData::RADFlatHashMap::const_iterator</innerclass>
+    <innerclass refid="structRADData_1_1RADFlatHashMap_1_1Entry" prot="private">RADData::RADFlatHashMap::Entry</innerclass>
+    <innerclass refid="structRADData_1_1RADFlatHashMap_1_1InsertSlot" prot="private">RADData::RADFlatHashMap::InsertSlot</innerclass>
+    <innerclass refid="classRADData_1_1RADFlatHashMap_1_1iterator" prot="public">RADData::RADFlatHashMap::iterator</innerclass>
+    <templateparamlist>
+      <param>
+        <type>typename K</type>
+      </param>
+      <param>
+        <type>typename V</type>
+      </param>
+      <param>
+        <type>typename Hash</type>
+        <defval>std::hash&lt;K&gt;</defval>
+      </param>
+      <param>
+        <type>typename Eq</type>
+        <defval>std::equal_to&lt;K&gt;</defval>
+      </param>
+    </templateparamlist>
+      <sectiondef kind="private-type">
+      <memberdef kind="enum" id="classRADData_1_1RADFlatHashMap_1accdf73f4f562767cdb4a5c951bb8d6df" prot="private" static="no" strong="yes">
+        <type>uint8_t</type>
+        <name>State</name>
+        <enumvalue id="classRADData_1_1RADFlatHashMap_1accdf73f4f562767cdb4a5c951bb8d6dface2c8aed9c2fa0cfbed56cbda4d8bf07" prot="private">
+          <name>Empty</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classRADData_1_1RADFlatHashMap_1accdf73f4f562767cdb4a5c951bb8d6dfabbd86c81e760279d9731d5cac811ba50" prot="private">
+          <name>Occupied</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classRADData_1_1RADFlatHashMap_1accdf73f4f562767cdb4a5c951bb8d6dfa5fe6005bf6e415c950c011fb65f12b8f" prot="private">
+          <name>Deleted</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" line="1104" column="9" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" bodystart="1104" bodyend="1104"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-type">
+      <memberdef kind="typedef" id="classRADData_1_1RADFlatHashMap_1aa4b04ef78e6245a740d0e48cb5f58204" prot="public" static="no">
+        <type>std::pair&lt; K, V &gt;</type>
+        <definition>using RADData::RADFlatHashMap&lt; K, V, Hash, Eq &gt;::value_type =  std::pair&lt;K, V&gt;</definition>
+        <argsstring></argsstring>
+        <name>value_type</name>
+        <briefdescription>
+<para>Stored key/value pair type. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" line="1101" column="9" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" bodystart="1101" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-static-attrib">
+      <memberdef kind="variable" id="classRADData_1_1RADFlatHashMap_1a8a5780f01c86511437c697a0e03c06f9" prot="private" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr size_t</type>
+        <definition>constexpr size_t RADData::RADFlatHashMap&lt; K, V, Hash, Eq &gt;::npos</definition>
+        <argsstring></argsstring>
+        <name>npos</name>
+        <initializer>= std::numeric_limits&lt;size_t&gt;::max()</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" line="1114" column="33" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" bodystart="1114" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classRADData_1_1RADFlatHashMap_1ab37f5bd0e6bb05211b082887ae93e079" prot="private" static="no" mutable="no">
+        <type>Entry *</type>
+        <definition>Entry* RADData::RADFlatHashMap&lt; K, V, Hash, Eq &gt;::entries_</definition>
+        <argsstring></argsstring>
+        <name>entries_</name>
+        <initializer>= nullptr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" line="1376" column="15" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" bodystart="1376" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classRADData_1_1RADFlatHashMap_1ab78c13f62964c7873a984c2b47b08d40" prot="private" static="no" mutable="no">
+        <type>size_t</type>
+        <definition>size_t RADData::RADFlatHashMap&lt; K, V, Hash, Eq &gt;::capacity_</definition>
+        <argsstring></argsstring>
+        <name>capacity_</name>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" line="1377" column="16" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" bodystart="1377" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classRADData_1_1RADFlatHashMap_1ae649a1170f41851be3dd516d9623ac93" prot="private" static="no" mutable="no">
+        <type>size_t</type>
+        <definition>size_t RADData::RADFlatHashMap&lt; K, V, Hash, Eq &gt;::mask_</definition>
+        <argsstring></argsstring>
+        <name>mask_</name>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" line="1378" column="16" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" bodystart="1378" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classRADData_1_1RADFlatHashMap_1a932d2da00a12cc19b8532ae9a3525139" prot="private" static="no" mutable="no">
+        <type>size_t</type>
+        <definition>size_t RADData::RADFlatHashMap&lt; K, V, Hash, Eq &gt;::size_</definition>
+        <argsstring></argsstring>
+        <name>size_</name>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" line="1379" column="16" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" bodystart="1379" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classRADData_1_1RADFlatHashMap_1aa9aac45aad86c9b525d16f11e9fdd80c" prot="private" static="no" mutable="no">
+        <type>size_t</type>
+        <definition>size_t RADData::RADFlatHashMap&lt; K, V, Hash, Eq &gt;::tombstones_</definition>
+        <argsstring></argsstring>
+        <name>tombstones_</name>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" line="1380" column="16" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" bodystart="1380" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classRADData_1_1RADFlatHashMap_1a458da723972ee2da89221d0e2b6c4681" prot="private" static="no" mutable="no">
+        <type>Hash</type>
+        <definition>Hash RADData::RADFlatHashMap&lt; K, V, Hash, Eq &gt;::hasher_</definition>
+        <argsstring></argsstring>
+        <name>hasher_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" line="1381" column="14" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" bodystart="1381" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classRADData_1_1RADFlatHashMap_1a3dfd23c14a1c2daf7aff7a5b024693c2" prot="private" static="no" mutable="no">
+        <type>Eq</type>
+        <definition>Eq RADData::RADFlatHashMap&lt; K, V, Hash, Eq &gt;::eq_</definition>
+        <argsstring></argsstring>
+        <name>eq_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" line="1382" column="12" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" bodystart="1382" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classRADData_1_1RADFlatHashMap_1a19f30d516242ec80070b1d0448a7cfd6" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>RADData::RADFlatHashMap&lt; K, V, Hash, Eq &gt;::RADFlatHashMap</definition>
+        <argsstring>()</argsstring>
+        <name>RADFlatHashMap</name>
+        <briefdescription>
+<para>Creates an empty map with default capacity. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" line="1118" column="9" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" bodystart="1118" bodyend="1120"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADData_1_1RADFlatHashMap_1a482e8745141ee6a1e5f38422b95ad690" prot="public" static="no" const="no" explicit="yes" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>RADData::RADFlatHashMap&lt; K, V, Hash, Eq &gt;::RADFlatHashMap</definition>
+        <argsstring>(size_t capacity)</argsstring>
+        <name>RADFlatHashMap</name>
+        <param>
+          <type>size_t</type>
+          <declname>capacity</declname>
+        </param>
+        <briefdescription>
+<para>Creates an empty map with at least capacity slots. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" line="1123" column="18" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" bodystart="1123" bodyend="1125"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADData_1_1RADFlatHashMap_1a39935c081fa606f4909a2d308d99bf9e" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>RADData::RADFlatHashMap&lt; K, V, Hash, Eq &gt;::RADFlatHashMap</definition>
+        <argsstring>(const RADFlatHashMap &amp;other)</argsstring>
+        <name>RADFlatHashMap</name>
+        <param>
+          <type>const <ref refid="classRADData_1_1RADFlatHashMap" kindref="compound">RADFlatHashMap</ref> &amp;</type>
+          <declname>other</declname>
+        </param>
+        <briefdescription>
+<para>Copies another map. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" line="1128" column="9" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" bodystart="1128" bodyend="1131"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADData_1_1RADFlatHashMap_1ae4e515b6c97e4acc7821281614014949" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classRADData_1_1RADFlatHashMap" kindref="compound">RADFlatHashMap</ref> &amp;</type>
+        <definition>RADFlatHashMap&amp; RADData::RADFlatHashMap&lt; K, V, Hash, Eq &gt;::operator=</definition>
+        <argsstring>(const RADFlatHashMap &amp;other)</argsstring>
+        <name>operator=</name>
+        <param>
+          <type>const <ref refid="classRADData_1_1RADFlatHashMap" kindref="compound">RADFlatHashMap</ref> &amp;</type>
+          <declname>other</declname>
+        </param>
+        <briefdescription>
+<para>Replaces this map with a copy of other. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" line="1134" column="24" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" bodystart="1134" bodyend="1145"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADData_1_1RADFlatHashMap_1ae0574605a61127d18f362da65a73b72e" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type></type>
+        <definition>RADData::RADFlatHashMap&lt; K, V, Hash, Eq &gt;::RADFlatHashMap</definition>
+        <argsstring>(RADFlatHashMap &amp;&amp;other) noexcept</argsstring>
+        <name>RADFlatHashMap</name>
+        <param>
+          <type><ref refid="classRADData_1_1RADFlatHashMap" kindref="compound">RADFlatHashMap</ref> &amp;&amp;</type>
+          <declname>other</declname>
+        </param>
+        <briefdescription>
+<para>Moves another map without rehashing. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" line="1148" column="9" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" bodystart="1148" bodyend="1161"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADData_1_1RADFlatHashMap_1ae160d55cf9ec9a01048e4b08cbd40295" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type><ref refid="classRADData_1_1RADFlatHashMap" kindref="compound">RADFlatHashMap</ref> &amp;</type>
+        <definition>RADFlatHashMap&amp; RADData::RADFlatHashMap&lt; K, V, Hash, Eq &gt;::operator=</definition>
+        <argsstring>(RADFlatHashMap &amp;&amp;other) noexcept</argsstring>
+        <name>operator=</name>
+        <param>
+          <type><ref refid="classRADData_1_1RADFlatHashMap" kindref="compound">RADFlatHashMap</ref> &amp;&amp;</type>
+          <declname>other</declname>
+        </param>
+        <briefdescription>
+<para>Replaces this map by taking other&apos;s storage. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" line="1164" column="24" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" bodystart="1164" bodyend="1181"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADData_1_1RADFlatHashMap_1a3d7e7f9e316f72cd70bb20d0aed89e42" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>RADData::RADFlatHashMap&lt; K, V, Hash, Eq &gt;::~RADFlatHashMap</definition>
+        <argsstring>()</argsstring>
+        <name>~RADFlatHashMap</name>
+        <briefdescription>
+<para>Destroys entries and releases storage. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" line="1184" column="9" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" bodystart="1184" bodyend="1187"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADData_1_1RADFlatHashMap_1a88475e194a80fd6c53cd7f3cbc51d0be" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type><ref refid="classRADData_1_1RADFlatHashMap_1_1iterator" kindref="compound">iterator</ref></type>
+        <definition>iterator RADData::RADFlatHashMap&lt; K, V, Hash, Eq &gt;::begin</definition>
+        <argsstring>() noexcept</argsstring>
+        <name>begin</name>
+        <briefdescription>
+<para>Returns iterator to first occupied entry. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" line="1234" column="18" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" bodystart="1234" bodyend="1234"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADData_1_1RADFlatHashMap_1a34fd48ec691d76b7b71497ba9b5020e4" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type><ref refid="classRADData_1_1RADFlatHashMap_1_1iterator" kindref="compound">iterator</ref></type>
+        <definition>iterator RADData::RADFlatHashMap&lt; K, V, Hash, Eq &gt;::end</definition>
+        <argsstring>() noexcept</argsstring>
+        <name>end</name>
+        <briefdescription>
+<para>Returns iterator one past the entry table. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" line="1236" column="18" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" bodystart="1236" bodyend="1236"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADData_1_1RADFlatHashMap_1a198f98be87de96ac1d384c97e43f09be" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type><ref refid="classRADData_1_1RADFlatHashMap_1_1const__iterator" kindref="compound">const_iterator</ref></type>
+        <definition>const_iterator RADData::RADFlatHashMap&lt; K, V, Hash, Eq &gt;::begin</definition>
+        <argsstring>() const noexcept</argsstring>
+        <name>begin</name>
+        <briefdescription>
+<para>Returns const iterator to first occupied entry. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" line="1238" column="24" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" bodystart="1238" bodyend="1238"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADData_1_1RADFlatHashMap_1a93707b25cf11b407ec20ef156e9567c1" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type><ref refid="classRADData_1_1RADFlatHashMap_1_1const__iterator" kindref="compound">const_iterator</ref></type>
+        <definition>const_iterator RADData::RADFlatHashMap&lt; K, V, Hash, Eq &gt;::end</definition>
+        <argsstring>() const noexcept</argsstring>
+        <name>end</name>
+        <briefdescription>
+<para>Returns const iterator one past the entry table. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" line="1240" column="24" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" bodystart="1240" bodyend="1240"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADData_1_1RADFlatHashMap_1a9aef0b7379d49083f8ed00463cc34771" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool RADData::RADFlatHashMap&lt; K, V, Hash, Eq &gt;::empty</definition>
+        <argsstring>() const noexcept</argsstring>
+        <name>empty</name>
+        <briefdescription>
+<para>Returns true when the map contains no entries. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" line="1243" column="14" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" bodystart="1243" bodyend="1243"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADData_1_1RADFlatHashMap_1a484227da3283d8ab0ebe2c4b015c3f2e" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type>size_t</type>
+        <definition>size_t RADData::RADFlatHashMap&lt; K, V, Hash, Eq &gt;::size</definition>
+        <argsstring>() const noexcept</argsstring>
+        <name>size</name>
+        <briefdescription>
+<para>Returns number of occupied entries. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" line="1245" column="16" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" bodystart="1245" bodyend="1245"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADData_1_1RADFlatHashMap_1ade12bed5e8d70eead3064d1eb0215b13" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type>size_t</type>
+        <definition>size_t RADData::RADFlatHashMap&lt; K, V, Hash, Eq &gt;::capacity</definition>
+        <argsstring>() const noexcept</argsstring>
+        <name>capacity</name>
+        <briefdescription>
+<para>Returns current hash table capacity. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" line="1247" column="16" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" bodystart="1247" bodyend="1247"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADData_1_1RADFlatHashMap_1ae321da1cede3fd577584dae1cd2fb1c0" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void RADData::RADFlatHashMap&lt; K, V, Hash, Eq &gt;::clear</definition>
+        <argsstring>() noexcept</argsstring>
+        <name>clear</name>
+        <briefdescription>
+<para>Removes all entries while keeping table storage. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" line="1250" column="14" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" bodystart="1250" bodyend="1258"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADData_1_1RADFlatHashMap_1adc883771ce6aacb12e0558d5f8aea1b1" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool RADData::RADFlatHashMap&lt; K, V, Hash, Eq &gt;::contains</definition>
+        <argsstring>(const K &amp;key) const</argsstring>
+        <name>contains</name>
+        <param>
+          <type>const K &amp;</type>
+          <declname>key</declname>
+        </param>
+        <briefdescription>
+<para>Returns true when key exists. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" line="1261" column="14" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" bodystart="1261" bodyend="1263"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADData_1_1RADFlatHashMap_1ac194236ba2dfc81bdbdf02949b16ce8d" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>V *</type>
+        <definition>V* RADData::RADFlatHashMap&lt; K, V, Hash, Eq &gt;::find</definition>
+        <argsstring>(const K &amp;key)</argsstring>
+        <name>find</name>
+        <param>
+          <type>const K &amp;</type>
+          <declname>key</declname>
+        </param>
+        <briefdescription>
+<para>Returns pointer to mapped value for key, or nullptr when absent. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" line="1266" column="11" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" bodystart="1266" bodyend="1269"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADData_1_1RADFlatHashMap_1a571ea6165b0892e6729ecaa2b8c1a9af" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>const V *</type>
+        <definition>const V* RADData::RADFlatHashMap&lt; K, V, Hash, Eq &gt;::find</definition>
+        <argsstring>(const K &amp;key) const</argsstring>
+        <name>find</name>
+        <param>
+          <type>const K &amp;</type>
+          <declname>key</declname>
+        </param>
+        <briefdescription>
+<para>Returns const pointer to mapped value for key, or nullptr when absent. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" line="1272" column="17" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" bodystart="1272" bodyend="1275"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADData_1_1RADFlatHashMap_1a47274dd7cd9176fd559cea724cddb17c" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>std::pair&lt; <ref refid="classRADData_1_1RADFlatHashMap_1_1iterator" kindref="compound">iterator</ref>, bool &gt;</type>
+        <definition>std::pair&lt;iterator, bool&gt; RADData::RADFlatHashMap&lt; K, V, Hash, Eq &gt;::insert</definition>
+        <argsstring>(const K &amp;key, const V &amp;value)</argsstring>
+        <name>insert</name>
+        <param>
+          <type>const K &amp;</type>
+          <declname>key</declname>
+        </param>
+        <param>
+          <type>const V &amp;</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+<para>Inserts or replaces key with value. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" line="1278" column="19" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" bodystart="1278" bodyend="1280"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADData_1_1RADFlatHashMap_1a2fe08cf4fdac13f31c3916ba43f8c8f6" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename KeyArg</type>
+          </param>
+          <param>
+            <type>typename ValueArg</type>
+          </param>
+        </templateparamlist>
+        <type>std::pair&lt; <ref refid="classRADData_1_1RADFlatHashMap_1_1iterator" kindref="compound">iterator</ref>, bool &gt;</type>
+        <definition>std::pair&lt;iterator, bool&gt; RADData::RADFlatHashMap&lt; K, V, Hash, Eq &gt;::emplace</definition>
+        <argsstring>(KeyArg &amp;&amp;key, ValueArg &amp;&amp;value)</argsstring>
+        <name>emplace</name>
+        <param>
+          <type>KeyArg &amp;&amp;</type>
+          <declname>key</declname>
+        </param>
+        <param>
+          <type>ValueArg &amp;&amp;</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+<para>Inserts or replaces key/value with forwarding support. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" line="1284" column="19" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" bodystart="1284" bodyend="1297"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADData_1_1RADFlatHashMap_1a7e744b672e5057ffcadc42c74a4c57fa" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>V &amp;</type>
+        <definition>V&amp; RADData::RADFlatHashMap&lt; K, V, Hash, Eq &gt;::operator[]</definition>
+        <argsstring>(const K &amp;key)</argsstring>
+        <name>operator[]</name>
+        <param>
+          <type>const K &amp;</type>
+          <declname>key</declname>
+        </param>
+        <briefdescription>
+<para>Returns mapped value for key, inserting a default value if absent. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" line="1300" column="11" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" bodystart="1300" bodyend="1302"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADData_1_1RADFlatHashMap_1ab93c000c394a236307d017bae810c967" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool RADData::RADFlatHashMap&lt; K, V, Hash, Eq &gt;::erase</definition>
+        <argsstring>(const K &amp;key)</argsstring>
+        <name>erase</name>
+        <param>
+          <type>const K &amp;</type>
+          <declname>key</declname>
+        </param>
+        <briefdescription>
+<para>Erases key and returns true when an entry was removed. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" line="1305" column="14" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" bodystart="1305" bodyend="1313"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADData_1_1RADFlatHashMap_1abe4322f35b6e3dfaf7168a2b76e8e5bf" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void RADData::RADFlatHashMap&lt; K, V, Hash, Eq &gt;::reserve</definition>
+        <argsstring>(size_t desired)</argsstring>
+        <name>reserve</name>
+        <param>
+          <type>size_t</type>
+          <declname>desired</declname>
+        </param>
+        <briefdescription>
+<para>Reserves enough capacity for desired entries. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" line="1316" column="14" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" bodystart="1316" bodyend="1319"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="classRADData_1_1RADFlatHashMap_1aa43e8ada728bc124ef1e9f1d3454bf8e" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void RADData::RADFlatHashMap&lt; K, V, Hash, Eq &gt;::ensureCapacity</definition>
+        <argsstring>()</argsstring>
+        <name>ensureCapacity</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" line="1322" column="14" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" bodystart="1322" bodyend="1326"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADData_1_1RADFlatHashMap_1aef2fc3cefca32f88127d9d7fa50398e8" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void RADData::RADFlatHashMap&lt; K, V, Hash, Eq &gt;::rehash</definition>
+        <argsstring>(size_t requestedCapacity)</argsstring>
+        <name>rehash</name>
+        <param>
+          <type>size_t</type>
+          <declname>requestedCapacity</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" line="1328" column="14" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" bodystart="1328" bodyend="1345"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADData_1_1RADFlatHashMap_1a20ee49bd00366ad4d200819f8e82549e" prot="private" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>size_t</type>
+        <definition>size_t RADData::RADFlatHashMap&lt; K, V, Hash, Eq &gt;::findIndex</definition>
+        <argsstring>(const K &amp;key) const</argsstring>
+        <name>findIndex</name>
+        <param>
+          <type>const K &amp;</type>
+          <declname>key</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" line="1347" column="16" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" bodystart="1347" bodyend="1356"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADData_1_1RADFlatHashMap_1a062685df3a4694bd604d7423688296f3" prot="private" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename KeyArg</type>
+          </param>
+        </templateparamlist>
+        <type>InsertSlot</type>
+        <definition>InsertSlot RADData::RADFlatHashMap&lt; K, V, Hash, Eq &gt;::findInsertSlot</definition>
+        <argsstring>(const KeyArg &amp;key) const</argsstring>
+        <name>findInsertSlot</name>
+        <param>
+          <type>const KeyArg &amp;</type>
+          <declname>key</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" line="1359" column="20" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" bodystart="1359" bodyend="1374"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Open-addressed flat hash map optimized for cache-local lookups. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" line="1098" column="5" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" bodystart="1098" bodyend="1383"/>
+    <listofallmembers>
+      <member refid="classRADData_1_1RADFlatHashMap_1a88475e194a80fd6c53cd7f3cbc51d0be" prot="public" virt="non-virtual"><scope>RADData::RADFlatHashMap</scope><name>begin</name></member>
+      <member refid="classRADData_1_1RADFlatHashMap_1a198f98be87de96ac1d384c97e43f09be" prot="public" virt="non-virtual"><scope>RADData::RADFlatHashMap</scope><name>begin</name></member>
+      <member refid="classRADData_1_1RADFlatHashMap_1ade12bed5e8d70eead3064d1eb0215b13" prot="public" virt="non-virtual"><scope>RADData::RADFlatHashMap</scope><name>capacity</name></member>
+      <member refid="classRADData_1_1RADFlatHashMap_1ab78c13f62964c7873a984c2b47b08d40" prot="private" virt="non-virtual"><scope>RADData::RADFlatHashMap</scope><name>capacity_</name></member>
+      <member refid="classRADData_1_1RADFlatHashMap_1ae321da1cede3fd577584dae1cd2fb1c0" prot="public" virt="non-virtual"><scope>RADData::RADFlatHashMap</scope><name>clear</name></member>
+      <member refid="classRADData_1_1RADFlatHashMap_1adc883771ce6aacb12e0558d5f8aea1b1" prot="public" virt="non-virtual"><scope>RADData::RADFlatHashMap</scope><name>contains</name></member>
+      <member refid="classRADData_1_1RADFlatHashMap_1a2fe08cf4fdac13f31c3916ba43f8c8f6" prot="public" virt="non-virtual"><scope>RADData::RADFlatHashMap</scope><name>emplace</name></member>
+      <member refid="classRADData_1_1RADFlatHashMap_1a9aef0b7379d49083f8ed00463cc34771" prot="public" virt="non-virtual"><scope>RADData::RADFlatHashMap</scope><name>empty</name></member>
+      <member refid="classRADData_1_1RADFlatHashMap_1a34fd48ec691d76b7b71497ba9b5020e4" prot="public" virt="non-virtual"><scope>RADData::RADFlatHashMap</scope><name>end</name></member>
+      <member refid="classRADData_1_1RADFlatHashMap_1a93707b25cf11b407ec20ef156e9567c1" prot="public" virt="non-virtual"><scope>RADData::RADFlatHashMap</scope><name>end</name></member>
+      <member refid="classRADData_1_1RADFlatHashMap_1aa43e8ada728bc124ef1e9f1d3454bf8e" prot="private" virt="non-virtual"><scope>RADData::RADFlatHashMap</scope><name>ensureCapacity</name></member>
+      <member refid="classRADData_1_1RADFlatHashMap_1ab37f5bd0e6bb05211b082887ae93e079" prot="private" virt="non-virtual"><scope>RADData::RADFlatHashMap</scope><name>entries_</name></member>
+      <member refid="classRADData_1_1RADFlatHashMap_1a3dfd23c14a1c2daf7aff7a5b024693c2" prot="private" virt="non-virtual"><scope>RADData::RADFlatHashMap</scope><name>eq_</name></member>
+      <member refid="classRADData_1_1RADFlatHashMap_1ab93c000c394a236307d017bae810c967" prot="public" virt="non-virtual"><scope>RADData::RADFlatHashMap</scope><name>erase</name></member>
+      <member refid="classRADData_1_1RADFlatHashMap_1ac194236ba2dfc81bdbdf02949b16ce8d" prot="public" virt="non-virtual"><scope>RADData::RADFlatHashMap</scope><name>find</name></member>
+      <member refid="classRADData_1_1RADFlatHashMap_1a571ea6165b0892e6729ecaa2b8c1a9af" prot="public" virt="non-virtual"><scope>RADData::RADFlatHashMap</scope><name>find</name></member>
+      <member refid="classRADData_1_1RADFlatHashMap_1a20ee49bd00366ad4d200819f8e82549e" prot="private" virt="non-virtual"><scope>RADData::RADFlatHashMap</scope><name>findIndex</name></member>
+      <member refid="classRADData_1_1RADFlatHashMap_1a062685df3a4694bd604d7423688296f3" prot="private" virt="non-virtual"><scope>RADData::RADFlatHashMap</scope><name>findInsertSlot</name></member>
+      <member refid="classRADData_1_1RADFlatHashMap_1a458da723972ee2da89221d0e2b6c4681" prot="private" virt="non-virtual"><scope>RADData::RADFlatHashMap</scope><name>hasher_</name></member>
+      <member refid="classRADData_1_1RADFlatHashMap_1a47274dd7cd9176fd559cea724cddb17c" prot="public" virt="non-virtual"><scope>RADData::RADFlatHashMap</scope><name>insert</name></member>
+      <member refid="classRADData_1_1RADFlatHashMap_1ae649a1170f41851be3dd516d9623ac93" prot="private" virt="non-virtual"><scope>RADData::RADFlatHashMap</scope><name>mask_</name></member>
+      <member refid="classRADData_1_1RADFlatHashMap_1a8a5780f01c86511437c697a0e03c06f9" prot="private" virt="non-virtual"><scope>RADData::RADFlatHashMap</scope><name>npos</name></member>
+      <member refid="classRADData_1_1RADFlatHashMap_1ae4e515b6c97e4acc7821281614014949" prot="public" virt="non-virtual"><scope>RADData::RADFlatHashMap</scope><name>operator=</name></member>
+      <member refid="classRADData_1_1RADFlatHashMap_1ae160d55cf9ec9a01048e4b08cbd40295" prot="public" virt="non-virtual"><scope>RADData::RADFlatHashMap</scope><name>operator=</name></member>
+      <member refid="classRADData_1_1RADFlatHashMap_1a7e744b672e5057ffcadc42c74a4c57fa" prot="public" virt="non-virtual"><scope>RADData::RADFlatHashMap</scope><name>operator[]</name></member>
+      <member refid="classRADData_1_1RADFlatHashMap_1a19f30d516242ec80070b1d0448a7cfd6" prot="public" virt="non-virtual"><scope>RADData::RADFlatHashMap</scope><name>RADFlatHashMap</name></member>
+      <member refid="classRADData_1_1RADFlatHashMap_1a482e8745141ee6a1e5f38422b95ad690" prot="public" virt="non-virtual"><scope>RADData::RADFlatHashMap</scope><name>RADFlatHashMap</name></member>
+      <member refid="classRADData_1_1RADFlatHashMap_1a39935c081fa606f4909a2d308d99bf9e" prot="public" virt="non-virtual"><scope>RADData::RADFlatHashMap</scope><name>RADFlatHashMap</name></member>
+      <member refid="classRADData_1_1RADFlatHashMap_1ae0574605a61127d18f362da65a73b72e" prot="public" virt="non-virtual"><scope>RADData::RADFlatHashMap</scope><name>RADFlatHashMap</name></member>
+      <member refid="classRADData_1_1RADFlatHashMap_1aef2fc3cefca32f88127d9d7fa50398e8" prot="private" virt="non-virtual"><scope>RADData::RADFlatHashMap</scope><name>rehash</name></member>
+      <member refid="classRADData_1_1RADFlatHashMap_1abe4322f35b6e3dfaf7168a2b76e8e5bf" prot="public" virt="non-virtual"><scope>RADData::RADFlatHashMap</scope><name>reserve</name></member>
+      <member refid="classRADData_1_1RADFlatHashMap_1a484227da3283d8ab0ebe2c4b015c3f2e" prot="public" virt="non-virtual"><scope>RADData::RADFlatHashMap</scope><name>size</name></member>
+      <member refid="classRADData_1_1RADFlatHashMap_1a932d2da00a12cc19b8532ae9a3525139" prot="private" virt="non-virtual"><scope>RADData::RADFlatHashMap</scope><name>size_</name></member>
+      <member refid="classRADData_1_1RADFlatHashMap_1accdf73f4f562767cdb4a5c951bb8d6df" prot="private" virt="non-virtual"><scope>RADData::RADFlatHashMap</scope><name>State</name></member>
+      <member refid="classRADData_1_1RADFlatHashMap_1aa9aac45aad86c9b525d16f11e9fdd80c" prot="private" virt="non-virtual"><scope>RADData::RADFlatHashMap</scope><name>tombstones_</name></member>
+      <member refid="classRADData_1_1RADFlatHashMap_1aa4b04ef78e6245a740d0e48cb5f58204" prot="public" virt="non-virtual"><scope>RADData::RADFlatHashMap</scope><name>value_type</name></member>
+      <member refid="classRADData_1_1RADFlatHashMap_1a3d7e7f9e316f72cd70bb20d0aed89e42" prot="public" virt="non-virtual"><scope>RADData::RADFlatHashMap</scope><name>~RADFlatHashMap</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

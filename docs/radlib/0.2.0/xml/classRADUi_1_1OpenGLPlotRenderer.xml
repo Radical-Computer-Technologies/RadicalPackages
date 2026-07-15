@@ -1,0 +1,83 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="classRADUi_1_1OpenGLPlotRenderer" kind="class" language="C++" prot="public" final="yes">
+    <compoundname>RADUi::OpenGLPlotRenderer</compoundname>
+    <basecompoundref refid="classRADUi_1_1PlotRenderer" prot="public" virt="non-virtual">RADUi::PlotRenderer</basecompoundref>
+    <includes refid="RADPlot_8h" local="no">RADPlot.h</includes>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classRADUi_1_1OpenGLPlotRenderer_1a054bfd1b51c7e522f6566f2d2c2fdef4" prot="private" static="no" mutable="no">
+        <type><ref refid="classRADUi_1_1SoftwarePlotRenderer" kindref="compound">SoftwarePlotRenderer</ref></type>
+        <definition>SoftwarePlotRenderer RADUi::OpenGLPlotRenderer::fallback_</definition>
+        <argsstring></argsstring>
+        <name>fallback_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADPlot.h" line="284" column="30" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADPlot.h" bodystart="284" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classRADUi_1_1OpenGLPlotRenderer_1a51760d0e9dff9bedb0c918806561923a" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="structRADUi_1_1PlotImage" kindref="compound">PlotImage</ref></type>
+        <definition>PlotImage RADUi::OpenGLPlotRenderer::render</definition>
+        <argsstring>(const PlotModelSnapshot &amp;snapshot, const PlotViewport &amp;viewport) override</argsstring>
+        <name>render</name>
+        <reimplements refid="classRADUi_1_1PlotRenderer_1a35d4445d1b36606b9bb8ef6e8fa012da">render</reimplements>
+        <param>
+          <type>const <ref refid="structRADUi_1_1PlotModelSnapshot" kindref="compound">PlotModelSnapshot</ref> &amp;</type>
+          <declname>snapshot</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structRADUi_1_1PlotViewport" kindref="compound">PlotViewport</ref> &amp;</type>
+          <declname>viewport</declname>
+        </param>
+        <briefdescription>
+<para>Renders with OpenGL when implemented, otherwise delegates to software. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADPlot.h" line="281" column="19"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>OpenGL renderer facade with software fallback. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>RADUi::PlotRenderer</label>
+        <link refid="classRADUi_1_1PlotRenderer"/>
+      </node>
+      <node id="1">
+        <label>RADUi::OpenGLPlotRenderer</label>
+        <link refid="classRADUi_1_1OpenGLPlotRenderer"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>RADUi::PlotRenderer</label>
+        <link refid="classRADUi_1_1PlotRenderer"/>
+      </node>
+      <node id="1">
+        <label>RADUi::OpenGLPlotRenderer</label>
+        <link refid="classRADUi_1_1OpenGLPlotRenderer"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADPlot.h" line="278" column="5" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADPlot.h" bodystart="278" bodyend="285"/>
+    <listofallmembers>
+      <member refid="classRADUi_1_1OpenGLPlotRenderer_1a054bfd1b51c7e522f6566f2d2c2fdef4" prot="private" virt="non-virtual"><scope>RADUi::OpenGLPlotRenderer</scope><name>fallback_</name></member>
+      <member refid="classRADUi_1_1OpenGLPlotRenderer_1a51760d0e9dff9bedb0c918806561923a" prot="public" virt="virtual"><scope>RADUi::OpenGLPlotRenderer</scope><name>render</name></member>
+      <member refid="classRADUi_1_1PlotRenderer_1a432efdc5c906ddc6ec630822d3961865" prot="public" virt="virtual"><scope>RADUi::OpenGLPlotRenderer</scope><name>~PlotRenderer</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

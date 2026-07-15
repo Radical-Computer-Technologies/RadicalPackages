@@ -15,13 +15,13 @@
     <div class="eyebrow">Experimental Operating System</div>
     <h1>RADix OS</h1>
     <p class="lead">
-      RADix OS is the Crimson 0.1.3 POSIX-inspired kernel and VM image track for embedded boards, desktop VM verification, future SoC targets, and RADix <code>.radpm</code> package metadata.
+      RADix OS is the Crimson 0.2.0 experimental package line for the POSIX-inspired kernel, x86 VM image track, embedded board ports, future SoC targets, and RADix <code>.radpm</code> package metadata.
     </p>
     <div class="status-row">
-      <span class="pill"><strong>Version:</strong> Crimson 0.1.3</span>
+      <span class="pill"><strong>Version:</strong> Crimson 0.2.0</span>
       <span class="pill"><strong>Suite:</strong> experimental</span>
       <span class="pill"><strong>Build:</strong> RadBuild os.radix</span>
-      <span class="pill"><strong>Current x86:</strong> 0.1.3 beta 1</span>
+      <span class="pill"><strong>Current x86:</strong> 0.2.0 beta 1</span>
     </div>
   </section>
 
@@ -29,10 +29,10 @@
     <h2>Current Crimson x86 Release</h2>
     <p>The current x86_64 GRUB release bundles include the bootable ISO, ext4 root filesystem image, FAT image, checksums, and helper scripts where available.</p>
     <div class="links">
-      <a class="link-card" href="https://github.com/Radical-Computer-Technologies/RadicalPackages/releases/tag/radix-os-0.1.3-beta.1"><strong>RADix OS 0.1.3 beta 1</strong><span>Versioned GitHub Release for Crimson x86 terminal, smoke-test, and RADCompositor images.</span></a>
-      <a class="link-card" href="https://github.com/Radical-Computer-Technologies/RadicalPackages/releases/download/radix-os-0.1.3-beta.1/radix-os-crimson_0.1.3-beta.1_x86_64-grub-terminal-interactive.tar.gz"><strong>x86_64 Interactive Terminal Bundle</strong><span>Framebuffer login shell profile with Vim tiny, ncurses metadata, ISO, ext4, and FAT images.</span></a>
-      <a class="link-card" href="https://github.com/Radical-Computer-Technologies/RadicalPackages/releases/download/radix-os-0.1.3-beta.1/radix-os-crimson_0.1.3-beta.1_x86_64-grub-terminal-smoke.tar.gz"><strong>x86_64 Smoke Terminal Bundle</strong><span>Autologin/autotest terminal profile for scripted VM checks.</span></a>
-      <a class="link-card" href="https://github.com/Radical-Computer-Technologies/RadicalPackages/releases/download/radix-os-0.1.3-beta.1/radix-os-crimson_0.1.3-beta.1_x86_64-grub-wm.tar.gz"><strong>x86_64 RADCompositor Bundle</strong><span>Slint/RADCompositor profile with Vim tiny, ISO, ext4, and FAT images.</span></a>
+      <a class="link-card" href="https://github.com/Radical-Computer-Technologies/RadicalPackages/releases/tag/radix-os-0.2.0-beta.1"><strong>RADix OS 0.2.0 beta 1</strong><span>Versioned GitHub Release for Crimson x86 terminal, smoke-test, RADCompositor images, and RADpm packages.</span></a>
+      <a class="link-card" href="https://github.com/Radical-Computer-Technologies/RadicalPackages/releases/download/radix-os-0.2.0-beta.1/radix-os-crimson_0.2.0-beta.1_x86_64-grub-terminal-interactive.tar.gz"><strong>x86_64 Interactive Terminal Bundle</strong><span>Framebuffer login shell profile with Vim tiny, ncurses metadata, ISO, ext4, and FAT images.</span></a>
+      <a class="link-card" href="https://github.com/Radical-Computer-Technologies/RadicalPackages/releases/download/radix-os-0.2.0-beta.1/radix-os-crimson_0.2.0-beta.1_x86_64-grub-terminal-smoke.tar.gz"><strong>x86_64 Smoke Terminal Bundle</strong><span>Autologin/autotest terminal profile for scripted VM checks.</span></a>
+      <a class="link-card" href="https://github.com/Radical-Computer-Technologies/RadicalPackages/releases/download/radix-os-0.2.0-beta.1/radix-os-crimson_0.2.0-beta.1_x86_64-grub-wm.tar.gz"><strong>x86_64 RADCompositor Bundle</strong><span>Slint/RADCompositor profile with Vim tiny, ISO, ext4, and FAT images.</span></a>
     </div>
   </section>
 
@@ -41,7 +41,7 @@
       <h2>API Documentation</h2>
       <p>The public Crimson kernel API docs are generated from the RADix-OS repository with Doxygen.</p>
       <div class="links">
-        <a class="link-card" href="docs/radix-os/0.1.3/api/"><strong>RADix-OS API</strong><span>Kernel API, device tree, networking, compositor, and Pi Zero 2 W notes.</span></a>
+      <a class="link-card" href="docs/radix-os/0.2.0/api/"><strong>RADix-OS API</strong><span>Kernel API, device tree, networking, compositor, and Pi Zero 2 W notes.</span></a>
       </div>
     </article>
 
@@ -92,8 +92,23 @@ radbuild build os --settings settings.wm.json --json-events</code></div>
     <div class="links">
       <a class="link-card" href="radpm/dists/experimental/main/packages.json"><strong>Experimental .radpm Index</strong><span>Machine-readable package records for RadBuild.</span></a>
       <a class="link-card" href="radpm/dists/experimental/main/packagegroups.json"><strong>Experimental Packagegroups</strong><span>Machine-readable terminal, desktop, networking, and SDK group records.</span></a>
-      <a class="link-card" href="https://github.com/Radical-Computer-Technologies/RadicalPackages/releases/tag/radix-os-0.1.3-beta.1"><strong>RADix Release Assets</strong><span>Current <code>.radpm</code> archives and x86 image bundles.</span></a>
+      <a class="link-card" href="https://github.com/Radical-Computer-Technologies/RadicalPackages/releases/tag/radix-os-0.2.0-beta.1"><strong>RADix Release Assets</strong><span>Current <code>.radpm</code> archives and x86 image bundles.</span></a>
       <a class="link-card" href="packages.html"><strong>Package Catalog</strong><span>Debian and RADix package listings.</span></a>
+    </div>
+  </section>
+
+  <section class="card">
+    <h2>Create an Image From Scratch</h2>
+    <p>Install RadBuild, create a RADix project from a packaged template, use menuconfig to select packagegroups and runtime settings, then run the emitted VM script.</p>
+    <div class="command"><code>sudo apt install radbuild
+radbuild project create ~/radix-work --non-interactive --template radix-os-terminal --project-name radix-terminal
+cd ~/radix-work/radix-terminal
+radbuild menuconfig --settings settings.json
+radbuild build os --settings settings.json --json-events
+./artifacts/radix/x86_64-grub-terminal/run-radix-vm.sh</code></div>
+    <div class="links">
+      <a class="link-card" href="docs/radbuild/0.2.1/examples/radix-from-scratch.html"><strong>Full Walkthrough</strong><span>Template, source checkout, packagegroups, rkconfig, SDK, artifacts, and VM checks.</span></a>
+      <a class="link-card" href="docs/radbuild/0.2.1/settings-fields.html"><strong>Configuration Reference</strong><span>All important RADix, RADpm, rkconfig, and SDK settings.</span></a>
     </div>
   </section>
 

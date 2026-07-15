@@ -15,12 +15,12 @@
     <div class="eyebrow">Stable Package Line</div>
     <h1>RADLib Packages</h1>
     <p class="lead">
-      RADLib packages are split into ABI-pinned runtime modules, unversioned convenience packages, development headers, documentation, examples, and tools.
-      Stable currently tracks RADLib 0.1.0. Experimental tracks RADLib 0.1.1 development packages for RADix-OS kernel integration.
+      RADLib packages are split into ABI-pinned runtime modules, unversioned convenience packages, development headers, documentation, examples, RADpm tooling, and RADix package metadata.
+      Stable currently tracks RADLib 0.1.0. Experimental tracks RADLib 0.2.0 development packages for RADix OS package and service integration.
     </p>
     <div class="status-row">
       <span class="pill"><strong>Version:</strong> 0.1.0</span>
-      <span class="pill"><strong>Experimental:</strong> 0.1.1</span>
+      <span class="pill"><strong>Experimental:</strong> 0.2.0</span>
       <span class="pill"><strong>ABI line:</strong> 0.1</span>
       <span class="pill"><strong>Architectures:</strong> amd64, arm64</span>
     </div>
@@ -43,11 +43,19 @@ sudo apt install radlib-media radlib-fpga radlib-web</code></div>
 
   <section class="card">
     <h2>RADix <code>.radpm</code> Metadata</h2>
-    <p>RADLib is also listed in the experimental RADix package index for RadBuild-managed rootfs staging. These records are metadata-only until RADix userspace ABI packaging is finalized.</p>
+    <p>RADLib is also listed in the experimental RADix package index for RadBuild-managed rootfs staging. The 0.2.0 RADix package records match the RADLib 0.2.0 source/package line.</p>
     <div class="links">
       <a class="link-card" href="radpm/dists/experimental/main/packages.json"><strong>RADLib .radpm Records</strong><span><code>radlib</code>, <code>radlib-runtime</code>, and <code>radlib-ui</code> metadata.</span></a>
+      <a class="link-card" href="docs/radlib/0.2.0/api/"><strong>RADLib 0.2.0 API Docs</strong><span>Generated beta API documentation, including RADpm and embedded runtime notes.</span></a>
       <a class="link-card" href="radix-os.html"><strong>RADix OS Hub</strong><span>RADix package repository and OS build notes.</span></a>
     </div>
+  </section>
+
+  <section class="card">
+    <h2>RADpm Tooling</h2>
+    <p><code>radpm</code> is the RADLib-owned package-manager executable used by RadBuild to resolve packagegroups, verify package metadata, stage rootfs payloads, and populate SDK/sysroot exports.</p>
+    <div class="command"><code>radpm list --repository https://github.com/Radical-Computer-Technologies/RadicalPackages/releases/download/radix-os-0.2.0-beta.1 --suite experimental
+radpm resolve --packagegroup radix-terminal-base --packagegroup radix-networking --out package-lock.json</code></div>
   </section>
 
   <section class="card">

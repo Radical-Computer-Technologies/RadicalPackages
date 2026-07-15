@@ -1,0 +1,25 @@
+var classRADUi_1_1PlotModel =
+[
+    [ "PlotModel", "classRADUi_1_1PlotModel.html#a155ac28d6301daefaeba759d12eefcc3", null ],
+    [ "~PlotModel", "classRADUi_1_1PlotModel.html#a00c2b73594231bc11da02a7c648d85bc", null ],
+    [ "addSeries", "classRADUi_1_1PlotModel.html#a83261614314d16e25aa619fab23c9bfe", null ],
+    [ "append", "classRADUi_1_1PlotModel.html#ac28d1009db7ea2d5ef6696880d602cb3", null ],
+    [ "append", "classRADUi_1_1PlotModel.html#afd4191498757abb258664f170a7970db", null ],
+    [ "appendBatch", "classRADUi_1_1PlotModel.html#ac0242afbde4f006b79af445c0610e319", null ],
+    [ "autoRange", "classRADUi_1_1PlotModel.html#a60af11c4e03e1d27b7278e045dbf185b", null ],
+    [ "clear", "classRADUi_1_1PlotModel.html#a8aefd8593d31dba424be827a30d4fc19", null ],
+    [ "clearSeries", "classRADUi_1_1PlotModel.html#af4129df215b10d6e307602cf361c0372", null ],
+    [ "maxPointCount", "classRADUi_1_1PlotModel.html#a41dc3d8dcd563aac8abd72d1ed136dfb", null ],
+    [ "rollingXWindow", "classRADUi_1_1PlotModel.html#a91412845c57dcae84b22422437b3319e", null ],
+    [ "seriesCount", "classRADUi_1_1PlotModel.html#ae1bdf928fbb797bc47782716a0cdb621", null ],
+    [ "setAutoRange", "classRADUi_1_1PlotModel.html#a16a507bd30415b4a700c14b8a91ffb74", null ],
+    [ "setMaxPointCount", "classRADUi_1_1PlotModel.html#ae71b1206cb5f1aceffec05ff586209ba", null ],
+    [ "setRollingXWindow", "classRADUi_1_1PlotModel.html#a532762076e6cabdbd5f78ae68e192945", null ],
+    [ "setSeriesStyle", "classRADUi_1_1PlotModel.html#a3e75673765e2934421b0d96c381117a1", null ],
+    [ "setXRange", "classRADUi_1_1PlotModel.html#a1c2de0f6c44e924f601ed0c6aacf7a14", null ],
+    [ "setYRange", "classRADUi_1_1PlotModel.html#a427c663f515d6d37692f806637ba7cf0", null ],
+    [ "snapshot", "classRADUi_1_1PlotModel.html#a67090de1acf329bf4d58568f605e85fc", null ],
+    [ "xRange", "classRADUi_1_1PlotModel.html#aea88fa9817e7e0a6f459495108651b83", null ],
+    [ "yRange", "classRADUi_1_1PlotModel.html#a66748413e0f33aaad56f9ebdac418c07", null ],
+    [ "dataChanged", "classRADUi_1_1PlotModel.html#a835f0f74eddf961e168a8940491ab7d7", null ]
+];

@@ -1,0 +1,86 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="classRADData_1_1RADAlignedAllocator" kind="class" language="C++" prot="public">
+    <compoundname>RADData::RADAlignedAllocator</compoundname>
+    <includes refid="RADDataStructures_8h" local="no">RADDataStructures.h</includes>
+    <innerclass refid="structRADData_1_1RADAlignedAllocator_1_1rebind" prot="public">RADData::RADAlignedAllocator::rebind</innerclass>
+    <templateparamlist>
+      <param>
+        <type>typename T</type>
+      </param>
+      <param>
+        <type>size_t</type>
+        <declname>Alignment</declname>
+        <defname>Alignment</defname>
+        <defval>alignof(T)</defval>
+      </param>
+    </templateparamlist>
+      <sectiondef kind="public-type">
+      <memberdef kind="typedef" id="classRADData_1_1RADAlignedAllocator_1aab4585c603dda92513ffed1f13c5790c" prot="public" static="no">
+        <type>T</type>
+        <definition>using RADData::RADAlignedAllocator&lt; T, Alignment &gt;::value_type =  T</definition>
+        <argsstring></argsstring>
+        <name>value_type</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" line="245" column="9" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" bodystart="245" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classRADData_1_1RADAlignedAllocator_1ab31c9ad1ad3f950b9294d0e220bcd325" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>T *</type>
+        <definition>T* RADData::RADAlignedAllocator&lt; T, Alignment &gt;::allocate</definition>
+        <argsstring>(size_t n)</argsstring>
+        <name>allocate</name>
+        <param>
+          <type>size_t</type>
+          <declname>n</declname>
+        </param>
+        <briefdescription>
+<para>Allocates n aligned objects. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" line="254" column="11" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" bodystart="254" bodyend="260"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADData_1_1RADAlignedAllocator_1a9e8806c4ca31f8da4647c82bcb383f99" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void RADData::RADAlignedAllocator&lt; T, Alignment &gt;::deallocate</definition>
+        <argsstring>(T *ptr, size_t)</argsstring>
+        <name>deallocate</name>
+        <param>
+          <type>T *</type>
+          <declname>ptr</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+        </param>
+        <briefdescription>
+<para>Frees aligned storage. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" line="262" column="14" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" bodystart="262" bodyend="262"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Standard-compatible aligned allocator. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" line="243" column="5" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" bodystart="243" bodyend="263"/>
+    <listofallmembers>
+      <member refid="classRADData_1_1RADAlignedAllocator_1ab31c9ad1ad3f950b9294d0e220bcd325" prot="public" virt="non-virtual"><scope>RADData::RADAlignedAllocator</scope><name>allocate</name></member>
+      <member refid="classRADData_1_1RADAlignedAllocator_1a9e8806c4ca31f8da4647c82bcb383f99" prot="public" virt="non-virtual"><scope>RADData::RADAlignedAllocator</scope><name>deallocate</name></member>
+      <member refid="classRADData_1_1RADAlignedAllocator_1aab4585c603dda92513ffed1f13c5790c" prot="public" virt="non-virtual"><scope>RADData::RADAlignedAllocator</scope><name>value_type</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,115 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="structrad__ntp__query" kind="struct" language="C++" prot="public">
+    <compoundname>rad_ntp_query</compoundname>
+    <includes refid="radixkernel_8h" local="no">radixkernel.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structrad__ntp__query_1a290e7862bffc768cfe65589224acd30d" prot="public" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t rad_ntp_query::size</definition>
+        <argsstring></argsstring>
+        <name>size</name>
+        <briefdescription>
+<para>Public structure field. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/headers/radixkernel/radixkernel.h" line="757" column="14" bodyfile="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/headers/radixkernel/radixkernel.h" bodystart="757" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structrad__ntp__query_1a05af9e3d9583195e06323386b519f259" prot="public" static="no" mutable="no">
+        <type><ref refid="radixkernel_8h_1a1af91900409430083f6d8cd89aae108a" kindref="member">rad_ipv4_address_t</ref></type>
+        <definition>rad_ipv4_address_t rad_ntp_query::server</definition>
+        <argsstring></argsstring>
+        <name>server</name>
+        <briefdescription>
+<para>NTP/SNTP server to query; zero uses default. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/headers/radixkernel/radixkernel.h" line="758" column="24" bodyfile="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/headers/radixkernel/radixkernel.h" bodystart="758" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structrad__ntp__query_1a9f0b11350f0238e2707f170d8242a803" prot="public" static="no" mutable="no">
+        <type>uint16_t</type>
+        <definition>uint16_t rad_ntp_query::port</definition>
+        <argsstring></argsstring>
+        <name>port</name>
+        <briefdescription>
+<para>UDP port to query; zero uses default. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/headers/radixkernel/radixkernel.h" line="759" column="14" bodyfile="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/headers/radixkernel/radixkernel.h" bodystart="759" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structrad__ntp__query_1aa2642a73dc4d499efeb5040ec9c21007" prot="public" static="no" mutable="no">
+        <type>uint16_t</type>
+        <definition>uint16_t rad_ntp_query::timeout_ms</definition>
+        <argsstring></argsstring>
+        <name>timeout_ms</name>
+        <briefdescription>
+<para>Timeout in milliseconds; zero uses a small default. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/headers/radixkernel/radixkernel.h" line="760" column="14" bodyfile="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/headers/radixkernel/radixkernel.h" bodystart="760" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structrad__ntp__query_1a41b584bb19743890249f997b811f698c" prot="public" static="no" mutable="no">
+        <type><ref refid="radixkernel_8h_1af64d5efa38bf7313ce9f16857bba8f74" kindref="member">rad_ntp_status_t</ref></type>
+        <definition>rad_ntp_status_t rad_ntp_query::status</definition>
+        <argsstring></argsstring>
+        <name>status</name>
+        <briefdescription>
+<para>Result status after the query. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/headers/radixkernel/radixkernel.h" line="761" column="22" bodyfile="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/headers/radixkernel/radixkernel.h" bodystart="761" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Public data structure for <ref refid="structrad__ntp__query" kindref="compound">rad_ntp_query</ref>. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="1">
+        <label>rad_ntp_query</label>
+        <link refid="structrad__ntp__query"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>status</edgelabel>
+        </childnode>
+        <childnode refid="3" relation="usage">
+          <edgelabel>server</edgelabel>
+        </childnode>
+      </node>
+      <node id="2">
+        <label>rad_ntp_status</label>
+        <link refid="structrad__ntp__status"/>
+        <childnode refid="3" relation="usage">
+          <edgelabel>server</edgelabel>
+        </childnode>
+      </node>
+      <node id="3">
+        <label>rad_ipv4_address</label>
+        <link refid="structrad__ipv4__address"/>
+      </node>
+    </collaborationgraph>
+    <location file="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/headers/radixkernel/radixkernel.h" line="756" column="1" bodyfile="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/headers/radixkernel/radixkernel.h" bodystart="756" bodyend="762"/>
+    <listofallmembers>
+      <member refid="structrad__ntp__query_1a9f0b11350f0238e2707f170d8242a803" prot="public" virt="non-virtual"><scope>rad_ntp_query</scope><name>port</name></member>
+      <member refid="structrad__ntp__query_1a05af9e3d9583195e06323386b519f259" prot="public" virt="non-virtual"><scope>rad_ntp_query</scope><name>server</name></member>
+      <member refid="structrad__ntp__query_1a290e7862bffc768cfe65589224acd30d" prot="public" virt="non-virtual"><scope>rad_ntp_query</scope><name>size</name></member>
+      <member refid="structrad__ntp__query_1a41b584bb19743890249f997b811f698c" prot="public" virt="non-virtual"><scope>rad_ntp_query</scope><name>status</name></member>
+      <member refid="structrad__ntp__query_1aa2642a73dc4d499efeb5040ec9c21007" prot="public" virt="non-virtual"><scope>rad_ntp_query</scope><name>timeout_ms</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

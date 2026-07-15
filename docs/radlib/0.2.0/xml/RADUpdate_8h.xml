@@ -1,0 +1,110 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="RADUpdate_8h" kind="file" language="C++">
+    <compoundname>RADUpdate.h</compoundname>
+    <includes local="no">RADCore/RADCore.h</includes>
+    <includes local="no">RADInstaller/RADInstaller.h</includes>
+    <includes local="no">string</includes>
+    <includes local="no">vector</includes>
+    <incdepgraph>
+      <node id="2">
+        <label>RADCore/RADCore.h</label>
+      </node>
+      <node id="4">
+        <label>string</label>
+      </node>
+      <node id="1">
+        <label>/media/jvincent/Kingspec512/repos/RADLib/RADUpdate/headers/RADUpdate.h</label>
+        <link refid="RADUpdate_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>RADInstaller/RADInstaller.h</label>
+      </node>
+      <node id="5">
+        <label>vector</label>
+      </node>
+    </incdepgraph>
+    <innerclass refid="structRADUpdate_1_1Payload" prot="public">RADUpdate::Payload</innerclass>
+    <innerclass refid="structRADUpdate_1_1UpdateManifest" prot="public">RADUpdate::UpdateManifest</innerclass>
+    <innerclass refid="structRADUpdate_1_1ABMetadata" prot="public">RADUpdate::ABMetadata</innerclass>
+    <innerclass refid="structRADUpdate_1_1VerificationResult" prot="public">RADUpdate::VerificationResult</innerclass>
+    <innerclass refid="classRADUpdate_1_1UpdateManager" prot="public">RADUpdate::UpdateManager</innerclass>
+    <innernamespace refid="namespaceRADUpdate">RADUpdate</innernamespace>
+    <briefdescription>
+<para>Signed app-bundle update manifests, payload verification, and A/B metadata helpers. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#ifndef<sp/>RADUPDATE_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>RADUPDATE_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="preprocessor">#pragma<sp/>once</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;RADCore/RADCore.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;RADInstaller/RADInstaller.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;string&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;vector&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight></codeline>
+<codeline lineno="17" refid="namespaceRADUpdate" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal"><ref refid="namespaceRADUpdate" kindref="compound">RADUpdate</ref><sp/>{</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight></codeline>
+<codeline lineno="20" refid="structRADUpdate_1_1Payload" refkind="compound"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structRADUpdate_1_1Payload" kindref="compound">Payload</ref><sp/>{</highlight></codeline>
+<codeline lineno="22" refid="structRADUpdate_1_1Payload_1abe85e33423a553827250d21648244b83" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::string<sp/><ref refid="structRADUpdate_1_1Payload_1abe85e33423a553827250d21648244b83" kindref="member">path</ref>;</highlight></codeline>
+<codeline lineno="24" refid="structRADUpdate_1_1Payload_1a8aef605e412f0face2d5285eda84702c" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::string<sp/><ref refid="structRADUpdate_1_1Payload_1a8aef605e412f0face2d5285eda84702c" kindref="member">sha256</ref>;</highlight></codeline>
+<codeline lineno="26" refid="structRADUpdate_1_1Payload_1a4620ca97accf3bd82669d0dffbecd80b" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>uint64_t<sp/><ref refid="structRADUpdate_1_1Payload_1a4620ca97accf3bd82669d0dffbecd80b" kindref="member">size</ref><sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/><sp/><sp/>};</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight></codeline>
+<codeline lineno="30" refid="structRADUpdate_1_1UpdateManifest" refkind="compound"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structRADUpdate_1_1UpdateManifest" kindref="compound">UpdateManifest</ref><sp/>{</highlight></codeline>
+<codeline lineno="32" refid="structRADUpdate_1_1UpdateManifest_1af465eda9ce52e549666cfb02899909c3" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::string<sp/><ref refid="structRADUpdate_1_1UpdateManifest_1af465eda9ce52e549666cfb02899909c3" kindref="member">product</ref>;</highlight></codeline>
+<codeline lineno="34" refid="structRADUpdate_1_1UpdateManifest_1addb5fcaa411c0c385783acf8baa68ada" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::string<sp/><ref refid="structRADUpdate_1_1UpdateManifest_1addb5fcaa411c0c385783acf8baa68ada" kindref="member">version</ref>;</highlight></codeline>
+<codeline lineno="36" refid="structRADUpdate_1_1UpdateManifest_1a70396649f26f0b4a6027f10345d2e1b9" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::string<sp/><ref refid="structRADUpdate_1_1UpdateManifest_1a70396649f26f0b4a6027f10345d2e1b9" kindref="member">channel</ref>;</highlight></codeline>
+<codeline lineno="38" refid="structRADUpdate_1_1UpdateManifest_1a55d737d6c3d3f03fa20436a76b3f7d57" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::string<sp/><ref refid="structRADUpdate_1_1UpdateManifest_1a55d737d6c3d3f03fa20436a76b3f7d57" kindref="member">minimumVersion</ref>;</highlight></codeline>
+<codeline lineno="40" refid="structRADUpdate_1_1UpdateManifest_1ad9570cf3b7c05d5b6b0b08ba904a1d4b" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::vector&lt;Payload&gt;<sp/><ref refid="structRADUpdate_1_1UpdateManifest_1ad9570cf3b7c05d5b6b0b08ba904a1d4b" kindref="member">payloads</ref>;</highlight></codeline>
+<codeline lineno="42" refid="structRADUpdate_1_1UpdateManifest_1af9a42a4ed89e53b315c18ea1a7e276fd" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::string<sp/><ref refid="structRADUpdate_1_1UpdateManifest_1af9a42a4ed89e53b315c18ea1a7e276fd" kindref="member">installerManifest</ref>;</highlight></codeline>
+<codeline lineno="44" refid="structRADUpdate_1_1UpdateManifest_1a8db2b8f690737acb890c44f31ffb4c31" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::string<sp/><ref refid="structRADUpdate_1_1UpdateManifest_1a8db2b8f690737acb890c44f31ffb4c31" kindref="member">signaturePath</ref>;</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/>};</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"></highlight></codeline>
+<codeline lineno="48" refid="structRADUpdate_1_1ABMetadata" refkind="compound"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structRADUpdate_1_1ABMetadata" kindref="compound">ABMetadata</ref><sp/>{</highlight></codeline>
+<codeline lineno="50" refid="structRADUpdate_1_1ABMetadata_1a04aa207f63df7ca09b80ae20218bcb0d" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::string<sp/><ref refid="structRADUpdate_1_1ABMetadata_1a04aa207f63df7ca09b80ae20218bcb0d" kindref="member">activeSlot</ref><sp/>=<sp/></highlight><highlight class="stringliteral">&quot;A&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="52" refid="structRADUpdate_1_1ABMetadata_1a04ed9c70bb5e2d7a6616f77090d6914a" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::string<sp/><ref refid="structRADUpdate_1_1ABMetadata_1a04ed9c70bb5e2d7a6616f77090d6914a" kindref="member">pendingSlot</ref>;</highlight></codeline>
+<codeline lineno="54" refid="structRADUpdate_1_1ABMetadata_1a7742a7a81cb4ff8e22370de2ba039209" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="structRADUpdate_1_1ABMetadata_1a7742a7a81cb4ff8e22370de2ba039209" kindref="member">bootCount</ref><sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="56" refid="structRADUpdate_1_1ABMetadata_1acbc3413577d0d140da187124021cf50c" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::string<sp/><ref refid="structRADUpdate_1_1ABMetadata_1acbc3413577d0d140da187124021cf50c" kindref="member">rollbackReason</ref>;</highlight></codeline>
+<codeline lineno="58" refid="structRADUpdate_1_1ABMetadata_1accdb8501195b583d018755a6d40ab15c" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::string<sp/><ref refid="structRADUpdate_1_1ABMetadata_1accdb8501195b583d018755a6d40ab15c" kindref="member">versionA</ref>;</highlight></codeline>
+<codeline lineno="60" refid="structRADUpdate_1_1ABMetadata_1a6c347b467e9067593df8c4c9f4a35311" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::string<sp/><ref refid="structRADUpdate_1_1ABMetadata_1a6c347b467e9067593df8c4c9f4a35311" kindref="member">versionB</ref>;</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/>};</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"></highlight></codeline>
+<codeline lineno="64" refid="structRADUpdate_1_1VerificationResult" refkind="compound"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structRADUpdate_1_1VerificationResult" kindref="compound">VerificationResult</ref><sp/>{</highlight></codeline>
+<codeline lineno="66" refid="structRADUpdate_1_1VerificationResult_1a3402c866a3101d67511975a16367a7eb" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="structRADUpdate_1_1VerificationResult_1a3402c866a3101d67511975a16367a7eb" kindref="member">ok</ref><sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="68" refid="structRADUpdate_1_1VerificationResult_1abb1ac90ca00a46ff2c0bea84952cd017" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::vector&lt;std::string&gt;<sp/><ref refid="structRADUpdate_1_1VerificationResult_1abb1ac90ca00a46ff2c0bea84952cd017" kindref="member">errors</ref>;</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/>};</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"></highlight></codeline>
+<codeline lineno="72" refid="classRADUpdate_1_1UpdateManager" refkind="compound"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classRADUpdate_1_1UpdateManager" kindref="compound">UpdateManager</ref><sp/>{</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="75" refid="classRADUpdate_1_1UpdateManager_1af98685fa5a31d7011b0d6e3fc5798db8" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/><ref refid="classRADCore_1_1RADResult" kindref="compound">RADCore::RADResult&lt;UpdateManifest&gt;</ref><sp/><ref refid="classRADUpdate_1_1UpdateManager_1af98685fa5a31d7011b0d6e3fc5798db8" kindref="member">loadManifest</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::string&amp;<sp/>path);</highlight></codeline>
+<codeline lineno="77" refid="classRADUpdate_1_1UpdateManager_1a0ce5b8118ece08396491c7915853daad" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/><ref refid="classRADCore_1_1RADJsonValue" kindref="compound">RADCore::RADJsonValue</ref><sp/><ref refid="classRADUpdate_1_1UpdateManager_1a0ce5b8118ece08396491c7915853daad" kindref="member">manifestToJson</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structRADUpdate_1_1UpdateManifest" kindref="compound">UpdateManifest</ref>&amp;<sp/>manifest);</highlight></codeline>
+<codeline lineno="79" refid="classRADUpdate_1_1UpdateManager_1a3aca046051955f54fcdf1c39eb47b341" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/><ref refid="structRADUpdate_1_1VerificationResult" kindref="compound">VerificationResult</ref><sp/><ref refid="classRADUpdate_1_1UpdateManager_1a3aca046051955f54fcdf1c39eb47b341" kindref="member">verifyBundle</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::string&amp;<sp/>bundleRoot,</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::string&amp;<sp/>manifestPath,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::string&amp;<sp/>publicKeyPem<sp/>=<sp/>{});</highlight></codeline>
+<codeline lineno="82" refid="classRADUpdate_1_1UpdateManager_1a91265840879e47743272d1e6d4ad7a91" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/><ref refid="structRADInstaller_1_1Result" kindref="compound">RADInstaller::Result</ref><sp/><ref refid="classRADUpdate_1_1UpdateManager_1a91265840879e47743272d1e6d4ad7a91" kindref="member">installBundle</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::string&amp;<sp/>bundleRoot,</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structRADUpdate_1_1UpdateManifest" kindref="compound">UpdateManifest</ref>&amp;<sp/>manifest,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::string&amp;<sp/>targetRoot,</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::vector&lt;std::string&gt;&amp;<sp/>selectedComponents<sp/>=<sp/>{});</highlight></codeline>
+<codeline lineno="86" refid="classRADUpdate_1_1UpdateManager_1a750d0f1b7b2657d35bee6c85c521117a" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/><ref refid="classRADCore_1_1RADResult" kindref="compound">RADCore::RADResult&lt;ABMetadata&gt;</ref><sp/><ref refid="classRADUpdate_1_1UpdateManager_1a750d0f1b7b2657d35bee6c85c521117a" kindref="member">loadABMetadata</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::string&amp;<sp/>path);</highlight></codeline>
+<codeline lineno="88" refid="classRADUpdate_1_1UpdateManager_1af7fdb7dd3da161ec2e0a8f21f9103315" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classRADUpdate_1_1UpdateManager_1af7fdb7dd3da161ec2e0a8f21f9103315" kindref="member">saveABMetadata</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::string&amp;<sp/>path,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structRADUpdate_1_1ABMetadata" kindref="compound">ABMetadata</ref>&amp;<sp/>metadata,<sp/>std::string*<sp/>error<sp/>=<sp/></highlight><highlight class="keyword">nullptr</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="90" refid="classRADUpdate_1_1UpdateManager_1a844c8ce467a06589aae40a20ddc7344e" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/><ref refid="classRADCore_1_1RADJsonValue" kindref="compound">RADCore::RADJsonValue</ref><sp/><ref refid="classRADUpdate_1_1UpdateManager_1a844c8ce467a06589aae40a20ddc7344e" kindref="member">abMetadataToJson</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structRADUpdate_1_1ABMetadata" kindref="compound">ABMetadata</ref>&amp;<sp/>metadata);</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/><sp/><sp/>};</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"></highlight></codeline>
+<codeline lineno="93"><highlight class="normal">}<sp/></highlight><highlight class="comment">//<sp/>namespace<sp/>RADUpdate</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="94"><highlight class="normal"></highlight></codeline>
+<codeline lineno="95"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+    </programlisting>
+    <location file="/media/jvincent/Kingspec512/repos/RADLib/RADUpdate/headers/RADUpdate.h"/>
+  </compounddef>
+</doxygen>

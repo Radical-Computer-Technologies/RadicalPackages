@@ -84,6 +84,31 @@
 </ul>
 <p>The machine-readable catalog is packaged as <code>radbuild/schemas/project-fields-v0.2.1.json</code>.</p>
 <p>When <code>os.radix.radpm.packagegroups</code> or <code>os.radix.radpm.packages</code> is set, RadBuild resolves the selected metadata, verifies signed <code>.radpm</code> archives when signatures are required, stages package payloads into the generated RADix root filesystem, and reuses development payloads for the exported SDK. Packagegroups select complete feature sets such as <code>radix-terminal-base</code>, while direct packages are intentionally explicit. Missing dependencies are reported with the available packagegroup or package that can satisfy them. The <code>menuconfig</code> interface exposes source, packagegroup selection, package selection, and SDK settings; non-interactive flows can use <code>--set-source KEY=VALUE</code>, <code>--enable-packagegroup</code>, <code>--disable-packagegroup</code>, <code>--enable-package</code>, <code>--disable-package</code>, and <code>--set-sdk KEY=VALUE</code>.</p>
+<h2>RADix Configuration Detail</h2>
+<p><code>os.radix.source</code> accepts either a local checkout or a Git repository:</p>
+<pre><code>{
+  &quot;type&quot;: &quot;git&quot;,
+  &quot;url&quot;: &quot;https://github.com/Radical-Computer-Technologies/RADix-OS.git&quot;,
+  &quot;branch&quot;: &quot;crimson-v0.1.3&quot;,
+  &quot;checkout_dir&quot;: &quot;.radmeta/sources/RADix-OS&quot;,
+  &quot;update&quot;: true,
+  &quot;depth&quot;: 1
+}</code></pre>
+<p><code>os.radix.rkconfig</code> is copied into the image build environment. Common fields include <code>hostname</code>, <code>root_password</code>, <code>rootfs_size_mb</code>, terminal font/theme settings, terminal autocomplete, POSIX terminal compatibility, Vim/ncurses toggles, static IPv4 settings, DNS, NTP server/port, timezone, max process counts, and kernel task stack sizing.</p>
+<p><code>os.radix.radpm</code> points at a RadicalPackages repository or release mirror:</p>
+<pre><code>{
+  &quot;repository&quot;: &quot;https://github.com/Radical-Computer-Technologies/RadicalPackages/releases/download/radix-os-0.2.0-beta.1&quot;,
+  &quot;suite&quot;: &quot;experimental&quot;,
+  &quot;packagegroups&quot;: [&quot;radix-terminal-base&quot;, &quot;radix-networking&quot;],
+  &quot;packages&quot;: [],
+  &quot;verify_signatures&quot;: true,
+  &quot;allow_unsigned&quot;: false
+}</code></pre>
+<p>Prefer packagegroups for normal images. Use direct packages for narrow experiments, overlays, and debugging. RadBuild reports unmet dependencies and the packagegroup or package that can satisfy them; it does not silently add dependencies to the project file.</p>
+<p><code>os.radix.sdk.enabled=true</code> exports a sysroot and wrapper scripts suitable for cross-compiling RADix userspace ports against the staged headers and libraries.</p>
+<h2>Linux Provider Detail</h2>
+<p><code>linux.petalinux</code> expects an installed Xilinx/PetaLinux environment. RadBuild does not vendor Xilinx tools. It records the XSA handoff, selected template, module list, firmware globs, BSP release directory, and deploy target so the same project graph can be regenerated and rebuilt.</p>
+<p><code>linux.buildroot</code> expects Buildroot to be available on the host or through the project&#x27;s own tooling. RadBuild generates the external-tree location and graph metadata; board package policy remains in the Buildroot external tree.</p>
   </article>
 </main>
 </body>

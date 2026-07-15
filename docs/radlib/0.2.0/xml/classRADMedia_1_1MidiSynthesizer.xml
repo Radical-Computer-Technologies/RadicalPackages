@@ -1,0 +1,415 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="classRADMedia_1_1MidiSynthesizer" kind="class" language="C++" prot="public">
+    <compoundname>RADMedia::MidiSynthesizer</compoundname>
+    <includes refid="RADMedia_8h" local="no">RADMedia.h</includes>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classRADMedia_1_1MidiSynthesizer_1ac7c7f225770df2f84443308b1b54380f" prot="private" static="no" mutable="no">
+        <type>std::unique_ptr&lt; Impl &gt;</type>
+        <definition>std::unique_ptr&lt;Impl&gt; RADMedia::MidiSynthesizer::pImpl_</definition>
+        <argsstring></argsstring>
+        <name>pImpl_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADMedia/headers/RADMedia.h" line="505" column="25" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADMedia/headers/RADMedia.h" bodystart="505" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classRADMedia_1_1MidiSynthesizer_1ad10917ff2317fc9daddba0c01e715bee" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>RADMedia::MidiSynthesizer::MidiSynthesizer</definition>
+        <argsstring>()</argsstring>
+        <name>MidiSynthesizer</name>
+        <briefdescription>
+<para>Creates a closed synthesizer. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADMedia/headers/RADMedia.h" line="461" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADMedia_1_1MidiSynthesizer_1a3d6c1ceab3730bcf07fc0d0c8a58ece9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>RADMedia::MidiSynthesizer::~MidiSynthesizer</definition>
+        <argsstring>()</argsstring>
+        <name>~MidiSynthesizer</name>
+        <briefdescription>
+<para>Releases the native synth backend if open. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADMedia/headers/RADMedia.h" line="463" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADMedia_1_1MidiSynthesizer_1a003d3dc1301236143c22f2d67af3c5e5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>RADMedia::MidiSynthesizer::MidiSynthesizer</definition>
+        <argsstring>(const MidiSynthesizer &amp;)=delete</argsstring>
+        <name>MidiSynthesizer</name>
+        <param>
+          <type>const <ref refid="classRADMedia_1_1MidiSynthesizer" kindref="compound">MidiSynthesizer</ref> &amp;</type>
+        </param>
+        <briefdescription>
+<para>Synthesizers own native backend state and are move-only. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADMedia/headers/RADMedia.h" line="466" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADMedia_1_1MidiSynthesizer_1a9bd47263a01d016ba478ab3f9b315455" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classRADMedia_1_1MidiSynthesizer" kindref="compound">MidiSynthesizer</ref> &amp;</type>
+        <definition>MidiSynthesizer&amp; RADMedia::MidiSynthesizer::operator=</definition>
+        <argsstring>(const MidiSynthesizer &amp;)=delete</argsstring>
+        <name>operator=</name>
+        <param>
+          <type>const <ref refid="classRADMedia_1_1MidiSynthesizer" kindref="compound">MidiSynthesizer</ref> &amp;</type>
+        </param>
+        <briefdescription>
+<para>Synthesizers own native backend state and are move-only. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADMedia/headers/RADMedia.h" line="468" column="25"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADMedia_1_1MidiSynthesizer_1a87b648299addbfb155de4a00aec4f2d5" prot="public" static="no" const="no" explicit="no" inline="no" noexcept="yes" virt="non-virtual">
+        <type></type>
+        <definition>RADMedia::MidiSynthesizer::MidiSynthesizer</definition>
+        <argsstring>(MidiSynthesizer &amp;&amp;) noexcept</argsstring>
+        <name>MidiSynthesizer</name>
+        <param>
+          <type><ref refid="classRADMedia_1_1MidiSynthesizer" kindref="compound">MidiSynthesizer</ref> &amp;&amp;</type>
+        </param>
+        <briefdescription>
+<para>Moves a synthesizer. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADMedia/headers/RADMedia.h" line="470" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADMedia_1_1MidiSynthesizer_1aa8ecd7808cd6ab5cf796039aa7ba328c" prot="public" static="no" const="no" explicit="no" inline="no" noexcept="yes" virt="non-virtual">
+        <type><ref refid="classRADMedia_1_1MidiSynthesizer" kindref="compound">MidiSynthesizer</ref> &amp;</type>
+        <definition>MidiSynthesizer&amp; RADMedia::MidiSynthesizer::operator=</definition>
+        <argsstring>(MidiSynthesizer &amp;&amp;) noexcept</argsstring>
+        <name>operator=</name>
+        <param>
+          <type><ref refid="classRADMedia_1_1MidiSynthesizer" kindref="compound">MidiSynthesizer</ref> &amp;&amp;</type>
+        </param>
+        <briefdescription>
+<para>Moves a synthesizer. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADMedia/headers/RADMedia.h" line="472" column="25"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADMedia_1_1MidiSynthesizer_1a13027d470506082f649613990c585b49" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool RADMedia::MidiSynthesizer::open</definition>
+        <argsstring>(uint32_t sampleRate=48000, float gain=0.2f, std::string *error=nullptr)</argsstring>
+        <name>open</name>
+        <param>
+          <type>uint32_t</type>
+          <declname>sampleRate</declname>
+          <defval>48000</defval>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>gain</declname>
+          <defval>0.2f</defval>
+        </param>
+        <param>
+          <type>std::string *</type>
+          <declname>error</declname>
+          <defval>nullptr</defval>
+        </param>
+        <briefdescription>
+<para>Opens or reopens the synth at sampleRate and gain. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADMedia/headers/RADMedia.h" line="480" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADMedia_1_1MidiSynthesizer_1a1c6ea7bd11c2b11849a84f1a2248a39f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void RADMedia::MidiSynthesizer::close</definition>
+        <argsstring>()</argsstring>
+        <name>close</name>
+        <briefdescription>
+<para>Closes the synth and unloads native resources. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADMedia/headers/RADMedia.h" line="482" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADMedia_1_1MidiSynthesizer_1a20ba955c57cbe67378831043a4e7ed3a" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool RADMedia::MidiSynthesizer::isOpen</definition>
+        <argsstring>() const</argsstring>
+        <name>isOpen</name>
+        <briefdescription>
+<para>Returns true when native synth resources are open. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADMedia/headers/RADMedia.h" line="484" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADMedia_1_1MidiSynthesizer_1aecb2c47a68158c37feba217d4a3a500c" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>uint32_t</type>
+        <definition>uint32_t RADMedia::MidiSynthesizer::sampleRate</definition>
+        <argsstring>() const</argsstring>
+        <name>sampleRate</name>
+        <briefdescription>
+<para>Returns the current synth sample rate. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADMedia/headers/RADMedia.h" line="486" column="18"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADMedia_1_1MidiSynthesizer_1aff97b3733651b291ee298c29423e71d1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool RADMedia::MidiSynthesizer::loadSoundFont</definition>
+        <argsstring>(const std::string &amp;path, bool resetPresets=true, std::string *error=nullptr)</argsstring>
+        <name>loadSoundFont</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>path</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>resetPresets</declname>
+          <defval>true</defval>
+        </param>
+        <param>
+          <type>std::string *</type>
+          <declname>error</declname>
+          <defval>nullptr</defval>
+        </param>
+        <briefdescription>
+<para>Loads a SoundFont into the synth, optionally resetting presets. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADMedia/headers/RADMedia.h" line="489" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADMedia_1_1MidiSynthesizer_1aaab0ef3f19b62ef1b004d3770a7af96e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::optional&lt; <ref refid="structRADMedia_1_1AudioBuffer" kindref="compound">AudioBuffer</ref> &gt;</type>
+        <definition>std::optional&lt;AudioBuffer&gt; RADMedia::MidiSynthesizer::render</definition>
+        <argsstring>(const MidiClip &amp;clip, std::string *error=nullptr)</argsstring>
+        <name>render</name>
+        <param>
+          <type>const <ref refid="structRADMedia_1_1MidiClip" kindref="compound">MidiClip</ref> &amp;</type>
+          <declname>clip</declname>
+        </param>
+        <param>
+          <type>std::string *</type>
+          <declname>error</declname>
+          <defval>nullptr</defval>
+        </param>
+        <briefdescription>
+<para>Renders clip to interleaved Float32 audio. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADMedia/headers/RADMedia.h" line="491" column="23"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADMedia_1_1MidiSynthesizer_1a5934a7ff602595419b7000b0fefe3719" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool RADMedia::MidiSynthesizer::beginStream</definition>
+        <argsstring>(const MidiClip &amp;clip, std::string *error=nullptr)</argsstring>
+        <name>beginStream</name>
+        <param>
+          <type>const <ref refid="structRADMedia_1_1MidiClip" kindref="compound">MidiClip</ref> &amp;</type>
+          <declname>clip</declname>
+        </param>
+        <param>
+          <type>std::string *</type>
+          <declname>error</declname>
+          <defval>nullptr</defval>
+        </param>
+        <briefdescription>
+<para>Starts stateful small-buffer rendering for clip. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADMedia/headers/RADMedia.h" line="493" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADMedia_1_1MidiSynthesizer_1af6c13aed1990cba41d9679709e070916" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::optional&lt; <ref refid="structRADMedia_1_1AudioBuffer" kindref="compound">AudioBuffer</ref> &gt;</type>
+        <definition>std::optional&lt;AudioBuffer&gt; RADMedia::MidiSynthesizer::renderNext</definition>
+        <argsstring>(size_t maxFrames, std::string *error=nullptr)</argsstring>
+        <name>renderNext</name>
+        <param>
+          <type>size_t</type>
+          <declname>maxFrames</declname>
+        </param>
+        <param>
+          <type>std::string *</type>
+          <declname>error</declname>
+          <defval>nullptr</defval>
+        </param>
+        <briefdescription>
+<para>Renders the next streaming block. Empty buffer means end of stream. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADMedia/headers/RADMedia.h" line="495" column="23"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADMedia_1_1MidiSynthesizer_1aa9a9bc58a6d0b90a805c4eeecd3c421c" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool RADMedia::MidiSynthesizer::streamFinished</definition>
+        <argsstring>() const</argsstring>
+        <name>streamFinished</name>
+        <briefdescription>
+<para>Returns true once a stream has no more frames to render. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADMedia/headers/RADMedia.h" line="497" column="14"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="classRADMedia_1_1MidiSynthesizer_1af4aa674a6133416b16b532a9e9e4473a" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>static bool RADMedia::MidiSynthesizer::isAvailable</definition>
+        <argsstring>()</argsstring>
+        <name>isAvailable</name>
+        <briefdescription>
+<para>Returns true when <ref refid="namespaceRADMedia" kindref="compound">RADMedia</ref> can render MIDI preview audio. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADMedia/headers/RADMedia.h" line="475" column="21"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADMedia_1_1MidiSynthesizer_1af6ba0c98bb64cd34da1a00ed4f03be89" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::vector&lt; std::string &gt;</type>
+        <definition>static std::vector&lt;std::string&gt; RADMedia::MidiSynthesizer::defaultSoundFontPaths</definition>
+        <argsstring>()</argsstring>
+        <name>defaultSoundFontPaths</name>
+        <briefdescription>
+<para>Returns existing common system SoundFont paths. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADMedia/headers/RADMedia.h" line="477" column="28"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADMedia_1_1MidiSynthesizer_1af5d03e9a1dc5cc26338ee8df12697de8" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::optional&lt; <ref refid="structRADMedia_1_1AudioBuffer" kindref="compound">AudioBuffer</ref> &gt;</type>
+        <definition>static std::optional&lt;AudioBuffer&gt; RADMedia::MidiSynthesizer::renderClip</definition>
+        <argsstring>(const MidiClip &amp;clip, const std::string &amp;soundFontPath, std::string *error=nullptr)</argsstring>
+        <name>renderClip</name>
+        <param>
+          <type>const <ref refid="structRADMedia_1_1MidiClip" kindref="compound">MidiClip</ref> &amp;</type>
+          <declname>clip</declname>
+        </param>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>soundFontPath</declname>
+        </param>
+        <param>
+          <type>std::string *</type>
+          <declname>error</declname>
+          <defval>nullptr</defval>
+        </param>
+        <briefdescription>
+<para>Convenience helper that opens, loads soundFontPath, renders clip, and closes. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADMedia/headers/RADMedia.h" line="499" column="30"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="classRADMedia_1_1MidiSynthesizer_1a169f9aae9bd87ea5bb3294c7b97a683b" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool RADMedia::MidiSynthesizer::ensureFluidSynthLoaded</definition>
+        <argsstring>(uint32_t sampleRate, float gain, std::string *error)</argsstring>
+        <name>ensureFluidSynthLoaded</name>
+        <param>
+          <type>uint32_t</type>
+          <declname>sampleRate</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>gain</declname>
+        </param>
+        <param>
+          <type>std::string *</type>
+          <declname>error</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADMedia/headers/RADMedia.h" line="504" column="14"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>Backend-neutral MIDI preview renderer facade.</para>
+<para><ref refid="namespaceRADMedia" kindref="compound">RADMedia</ref> includes a lightweight built-in MIDI preview renderer so applications can play edited clips without depending on FluidSynth. Loading a SoundFont validates/selects the preset source for track configuration; richer SF2/SF3 sample playback can be attached later behind this same facade. </para>
+    </detaileddescription>
+    <location file="/media/jvincent/Kingspec512/repos/RADLib/RADMedia/headers/RADMedia.h" line="458" column="5" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADMedia/headers/RADMedia.h" bodystart="458" bodyend="506"/>
+    <listofallmembers>
+      <member refid="classRADMedia_1_1MidiSynthesizer_1a5934a7ff602595419b7000b0fefe3719" prot="public" virt="non-virtual"><scope>RADMedia::MidiSynthesizer</scope><name>beginStream</name></member>
+      <member refid="classRADMedia_1_1MidiSynthesizer_1a1c6ea7bd11c2b11849a84f1a2248a39f" prot="public" virt="non-virtual"><scope>RADMedia::MidiSynthesizer</scope><name>close</name></member>
+      <member refid="classRADMedia_1_1MidiSynthesizer_1af6ba0c98bb64cd34da1a00ed4f03be89" prot="public" virt="non-virtual"><scope>RADMedia::MidiSynthesizer</scope><name>defaultSoundFontPaths</name></member>
+      <member refid="classRADMedia_1_1MidiSynthesizer_1a169f9aae9bd87ea5bb3294c7b97a683b" prot="private" virt="non-virtual"><scope>RADMedia::MidiSynthesizer</scope><name>ensureFluidSynthLoaded</name></member>
+      <member refid="classRADMedia_1_1MidiSynthesizer_1af4aa674a6133416b16b532a9e9e4473a" prot="public" virt="non-virtual"><scope>RADMedia::MidiSynthesizer</scope><name>isAvailable</name></member>
+      <member refid="classRADMedia_1_1MidiSynthesizer_1a20ba955c57cbe67378831043a4e7ed3a" prot="public" virt="non-virtual"><scope>RADMedia::MidiSynthesizer</scope><name>isOpen</name></member>
+      <member refid="classRADMedia_1_1MidiSynthesizer_1aff97b3733651b291ee298c29423e71d1" prot="public" virt="non-virtual"><scope>RADMedia::MidiSynthesizer</scope><name>loadSoundFont</name></member>
+      <member refid="classRADMedia_1_1MidiSynthesizer_1ad10917ff2317fc9daddba0c01e715bee" prot="public" virt="non-virtual"><scope>RADMedia::MidiSynthesizer</scope><name>MidiSynthesizer</name></member>
+      <member refid="classRADMedia_1_1MidiSynthesizer_1a003d3dc1301236143c22f2d67af3c5e5" prot="public" virt="non-virtual"><scope>RADMedia::MidiSynthesizer</scope><name>MidiSynthesizer</name></member>
+      <member refid="classRADMedia_1_1MidiSynthesizer_1a87b648299addbfb155de4a00aec4f2d5" prot="public" virt="non-virtual"><scope>RADMedia::MidiSynthesizer</scope><name>MidiSynthesizer</name></member>
+      <member refid="classRADMedia_1_1MidiSynthesizer_1a13027d470506082f649613990c585b49" prot="public" virt="non-virtual"><scope>RADMedia::MidiSynthesizer</scope><name>open</name></member>
+      <member refid="classRADMedia_1_1MidiSynthesizer_1a9bd47263a01d016ba478ab3f9b315455" prot="public" virt="non-virtual"><scope>RADMedia::MidiSynthesizer</scope><name>operator=</name></member>
+      <member refid="classRADMedia_1_1MidiSynthesizer_1aa8ecd7808cd6ab5cf796039aa7ba328c" prot="public" virt="non-virtual"><scope>RADMedia::MidiSynthesizer</scope><name>operator=</name></member>
+      <member refid="classRADMedia_1_1MidiSynthesizer_1ac7c7f225770df2f84443308b1b54380f" prot="private" virt="non-virtual"><scope>RADMedia::MidiSynthesizer</scope><name>pImpl_</name></member>
+      <member refid="classRADMedia_1_1MidiSynthesizer_1aaab0ef3f19b62ef1b004d3770a7af96e" prot="public" virt="non-virtual"><scope>RADMedia::MidiSynthesizer</scope><name>render</name></member>
+      <member refid="classRADMedia_1_1MidiSynthesizer_1af5d03e9a1dc5cc26338ee8df12697de8" prot="public" virt="non-virtual"><scope>RADMedia::MidiSynthesizer</scope><name>renderClip</name></member>
+      <member refid="classRADMedia_1_1MidiSynthesizer_1af6c13aed1990cba41d9679709e070916" prot="public" virt="non-virtual"><scope>RADMedia::MidiSynthesizer</scope><name>renderNext</name></member>
+      <member refid="classRADMedia_1_1MidiSynthesizer_1aecb2c47a68158c37feba217d4a3a500c" prot="public" virt="non-virtual"><scope>RADMedia::MidiSynthesizer</scope><name>sampleRate</name></member>
+      <member refid="classRADMedia_1_1MidiSynthesizer_1aa9a9bc58a6d0b90a805c4eeecd3c421c" prot="public" virt="non-virtual"><scope>RADMedia::MidiSynthesizer</scope><name>streamFinished</name></member>
+      <member refid="classRADMedia_1_1MidiSynthesizer_1a3d6c1ceab3730bcf07fc0d0c8a58ece9" prot="public" virt="non-virtual"><scope>RADMedia::MidiSynthesizer</scope><name>~MidiSynthesizer</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

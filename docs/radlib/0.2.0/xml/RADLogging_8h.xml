@@ -1,0 +1,204 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="RADLogging_8h" kind="file" language="C++">
+    <compoundname>RADLogging.h</compoundname>
+    <includes local="no">RADCore/RADLicenseGate.h</includes>
+    <includes local="no">cstddef</includes>
+    <includes local="no">memory</includes>
+    <includes local="no">sstream</includes>
+    <includes local="no">string</includes>
+    <incdepgraph>
+      <node id="1">
+        <label>/media/jvincent/Kingspec512/repos/RADLib/RADLogging/headers/RADLogging.h</label>
+        <link refid="RADLogging_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>string</label>
+      </node>
+      <node id="5">
+        <label>sstream</label>
+      </node>
+      <node id="2">
+        <label>RADCore/RADLicenseGate.h</label>
+      </node>
+      <node id="3">
+        <label>cstddef</label>
+      </node>
+      <node id="4">
+        <label>memory</label>
+      </node>
+    </incdepgraph>
+    <innerclass refid="classRADLogging_1_1Sink" prot="public">RADLogging::Sink</innerclass>
+    <innerclass refid="classRADLogging_1_1Logger" prot="public">RADLogging::Logger</innerclass>
+    <innerclass refid="classRADLogging_1_1LogStream" prot="public">RADLogging::LogStream</innerclass>
+    <innernamespace refid="namespaceRADLogging">RADLogging</innernamespace>
+      <sectiondef kind="define">
+      <memberdef kind="define" id="RADLogging_8h_1a1c04f5122034d98cefa3320275787614" prot="public" static="no">
+        <name>RADLOG_TRACE</name>
+        <param><defname>category</defname></param>
+        <initializer><ref refid="classRADLogging_1_1LogStream" kindref="compound">RADLogging::LogStream</ref>(<ref refid="namespaceRADLogging_1a8317de65c6fc04ea0c80520b60f81949add4ec0ac4e58f7c32a01244ae91150b1" kindref="member">RADLogging::Level::Trace</ref>, category)</initializer>
+        <briefdescription>
+<para>Logs with <ref refid="namespaceRADLogging" kindref="compound">RADLogging</ref> at trace level. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADLogging/headers/RADLogging.h" line="108" column="9" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADLogging/headers/RADLogging.h" bodystart="108" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="RADLogging_8h_1a47d7c131c7d18c56842f0409729300dc" prot="public" static="no">
+        <name>RADLOG_DEBUG</name>
+        <param><defname>category</defname></param>
+        <initializer><ref refid="classRADLogging_1_1LogStream" kindref="compound">RADLogging::LogStream</ref>(<ref refid="namespaceRADLogging_1a8317de65c6fc04ea0c80520b60f81949aa603905470e2a5b8c13e96b579ef0dba" kindref="member">RADLogging::Level::Debug</ref>, category)</initializer>
+        <briefdescription>
+<para>Logs with <ref refid="namespaceRADLogging" kindref="compound">RADLogging</ref> at debug level. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADLogging/headers/RADLogging.h" line="110" column="9" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADLogging/headers/RADLogging.h" bodystart="110" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="RADLogging_8h_1aa88dbb52f2771f10bd298dc1ee6309ec" prot="public" static="no">
+        <name>RADLOG_INFO</name>
+        <param><defname>category</defname></param>
+        <initializer><ref refid="classRADLogging_1_1LogStream" kindref="compound">RADLogging::LogStream</ref>(<ref refid="namespaceRADLogging_1a8317de65c6fc04ea0c80520b60f81949a4059b0251f66a18cb56f544728796875" kindref="member">RADLogging::Level::Info</ref>, category)</initializer>
+        <briefdescription>
+<para>Logs with <ref refid="namespaceRADLogging" kindref="compound">RADLogging</ref> at info level. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADLogging/headers/RADLogging.h" line="112" column="9" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADLogging/headers/RADLogging.h" bodystart="112" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="RADLogging_8h_1ad5d88a9d741012af89cd0128a328edf1" prot="public" static="no">
+        <name>RADLOG_WARNING</name>
+        <param><defname>category</defname></param>
+        <initializer><ref refid="classRADLogging_1_1LogStream" kindref="compound">RADLogging::LogStream</ref>(<ref refid="namespaceRADLogging_1a8317de65c6fc04ea0c80520b60f81949a0eaadb4fcb48a0a0ed7bc9868be9fbaa" kindref="member">RADLogging::Level::Warning</ref>, category)</initializer>
+        <briefdescription>
+<para>Logs with <ref refid="namespaceRADLogging" kindref="compound">RADLogging</ref> at warning level. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADLogging/headers/RADLogging.h" line="114" column="9" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADLogging/headers/RADLogging.h" bodystart="114" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="RADLogging_8h_1adcc91b12946e023f3e02364924f79aeb" prot="public" static="no">
+        <name>RADLOG_ERROR</name>
+        <param><defname>category</defname></param>
+        <initializer><ref refid="classRADLogging_1_1LogStream" kindref="compound">RADLogging::LogStream</ref>(<ref refid="namespaceRADLogging_1a8317de65c6fc04ea0c80520b60f81949a902b0d55fddef6f8d651fe1035b7d4bd" kindref="member">RADLogging::Level::Error</ref>, category)</initializer>
+        <briefdescription>
+<para>Logs with <ref refid="namespaceRADLogging" kindref="compound">RADLogging</ref> at error level. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADLogging/headers/RADLogging.h" line="116" column="9" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADLogging/headers/RADLogging.h" bodystart="116" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Async category logging with console, file, rotating file, and syslog sinks. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#ifndef<sp/>RADLOGGING_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>RADLOGGING_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="preprocessor">#pragma<sp/>once</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;RADCore/RADLicenseGate.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;cstddef&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;memory&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;sstream&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;string&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight></codeline>
+<codeline lineno="18" refid="namespaceRADLogging" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal"><ref refid="namespaceRADLogging" kindref="compound">RADLogging</ref><sp/>{</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight></codeline>
+<codeline lineno="21" refid="namespaceRADLogging_1a8317de65c6fc04ea0c80520b60f81949" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">enum<sp/>class</highlight><highlight class="normal"><sp/><ref refid="namespaceRADLogging_1a8317de65c6fc04ea0c80520b60f81949" kindref="member">Level</ref><sp/>{</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespaceRADLogging_1a8317de65c6fc04ea0c80520b60f81949add4ec0ac4e58f7c32a01244ae91150b1" kindref="member">Trace</ref><sp/>=<sp/>0,</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespaceRADLogging_1a8317de65c6fc04ea0c80520b60f81949aa603905470e2a5b8c13e96b579ef0dba" kindref="member">Debug</ref>,</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespaceRADLogging_1a8317de65c6fc04ea0c80520b60f81949a4059b0251f66a18cb56f544728796875" kindref="member">Info</ref>,</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespaceRADLogging_1a8317de65c6fc04ea0c80520b60f81949a0eaadb4fcb48a0a0ed7bc9868be9fbaa" kindref="member">Warning</ref>,</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespaceRADLogging_1a8317de65c6fc04ea0c80520b60f81949a902b0d55fddef6f8d651fe1035b7d4bd" kindref="member">Error</ref>,</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespaceRADLogging_1a8317de65c6fc04ea0c80520b60f81949a278d01e5af56273bae1bb99a98b370cd" kindref="member">Critical</ref>,</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespaceRADLogging_1a8317de65c6fc04ea0c80520b60f81949ad15305d7a4e34e02489c74a5ef542f36" kindref="member">Off</ref></highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/><sp/><sp/>};</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight></codeline>
+<codeline lineno="32" refid="classRADLogging_1_1Sink" refkind="compound"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classRADLogging_1_1Sink" kindref="compound">Sink</ref><sp/>{</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="34" refid="classRADLogging_1_1Sink_1a5447e48a271a6758031196d01bbd89fb" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/><ref refid="classRADLogging_1_1Sink_1a5447e48a271a6758031196d01bbd89fb" kindref="member">~Sink</ref>()<sp/>=<sp/></highlight><highlight class="keywordflow">default</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="36" refid="classRADLogging_1_1Sink_1a0a33f2232e199caf4d55946ae11c35f9" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classRADLogging_1_1Sink_1a0a33f2232e199caf4d55946ae11c35f9" kindref="member">write</ref>(<ref refid="namespaceRADLogging_1a8317de65c6fc04ea0c80520b60f81949" kindref="member">Level</ref><sp/>level,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::string&amp;<sp/>category,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::string&amp;<sp/>line)<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="38" refid="classRADLogging_1_1Sink_1a528547b28b4849bd81f9a6b20c3d6468" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classRADLogging_1_1Sink_1a528547b28b4849bd81f9a6b20c3d6468" kindref="member">flush</ref>()<sp/>{}</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/>};</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"></highlight></codeline>
+<codeline lineno="42" refid="classRADLogging_1_1Logger" refkind="compound"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classRADLogging_1_1Logger" kindref="compound">Logger</ref><sp/>{</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="45" refid="classRADLogging_1_1Logger_1a00264b88e7c6ebf986859c6ef5ce02c5" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/><ref refid="classRADLogging_1_1Logger" kindref="compound">Logger</ref>&amp;<sp/><ref refid="classRADLogging_1_1Logger_1a00264b88e7c6ebf986859c6ef5ce02c5" kindref="member">instance</ref>();</highlight></codeline>
+<codeline lineno="47" refid="classRADLogging_1_1Logger_1a01bc160feea1280d66022203d73391f6" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classRADLogging_1_1Logger_1a01bc160feea1280d66022203d73391f6" kindref="member">start</ref>();</highlight></codeline>
+<codeline lineno="49" refid="classRADLogging_1_1Logger_1a0b8f97cfc5f1062dadac8d3a78460bbf" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classRADLogging_1_1Logger_1a0b8f97cfc5f1062dadac8d3a78460bbf" kindref="member">flush</ref>();</highlight></codeline>
+<codeline lineno="51" refid="classRADLogging_1_1Logger_1a9b2710cee8216e478ea69a009a64879b" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classRADLogging_1_1Logger_1a9b2710cee8216e478ea69a009a64879b" kindref="member">shutdown</ref>();</highlight></codeline>
+<codeline lineno="53" refid="classRADLogging_1_1Logger_1a009b149da477df4ec6835318299e5bd5" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classRADLogging_1_1Logger_1a009b149da477df4ec6835318299e5bd5" kindref="member">setLevel</ref>(<ref refid="namespaceRADLogging_1a8317de65c6fc04ea0c80520b60f81949" kindref="member">Level</ref><sp/><ref refid="classRADLogging_1_1Logger_1a464716869b6824b3629b4d2b43a41ac9" kindref="member">level</ref>);</highlight></codeline>
+<codeline lineno="55" refid="classRADLogging_1_1Logger_1a464716869b6824b3629b4d2b43a41ac9" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespaceRADLogging_1a8317de65c6fc04ea0c80520b60f81949" kindref="member">Level</ref><sp/><ref refid="classRADLogging_1_1Logger_1a464716869b6824b3629b4d2b43a41ac9" kindref="member">level</ref>()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="57" refid="classRADLogging_1_1Logger_1afcb6d6de716687d49ed98494245dcc94" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classRADLogging_1_1Logger_1afcb6d6de716687d49ed98494245dcc94" kindref="member">setCategoryEnabled</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::string&amp;<sp/>category,<sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>enabled);</highlight></codeline>
+<codeline lineno="59" refid="classRADLogging_1_1Logger_1ac07dfab64cbf78b6be0d22def5dfbef5" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classRADLogging_1_1Logger_1ac07dfab64cbf78b6be0d22def5dfbef5" kindref="member">shouldLog</ref>(<ref refid="namespaceRADLogging_1a8317de65c6fc04ea0c80520b60f81949" kindref="member">Level</ref><sp/><ref refid="classRADLogging_1_1Logger_1a464716869b6824b3629b4d2b43a41ac9" kindref="member">level</ref>,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::string&amp;<sp/>category)<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="61" refid="classRADLogging_1_1Logger_1aa0b6c580de77908500139ce922dd175f" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classRADLogging_1_1Logger_1aa0b6c580de77908500139ce922dd175f" kindref="member">addSink</ref>(std::shared_ptr&lt;Sink&gt;<sp/>sink);</highlight></codeline>
+<codeline lineno="63" refid="classRADLogging_1_1Logger_1ad615ed2efcb6e5914c37d66d8b375b57" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classRADLogging_1_1Logger_1ad615ed2efcb6e5914c37d66d8b375b57" kindref="member">clearSinks</ref>();</highlight></codeline>
+<codeline lineno="65" refid="classRADLogging_1_1Logger_1a11331f2c86438b940cfe528f29758a14" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classRADLogging_1_1Logger_1a11331f2c86438b940cfe528f29758a14" kindref="member">log</ref>(<ref refid="namespaceRADLogging_1a8317de65c6fc04ea0c80520b60f81949" kindref="member">Level</ref><sp/><ref refid="classRADLogging_1_1Logger_1a464716869b6824b3629b4d2b43a41ac9" kindref="member">level</ref>,<sp/>std::string<sp/>category,<sp/>std::string<sp/>message);</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"></highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classRADLogging_1_1Logger" kindref="compound">Logger</ref>();</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>~<ref refid="classRADLogging_1_1Logger" kindref="compound">Logger</ref>();</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">Impl;</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::unique_ptr&lt;Impl&gt;<sp/>pImpl_;</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/>};</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"></highlight></codeline>
+<codeline lineno="75" refid="classRADLogging_1_1LogStream" refkind="compound"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classRADLogging_1_1LogStream" kindref="compound">LogStream</ref><sp/>{</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="78" refid="classRADLogging_1_1LogStream_1a2e36189a400a1969338ebf5ebd0da1f2" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classRADLogging_1_1LogStream_1a2e36189a400a1969338ebf5ebd0da1f2" kindref="member">LogStream</ref>(<ref refid="namespaceRADLogging_1a8317de65c6fc04ea0c80520b60f81949" kindref="member">Level</ref><sp/>level,<sp/>std::string<sp/>category);</highlight></codeline>
+<codeline lineno="80" refid="classRADLogging_1_1LogStream_1a44bd49b5e110849780171f76b6dd394e" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classRADLogging_1_1LogStream_1a44bd49b5e110849780171f76b6dd394e" kindref="member">~LogStream</ref>();</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">template</highlight><highlight class="normal">&lt;</highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>T&gt;</highlight></codeline>
+<codeline lineno="83" refid="classRADLogging_1_1LogStream_1a08816b6a253d422b096dc4fb3607a239" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classRADLogging_1_1LogStream" kindref="compound">LogStream</ref>&amp;<sp/><ref refid="classRADLogging_1_1LogStream_1a08816b6a253d422b096dc4fb3607a239" kindref="member">operator&lt;&lt;</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>T&amp;<sp/>value)<sp/>{</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>stream_<sp/>&lt;&lt;<sp/>value;</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>*</highlight><highlight class="keyword">this</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"></highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespaceRADLogging_1a8317de65c6fc04ea0c80520b60f81949" kindref="member">Level</ref><sp/>level_;</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::string<sp/>category_;</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::ostringstream<sp/>stream_;</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/><sp/>};</highlight></codeline>
+<codeline lineno="93"><highlight class="normal"></highlight></codeline>
+<codeline lineno="95" refid="namespaceRADLogging_1a7b1efd6887917cbb12a0aeed746e69f8" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>std::shared_ptr&lt;Sink&gt;<sp/><ref refid="namespaceRADLogging_1a7b1efd6887917cbb12a0aeed746e69f8" kindref="member">consoleSink</ref>(</highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>stderrForWarnings<sp/>=<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="97" refid="namespaceRADLogging_1acb1a1928470f11f9f17aa1c707f48b39" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>std::shared_ptr&lt;Sink&gt;<sp/><ref refid="namespaceRADLogging_1acb1a1928470f11f9f17aa1c707f48b39" kindref="member">fileSink</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::string&amp;<sp/>path);</highlight></codeline>
+<codeline lineno="99" refid="namespaceRADLogging_1a9e4f35016775cc63ee16d7321744d4ae" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>std::shared_ptr&lt;Sink&gt;<sp/><ref refid="namespaceRADLogging_1a9e4f35016775cc63ee16d7321744d4ae" kindref="member">rotatingFileSink</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::string&amp;<sp/>path,<sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>maxBytes,<sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>maxFiles<sp/>=<sp/>3);</highlight></codeline>
+<codeline lineno="101" refid="namespaceRADLogging_1a98a7850711add8537adcfcfc7f66d4ac" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>std::shared_ptr&lt;Sink&gt;<sp/><ref refid="namespaceRADLogging_1a98a7850711add8537adcfcfc7f66d4ac" kindref="member">syslogSink</ref>(std::string<sp/>ident<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;RADLib&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="103" refid="namespaceRADLogging_1a917bc044cf4ed6df70315ac34d06486b" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>std::string<sp/><ref refid="namespaceRADLogging_1a917bc044cf4ed6df70315ac34d06486b" kindref="member">levelName</ref>(<ref refid="namespaceRADLogging_1a8317de65c6fc04ea0c80520b60f81949" kindref="member">Level</ref><sp/>level);</highlight></codeline>
+<codeline lineno="104"><highlight class="normal"></highlight></codeline>
+<codeline lineno="105"><highlight class="normal">}<sp/></highlight><highlight class="comment">//<sp/>namespace<sp/>RADLogging</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="106"><highlight class="normal"></highlight></codeline>
+<codeline lineno="108" refid="RADLogging_8h_1a1c04f5122034d98cefa3320275787614" refkind="member"><highlight class="preprocessor">#define<sp/>RADLOG_TRACE(category)<sp/>RADLogging::LogStream(RADLogging::Level::Trace,<sp/>category)</highlight></codeline>
+<codeline lineno="110" refid="RADLogging_8h_1a47d7c131c7d18c56842f0409729300dc" refkind="member"><highlight class="preprocessor">#define<sp/>RADLOG_DEBUG(category)<sp/>RADLogging::LogStream(RADLogging::Level::Debug,<sp/>category)</highlight></codeline>
+<codeline lineno="112" refid="RADLogging_8h_1aa88dbb52f2771f10bd298dc1ee6309ec" refkind="member"><highlight class="preprocessor">#define<sp/>RADLOG_INFO(category)<sp/>RADLogging::LogStream(RADLogging::Level::Info,<sp/>category)</highlight></codeline>
+<codeline lineno="114" refid="RADLogging_8h_1ad5d88a9d741012af89cd0128a328edf1" refkind="member"><highlight class="preprocessor">#define<sp/>RADLOG_WARNING(category)<sp/>RADLogging::LogStream(RADLogging::Level::Warning,<sp/>category)</highlight></codeline>
+<codeline lineno="116" refid="RADLogging_8h_1adcc91b12946e023f3e02364924f79aeb" refkind="member"><highlight class="preprocessor">#define<sp/>RADLOG_ERROR(category)<sp/>RADLogging::LogStream(RADLogging::Level::Error,<sp/>category)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="117"><highlight class="normal"></highlight></codeline>
+<codeline lineno="118"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+    </programlisting>
+    <location file="/media/jvincent/Kingspec512/repos/RADLib/RADLogging/headers/RADLogging.h"/>
+  </compounddef>
+</doxygen>

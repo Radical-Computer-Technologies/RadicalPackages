@@ -1,0 +1,20 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="md__media_jvincent_Kingspec512_repos_RADLib_docs_public_raddsp" kind="page">
+    <compoundname>md__media_jvincent_Kingspec512_repos_RADLib_docs_public_raddsp</compoundname>
+    <title>RADDsp</title>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para><ref refid="namespaceRADDsp" kindref="compound">RADDsp</ref> is a standalone DSP module for audio, SDR/IQ, plotting, and analysis tools. It intentionally has no dependency on <ref refid="namespaceRADMedia" kindref="compound">RADMedia</ref> so it can be reused across different data sources.</para>
+<para>Current primitives include gain, mixing, peak/RMS, normalization, sine/noise generation, interleave/deinterleave, linear resampling, windows, FIR filtering, one-pole low-pass filtering, clean digital delay, analog-style modulated delay, and complex/IQ magnitude, phase, gain, and frequency shifting.</para>
+<sect1 id="md__media_jvincent_Kingspec512_repos_RADLib_docs_public_raddsp_1autotoc_md11">
+<title>Real-time audio effects</title>
+<para><computeroutput><ref refid="classRADDsp_1_1DigitalDelay" kindref="compound">RADDsp::DigitalDelay</ref></computeroutput> is a clean stereo delay line for predictable tempo or millisecond delays. It supports fractional delay reads, bounded same-channel feedback, bounded cross-feedback for ping-pong style routing, and dry/wet gain controls. The class can process one <computeroutput>StereoFrame</computeroutput> at a time or an interleaved stereo block, which keeps it usable from ALSA callbacks, <ref refid="namespaceRADMedia" kindref="compound">RADMedia</ref> pipelines, and FPiGA control applications.</para>
+<para><computeroutput><ref refid="classRADDsp_1_1AnalogModDelay" kindref="compound">RADDsp::AnalogModDelay</ref></computeroutput> builds on the same delay-line model but adds LFO delay modulation, feedback tone smoothing, stereo LFO phase offset, and soft saturation. This is intended for tape/analog-flavored delay, chorus-like short delays, and FPiGA software effects where the FPGA synth remains low-latency and the Pi path adds character effects.</para>
+<para>The reverb path should start with a Dattorro/Schroeder-Moorer/FDN-style algorithmic implementation for Pi Zero 2 W class hardware. That family gives a lush musical tail with fixed memory and predictable CPU. Convolution remains valuable for realistic spaces, but long impulse responses should be treated as a later partitioned-FFT option or a Pi 4 class profile because latency, memory, and CPU pressure are more expensive than delay-network reverb in the embedded synth use case. </para>
+</sect1>
+    </detaileddescription>
+    <location file="/media/jvincent/Kingspec512/repos/RADLib/docs/public/raddsp.md"/>
+  </compounddef>
+</doxygen>

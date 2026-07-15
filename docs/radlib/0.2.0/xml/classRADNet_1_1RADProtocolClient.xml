@@ -1,0 +1,139 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="classRADNet_1_1RADProtocolClient" kind="class" language="C++" prot="public">
+    <compoundname>RADNet::RADProtocolClient</compoundname>
+    <basecompoundref refid="classRADNet_1_1RADProtocolSocket" prot="public" virt="non-virtual">RADNet::RADProtocolSocket</basecompoundref>
+    <includes refid="RADNet_8h" local="no">RADNet.h</includes>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classRADNet_1_1RADProtocolClient_1ae8127f4f82fe818922dd4da6db9d4a16" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>RADNet::RADProtocolClient::RADProtocolClient</definition>
+        <argsstring>(RADCore::EventLoop &amp;loop)</argsstring>
+        <name>RADProtocolClient</name>
+        <param>
+          <type><ref refid="classRADCore_1_1EventLoop" kindref="compound">RADCore::EventLoop</ref> &amp;</type>
+          <declname>loop</declname>
+        </param>
+        <briefdescription>
+<para>Creates a client. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADNet/headers/RADNet.h" line="360" column="18"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADNet_1_1RADProtocolClient_1a79a2cff0f46647f3c98b2e7a9e423f62" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool RADNet::RADProtocolClient::connectUsingConfig</definition>
+        <argsstring>(const RADProtocolEndpointConfig &amp;config)</argsstring>
+        <name>connectUsingConfig</name>
+        <param>
+          <type>const <ref refid="structRADNet_1_1RADProtocolEndpointConfig" kindref="compound">RADProtocolEndpointConfig</ref> &amp;</type>
+          <declname>config</declname>
+        </param>
+        <briefdescription>
+<para>Connects using runtime config. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADNet/headers/RADNet.h" line="362" column="14"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Framed protocol TCP client. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>RADNet::RADProtocolSocket</label>
+        <link refid="classRADNet_1_1RADProtocolSocket"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>RADCore::RADObject</label>
+        <link refid="classRADCore_1_1RADObject"/>
+      </node>
+      <node id="1">
+        <label>RADNet::RADProtocolClient</label>
+        <link refid="classRADNet_1_1RADProtocolClient"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>RADNet::RADProtocolSocket</label>
+        <link refid="classRADNet_1_1RADProtocolSocket"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+        <childnode refid="4" relation="usage">
+          <edgelabel>frameReceived</edgelabel>
+        </childnode>
+        <childnode refid="5" relation="usage">
+          <edgelabel>connected</edgelabel>
+          <edgelabel>disconnected</edgelabel>
+        </childnode>
+        <childnode refid="6" relation="usage">
+          <edgelabel>errorOccurred</edgelabel>
+        </childnode>
+      </node>
+      <node id="3">
+        <label>RADCore::RADObject</label>
+        <link refid="classRADCore_1_1RADObject"/>
+      </node>
+      <node id="6">
+        <label>RADCore::Event&lt; void(std::string) &gt;</label>
+        <link refid="classRADCore_1_1Event"/>
+      </node>
+      <node id="5">
+        <label>RADCore::Event&lt; void() &gt;</label>
+        <link refid="classRADCore_1_1Event"/>
+      </node>
+      <node id="4">
+        <label>RADCore::Event&lt; void(RADNet::RADTcpFrame) &gt;</label>
+        <link refid="classRADCore_1_1Event"/>
+      </node>
+      <node id="1">
+        <label>RADNet::RADProtocolClient</label>
+        <link refid="classRADNet_1_1RADProtocolClient"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="/media/jvincent/Kingspec512/repos/RADLib/RADNet/headers/RADNet.h" line="357" column="5" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADNet/headers/RADNet.h" bodystart="357" bodyend="363"/>
+    <listofallmembers>
+      <member refid="classRADCore_1_1RADObject_1a06cdf252ffb5e2f88332ebda12a62080" prot="public" virt="non-virtual"><scope>RADNet::RADProtocolClient</scope><name>associatedEventLoop</name></member>
+      <member refid="classRADNet_1_1RADProtocolSocket_1af4cb5f38dbe3dc185333632d3d3b708c" prot="public" virt="non-virtual"><scope>RADNet::RADProtocolClient</scope><name>close</name></member>
+      <member refid="classRADNet_1_1RADProtocolSocket_1a50d6c257bca15074fccd5b5a333a04ae" prot="public" virt="non-virtual"><scope>RADNet::RADProtocolClient</scope><name>connected</name></member>
+      <member refid="classRADNet_1_1RADProtocolSocket_1a4187ed8613d2e95959886acce5a32162" prot="public" virt="non-virtual"><scope>RADNet::RADProtocolClient</scope><name>connectToHost</name></member>
+      <member refid="classRADNet_1_1RADProtocolClient_1a79a2cff0f46647f3c98b2e7a9e423f62" prot="public" virt="non-virtual"><scope>RADNet::RADProtocolClient</scope><name>connectUsingConfig</name></member>
+      <member refid="classRADNet_1_1RADProtocolSocket_1ad4dc601bfce34be1375d7015c374cf90" prot="public" virt="non-virtual"><scope>RADNet::RADProtocolClient</scope><name>disconnected</name></member>
+      <member refid="classRADNet_1_1RADProtocolSocket_1a3ed27c0be82352b4e55711eca3ae8b49" prot="public" virt="non-virtual"><scope>RADNet::RADProtocolClient</scope><name>errorOccurred</name></member>
+      <member refid="classRADNet_1_1RADProtocolSocket_1a0ac7b475a485dc781600db76953f85bc" prot="public" virt="non-virtual"><scope>RADNet::RADProtocolClient</scope><name>frameReceived</name></member>
+      <member refid="classRADNet_1_1RADProtocolSocket_1a04b55a1bbae7af691b315d552090bba5" prot="public" virt="non-virtual"><scope>RADNet::RADProtocolClient</scope><name>handleConnected</name></member>
+      <member refid="classRADNet_1_1RADProtocolSocket_1a9691af5d9fcc2872e57cc00a12764377" prot="public" virt="non-virtual"><scope>RADNet::RADProtocolClient</scope><name>handleDisconnected</name></member>
+      <member refid="classRADNet_1_1RADProtocolSocket_1a38ef2587b3785b46bc8042b53f44da9e" prot="public" virt="non-virtual"><scope>RADNet::RADProtocolClient</scope><name>handleError</name></member>
+      <member refid="classRADNet_1_1RADProtocolSocket_1abbca9db68ab7703d5cf31f2a60c9c63d" prot="public" virt="non-virtual"><scope>RADNet::RADProtocolClient</scope><name>handleReadyRead</name></member>
+      <member refid="classRADNet_1_1RADProtocolSocket_1a9e5eab77939220d7056f8073d1efac77" prot="public" virt="non-virtual"><scope>RADNet::RADProtocolClient</scope><name>isOpen</name></member>
+      <member refid="classRADCore_1_1RADObject_1ad2ddfd066d14be9adc2f96bfca417fc6" prot="public" virt="non-virtual"><scope>RADNet::RADProtocolClient</scope><name>lifetimeToken</name></member>
+      <member refid="classRADCore_1_1RADObject_1a1f7f7f2fb40211e28455cd74a029339a" prot="public" virt="non-virtual"><scope>RADNet::RADProtocolClient</scope><name>moveToThread</name></member>
+      <member refid="classRADCore_1_1RADObject_1a9bc3fed915f7c71232e68c2628d34708" prot="public" virt="non-virtual"><scope>RADNet::RADProtocolClient</scope><name>RADObject</name></member>
+      <member refid="classRADNet_1_1RADProtocolClient_1ae8127f4f82fe818922dd4da6db9d4a16" prot="public" virt="non-virtual"><scope>RADNet::RADProtocolClient</scope><name>RADProtocolClient</name></member>
+      <member refid="classRADNet_1_1RADProtocolSocket_1ae9aa305ef0ed657e6e84796bea24ddce" prot="public" virt="non-virtual"><scope>RADNet::RADProtocolClient</scope><name>RADProtocolSocket</name></member>
+      <member refid="classRADNet_1_1RADProtocolSocket_1aa96276a112521aeb5ec85b72d93d0518" prot="public" virt="non-virtual"><scope>RADNet::RADProtocolClient</scope><name>RADProtocolSocket</name></member>
+      <member refid="classRADCore_1_1RADObject_1af3e26b970c8080418f0d6b80cad986a2" prot="public" virt="non-virtual"><scope>RADNet::RADProtocolClient</scope><name>registerLink</name></member>
+      <member refid="classRADNet_1_1RADProtocolSocket_1a51d1f152c854ac82460995a1fb19076b" prot="public" virt="non-virtual"><scope>RADNet::RADProtocolClient</scope><name>sendFrame</name></member>
+      <member refid="classRADNet_1_1RADProtocolSocket_1a23492678837680e41f8aeeabcdb9a7e3" prot="public" virt="non-virtual"><scope>RADNet::RADProtocolClient</scope><name>sendFrame</name></member>
+      <member refid="classRADNet_1_1RADProtocolSocket_1a30bf273352f316733e7ec13b241af07b" prot="public" virt="non-virtual"><scope>RADNet::RADProtocolClient</scope><name>setMaxPayloadBytes</name></member>
+      <member refid="classRADCore_1_1RADObject_1a8b11df0b951d0db1ba99cfb851e34f31" prot="public" virt="non-virtual"><scope>RADNet::RADProtocolClient</scope><name>threadAffinity</name></member>
+      <member refid="classRADCore_1_1RADObject_1ac7ca67b41523794ae5a6b3634d6ce3b6" prot="public" virt="non-virtual"><scope>RADNet::RADProtocolClient</scope><name>threadId</name></member>
+      <member refid="classRADCore_1_1RADObject_1a7369e27a46c163ee89c63227db650ce5" prot="public" virt="virtual"><scope>RADNet::RADProtocolClient</scope><name>~RADObject</name></member>
+      <member refid="classRADNet_1_1RADProtocolSocket_1acab9754a2669e92c1b82244052e8ae2d" prot="public" virt="non-virtual"><scope>RADNet::RADProtocolClient</scope><name>~RADProtocolSocket</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,169 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="classRADData_1_1RADList_1_1iterator" kind="class" language="C++" prot="public">
+    <compoundname>RADData::RADList::iterator</compoundname>
+    <includes refid="RADDataStructures_8h" local="no">RADDataStructures.h</includes>
+      <sectiondef kind="friend">
+      <memberdef kind="friend" id="classRADData_1_1RADList_1_1iterator_1adf1fd6741024c832bf5dc67b9d3ccb67" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>class</type>
+        <definition>friend class RADList</definition>
+        <argsstring></argsstring>
+        <name>RADList</name>
+        <param>
+          <type><ref refid="classRADData_1_1RADList" kindref="compound">RADList</ref></type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" line="1481" column="13" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" bodystart="1481" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classRADData_1_1RADList_1_1iterator_1aaf14baf88f758f69c7794d5be8e71a61" prot="private" static="no" mutable="no">
+        <type>Node *</type>
+        <definition>Node* RADData::RADList&lt; T, Alloc &gt;::iterator::node_</definition>
+        <argsstring></argsstring>
+        <name>node_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" line="1482" column="18" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" bodystart="1482" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classRADData_1_1RADList_1_1iterator_1a7289730cb405a08c28b9f606e434f9ab" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>RADData::RADList&lt; T, Alloc &gt;::iterator::iterator</definition>
+        <argsstring>(Node *node)</argsstring>
+        <name>iterator</name>
+        <param>
+          <type>Node *</type>
+          <declname>node</declname>
+        </param>
+        <briefdescription>
+<para>Creates an iterator from an internal node. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" line="1466" column="13" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" bodystart="1466" bodyend="1466"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADData_1_1RADList_1_1iterator_1a845637b551c1af1ba9c3113395b7d351" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>T &amp;</type>
+        <definition>T&amp; RADData::RADList&lt; T, Alloc &gt;::iterator::operator*</definition>
+        <argsstring>() const</argsstring>
+        <name>operator*</name>
+        <briefdescription>
+<para>Returns current element. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" line="1468" column="15" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" bodystart="1468" bodyend="1468"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADData_1_1RADList_1_1iterator_1ac3d7b18b4ba99620a2d4aab441fc702b" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>T *</type>
+        <definition>T* RADData::RADList&lt; T, Alloc &gt;::iterator::operator-&gt;</definition>
+        <argsstring>() const</argsstring>
+        <name>operator-&gt;</name>
+        <briefdescription>
+<para>Returns current element pointer. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" line="1470" column="15" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" bodystart="1470" bodyend="1470"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADData_1_1RADList_1_1iterator_1a8cfb5a37f66ece8e0fc24f3452456a5a" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classRADData_1_1RADList_1_1iterator" kindref="compound">iterator</ref> &amp;</type>
+        <definition>iterator&amp; RADData::RADList&lt; T, Alloc &gt;::iterator::operator++</definition>
+        <argsstring>()</argsstring>
+        <name>operator++</name>
+        <briefdescription>
+<para>Advances to next node. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" line="1472" column="22" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" bodystart="1472" bodyend="1472"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADData_1_1RADList_1_1iterator_1a371dec17d513a274ba1bfb46cae3d771" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classRADData_1_1RADList_1_1iterator" kindref="compound">iterator</ref> &amp;</type>
+        <definition>iterator&amp; RADData::RADList&lt; T, Alloc &gt;::iterator::operator--</definition>
+        <argsstring>()</argsstring>
+        <name>operator--</name>
+        <briefdescription>
+<para>Moves to previous node. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" line="1474" column="22" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" bodystart="1474" bodyend="1474"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADData_1_1RADList_1_1iterator_1a219415d39e611392d8d6b49a22709ac2" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool RADData::RADList&lt; T, Alloc &gt;::iterator::operator!=</definition>
+        <argsstring>(const iterator &amp;other) const</argsstring>
+        <name>operator!=</name>
+        <param>
+          <type>const <ref refid="classRADData_1_1RADList_1_1iterator" kindref="compound">iterator</ref> &amp;</type>
+          <declname>other</declname>
+        </param>
+        <briefdescription>
+<para>Compares iterator inequality. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" line="1476" column="18" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" bodystart="1476" bodyend="1476"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADData_1_1RADList_1_1iterator_1a8044b9fabbb5605f372c6395eaaebd56" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool RADData::RADList&lt; T, Alloc &gt;::iterator::operator==</definition>
+        <argsstring>(const iterator &amp;other) const</argsstring>
+        <name>operator==</name>
+        <param>
+          <type>const <ref refid="classRADData_1_1RADList_1_1iterator" kindref="compound">iterator</ref> &amp;</type>
+          <declname>other</declname>
+        </param>
+        <briefdescription>
+<para>Compares iterator equality. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" line="1478" column="18" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" bodystart="1478" bodyend="1478"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Mutable bidirectional iterator. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" line="1463" column="9" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" bodystart="1463" bodyend="1483"/>
+    <listofallmembers>
+      <member refid="classRADData_1_1RADList_1_1iterator_1a7289730cb405a08c28b9f606e434f9ab" prot="public" virt="non-virtual"><scope>RADData::RADList::iterator</scope><name>iterator</name></member>
+      <member refid="classRADData_1_1RADList_1_1iterator_1aaf14baf88f758f69c7794d5be8e71a61" prot="private" virt="non-virtual"><scope>RADData::RADList::iterator</scope><name>node_</name></member>
+      <member refid="classRADData_1_1RADList_1_1iterator_1a219415d39e611392d8d6b49a22709ac2" prot="public" virt="non-virtual"><scope>RADData::RADList::iterator</scope><name>operator!=</name></member>
+      <member refid="classRADData_1_1RADList_1_1iterator_1a845637b551c1af1ba9c3113395b7d351" prot="public" virt="non-virtual"><scope>RADData::RADList::iterator</scope><name>operator*</name></member>
+      <member refid="classRADData_1_1RADList_1_1iterator_1a8cfb5a37f66ece8e0fc24f3452456a5a" prot="public" virt="non-virtual"><scope>RADData::RADList::iterator</scope><name>operator++</name></member>
+      <member refid="classRADData_1_1RADList_1_1iterator_1a371dec17d513a274ba1bfb46cae3d771" prot="public" virt="non-virtual"><scope>RADData::RADList::iterator</scope><name>operator--</name></member>
+      <member refid="classRADData_1_1RADList_1_1iterator_1ac3d7b18b4ba99620a2d4aab441fc702b" prot="public" virt="non-virtual"><scope>RADData::RADList::iterator</scope><name>operator-&gt;</name></member>
+      <member refid="classRADData_1_1RADList_1_1iterator_1a8044b9fabbb5605f372c6395eaaebd56" prot="public" virt="non-virtual"><scope>RADData::RADList::iterator</scope><name>operator==</name></member>
+      <member refid="classRADData_1_1RADList_1_1iterator_1adf1fd6741024c832bf5dc67b9d3ccb67" prot="private" virt="non-virtual"><scope>RADData::RADList::iterator</scope><name>RADList</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

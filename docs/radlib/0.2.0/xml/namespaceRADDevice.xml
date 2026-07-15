@@ -1,0 +1,133 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="namespaceRADDevice" kind="namespace" language="C++">
+    <compoundname>RADDevice</compoundname>
+    <innerclass refid="structRADDevice_1_1DevicePaths" prot="public">RADDevice::DevicePaths</innerclass>
+    <innerclass refid="classRADDevice_1_1I2CDevice" prot="public">RADDevice::I2CDevice</innerclass>
+    <innerclass refid="classRADDevice_1_1SPIDevice" prot="public">RADDevice::SPIDevice</innerclass>
+    <innerclass refid="classRADDevice_1_1GpioPin" prot="public">RADDevice::GpioPin</innerclass>
+    <innerclass refid="classRADDevice_1_1PwmChannel" prot="public">RADDevice::PwmChannel</innerclass>
+    <innerclass refid="classRADDevice_1_1AdcChannel" prot="public">RADDevice::AdcChannel</innerclass>
+    <innerclass refid="classRADDevice_1_1Watchdog" prot="public">RADDevice::Watchdog</innerclass>
+    <innerclass refid="classRADDevice_1_1Led" prot="public">RADDevice::Led</innerclass>
+      <sectiondef kind="enum">
+      <memberdef kind="enum" id="namespaceRADDevice_1a1f04e8338cd9dd13b817689336e639d7" prot="public" static="no" strong="yes">
+        <type></type>
+        <name>GpioDirection</name>
+        <enumvalue id="namespaceRADDevice_1a1f04e8338cd9dd13b817689336e639d7aefeb369cccbd560588a756610865664c" prot="public">
+          <name>In</name>
+          <briefdescription>
+<para>Input pin. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespaceRADDevice_1a1f04e8338cd9dd13b817689336e639d7a7c147cda9e49590f6abe83d118b7353b" prot="public">
+          <name>Out</name>
+          <briefdescription>
+<para>Output pin. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>GPIO direction. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDevice/headers/RADDevice.h" line="34" column="5" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADDevice/headers/RADDevice.h" bodystart="34" bodyend="39"/>
+      </memberdef>
+      <memberdef kind="enum" id="namespaceRADDevice_1ac28e7b87b95c2360f005072a3836cdc9" prot="public" static="no" strong="yes">
+        <type></type>
+        <name>GpioEdge</name>
+        <enumvalue id="namespaceRADDevice_1ac28e7b87b95c2360f005072a3836cdc9a6adf97f83acf6453d4a6a4b1070f3754" prot="public">
+          <name>None</name>
+          <briefdescription>
+<para>No edge trigger. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespaceRADDevice_1ac28e7b87b95c2360f005072a3836cdc9a4475404a8e17049853e83d014a833ca1" prot="public">
+          <name>Rising</name>
+          <briefdescription>
+<para>Rising edge. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespaceRADDevice_1ac28e7b87b95c2360f005072a3836cdc9a0f57d5b441651c57eac9f91efaa5a75a" prot="public">
+          <name>Falling</name>
+          <briefdescription>
+<para>Falling edge. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespaceRADDevice_1ac28e7b87b95c2360f005072a3836cdc9a130c5b3473c57faa76e2a1c54e26f88e" prot="public">
+          <name>Both</name>
+          <briefdescription>
+<para>Both edges. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>GPIO edge trigger mode. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDevice/headers/RADDevice.h" line="42" column="5" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADDevice/headers/RADDevice.h" bodystart="42" bodyend="51"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="namespaceRADDevice_1ab6726396e042ac7717fe272b18c70d3a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::vector&lt; std::string &gt;</type>
+        <definition>std::vector&lt;std::string&gt; RADDevice::listLeds</definition>
+        <argsstring>(const DevicePaths &amp;paths={})</argsstring>
+        <name>listLeds</name>
+        <param>
+          <type>const <ref refid="structRADDevice_1_1DevicePaths" kindref="compound">DevicePaths</ref> &amp;</type>
+          <declname>paths</declname>
+          <defval>{}</defval>
+        </param>
+        <briefdescription>
+<para>Lists LED device names. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDevice/headers/RADDevice.h" line="206" column="17" declfile="/media/jvincent/Kingspec512/repos/RADLib/RADDevice/headers/RADDevice.h" declline="206" declcolumn="17"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceRADDevice_1a799d6a090f1e414564c018cc862326d1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::vector&lt; std::string &gt;</type>
+        <definition>std::vector&lt;std::string&gt; RADDevice::listIioDevices</definition>
+        <argsstring>(const DevicePaths &amp;paths={})</argsstring>
+        <name>listIioDevices</name>
+        <param>
+          <type>const <ref refid="structRADDevice_1_1DevicePaths" kindref="compound">DevicePaths</ref> &amp;</type>
+          <declname>paths</declname>
+          <defval>{}</defval>
+        </param>
+        <briefdescription>
+<para>Lists visible IIO device directory names. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDevice/headers/RADDevice.h" line="208" column="17" declfile="/media/jvincent/Kingspec512/repos/RADLib/RADDevice/headers/RADDevice.h" declline="208" declcolumn="17"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDevice/headers/RADDevice.h" line="17" column="1"/>
+  </compounddef>
+</doxygen>

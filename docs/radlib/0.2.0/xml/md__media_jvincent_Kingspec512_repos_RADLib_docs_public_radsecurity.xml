@@ -1,0 +1,43 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="md__media_jvincent_Kingspec512_repos_RADLib_docs_public_radsecurity" kind="page">
+    <compoundname>md__media_jvincent_Kingspec512_repos_RADLib_docs_public_radsecurity</compoundname>
+    <title>RADSecurity</title>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para><ref refid="namespaceRADSecurity" kindref="compound">RADSecurity</ref> provides the trust primitives used by update manifests, installers, and embedded deployment tools.</para>
+<para>Use <computeroutput><ref refid="classRADSecurity_1_1Crypto" kindref="compound">RADSecurity::Crypto</ref></computeroutput> for SHA-256 hashing, secure random bytes, RSA-SHA256 signing, signature verification, and file fingerprints. Use <computeroutput><ref refid="namespaceRADSecurity_1a300c2dff0e35761ef0530a4c80cdad76" kindref="member">readCapabilitySet()</ref></computeroutput> to inspect Linux process capability masks from <computeroutput>/proc/self/status</computeroutput> without requiring libcap. Use <computeroutput>SandboxProfile</computeroutput> to describe a future launcher/sandbox policy in JSON.</para>
+<para>Use <computeroutput><ref refid="classRADSecurity_1_1LicenseManager" kindref="compound">RADSecurity::LicenseManager</ref></computeroutput> for offline signed license checks. RADLib license documents include an issuer <computeroutput>key_id</computeroutput>, a signed payload, and an RSA-SHA256 signature. Applications can verify against one public issuer key or a set of <computeroutput>TrustedLicenseKey</computeroutput> records when key rotation is required.</para>
+<para>This runtime license check complements the compile-time SDK acknowledgement macros. The macros declare which license tier the application is being compiled under; the signed license file verifies a specific commercial grant, customer key fingerprint, and node fingerprint.</para>
+<para>For auditability, applications should log or display <computeroutput><ref refid="namespaceRADLicense_1a194681ac6b1fa524bc46a268dad8dac7" kindref="member">RADLicense::compileAuditStamp()</ref></computeroutput> and the verified <computeroutput>LicenseCheckResult::payload.kind</computeroutput>, <computeroutput>licenseId</computeroutput>, <computeroutput>licensee</computeroutput>, and <computeroutput>issuerKeyId</computeroutput> where appropriate. A community build should visibly report <computeroutput>RADLIB_LICENSE_TIER=community</computeroutput>; public beta RADLib binaries should also report <computeroutput>RADLIB_EDITION=community-edition</computeroutput> through <computeroutput><ref refid="namespaceRADCore_1abd370291b54323d3fd0003c1c679e69f" kindref="member">RADCore::runtimeAuditStamp()</ref></computeroutput>. A future paid-edition build should report <computeroutput>RADLIB_EDITION=paid-edition</computeroutput> and show a valid signed-license status.</para>
+<para>Example:</para>
+<para><programlisting filename=".cpp"><codeline><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>digest<sp/>=<sp/><ref refid="classRADSecurity_1_1Crypto_1a9b84758c7963ba0e86da99be35977d1e" kindref="member">RADSecurity::Crypto::sha256File</ref>(</highlight><highlight class="stringliteral">&quot;payload.bin&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>hex<sp/>=<sp/><ref refid="classRADSecurity_1_1Crypto_1a2bd717a2aa8f55530fce57a8f7fc094c" kindref="member">RADSecurity::Crypto::toHex</ref>(digest.value());</highlight></codeline>
+</programlisting></para>
+<para>Node-locked license verification:</para>
+<para><programlisting filename=".cpp"><codeline><highlight class="normal"><ref refid="structRADSecurity_1_1LicenseCheckOptions" kindref="compound">RADSecurity::LicenseCheckOptions</ref><sp/>options;</highlight></codeline>
+<codeline><highlight class="normal">options.<ref refid="structRADSecurity_1_1LicenseCheckOptions_1a6c48ea43acacf8222d250152a6d2ceda" kindref="member">product</ref><sp/>=<sp/></highlight><highlight class="stringliteral">&quot;RADLib&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline><highlight class="normal">options.<ref refid="structRADSecurity_1_1LicenseCheckOptions_1ac71837969fdc79c19daed6894564bf6a" kindref="member">appMajorVersion</ref><sp/>=<sp/>0;</highlight></codeline>
+<codeline><highlight class="normal">options.<ref refid="structRADSecurity_1_1LicenseCheckOptions_1a8e0e220025199821eed1af4897371faf" kindref="member">requiredFeature</ref><sp/>=<sp/></highlight><highlight class="stringliteral">&quot;ui&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline><highlight class="normal">options.<ref refid="structRADSecurity_1_1LicenseCheckOptions_1ab71e6d74df3cb11bb7055609de6e985a" kindref="member">expectedLicenseePublicKeyFingerprint</ref><sp/>=<sp/>expectedCustomerKeyFingerprint;</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>check<sp/>=<sp/><ref refid="classRADSecurity_1_1LicenseManager_1a8ff4f56b44ecac8a862fae7a14972325" kindref="member">RADSecurity::LicenseManager::verifySignedLicenseFile</ref>(</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;crimson.license.json&quot;</highlight><highlight class="normal">,<sp/>issuerPublicKeyPem,<sp/>options);</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!check.valid())<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Decide<sp/>whether<sp/>to<sp/>disable<sp/>commercial-only<sp/>features,<sp/>show<sp/>activation<sp/>UI,</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>or<sp/>continue<sp/>in<sp/>community/evaluation<sp/>mode.</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal">}</highlight></codeline>
+</programlisting></para>
+<para>By default, <computeroutput>LicenseCheckOptions</computeroutput> rejects portable licenses. Set <computeroutput>allowPortableLicense = true</computeroutput> only for community, academic, evaluation, or explicitly portable grants.</para>
+<para>Release tooling can generate a signed universal community license when the offline issuer private key is provided:</para>
+<para><programlisting filename=".bash"><codeline><highlight class="normal">RADLIB_ISSUER_PRIVATE_KEY_PATH=/secure/path/radlib-issuer-private.pem<sp/>\</highlight></codeline>
+<codeline><highlight class="normal">RADLIB_ISSUER_KEY_ID=radlib-community-0.1.0<sp/>\</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>./build.py<sp/>--release-crimson</highlight></codeline>
+</programlisting></para>
+<para>The resulting <computeroutput>licenses/RADLib-Community-0.1.0.license.json</computeroutput> can be hosted on a public GitHub release or downloaded from a website. Commercial license files should use <computeroutput>createNodeLockedLicense()</computeroutput> and include both <computeroutput>machineFingerprint</computeroutput> and <computeroutput>licenseePublicKeyFingerprint</computeroutput>. </para>
+    </detaileddescription>
+    <location file="/media/jvincent/Kingspec512/repos/RADLib/docs/public/radsecurity.md"/>
+  </compounddef>
+</doxygen>

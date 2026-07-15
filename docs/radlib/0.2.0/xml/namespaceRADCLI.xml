@@ -1,0 +1,103 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="namespaceRADCLI" kind="namespace" language="C++">
+    <compoundname>RADCLI</compoundname>
+    <innerclass refid="structRADCLI_1_1Option" prot="public">RADCLI::Option</innerclass>
+    <innerclass refid="classRADCLI_1_1ParseResult" prot="public">RADCLI::ParseResult</innerclass>
+    <innerclass refid="classRADCLI_1_1CommandLineParser" prot="public">RADCLI::CommandLineParser</innerclass>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="namespaceRADCLI_1abf666f5ada86197d2a8949e4ec050b6d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::optional&lt; std::string &gt;</type>
+        <definition>std::optional&lt;std::string&gt; RADCLI::environmentVariable</definition>
+        <argsstring>(const std::string &amp;name)</argsstring>
+        <name>environmentVariable</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>name</declname>
+        </param>
+        <briefdescription>
+<para>Returns an environment variable value when present. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADCLI/headers/RADCLI.h" line="85" column="19" declfile="/media/jvincent/Kingspec512/repos/RADLib/RADCLI/headers/RADCLI.h" declline="85" declcolumn="19"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceRADCLI_1a9badbd653a5f9552775186e1522e3765" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool RADCLI::setEnvironmentVariable</definition>
+        <argsstring>(const std::string &amp;name, const std::string &amp;value, bool overwrite=true)</argsstring>
+        <name>setEnvironmentVariable</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>name</declname>
+        </param>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>value</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>overwrite</declname>
+          <defval>true</defval>
+        </param>
+        <briefdescription>
+<para>Sets or unsets an environment variable. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADCLI/headers/RADCLI.h" line="87" column="10" declfile="/media/jvincent/Kingspec512/repos/RADLib/RADCLI/headers/RADCLI.h" declline="87" declcolumn="10"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceRADCLI_1a49eaf45dc00f1d2d07c82bd3a012c214" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::string</type>
+        <definition>std::string RADCLI::executablePath</definition>
+        <argsstring>()</argsstring>
+        <name>executablePath</name>
+        <briefdescription>
+<para>Returns the current executable path when available. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADCLI/headers/RADCLI.h" line="89" column="17" declfile="/media/jvincent/Kingspec512/repos/RADLib/RADCLI/headers/RADCLI.h" declline="89" declcolumn="17"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceRADCLI_1a54d41d6cc7a3f1dda387b78f0c3f9440" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::string</type>
+        <definition>std::string RADCLI::currentUserName</definition>
+        <argsstring>()</argsstring>
+        <name>currentUserName</name>
+        <briefdescription>
+<para>Returns the current username when available. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADCLI/headers/RADCLI.h" line="91" column="17" declfile="/media/jvincent/Kingspec512/repos/RADLib/RADCLI/headers/RADCLI.h" declline="91" declcolumn="17"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceRADCLI_1a7b710c172eaf0adbf55470cd4544b369" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::string</type>
+        <definition>std::string RADCLI::radlibVersionString</definition>
+        <argsstring>()</argsstring>
+        <name>radlibVersionString</name>
+        <briefdescription>
+<para>Returns the RADLib version string. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADCLI/headers/RADCLI.h" line="93" column="17" declfile="/media/jvincent/Kingspec512/repos/RADLib/RADCLI/headers/RADCLI.h" declline="93" declcolumn="17"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/media/jvincent/Kingspec512/repos/RADLib/RADCLI/headers/RADCLI.h" line="18" column="1"/>
+  </compounddef>
+</doxygen>

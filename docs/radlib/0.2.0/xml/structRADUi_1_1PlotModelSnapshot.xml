@@ -1,0 +1,92 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="structRADUi_1_1PlotModelSnapshot" kind="struct" language="C++" prot="public">
+    <compoundname>RADUi::PlotModelSnapshot</compoundname>
+    <includes refid="RADPlot_8h" local="no">RADPlot.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structRADUi_1_1PlotModelSnapshot_1a3bdc403849a3b07101716d489ccb759e" prot="public" static="no" mutable="no">
+        <type>std::vector&lt; <ref refid="structRADUi_1_1PlotSeriesSnapshot" kindref="compound">PlotSeriesSnapshot</ref> &gt;</type>
+        <definition>std::vector&lt;PlotSeriesSnapshot&gt; RADUi::PlotModelSnapshot::series</definition>
+        <argsstring></argsstring>
+        <name>series</name>
+        <briefdescription>
+<para>Series included in the snapshot. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADPlot.h" line="77" column="21" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADPlot.h" bodystart="77" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structRADUi_1_1PlotModelSnapshot_1a510ccfd6c2a19149d2856b16e5f364ca" prot="public" static="no" mutable="no">
+        <type><ref refid="structRADUi_1_1PlotRange" kindref="compound">PlotRange</ref></type>
+        <definition>PlotRange RADUi::PlotModelSnapshot::xRange</definition>
+        <argsstring></argsstring>
+        <name>xRange</name>
+        <briefdescription>
+<para>X-axis range used for rendering. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADPlot.h" line="79" column="19" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADPlot.h" bodystart="79" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structRADUi_1_1PlotModelSnapshot_1a0c695137bba7983bfcd556e17022d5a8" prot="public" static="no" mutable="no">
+        <type><ref refid="structRADUi_1_1PlotRange" kindref="compound">PlotRange</ref></type>
+        <definition>PlotRange RADUi::PlotModelSnapshot::yRange</definition>
+        <argsstring></argsstring>
+        <name>yRange</name>
+        <briefdescription>
+<para>Y-axis range used for rendering. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADPlot.h" line="81" column="19" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADPlot.h" bodystart="81" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structRADUi_1_1PlotModelSnapshot_1ab5d774f6d47741ba776656444c7656a2" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool RADUi::PlotModelSnapshot::hasData</definition>
+        <argsstring></argsstring>
+        <name>hasData</name>
+        <initializer>= false</initializer>
+        <briefdescription>
+<para>True when at least one point exists. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADPlot.h" line="83" column="14" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADPlot.h" bodystart="83" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Immutable copy of a complete plot model. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="2">
+        <label>RADUi::PlotRange</label>
+        <link refid="structRADUi_1_1PlotRange"/>
+      </node>
+      <node id="1">
+        <label>RADUi::PlotModelSnapshot</label>
+        <link refid="structRADUi_1_1PlotModelSnapshot"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>xRange</edgelabel>
+          <edgelabel>yRange</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADPlot.h" line="75" column="5" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADPlot.h" bodystart="75" bodyend="84"/>
+    <listofallmembers>
+      <member refid="structRADUi_1_1PlotModelSnapshot_1ab5d774f6d47741ba776656444c7656a2" prot="public" virt="non-virtual"><scope>RADUi::PlotModelSnapshot</scope><name>hasData</name></member>
+      <member refid="structRADUi_1_1PlotModelSnapshot_1a3bdc403849a3b07101716d489ccb759e" prot="public" virt="non-virtual"><scope>RADUi::PlotModelSnapshot</scope><name>series</name></member>
+      <member refid="structRADUi_1_1PlotModelSnapshot_1a510ccfd6c2a19149d2856b16e5f364ca" prot="public" virt="non-virtual"><scope>RADUi::PlotModelSnapshot</scope><name>xRange</name></member>
+      <member refid="structRADUi_1_1PlotModelSnapshot_1a0c695137bba7983bfcd556e17022d5a8" prot="public" virt="non-virtual"><scope>RADUi::PlotModelSnapshot</scope><name>yRange</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

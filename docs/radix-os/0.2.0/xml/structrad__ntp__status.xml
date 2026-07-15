@@ -1,0 +1,150 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="structrad__ntp__status" kind="struct" language="C++" prot="public">
+    <compoundname>rad_ntp_status</compoundname>
+    <includes refid="radixkernel_8h" local="no">radixkernel.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structrad__ntp__status_1a26869533d046cbd9d11e16b99683a133" prot="public" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t rad_ntp_status::size</definition>
+        <argsstring></argsstring>
+        <name>size</name>
+        <briefdescription>
+<para>Public structure field. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/headers/radixkernel/radixkernel.h" line="745" column="14" bodyfile="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/headers/radixkernel/radixkernel.h" bodystart="745" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structrad__ntp__status_1aecf597a65567daee3fb7d63735c4c7ff" prot="public" static="no" mutable="no">
+        <type><ref refid="radixkernel_8h_1a1af91900409430083f6d8cd89aae108a" kindref="member">rad_ipv4_address_t</ref></type>
+        <definition>rad_ipv4_address_t rad_ntp_status::server</definition>
+        <argsstring></argsstring>
+        <name>server</name>
+        <briefdescription>
+<para>Last queried NTP/SNTP server. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/headers/radixkernel/radixkernel.h" line="746" column="24" bodyfile="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/headers/radixkernel/radixkernel.h" bodystart="746" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structrad__ntp__status_1a075295bf78527884448dd8c453947e07" prot="public" static="no" mutable="no">
+        <type>uint16_t</type>
+        <definition>uint16_t rad_ntp_status::port</definition>
+        <argsstring></argsstring>
+        <name>port</name>
+        <briefdescription>
+<para>Last queried UDP port. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/headers/radixkernel/radixkernel.h" line="747" column="14" bodyfile="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/headers/radixkernel/radixkernel.h" bodystart="747" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structrad__ntp__status_1a1943338868f9662b311fae3a9a5bb3e3" prot="public" static="no" mutable="no">
+        <type>uint16_t</type>
+        <definition>uint16_t rad_ntp_status::valid</definition>
+        <argsstring></argsstring>
+        <name>valid</name>
+        <briefdescription>
+<para>Nonzero when last_unix_seconds contains a valid sample. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/headers/radixkernel/radixkernel.h" line="748" column="14" bodyfile="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/headers/radixkernel/radixkernel.h" bodystart="748" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structrad__ntp__status_1ab9753fb02124be538607188a49866088" prot="public" static="no" mutable="no">
+        <type>uint64_t</type>
+        <definition>uint64_t rad_ntp_status::last_unix_seconds</definition>
+        <argsstring></argsstring>
+        <name>last_unix_seconds</name>
+        <briefdescription>
+<para>Last sampled Unix timestamp. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/headers/radixkernel/radixkernel.h" line="749" column="14" bodyfile="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/headers/radixkernel/radixkernel.h" bodystart="749" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structrad__ntp__status_1a7931c9f018111181f0a0c43efc2ddc1b" prot="public" static="no" mutable="no">
+        <type>int64_t</type>
+        <definition>int64_t rad_ntp_status::offset_millis</definition>
+        <argsstring></argsstring>
+        <name>offset_millis</name>
+        <briefdescription>
+<para>Sample offset against the current kernel clock. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/headers/radixkernel/radixkernel.h" line="750" column="13" bodyfile="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/headers/radixkernel/radixkernel.h" bodystart="750" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structrad__ntp__status_1a8f88ef130ef85288c65067849446639d" prot="public" static="no" mutable="no">
+        <type>uint64_t</type>
+        <definition>uint64_t rad_ntp_status::queries</definition>
+        <argsstring></argsstring>
+        <name>queries</name>
+        <briefdescription>
+<para>Number of NTP/SNTP requests sent. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/headers/radixkernel/radixkernel.h" line="751" column="14" bodyfile="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/headers/radixkernel/radixkernel.h" bodystart="751" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structrad__ntp__status_1afab8a5f778afcfb64b115d918f272a87" prot="public" static="no" mutable="no">
+        <type>uint64_t</type>
+        <definition>uint64_t rad_ntp_status::responses</definition>
+        <argsstring></argsstring>
+        <name>responses</name>
+        <briefdescription>
+<para>Number of valid NTP/SNTP responses received. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/headers/radixkernel/radixkernel.h" line="752" column="14" bodyfile="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/headers/radixkernel/radixkernel.h" bodystart="752" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Public data structure for <ref refid="structrad__ntp__status" kindref="compound">rad_ntp_status</ref>. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="1">
+        <label>rad_ntp_status</label>
+        <link refid="structrad__ntp__status"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>server</edgelabel>
+        </childnode>
+      </node>
+      <node id="2">
+        <label>rad_ipv4_address</label>
+        <link refid="structrad__ipv4__address"/>
+      </node>
+    </collaborationgraph>
+    <location file="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/headers/radixkernel/radixkernel.h" line="744" column="1" bodyfile="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/headers/radixkernel/radixkernel.h" bodystart="744" bodyend="753"/>
+    <listofallmembers>
+      <member refid="structrad__ntp__status_1ab9753fb02124be538607188a49866088" prot="public" virt="non-virtual"><scope>rad_ntp_status</scope><name>last_unix_seconds</name></member>
+      <member refid="structrad__ntp__status_1a7931c9f018111181f0a0c43efc2ddc1b" prot="public" virt="non-virtual"><scope>rad_ntp_status</scope><name>offset_millis</name></member>
+      <member refid="structrad__ntp__status_1a075295bf78527884448dd8c453947e07" prot="public" virt="non-virtual"><scope>rad_ntp_status</scope><name>port</name></member>
+      <member refid="structrad__ntp__status_1a8f88ef130ef85288c65067849446639d" prot="public" virt="non-virtual"><scope>rad_ntp_status</scope><name>queries</name></member>
+      <member refid="structrad__ntp__status_1afab8a5f778afcfb64b115d918f272a87" prot="public" virt="non-virtual"><scope>rad_ntp_status</scope><name>responses</name></member>
+      <member refid="structrad__ntp__status_1aecf597a65567daee3fb7d63735c4c7ff" prot="public" virt="non-virtual"><scope>rad_ntp_status</scope><name>server</name></member>
+      <member refid="structrad__ntp__status_1a26869533d046cbd9d11e16b99683a133" prot="public" virt="non-virtual"><scope>rad_ntp_status</scope><name>size</name></member>
+      <member refid="structrad__ntp__status_1a1943338868f9662b311fae3a9a5bb3e3" prot="public" virt="non-virtual"><scope>rad_ntp_status</scope><name>valid</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

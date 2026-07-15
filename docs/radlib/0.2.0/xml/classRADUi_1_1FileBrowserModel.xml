@@ -1,0 +1,321 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="classRADUi_1_1FileBrowserModel" kind="class" language="C++" prot="public">
+    <compoundname>RADUi::FileBrowserModel</compoundname>
+    <basecompoundref refid="classRADCore_1_1RADObject" prot="public" virt="non-virtual">RADCore::RADObject</basecompoundref>
+    <includes refid="RADAppKit_8h" local="no">RADAppKit.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="classRADUi_1_1FileBrowserModel_1ab1931575d5a52939a267304e5d06bd7c" prot="public" static="no" mutable="no">
+        <type><ref refid="classRADCore_1_1Event" kindref="compound">RADCore::Event</ref>&lt; void() &gt;</type>
+        <definition>RADCore::Event&lt;void () &gt; RADUi::FileBrowserModel::changed</definition>
+        <argsstring></argsstring>
+        <name>changed</name>
+        <briefdescription>
+<para>Raised when directory, entries, or selection changes. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADAppKit.h" line="293" column="30" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADAppKit.h" bodystart="293" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classRADUi_1_1FileBrowserModel_1ae853af2e51631234116bd91f2ceeaa22" prot="public" static="no" mutable="no">
+        <type><ref refid="classRADCore_1_1Event" kindref="compound">RADCore::Event</ref>&lt; void(std::string) &gt;</type>
+        <definition>RADCore::Event&lt;void (std::string) &gt; RADUi::FileBrowserModel::fileActivated</definition>
+        <argsstring></argsstring>
+        <name>fileActivated</name>
+        <briefdescription>
+<para>Raised when a file is activated. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADAppKit.h" line="295" column="30" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADAppKit.h" bodystart="295" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classRADUi_1_1FileBrowserModel_1a799d4a3d8f96a02382479c427229949b" prot="private" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string RADUi::FileBrowserModel::directory_</definition>
+        <argsstring></argsstring>
+        <name>directory_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADAppKit.h" line="319" column="21" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADAppKit.h" bodystart="319" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classRADUi_1_1FileBrowserModel_1aa723c2a232ef127c53ed6368086f8856" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool RADUi::FileBrowserModel::showHidden_</definition>
+        <argsstring></argsstring>
+        <name>showHidden_</name>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADAppKit.h" line="320" column="14" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADAppKit.h" bodystart="320" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classRADUi_1_1FileBrowserModel_1afc890dcb9b14321c7897def9a1407e8b" prot="private" static="no" mutable="no">
+        <type>std::vector&lt; <ref refid="structRADUi_1_1FileBrowserEntry" kindref="compound">FileBrowserEntry</ref> &gt;</type>
+        <definition>std::vector&lt;FileBrowserEntry&gt; RADUi::FileBrowserModel::entries_</definition>
+        <argsstring></argsstring>
+        <name>entries_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADAppKit.h" line="321" column="21" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADAppKit.h" bodystart="321" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classRADUi_1_1FileBrowserModel_1ae3ffc57cd02aaf8b6174f8ab2843e912" prot="private" static="no" mutable="no">
+        <type>std::optional&lt; size_t &gt;</type>
+        <definition>std::optional&lt;size_t&gt; RADUi::FileBrowserModel::selectedIndex_</definition>
+        <argsstring></argsstring>
+        <name>selectedIndex_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADAppKit.h" line="322" column="23" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADAppKit.h" bodystart="322" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classRADUi_1_1FileBrowserModel_1aeb1aa31ebae11bd51c73f1da677048f5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool RADUi::FileBrowserModel::setDirectory</definition>
+        <argsstring>(std::string directory)</argsstring>
+        <name>setDirectory</name>
+        <param>
+          <type>std::string</type>
+          <declname>directory</declname>
+        </param>
+        <briefdescription>
+<para>Sets current directory and refreshes entries. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADAppKit.h" line="298" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADUi_1_1FileBrowserModel_1ac722d1971cd49c7463d7652a34ad4af8" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>const std::string &amp;</type>
+        <definition>const std::string&amp; RADUi::FileBrowserModel::directory</definition>
+        <argsstring>() const</argsstring>
+        <name>directory</name>
+        <briefdescription>
+<para>Returns current directory. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADAppKit.h" line="300" column="27"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADUi_1_1FileBrowserModel_1adcbf3023d82ea857d2e603952d0ba3c0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool RADUi::FileBrowserModel::refresh</definition>
+        <argsstring>()</argsstring>
+        <name>refresh</name>
+        <briefdescription>
+<para>Refreshes entries from current directory. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADAppKit.h" line="302" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADUi_1_1FileBrowserModel_1abbd5f9038bf47ba94896db2db8fcb36b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool RADUi::FileBrowserModel::goUp</definition>
+        <argsstring>()</argsstring>
+        <name>goUp</name>
+        <briefdescription>
+<para>Navigates to parent directory. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADAppKit.h" line="304" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADUi_1_1FileBrowserModel_1afa3e605a7f4b68cfaf1df2dfdd776b01" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void RADUi::FileBrowserModel::setShowHidden</definition>
+        <argsstring>(bool showHidden)</argsstring>
+        <name>setShowHidden</name>
+        <param>
+          <type>bool</type>
+          <declname>showHidden</declname>
+        </param>
+        <briefdescription>
+<para>Sets hidden-file visibility. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADAppKit.h" line="306" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADUi_1_1FileBrowserModel_1a1a3f717c5a44ac2fe4de155781d31714" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool RADUi::FileBrowserModel::showHidden</definition>
+        <argsstring>() const</argsstring>
+        <name>showHidden</name>
+        <briefdescription>
+<para>Returns hidden-file visibility. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADAppKit.h" line="308" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADUi_1_1FileBrowserModel_1a6321a7b80d6ab04dfcb008ffe9f57328" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>const std::vector&lt; <ref refid="structRADUi_1_1FileBrowserEntry" kindref="compound">FileBrowserEntry</ref> &gt; &amp;</type>
+        <definition>const std::vector&lt;FileBrowserEntry&gt;&amp; RADUi::FileBrowserModel::entries</definition>
+        <argsstring>() const</argsstring>
+        <name>entries</name>
+        <briefdescription>
+<para>Returns entries. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADAppKit.h" line="310" column="27"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADUi_1_1FileBrowserModel_1a47b43758e1bedc65785ed67533f8e655" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool RADUi::FileBrowserModel::activate</definition>
+        <argsstring>(size_t index)</argsstring>
+        <name>activate</name>
+        <param>
+          <type>size_t</type>
+          <declname>index</declname>
+        </param>
+        <briefdescription>
+<para>Activates entry by index. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADAppKit.h" line="312" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADUi_1_1FileBrowserModel_1a623e7b75f38b1a1ba3c28fce5ad920c4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void RADUi::FileBrowserModel::setSelectedIndex</definition>
+        <argsstring>(std::optional&lt; size_t &gt; index)</argsstring>
+        <name>setSelectedIndex</name>
+        <param>
+          <type>std::optional&lt; size_t &gt;</type>
+          <declname>index</declname>
+        </param>
+        <briefdescription>
+<para>Sets selected entry index. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADAppKit.h" line="314" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADUi_1_1FileBrowserModel_1acc5e7657a6ff89e46a7e4a23752f75b1" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>std::optional&lt; size_t &gt;</type>
+        <definition>std::optional&lt;size_t&gt; RADUi::FileBrowserModel::selectedIndex</definition>
+        <argsstring>() const</argsstring>
+        <name>selectedIndex</name>
+        <briefdescription>
+<para>Returns selected entry index. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADAppKit.h" line="316" column="23"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>File browser/navigation model. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>RADCore::RADObject</label>
+        <link refid="classRADCore_1_1RADObject"/>
+      </node>
+      <node id="1">
+        <label>RADUi::FileBrowserModel</label>
+        <link refid="classRADUi_1_1FileBrowserModel"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>RADCore::RADObject</label>
+        <link refid="classRADCore_1_1RADObject"/>
+      </node>
+      <node id="4">
+        <label>RADCore::Event&lt; void(std::string) &gt;</label>
+        <link refid="classRADCore_1_1Event"/>
+      </node>
+      <node id="1">
+        <label>RADUi::FileBrowserModel</label>
+        <link refid="classRADUi_1_1FileBrowserModel"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="3" relation="usage">
+          <edgelabel>changed</edgelabel>
+        </childnode>
+        <childnode refid="4" relation="usage">
+          <edgelabel>fileActivated</edgelabel>
+        </childnode>
+      </node>
+      <node id="3">
+        <label>RADCore::Event&lt; void() &gt;</label>
+        <link refid="classRADCore_1_1Event"/>
+      </node>
+    </collaborationgraph>
+    <location file="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADAppKit.h" line="289" column="5" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADAppKit.h" bodystart="289" bodyend="323"/>
+    <listofallmembers>
+      <member refid="classRADUi_1_1FileBrowserModel_1a47b43758e1bedc65785ed67533f8e655" prot="public" virt="non-virtual"><scope>RADUi::FileBrowserModel</scope><name>activate</name></member>
+      <member refid="classRADCore_1_1RADObject_1a06cdf252ffb5e2f88332ebda12a62080" prot="public" virt="non-virtual"><scope>RADUi::FileBrowserModel</scope><name>associatedEventLoop</name></member>
+      <member refid="classRADUi_1_1FileBrowserModel_1ab1931575d5a52939a267304e5d06bd7c" prot="public" virt="non-virtual"><scope>RADUi::FileBrowserModel</scope><name>changed</name></member>
+      <member refid="classRADUi_1_1FileBrowserModel_1ac722d1971cd49c7463d7652a34ad4af8" prot="public" virt="non-virtual"><scope>RADUi::FileBrowserModel</scope><name>directory</name></member>
+      <member refid="classRADUi_1_1FileBrowserModel_1a799d4a3d8f96a02382479c427229949b" prot="private" virt="non-virtual"><scope>RADUi::FileBrowserModel</scope><name>directory_</name></member>
+      <member refid="classRADUi_1_1FileBrowserModel_1a6321a7b80d6ab04dfcb008ffe9f57328" prot="public" virt="non-virtual"><scope>RADUi::FileBrowserModel</scope><name>entries</name></member>
+      <member refid="classRADUi_1_1FileBrowserModel_1afc890dcb9b14321c7897def9a1407e8b" prot="private" virt="non-virtual"><scope>RADUi::FileBrowserModel</scope><name>entries_</name></member>
+      <member refid="classRADUi_1_1FileBrowserModel_1ae853af2e51631234116bd91f2ceeaa22" prot="public" virt="non-virtual"><scope>RADUi::FileBrowserModel</scope><name>fileActivated</name></member>
+      <member refid="classRADUi_1_1FileBrowserModel_1abbd5f9038bf47ba94896db2db8fcb36b" prot="public" virt="non-virtual"><scope>RADUi::FileBrowserModel</scope><name>goUp</name></member>
+      <member refid="classRADCore_1_1RADObject_1ad2ddfd066d14be9adc2f96bfca417fc6" prot="public" virt="non-virtual"><scope>RADUi::FileBrowserModel</scope><name>lifetimeToken</name></member>
+      <member refid="classRADCore_1_1RADObject_1a1f7f7f2fb40211e28455cd74a029339a" prot="public" virt="non-virtual"><scope>RADUi::FileBrowserModel</scope><name>moveToThread</name></member>
+      <member refid="classRADCore_1_1RADObject_1a9bc3fed915f7c71232e68c2628d34708" prot="public" virt="non-virtual"><scope>RADUi::FileBrowserModel</scope><name>RADObject</name></member>
+      <member refid="classRADUi_1_1FileBrowserModel_1adcbf3023d82ea857d2e603952d0ba3c0" prot="public" virt="non-virtual"><scope>RADUi::FileBrowserModel</scope><name>refresh</name></member>
+      <member refid="classRADCore_1_1RADObject_1af3e26b970c8080418f0d6b80cad986a2" prot="public" virt="non-virtual"><scope>RADUi::FileBrowserModel</scope><name>registerLink</name></member>
+      <member refid="classRADUi_1_1FileBrowserModel_1acc5e7657a6ff89e46a7e4a23752f75b1" prot="public" virt="non-virtual"><scope>RADUi::FileBrowserModel</scope><name>selectedIndex</name></member>
+      <member refid="classRADUi_1_1FileBrowserModel_1ae3ffc57cd02aaf8b6174f8ab2843e912" prot="private" virt="non-virtual"><scope>RADUi::FileBrowserModel</scope><name>selectedIndex_</name></member>
+      <member refid="classRADUi_1_1FileBrowserModel_1aeb1aa31ebae11bd51c73f1da677048f5" prot="public" virt="non-virtual"><scope>RADUi::FileBrowserModel</scope><name>setDirectory</name></member>
+      <member refid="classRADUi_1_1FileBrowserModel_1a623e7b75f38b1a1ba3c28fce5ad920c4" prot="public" virt="non-virtual"><scope>RADUi::FileBrowserModel</scope><name>setSelectedIndex</name></member>
+      <member refid="classRADUi_1_1FileBrowserModel_1afa3e605a7f4b68cfaf1df2dfdd776b01" prot="public" virt="non-virtual"><scope>RADUi::FileBrowserModel</scope><name>setShowHidden</name></member>
+      <member refid="classRADUi_1_1FileBrowserModel_1a1a3f717c5a44ac2fe4de155781d31714" prot="public" virt="non-virtual"><scope>RADUi::FileBrowserModel</scope><name>showHidden</name></member>
+      <member refid="classRADUi_1_1FileBrowserModel_1aa723c2a232ef127c53ed6368086f8856" prot="private" virt="non-virtual"><scope>RADUi::FileBrowserModel</scope><name>showHidden_</name></member>
+      <member refid="classRADCore_1_1RADObject_1a8b11df0b951d0db1ba99cfb851e34f31" prot="public" virt="non-virtual"><scope>RADUi::FileBrowserModel</scope><name>threadAffinity</name></member>
+      <member refid="classRADCore_1_1RADObject_1ac7ca67b41523794ae5a6b3634d6ce3b6" prot="public" virt="non-virtual"><scope>RADUi::FileBrowserModel</scope><name>threadId</name></member>
+      <member refid="classRADCore_1_1RADObject_1a7369e27a46c163ee89c63227db650ce5" prot="public" virt="virtual"><scope>RADUi::FileBrowserModel</scope><name>~RADObject</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,142 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="structRADDsp_1_1DelaySettings" kind="struct" language="C++" prot="public">
+    <compoundname>RADDsp::DelaySettings</compoundname>
+    <derivedcompoundref refid="structRADDsp_1_1AnalogDelaySettings" prot="public" virt="non-virtual">RADDsp::AnalogDelaySettings</derivedcompoundref>
+    <includes refid="RADDsp_8h" local="no">RADDsp.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structRADDsp_1_1DelaySettings_1a92527d2853dd5fa5bcc7d9fb69072b7e" prot="public" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t RADDsp::DelaySettings::sampleRate</definition>
+        <argsstring></argsstring>
+        <name>sampleRate</name>
+        <initializer>= 48000</initializer>
+        <briefdescription>
+<para>Processing sample rate in hertz. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDsp/headers/RADDsp.h" line="220" column="18" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADDsp/headers/RADDsp.h" bodystart="220" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structRADDsp_1_1DelaySettings_1ab40bf780569dac5f5dcdeb0d0385788e" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float RADDsp::DelaySettings::delayMs</definition>
+        <argsstring></argsstring>
+        <name>delayMs</name>
+        <initializer>= 250.0f</initializer>
+        <briefdescription>
+<para>Nominal delay time in milliseconds. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDsp/headers/RADDsp.h" line="222" column="15" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADDsp/headers/RADDsp.h" bodystart="222" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structRADDsp_1_1DelaySettings_1afa4affeb51043ef6646cb2c23e903389" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float RADDsp::DelaySettings::feedback</definition>
+        <argsstring></argsstring>
+        <name>feedback</name>
+        <initializer>= 0.25f</initializer>
+        <briefdescription>
+<para>Same-channel feedback gain. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDsp/headers/RADDsp.h" line="224" column="15" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADDsp/headers/RADDsp.h" bodystart="224" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structRADDsp_1_1DelaySettings_1af700ce316ee7961e08d33b8e710ad4a3" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float RADDsp::DelaySettings::wet</definition>
+        <argsstring></argsstring>
+        <name>wet</name>
+        <initializer>= 0.35f</initializer>
+        <briefdescription>
+<para>Wet delayed signal gain. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDsp/headers/RADDsp.h" line="226" column="15" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADDsp/headers/RADDsp.h" bodystart="226" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structRADDsp_1_1DelaySettings_1a68742d42547dbd1cb31573937efeb6ed" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float RADDsp::DelaySettings::dry</definition>
+        <argsstring></argsstring>
+        <name>dry</name>
+        <initializer>= 1.0f</initializer>
+        <briefdescription>
+<para>Dry input signal gain. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDsp/headers/RADDsp.h" line="228" column="15" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADDsp/headers/RADDsp.h" bodystart="228" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structRADDsp_1_1DelaySettings_1a183eefbe9d98a87230df54707254eb7b" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float RADDsp::DelaySettings::crossFeedback</definition>
+        <argsstring></argsstring>
+        <name>crossFeedback</name>
+        <initializer>= 0.0f</initializer>
+        <briefdescription>
+<para>Cross-channel feedback gain for ping-pong style delays. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDsp/headers/RADDsp.h" line="230" column="15" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADDsp/headers/RADDsp.h" bodystart="230" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structRADDsp_1_1DelaySettings_1ad68324d53d2953382ae89449e849c318" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float RADDsp::DelaySettings::maxDelayMs</definition>
+        <argsstring></argsstring>
+        <name>maxDelayMs</name>
+        <initializer>= 2000.0f</initializer>
+        <briefdescription>
+<para>Maximum delay memory allocated by the effect. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDsp/headers/RADDsp.h" line="232" column="15" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADDsp/headers/RADDsp.h" bodystart="232" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Shared settings for stereo delay-line effects. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>RADDsp::AnalogDelaySettings</label>
+        <link refid="structRADDsp_1_1AnalogDelaySettings"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>RADDsp::DelaySettings</label>
+        <link refid="structRADDsp_1_1DelaySettings"/>
+      </node>
+    </inheritancegraph>
+    <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDsp/headers/RADDsp.h" line="218" column="5" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADDsp/headers/RADDsp.h" bodystart="218" bodyend="233"/>
+    <listofallmembers>
+      <member refid="structRADDsp_1_1DelaySettings_1a183eefbe9d98a87230df54707254eb7b" prot="public" virt="non-virtual"><scope>RADDsp::DelaySettings</scope><name>crossFeedback</name></member>
+      <member refid="structRADDsp_1_1DelaySettings_1ab40bf780569dac5f5dcdeb0d0385788e" prot="public" virt="non-virtual"><scope>RADDsp::DelaySettings</scope><name>delayMs</name></member>
+      <member refid="structRADDsp_1_1DelaySettings_1a68742d42547dbd1cb31573937efeb6ed" prot="public" virt="non-virtual"><scope>RADDsp::DelaySettings</scope><name>dry</name></member>
+      <member refid="structRADDsp_1_1DelaySettings_1afa4affeb51043ef6646cb2c23e903389" prot="public" virt="non-virtual"><scope>RADDsp::DelaySettings</scope><name>feedback</name></member>
+      <member refid="structRADDsp_1_1DelaySettings_1ad68324d53d2953382ae89449e849c318" prot="public" virt="non-virtual"><scope>RADDsp::DelaySettings</scope><name>maxDelayMs</name></member>
+      <member refid="structRADDsp_1_1DelaySettings_1a92527d2853dd5fa5bcc7d9fb69072b7e" prot="public" virt="non-virtual"><scope>RADDsp::DelaySettings</scope><name>sampleRate</name></member>
+      <member refid="structRADDsp_1_1DelaySettings_1af700ce316ee7961e08d33b8e710ad4a3" prot="public" virt="non-virtual"><scope>RADDsp::DelaySettings</scope><name>wet</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

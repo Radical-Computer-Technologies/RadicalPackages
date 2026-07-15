@@ -1,0 +1,54 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="indexpage" kind="page">
+    <compoundname>index</compoundname>
+    <title>RADLib 0.2.0 Beta SDK Documentation</title>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para><anchor id="index_1md__media_jvincent_Kingspec512_repos_RADLib_docs_public_mainpage"/> RADLib is a modular C++20 application framework for Linux desktop, embedded Linux, instrumentation, media, networking, and UI applications. The beta SDK includes public headers, shared libraries, examples, package metadata, and this searchable API reference.</para>
+<para>RADLib 0.2.0 also provides the RADpm package-manager executable used by RadBuild and RADix package flows. RADpm is built as a RADLib-owned tool so package resolution, packagegroup handling, sysroot staging, and future RADix live-package operations share the same library foundation.</para>
+<para>The documentation below is written for application developers consuming the RADLib SDK. It does not require access to RADLib implementation source files.</para>
+<sect1 id="index_1autotoc_md1">
+<title>License Acknowledgement</title>
+<para>External builds must define <computeroutput>RADLIB_LICENSE_ACCEPTED=1</computeroutput> and one license tier macro before including public RADLib headers. Valid tier macros are <computeroutput>RADLIB_LICENSE_TIER_COMMUNITY</computeroutput>, <computeroutput>RADLIB_LICENSE_TIER_SMALL_BUSINESS</computeroutput>, <computeroutput>RADLIB_LICENSE_TIER_COMMERCIAL</computeroutput>, and <computeroutput>RADLIB_LICENSE_TIER_PARTNER</computeroutput>. Commercial applications should verify signed node-locked license files at runtime with <computeroutput><ref refid="classRADSecurity_1_1LicenseManager" kindref="compound">RADSecurity::LicenseManager</ref></computeroutput>. Expose <computeroutput><ref refid="namespaceRADLicense_1a194681ac6b1fa524bc46a268dad8dac7" kindref="member">RADLicense::compileAuditStamp()</ref></computeroutput> in diagnostics or about dialogs so compiled license tier declarations are easy to audit on running systems.</para>
+<para>RADLib runtime binaries also expose an edition stamp through <computeroutput><ref refid="namespaceRADCore_1abd370291b54323d3fd0003c1c679e69f" kindref="member">RADCore::runtimeAuditStamp()</ref></computeroutput>. Public beta packages are Community Edition and report <computeroutput>RADLIB_EDITION=community-edition</computeroutput>; future paid packages should report <computeroutput>RADLIB_EDITION=paid-edition</computeroutput> and verify signed licenses with <computeroutput><ref refid="classRADSecurity_1_1LicenseManager" kindref="compound">RADSecurity::LicenseManager</ref></computeroutput>.</para>
+<para>Crimson releases can include a signed universal community license file under <computeroutput>licenses/</computeroutput>. License documents include a public issuer <computeroutput>key_id</computeroutput> so applications can select the correct trusted public key. Commercial licenses should be customer-specific and node-locked. Issuer private keys are never part of the SDK.</para>
+</sect1>
+<sect1 id="index_1autotoc_md2">
+<title>Modules</title>
+<para><itemizedlist>
+<listitem><para><ref refid="md__media_jvincent_Kingspec512_repos_RADLib_docs_public_radcore" kindref="compound">RADCore</ref>: events, event loops, timers, IODevice, files, JSON, settings, process handling, thread pool, filesystem helpers, and utility types.</para>
+</listitem><listitem><para><ref refid="md__media_jvincent_Kingspec512_repos_RADLib_docs_public_raddatastructures" kindref="compound">RADDataStructures</ref>: RAD-owned vector, small-vector, ring buffer, queue, stack, SPSC queue, flat hash map/set, and list containers.</para>
+</listitem><listitem><para><ref refid="md__media_jvincent_Kingspec512_repos_RADLib_docs_public_radui" kindref="compound">RADUi</ref>: UI thread bridge, Slint backend, theme system, app-shell/dock/workspace models, model-backed widgets, plotting, terminal helpers, and frame scheduling.</para>
+</listitem><listitem><para><ref refid="md__media_jvincent_Kingspec512_repos_RADLib_docs_public_radnet" kindref="compound">RADNet</ref>: UDP/TCP sockets, server primitives, socket reactor, and HTTP client.</para>
+</listitem><listitem><para><ref refid="md__media_jvincent_Kingspec512_repos_RADLib_docs_public_radserial" kindref="compound">RADSerial</ref>: event-loop integrated Linux serial ports.</para>
+</listitem><listitem><para><ref refid="md__media_jvincent_Kingspec512_repos_RADLib_docs_public_radlogging" kindref="compound">RADLogging</ref>: async category logging with console, file, rotating file, and syslog sinks.</para>
+</listitem><listitem><para><ref refid="md__media_jvincent_Kingspec512_repos_RADLib_docs_public_radsettings" kindref="compound">RADSettings</ref>: JSON and INI application settings.</para>
+</listitem><listitem><para><ref refid="md__media_jvincent_Kingspec512_repos_RADLib_docs_public_radcli" kindref="compound">RADCLI</ref>: command-line parsing and app utility helpers.</para>
+</listitem><listitem><para><ref refid="md__media_jvincent_Kingspec512_repos_RADLib_docs_public_radinstaller" kindref="compound">RADInstaller</ref>: manifest-driven install, rollback, uninstall, package metadata, and <ref refid="namespaceRADUi" kindref="compound">RADUi</ref> installer example support.</para>
+</listitem><listitem><para><ref refid="md__media_jvincent_Kingspec512_repos_RADLib_docs_public_radsecurity" kindref="compound">RADSecurity</ref>: SHA-256, secure random, RSA-SHA256 signing, capability reporting, and declarative sandbox profiles.</para>
+</listitem><listitem><para><ref refid="md__media_jvincent_Kingspec512_repos_RADLib_docs_public_radinput" kindref="compound">RADInput</ref>: evdev input discovery, input event delivery, and pointer/touch calibration helpers.</para>
+</listitem><listitem><para><ref refid="md__media_jvincent_Kingspec512_repos_RADLib_docs_public_raddisplay" kindref="compound">RADDisplay</ref>: DRM/KMS and framebuffer discovery, backlight control, orientation helpers, and display capability reporting.</para>
+</listitem><listitem><para><ref refid="md__media_jvincent_Kingspec512_repos_RADLib_docs_public_raddevice" kindref="compound">RADDevice</ref>: GPIO, I2C, SPI, PWM, ADC, watchdog, and LED helpers for embedded Linux devices.</para>
+</listitem><listitem><para><ref refid="md__media_jvincent_Kingspec512_repos_RADLib_docs_public_radembeddedkernel" kindref="compound">RADEmbeddedKernel</ref>: POSIX-like embedded kernel services for simulator and bare-metal HAL backends. RADix OS now owns the broader POSIX kernel direction; this RADLib module remains the portable embedded service/runtime layer and historical compatibility surface.</para>
+</listitem><listitem><para><ref refid="md__media_jvincent_Kingspec512_repos_RADLib_docs_public_radpower" kindref="compound">RADPower</ref>: battery/charger, thermal, CPU governor, and guarded suspend/reboot/shutdown helpers.</para>
+</listitem><listitem><para><ref refid="md__media_jvincent_Kingspec512_repos_RADLib_docs_public_radservice" kindref="compound">RADService</ref>: systemd unit generation, daemon helpers, watchdog notification, and single-instance app locks.</para>
+</listitem><listitem><para><ref refid="md__media_jvincent_Kingspec512_repos_RADLib_docs_public_radupdate" kindref="compound">RADUpdate</ref>: signed app-bundle manifests, payload verification, <ref refid="namespaceRADInstaller" kindref="compound">RADInstaller</ref> handoff, and A/B metadata tracking.</para>
+</listitem><listitem><para><ref refid="md__media_jvincent_Kingspec512_repos_RADLib_docs_public_raddsp" kindref="compound">RADDsp</ref>: reusable audio/SDR/DSP helpers including level, channel, resampling, FIR, window, and IQ primitives.</para>
+</listitem><listitem><para><ref refid="md__media_jvincent_Kingspec512_repos_RADLib_docs_public_radmedia" kindref="compound">RADMedia</ref>: WAV parsing/streaming, audio device enumeration, audio input/output, player convenience APIs, and decoder streams.</para>
+</listitem><listitem><para><ref refid="md__media_jvincent_Kingspec512_repos_RADLib_docs_public_raddatabase" kindref="compound">RADDatabase</ref>: SQLite-backed database access.</para>
+</listitem><listitem><para><ref refid="md__media_jvincent_Kingspec512_repos_RADLib_docs_public_radweb" kindref="compound">RADWeb</ref>: WebKitGTK browser window API with tabs, history, bookmarks, downloads, settings, permissions, and profiles.</para>
+</listitem><listitem><para><ref refid="md__media_jvincent_Kingspec512_repos_RADLib_docs_public_radprotocol" kindref="compound">RADNet Protocol Generation</ref>: JSON-defined generated C++ message structs and binary TCP frame helpers.</para>
+</listitem></itemizedlist>
+</para>
+</sect1>
+<sect1 id="index_1autotoc_md3">
+<title>Package and Release Status</title>
+<para>RADLib is currently a beta SDK. APIs are suitable for evaluation and early application development, but ABI compatibility is not yet guaranteed across minor beta updates.</para>
+<para>Host Linux packages are published as Debian packages through RadicalPackages. RADix image builds consume RADLib through <computeroutput>.radpm</computeroutput> metadata and RADix-specific payloads. For normal RADix image creation, select RADLib through the <computeroutput>radix-terminal-base</computeroutput> or <computeroutput>radix-desktop-base</computeroutput> packagegroups rather than adding individual RADLib packages by hand. </para>
+</sect1>
+    </detaileddescription>
+    <location file="/media/jvincent/Kingspec512/repos/RADLib/docs/public/mainpage.md"/>
+  </compounddef>
+</doxygen>

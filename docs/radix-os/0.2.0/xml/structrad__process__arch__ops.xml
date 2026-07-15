@@ -1,0 +1,77 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="structrad__process__arch__ops" kind="struct" language="C++" prot="public">
+    <compoundname>rad_process_arch_ops</compoundname>
+    <includes refid="radixkernel_8h" local="no">radixkernel.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structrad__process__arch__ops_1a30bcb47a437c98c4c19b4a1204dac17d" prot="public" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t rad_process_arch_ops::size</definition>
+        <argsstring></argsstring>
+        <name>size</name>
+        <briefdescription>
+<para>Public structure field. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/headers/radixkernel/radixkernel.h" line="826" column="14" bodyfile="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/headers/radixkernel/radixkernel.h" bodystart="826" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structrad__process__arch__ops_1aeb49d8a42001101ddeeca7bcae2bba85" prot="public" static="no" mutable="no">
+        <type>void *</type>
+        <definition>void* rad_process_arch_ops::context</definition>
+        <argsstring></argsstring>
+        <name>context</name>
+        <briefdescription>
+<para>Public structure field. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/headers/radixkernel/radixkernel.h" line="827" column="10" bodyfile="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/headers/radixkernel/radixkernel.h" bodystart="827" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structrad__process__arch__ops_1a76665bf5f9469ffabdad0e88496cd6f1" prot="public" static="no" mutable="no">
+        <type>int32_t(*</type>
+        <definition>int32_t(* rad_process_arch_ops::fork_from_frame) (void *context, void *trap_frame)</definition>
+        <argsstring>)(void *context, void *trap_frame)</argsstring>
+        <name>fork_from_frame</name>
+        <briefdescription>
+<para>Public callback slot. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/headers/radixkernel/radixkernel.h" line="828" column="5" bodyfile="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/headers/radixkernel/radixkernel.h" bodystart="828" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structrad__process__arch__ops_1a84bde395ce45e1a0d1908b020d6219dc" prot="public" static="no" mutable="no">
+        <type>void(*</type>
+        <definition>void(* rad_process_arch_ops::process_reaped) (void *context, int32_t pid, int32_t status)</definition>
+        <argsstring>)(void *context, int32_t pid, int32_t status)</argsstring>
+        <name>process_reaped</name>
+        <briefdescription>
+<para>Public callback slot. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/headers/radixkernel/radixkernel.h" line="829" column="5" bodyfile="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/headers/radixkernel/radixkernel.h" bodystart="829" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Public data structure for <ref refid="structrad__process__arch__ops" kindref="compound">rad_process_arch_ops</ref>. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/headers/radixkernel/radixkernel.h" line="825" column="1" bodyfile="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/headers/radixkernel/radixkernel.h" bodystart="825" bodyend="830"/>
+    <listofallmembers>
+      <member refid="structrad__process__arch__ops_1aeb49d8a42001101ddeeca7bcae2bba85" prot="public" virt="non-virtual"><scope>rad_process_arch_ops</scope><name>context</name></member>
+      <member refid="structrad__process__arch__ops_1a76665bf5f9469ffabdad0e88496cd6f1" prot="public" virt="non-virtual"><scope>rad_process_arch_ops</scope><name>fork_from_frame</name></member>
+      <member refid="structrad__process__arch__ops_1a84bde395ce45e1a0d1908b020d6219dc" prot="public" virt="non-virtual"><scope>rad_process_arch_ops</scope><name>process_reaped</name></member>
+      <member refid="structrad__process__arch__ops_1a30bcb47a437c98c4c19b4a1204dac17d" prot="public" virt="non-virtual"><scope>rad_process_arch_ops</scope><name>size</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

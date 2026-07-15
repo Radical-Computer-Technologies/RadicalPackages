@@ -1,0 +1,25 @@
+var structrad__boot__handoff =
+[
+    [ "arm_memory_base", "structrad__boot__handoff.html#a4b201b83aa51117e48e5c702782d76fc", null ],
+    [ "arm_memory_size", "structrad__boot__handoff.html#affc3108fb9f90a4accaaee947b72f186", null ],
+    [ "board_id", "structrad__boot__handoff.html#a55d021b696ecd4ec4e138c816c2ebdda", null ],
+    [ "boot", "structrad__boot__handoff.html#a99ce4c544507d9e2d3475612dba8f0f6", null ],
+    [ "core_count", "structrad__boot__handoff.html#a52bbbfe089c32edb8d8aa7fd69116885", null ],
+    [ "entry_el", "structrad__boot__handoff.html#a2088b24b64f63e3a4b8aa261bd25b878", null ],
+    [ "fdt_pointer", "structrad__boot__handoff.html#a990f20555b824b9bdf9f4337131cbf52", null ],
+    [ "flags", "structrad__boot__handoff.html#a0c10f5e945cb0208408d52324a6b0771", null ],
+    [ "initrd_pointer", "structrad__boot__handoff.html#a1c7964fb40fb4a81eb53fcf7144b85da", null ],
+    [ "kernel_entry", "structrad__boot__handoff.html#a2f443ad3de3256f12a9d4795112a22f3", null ],
+    [ "kernel_image_base", "structrad__boot__handoff.html#a4e092a4d717d01d10ba95a2e936a3675", null ],
+    [ "kernel_image_size", "structrad__boot__handoff.html#a76149aef3d903e4e388bad6580c564c1", null ],
+    [ "local_interrupt_base", "structrad__boot__handoff.html#a07d8407f7776167a265e11eeeb3e7640", null ],
+    [ "magic", "structrad__boot__handoff.html#a642793575126984a4ac596c1d2749483", null ],
+    [ "mailbox_base", "structrad__boot__handoff.html#a520d27cdfa6b542db8975b49ac9adabc", null ],
+    [ "parked_core_mask", "structrad__boot__handoff.html#a495de55f38c412a9fb2e9256555f008b", null ],
+    [ "payload_name", "structrad__boot__handoff.html#add9e759ce08a96040e9a50746a119204", null ],
+    [ "peripheral_base", "structrad__boot__handoff.html#abd1ed7fd0d81cb073cf74f46dc764ffc", null ],
+    [ "size", "structrad__boot__handoff.html#ab52468f11e07bbbc6b3f5e947dd4fdc3", null ],
+    [ "stack_base", "structrad__boot__handoff.html#af815b6a6aced2b543a2615c33e1062fe", null ],
+    [ "stack_size", "structrad__boot__handoff.html#ad9ab25bc490df8f19f66d6509271aabc", null ],
+    [ "version", "structrad__boot__handoff.html#a4aec0b01f477fd392bec772d25fa2ea8", null ]
+];

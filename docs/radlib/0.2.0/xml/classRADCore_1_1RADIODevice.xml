@@ -1,0 +1,371 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="classRADCore_1_1RADIODevice" kind="class" language="C++" prot="public" abstract="yes">
+    <compoundname>RADCore::RADIODevice</compoundname>
+    <basecompoundref refid="classRADCore_1_1RADObject" prot="public" virt="non-virtual">RADCore::RADObject</basecompoundref>
+    <derivedcompoundref refid="classRADCore_1_1RADBuffer" prot="public" virt="non-virtual">RADCore::RADBuffer</derivedcompoundref>
+    <derivedcompoundref refid="classRADCore_1_1RADFile" prot="public" virt="non-virtual">RADCore::RADFile</derivedcompoundref>
+    <derivedcompoundref refid="classRADMedia_1_1RADAudioDevice" prot="public" virt="non-virtual">RADMedia::RADAudioDevice</derivedcompoundref>
+    <derivedcompoundref refid="classRADNet_1_1RADTcpSocket" prot="public" virt="non-virtual">RADNet::RADTcpSocket</derivedcompoundref>
+    <derivedcompoundref refid="classRADSerial_1_1RADSerialPort" prot="public" virt="non-virtual">RADSerial::RADSerialPort</derivedcompoundref>
+    <includes refid="RADCore_8h" local="no">RADCore.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="classRADCore_1_1RADIODevice_1a667c135df0be382dab141d8b4c5a1ce5" prot="public" static="no" mutable="no">
+        <type><ref refid="classRADCore_1_1Event" kindref="compound">RADCore::Event</ref>&lt; void() &gt;</type>
+        <definition>RADCore::Event&lt;void () &gt; RADCore::RADIODevice::readyRead</definition>
+        <argsstring></argsstring>
+        <name>readyRead</name>
+        <briefdescription>
+<para>Raised when data is available to read. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADCore/headers/RADCore.h" line="1290" column="30" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADCore/headers/RADCore.h" bodystart="1290" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classRADCore_1_1RADIODevice_1abc75c243e088fa3ae539276e90ddf769" prot="public" static="no" mutable="no">
+        <type><ref refid="classRADCore_1_1Event" kindref="compound">RADCore::Event</ref>&lt; void(size_t) &gt;</type>
+        <definition>RADCore::Event&lt;void (size_t) &gt; RADCore::RADIODevice::bytesWritten</definition>
+        <argsstring></argsstring>
+        <name>bytesWritten</name>
+        <briefdescription>
+<para>Raised after bytes are written. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADCore/headers/RADCore.h" line="1292" column="30" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADCore/headers/RADCore.h" bodystart="1292" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classRADCore_1_1RADIODevice_1ab7c511255b907eb2490fe91c6521232c" prot="public" static="no" mutable="no">
+        <type><ref refid="classRADCore_1_1Event" kindref="compound">RADCore::Event</ref>&lt; void(std::string) &gt;</type>
+        <definition>RADCore::Event&lt;void (std::string) &gt; RADCore::RADIODevice::errorOccurred</definition>
+        <argsstring></argsstring>
+        <name>errorOccurred</name>
+        <briefdescription>
+<para>Raised when an IO error occurs. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADCore/headers/RADCore.h" line="1294" column="30" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADCore/headers/RADCore.h" bodystart="1294" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classRADCore_1_1RADIODevice_1a0c5117d5f499fc00faa821aa3194d8f7" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type></type>
+        <definition>virtual RADCore::RADIODevice::~RADIODevice</definition>
+        <argsstring>()=default</argsstring>
+        <name>~RADIODevice</name>
+        <briefdescription>
+<para>Destroys the IO device. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADCore/headers/RADCore.h" line="1297" column="17"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADCore_1_1RADIODevice_1a011c0578dea19d3ba6112b6d3acc092d" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>bool</type>
+        <definition>virtual bool RADCore::RADIODevice::open</definition>
+        <argsstring>(OpenMode mode)=0</argsstring>
+        <name>open</name>
+        <reimplementedby refid="classRADCore_1_1RADBuffer_1ae45dfb9dcd46b4362641bc016670b8fc">open</reimplementedby>
+        <reimplementedby refid="classRADCore_1_1RADFile_1aa5eacf18120eff731e4e7c70d248f870">open</reimplementedby>
+        <reimplementedby refid="classRADMedia_1_1RADAudioDevice_1a2052b6db7d0ce9501274d7095ef261ea">open</reimplementedby>
+        <reimplementedby refid="classRADNet_1_1RADTcpSocket_1ac1451f6ac2a5729040caf2f1bd1be7f8">open</reimplementedby>
+        <reimplementedby refid="classRADSerial_1_1RADSerialPort_1a6400695f7c1a13f0b71cb035a7a64d9d">open</reimplementedby>
+        <param>
+          <type><ref refid="namespaceRADCore_1aefc7037828eebd6f6c85bda2ea2b2852" kindref="member">OpenMode</ref></type>
+          <declname>mode</declname>
+        </param>
+        <briefdescription>
+<para>Opens the device with mode. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADCore/headers/RADCore.h" line="1300" column="22"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADCore_1_1RADIODevice_1a2bb9a50ef6582fd91565a69353d6afbb" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>void</type>
+        <definition>virtual void RADCore::RADIODevice::close</definition>
+        <argsstring>()=0</argsstring>
+        <name>close</name>
+        <reimplementedby refid="classRADCore_1_1RADBuffer_1a2a472290e420124c3d6d245e9d65f8f2">close</reimplementedby>
+        <reimplementedby refid="classRADCore_1_1RADFile_1a48e3393c837cc2a9a23ef5524dcfa67b">close</reimplementedby>
+        <reimplementedby refid="classRADMedia_1_1RADAudioDevice_1a9a98ffe960fe6b8ade1d4fdb3d3e8446">close</reimplementedby>
+        <reimplementedby refid="classRADNet_1_1RADTcpSocket_1a8ed8832b36fccc785eea1b895921d20a">close</reimplementedby>
+        <reimplementedby refid="classRADSerial_1_1RADSerialPort_1a3657321dee539b57346035197f2996d1">close</reimplementedby>
+        <briefdescription>
+<para>Closes the device. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADCore/headers/RADCore.h" line="1302" column="22"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADCore_1_1RADIODevice_1a8c11ea54d9c6868fbe765b3097cfeb14" prot="public" static="no" const="yes" explicit="no" inline="no" virt="pure-virtual">
+        <type>bool</type>
+        <definition>virtual bool RADCore::RADIODevice::isOpen</definition>
+        <argsstring>() const =0</argsstring>
+        <name>isOpen</name>
+        <reimplementedby refid="classRADCore_1_1RADBuffer_1aa0525ac1a006a95956e9205ec42457ab">isOpen</reimplementedby>
+        <reimplementedby refid="classRADCore_1_1RADFile_1a0ba9271307b3b40c5400cb96878daee2">isOpen</reimplementedby>
+        <reimplementedby refid="classRADMedia_1_1RADAudioDevice_1a5d1b2df6c238f5d63729213c49e345aa">isOpen</reimplementedby>
+        <reimplementedby refid="classRADNet_1_1RADTcpSocket_1a6e0962eb3975fc5b36fcb40a36f24288">isOpen</reimplementedby>
+        <reimplementedby refid="classRADSerial_1_1RADSerialPort_1a18e8182eb12b20a817270089896bcc95">isOpen</reimplementedby>
+        <briefdescription>
+<para>Returns true when open. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADCore/headers/RADCore.h" line="1304" column="22"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADCore_1_1RADIODevice_1ae51b17a6ec9132085bb6e9e5249c591a" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>ssize_t</type>
+        <definition>virtual ssize_t RADCore::RADIODevice::readData</definition>
+        <argsstring>(void *buffer, size_t maxBytes)=0</argsstring>
+        <name>readData</name>
+        <reimplementedby refid="classRADCore_1_1RADBuffer_1a0a695b21327bcd93e59e1a285b0d7e52">readData</reimplementedby>
+        <reimplementedby refid="classRADCore_1_1RADFile_1a179774defe062229f3a2ff2a13bfc13d">readData</reimplementedby>
+        <reimplementedby refid="classRADMedia_1_1RADAudioDevice_1a5006064cdc09bac0e2ebdd061c0205c7">readData</reimplementedby>
+        <reimplementedby refid="classRADNet_1_1RADTcpSocket_1a1256ca838237f8ef6da58072039a73e0">readData</reimplementedby>
+        <reimplementedby refid="classRADSerial_1_1RADSerialPort_1a46acba510fea1e4961931697865c6420">readData</reimplementedby>
+        <param>
+          <type>void *</type>
+          <declname>buffer</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>maxBytes</declname>
+        </param>
+        <briefdescription>
+<para>Reads raw bytes into buffer. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADCore/headers/RADCore.h" line="1306" column="25"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADCore_1_1RADIODevice_1ac76e45e22e043402a06d61e4823433c5" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>ssize_t</type>
+        <definition>virtual ssize_t RADCore::RADIODevice::writeData</definition>
+        <argsstring>(const void *data, size_t size)=0</argsstring>
+        <name>writeData</name>
+        <reimplementedby refid="classRADCore_1_1RADBuffer_1a158c9e693aa45485b7dc932841d817a6">writeData</reimplementedby>
+        <reimplementedby refid="classRADCore_1_1RADFile_1ac2efba72f5964cdbace2072216065984">writeData</reimplementedby>
+        <reimplementedby refid="classRADMedia_1_1RADAudioDevice_1aedcdcfeb1769ea5c57bcc4d024993d6c">writeData</reimplementedby>
+        <reimplementedby refid="classRADNet_1_1RADTcpSocket_1a4ac8413a937884b7e50388fc82ea651e">writeData</reimplementedby>
+        <reimplementedby refid="classRADSerial_1_1RADSerialPort_1ae93d0f327375ec07f4507895af2f299b">writeData</reimplementedby>
+        <param>
+          <type>const void *</type>
+          <declname>data</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>size</declname>
+        </param>
+        <briefdescription>
+<para>Writes raw bytes from data. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADCore/headers/RADCore.h" line="1308" column="25"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADCore_1_1RADIODevice_1a427d98f45c056913a9e150b156648f2e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::vector&lt; uint8_t &gt;</type>
+        <definition>std::vector&lt;uint8_t&gt; RADCore::RADIODevice::read</definition>
+        <argsstring>(size_t maxBytes)</argsstring>
+        <name>read</name>
+        <param>
+          <type>size_t</type>
+          <declname>maxBytes</declname>
+        </param>
+        <briefdescription>
+<para>Reads up to maxBytes into a byte vector. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADCore/headers/RADCore.h" line="1311" column="21"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADCore_1_1RADIODevice_1a47e171d308e84d5dad6b730f34f0fbf8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::vector&lt; uint8_t &gt;</type>
+        <definition>std::vector&lt;uint8_t&gt; RADCore::RADIODevice::readAll</definition>
+        <argsstring>(size_t chunkSize=8192)</argsstring>
+        <name>readAll</name>
+        <param>
+          <type>size_t</type>
+          <declname>chunkSize</declname>
+          <defval>8192</defval>
+        </param>
+        <briefdescription>
+<para>Reads all available data in chunks. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADCore/headers/RADCore.h" line="1313" column="21"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADCore_1_1RADIODevice_1a8475de4a0ca7d13b9049a73bad575a4f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>ssize_t</type>
+        <definition>ssize_t RADCore::RADIODevice::write</definition>
+        <argsstring>(const std::vector&lt; uint8_t &gt; &amp;data)</argsstring>
+        <name>write</name>
+        <param>
+          <type>const std::vector&lt; uint8_t &gt; &amp;</type>
+          <declname>data</declname>
+        </param>
+        <briefdescription>
+<para>Writes a byte vector. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADCore/headers/RADCore.h" line="1315" column="17"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADCore_1_1RADIODevice_1a145436d6349cd9d057cb9723e2bd1c13" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>ssize_t</type>
+        <definition>ssize_t RADCore::RADIODevice::write</definition>
+        <argsstring>(const std::string &amp;text)</argsstring>
+        <name>write</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>text</declname>
+        </param>
+        <briefdescription>
+<para>Writes string bytes. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADCore/headers/RADCore.h" line="1317" column="17"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Abstract byte-oriented IO device similar to QIODevice. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="3">
+        <label>RADCore::RADBuffer</label>
+        <link refid="classRADCore_1_1RADBuffer"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>RADCore::RADObject</label>
+        <link refid="classRADCore_1_1RADObject"/>
+      </node>
+      <node id="7">
+        <label>RADNet::RADTcpSocket</label>
+        <link refid="classRADNet_1_1RADTcpSocket"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>RADCore::RADFile</label>
+        <link refid="classRADCore_1_1RADFile"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="8">
+        <label>RADSerial::RADSerialPort</label>
+        <link refid="classRADSerial_1_1RADSerialPort"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>RADCore::RADIODevice</label>
+        <link refid="classRADCore_1_1RADIODevice"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>RADMedia::AudioInputDevice</label>
+        <link refid="classRADMedia_1_1AudioInputDevice"/>
+        <childnode refid="5" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>RADMedia::RADAudioDevice</label>
+        <link refid="classRADMedia_1_1RADAudioDevice"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>RADCore::RADObject</label>
+        <link refid="classRADCore_1_1RADObject"/>
+      </node>
+      <node id="4">
+        <label>RADCore::Event&lt; void(std::string) &gt;</label>
+        <link refid="classRADCore_1_1Event"/>
+      </node>
+      <node id="3">
+        <label>RADCore::Event&lt; void() &gt;</label>
+        <link refid="classRADCore_1_1Event"/>
+      </node>
+      <node id="5">
+        <label>RADCore::Event&lt; void(size_t) &gt;</label>
+        <link refid="classRADCore_1_1Event"/>
+      </node>
+      <node id="1">
+        <label>RADCore::RADIODevice</label>
+        <link refid="classRADCore_1_1RADIODevice"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="3" relation="usage">
+          <edgelabel>readyRead</edgelabel>
+        </childnode>
+        <childnode refid="4" relation="usage">
+          <edgelabel>errorOccurred</edgelabel>
+        </childnode>
+        <childnode refid="5" relation="usage">
+          <edgelabel>bytesWritten</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="/media/jvincent/Kingspec512/repos/RADLib/RADCore/headers/RADCore.h" line="1286" column="5" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADCore/headers/RADCore.h" bodystart="1286" bodyend="1318"/>
+    <listofallmembers>
+      <member refid="classRADCore_1_1RADObject_1a06cdf252ffb5e2f88332ebda12a62080" prot="public" virt="non-virtual"><scope>RADCore::RADIODevice</scope><name>associatedEventLoop</name></member>
+      <member refid="classRADCore_1_1RADIODevice_1abc75c243e088fa3ae539276e90ddf769" prot="public" virt="non-virtual"><scope>RADCore::RADIODevice</scope><name>bytesWritten</name></member>
+      <member refid="classRADCore_1_1RADIODevice_1a2bb9a50ef6582fd91565a69353d6afbb" prot="public" virt="pure-virtual"><scope>RADCore::RADIODevice</scope><name>close</name></member>
+      <member refid="classRADCore_1_1RADIODevice_1ab7c511255b907eb2490fe91c6521232c" prot="public" virt="non-virtual"><scope>RADCore::RADIODevice</scope><name>errorOccurred</name></member>
+      <member refid="classRADCore_1_1RADIODevice_1a8c11ea54d9c6868fbe765b3097cfeb14" prot="public" virt="pure-virtual"><scope>RADCore::RADIODevice</scope><name>isOpen</name></member>
+      <member refid="classRADCore_1_1RADObject_1ad2ddfd066d14be9adc2f96bfca417fc6" prot="public" virt="non-virtual"><scope>RADCore::RADIODevice</scope><name>lifetimeToken</name></member>
+      <member refid="classRADCore_1_1RADObject_1a1f7f7f2fb40211e28455cd74a029339a" prot="public" virt="non-virtual"><scope>RADCore::RADIODevice</scope><name>moveToThread</name></member>
+      <member refid="classRADCore_1_1RADIODevice_1a011c0578dea19d3ba6112b6d3acc092d" prot="public" virt="pure-virtual"><scope>RADCore::RADIODevice</scope><name>open</name></member>
+      <member refid="classRADCore_1_1RADObject_1a9bc3fed915f7c71232e68c2628d34708" prot="public" virt="non-virtual"><scope>RADCore::RADIODevice</scope><name>RADObject</name></member>
+      <member refid="classRADCore_1_1RADIODevice_1a427d98f45c056913a9e150b156648f2e" prot="public" virt="non-virtual"><scope>RADCore::RADIODevice</scope><name>read</name></member>
+      <member refid="classRADCore_1_1RADIODevice_1a47e171d308e84d5dad6b730f34f0fbf8" prot="public" virt="non-virtual"><scope>RADCore::RADIODevice</scope><name>readAll</name></member>
+      <member refid="classRADCore_1_1RADIODevice_1ae51b17a6ec9132085bb6e9e5249c591a" prot="public" virt="pure-virtual"><scope>RADCore::RADIODevice</scope><name>readData</name></member>
+      <member refid="classRADCore_1_1RADIODevice_1a667c135df0be382dab141d8b4c5a1ce5" prot="public" virt="non-virtual"><scope>RADCore::RADIODevice</scope><name>readyRead</name></member>
+      <member refid="classRADCore_1_1RADObject_1af3e26b970c8080418f0d6b80cad986a2" prot="public" virt="non-virtual"><scope>RADCore::RADIODevice</scope><name>registerLink</name></member>
+      <member refid="classRADCore_1_1RADObject_1a8b11df0b951d0db1ba99cfb851e34f31" prot="public" virt="non-virtual"><scope>RADCore::RADIODevice</scope><name>threadAffinity</name></member>
+      <member refid="classRADCore_1_1RADObject_1ac7ca67b41523794ae5a6b3634d6ce3b6" prot="public" virt="non-virtual"><scope>RADCore::RADIODevice</scope><name>threadId</name></member>
+      <member refid="classRADCore_1_1RADIODevice_1a8475de4a0ca7d13b9049a73bad575a4f" prot="public" virt="non-virtual"><scope>RADCore::RADIODevice</scope><name>write</name></member>
+      <member refid="classRADCore_1_1RADIODevice_1a145436d6349cd9d057cb9723e2bd1c13" prot="public" virt="non-virtual"><scope>RADCore::RADIODevice</scope><name>write</name></member>
+      <member refid="classRADCore_1_1RADIODevice_1ac76e45e22e043402a06d61e4823433c5" prot="public" virt="pure-virtual"><scope>RADCore::RADIODevice</scope><name>writeData</name></member>
+      <member refid="classRADCore_1_1RADIODevice_1a0c5117d5f499fc00faa821aa3194d8f7" prot="public" virt="virtual"><scope>RADCore::RADIODevice</scope><name>~RADIODevice</name></member>
+      <member refid="classRADCore_1_1RADObject_1a7369e27a46c163ee89c63227db650ce5" prot="public" virt="virtual"><scope>RADCore::RADIODevice</scope><name>~RADObject</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

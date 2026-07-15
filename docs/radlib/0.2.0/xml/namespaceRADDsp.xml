@@ -1,0 +1,1300 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="namespaceRADDsp" kind="namespace" language="C++">
+    <compoundname>RADDsp</compoundname>
+    <innerclass refid="structRADDsp_1_1ComplexSample" prot="public">RADDsp::ComplexSample</innerclass>
+    <innerclass refid="classRADDsp_1_1FftPlan" prot="public">RADDsp::FftPlan</innerclass>
+    <innerclass refid="classRADDsp_1_1MatrixF" prot="public">RADDsp::MatrixF</innerclass>
+    <innerclass refid="structRADDsp_1_1BiquadCoefficients" prot="public">RADDsp::BiquadCoefficients</innerclass>
+    <innerclass refid="structRADDsp_1_1BiquadState" prot="public">RADDsp::BiquadState</innerclass>
+    <innerclass refid="structRADDsp_1_1EqualizerBand" prot="public">RADDsp::EqualizerBand</innerclass>
+    <innerclass refid="classRADDsp_1_1BiquadCascade" prot="public">RADDsp::BiquadCascade</innerclass>
+    <innerclass refid="classRADDsp_1_1Equalizer16Band" prot="public">RADDsp::Equalizer16Band</innerclass>
+    <innerclass refid="structRADDsp_1_1StereoFrame" prot="public">RADDsp::StereoFrame</innerclass>
+    <innerclass refid="structRADDsp_1_1DelaySettings" prot="public">RADDsp::DelaySettings</innerclass>
+    <innerclass refid="classRADDsp_1_1DigitalDelay" prot="public">RADDsp::DigitalDelay</innerclass>
+    <innerclass refid="structRADDsp_1_1AnalogDelaySettings" prot="public">RADDsp::AnalogDelaySettings</innerclass>
+    <innerclass refid="classRADDsp_1_1AnalogModDelay" prot="public">RADDsp::AnalogModDelay</innerclass>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="namespaceRADDsp_1a1ffd512e632968408b6cbc34a083d6d6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void RADDsp::applyGain</definition>
+        <argsstring>(std::vector&lt; float &gt; &amp;samples, float gain)</argsstring>
+        <name>applyGain</name>
+        <param>
+          <type>std::vector&lt; float &gt; &amp;</type>
+          <declname>samples</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>gain</declname>
+        </param>
+        <briefdescription>
+<para>Multiplies every scalar sample by gain in place. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDsp/headers/RADDsp.h" line="309" column="10" declfile="/media/jvincent/Kingspec512/repos/RADLib/RADDsp/headers/RADDsp.h" declline="309" declcolumn="10"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceRADDsp_1a96a7a3d17b5269fcaf032915a18e592d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::vector&lt; float &gt;</type>
+        <definition>std::vector&lt;float&gt; RADDsp::mix</definition>
+        <argsstring>(const std::vector&lt; float &gt; &amp;a, const std::vector&lt; float &gt; &amp;b)</argsstring>
+        <name>mix</name>
+        <param>
+          <type>const std::vector&lt; float &gt; &amp;</type>
+          <declname>a</declname>
+        </param>
+        <param>
+          <type>const std::vector&lt; float &gt; &amp;</type>
+          <declname>b</declname>
+        </param>
+        <briefdescription>
+<para>Adds two scalar buffers sample-by-sample; extra tail samples are preserved from the longer input. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDsp/headers/RADDsp.h" line="311" column="17" declfile="/media/jvincent/Kingspec512/repos/RADLib/RADDsp/headers/RADDsp.h" declline="311" declcolumn="17"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceRADDsp_1a006b0bb6a892b24a29599319e53a422b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>float</type>
+        <definition>float RADDsp::peak</definition>
+        <argsstring>(const std::vector&lt; float &gt; &amp;samples)</argsstring>
+        <name>peak</name>
+        <param>
+          <type>const std::vector&lt; float &gt; &amp;</type>
+          <declname>samples</declname>
+        </param>
+        <briefdescription>
+<para>Returns the absolute peak amplitude in a scalar sample buffer. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDsp/headers/RADDsp.h" line="313" column="11" declfile="/media/jvincent/Kingspec512/repos/RADLib/RADDsp/headers/RADDsp.h" declline="313" declcolumn="11"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceRADDsp_1a304b3c83988e1a30bf2fac803ca85748" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>float</type>
+        <definition>float RADDsp::rms</definition>
+        <argsstring>(const std::vector&lt; float &gt; &amp;samples)</argsstring>
+        <name>rms</name>
+        <param>
+          <type>const std::vector&lt; float &gt; &amp;</type>
+          <declname>samples</declname>
+        </param>
+        <briefdescription>
+<para>Returns root-mean-square amplitude for a scalar sample buffer. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDsp/headers/RADDsp.h" line="315" column="11" declfile="/media/jvincent/Kingspec512/repos/RADLib/RADDsp/headers/RADDsp.h" declline="315" declcolumn="11"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceRADDsp_1a4bfc033fbd4fea40df36cc2f5f450145" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void RADDsp::normalizePeak</definition>
+        <argsstring>(std::vector&lt; float &gt; &amp;samples, float targetPeak=1.0f)</argsstring>
+        <name>normalizePeak</name>
+        <param>
+          <type>std::vector&lt; float &gt; &amp;</type>
+          <declname>samples</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>targetPeak</declname>
+          <defval>1.0f</defval>
+        </param>
+        <briefdescription>
+<para>Scales samples so their absolute peak equals targetPeak when possible. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDsp/headers/RADDsp.h" line="317" column="10" declfile="/media/jvincent/Kingspec512/repos/RADLib/RADDsp/headers/RADDsp.h" declline="317" declcolumn="10"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceRADDsp_1ae127dc908c8c6749e995f12cd909c92d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::vector&lt; float &gt;</type>
+        <definition>std::vector&lt;float&gt; RADDsp::sine</definition>
+        <argsstring>(float frequencyHz, float seconds, uint32_t sampleRate, float amplitude=1.0f)</argsstring>
+        <name>sine</name>
+        <param>
+          <type>float</type>
+          <declname>frequencyHz</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>seconds</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>sampleRate</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>amplitude</declname>
+          <defval>1.0f</defval>
+        </param>
+        <briefdescription>
+<para>Generates a sine wave at frequencyHz for seconds at sampleRate. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDsp/headers/RADDsp.h" line="320" column="17" declfile="/media/jvincent/Kingspec512/repos/RADLib/RADDsp/headers/RADDsp.h" declline="320" declcolumn="17"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceRADDsp_1a1bcfc8ade94c6673235dfc218bb0112a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::vector&lt; float &gt;</type>
+        <definition>std::vector&lt;float&gt; RADDsp::whiteNoise</definition>
+        <argsstring>(size_t count, float amplitude=1.0f, uint32_t seed=0x524144u)</argsstring>
+        <name>whiteNoise</name>
+        <param>
+          <type>size_t</type>
+          <declname>count</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>amplitude</declname>
+          <defval>1.0f</defval>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>seed</declname>
+          <defval>0x524144u</defval>
+        </param>
+        <briefdescription>
+<para>Generates deterministic white noise using seed for repeatable tests and examples. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDsp/headers/RADDsp.h" line="322" column="17" declfile="/media/jvincent/Kingspec512/repos/RADLib/RADDsp/headers/RADDsp.h" declline="322" declcolumn="17"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceRADDsp_1ad7802d5b537d73b1b4f5a77764a2fdbf" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::vector&lt; float &gt;</type>
+        <definition>std::vector&lt;float&gt; RADDsp::linearResample</definition>
+        <argsstring>(const std::vector&lt; float &gt; &amp;interleaved, uint16_t channels, uint32_t sourceRate, uint32_t targetRate)</argsstring>
+        <name>linearResample</name>
+        <param>
+          <type>const std::vector&lt; float &gt; &amp;</type>
+          <declname>interleaved</declname>
+        </param>
+        <param>
+          <type>uint16_t</type>
+          <declname>channels</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>sourceRate</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>targetRate</declname>
+        </param>
+        <briefdescription>
+<para>Resamples interleaved scalar audio using linear interpolation. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDsp/headers/RADDsp.h" line="325" column="17" declfile="/media/jvincent/Kingspec512/repos/RADLib/RADDsp/headers/RADDsp.h" declline="325" declcolumn="17"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceRADDsp_1a2274819fae9dff968b63bbe8cf7c301e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::vector&lt; std::vector&lt; float &gt; &gt;</type>
+        <definition>std::vector&lt;std::vector&lt;float&gt; &gt; RADDsp::deinterleave</definition>
+        <argsstring>(const std::vector&lt; float &gt; &amp;interleaved, uint16_t channels)</argsstring>
+        <name>deinterleave</name>
+        <param>
+          <type>const std::vector&lt; float &gt; &amp;</type>
+          <declname>interleaved</declname>
+        </param>
+        <param>
+          <type>uint16_t</type>
+          <declname>channels</declname>
+        </param>
+        <briefdescription>
+<para>Splits interleaved channel data into one vector per channel. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDsp/headers/RADDsp.h" line="328" column="17" declfile="/media/jvincent/Kingspec512/repos/RADLib/RADDsp/headers/RADDsp.h" declline="328" declcolumn="17"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceRADDsp_1aeb5dfce440d136bde32d6072b21df7a7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::vector&lt; float &gt;</type>
+        <definition>std::vector&lt;float&gt; RADDsp::interleave</definition>
+        <argsstring>(const std::vector&lt; std::vector&lt; float &gt;&gt; &amp;channels)</argsstring>
+        <name>interleave</name>
+        <param>
+          <type>const std::vector&lt; std::vector&lt; float &gt;&gt; &amp;</type>
+          <declname>channels</declname>
+        </param>
+        <briefdescription>
+<para>Combines per-channel buffers into interleaved channel order. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDsp/headers/RADDsp.h" line="330" column="17" declfile="/media/jvincent/Kingspec512/repos/RADLib/RADDsp/headers/RADDsp.h" declline="330" declcolumn="17"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceRADDsp_1a846ea07c5a4f077382c1dcc501236efb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::vector&lt; float &gt;</type>
+        <definition>std::vector&lt;float&gt; RADDsp::magnitude</definition>
+        <argsstring>(const std::vector&lt; ComplexSample &gt; &amp;samples)</argsstring>
+        <name>magnitude</name>
+        <param>
+          <type>const std::vector&lt; <ref refid="structRADDsp_1_1ComplexSample" kindref="compound">ComplexSample</ref> &gt; &amp;</type>
+          <declname>samples</declname>
+        </param>
+        <briefdescription>
+<para>Converts complex I/Q samples to magnitude values. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDsp/headers/RADDsp.h" line="332" column="17" declfile="/media/jvincent/Kingspec512/repos/RADLib/RADDsp/headers/RADDsp.h" declline="332" declcolumn="17"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceRADDsp_1a4f17a16bf2e5534e13a4d63ca1cf5060" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::vector&lt; float &gt;</type>
+        <definition>std::vector&lt;float&gt; RADDsp::phase</definition>
+        <argsstring>(const std::vector&lt; ComplexSample &gt; &amp;samples)</argsstring>
+        <name>phase</name>
+        <param>
+          <type>const std::vector&lt; <ref refid="structRADDsp_1_1ComplexSample" kindref="compound">ComplexSample</ref> &gt; &amp;</type>
+          <declname>samples</declname>
+        </param>
+        <briefdescription>
+<para>Converts complex I/Q samples to phase values in radians. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDsp/headers/RADDsp.h" line="334" column="17" declfile="/media/jvincent/Kingspec512/repos/RADLib/RADDsp/headers/RADDsp.h" declline="334" declcolumn="17"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceRADDsp_1a1597498cbf2e7bcf8a6463d24cb9d60f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void RADDsp::applyGain</definition>
+        <argsstring>(std::vector&lt; ComplexSample &gt; &amp;samples, float gain)</argsstring>
+        <name>applyGain</name>
+        <param>
+          <type>std::vector&lt; <ref refid="structRADDsp_1_1ComplexSample" kindref="compound">ComplexSample</ref> &gt; &amp;</type>
+          <declname>samples</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>gain</declname>
+        </param>
+        <briefdescription>
+<para>Multiplies every complex sample by gain in place. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDsp/headers/RADDsp.h" line="336" column="10" declfile="/media/jvincent/Kingspec512/repos/RADLib/RADDsp/headers/RADDsp.h" declline="336" declcolumn="10"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceRADDsp_1ae0a269bec9319f569baaf65708ec4fcd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::vector&lt; <ref refid="structRADDsp_1_1ComplexSample" kindref="compound">ComplexSample</ref> &gt;</type>
+        <definition>std::vector&lt;ComplexSample&gt; RADDsp::frequencyShift</definition>
+        <argsstring>(const std::vector&lt; ComplexSample &gt; &amp;samples, float frequencyHz, uint32_t sampleRate)</argsstring>
+        <name>frequencyShift</name>
+        <param>
+          <type>const std::vector&lt; <ref refid="structRADDsp_1_1ComplexSample" kindref="compound">ComplexSample</ref> &gt; &amp;</type>
+          <declname>samples</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>frequencyHz</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>sampleRate</declname>
+        </param>
+        <briefdescription>
+<para>Frequency-shifts complex I/Q samples by frequencyHz at sampleRate. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDsp/headers/RADDsp.h" line="338" column="17" declfile="/media/jvincent/Kingspec512/repos/RADLib/RADDsp/headers/RADDsp.h" declline="338" declcolumn="17"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceRADDsp_1ae9da3103d50d36a91798f5448449f805" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::vector&lt; float &gt;</type>
+        <definition>std::vector&lt;float&gt; RADDsp::hannWindow</definition>
+        <argsstring>(size_t count)</argsstring>
+        <name>hannWindow</name>
+        <param>
+          <type>size_t</type>
+          <declname>count</declname>
+        </param>
+        <briefdescription>
+<para>Builds a Hann window with count coefficients. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDsp/headers/RADDsp.h" line="342" column="17" declfile="/media/jvincent/Kingspec512/repos/RADLib/RADDsp/headers/RADDsp.h" declline="342" declcolumn="17"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceRADDsp_1ac1451e32e2a4852274d0950a5962da41" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::vector&lt; float &gt;</type>
+        <definition>std::vector&lt;float&gt; RADDsp::hammingWindow</definition>
+        <argsstring>(size_t count)</argsstring>
+        <name>hammingWindow</name>
+        <param>
+          <type>size_t</type>
+          <declname>count</declname>
+        </param>
+        <briefdescription>
+<para>Builds a Hamming window with count coefficients. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDsp/headers/RADDsp.h" line="344" column="17" declfile="/media/jvincent/Kingspec512/repos/RADLib/RADDsp/headers/RADDsp.h" declline="344" declcolumn="17"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceRADDsp_1a6c8077551a1004be8abfacee83349264" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::vector&lt; float &gt;</type>
+        <definition>std::vector&lt;float&gt; RADDsp::blackmanWindow</definition>
+        <argsstring>(size_t count)</argsstring>
+        <name>blackmanWindow</name>
+        <param>
+          <type>size_t</type>
+          <declname>count</declname>
+        </param>
+        <briefdescription>
+<para>Builds a Blackman window with count coefficients. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDsp/headers/RADDsp.h" line="346" column="17" declfile="/media/jvincent/Kingspec512/repos/RADLib/RADDsp/headers/RADDsp.h" declline="346" declcolumn="17"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceRADDsp_1a26a6b05f241883871b563be17b579c90" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::vector&lt; float &gt;</type>
+        <definition>std::vector&lt;float&gt; RADDsp::rectangularWindow</definition>
+        <argsstring>(size_t count)</argsstring>
+        <name>rectangularWindow</name>
+        <param>
+          <type>size_t</type>
+          <declname>count</declname>
+        </param>
+        <briefdescription>
+<para>Builds a rectangular window with count coefficients. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDsp/headers/RADDsp.h" line="348" column="17" declfile="/media/jvincent/Kingspec512/repos/RADLib/RADDsp/headers/RADDsp.h" declline="348" declcolumn="17"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceRADDsp_1a8dffdff5b43323739ff9ca1d557caa20" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void RADDsp::applyWindow</definition>
+        <argsstring>(std::vector&lt; float &gt; &amp;samples, const std::vector&lt; float &gt; &amp;window)</argsstring>
+        <name>applyWindow</name>
+        <param>
+          <type>std::vector&lt; float &gt; &amp;</type>
+          <declname>samples</declname>
+        </param>
+        <param>
+          <type>const std::vector&lt; float &gt; &amp;</type>
+          <declname>window</declname>
+        </param>
+        <briefdescription>
+<para>Applies a window to samples in place up to the smaller buffer size. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDsp/headers/RADDsp.h" line="350" column="10" declfile="/media/jvincent/Kingspec512/repos/RADLib/RADDsp/headers/RADDsp.h" declline="350" declcolumn="10"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceRADDsp_1a4c805b3b30e6098fa138cc82813519b7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::vector&lt; float &gt;</type>
+        <definition>std::vector&lt;float&gt; RADDsp::firFilter</definition>
+        <argsstring>(const std::vector&lt; float &gt; &amp;samples, const std::vector&lt; float &gt; &amp;taps)</argsstring>
+        <name>firFilter</name>
+        <param>
+          <type>const std::vector&lt; float &gt; &amp;</type>
+          <declname>samples</declname>
+        </param>
+        <param>
+          <type>const std::vector&lt; float &gt; &amp;</type>
+          <declname>taps</declname>
+        </param>
+        <briefdescription>
+<para>Applies an FIR filter using taps and returns filtered samples. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDsp/headers/RADDsp.h" line="352" column="17" declfile="/media/jvincent/Kingspec512/repos/RADLib/RADDsp/headers/RADDsp.h" declline="352" declcolumn="17"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceRADDsp_1a3daf1973ea87922250d629bcd3ca54a8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::vector&lt; float &gt;</type>
+        <definition>std::vector&lt;float&gt; RADDsp::convolve</definition>
+        <argsstring>(const std::vector&lt; float &gt; &amp;a, const std::vector&lt; float &gt; &amp;b)</argsstring>
+        <name>convolve</name>
+        <param>
+          <type>const std::vector&lt; float &gt; &amp;</type>
+          <declname>a</declname>
+        </param>
+        <param>
+          <type>const std::vector&lt; float &gt; &amp;</type>
+          <declname>b</declname>
+        </param>
+        <briefdescription>
+<para>Convolves two scalar buffers using an FFT-based implementation. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDsp/headers/RADDsp.h" line="354" column="17" declfile="/media/jvincent/Kingspec512/repos/RADLib/RADDsp/headers/RADDsp.h" declline="354" declcolumn="17"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceRADDsp_1a1a48256fe2bab859a347a1af0aa01fa0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::vector&lt; float &gt;</type>
+        <definition>std::vector&lt;float&gt; RADDsp::crossCorrelate</definition>
+        <argsstring>(const std::vector&lt; float &gt; &amp;a, const std::vector&lt; float &gt; &amp;b)</argsstring>
+        <name>crossCorrelate</name>
+        <param>
+          <type>const std::vector&lt; float &gt; &amp;</type>
+          <declname>a</declname>
+        </param>
+        <param>
+          <type>const std::vector&lt; float &gt; &amp;</type>
+          <declname>b</declname>
+        </param>
+        <briefdescription>
+<para>Cross-correlates a and b using FFT-based convolution with reversed b. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDsp/headers/RADDsp.h" line="356" column="17" declfile="/media/jvincent/Kingspec512/repos/RADLib/RADDsp/headers/RADDsp.h" declline="356" declcolumn="17"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceRADDsp_1aac81446de6bc930ad77f73ab57eb0838" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::vector&lt; float &gt;</type>
+        <definition>std::vector&lt;float&gt; RADDsp::normalizedCrossCorrelate</definition>
+        <argsstring>(const std::vector&lt; float &gt; &amp;a, const std::vector&lt; float &gt; &amp;b)</argsstring>
+        <name>normalizedCrossCorrelate</name>
+        <param>
+          <type>const std::vector&lt; float &gt; &amp;</type>
+          <declname>a</declname>
+        </param>
+        <param>
+          <type>const std::vector&lt; float &gt; &amp;</type>
+          <declname>b</declname>
+        </param>
+        <briefdescription>
+<para>Cross-correlates and normalizes by signal energy when possible. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDsp/headers/RADDsp.h" line="358" column="17" declfile="/media/jvincent/Kingspec512/repos/RADLib/RADDsp/headers/RADDsp.h" declline="358" declcolumn="17"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceRADDsp_1abc94658dd82235342fcaaf3ca77bd012" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::vector&lt; float &gt;</type>
+        <definition>std::vector&lt;float&gt; RADDsp::onePoleLowPass</definition>
+        <argsstring>(const std::vector&lt; float &gt; &amp;samples, float alpha)</argsstring>
+        <name>onePoleLowPass</name>
+        <param>
+          <type>const std::vector&lt; float &gt; &amp;</type>
+          <declname>samples</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>alpha</declname>
+        </param>
+        <briefdescription>
+<para>Applies a simple one-pole low-pass filter with alpha in the 0..1 smoothing range. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDsp/headers/RADDsp.h" line="360" column="17" declfile="/media/jvincent/Kingspec512/repos/RADLib/RADDsp/headers/RADDsp.h" declline="360" declcolumn="17"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceRADDsp_1a67a31ec12609980bfa5d93d9a1e4f25a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classRADDsp_1_1FftPlan" kindref="compound">FftPlan</ref></type>
+        <definition>FftPlan RADDsp::createFftPlan</definition>
+        <argsstring>(size_t size)</argsstring>
+        <name>createFftPlan</name>
+        <param>
+          <type>size_t</type>
+          <declname>size</declname>
+        </param>
+        <briefdescription>
+<para>Creates a reusable FFT plan for power-of-two sizes. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDsp/headers/RADDsp.h" line="362" column="13" declfile="/media/jvincent/Kingspec512/repos/RADLib/RADDsp/headers/RADDsp.h" declline="362" declcolumn="13"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceRADDsp_1acdeef444ae4e6ab4d82213ac7a9a1b5a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::vector&lt; <ref refid="structRADDsp_1_1ComplexSample" kindref="compound">ComplexSample</ref> &gt;</type>
+        <definition>std::vector&lt;ComplexSample&gt; RADDsp::fft</definition>
+        <argsstring>(const std::vector&lt; ComplexSample &gt; &amp;samples, bool inverse=false)</argsstring>
+        <name>fft</name>
+        <param>
+          <type>const std::vector&lt; <ref refid="structRADDsp_1_1ComplexSample" kindref="compound">ComplexSample</ref> &gt; &amp;</type>
+          <declname>samples</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>inverse</declname>
+          <defval>false</defval>
+        </param>
+        <briefdescription>
+<para>Computes a complex FFT for power-of-two sizes and DFT fallback otherwise. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDsp/headers/RADDsp.h" line="364" column="17" declfile="/media/jvincent/Kingspec512/repos/RADLib/RADDsp/headers/RADDsp.h" declline="364" declcolumn="17"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceRADDsp_1ae001edec7b985e8d5f660b0b87e39f05" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::vector&lt; std::vector&lt; <ref refid="structRADDsp_1_1ComplexSample" kindref="compound">ComplexSample</ref> &gt; &gt;</type>
+        <definition>std::vector&lt;std::vector&lt;ComplexSample&gt; &gt; RADDsp::fftMany</definition>
+        <argsstring>(const std::vector&lt; std::vector&lt; ComplexSample &gt;&gt; &amp;frames, bool inverse=false)</argsstring>
+        <name>fftMany</name>
+        <param>
+          <type>const std::vector&lt; std::vector&lt; <ref refid="structRADDsp_1_1ComplexSample" kindref="compound">ComplexSample</ref> &gt;&gt; &amp;</type>
+          <declname>frames</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>inverse</declname>
+          <defval>false</defval>
+        </param>
+        <briefdescription>
+<para>Computes many equal-sized power-of-two FFTs using one reusable plan. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDsp/headers/RADDsp.h" line="366" column="17" declfile="/media/jvincent/Kingspec512/repos/RADLib/RADDsp/headers/RADDsp.h" declline="366" declcolumn="17"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceRADDsp_1ac956366e2d4db195edee0b27c278254d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::vector&lt; <ref refid="structRADDsp_1_1ComplexSample" kindref="compound">ComplexSample</ref> &gt;</type>
+        <definition>std::vector&lt;ComplexSample&gt; RADDsp::fftFrames</definition>
+        <argsstring>(const std::vector&lt; ComplexSample &gt; &amp;frames, size_t frameSize, bool inverse=false)</argsstring>
+        <name>fftFrames</name>
+        <param>
+          <type>const std::vector&lt; <ref refid="structRADDsp_1_1ComplexSample" kindref="compound">ComplexSample</ref> &gt; &amp;</type>
+          <declname>frames</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>frameSize</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>inverse</declname>
+          <defval>false</defval>
+        </param>
+        <briefdescription>
+<para>Computes many contiguous equal-sized power-of-two FFT frames using one reusable plan. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDsp/headers/RADDsp.h" line="369" column="17" declfile="/media/jvincent/Kingspec512/repos/RADLib/RADDsp/headers/RADDsp.h" declline="369" declcolumn="17"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceRADDsp_1ae3594dc0720eebba10b0785de83cd234" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::vector&lt; float &gt;</type>
+        <definition>std::vector&lt;float&gt; RADDsp::magnitudeSpectrum</definition>
+        <argsstring>(const std::vector&lt; ComplexSample &gt; &amp;spectrum)</argsstring>
+        <name>magnitudeSpectrum</name>
+        <param>
+          <type>const std::vector&lt; <ref refid="structRADDsp_1_1ComplexSample" kindref="compound">ComplexSample</ref> &gt; &amp;</type>
+          <declname>spectrum</declname>
+        </param>
+        <briefdescription>
+<para>Converts complex spectrum bins to magnitudes. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDsp/headers/RADDsp.h" line="372" column="17" declfile="/media/jvincent/Kingspec512/repos/RADLib/RADDsp/headers/RADDsp.h" declline="372" declcolumn="17"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceRADDsp_1a589ba04af50ecbcf78fed63dd9c6a6e5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::vector&lt; float &gt;</type>
+        <definition>std::vector&lt;float&gt; RADDsp::powerSpectrum</definition>
+        <argsstring>(const std::vector&lt; ComplexSample &gt; &amp;spectrum)</argsstring>
+        <name>powerSpectrum</name>
+        <param>
+          <type>const std::vector&lt; <ref refid="structRADDsp_1_1ComplexSample" kindref="compound">ComplexSample</ref> &gt; &amp;</type>
+          <declname>spectrum</declname>
+        </param>
+        <briefdescription>
+<para>Converts complex spectrum bins to power values. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDsp/headers/RADDsp.h" line="374" column="17" declfile="/media/jvincent/Kingspec512/repos/RADLib/RADDsp/headers/RADDsp.h" declline="374" declcolumn="17"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceRADDsp_1a17a445be909b1e14bb7efd4c7311cd40" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::vector&lt; float &gt;</type>
+        <definition>std::vector&lt;float&gt; RADDsp::designLowPassFIR</definition>
+        <argsstring>(size_t taps, float cutoffHz, uint32_t sampleRate)</argsstring>
+        <name>designLowPassFIR</name>
+        <param>
+          <type>size_t</type>
+          <declname>taps</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>cutoffHz</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>sampleRate</declname>
+        </param>
+        <briefdescription>
+<para>Designs a windowed-sinc low-pass FIR filter. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDsp/headers/RADDsp.h" line="376" column="17" declfile="/media/jvincent/Kingspec512/repos/RADLib/RADDsp/headers/RADDsp.h" declline="376" declcolumn="17"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceRADDsp_1ac6c1b27476d2142e8d0c6891553130de" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structRADDsp_1_1BiquadCoefficients" kindref="compound">BiquadCoefficients</ref></type>
+        <definition>BiquadCoefficients RADDsp::designBiquadLowPass</definition>
+        <argsstring>(float cutoffHz, uint32_t sampleRate, float q=0.70710678f)</argsstring>
+        <name>designBiquadLowPass</name>
+        <param>
+          <type>float</type>
+          <declname>cutoffHz</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>sampleRate</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>q</declname>
+          <defval>0.70710678f</defval>
+        </param>
+        <briefdescription>
+<para>Designs an RBJ low-pass biquad. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDsp/headers/RADDsp.h" line="378" column="24" declfile="/media/jvincent/Kingspec512/repos/RADLib/RADDsp/headers/RADDsp.h" declline="378" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceRADDsp_1a911ba3c58e08f25e5687f8173e43d4e0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structRADDsp_1_1BiquadCoefficients" kindref="compound">BiquadCoefficients</ref></type>
+        <definition>BiquadCoefficients RADDsp::designBiquadHighPass</definition>
+        <argsstring>(float cutoffHz, uint32_t sampleRate, float q=0.70710678f)</argsstring>
+        <name>designBiquadHighPass</name>
+        <param>
+          <type>float</type>
+          <declname>cutoffHz</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>sampleRate</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>q</declname>
+          <defval>0.70710678f</defval>
+        </param>
+        <briefdescription>
+<para>Designs an RBJ high-pass biquad. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDsp/headers/RADDsp.h" line="380" column="24" declfile="/media/jvincent/Kingspec512/repos/RADLib/RADDsp/headers/RADDsp.h" declline="380" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceRADDsp_1a6bdc3304a193c4a5113b98a97d2bd050" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structRADDsp_1_1BiquadCoefficients" kindref="compound">BiquadCoefficients</ref></type>
+        <definition>BiquadCoefficients RADDsp::designBiquadBandPass</definition>
+        <argsstring>(float centerHz, uint32_t sampleRate, float q=1.0f)</argsstring>
+        <name>designBiquadBandPass</name>
+        <param>
+          <type>float</type>
+          <declname>centerHz</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>sampleRate</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>q</declname>
+          <defval>1.0f</defval>
+        </param>
+        <briefdescription>
+<para>Designs an RBJ band-pass biquad. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDsp/headers/RADDsp.h" line="382" column="24" declfile="/media/jvincent/Kingspec512/repos/RADLib/RADDsp/headers/RADDsp.h" declline="382" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceRADDsp_1a270de4d4292cf3405c947306b74ceb6a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structRADDsp_1_1BiquadCoefficients" kindref="compound">BiquadCoefficients</ref></type>
+        <definition>BiquadCoefficients RADDsp::designBiquadNotch</definition>
+        <argsstring>(float centerHz, uint32_t sampleRate, float q=1.0f)</argsstring>
+        <name>designBiquadNotch</name>
+        <param>
+          <type>float</type>
+          <declname>centerHz</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>sampleRate</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>q</declname>
+          <defval>1.0f</defval>
+        </param>
+        <briefdescription>
+<para>Designs an RBJ notch biquad. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDsp/headers/RADDsp.h" line="384" column="24" declfile="/media/jvincent/Kingspec512/repos/RADLib/RADDsp/headers/RADDsp.h" declline="384" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceRADDsp_1a0c80b3388ab42c048001fb18e618d09e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structRADDsp_1_1BiquadCoefficients" kindref="compound">BiquadCoefficients</ref></type>
+        <definition>BiquadCoefficients RADDsp::designBiquadPeakingEQ</definition>
+        <argsstring>(float centerHz, uint32_t sampleRate, float gainDb, float q=1.0f)</argsstring>
+        <name>designBiquadPeakingEQ</name>
+        <param>
+          <type>float</type>
+          <declname>centerHz</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>sampleRate</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>gainDb</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>q</declname>
+          <defval>1.0f</defval>
+        </param>
+        <briefdescription>
+<para>Designs an RBJ peaking equalizer biquad. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDsp/headers/RADDsp.h" line="386" column="24" declfile="/media/jvincent/Kingspec512/repos/RADLib/RADDsp/headers/RADDsp.h" declline="386" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceRADDsp_1a8e184f4c45f9843595246e9cd8763900" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::vector&lt; float &gt;</type>
+        <definition>std::vector&lt;float&gt; RADDsp::decimate</definition>
+        <argsstring>(const std::vector&lt; float &gt; &amp;samples, size_t factor)</argsstring>
+        <name>decimate</name>
+        <param>
+          <type>const std::vector&lt; float &gt; &amp;</type>
+          <declname>samples</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>factor</declname>
+        </param>
+        <briefdescription>
+<para>Keeps every factor-th sample after low-pass filtering should be applied by caller when needed. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDsp/headers/RADDsp.h" line="388" column="17" declfile="/media/jvincent/Kingspec512/repos/RADLib/RADDsp/headers/RADDsp.h" declline="388" declcolumn="17"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceRADDsp_1a02d1eb16bceae3d8acf86f1e354291fd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::vector&lt; float &gt;</type>
+        <definition>std::vector&lt;float&gt; RADDsp::interpolateZeros</definition>
+        <argsstring>(const std::vector&lt; float &gt; &amp;samples, size_t factor)</argsstring>
+        <name>interpolateZeros</name>
+        <param>
+          <type>const std::vector&lt; float &gt; &amp;</type>
+          <declname>samples</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>factor</declname>
+        </param>
+        <briefdescription>
+<para>Inserts factor-1 zeros between samples. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDsp/headers/RADDsp.h" line="390" column="17" declfile="/media/jvincent/Kingspec512/repos/RADLib/RADDsp/headers/RADDsp.h" declline="390" declcolumn="17"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceRADDsp_1a027b5014a9d495e6f996bf794a567454" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::vector&lt; float &gt;</type>
+        <definition>std::vector&lt;float&gt; RADDsp::mixCosine</definition>
+        <argsstring>(const std::vector&lt; float &gt; &amp;samples, float frequencyHz, uint32_t sampleRate)</argsstring>
+        <name>mixCosine</name>
+        <param>
+          <type>const std::vector&lt; float &gt; &amp;</type>
+          <declname>samples</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>frequencyHz</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>sampleRate</declname>
+        </param>
+        <briefdescription>
+<para>Mixes scalar samples with a cosine oscillator. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDsp/headers/RADDsp.h" line="392" column="17" declfile="/media/jvincent/Kingspec512/repos/RADLib/RADDsp/headers/RADDsp.h" declline="392" declcolumn="17"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceRADDsp_1a891c92643f4a70567ccbe60eb725adae" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void RADDsp::automaticGainControl</definition>
+        <argsstring>(std::vector&lt; float &gt; &amp;samples, float targetRms=0.25f, float maxGain=32.0f)</argsstring>
+        <name>automaticGainControl</name>
+        <param>
+          <type>std::vector&lt; float &gt; &amp;</type>
+          <declname>samples</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>targetRms</declname>
+          <defval>0.25f</defval>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>maxGain</declname>
+          <defval>32.0f</defval>
+        </param>
+        <briefdescription>
+<para>Applies simple automatic gain control toward targetRms. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDsp/headers/RADDsp.h" line="394" column="10" declfile="/media/jvincent/Kingspec512/repos/RADLib/RADDsp/headers/RADDsp.h" declline="394" declcolumn="10"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceRADDsp_1af301b15ed9d63db99d6c934f6741cfa0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classRADDsp_1_1MatrixF" kindref="compound">MatrixF</ref></type>
+        <definition>MatrixF RADDsp::identityMatrix</definition>
+        <argsstring>(size_t size)</argsstring>
+        <name>identityMatrix</name>
+        <param>
+          <type>size_t</type>
+          <declname>size</declname>
+        </param>
+        <briefdescription>
+<para>Builds a square identity matrix. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDsp/headers/RADDsp.h" line="397" column="13" declfile="/media/jvincent/Kingspec512/repos/RADLib/RADDsp/headers/RADDsp.h" declline="397" declcolumn="13"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceRADDsp_1a304f932d78201ea856098641bbea2959" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classRADDsp_1_1MatrixF" kindref="compound">MatrixF</ref></type>
+        <definition>MatrixF RADDsp::diagonalMatrix</definition>
+        <argsstring>(const std::vector&lt; float &gt; &amp;diagonal)</argsstring>
+        <name>diagonalMatrix</name>
+        <param>
+          <type>const std::vector&lt; float &gt; &amp;</type>
+          <declname>diagonal</declname>
+        </param>
+        <briefdescription>
+<para>Builds a diagonal matrix from diagonal values. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDsp/headers/RADDsp.h" line="399" column="13" declfile="/media/jvincent/Kingspec512/repos/RADLib/RADDsp/headers/RADDsp.h" declline="399" declcolumn="13"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceRADDsp_1ac801b5127a2f7612228eb570622ffba0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classRADDsp_1_1MatrixF" kindref="compound">MatrixF</ref></type>
+        <definition>MatrixF RADDsp::transpose</definition>
+        <argsstring>(const MatrixF &amp;matrix)</argsstring>
+        <name>transpose</name>
+        <param>
+          <type>const <ref refid="classRADDsp_1_1MatrixF" kindref="compound">MatrixF</ref> &amp;</type>
+          <declname>matrix</declname>
+        </param>
+        <briefdescription>
+<para>Returns the transpose of matrix. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDsp/headers/RADDsp.h" line="401" column="13" declfile="/media/jvincent/Kingspec512/repos/RADLib/RADDsp/headers/RADDsp.h" declline="401" declcolumn="13"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceRADDsp_1afcb20a77327a73d13eec1a01accb304d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classRADDsp_1_1MatrixF" kindref="compound">MatrixF</ref></type>
+        <definition>MatrixF RADDsp::add</definition>
+        <argsstring>(const MatrixF &amp;a, const MatrixF &amp;b)</argsstring>
+        <name>add</name>
+        <param>
+          <type>const <ref refid="classRADDsp_1_1MatrixF" kindref="compound">MatrixF</ref> &amp;</type>
+          <declname>a</declname>
+        </param>
+        <param>
+          <type>const <ref refid="classRADDsp_1_1MatrixF" kindref="compound">MatrixF</ref> &amp;</type>
+          <declname>b</declname>
+        </param>
+        <briefdescription>
+<para>Adds matrices with matching dimensions, or returns an empty matrix. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDsp/headers/RADDsp.h" line="403" column="13" declfile="/media/jvincent/Kingspec512/repos/RADLib/RADDsp/headers/RADDsp.h" declline="403" declcolumn="13"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceRADDsp_1a59241dcc76092aa139dd26f5a25787b8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classRADDsp_1_1MatrixF" kindref="compound">MatrixF</ref></type>
+        <definition>MatrixF RADDsp::subtract</definition>
+        <argsstring>(const MatrixF &amp;a, const MatrixF &amp;b)</argsstring>
+        <name>subtract</name>
+        <param>
+          <type>const <ref refid="classRADDsp_1_1MatrixF" kindref="compound">MatrixF</ref> &amp;</type>
+          <declname>a</declname>
+        </param>
+        <param>
+          <type>const <ref refid="classRADDsp_1_1MatrixF" kindref="compound">MatrixF</ref> &amp;</type>
+          <declname>b</declname>
+        </param>
+        <briefdescription>
+<para>Subtracts matrices with matching dimensions, or returns an empty matrix. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDsp/headers/RADDsp.h" line="405" column="13" declfile="/media/jvincent/Kingspec512/repos/RADLib/RADDsp/headers/RADDsp.h" declline="405" declcolumn="13"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceRADDsp_1a60ce0cb8e793d15ce1b251a5af477014" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classRADDsp_1_1MatrixF" kindref="compound">MatrixF</ref></type>
+        <definition>MatrixF RADDsp::scale</definition>
+        <argsstring>(const MatrixF &amp;matrix, float scalar)</argsstring>
+        <name>scale</name>
+        <param>
+          <type>const <ref refid="classRADDsp_1_1MatrixF" kindref="compound">MatrixF</ref> &amp;</type>
+          <declname>matrix</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>scalar</declname>
+        </param>
+        <briefdescription>
+<para>Multiplies every matrix value by scalar. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDsp/headers/RADDsp.h" line="407" column="13" declfile="/media/jvincent/Kingspec512/repos/RADLib/RADDsp/headers/RADDsp.h" declline="407" declcolumn="13"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceRADDsp_1a114caf074b0ad563d7d65249728bda8b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classRADDsp_1_1MatrixF" kindref="compound">MatrixF</ref></type>
+        <definition>MatrixF RADDsp::hadamard</definition>
+        <argsstring>(const MatrixF &amp;a, const MatrixF &amp;b)</argsstring>
+        <name>hadamard</name>
+        <param>
+          <type>const <ref refid="classRADDsp_1_1MatrixF" kindref="compound">MatrixF</ref> &amp;</type>
+          <declname>a</declname>
+        </param>
+        <param>
+          <type>const <ref refid="classRADDsp_1_1MatrixF" kindref="compound">MatrixF</ref> &amp;</type>
+          <declname>b</declname>
+        </param>
+        <briefdescription>
+<para>Multiplies matching matrix elements, or returns an empty matrix. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDsp/headers/RADDsp.h" line="409" column="13" declfile="/media/jvincent/Kingspec512/repos/RADLib/RADDsp/headers/RADDsp.h" declline="409" declcolumn="13"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceRADDsp_1afb776b1cb68ff611bcfee915bb6b6d93" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classRADDsp_1_1MatrixF" kindref="compound">MatrixF</ref></type>
+        <definition>MatrixF RADDsp::multiply</definition>
+        <argsstring>(const MatrixF &amp;a, const MatrixF &amp;b)</argsstring>
+        <name>multiply</name>
+        <param>
+          <type>const <ref refid="classRADDsp_1_1MatrixF" kindref="compound">MatrixF</ref> &amp;</type>
+          <declname>a</declname>
+        </param>
+        <param>
+          <type>const <ref refid="classRADDsp_1_1MatrixF" kindref="compound">MatrixF</ref> &amp;</type>
+          <declname>b</declname>
+        </param>
+        <briefdescription>
+<para>Multiplies two dense matrices, or returns an empty matrix for incompatible dimensions. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDsp/headers/RADDsp.h" line="411" column="13" declfile="/media/jvincent/Kingspec512/repos/RADLib/RADDsp/headers/RADDsp.h" declline="411" declcolumn="13"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceRADDsp_1afcbf1d9b877aae2c26cb8db6359e2700" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::vector&lt; float &gt;</type>
+        <definition>std::vector&lt;float&gt; RADDsp::multiply</definition>
+        <argsstring>(const MatrixF &amp;matrix, const std::vector&lt; float &gt; &amp;vector)</argsstring>
+        <name>multiply</name>
+        <param>
+          <type>const <ref refid="classRADDsp_1_1MatrixF" kindref="compound">MatrixF</ref> &amp;</type>
+          <declname>matrix</declname>
+        </param>
+        <param>
+          <type>const std::vector&lt; float &gt; &amp;</type>
+          <declname>vector</declname>
+        </param>
+        <briefdescription>
+<para>Multiplies a dense matrix by a vector, or returns an empty vector for incompatible dimensions. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDsp/headers/RADDsp.h" line="413" column="17" declfile="/media/jvincent/Kingspec512/repos/RADLib/RADDsp/headers/RADDsp.h" declline="413" declcolumn="17"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceRADDsp_1a54fb20324cd14aa6ddd640f7d1b9a911" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::vector&lt; float &gt;</type>
+        <definition>std::vector&lt;float&gt; RADDsp::multiply</definition>
+        <argsstring>(const MatrixF &amp;matrix, std::initializer_list&lt; float &gt; vector)</argsstring>
+        <name>multiply</name>
+        <param>
+          <type>const <ref refid="classRADDsp_1_1MatrixF" kindref="compound">MatrixF</ref> &amp;</type>
+          <declname>matrix</declname>
+        </param>
+        <param>
+          <type>std::initializer_list&lt; float &gt;</type>
+          <declname>vector</declname>
+        </param>
+        <briefdescription>
+<para>Multiplies a dense matrix by an initializer-list vector. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDsp/headers/RADDsp.h" line="415" column="17" declfile="/media/jvincent/Kingspec512/repos/RADLib/RADDsp/headers/RADDsp.h" declline="415" declcolumn="17"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceRADDsp_1aa8facfb45913f8371fdfe11e34a432a7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>float</type>
+        <definition>float RADDsp::dot</definition>
+        <argsstring>(const std::vector&lt; float &gt; &amp;a, const std::vector&lt; float &gt; &amp;b)</argsstring>
+        <name>dot</name>
+        <param>
+          <type>const std::vector&lt; float &gt; &amp;</type>
+          <declname>a</declname>
+        </param>
+        <param>
+          <type>const std::vector&lt; float &gt; &amp;</type>
+          <declname>b</declname>
+        </param>
+        <briefdescription>
+<para>Returns the dot product of equal-size vectors, or 0 for mismatched sizes. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDsp/headers/RADDsp.h" line="417" column="11" declfile="/media/jvincent/Kingspec512/repos/RADLib/RADDsp/headers/RADDsp.h" declline="417" declcolumn="11"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceRADDsp_1aaf8c6edbbe0365cefac6f45ab26165ff" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>float</type>
+        <definition>float RADDsp::l2Norm</definition>
+        <argsstring>(const std::vector&lt; float &gt; &amp;vector)</argsstring>
+        <name>l2Norm</name>
+        <param>
+          <type>const std::vector&lt; float &gt; &amp;</type>
+          <declname>vector</declname>
+        </param>
+        <briefdescription>
+<para>Returns the Euclidean norm of vector. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDsp/headers/RADDsp.h" line="419" column="11" declfile="/media/jvincent/Kingspec512/repos/RADLib/RADDsp/headers/RADDsp.h" declline="419" declcolumn="11"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceRADDsp_1ace0fcc3a879d8345fd645274bf4b18f7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::vector&lt; float &gt;</type>
+        <definition>std::vector&lt;float&gt; RADDsp::normalizeVector</definition>
+        <argsstring>(const std::vector&lt; float &gt; &amp;vector)</argsstring>
+        <name>normalizeVector</name>
+        <param>
+          <type>const std::vector&lt; float &gt; &amp;</type>
+          <declname>vector</declname>
+        </param>
+        <briefdescription>
+<para>Returns a normalized copy of vector, or zeros for zero-length input energy. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDsp/headers/RADDsp.h" line="421" column="17" declfile="/media/jvincent/Kingspec512/repos/RADLib/RADDsp/headers/RADDsp.h" declline="421" declcolumn="17"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceRADDsp_1a06b02a713de26cffa1d37ded999efb0e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classRADDsp_1_1MatrixF" kindref="compound">MatrixF</ref></type>
+        <definition>MatrixF RADDsp::outerProduct</definition>
+        <argsstring>(const std::vector&lt; float &gt; &amp;a, const std::vector&lt; float &gt; &amp;b)</argsstring>
+        <name>outerProduct</name>
+        <param>
+          <type>const std::vector&lt; float &gt; &amp;</type>
+          <declname>a</declname>
+        </param>
+        <param>
+          <type>const std::vector&lt; float &gt; &amp;</type>
+          <declname>b</declname>
+        </param>
+        <briefdescription>
+<para>Builds the outer product a * b^T. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDsp/headers/RADDsp.h" line="423" column="13" declfile="/media/jvincent/Kingspec512/repos/RADLib/RADDsp/headers/RADDsp.h" declline="423" declcolumn="13"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceRADDsp_1aa56a4a0505e1ec6736f9bc177c8b4db0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classRADDsp_1_1MatrixF" kindref="compound">MatrixF</ref></type>
+        <definition>MatrixF RADDsp::covarianceMatrix</definition>
+        <argsstring>(const MatrixF &amp;observations)</argsstring>
+        <name>covarianceMatrix</name>
+        <param>
+          <type>const <ref refid="classRADDsp_1_1MatrixF" kindref="compound">MatrixF</ref> &amp;</type>
+          <declname>observations</declname>
+        </param>
+        <briefdescription>
+<para>Computes a covariance matrix from row-major observations where each row is one observation. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDsp/headers/RADDsp.h" line="425" column="13" declfile="/media/jvincent/Kingspec512/repos/RADLib/RADDsp/headers/RADDsp.h" declline="425" declcolumn="13"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceRADDsp_1a3069313baeb69e6266ea19385e7c2da7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool RADDsp::invert</definition>
+        <argsstring>(const MatrixF &amp;matrix, MatrixF &amp;inverse, float epsilon=1.0e-6f)</argsstring>
+        <name>invert</name>
+        <param>
+          <type>const <ref refid="classRADDsp_1_1MatrixF" kindref="compound">MatrixF</ref> &amp;</type>
+          <declname>matrix</declname>
+        </param>
+        <param>
+          <type><ref refid="classRADDsp_1_1MatrixF" kindref="compound">MatrixF</ref> &amp;</type>
+          <declname>inverse</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>epsilon</declname>
+          <defval>1.0e-6f</defval>
+        </param>
+        <briefdescription>
+<para>Computes the inverse of a square matrix with partial pivoting. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDsp/headers/RADDsp.h" line="427" column="10" declfile="/media/jvincent/Kingspec512/repos/RADLib/RADDsp/headers/RADDsp.h" declline="427" declcolumn="10"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceRADDsp_1ac2c0d5d32a216d790b7944d4c3f955d2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool RADDsp::solveLinearSystem</definition>
+        <argsstring>(const MatrixF &amp;matrix, const std::vector&lt; float &gt; &amp;rhs, std::vector&lt; float &gt; &amp;solution, float epsilon=1.0e-6f)</argsstring>
+        <name>solveLinearSystem</name>
+        <param>
+          <type>const <ref refid="classRADDsp_1_1MatrixF" kindref="compound">MatrixF</ref> &amp;</type>
+          <declname>matrix</declname>
+        </param>
+        <param>
+          <type>const std::vector&lt; float &gt; &amp;</type>
+          <declname>rhs</declname>
+        </param>
+        <param>
+          <type>std::vector&lt; float &gt; &amp;</type>
+          <declname>solution</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>epsilon</declname>
+          <defval>1.0e-6f</defval>
+        </param>
+        <briefdescription>
+<para>Solves matrix * x = rhs using Gaussian elimination with partial pivoting. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDsp/headers/RADDsp.h" line="429" column="10" declfile="/media/jvincent/Kingspec512/repos/RADLib/RADDsp/headers/RADDsp.h" declline="429" declcolumn="10"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDsp/headers/RADDsp.h" line="19" column="1"/>
+  </compounddef>
+</doxygen>

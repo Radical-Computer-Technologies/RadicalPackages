@@ -1,0 +1,336 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="classRADCore_1_1Timer" kind="class" language="C++" prot="public">
+    <compoundname>RADCore::Timer</compoundname>
+    <basecompoundref refid="classRADCore_1_1RADObject" prot="public" virt="non-virtual">RADCore::RADObject</basecompoundref>
+    <includes refid="RADCore_8h" local="no">RADCore.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="classRADCore_1_1Timer_1a84eb4fce1b7eed1c1815d99f9f9f41c7" prot="public" static="no" mutable="no">
+        <type><ref refid="classRADCore_1_1Event" kindref="compound">RADCore::Event</ref>&lt; void() &gt;</type>
+        <definition>RADCore::Event&lt;void () &gt; RADCore::Timer::timeout</definition>
+        <argsstring></argsstring>
+        <name>timeout</name>
+        <briefdescription>
+<para>Raised each time the timer interval expires. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADCore/headers/RADCore.h" line="1873" column="30" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADCore/headers/RADCore.h" bodystart="1873" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classRADCore_1_1Timer_1a1ab2efb4ed6a13c45e84a846fadbead2" prot="public" static="no" mutable="no">
+        <type><ref refid="classRADCore_1_1Event" kindref="compound">RADCore::Event</ref>&lt; void(std::string) &gt;</type>
+        <definition>RADCore::Event&lt;void (std::string) &gt; RADCore::Timer::errorOccurred</definition>
+        <argsstring></argsstring>
+        <name>errorOccurred</name>
+        <briefdescription>
+<para>Raised when the timer cannot be configured or started. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADCore/headers/RADCore.h" line="1875" column="30" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADCore/headers/RADCore.h" bodystart="1875" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classRADCore_1_1Timer_1a6475a8c41049f68f20cba39b799ea62f" prot="private" static="no" mutable="no">
+        <type>std::atomic&lt; bool &gt;</type>
+        <definition>std::atomic&lt;bool&gt; RADCore::Timer::active_</definition>
+        <argsstring></argsstring>
+        <name>active_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADCore/headers/RADCore.h" line="1899" column="21" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADCore/headers/RADCore.h" bodystart="1899" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classRADCore_1_1Timer_1a2450a7e1548fa9852b34393b43db5e26" prot="private" static="no" mutable="no">
+        <type>std::thread</type>
+        <definition>std::thread RADCore::Timer::timerThread_</definition>
+        <argsstring></argsstring>
+        <name>timerThread_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADCore/headers/RADCore.h" line="1900" column="21" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADCore/headers/RADCore.h" bodystart="1900" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classRADCore_1_1Timer_1a340d71c9fc9a5b669ac219ba2e48923d" prot="private" static="no" mutable="no">
+        <type>std::atomic&lt; int &gt;</type>
+        <definition>std::atomic&lt;int&gt; RADCore::Timer::timerFd_</definition>
+        <argsstring></argsstring>
+        <name>timerFd_</name>
+        <initializer>{-1}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADCore/headers/RADCore.h" line="1901" column="21" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADCore/headers/RADCore.h" bodystart="1901" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classRADCore_1_1Timer_1a07904a0b956cdd9ab410374848020bd7" prot="private" static="no" mutable="no">
+        <type>std::atomic&lt; int &gt;</type>
+        <definition>std::atomic&lt;int&gt; RADCore::Timer::stopFd_</definition>
+        <argsstring></argsstring>
+        <name>stopFd_</name>
+        <initializer>{-1}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADCore/headers/RADCore.h" line="1902" column="21" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADCore/headers/RADCore.h" bodystart="1902" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classRADCore_1_1Timer_1a10912bfb8ee076e558ed8947580a98f0" prot="private" static="no" mutable="no">
+        <type>std::atomic&lt; int &gt;</type>
+        <definition>std::atomic&lt;int&gt; RADCore::Timer::intervalMs_</definition>
+        <argsstring></argsstring>
+        <name>intervalMs_</name>
+        <initializer>{0}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADCore/headers/RADCore.h" line="1903" column="21" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADCore/headers/RADCore.h" bodystart="1903" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classRADCore_1_1Timer_1ab27250ccbdf6a9fca3f947082c7b640f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>RADCore::Timer::Timer</definition>
+        <argsstring>()</argsstring>
+        <name>Timer</name>
+        <briefdescription>
+<para>Creates an inactive timer. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADCore/headers/RADCore.h" line="1878" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADCore_1_1Timer_1a9a340ffc37ff92912e2c763acb3339ff" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>RADCore::Timer::~Timer</definition>
+        <argsstring>()</argsstring>
+        <name>~Timer</name>
+        <briefdescription>
+<para>Stops the timer if active. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADCore/headers/RADCore.h" line="1880" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADCore_1_1Timer_1a14d03b6d4cb71b68a4eb5c09a708fe56" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void RADCore::Timer::start</definition>
+        <argsstring>(int intervalMs, EventLoop &amp;targetLoop)</argsstring>
+        <name>start</name>
+        <param>
+          <type>int</type>
+          <declname>intervalMs</declname>
+        </param>
+        <param>
+          <type><ref refid="classRADCore_1_1EventLoop" kindref="compound">EventLoop</ref> &amp;</type>
+          <declname>targetLoop</declname>
+        </param>
+        <briefdescription>
+<para>Starts the timer with intervalMs and posts timeout to targetLoop. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADCore/headers/RADCore.h" line="1883" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADCore_1_1Timer_1aee2ff0f9c3de4f46ebfcd3ef2d78d9c4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void RADCore::Timer::start</definition>
+        <argsstring>(EventLoop &amp;targetLoop)</argsstring>
+        <name>start</name>
+        <param>
+          <type><ref refid="classRADCore_1_1EventLoop" kindref="compound">EventLoop</ref> &amp;</type>
+          <declname>targetLoop</declname>
+        </param>
+        <briefdescription>
+<para>Starts the timer using the previously configured interval. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADCore/headers/RADCore.h" line="1885" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADCore_1_1Timer_1a7b24718bdfa4674552a0d52c8de6784f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void RADCore::Timer::stop</definition>
+        <argsstring>()</argsstring>
+        <name>stop</name>
+        <briefdescription>
+<para>Stops the timer. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADCore/headers/RADCore.h" line="1887" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADCore_1_1Timer_1a230c01e7f405d4b12599c2f927e9dbf0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void RADCore::Timer::setInterval</definition>
+        <argsstring>(int intervalMs)</argsstring>
+        <name>setInterval</name>
+        <param>
+          <type>int</type>
+          <declname>intervalMs</declname>
+        </param>
+        <briefdescription>
+<para>Sets timer interval in milliseconds. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADCore/headers/RADCore.h" line="1889" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADCore_1_1Timer_1a7b39b3a6c93755621026ec2b7249a59c" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int RADCore::Timer::interval</definition>
+        <argsstring>() const</argsstring>
+        <name>interval</name>
+        <briefdescription>
+<para>Returns timer interval in milliseconds. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADCore/headers/RADCore.h" line="1891" column="13"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADCore_1_1Timer_1a6e56b060fba0d7b85a50cbf417c03456" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool RADCore::Timer::isActive</definition>
+        <argsstring>() const</argsstring>
+        <name>isActive</name>
+        <briefdescription>
+<para>Returns true while the timer is active. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADCore/headers/RADCore.h" line="1893" column="14"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="classRADCore_1_1Timer_1a5c7a906869797c59079a473293c6a0a5" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>static void RADCore::Timer::singleShot</definition>
+        <argsstring>(int intervalMs, EventLoop &amp;targetLoop, EventLoop::Task task)</argsstring>
+        <name>singleShot</name>
+        <param>
+          <type>int</type>
+          <declname>intervalMs</declname>
+        </param>
+        <param>
+          <type><ref refid="classRADCore_1_1EventLoop" kindref="compound">EventLoop</ref> &amp;</type>
+          <declname>targetLoop</declname>
+        </param>
+        <param>
+          <type><ref refid="classRADCore_1_1EventLoop_1ab34901f431f7f82c7c5f58cc1c62aa83" kindref="member">EventLoop::Task</ref></type>
+          <declname>task</declname>
+        </param>
+        <briefdescription>
+<para>Posts task once after intervalMs milliseconds. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADCore/headers/RADCore.h" line="1896" column="21"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>High-precision timer that emits timeout through a <ref refid="namespaceRADCore" kindref="compound">RADCore</ref> <ref refid="classRADCore_1_1EventLoop" kindref="compound">EventLoop</ref>. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>RADCore::RADObject</label>
+        <link refid="classRADCore_1_1RADObject"/>
+      </node>
+      <node id="1">
+        <label>RADCore::Timer</label>
+        <link refid="classRADCore_1_1Timer"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>RADCore::RADObject</label>
+        <link refid="classRADCore_1_1RADObject"/>
+      </node>
+      <node id="4">
+        <label>RADCore::Event&lt; void(std::string) &gt;</label>
+        <link refid="classRADCore_1_1Event"/>
+      </node>
+      <node id="1">
+        <label>RADCore::Timer</label>
+        <link refid="classRADCore_1_1Timer"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="3" relation="usage">
+          <edgelabel>timeout</edgelabel>
+        </childnode>
+        <childnode refid="4" relation="usage">
+          <edgelabel>errorOccurred</edgelabel>
+        </childnode>
+      </node>
+      <node id="3">
+        <label>RADCore::Event&lt; void() &gt;</label>
+        <link refid="classRADCore_1_1Event"/>
+      </node>
+    </collaborationgraph>
+    <location file="/media/jvincent/Kingspec512/repos/RADLib/RADCore/headers/RADCore.h" line="1869" column="5" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADCore/headers/RADCore.h" bodystart="1869" bodyend="1904"/>
+    <listofallmembers>
+      <member refid="classRADCore_1_1Timer_1a6475a8c41049f68f20cba39b799ea62f" prot="private" virt="non-virtual"><scope>RADCore::Timer</scope><name>active_</name></member>
+      <member refid="classRADCore_1_1RADObject_1a06cdf252ffb5e2f88332ebda12a62080" prot="public" virt="non-virtual"><scope>RADCore::Timer</scope><name>associatedEventLoop</name></member>
+      <member refid="classRADCore_1_1Timer_1a1ab2efb4ed6a13c45e84a846fadbead2" prot="public" virt="non-virtual"><scope>RADCore::Timer</scope><name>errorOccurred</name></member>
+      <member refid="classRADCore_1_1Timer_1a7b39b3a6c93755621026ec2b7249a59c" prot="public" virt="non-virtual"><scope>RADCore::Timer</scope><name>interval</name></member>
+      <member refid="classRADCore_1_1Timer_1a10912bfb8ee076e558ed8947580a98f0" prot="private" virt="non-virtual"><scope>RADCore::Timer</scope><name>intervalMs_</name></member>
+      <member refid="classRADCore_1_1Timer_1a6e56b060fba0d7b85a50cbf417c03456" prot="public" virt="non-virtual"><scope>RADCore::Timer</scope><name>isActive</name></member>
+      <member refid="classRADCore_1_1RADObject_1ad2ddfd066d14be9adc2f96bfca417fc6" prot="public" virt="non-virtual"><scope>RADCore::Timer</scope><name>lifetimeToken</name></member>
+      <member refid="classRADCore_1_1RADObject_1a1f7f7f2fb40211e28455cd74a029339a" prot="public" virt="non-virtual"><scope>RADCore::Timer</scope><name>moveToThread</name></member>
+      <member refid="classRADCore_1_1RADObject_1a9bc3fed915f7c71232e68c2628d34708" prot="public" virt="non-virtual"><scope>RADCore::Timer</scope><name>RADObject</name></member>
+      <member refid="classRADCore_1_1RADObject_1af3e26b970c8080418f0d6b80cad986a2" prot="public" virt="non-virtual"><scope>RADCore::Timer</scope><name>registerLink</name></member>
+      <member refid="classRADCore_1_1Timer_1a230c01e7f405d4b12599c2f927e9dbf0" prot="public" virt="non-virtual"><scope>RADCore::Timer</scope><name>setInterval</name></member>
+      <member refid="classRADCore_1_1Timer_1a5c7a906869797c59079a473293c6a0a5" prot="public" virt="non-virtual"><scope>RADCore::Timer</scope><name>singleShot</name></member>
+      <member refid="classRADCore_1_1Timer_1a14d03b6d4cb71b68a4eb5c09a708fe56" prot="public" virt="non-virtual"><scope>RADCore::Timer</scope><name>start</name></member>
+      <member refid="classRADCore_1_1Timer_1aee2ff0f9c3de4f46ebfcd3ef2d78d9c4" prot="public" virt="non-virtual"><scope>RADCore::Timer</scope><name>start</name></member>
+      <member refid="classRADCore_1_1Timer_1a7b24718bdfa4674552a0d52c8de6784f" prot="public" virt="non-virtual"><scope>RADCore::Timer</scope><name>stop</name></member>
+      <member refid="classRADCore_1_1Timer_1a07904a0b956cdd9ab410374848020bd7" prot="private" virt="non-virtual"><scope>RADCore::Timer</scope><name>stopFd_</name></member>
+      <member refid="classRADCore_1_1RADObject_1a8b11df0b951d0db1ba99cfb851e34f31" prot="public" virt="non-virtual"><scope>RADCore::Timer</scope><name>threadAffinity</name></member>
+      <member refid="classRADCore_1_1RADObject_1ac7ca67b41523794ae5a6b3634d6ce3b6" prot="public" virt="non-virtual"><scope>RADCore::Timer</scope><name>threadId</name></member>
+      <member refid="classRADCore_1_1Timer_1a84eb4fce1b7eed1c1815d99f9f9f41c7" prot="public" virt="non-virtual"><scope>RADCore::Timer</scope><name>timeout</name></member>
+      <member refid="classRADCore_1_1Timer_1ab27250ccbdf6a9fca3f947082c7b640f" prot="public" virt="non-virtual"><scope>RADCore::Timer</scope><name>Timer</name></member>
+      <member refid="classRADCore_1_1Timer_1a340d71c9fc9a5b669ac219ba2e48923d" prot="private" virt="non-virtual"><scope>RADCore::Timer</scope><name>timerFd_</name></member>
+      <member refid="classRADCore_1_1Timer_1a2450a7e1548fa9852b34393b43db5e26" prot="private" virt="non-virtual"><scope>RADCore::Timer</scope><name>timerThread_</name></member>
+      <member refid="classRADCore_1_1RADObject_1a7369e27a46c163ee89c63227db650ce5" prot="public" virt="virtual"><scope>RADCore::Timer</scope><name>~RADObject</name></member>
+      <member refid="classRADCore_1_1Timer_1a9a340ffc37ff92912e2c763acb3339ff" prot="public" virt="non-virtual"><scope>RADCore::Timer</scope><name>~Timer</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

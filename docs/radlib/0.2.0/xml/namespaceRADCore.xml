@@ -1,0 +1,836 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="namespaceRADCore" kind="namespace" language="C++">
+    <compoundname>RADCore</compoundname>
+    <innerclass refid="classRADCore_1_1RADError" prot="public">RADCore::RADError</innerclass>
+    <innerclass refid="classRADCore_1_1RADResult" prot="public">RADCore::RADResult</innerclass>
+    <innerclass refid="classRADCore_1_1RADResult_3_01void_01_4" prot="public">RADCore::RADResult&lt; void &gt;</innerclass>
+    <innerclass refid="classRADCore_1_1RADSpan" prot="public">RADCore::RADSpan</innerclass>
+    <innerclass refid="classRADCore_1_1RADElapsedTimer" prot="public">RADCore::RADElapsedTimer</innerclass>
+    <innerclass refid="classRADCore_1_1RADDeadlineTimer" prot="public">RADCore::RADDeadlineTimer</innerclass>
+    <innerclass refid="classRADCore_1_1RADCancellationToken" prot="public">RADCore::RADCancellationToken</innerclass>
+    <innerclass refid="classRADCore_1_1RADCancellationSource" prot="public">RADCore::RADCancellationSource</innerclass>
+    <innerclass refid="classRADCore_1_1RADVariant" prot="public">RADCore::RADVariant</innerclass>
+    <innerclass refid="classRADCore_1_1RADDateTime" prot="public">RADCore::RADDateTime</innerclass>
+    <innerclass refid="classRADCore_1_1RADUuid" prot="public">RADCore::RADUuid</innerclass>
+    <innerclass refid="classRADCore_1_1RADUrl" prot="public">RADCore::RADUrl</innerclass>
+    <innerclass refid="classRADCore_1_1RADJsonValue" prot="public">RADCore::RADJsonValue</innerclass>
+    <innerclass refid="classRADCore_1_1RADJsonDocument" prot="public">RADCore::RADJsonDocument</innerclass>
+    <innerclass refid="classRADCore_1_1RADSettings" prot="public">RADCore::RADSettings</innerclass>
+    <innerclass refid="classRADCore_1_1RADTemporaryDirectory" prot="public">RADCore::RADTemporaryDirectory</innerclass>
+    <innerclass refid="classRADCore_1_1RADTemporaryFile" prot="public">RADCore::RADTemporaryFile</innerclass>
+    <innerclass refid="classRADCore_1_1RADLockFile" prot="public">RADCore::RADLockFile</innerclass>
+    <innerclass refid="structRADCore_1_1ThreadAffinity" prot="public">RADCore::ThreadAffinity</innerclass>
+    <innerclass refid="classRADCore_1_1Event" prot="public">RADCore::Event</innerclass>
+    <innerclass refid="structRADCore_1_1ConnectionRecord" prot="public">RADCore::ConnectionRecord</innerclass>
+    <innerclass refid="classRADCore_1_1Connection" prot="public">RADCore::Connection</innerclass>
+    <innerclass refid="classRADCore_1_1RADObject" prot="public">RADCore::RADObject</innerclass>
+    <innerclass refid="classRADCore_1_1EventLoop" prot="public">RADCore::EventLoop</innerclass>
+    <innerclass refid="classRADCore_1_1EventLoopHandle" prot="public">RADCore::EventLoopHandle</innerclass>
+    <innerclass refid="classRADCore_1_1EventBackend" prot="public">RADCore::EventBackend</innerclass>
+    <innerclass refid="classRADCore_1_1Event_3_01void_07Args_8_8_8_08_4" prot="public">RADCore::Event&lt; void(Args...)&gt;</innerclass>
+    <innerclass refid="classRADCore_1_1RADIODevice" prot="public">RADCore::RADIODevice</innerclass>
+    <innerclass refid="classRADCore_1_1RADBuffer" prot="public">RADCore::RADBuffer</innerclass>
+    <innerclass refid="classRADCore_1_1RADFile" prot="public">RADCore::RADFile</innerclass>
+    <innerclass refid="classRADCore_1_1RADDataStream" prot="public">RADCore::RADDataStream</innerclass>
+    <innerclass refid="classRADCore_1_1RADFileSystemWatcher" prot="public">RADCore::RADFileSystemWatcher</innerclass>
+    <innerclass refid="classRADCore_1_1RADFuture" prot="public">RADCore::RADFuture</innerclass>
+    <innerclass refid="classRADCore_1_1RADFutureT" prot="public">RADCore::RADFutureT</innerclass>
+    <innerclass refid="classRADCore_1_1RADFutureT_3_01void_01_4" prot="public">RADCore::RADFutureT&lt; void &gt;</innerclass>
+    <innerclass refid="classRADCore_1_1RADPromise" prot="public">RADCore::RADPromise</innerclass>
+    <innerclass refid="classRADCore_1_1RADPromise_3_01void_01_4" prot="public">RADCore::RADPromise&lt; void &gt;</innerclass>
+    <innerclass refid="classRADCore_1_1RADThreadPool" prot="public">RADCore::RADThreadPool</innerclass>
+    <innerclass refid="classRADCore_1_1RADAbstractItemModel" prot="public">RADCore::RADAbstractItemModel</innerclass>
+    <innerclass refid="classRADCore_1_1RADStringListModel" prot="public">RADCore::RADStringListModel</innerclass>
+    <innerclass refid="classRADCore_1_1RADProcess" prot="public">RADCore::RADProcess</innerclass>
+    <innerclass refid="classRADCore_1_1RADPtyProcess" prot="public">RADCore::RADPtyProcess</innerclass>
+    <innerclass refid="classRADCore_1_1Timer" prot="public">RADCore::Timer</innerclass>
+    <innerclass refid="classRADCore_1_1RADThread" prot="public">RADCore::RADThread</innerclass>
+    <innernamespace refid="namespaceRADCore_1_1FileSystem">RADCore::FileSystem</innernamespace>
+    <innernamespace refid="namespaceRADCore_1_1Internal">RADCore::Internal</innernamespace>
+      <sectiondef kind="enum">
+      <memberdef kind="enum" id="namespaceRADCore_1aefc7037828eebd6f6c85bda2ea2b2852" prot="public" static="no" strong="yes">
+        <type>uint32_t</type>
+        <name>OpenMode</name>
+        <enumvalue id="namespaceRADCore_1aefc7037828eebd6f6c85bda2ea2b2852abdd7de68889646349ad64c3f6404b635" prot="public">
+          <name>NotOpen</name>
+          <initializer>= 0</initializer>
+          <briefdescription>
+<para>Device is not open. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespaceRADCore_1aefc7037828eebd6f6c85bda2ea2b2852a131fb182a881796e7606ed6da27f1197" prot="public">
+          <name>ReadOnly</name>
+          <initializer>= 1 &lt;&lt; 0</initializer>
+          <briefdescription>
+<para>Open for reads. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespaceRADCore_1aefc7037828eebd6f6c85bda2ea2b2852a53dfe5089ae9e65887cb0215cb0098f5" prot="public">
+          <name>WriteOnly</name>
+          <initializer>= 1 &lt;&lt; 1</initializer>
+          <briefdescription>
+<para>Open for writes. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespaceRADCore_1aefc7037828eebd6f6c85bda2ea2b2852a70a2a84088d405a2e3f1e3accaa16723" prot="public">
+          <name>ReadWrite</name>
+          <initializer>= (1 &lt;&lt; 0) | (1 &lt;&lt; 1)</initializer>
+          <briefdescription>
+<para>Open for reads and writes. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespaceRADCore_1aefc7037828eebd6f6c85bda2ea2b2852a3ac4692f3935a49a0b243eecf529faa9" prot="public">
+          <name>Append</name>
+          <initializer>= 1 &lt;&lt; 2</initializer>
+          <briefdescription>
+<para>Append writes to the end. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespaceRADCore_1aefc7037828eebd6f6c85bda2ea2b2852aa8156810bfee2bd2b44765b9e91db3bd" prot="public">
+          <name>Truncate</name>
+          <initializer>= 1 &lt;&lt; 3</initializer>
+          <briefdescription>
+<para>Truncate existing contents on open. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespaceRADCore_1aefc7037828eebd6f6c85bda2ea2b2852a9dffbf69ffba8bc38bc4e01abf4b1675" prot="public">
+          <name>Text</name>
+          <initializer>= 1 &lt;&lt; 4</initializer>
+          <briefdescription>
+<para>Text mode hint for platform-specific devices. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>Open mode flags shared by <ref refid="classRADCore_1_1RADIODevice" kindref="compound">RADIODevice</ref>, <ref refid="classRADCore_1_1RADFile" kindref="compound">RADFile</ref>, and <ref refid="classRADCore_1_1RADBuffer" kindref="compound">RADBuffer</ref>. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADCore/headers/RADCore.h" line="325" column="5" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADCore/headers/RADCore.h" bodystart="325" bodyend="340"/>
+      </memberdef>
+      <memberdef kind="enum" id="namespaceRADCore_1a2978a0330f6422a32756d3a280409311" prot="public" static="no" strong="yes">
+        <type></type>
+        <name>ByteOrder</name>
+        <enumvalue id="namespaceRADCore_1a2978a0330f6422a32756d3a280409311a3c0ba6b22b526d7fd50c3026435a8c02" prot="public">
+          <name>LittleEndian</name>
+          <briefdescription>
+<para>Least significant byte first. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespaceRADCore_1a2978a0330f6422a32756d3a280409311a2ce7a92ae43763828ac4acb4560c2a5b" prot="public">
+          <name>BigEndian</name>
+          <briefdescription>
+<para>Most significant byte first. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>Byte order used by <ref refid="classRADCore_1_1RADDataStream" kindref="compound">RADDataStream</ref>. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADCore/headers/RADCore.h" line="360" column="5" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADCore/headers/RADCore.h" bodystart="360" bodyend="365"/>
+      </memberdef>
+      <memberdef kind="enum" id="namespaceRADCore_1aa8c90fdf4affbca3fa05ccd2adb3d4ef" prot="public" static="no" strong="yes">
+        <type></type>
+        <name>DataStreamStatus</name>
+        <enumvalue id="namespaceRADCore_1aa8c90fdf4affbca3fa05ccd2adb3d4efaa60852f204ed8028c1c58808b746d115" prot="public">
+          <name>Ok</name>
+          <briefdescription>
+<para>No stream error. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespaceRADCore_1aa8c90fdf4affbca3fa05ccd2adb3d4eface7542dae20e1b35a357772636c774af" prot="public">
+          <name>ReadPastEnd</name>
+          <briefdescription>
+<para>A read requested more bytes than available. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespaceRADCore_1aa8c90fdf4affbca3fa05ccd2adb3d4efa490d6710e12fd4a37fb7e42b4d46b1fa" prot="public">
+          <name>WriteFailed</name>
+          <briefdescription>
+<para>A write operation failed. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespaceRADCore_1aa8c90fdf4affbca3fa05ccd2adb3d4efa723ee677cab1d41ba376d588d78146ed" prot="public">
+          <name>ReadFailed</name>
+          <briefdescription>
+<para>A read operation failed. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>Read/write status for <ref refid="classRADCore_1_1RADDataStream" kindref="compound">RADDataStream</ref>. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADCore/headers/RADCore.h" line="368" column="5" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADCore/headers/RADCore.h" bodystart="368" bodyend="377"/>
+      </memberdef>
+      <memberdef kind="enum" id="namespaceRADCore_1a1486d034856955c9c34bccd15a5e2016" prot="public" static="no" strong="yes">
+        <type></type>
+        <name>VariantType</name>
+        <enumvalue id="namespaceRADCore_1a1486d034856955c9c34bccd15a5e2016a4bbb8f967da6d1a610596d7257179c2b" prot="public">
+          <name>Invalid</name>
+          <briefdescription>
+<para>No stored value. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespaceRADCore_1a1486d034856955c9c34bccd15a5e2016ac26f15e86e3de4c398a8273272aba034" prot="public">
+          <name>Bool</name>
+          <briefdescription>
+<para>Boolean value. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespaceRADCore_1a1486d034856955c9c34bccd15a5e2016afbde23b11d7e59af7828e81144c8b487" prot="public">
+          <name>Int64</name>
+          <briefdescription>
+<para>Signed 64-bit integer value. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespaceRADCore_1a1486d034856955c9c34bccd15a5e2016ad909d38d705ce75386dd86e611a82f5b" prot="public">
+          <name>Double</name>
+          <briefdescription>
+<para>Double-precision floating point value. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespaceRADCore_1a1486d034856955c9c34bccd15a5e2016a27118326006d3829667a400ad23d5d98" prot="public">
+          <name>String</name>
+          <briefdescription>
+<para>UTF-8 string value. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespaceRADCore_1a1486d034856955c9c34bccd15a5e2016a29d83f0080e24c1f4b3975dc9ff9e868" prot="public">
+          <name>ByteArray</name>
+          <briefdescription>
+<para>Byte array value. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>Runtime type tag for <ref refid="classRADCore_1_1RADVariant" kindref="compound">RADVariant</ref>. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADCore/headers/RADCore.h" line="380" column="5" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADCore/headers/RADCore.h" bodystart="380" bodyend="393"/>
+      </memberdef>
+      <memberdef kind="enum" id="namespaceRADCore_1a5f7e427e1f4234007cd6ab3854beb3f1" prot="public" static="no" strong="yes">
+        <type></type>
+        <name>JsonType</name>
+        <enumvalue id="namespaceRADCore_1a5f7e427e1f4234007cd6ab3854beb3f1abbb93ef26e3c101ff11cdd21cab08a94" prot="public">
+          <name>Null</name>
+          <briefdescription>
+<para>JSON null. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespaceRADCore_1a5f7e427e1f4234007cd6ab3854beb3f1ac26f15e86e3de4c398a8273272aba034" prot="public">
+          <name>Bool</name>
+          <briefdescription>
+<para>JSON boolean. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespaceRADCore_1a5f7e427e1f4234007cd6ab3854beb3f1ab2ee912b91d69b435159c7c3f6df7f5f" prot="public">
+          <name>Number</name>
+          <briefdescription>
+<para>JSON number. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespaceRADCore_1a5f7e427e1f4234007cd6ab3854beb3f1a27118326006d3829667a400ad23d5d98" prot="public">
+          <name>String</name>
+          <briefdescription>
+<para>JSON string. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespaceRADCore_1a5f7e427e1f4234007cd6ab3854beb3f1a4410ec34d9e6c1a68100ca0ce033fb17" prot="public">
+          <name>Array</name>
+          <briefdescription>
+<para>JSON array. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespaceRADCore_1a5f7e427e1f4234007cd6ab3854beb3f1a497031794414a552435f90151ac3b54b" prot="public">
+          <name>Object</name>
+          <briefdescription>
+<para>JSON object. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>JSON value type tag. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADCore/headers/RADCore.h" line="525" column="5" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADCore/headers/RADCore.h" bodystart="525" bodyend="538"/>
+      </memberdef>
+      <memberdef kind="enum" id="namespaceRADCore_1ad8ca1405788b77553fa27fa95724fb11" prot="public" static="no" strong="yes">
+        <type></type>
+        <name>ProcessState</name>
+        <enumvalue id="namespaceRADCore_1ad8ca1405788b77553fa27fa95724fb11ae457ff7a83d0a8681fa483f898788515" prot="public">
+          <name>NotRunning</name>
+          <briefdescription>
+<para>Process has not started. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespaceRADCore_1ad8ca1405788b77553fa27fa95724fb11a5bda814c4aedb126839228f1a3d92f09" prot="public">
+          <name>Running</name>
+          <briefdescription>
+<para>Process is running. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespaceRADCore_1ad8ca1405788b77553fa27fa95724fb11a8f3d10eb21bd36347c258679eba9e92b" prot="public">
+          <name>Finished</name>
+          <briefdescription>
+<para>Process exited. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespaceRADCore_1ad8ca1405788b77553fa27fa95724fb11a4ace348995a664f8a904bc8263043797" prot="public">
+          <name>FailedToStart</name>
+          <briefdescription>
+<para>Process failed to start. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>Process lifecycle state. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADCore/headers/RADCore.h" line="886" column="5" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADCore/headers/RADCore.h" bodystart="886" bodyend="895"/>
+      </memberdef>
+      <memberdef kind="enum" id="namespaceRADCore_1af2f1841363b4c8e95aa265b37517f5db" prot="public" static="no" strong="yes">
+        <type></type>
+        <name>LoopStrategy</name>
+        <enumvalue id="namespaceRADCore_1af2f1841363b4c8e95aa265b37517f5dba9d9a09d2d7453ba260b882e9e94af7f2" prot="public">
+          <name>RADEVENT_LOCK</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespaceRADCore_1af2f1841363b4c8e95aa265b37517f5dba13afcf53d1263459a87daccd325ab60e" prot="public">
+          <name>RADEVENT_NOLOCK</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para><ref refid="classRADCore_1_1Event" kindref="compound">Event</ref> loop scheduling backend. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADCore/headers/RADCore.h" line="918" column="5" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADCore/headers/RADCore.h" bodystart="918" bodyend="918"/>
+      </memberdef>
+      <memberdef kind="enum" id="namespaceRADCore_1a4de049d4dcbcb9966555c97284affd7c" prot="public" static="no" strong="yes">
+        <type>int</type>
+        <name>Priority</name>
+        <enumvalue id="namespaceRADCore_1a4de049d4dcbcb9966555c97284affd7ca41bc94cbd8eebea13ce0491b2ac11b88" prot="public">
+          <name>LOW</name>
+          <initializer>= 0</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespaceRADCore_1a4de049d4dcbcb9966555c97284affd7ca1e23852820b9154316c7c06e2b7ba051" prot="public">
+          <name>NORMAL</name>
+          <initializer>= 1</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespaceRADCore_1a4de049d4dcbcb9966555c97284affd7cab89de3b4b81c4facfac906edf29aec8c" prot="public">
+          <name>HIGH</name>
+          <initializer>= 2</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para><ref refid="classRADCore_1_1Event" kindref="compound">Event</ref> loop task priority. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADCore/headers/RADCore.h" line="924" column="5" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADCore/headers/RADCore.h" bodystart="924" bodyend="924"/>
+      </memberdef>
+      <memberdef kind="enum" id="namespaceRADCore_1a937659aa8d64a9943a3382392c60bbc6" prot="public" static="no" strong="yes">
+        <type></type>
+        <name>FileSystemEvent</name>
+        <enumvalue id="namespaceRADCore_1a937659aa8d64a9943a3382392c60bbc6a0eceeb45861f9585dd7a97a3e36f85c6" prot="public">
+          <name>Created</name>
+          <briefdescription>
+<para>File or directory was created. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespaceRADCore_1a937659aa8d64a9943a3382392c60bbc6a35e0c8c0b180c95d4e122e55ed62cc64" prot="public">
+          <name>Modified</name>
+          <briefdescription>
+<para>File or directory was modified. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespaceRADCore_1a937659aa8d64a9943a3382392c60bbc6a93f07b720ebf7d1246512569761a5804" prot="public">
+          <name>Removed</name>
+          <briefdescription>
+<para>File or directory was removed. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespaceRADCore_1a937659aa8d64a9943a3382392c60bbc6a95bfdefaaf01553cbf21ccd942855c69" prot="public">
+          <name>Moved</name>
+          <briefdescription>
+<para>File or directory was moved. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespaceRADCore_1a937659aa8d64a9943a3382392c60bbc6a129e8109f319870e328cc7a1d5b5cae3" prot="public">
+          <name>Overflow</name>
+          <briefdescription>
+<para>Watcher event queue overflowed. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespaceRADCore_1a937659aa8d64a9943a3382392c60bbc6a200af01cbab6a87a89f3a733c9b89f89" prot="public">
+          <name>WatchLost</name>
+          <briefdescription>
+<para>Watch was lost. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespaceRADCore_1a937659aa8d64a9943a3382392c60bbc6a88183b946cc5f0e8c96b2e66e1c74a7e" prot="public">
+          <name>Unknown</name>
+          <briefdescription>
+<para><ref refid="classRADCore_1_1Event" kindref="compound">Event</ref> type could not be classified. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>File watcher event type. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADCore/headers/RADCore.h" line="1476" column="5" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADCore/headers/RADCore.h" bodystart="1476" bodyend="1491"/>
+      </memberdef>
+      <memberdef kind="enum" id="namespaceRADCore_1adba067bcb67349515b1d2010a775ebe3" prot="public" static="no" strong="yes">
+        <type></type>
+        <name>LogLevel</name>
+        <enumvalue id="namespaceRADCore_1adba067bcb67349515b1d2010a775ebe3a551b723eafd6a31d444fcb2f5920fbd3" prot="public">
+          <name>INFO</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespaceRADCore_1adba067bcb67349515b1d2010a775ebe3adc30ec20708ef7b0f641ef78b7880a15" prot="public">
+          <name>DEBUG</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>Logger severity level. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADCore/headers/RADCore.h" line="1956" column="5" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADCore/headers/RADCore.h" bodystart="1956" bodyend="1956"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="typedef">
+      <memberdef kind="typedef" id="namespaceRADCore_1a86d2e765f95e1ef4810cb85ca8c45550" prot="public" static="no">
+        <type><ref refid="classRADCore_1_1RADSpan" kindref="compound">RADSpan</ref>&lt; uint8_t &gt;</type>
+        <definition>using RADCore::RADByteSpan = typedef RADSpan&lt;uint8_t&gt;</definition>
+        <argsstring></argsstring>
+        <name>RADByteSpan</name>
+        <briefdescription>
+<para>Mutable byte span. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADCore/headers/RADCore.h" line="238" column="5" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADCore/headers/RADCore.h" bodystart="238" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="namespaceRADCore_1aa65e424f594e6262b7c8c3b43735723b" prot="public" static="no">
+        <type><ref refid="classRADCore_1_1RADSpan" kindref="compound">RADSpan</ref>&lt; const uint8_t &gt;</type>
+        <definition>using RADCore::RADConstByteSpan = typedef RADSpan&lt;const uint8_t&gt;</definition>
+        <argsstring></argsstring>
+        <name>RADConstByteSpan</name>
+        <briefdescription>
+<para>Const byte span. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADCore/headers/RADCore.h" line="240" column="5" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADCore/headers/RADCore.h" bodystart="240" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="var">
+      <memberdef kind="variable" id="namespaceRADCore_1a117c7cd95614240ffd39f3af666d2a30" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr int</type>
+        <definition>constexpr int RADCore::VersionMajor</definition>
+        <argsstring></argsstring>
+        <name>VersionMajor</name>
+        <initializer>= 0</initializer>
+        <briefdescription>
+<para>Compile-time <ref refid="namespaceRADCore" kindref="compound">RADCore</ref> major version. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADCore/headers/RADCore.h" line="116" column="19" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADCore/headers/RADCore.h" bodystart="116" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceRADCore_1af881d413ac50531b609ac2c2cf8d4ba4" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr int</type>
+        <definition>constexpr int RADCore::VersionMinor</definition>
+        <argsstring></argsstring>
+        <name>VersionMinor</name>
+        <initializer>= 1</initializer>
+        <briefdescription>
+<para>Compile-time <ref refid="namespaceRADCore" kindref="compound">RADCore</ref> minor version. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADCore/headers/RADCore.h" line="118" column="19" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADCore/headers/RADCore.h" bodystart="118" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceRADCore_1a015a8065c217ebb2629d983d7fb550f5" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr <ref refid="namespaceRADCore_1af2f1841363b4c8e95aa265b37517f5db" kindref="member">LoopStrategy</ref></type>
+        <definition>constexpr LoopStrategy RADCore::RADEVENT_LOCK</definition>
+        <argsstring></argsstring>
+        <name>RADEVENT_LOCK</name>
+        <initializer>= LoopStrategy::RADEVENT_LOCK</initializer>
+        <briefdescription>
+<para>Mutex/condition-variable event loop backend. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADCore/headers/RADCore.h" line="920" column="28" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADCore/headers/RADCore.h" bodystart="920" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceRADCore_1ac7bacf02c76bdedb2ee302ae5be89ace" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr <ref refid="namespaceRADCore_1af2f1841363b4c8e95aa265b37517f5db" kindref="member">LoopStrategy</ref></type>
+        <definition>constexpr LoopStrategy RADCore::RADEVENT_NOLOCK</definition>
+        <argsstring></argsstring>
+        <name>RADEVENT_NOLOCK</name>
+        <initializer>= LoopStrategy::RADEVENT_NOLOCK</initializer>
+        <briefdescription>
+<para>Low-latency bounded ring event loop backend. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADCore/headers/RADCore.h" line="922" column="28" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADCore/headers/RADCore.h" bodystart="922" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="namespaceRADCore_1a92bbfe1d560471f6014f5b5d5a2d4d1b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>const char *</type>
+        <definition>const char* RADCore::runtimeEdition</definition>
+        <argsstring>()</argsstring>
+        <name>runtimeEdition</name>
+        <briefdescription>
+<para>Returns the edition used to build the loaded <ref refid="namespaceRADCore" kindref="compound">RADCore</ref> runtime library. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADCore/headers/RADCore.h" line="120" column="16" declfile="/media/jvincent/Kingspec512/repos/RADLib/RADCore/headers/RADCore.h" declline="120" declcolumn="16"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceRADCore_1aa673e9453fb6ebe58dab078ba2b2ce4c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool RADCore::runtimeRequiresLicenseKey</definition>
+        <argsstring>()</argsstring>
+        <name>runtimeRequiresLicenseKey</name>
+        <briefdescription>
+<para>Returns true when the loaded <ref refid="namespaceRADCore" kindref="compound">RADCore</ref> runtime expects a paid license key. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADCore/headers/RADCore.h" line="122" column="10" declfile="/media/jvincent/Kingspec512/repos/RADLib/RADCore/headers/RADCore.h" declline="122" declcolumn="10"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceRADCore_1abd370291b54323d3fd0003c1c679e69f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>const char *</type>
+        <definition>const char* RADCore::runtimeAuditStamp</definition>
+        <argsstring>()</argsstring>
+        <name>runtimeAuditStamp</name>
+        <briefdescription>
+<para>Returns a stable runtime audit stamp suitable for diagnostics. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADCore/headers/RADCore.h" line="124" column="16" declfile="/media/jvincent/Kingspec512/repos/RADLib/RADCore/headers/RADCore.h" declline="124" declcolumn="16"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceRADCore_1a910d8a7978b904939ac6bdad7207f12a" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>constexpr <ref refid="namespaceRADCore_1aefc7037828eebd6f6c85bda2ea2b2852" kindref="member">OpenMode</ref></type>
+        <definition>constexpr OpenMode RADCore::operator|</definition>
+        <argsstring>(OpenMode lhs, OpenMode rhs)</argsstring>
+        <name>operator|</name>
+        <param>
+          <type><ref refid="namespaceRADCore_1aefc7037828eebd6f6c85bda2ea2b2852" kindref="member">OpenMode</ref></type>
+          <declname>lhs</declname>
+        </param>
+        <param>
+          <type><ref refid="namespaceRADCore_1aefc7037828eebd6f6c85bda2ea2b2852" kindref="member">OpenMode</ref></type>
+          <declname>rhs</declname>
+        </param>
+        <briefdescription>
+<para>Combines OpenMode flags. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADCore/headers/RADCore.h" line="343" column="24" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADCore/headers/RADCore.h" bodystart="343" bodyend="346"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceRADCore_1a3b48de43d71e3d2e70f4ae37c691ed6e" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>constexpr <ref refid="namespaceRADCore_1aefc7037828eebd6f6c85bda2ea2b2852" kindref="member">OpenMode</ref></type>
+        <definition>constexpr OpenMode RADCore::operator&amp;</definition>
+        <argsstring>(OpenMode lhs, OpenMode rhs)</argsstring>
+        <name>operator&amp;</name>
+        <param>
+          <type><ref refid="namespaceRADCore_1aefc7037828eebd6f6c85bda2ea2b2852" kindref="member">OpenMode</ref></type>
+          <declname>lhs</declname>
+        </param>
+        <param>
+          <type><ref refid="namespaceRADCore_1aefc7037828eebd6f6c85bda2ea2b2852" kindref="member">OpenMode</ref></type>
+          <declname>rhs</declname>
+        </param>
+        <briefdescription>
+<para>Intersects OpenMode flags. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADCore/headers/RADCore.h" line="349" column="24" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADCore/headers/RADCore.h" bodystart="349" bodyend="352"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceRADCore_1a338fa32d8ceba072bd2be2609b2ff470" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>constexpr bool</type>
+        <definition>constexpr bool RADCore::hasOpenMode</definition>
+        <argsstring>(OpenMode mode, OpenMode flag)</argsstring>
+        <name>hasOpenMode</name>
+        <param>
+          <type><ref refid="namespaceRADCore_1aefc7037828eebd6f6c85bda2ea2b2852" kindref="member">OpenMode</ref></type>
+          <declname>mode</declname>
+        </param>
+        <param>
+          <type><ref refid="namespaceRADCore_1aefc7037828eebd6f6c85bda2ea2b2852" kindref="member">OpenMode</ref></type>
+          <declname>flag</declname>
+        </param>
+        <briefdescription>
+<para>Returns true when mode includes flag. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADCore/headers/RADCore.h" line="355" column="20" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADCore/headers/RADCore.h" bodystart="355" bodyend="357"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceRADCore_1a84e87efd909b8e13061f60584277b55d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void RADCore::singleShot</definition>
+        <argsstring>(int intervalMs, EventLoop &amp;targetLoop, EventLoop::Task task)</argsstring>
+        <name>singleShot</name>
+        <param>
+          <type>int</type>
+          <declname>intervalMs</declname>
+        </param>
+        <param>
+          <type><ref refid="classRADCore_1_1EventLoop" kindref="compound">EventLoop</ref> &amp;</type>
+          <declname>targetLoop</declname>
+        </param>
+        <param>
+          <type><ref refid="classRADCore_1_1EventLoop_1ab34901f431f7f82c7c5f58cc1c62aa83" kindref="member">EventLoop::Task</ref></type>
+          <declname>task</declname>
+        </param>
+        <briefdescription>
+<para>Posts task to targetLoop after intervalMs milliseconds. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADCore/headers/RADCore.h" line="1059" column="10" declfile="/media/jvincent/Kingspec512/repos/RADLib/RADCore/headers/RADCore.h" declline="1059" declcolumn="10"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceRADCore_1ac4371b61cc355e9e15f5c83f53ec6ff4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename F</type>
+          </param>
+        </templateparamlist>
+        <type>void</type>
+        <definition>void RADCore::invoke</definition>
+        <argsstring>(EventLoop &amp;loop, F &amp;&amp;task)</argsstring>
+        <name>invoke</name>
+        <param>
+          <type><ref refid="classRADCore_1_1EventLoop" kindref="compound">EventLoop</ref> &amp;</type>
+          <declname>loop</declname>
+        </param>
+        <param>
+          <type>F &amp;&amp;</type>
+          <declname>task</declname>
+        </param>
+        <briefdescription>
+<para>Posts task to loop. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADCore/headers/RADCore.h" line="1063" column="10" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADCore/headers/RADCore.h" bodystart="1063" bodyend="1065"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceRADCore_1a33faa1988fcf26ad66804f4dcd8dbec9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename F</type>
+          </param>
+        </templateparamlist>
+        <type>auto</type>
+        <definition>auto RADCore::invokeBlocking</definition>
+        <argsstring>(EventLoop &amp;loop, F &amp;&amp;task) -&gt; std::invoke_result_t&lt; F &gt;</argsstring>
+        <name>invokeBlocking</name>
+        <param>
+          <type><ref refid="classRADCore_1_1EventLoop" kindref="compound">EventLoop</ref> &amp;</type>
+          <declname>loop</declname>
+        </param>
+        <param>
+          <type>F &amp;&amp;</type>
+          <declname>task</declname>
+        </param>
+        <briefdescription>
+<para>Posts task to loop and blocks until the result is available. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADCore/headers/RADCore.h" line="1069" column="10" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADCore/headers/RADCore.h" bodystart="1069" bodyend="1104"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceRADCore_1a608f036372cbabe20c9421a97e28eeac" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void RADCore::initLogger</definition>
+        <argsstring>()</argsstring>
+        <name>initLogger</name>
+        <briefdescription>
+<para>Starts the background logging engine. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADCore/headers/RADCore.h" line="1959" column="10" declfile="/media/jvincent/Kingspec512/repos/RADLib/RADCore/headers/RADCore.h" declline="1959" declcolumn="10"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceRADCore_1a2ff1f13c2127b1f951d3dc9f57c12c7e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void RADCore::shutdownLogger</definition>
+        <argsstring>()</argsstring>
+        <name>shutdownLogger</name>
+        <briefdescription>
+<para>Stops the background logging engine. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADCore/headers/RADCore.h" line="1961" column="10" declfile="/media/jvincent/Kingspec512/repos/RADLib/RADCore/headers/RADCore.h" declline="1961" declcolumn="10"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/media/jvincent/Kingspec512/repos/RADLib/RADCore/headers/RADCore.h" line="113" column="1"/>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,82 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="structRADUi_1_1PlotSeriesSnapshot" kind="struct" language="C++" prot="public">
+    <compoundname>RADUi::PlotSeriesSnapshot</compoundname>
+    <includes refid="RADPlot_8h" local="no">RADPlot.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structRADUi_1_1PlotSeriesSnapshot_1a59a70c49d0aa2e150ced226daac1110e" prot="public" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string RADUi::PlotSeriesSnapshot::name</definition>
+        <argsstring></argsstring>
+        <name>name</name>
+        <briefdescription>
+<para>Display name for the series. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADPlot.h" line="67" column="21" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADPlot.h" bodystart="67" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structRADUi_1_1PlotSeriesSnapshot_1a960229304fc32139741a203ff2b64870" prot="public" static="no" mutable="no">
+        <type><ref refid="structRADUi_1_1PlotSeriesStyle" kindref="compound">PlotSeriesStyle</ref></type>
+        <definition>PlotSeriesStyle RADUi::PlotSeriesSnapshot::style</definition>
+        <argsstring></argsstring>
+        <name>style</name>
+        <briefdescription>
+<para>Rendering style copied from the model. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADPlot.h" line="69" column="25" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADPlot.h" bodystart="69" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structRADUi_1_1PlotSeriesSnapshot_1ad8fad3c45685fd896806d666ec2774b2" prot="public" static="no" mutable="no">
+        <type>std::vector&lt; <ref refid="structRADUi_1_1PlotPoint" kindref="compound">PlotPoint</ref> &gt;</type>
+        <definition>std::vector&lt;PlotPoint&gt; RADUi::PlotSeriesSnapshot::points</definition>
+        <argsstring></argsstring>
+        <name>points</name>
+        <briefdescription>
+<para>Series points copied from the model. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADPlot.h" line="71" column="21" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADPlot.h" bodystart="71" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Immutable copy of one series for renderer consumption. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="2">
+        <label>RADUi::PlotSeriesStyle</label>
+        <link refid="structRADUi_1_1PlotSeriesStyle"/>
+        <childnode refid="3" relation="usage">
+          <edgelabel>color</edgelabel>
+        </childnode>
+      </node>
+      <node id="3">
+        <label>RADUi::PlotColor</label>
+        <link refid="structRADUi_1_1PlotColor"/>
+      </node>
+      <node id="1">
+        <label>RADUi::PlotSeriesSnapshot</label>
+        <link refid="structRADUi_1_1PlotSeriesSnapshot"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>style</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADPlot.h" line="65" column="5" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADPlot.h" bodystart="65" bodyend="72"/>
+    <listofallmembers>
+      <member refid="structRADUi_1_1PlotSeriesSnapshot_1a59a70c49d0aa2e150ced226daac1110e" prot="public" virt="non-virtual"><scope>RADUi::PlotSeriesSnapshot</scope><name>name</name></member>
+      <member refid="structRADUi_1_1PlotSeriesSnapshot_1ad8fad3c45685fd896806d666ec2774b2" prot="public" virt="non-virtual"><scope>RADUi::PlotSeriesSnapshot</scope><name>points</name></member>
+      <member refid="structRADUi_1_1PlotSeriesSnapshot_1a960229304fc32139741a203ff2b64870" prot="public" virt="non-virtual"><scope>RADUi::PlotSeriesSnapshot</scope><name>style</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

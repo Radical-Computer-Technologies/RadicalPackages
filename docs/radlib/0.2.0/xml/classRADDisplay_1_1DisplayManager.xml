@@ -1,0 +1,162 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="classRADDisplay_1_1DisplayManager" kind="class" language="C++" prot="public">
+    <compoundname>RADDisplay::DisplayManager</compoundname>
+    <includes refid="RADDisplay_8h" local="no">RADDisplay.h</includes>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classRADDisplay_1_1DisplayManager_1a5ad0c5a8908cf5e2983bc13bdd7bbabc" prot="private" static="no" mutable="no">
+        <type><ref refid="structRADDisplay_1_1DisplayPaths" kindref="compound">DisplayPaths</ref></type>
+        <definition>DisplayPaths RADDisplay::DisplayManager::paths_</definition>
+        <argsstring></argsstring>
+        <name>paths_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDisplay/headers/RADDisplay.h" line="99" column="22" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADDisplay/headers/RADDisplay.h" bodystart="99" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classRADDisplay_1_1DisplayManager_1a7797062580ae8a959c52d7390e5806a6" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>RADDisplay::DisplayManager::DisplayManager</definition>
+        <argsstring>(DisplayPaths paths={})</argsstring>
+        <name>DisplayManager</name>
+        <param>
+          <type><ref refid="structRADDisplay_1_1DisplayPaths" kindref="compound">DisplayPaths</ref></type>
+          <declname>paths</declname>
+          <defval>{}</defval>
+        </param>
+        <briefdescription>
+<para>Creates a display manager using paths. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDisplay/headers/RADDisplay.h" line="84" column="18"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADDisplay_1_1DisplayManager_1aeaf51e9c2fe71e3cd5e6825691fcbf27" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structRADDisplay_1_1DisplayCapabilities" kindref="compound">DisplayCapabilities</ref></type>
+        <definition>DisplayCapabilities RADDisplay::DisplayManager::capabilities</definition>
+        <argsstring>() const</argsstring>
+        <name>capabilities</name>
+        <briefdescription>
+<para>Returns display backend capability flags. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDisplay/headers/RADDisplay.h" line="86" column="29"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADDisplay_1_1DisplayManager_1ad3cb904157a14470b4e9f90f6798ca12" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>std::vector&lt; <ref refid="structRADDisplay_1_1DisplayInfo" kindref="compound">DisplayInfo</ref> &gt;</type>
+        <definition>std::vector&lt;DisplayInfo&gt; RADDisplay::DisplayManager::displays</definition>
+        <argsstring>() const</argsstring>
+        <name>displays</name>
+        <briefdescription>
+<para>Lists DRM connectors and framebuffer nodes. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDisplay/headers/RADDisplay.h" line="88" column="21"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADDisplay_1_1DisplayManager_1ad3ee2c5fe199bc5c3fe5ceddbba5959a" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>std::vector&lt; <ref refid="structRADDisplay_1_1BacklightInfo" kindref="compound">BacklightInfo</ref> &gt;</type>
+        <definition>std::vector&lt;BacklightInfo&gt; RADDisplay::DisplayManager::backlights</definition>
+        <argsstring>() const</argsstring>
+        <name>backlights</name>
+        <briefdescription>
+<para>Lists backlight devices. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDisplay/headers/RADDisplay.h" line="90" column="21"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADDisplay_1_1DisplayManager_1abc1081b36460a9e92d79c1843555deaa" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool RADDisplay::DisplayManager::setBacklightBrightness</definition>
+        <argsstring>(const std::string &amp;name, int brightness, std::string *error=nullptr) const</argsstring>
+        <name>setBacklightBrightness</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>name</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>brightness</declname>
+        </param>
+        <param>
+          <type>std::string *</type>
+          <declname>error</declname>
+          <defval>nullptr</defval>
+        </param>
+        <briefdescription>
+<para>Writes brightness to a backlight device. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDisplay/headers/RADDisplay.h" line="92" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADDisplay_1_1DisplayManager_1ac89d750f065c7b164daea1401e0e349b" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>const <ref refid="structRADDisplay_1_1DisplayPaths" kindref="compound">DisplayPaths</ref> &amp;</type>
+        <definition>const DisplayPaths&amp; RADDisplay::DisplayManager::paths</definition>
+        <argsstring>() const</argsstring>
+        <name>paths</name>
+        <briefdescription>
+<para>Returns configured paths. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDisplay/headers/RADDisplay.h" line="96" column="28"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="classRADDisplay_1_1DisplayManager_1ac5d544d7de2239dbeb06e8c7a20adf5b" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::string</type>
+        <definition>static std::string RADDisplay::DisplayManager::orientationName</definition>
+        <argsstring>(Orientation orientation)</argsstring>
+        <name>orientationName</name>
+        <param>
+          <type><ref refid="namespaceRADDisplay_1a7bbf4a8899a6778aff0e634c9b43add5" kindref="member">Orientation</ref></type>
+          <declname>orientation</declname>
+        </param>
+        <briefdescription>
+<para>Returns a compositor/backend-friendly orientation string. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDisplay/headers/RADDisplay.h" line="94" column="28"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Display discovery and control helpers. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDisplay/headers/RADDisplay.h" line="81" column="5" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADDisplay/headers/RADDisplay.h" bodystart="81" bodyend="100"/>
+    <listofallmembers>
+      <member refid="classRADDisplay_1_1DisplayManager_1ad3ee2c5fe199bc5c3fe5ceddbba5959a" prot="public" virt="non-virtual"><scope>RADDisplay::DisplayManager</scope><name>backlights</name></member>
+      <member refid="classRADDisplay_1_1DisplayManager_1aeaf51e9c2fe71e3cd5e6825691fcbf27" prot="public" virt="non-virtual"><scope>RADDisplay::DisplayManager</scope><name>capabilities</name></member>
+      <member refid="classRADDisplay_1_1DisplayManager_1a7797062580ae8a959c52d7390e5806a6" prot="public" virt="non-virtual"><scope>RADDisplay::DisplayManager</scope><name>DisplayManager</name></member>
+      <member refid="classRADDisplay_1_1DisplayManager_1ad3cb904157a14470b4e9f90f6798ca12" prot="public" virt="non-virtual"><scope>RADDisplay::DisplayManager</scope><name>displays</name></member>
+      <member refid="classRADDisplay_1_1DisplayManager_1ac5d544d7de2239dbeb06e8c7a20adf5b" prot="public" virt="non-virtual"><scope>RADDisplay::DisplayManager</scope><name>orientationName</name></member>
+      <member refid="classRADDisplay_1_1DisplayManager_1ac89d750f065c7b164daea1401e0e349b" prot="public" virt="non-virtual"><scope>RADDisplay::DisplayManager</scope><name>paths</name></member>
+      <member refid="classRADDisplay_1_1DisplayManager_1a5ad0c5a8908cf5e2983bc13bdd7bbabc" prot="private" virt="non-virtual"><scope>RADDisplay::DisplayManager</scope><name>paths_</name></member>
+      <member refid="classRADDisplay_1_1DisplayManager_1abc1081b36460a9e92d79c1843555deaa" prot="public" virt="non-virtual"><scope>RADDisplay::DisplayManager</scope><name>setBacklightBrightness</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

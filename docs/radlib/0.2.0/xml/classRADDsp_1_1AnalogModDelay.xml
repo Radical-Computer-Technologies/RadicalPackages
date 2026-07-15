@@ -1,0 +1,291 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="classRADDsp_1_1AnalogModDelay" kind="class" language="C++" prot="public">
+    <compoundname>RADDsp::AnalogModDelay</compoundname>
+    <includes refid="RADDsp_8h" local="no">RADDsp.h</includes>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classRADDsp_1_1AnalogModDelay_1a2cd1e5d574282ed5fc23fb1d4ddf7b72" prot="private" static="no" mutable="no">
+        <type><ref refid="structRADDsp_1_1AnalogDelaySettings" kindref="compound">AnalogDelaySettings</ref></type>
+        <definition>AnalogDelaySettings RADDsp::AnalogModDelay::settings_</definition>
+        <argsstring></argsstring>
+        <name>settings_</name>
+        <initializer>{}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDsp/headers/RADDsp.h" line="299" column="29" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADDsp/headers/RADDsp.h" bodystart="299" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classRADDsp_1_1AnalogModDelay_1a341f0532728f7c0966505fe50ca02a16" prot="private" static="no" mutable="no">
+        <type>std::vector&lt; float &gt;</type>
+        <definition>std::vector&lt;float&gt; RADDsp::AnalogModDelay::bufferL_</definition>
+        <argsstring></argsstring>
+        <name>bufferL_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDsp/headers/RADDsp.h" line="300" column="21" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADDsp/headers/RADDsp.h" bodystart="300" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classRADDsp_1_1AnalogModDelay_1a0f0dbe920f7397cc47223efb6b83ca05" prot="private" static="no" mutable="no">
+        <type>std::vector&lt; float &gt;</type>
+        <definition>std::vector&lt;float&gt; RADDsp::AnalogModDelay::bufferR_</definition>
+        <argsstring></argsstring>
+        <name>bufferR_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDsp/headers/RADDsp.h" line="301" column="21" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADDsp/headers/RADDsp.h" bodystart="301" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classRADDsp_1_1AnalogModDelay_1aa6a7fb1b09354747b6ed558a1780e247" prot="private" static="no" mutable="no">
+        <type>size_t</type>
+        <definition>size_t RADDsp::AnalogModDelay::writeIndex_</definition>
+        <argsstring></argsstring>
+        <name>writeIndex_</name>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDsp/headers/RADDsp.h" line="302" column="16" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADDsp/headers/RADDsp.h" bodystart="302" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classRADDsp_1_1AnalogModDelay_1a7f45e1c04701a8dcc58f0712abc6ac69" prot="private" static="no" mutable="no">
+        <type>float</type>
+        <definition>float RADDsp::AnalogModDelay::toneStateL_</definition>
+        <argsstring></argsstring>
+        <name>toneStateL_</name>
+        <initializer>= 0.0f</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDsp/headers/RADDsp.h" line="303" column="15" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADDsp/headers/RADDsp.h" bodystart="303" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classRADDsp_1_1AnalogModDelay_1ab1179846fb7d5aac72c349a25994cfb9" prot="private" static="no" mutable="no">
+        <type>float</type>
+        <definition>float RADDsp::AnalogModDelay::toneStateR_</definition>
+        <argsstring></argsstring>
+        <name>toneStateR_</name>
+        <initializer>= 0.0f</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDsp/headers/RADDsp.h" line="304" column="15" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADDsp/headers/RADDsp.h" bodystart="304" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classRADDsp_1_1AnalogModDelay_1a90fcc952f39e7bee18cbacb73da9c71c" prot="private" static="no" mutable="no">
+        <type>float</type>
+        <definition>float RADDsp::AnalogModDelay::lfoPhase_</definition>
+        <argsstring></argsstring>
+        <name>lfoPhase_</name>
+        <initializer>= 0.0f</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDsp/headers/RADDsp.h" line="305" column="15" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADDsp/headers/RADDsp.h" bodystart="305" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classRADDsp_1_1AnalogModDelay_1a8977b87fe0e11963616c43b31abef6f9" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>RADDsp::AnalogModDelay::AnalogModDelay</definition>
+        <argsstring>(uint32_t sampleRate=48000, float maxDelayMs=2000.0f)</argsstring>
+        <name>AnalogModDelay</name>
+        <param>
+          <type>uint32_t</type>
+          <declname>sampleRate</declname>
+          <defval>48000</defval>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>maxDelayMs</declname>
+          <defval>2000.0f</defval>
+        </param>
+        <briefdescription>
+<para>Creates an analog-style delay with sampleRate and maxDelayMs backing storage. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDsp/headers/RADDsp.h" line="281" column="18"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADDsp_1_1AnalogModDelay_1a59a971033aa4a3355989c5004d8f194a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void RADDsp::AnalogModDelay::configure</definition>
+        <argsstring>(const AnalogDelaySettings &amp;settings)</argsstring>
+        <name>configure</name>
+        <param>
+          <type>const <ref refid="structRADDsp_1_1AnalogDelaySettings" kindref="compound">AnalogDelaySettings</ref> &amp;</type>
+          <declname>settings</declname>
+        </param>
+        <briefdescription>
+<para>Applies sanitized settings and resizes backing storage when needed. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDsp/headers/RADDsp.h" line="283" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADDsp_1_1AnalogModDelay_1af0d23b8beac5c03f09006aa38987d44a" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>const <ref refid="structRADDsp_1_1AnalogDelaySettings" kindref="compound">AnalogDelaySettings</ref> &amp;</type>
+        <definition>const AnalogDelaySettings&amp; RADDsp::AnalogModDelay::settings</definition>
+        <argsstring>() const</argsstring>
+        <name>settings</name>
+        <briefdescription>
+<para>Returns the active sanitized settings. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDsp/headers/RADDsp.h" line="285" column="35"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADDsp_1_1AnalogModDelay_1a8b5170e3599b509d0655ba2d2f6effc6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void RADDsp::AnalogModDelay::setSampleRate</definition>
+        <argsstring>(uint32_t sampleRate)</argsstring>
+        <name>setSampleRate</name>
+        <param>
+          <type>uint32_t</type>
+          <declname>sampleRate</declname>
+        </param>
+        <briefdescription>
+<para>Updates sample rate while preserving timing settings. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDsp/headers/RADDsp.h" line="287" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADDsp_1_1AnalogModDelay_1a33077ee2a017ef222b1624959b39e761" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void RADDsp::AnalogModDelay::reset</definition>
+        <argsstring>()</argsstring>
+        <name>reset</name>
+        <briefdescription>
+<para>Clears delay memory, feedback filters, and LFO phase. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDsp/headers/RADDsp.h" line="289" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADDsp_1_1AnalogModDelay_1ae7f408a34bd942921484e154f07230d2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structRADDsp_1_1StereoFrame" kindref="compound">StereoFrame</ref></type>
+        <definition>StereoFrame RADDsp::AnalogModDelay::processSample</definition>
+        <argsstring>(StereoFrame input)</argsstring>
+        <name>processSample</name>
+        <param>
+          <type><ref refid="structRADDsp_1_1StereoFrame" kindref="compound">StereoFrame</ref></type>
+          <declname>input</declname>
+        </param>
+        <briefdescription>
+<para>Processes one stereo frame. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDsp/headers/RADDsp.h" line="291" column="21"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADDsp_1_1AnalogModDelay_1a73cb7b717a212661351bae11d5a7322a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::vector&lt; float &gt;</type>
+        <definition>std::vector&lt;float&gt; RADDsp::AnalogModDelay::processInterleavedStereo</definition>
+        <argsstring>(const std::vector&lt; float &gt; &amp;interleaved)</argsstring>
+        <name>processInterleavedStereo</name>
+        <param>
+          <type>const std::vector&lt; float &gt; &amp;</type>
+          <declname>interleaved</declname>
+        </param>
+        <briefdescription>
+<para>Processes interleaved stereo samples. Odd trailing samples are ignored. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDsp/headers/RADDsp.h" line="293" column="21"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="classRADDsp_1_1AnalogModDelay_1a66236175c3920b277179d727f17ab944" prot="private" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>float</type>
+        <definition>float RADDsp::AnalogModDelay::readDelay</definition>
+        <argsstring>(const std::vector&lt; float &gt; &amp;buffer, float delaySamples) const</argsstring>
+        <name>readDelay</name>
+        <param>
+          <type>const std::vector&lt; float &gt; &amp;</type>
+          <declname>buffer</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>delaySamples</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDsp/headers/RADDsp.h" line="296" column="15"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADDsp_1_1AnalogModDelay_1a263b8aa0e011cf90ee3da90ee75309d3" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void RADDsp::AnalogModDelay::resizeBuffer</definition>
+        <argsstring>()</argsstring>
+        <name>resizeBuffer</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDsp/headers/RADDsp.h" line="297" column="14"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Stereo modulated delay with low-pass feedback and soft saturation. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDsp/headers/RADDsp.h" line="278" column="5" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADDsp/headers/RADDsp.h" bodystart="278" bodyend="306"/>
+    <listofallmembers>
+      <member refid="classRADDsp_1_1AnalogModDelay_1a8977b87fe0e11963616c43b31abef6f9" prot="public" virt="non-virtual"><scope>RADDsp::AnalogModDelay</scope><name>AnalogModDelay</name></member>
+      <member refid="classRADDsp_1_1AnalogModDelay_1a341f0532728f7c0966505fe50ca02a16" prot="private" virt="non-virtual"><scope>RADDsp::AnalogModDelay</scope><name>bufferL_</name></member>
+      <member refid="classRADDsp_1_1AnalogModDelay_1a0f0dbe920f7397cc47223efb6b83ca05" prot="private" virt="non-virtual"><scope>RADDsp::AnalogModDelay</scope><name>bufferR_</name></member>
+      <member refid="classRADDsp_1_1AnalogModDelay_1a59a971033aa4a3355989c5004d8f194a" prot="public" virt="non-virtual"><scope>RADDsp::AnalogModDelay</scope><name>configure</name></member>
+      <member refid="classRADDsp_1_1AnalogModDelay_1a90fcc952f39e7bee18cbacb73da9c71c" prot="private" virt="non-virtual"><scope>RADDsp::AnalogModDelay</scope><name>lfoPhase_</name></member>
+      <member refid="classRADDsp_1_1AnalogModDelay_1a73cb7b717a212661351bae11d5a7322a" prot="public" virt="non-virtual"><scope>RADDsp::AnalogModDelay</scope><name>processInterleavedStereo</name></member>
+      <member refid="classRADDsp_1_1AnalogModDelay_1ae7f408a34bd942921484e154f07230d2" prot="public" virt="non-virtual"><scope>RADDsp::AnalogModDelay</scope><name>processSample</name></member>
+      <member refid="classRADDsp_1_1AnalogModDelay_1a66236175c3920b277179d727f17ab944" prot="private" virt="non-virtual"><scope>RADDsp::AnalogModDelay</scope><name>readDelay</name></member>
+      <member refid="classRADDsp_1_1AnalogModDelay_1a33077ee2a017ef222b1624959b39e761" prot="public" virt="non-virtual"><scope>RADDsp::AnalogModDelay</scope><name>reset</name></member>
+      <member refid="classRADDsp_1_1AnalogModDelay_1a263b8aa0e011cf90ee3da90ee75309d3" prot="private" virt="non-virtual"><scope>RADDsp::AnalogModDelay</scope><name>resizeBuffer</name></member>
+      <member refid="classRADDsp_1_1AnalogModDelay_1a8b5170e3599b509d0655ba2d2f6effc6" prot="public" virt="non-virtual"><scope>RADDsp::AnalogModDelay</scope><name>setSampleRate</name></member>
+      <member refid="classRADDsp_1_1AnalogModDelay_1af0d23b8beac5c03f09006aa38987d44a" prot="public" virt="non-virtual"><scope>RADDsp::AnalogModDelay</scope><name>settings</name></member>
+      <member refid="classRADDsp_1_1AnalogModDelay_1a2cd1e5d574282ed5fc23fb1d4ddf7b72" prot="private" virt="non-virtual"><scope>RADDsp::AnalogModDelay</scope><name>settings_</name></member>
+      <member refid="classRADDsp_1_1AnalogModDelay_1a7f45e1c04701a8dcc58f0712abc6ac69" prot="private" virt="non-virtual"><scope>RADDsp::AnalogModDelay</scope><name>toneStateL_</name></member>
+      <member refid="classRADDsp_1_1AnalogModDelay_1ab1179846fb7d5aac72c349a25994cfb9" prot="private" virt="non-virtual"><scope>RADDsp::AnalogModDelay</scope><name>toneStateR_</name></member>
+      <member refid="classRADDsp_1_1AnalogModDelay_1aa6a7fb1b09354747b6ed558a1780e247" prot="private" virt="non-virtual"><scope>RADDsp::AnalogModDelay</scope><name>writeIndex_</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

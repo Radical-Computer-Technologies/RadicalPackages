@@ -1,0 +1,216 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="classRADData_1_1RADQueue" kind="class" language="C++" prot="public">
+    <compoundname>RADData::RADQueue</compoundname>
+    <includes refid="RADDataStructures_8h" local="no">RADDataStructures.h</includes>
+    <templateparamlist>
+      <param>
+        <type>typename T</type>
+      </param>
+      <param>
+        <type>typename Alloc</type>
+        <defval>std::allocator&lt;T&gt;</defval>
+      </param>
+    </templateparamlist>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classRADData_1_1RADQueue_1a6fef193b1436eb1a0e73da60130ce656" prot="private" static="no" mutable="no">
+        <type><ref refid="classRADData_1_1RADRingBuffer" kindref="compound">RADRingBuffer</ref>&lt; T, Alloc &gt;</type>
+        <definition>RADRingBuffer&lt;T, Alloc&gt; RADData::RADQueue&lt; T, Alloc &gt;::buffer_</definition>
+        <argsstring></argsstring>
+        <name>buffer_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" line="987" column="23" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" bodystart="987" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classRADData_1_1RADQueue_1af87b45764f1ba55dcace74d41493b514" prot="public" static="no" const="no" explicit="yes" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>RADData::RADQueue&lt; T, Alloc &gt;::RADQueue</definition>
+        <argsstring>(size_t capacity=16)</argsstring>
+        <name>RADQueue</name>
+        <param>
+          <type>size_t</type>
+          <declname>capacity</declname>
+          <defval>16</defval>
+        </param>
+        <briefdescription>
+<para>Creates a queue with initial ring capacity. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" line="964" column="18" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" bodystart="964" bodyend="964"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADData_1_1RADQueue_1afd0161a83b32d92e6f75f8587844a51b" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool RADData::RADQueue&lt; T, Alloc &gt;::empty</definition>
+        <argsstring>() const noexcept</argsstring>
+        <name>empty</name>
+        <briefdescription>
+<para>Returns true when the queue is empty. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" line="966" column="14" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" bodystart="966" bodyend="966"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADData_1_1RADQueue_1aebbc745b78b5f40bfc08831af1698ef0" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type>size_t</type>
+        <definition>size_t RADData::RADQueue&lt; T, Alloc &gt;::size</definition>
+        <argsstring>() const noexcept</argsstring>
+        <name>size</name>
+        <briefdescription>
+<para>Returns number of queued elements. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" line="968" column="16" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" bodystart="968" bodyend="968"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADData_1_1RADQueue_1a9df645b35e4448e01bef4672eac4b58b" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type>T &amp;</type>
+        <definition>T&amp; RADData::RADQueue&lt; T, Alloc &gt;::front</definition>
+        <argsstring>() noexcept</argsstring>
+        <name>front</name>
+        <briefdescription>
+<para>Returns the front element. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" line="970" column="11" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" bodystart="970" bodyend="970"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADData_1_1RADQueue_1a8c78712f3a13731f96eab5f0a72b6c55" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type>const T &amp;</type>
+        <definition>const T&amp; RADData::RADQueue&lt; T, Alloc &gt;::front</definition>
+        <argsstring>() const noexcept</argsstring>
+        <name>front</name>
+        <briefdescription>
+<para>Returns the front element. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" line="972" column="17" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" bodystart="972" bodyend="972"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADData_1_1RADQueue_1a36e8b4a350b95ddd8cf1ef9a24592d92" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void RADData::RADQueue&lt; T, Alloc &gt;::push</definition>
+        <argsstring>(const T &amp;value)</argsstring>
+        <name>push</name>
+        <param>
+          <type>const T &amp;</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+<para>Pushes a copy at the back. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" line="974" column="14" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" bodystart="974" bodyend="974"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADData_1_1RADQueue_1a3c0fa1abd67465321cb245f81d0ed105" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void RADData::RADQueue&lt; T, Alloc &gt;::push</definition>
+        <argsstring>(T &amp;&amp;value)</argsstring>
+        <name>push</name>
+        <param>
+          <type>T &amp;&amp;</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+<para>Pushes a moved value at the back. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" line="976" column="14" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" bodystart="976" bodyend="976"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADData_1_1RADQueue_1a5830dfe659866a729748933da51cf636" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename...</type>
+            <declname>Args</declname>
+            <defname>Args</defname>
+          </param>
+        </templateparamlist>
+        <type>T &amp;</type>
+        <definition>T&amp; RADData::RADQueue&lt; T, Alloc &gt;::emplace</definition>
+        <argsstring>(Args &amp;&amp;... args)</argsstring>
+        <name>emplace</name>
+        <param>
+          <type>Args &amp;&amp;...</type>
+          <declname>args</declname>
+        </param>
+        <briefdescription>
+<para>Constructs an element at the back. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" line="978" column="23" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" bodystart="978" bodyend="980"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADData_1_1RADQueue_1ab54d98a6528d42f361723bebc328f51d" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void RADData::RADQueue&lt; T, Alloc &gt;::pop</definition>
+        <argsstring>()</argsstring>
+        <name>pop</name>
+        <briefdescription>
+<para>Removes the front element. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" line="982" column="14" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" bodystart="982" bodyend="982"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADData_1_1RADQueue_1a7bb76ff9aa8446370c52789ffb627d20" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void RADData::RADQueue&lt; T, Alloc &gt;::clear</definition>
+        <argsstring>()</argsstring>
+        <name>clear</name>
+        <briefdescription>
+<para>Removes all queued elements. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" line="984" column="14" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" bodystart="984" bodyend="984"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>FIFO queue adapter backed by <ref refid="classRADData_1_1RADRingBuffer" kindref="compound">RADRingBuffer</ref>. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" line="961" column="5" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" bodystart="961" bodyend="988"/>
+    <listofallmembers>
+      <member refid="classRADData_1_1RADQueue_1a6fef193b1436eb1a0e73da60130ce656" prot="private" virt="non-virtual"><scope>RADData::RADQueue</scope><name>buffer_</name></member>
+      <member refid="classRADData_1_1RADQueue_1a7bb76ff9aa8446370c52789ffb627d20" prot="public" virt="non-virtual"><scope>RADData::RADQueue</scope><name>clear</name></member>
+      <member refid="classRADData_1_1RADQueue_1a5830dfe659866a729748933da51cf636" prot="public" virt="non-virtual"><scope>RADData::RADQueue</scope><name>emplace</name></member>
+      <member refid="classRADData_1_1RADQueue_1afd0161a83b32d92e6f75f8587844a51b" prot="public" virt="non-virtual"><scope>RADData::RADQueue</scope><name>empty</name></member>
+      <member refid="classRADData_1_1RADQueue_1a9df645b35e4448e01bef4672eac4b58b" prot="public" virt="non-virtual"><scope>RADData::RADQueue</scope><name>front</name></member>
+      <member refid="classRADData_1_1RADQueue_1a8c78712f3a13731f96eab5f0a72b6c55" prot="public" virt="non-virtual"><scope>RADData::RADQueue</scope><name>front</name></member>
+      <member refid="classRADData_1_1RADQueue_1ab54d98a6528d42f361723bebc328f51d" prot="public" virt="non-virtual"><scope>RADData::RADQueue</scope><name>pop</name></member>
+      <member refid="classRADData_1_1RADQueue_1a36e8b4a350b95ddd8cf1ef9a24592d92" prot="public" virt="non-virtual"><scope>RADData::RADQueue</scope><name>push</name></member>
+      <member refid="classRADData_1_1RADQueue_1a3c0fa1abd67465321cb245f81d0ed105" prot="public" virt="non-virtual"><scope>RADData::RADQueue</scope><name>push</name></member>
+      <member refid="classRADData_1_1RADQueue_1af87b45764f1ba55dcace74d41493b514" prot="public" virt="non-virtual"><scope>RADData::RADQueue</scope><name>RADQueue</name></member>
+      <member refid="classRADData_1_1RADQueue_1aebbc745b78b5f40bfc08831af1698ef0" prot="public" virt="non-virtual"><scope>RADData::RADQueue</scope><name>size</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

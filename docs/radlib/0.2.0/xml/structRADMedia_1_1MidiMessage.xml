@@ -1,0 +1,97 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="structRADMedia_1_1MidiMessage" kind="struct" language="C++" prot="public">
+    <compoundname>RADMedia::MidiMessage</compoundname>
+    <includes refid="RADMedia_8h" local="no">RADMedia.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structRADMedia_1_1MidiMessage_1ad3fb6787f1e75886d428469dd728eb53" prot="public" static="no" mutable="no">
+        <type><ref refid="namespaceRADMedia_1a6a50e25677f91308543092eda06a8f78" kindref="member">MidiMessageType</ref></type>
+        <definition>MidiMessageType RADMedia::MidiMessage::type</definition>
+        <argsstring></argsstring>
+        <name>type</name>
+        <initializer>= <ref refid="namespaceRADMedia_1a6a50e25677f91308543092eda06a8f78a6311ae17c1ee52b36e68aaf4ad066387" kindref="member">MidiMessageType::Other</ref></initializer>
+        <briefdescription>
+<para>Decoded message type. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADMedia/headers/RADMedia.h" line="182" column="25" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADMedia/headers/RADMedia.h" bodystart="182" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structRADMedia_1_1MidiMessage_1acbe51e4776718fc4bef3453997c704f7" prot="public" static="no" mutable="no">
+        <type>uint8_t</type>
+        <definition>uint8_t RADMedia::MidiMessage::channel</definition>
+        <argsstring></argsstring>
+        <name>channel</name>
+        <initializer>= 0</initializer>
+        <briefdescription>
+<para>MIDI channel, 0-15 for channel messages. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADMedia/headers/RADMedia.h" line="184" column="17" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADMedia/headers/RADMedia.h" bodystart="184" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structRADMedia_1_1MidiMessage_1ad2fd4356ae4b1cc641909ac6bcdb1cbe" prot="public" static="no" mutable="no">
+        <type>uint8_t</type>
+        <definition>uint8_t RADMedia::MidiMessage::data1</definition>
+        <argsstring></argsstring>
+        <name>data1</name>
+        <initializer>= 0</initializer>
+        <briefdescription>
+<para>First data byte, commonly note/controller/program. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADMedia/headers/RADMedia.h" line="186" column="17" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADMedia/headers/RADMedia.h" bodystart="186" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structRADMedia_1_1MidiMessage_1adbedbd6247e3da36233f339241345635" prot="public" static="no" mutable="no">
+        <type>uint8_t</type>
+        <definition>uint8_t RADMedia::MidiMessage::data2</definition>
+        <argsstring></argsstring>
+        <name>data2</name>
+        <initializer>= 0</initializer>
+        <briefdescription>
+<para>Second data byte, commonly velocity/controller value. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADMedia/headers/RADMedia.h" line="188" column="17" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADMedia/headers/RADMedia.h" bodystart="188" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structRADMedia_1_1MidiMessage_1a841d0ccda442120005e31199bdebf620" prot="public" static="no" mutable="no">
+        <type>uint8_t</type>
+        <definition>uint8_t RADMedia::MidiMessage::status</definition>
+        <argsstring></argsstring>
+        <name>status</name>
+        <initializer>= 0</initializer>
+        <briefdescription>
+<para>Raw status byte. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADMedia/headers/RADMedia.h" line="190" column="17" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADMedia/headers/RADMedia.h" bodystart="190" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>One decoded real-time MIDI message read from an input device. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/media/jvincent/Kingspec512/repos/RADLib/RADMedia/headers/RADMedia.h" line="180" column="5" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADMedia/headers/RADMedia.h" bodystart="180" bodyend="191"/>
+    <listofallmembers>
+      <member refid="structRADMedia_1_1MidiMessage_1acbe51e4776718fc4bef3453997c704f7" prot="public" virt="non-virtual"><scope>RADMedia::MidiMessage</scope><name>channel</name></member>
+      <member refid="structRADMedia_1_1MidiMessage_1ad2fd4356ae4b1cc641909ac6bcdb1cbe" prot="public" virt="non-virtual"><scope>RADMedia::MidiMessage</scope><name>data1</name></member>
+      <member refid="structRADMedia_1_1MidiMessage_1adbedbd6247e3da36233f339241345635" prot="public" virt="non-virtual"><scope>RADMedia::MidiMessage</scope><name>data2</name></member>
+      <member refid="structRADMedia_1_1MidiMessage_1a841d0ccda442120005e31199bdebf620" prot="public" virt="non-virtual"><scope>RADMedia::MidiMessage</scope><name>status</name></member>
+      <member refid="structRADMedia_1_1MidiMessage_1ad3fb6787f1e75886d428469dd728eb53" prot="public" virt="non-virtual"><scope>RADMedia::MidiMessage</scope><name>type</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,272 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="structrad__a53__capabilities" kind="struct" language="C++" prot="public">
+    <compoundname>rad_a53_capabilities</compoundname>
+    <includes refid="radixkernel__a53_8h" local="no">radixkernel_a53.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structrad__a53__capabilities_1ab172e104ff009e6f480a340ea8d2d130" prot="public" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t rad_a53_capabilities::size</definition>
+        <argsstring></argsstring>
+        <name>size</name>
+        <briefdescription>
+<para>Structure size for ABI/version checks. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/platforms/a53/radixkernel_a53.h" line="15" column="14" bodyfile="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/platforms/a53/radixkernel_a53.h" bodystart="15" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structrad__a53__capabilities_1a937613a463f2b2db16bb5c3cfd09efa9" prot="public" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t rad_a53_capabilities::boot_normalized</definition>
+        <argsstring></argsstring>
+        <name>boot_normalized</name>
+        <briefdescription>
+<para>Nonzero when the entry path masked IRQs, selected core 0, and set a clean stack. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/platforms/a53/radixkernel_a53.h" line="16" column="14" bodyfile="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/platforms/a53/radixkernel_a53.h" bodystart="16" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structrad__a53__capabilities_1a6c70a8f756fa9e3616ac1b5dbf816efa" prot="public" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t rad_a53_capabilities::secondary_cores_parked</definition>
+        <argsstring></argsstring>
+        <name>secondary_cores_parked</name>
+        <briefdescription>
+<para>Nonzero when secondary cores were parked before kernel entry. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/platforms/a53/radixkernel_a53.h" line="17" column="14" bodyfile="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/platforms/a53/radixkernel_a53.h" bodystart="17" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structrad__a53__capabilities_1a1eccc8f2d955656c05df58ea7d99b318" prot="public" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t rad_a53_capabilities::exception_vectors_ready</definition>
+        <argsstring></argsstring>
+        <name>exception_vectors_ready</name>
+        <briefdescription>
+<para>Nonzero when the AArch64 exception-vector contract is installed or modeled. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/platforms/a53/radixkernel_a53.h" line="18" column="14" bodyfile="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/platforms/a53/radixkernel_a53.h" bodystart="18" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structrad__a53__capabilities_1af3d0e994b8847a0a2e45352393362e24" prot="public" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t rad_a53_capabilities::svc_ready</definition>
+        <argsstring></argsstring>
+        <name>svc_ready</name>
+        <briefdescription>
+<para>Nonzero when SVC/syscall dispatch is available through the A53 platform layer. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/platforms/a53/radixkernel_a53.h" line="19" column="14" bodyfile="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/platforms/a53/radixkernel_a53.h" bodystart="19" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structrad__a53__capabilities_1a8fab3ecb1ed41943fbacc99249a23414" prot="public" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t rad_a53_capabilities::user_copy_ready</definition>
+        <argsstring></argsstring>
+        <name>user_copy_ready</name>
+        <briefdescription>
+<para>Nonzero when user pointer validation/copy helpers are available. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/platforms/a53/radixkernel_a53.h" line="20" column="14" bodyfile="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/platforms/a53/radixkernel_a53.h" bodystart="20" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structrad__a53__capabilities_1a74d6e93559a0725dfe59cd275882cc33" prot="public" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t rad_a53_capabilities::fork_ready</definition>
+        <argsstring></argsstring>
+        <name>fork_ready</name>
+        <briefdescription>
+<para>Nonzero when process fork hooks are registered. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/platforms/a53/radixkernel_a53.h" line="21" column="14" bodyfile="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/platforms/a53/radixkernel_a53.h" bodystart="21" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structrad__a53__capabilities_1a287e008045724fad931470cd43165ad0" prot="public" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t rad_a53_capabilities::exec_ready</definition>
+        <argsstring></argsstring>
+        <name>exec_ready</name>
+        <briefdescription>
+<para>Nonzero when exec path integration is available. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/platforms/a53/radixkernel_a53.h" line="22" column="14" bodyfile="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/platforms/a53/radixkernel_a53.h" bodystart="22" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structrad__a53__capabilities_1ad952d27588ccebbf13fc102a157498bf" prot="public" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t rad_a53_capabilities::cow_ready</definition>
+        <argsstring></argsstring>
+        <name>cow_ready</name>
+        <briefdescription>
+<para>Nonzero when copy-on-write tracking is available. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/platforms/a53/radixkernel_a53.h" line="23" column="14" bodyfile="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/platforms/a53/radixkernel_a53.h" bodystart="23" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structrad__a53__capabilities_1aa73f525511c1bb8a7f2e053ba9ffb5f0" prot="public" static="no" mutable="no">
+        <type>uintptr_t</type>
+        <definition>uintptr_t rad_a53_capabilities::boot_argument</definition>
+        <argsstring></argsstring>
+        <name>boot_argument</name>
+        <briefdescription>
+<para>Raw boot argument preserved from x0 by the entry path. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/platforms/a53/radixkernel_a53.h" line="24" column="15" bodyfile="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/platforms/a53/radixkernel_a53.h" bodystart="24" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structrad__a53__capabilities_1ac301c9b8e2df682c63463a2a6e6ef333" prot="public" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t rad_a53_capabilities::boot_core</definition>
+        <argsstring></argsstring>
+        <name>boot_core</name>
+        <briefdescription>
+<para>Core ID that entered the primary kernel path. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/platforms/a53/radixkernel_a53.h" line="25" column="14" bodyfile="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/platforms/a53/radixkernel_a53.h" bodystart="25" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structrad__a53__capabilities_1a2efd778a828e28a1c737884f57d1713a" prot="public" static="no" mutable="no">
+        <type>uintptr_t</type>
+        <definition>uintptr_t rad_a53_capabilities::user_base</definition>
+        <argsstring></argsstring>
+        <name>user_base</name>
+        <briefdescription>
+<para>Lowest user virtual address managed by the A53 layer. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/platforms/a53/radixkernel_a53.h" line="26" column="15" bodyfile="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/platforms/a53/radixkernel_a53.h" bodystart="26" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structrad__a53__capabilities_1a54dfeb6d43a237129b8946c5046f8686" prot="public" static="no" mutable="no">
+        <type>uintptr_t</type>
+        <definition>uintptr_t rad_a53_capabilities::user_limit</definition>
+        <argsstring></argsstring>
+        <name>user_limit</name>
+        <briefdescription>
+<para>Exclusive upper user virtual address limit managed by the A53 layer. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/platforms/a53/radixkernel_a53.h" line="27" column="15" bodyfile="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/platforms/a53/radixkernel_a53.h" bodystart="27" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structrad__a53__capabilities_1a1977123007aae74f992f818cbc340390" prot="public" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t rad_a53_capabilities::page_size</definition>
+        <argsstring></argsstring>
+        <name>page_size</name>
+        <briefdescription>
+<para>Translation/page granule size used by the current A53 layer. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/platforms/a53/radixkernel_a53.h" line="28" column="14" bodyfile="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/platforms/a53/radixkernel_a53.h" bodystart="28" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structrad__a53__capabilities_1ac6d6df1a60dbadb7b496ec2140c8c232" prot="public" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t rad_a53_capabilities::mmu_ready</definition>
+        <argsstring></argsstring>
+        <name>mmu_ready</name>
+        <briefdescription>
+<para>Nonzero when hardware page tables are built or modeled. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/platforms/a53/radixkernel_a53.h" line="29" column="14" bodyfile="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/platforms/a53/radixkernel_a53.h" bodystart="29" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structrad__a53__capabilities_1a6985d131d84c140160a5ae9ed43e9f42" prot="public" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t rad_a53_capabilities::ttbr0_user_ready</definition>
+        <argsstring></argsstring>
+        <name>ttbr0_user_ready</name>
+        <briefdescription>
+<para>Nonzero when user address-space roots are available. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/platforms/a53/radixkernel_a53.h" line="30" column="14" bodyfile="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/platforms/a53/radixkernel_a53.h" bodystart="30" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structrad__a53__capabilities_1afcc9dd4f9afbcb56897e8d7fd6ae1f3e" prot="public" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t rad_a53_capabilities::ttbr1_kernel_ready</definition>
+        <argsstring></argsstring>
+        <name>ttbr1_kernel_ready</name>
+        <briefdescription>
+<para>Nonzero when the kernel translation root is available. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/platforms/a53/radixkernel_a53.h" line="31" column="14" bodyfile="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/platforms/a53/radixkernel_a53.h" bodystart="31" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Portable Cortex-A53/ARMv8 execution capability snapshot. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/platforms/a53/radixkernel_a53.h" line="14" column="1" bodyfile="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/platforms/a53/radixkernel_a53.h" bodystart="14" bodyend="32"/>
+    <listofallmembers>
+      <member refid="structrad__a53__capabilities_1aa73f525511c1bb8a7f2e053ba9ffb5f0" prot="public" virt="non-virtual"><scope>rad_a53_capabilities</scope><name>boot_argument</name></member>
+      <member refid="structrad__a53__capabilities_1ac301c9b8e2df682c63463a2a6e6ef333" prot="public" virt="non-virtual"><scope>rad_a53_capabilities</scope><name>boot_core</name></member>
+      <member refid="structrad__a53__capabilities_1a937613a463f2b2db16bb5c3cfd09efa9" prot="public" virt="non-virtual"><scope>rad_a53_capabilities</scope><name>boot_normalized</name></member>
+      <member refid="structrad__a53__capabilities_1ad952d27588ccebbf13fc102a157498bf" prot="public" virt="non-virtual"><scope>rad_a53_capabilities</scope><name>cow_ready</name></member>
+      <member refid="structrad__a53__capabilities_1a1eccc8f2d955656c05df58ea7d99b318" prot="public" virt="non-virtual"><scope>rad_a53_capabilities</scope><name>exception_vectors_ready</name></member>
+      <member refid="structrad__a53__capabilities_1a287e008045724fad931470cd43165ad0" prot="public" virt="non-virtual"><scope>rad_a53_capabilities</scope><name>exec_ready</name></member>
+      <member refid="structrad__a53__capabilities_1a74d6e93559a0725dfe59cd275882cc33" prot="public" virt="non-virtual"><scope>rad_a53_capabilities</scope><name>fork_ready</name></member>
+      <member refid="structrad__a53__capabilities_1ac6d6df1a60dbadb7b496ec2140c8c232" prot="public" virt="non-virtual"><scope>rad_a53_capabilities</scope><name>mmu_ready</name></member>
+      <member refid="structrad__a53__capabilities_1a1977123007aae74f992f818cbc340390" prot="public" virt="non-virtual"><scope>rad_a53_capabilities</scope><name>page_size</name></member>
+      <member refid="structrad__a53__capabilities_1a6c70a8f756fa9e3616ac1b5dbf816efa" prot="public" virt="non-virtual"><scope>rad_a53_capabilities</scope><name>secondary_cores_parked</name></member>
+      <member refid="structrad__a53__capabilities_1ab172e104ff009e6f480a340ea8d2d130" prot="public" virt="non-virtual"><scope>rad_a53_capabilities</scope><name>size</name></member>
+      <member refid="structrad__a53__capabilities_1af3d0e994b8847a0a2e45352393362e24" prot="public" virt="non-virtual"><scope>rad_a53_capabilities</scope><name>svc_ready</name></member>
+      <member refid="structrad__a53__capabilities_1a6985d131d84c140160a5ae9ed43e9f42" prot="public" virt="non-virtual"><scope>rad_a53_capabilities</scope><name>ttbr0_user_ready</name></member>
+      <member refid="structrad__a53__capabilities_1afcc9dd4f9afbcb56897e8d7fd6ae1f3e" prot="public" virt="non-virtual"><scope>rad_a53_capabilities</scope><name>ttbr1_kernel_ready</name></member>
+      <member refid="structrad__a53__capabilities_1a2efd778a828e28a1c737884f57d1713a" prot="public" virt="non-virtual"><scope>rad_a53_capabilities</scope><name>user_base</name></member>
+      <member refid="structrad__a53__capabilities_1a8fab3ecb1ed41943fbacc99249a23414" prot="public" virt="non-virtual"><scope>rad_a53_capabilities</scope><name>user_copy_ready</name></member>
+      <member refid="structrad__a53__capabilities_1a54dfeb6d43a237129b8946c5046f8686" prot="public" virt="non-virtual"><scope>rad_a53_capabilities</scope><name>user_limit</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

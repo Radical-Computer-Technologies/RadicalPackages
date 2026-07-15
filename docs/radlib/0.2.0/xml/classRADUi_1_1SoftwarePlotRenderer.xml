@@ -1,0 +1,129 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="classRADUi_1_1SoftwarePlotRenderer" kind="class" language="C++" prot="public" final="yes">
+    <compoundname>RADUi::SoftwarePlotRenderer</compoundname>
+    <basecompoundref refid="classRADUi_1_1PlotRenderer" prot="public" virt="non-virtual">RADUi::PlotRenderer</basecompoundref>
+    <includes refid="RADPlot_8h" local="no">RADPlot.h</includes>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classRADUi_1_1SoftwarePlotRenderer_1a7448aca6b8b08b629bda65639d72aee4" prot="private" static="no" mutable="no">
+        <type><ref refid="structRADUi_1_1PlotColor" kindref="compound">PlotColor</ref></type>
+        <definition>PlotColor RADUi::SoftwarePlotRenderer::background_</definition>
+        <argsstring></argsstring>
+        <name>background_</name>
+        <initializer>{18, 22, 26, 255}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADPlot.h" line="271" column="19" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADPlot.h" bodystart="271" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classRADUi_1_1SoftwarePlotRenderer_1a881c9b04d4b007e429689b2e068930c8" prot="private" static="no" mutable="no">
+        <type><ref refid="structRADUi_1_1PlotColor" kindref="compound">PlotColor</ref></type>
+        <definition>PlotColor RADUi::SoftwarePlotRenderer::plotArea_</definition>
+        <argsstring></argsstring>
+        <name>plotArea_</name>
+        <initializer>{24, 30, 36, 255}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADPlot.h" line="272" column="19" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADPlot.h" bodystart="272" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classRADUi_1_1SoftwarePlotRenderer_1a8fb772d3a8460ec66d2772f9cf3e1f22" prot="private" static="no" mutable="no">
+        <type><ref refid="structRADUi_1_1PlotColor" kindref="compound">PlotColor</ref></type>
+        <definition>PlotColor RADUi::SoftwarePlotRenderer::grid_</definition>
+        <argsstring></argsstring>
+        <name>grid_</name>
+        <initializer>{55, 65, 75, 255}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADPlot.h" line="273" column="19" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADPlot.h" bodystart="273" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classRADUi_1_1SoftwarePlotRenderer_1a5647caa96eaba93b8de4ca94b5265e1c" prot="private" static="no" mutable="no">
+        <type><ref refid="structRADUi_1_1PlotColor" kindref="compound">PlotColor</ref></type>
+        <definition>PlotColor RADUi::SoftwarePlotRenderer::axis_</definition>
+        <argsstring></argsstring>
+        <name>axis_</name>
+        <initializer>{150, 160, 170, 255}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADPlot.h" line="274" column="19" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADPlot.h" bodystart="274" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classRADUi_1_1SoftwarePlotRenderer_1ac6e4aaecad25f3260128d998a21e0a99" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="structRADUi_1_1PlotImage" kindref="compound">PlotImage</ref></type>
+        <definition>PlotImage RADUi::SoftwarePlotRenderer::render</definition>
+        <argsstring>(const PlotModelSnapshot &amp;snapshot, const PlotViewport &amp;viewport) override</argsstring>
+        <name>render</name>
+        <reimplements refid="classRADUi_1_1PlotRenderer_1a35d4445d1b36606b9bb8ef6e8fa012da">render</reimplements>
+        <param>
+          <type>const <ref refid="structRADUi_1_1PlotModelSnapshot" kindref="compound">PlotModelSnapshot</ref> &amp;</type>
+          <declname>snapshot</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structRADUi_1_1PlotViewport" kindref="compound">PlotViewport</ref> &amp;</type>
+          <declname>viewport</declname>
+        </param>
+        <briefdescription>
+<para>Renders the plot entirely on the CPU. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADPlot.h" line="268" column="19"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>CPU renderer used by examples and as the OpenGL fallback. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>RADUi::SoftwarePlotRenderer</label>
+        <link refid="classRADUi_1_1SoftwarePlotRenderer"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>RADUi::PlotRenderer</label>
+        <link refid="classRADUi_1_1PlotRenderer"/>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>RADUi::SoftwarePlotRenderer</label>
+        <link refid="classRADUi_1_1SoftwarePlotRenderer"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>RADUi::PlotRenderer</label>
+        <link refid="classRADUi_1_1PlotRenderer"/>
+      </node>
+    </collaborationgraph>
+    <location file="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADPlot.h" line="265" column="5" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADPlot.h" bodystart="265" bodyend="275"/>
+    <listofallmembers>
+      <member refid="classRADUi_1_1SoftwarePlotRenderer_1a5647caa96eaba93b8de4ca94b5265e1c" prot="private" virt="non-virtual"><scope>RADUi::SoftwarePlotRenderer</scope><name>axis_</name></member>
+      <member refid="classRADUi_1_1SoftwarePlotRenderer_1a7448aca6b8b08b629bda65639d72aee4" prot="private" virt="non-virtual"><scope>RADUi::SoftwarePlotRenderer</scope><name>background_</name></member>
+      <member refid="classRADUi_1_1SoftwarePlotRenderer_1a8fb772d3a8460ec66d2772f9cf3e1f22" prot="private" virt="non-virtual"><scope>RADUi::SoftwarePlotRenderer</scope><name>grid_</name></member>
+      <member refid="classRADUi_1_1SoftwarePlotRenderer_1a881c9b04d4b007e429689b2e068930c8" prot="private" virt="non-virtual"><scope>RADUi::SoftwarePlotRenderer</scope><name>plotArea_</name></member>
+      <member refid="classRADUi_1_1SoftwarePlotRenderer_1ac6e4aaecad25f3260128d998a21e0a99" prot="public" virt="virtual"><scope>RADUi::SoftwarePlotRenderer</scope><name>render</name></member>
+      <member refid="classRADUi_1_1PlotRenderer_1a432efdc5c906ddc6ec630822d3961865" prot="public" virt="virtual"><scope>RADUi::SoftwarePlotRenderer</scope><name>~PlotRenderer</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

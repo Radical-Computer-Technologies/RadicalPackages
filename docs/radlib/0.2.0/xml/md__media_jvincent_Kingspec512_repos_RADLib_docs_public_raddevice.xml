@@ -1,0 +1,24 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="md__media_jvincent_Kingspec512_repos_RADLib_docs_public_raddevice" kind="page">
+    <compoundname>md__media_jvincent_Kingspec512_repos_RADLib_docs_public_raddevice</compoundname>
+    <title>RADDevice</title>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para><ref refid="namespaceRADDevice" kindref="compound">RADDevice</ref> covers common embedded Linux device control surfaces:</para>
+<para><itemizedlist>
+<listitem><para><computeroutput>GpioPin</computeroutput> for sysfs GPIO export, direction, edge, and value.</para>
+</listitem><listitem><para><computeroutput>I2CDevice</computeroutput> for <computeroutput>/dev/i2c-*</computeroutput> with <computeroutput>I2C_SLAVE</computeroutput> ioctl.</para>
+</listitem><listitem><para><computeroutput>SPIDevice</computeroutput> for <computeroutput>/dev/spidev*</computeroutput> with SPI ioctl configuration and transfers.</para>
+</listitem><listitem><para><computeroutput>PwmChannel</computeroutput> for sysfs PWM period, duty, and enable.</para>
+</listitem><listitem><para><computeroutput>AdcChannel</computeroutput> for IIO raw and scaled samples.</para>
+</listitem><listitem><para><computeroutput>Watchdog</computeroutput> for <computeroutput>/dev/watchdog*</computeroutput> keepalive ioctl.</para>
+</listitem><listitem><para><computeroutput>Led</computeroutput> for sysfs LED brightness.</para>
+</listitem></itemizedlist>
+</para>
+<para>The public API is intentionally file-descriptor and ioctl friendly so future RADKernel drivers can expose the same application-facing model. </para>
+    </detaileddescription>
+    <location file="/media/jvincent/Kingspec512/repos/RADLib/docs/public/raddevice.md"/>
+  </compounddef>
+</doxygen>

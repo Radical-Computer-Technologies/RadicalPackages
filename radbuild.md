@@ -78,11 +78,27 @@ sudo apt install radbuild-radhdl radbuild-server radbuild-vscode-support radbuil
     <summary>Repository Metadata</summary>
       <div class="links">
         <a class="link-card" href="https://github.com/Radical-Computer-Technologies/RadicalPackages/releases/tag/apt-experimental"><strong>Experimental APT Release</strong><span>Signed package-manager metadata and package assets.</span></a>
-        <a class="link-card" href="https://github.com/Radical-Computer-Technologies/RadBuild/releases/tag/v0.2.1"><strong>RadBuild 0.2.1 Release</strong><span>Frozen Linux x86_64 archive, checksum, and detached signature.</span></a>
+        <a class="link-card" href="https://github.com/Radical-Computer-Technologies/RadicalPackages/releases/tag/radbuild-0.2.1"><strong>RadBuild 0.2.1 Release</strong><span>Frozen Linux x86_64 archive, Debian packages, checksums, and signatures.</span></a>
         <a class="link-card" href="keys/radical-packages-archive-key.asc"><strong>APT Signing Key</strong><span>Public key for <code>Signed-By</code> install instructions.</span></a>
         <a class="link-card" href="docs/radbuild/0.2.1/"><strong>RadBuild 0.2.1 Docs</strong><span>Install, FPGA builds, OS builds, packaging, examples, and compatibility notes.</span></a>
       </div>
   </details>
+
+  <section class="card">
+    <h2>RADix From Scratch</h2>
+    <p>After installing only <code>radbuild</code>, create a RADix project from the packaged terminal template, configure it with menuconfig, and build a runnable x86 VM image.</p>
+    <div class="command"><code>mkdir -p ~/radix-work
+radbuild project create ~/radix-work --non-interactive --template radix-os-terminal --project-name radix-terminal
+cd ~/radix-work/radix-terminal
+radbuild menuconfig --settings settings.json
+radbuild build os --settings settings.json --json-events
+./artifacts/radix/x86_64-grub-terminal/run-radix-vm.sh</code></div>
+    <div class="links">
+      <a class="link-card" href="docs/radbuild/0.2.1/examples/radix-from-scratch.html"><strong>Full RADix From Scratch Example</strong><span>Project creation, packagegroups, rkconfig, artifacts, and VM login checks.</span></a>
+      <a class="link-card" href="docs/radbuild/0.2.1/os-builds.html"><strong>OS Build Providers</strong><span>RADix, PetaLinux, and Buildroot support levels.</span></a>
+      <a class="link-card" href="docs/radbuild/0.2.1/settings-fields.html"><strong>Settings Field Reference</strong><span>Detailed <code>settings.json</code>, <code>rkconfig</code>, packagegroup, and SDK fields.</span></a>
+    </div>
+  </section>
 
   <section class="card">
       <h2>Related Packages</h2>

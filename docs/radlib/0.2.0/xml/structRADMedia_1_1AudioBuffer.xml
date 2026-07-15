@@ -1,0 +1,92 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="structRADMedia_1_1AudioBuffer" kind="struct" language="C++" prot="public">
+    <compoundname>RADMedia::AudioBuffer</compoundname>
+    <includes refid="RADMedia_8h" local="no">RADMedia.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structRADMedia_1_1AudioBuffer_1af9439fc903aa9f411b3852f00456e813" prot="public" static="no" mutable="no">
+        <type><ref refid="structRADMedia_1_1WavFormat" kindref="compound">WavFormat</ref></type>
+        <definition>WavFormat RADMedia::AudioBuffer::format</definition>
+        <argsstring></argsstring>
+        <name>format</name>
+        <briefdescription>
+<para>Audio format for interleaved. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADMedia/headers/RADMedia.h" line="232" column="19" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADMedia/headers/RADMedia.h" bodystart="232" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structRADMedia_1_1AudioBuffer_1af8ad8713f9746c71ec9a6fa37e6470ef" prot="public" static="no" mutable="no">
+        <type>std::vector&lt; float &gt;</type>
+        <definition>std::vector&lt;float&gt; RADMedia::AudioBuffer::interleaved</definition>
+        <argsstring></argsstring>
+        <name>interleaved</name>
+        <briefdescription>
+<para>Interleaved Float32 samples. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADMedia/headers/RADMedia.h" line="234" column="21" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADMedia/headers/RADMedia.h" bodystart="234" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structRADMedia_1_1AudioBuffer_1a4515920b244ba363bc2a345234d8b842" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>size_t</type>
+        <definition>size_t RADMedia::AudioBuffer::frameCount</definition>
+        <argsstring>() const</argsstring>
+        <name>frameCount</name>
+        <briefdescription>
+<para>Returns number of complete interleaved frames. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADMedia/headers/RADMedia.h" line="237" column="16"/>
+      </memberdef>
+      <memberdef kind="function" id="structRADMedia_1_1AudioBuffer_1aa52267bd6082e891d4f1ba0402ab0ba1" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>double RADMedia::AudioBuffer::durationSeconds</definition>
+        <argsstring>() const</argsstring>
+        <name>durationSeconds</name>
+        <briefdescription>
+<para>Returns duration in seconds. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADMedia/headers/RADMedia.h" line="239" column="16"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Float32 interleaved decoded audio buffer. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="2">
+        <label>RADMedia::WavFormat</label>
+        <link refid="structRADMedia_1_1WavFormat"/>
+      </node>
+      <node id="1">
+        <label>RADMedia::AudioBuffer</label>
+        <link refid="structRADMedia_1_1AudioBuffer"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>format</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="/media/jvincent/Kingspec512/repos/RADLib/RADMedia/headers/RADMedia.h" line="230" column="5" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADMedia/headers/RADMedia.h" bodystart="230" bodyend="240"/>
+    <listofallmembers>
+      <member refid="structRADMedia_1_1AudioBuffer_1aa52267bd6082e891d4f1ba0402ab0ba1" prot="public" virt="non-virtual"><scope>RADMedia::AudioBuffer</scope><name>durationSeconds</name></member>
+      <member refid="structRADMedia_1_1AudioBuffer_1af9439fc903aa9f411b3852f00456e813" prot="public" virt="non-virtual"><scope>RADMedia::AudioBuffer</scope><name>format</name></member>
+      <member refid="structRADMedia_1_1AudioBuffer_1a4515920b244ba363bc2a345234d8b842" prot="public" virt="non-virtual"><scope>RADMedia::AudioBuffer</scope><name>frameCount</name></member>
+      <member refid="structRADMedia_1_1AudioBuffer_1af8ad8713f9746c71ec9a6fa37e6470ef" prot="public" virt="non-virtual"><scope>RADMedia::AudioBuffer</scope><name>interleaved</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>
