@@ -78,6 +78,7 @@ sudo apt install radbuild-radhdl radbuild-server radbuild-vscode-support radbuil
     <summary>Repository Metadata</summary>
       <div class="links">
         <a class="link-card" href="https://github.com/Radical-Computer-Technologies/RadicalPackages/releases/tag/apt-experimental"><strong>Experimental APT Release</strong><span>Signed package-manager metadata and package assets.</span></a>
+        <a class="link-card" href="https://github.com/Radical-Computer-Technologies/RadBuild/releases/tag/v0.2.1"><strong>RadBuild 0.2.1 Release</strong><span>Frozen Linux x86_64 archive, checksum, and detached signature.</span></a>
         <a class="link-card" href="keys/radical-packages-archive-key.asc"><strong>APT Signing Key</strong><span>Public key for <code>Signed-By</code> install instructions.</span></a>
         <a class="link-card" href="docs/radbuild/0.2.1/"><strong>RadBuild 0.2.1 Docs</strong><span>Install, FPGA builds, OS builds, packaging, examples, and compatibility notes.</span></a>
       </div>

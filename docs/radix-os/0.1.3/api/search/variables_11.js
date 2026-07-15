@@ -1,0 +1,26 @@
+var searchData=
+[
+  ['target_5fcore_1967',['target_core',['../structrad__task__config.html#ae8bad26335bff1ff90144124f5f953fb',1,'rad_task_config::target_core()'],['../structrad__task__info.html#a03b4d5a338f14782279f647743dcab0d',1,'rad_task_info::target_core()']]],
+  ['task_5fid_1968',['task_id',['../structrad__program__info.html#aa9364935dc6d4b7c99bfacdd4dbc896d',1,'rad_program_info']]],
+  ['tcp_5fstate_1969',['tcp_state',['../structrad__socket__info.html#a365f7b8fdeff522005e692d6ee3a9030',1,'rad_socket_info']]],
+  ['tell_1970',['tell',['../structrad__vfs__backend__ops.html#a9720d777e158569b0c7ab1057db78ba5',1,'rad_vfs_backend_ops']]],
+  ['terminal_1971',['terminal',['../structrad__service__config.html#adecc2910e0ccf4711b740a4781981506',1,'rad_service_config::terminal()'],['../structrad__service__info.html#a3607e096b4d554c994ec12437c032855',1,'rad_service_info::terminal()']]],
+  ['ticks_1972',['ticks',['../structrad__timer__source__info.html#a62d39ec810fbc659d78acbf9bf5ab3c8',1,'rad_timer_source_info']]],
+  ['time_5fmillis_1973',['time_millis',['../structrad__log__entry.html#a757eb14fb22def55a89e7cf152ac1f05',1,'rad_log_entry']]],
+  ['tracked_5fpages_1974',['tracked_pages',['../structrad__a53__vm__summary.html#a251cfb9d54d617c8e7a8d31e53a4fdce',1,'rad_a53_vm_summary']]],
+  ['transfer_1975',['transfer',['../structrad__i2c__controller__ops.html#aa7aa70a6dcefe45edbe28be800f148e5',1,'rad_i2c_controller_ops::transfer()'],['../structrad__spi__controller__ops.html#aa1016cfdbbb5e1206e2ec7aabda30f59',1,'rad_spi_controller_ops::transfer()']]],
+  ['transfer_5fdma_1976',['transfer_dma',['../structrad__spi__controller__ops.html#a54f8220b89832fbe441c758fbe2ff08f',1,'rad_spi_controller_ops']]],
+  ['transfer_5fmode_1977',['transfer_mode',['../structrad__spi__transfer.html#a60d5a9d4b8b6abf15adc504bbdbcd9bd',1,'rad_spi_transfer::transfer_mode()'],['../structrad__spi__device__info.html#a952d3bbe1d915e582e367e49aa1f8e24',1,'rad_spi_device_info::transfer_mode()']]],
+  ['tree_5fpath_1978',['tree_path',['../structrad__irq__domain__config.html#ac54754e09be6ed76e68ffcc3839ff049',1,'rad_irq_domain_config::tree_path()'],['../structrad__service__info.html#a761775c29f588a31d90cfc93bc084ef1',1,'rad_service_info::tree_path()'],['../structrad__spi__controller__config.html#a3b392d5f33e87d11293bcdefeee8eaea',1,'rad_spi_controller_config::tree_path()'],['../structrad__i2c__controller__config.html#a6922df06dbb0b7e70991e3e371859f96',1,'rad_i2c_controller_config::tree_path()'],['../structrad__service__config.html#adf65bdfbf93669c496fa15b05099b354',1,'rad_service_config::tree_path()']]],
+  ['trigger_1979',['trigger',['../structrad__irq__resource.html#a66f9a807f3a0b77c8249c8862b4fc3b2',1,'rad_irq_resource']]],
+  ['truncate_1980',['truncate',['../structrad__vfs__backend__ops.html#a20eb4fa44653ecbba7de453cf7f9b13a',1,'rad_vfs_backend_ops']]],
+  ['ttbr0_1981',['ttbr0',['../structrad__a53__address__space.html#a642ac49963c5ac4962e390beaabef3d3',1,'rad_a53_address_space']]],
+  ['ttbr0_5fuser_5fready_1982',['ttbr0_user_ready',['../structrad__a53__capabilities.html#a6985d131d84c140160a5ae9ed43e9f42',1,'rad_a53_capabilities']]],
+  ['ttbr1_5fkernel_5fready_1983',['ttbr1_kernel_ready',['../structrad__a53__capabilities.html#afcc9dd4f9afbcb56897e8d7fd6ae1f3e',1,'rad_a53_capabilities']]],
+  ['tv_5fsec_1984',['tv_sec',['../structrad__posix__timeval.html#aed6007ec07697cb1e99c1b7dbd056ded',1,'rad_posix_timeval']]],
+  ['tv_5fusec_1985',['tv_usec',['../structrad__posix__timeval.html#ad94236b4433d5c558df87b31594dad7e',1,'rad_posix_timeval']]],
+  ['tx_5fdata_1986',['tx_data',['../structrad__spi__transfer.html#aafb5bd02278c6ae7d8614cd475d14f0a',1,'rad_spi_transfer']]],
+  ['tx_5fgpio_1987',['tx_gpio',['../structrad__spi__controller__config.html#aae6263d7ce1f88ee3146c329deaad096',1,'rad_spi_controller_config::tx_gpio()'],['../structrad__sd__config.html#ae3cdddf789df22f2c508af6a493bf9f3',1,'rad_sd_config::tx_gpio()']]],
+  ['tx_5fpackets_1988',['tx_packets',['../structrad__net__link__info.html#ae230c0519b4cc2d194c752b8d7b6ad04',1,'rad_net_link_info']]],
+  ['type_1989',['type',['../structrad__boot__memory__region.html#ae2c4cd3284978966e8449b21715ab1ed',1,'rad_boot_memory_region::type()'],['../structrad__socket__info.html#a15cd524a2e6f62523ae6f6f062f95e76',1,'rad_socket_info::type()'],['../structrad__dirent__user.html#a6183e5ecf4120fcb37d62e312b7a0757',1,'rad_dirent_user::type()'],['../structrad__input__event.html#af54384a8add1b0852fcb75ea7100c9c4',1,'rad_input_event::type()'],['../structrad__dma__transfer.html#a10e7e5af23f44684416a4307cc63ef72',1,'rad_dma_transfer::type()']]]
+];

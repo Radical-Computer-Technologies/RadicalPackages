@@ -88,7 +88,7 @@ scripts/publish_github_release_assets.py \
 RADix OS images should be uploaded as compressed release bundles, not committed:
 
 ```bash
-tar -czf radix-os-crimson_0.1.0-beta.1_x86_64-grub-terminal.tar.gz \
+tar --sparse -czf radix-os-crimson_0.1.3-beta.1_x86_64-grub-terminal-interactive.tar.gz \
   -C ../RADix-OS/artifacts/radix/x86_64-grub-terminal \
   radixkernel-x86-64-grub-terminal.iso \
   radix-rootfs.ext4 \
@@ -98,4 +98,4 @@ tar -czf radix-os-crimson_0.1.0-beta.1_x86_64-grub-terminal.tar.gz \
   SHA256SUMS
 ```
 
-Upload these bundles and any `.radpm` archives with `scripts/publish_github_release_assets.py` to the matching immutable release, such as `radix-os-0.1.0-beta.1`.
+Upload these bundles and any `.radpm` archives with `scripts/publish_github_release_assets.py` to the matching immutable release, such as `radix-os-0.1.3-beta.1`.

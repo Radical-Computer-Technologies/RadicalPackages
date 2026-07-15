@@ -20,7 +20,7 @@
     </p>
     <div class="status-row">
       <span class="pill"><strong>Stable:</strong> RADLib 0.1.0</span>
-      <span class="pill"><strong>Experimental:</strong> RadBuild 0.2.1, RADix-OS Crimson 0.1.0, RADBard 0.1.0 beta</span>
+      <span class="pill"><strong>Experimental:</strong> RadBuild 0.2.1, RADix-OS Crimson 0.1.3, RADBard 0.1.0 beta</span>
       <span class="pill"><strong>Architectures:</strong> amd64, arm64, all</span>
       <span class="pill"><strong>Hosting:</strong> GitHub Releases</span>
     </div>
@@ -70,11 +70,11 @@
           <a class="package package-link" href="radbuild.html"><code>radbuild-doc</code><span>RadBuild documentation package.</span></a>
         </div>
       </details>
-      <details class="doc-release" data-search-item data-search-text="radix os experimental crimson 0.1.0 kernel vm image x86 slint posix radbuild docs radpm package repository">
+      <details class="doc-release" data-search-item data-search-text="radix os experimental crimson 0.1.3 kernel vm image x86 slint posix radbuild docs radpm package repository vim tiny ncurses">
         <summary>RADix-OS 0 - Crimson</summary>
         <div class="package-list">
       <a class="package package-link" href="radix-os.html"><code>RADix OS</code><span>Experimental OS hub, kernel API documentation, and VM image build path.</span></a>
-      <a class="package package-link" href="radix-os.html"><code>docs/radix-os/0.1.0</code><span>Published Crimson kernel API documentation.</span></a>
+      <a class="package package-link" href="radix-os.html"><code>docs/radix-os/0.1.3</code><span>Published Crimson kernel API documentation.</span></a>
       <a class="package package-link" href="radix-os.html"><code>radix-vim-tiny</code><span>Tiny upstream Vim package for RADix terminal root filesystems.</span></a>
         </div>
       </details>
@@ -107,7 +107,7 @@
     <div class="links">
       <a class="link-card" href="radix-os.html"><strong>RADix OS Hub</strong><span>Build profiles, API docs, and package repository notes.</span></a>
       <a class="link-card" href="radpm/dists/experimental/main/packages.json"><strong>Experimental .radpm Index</strong><span>Machine-readable RADix package metadata.</span></a>
-      <a class="link-card" href="https://github.com/Radical-Computer-Technologies/RadicalPackages/releases/tag/radix-os-0.1.0-beta.1"><strong>RADix Release Assets</strong><span>Current <code>.radpm</code> package archives and x86 images.</span></a>
+      <a class="link-card" href="https://github.com/Radical-Computer-Technologies/RadicalPackages/releases/tag/radix-os-0.1.3-beta.1"><strong>RADix Release Assets</strong><span>Current <code>.radpm</code> package archives and x86 images.</span></a>
       <a class="link-card" href="radpm/dists/stable/main/packages.json"><strong>Stable .radpm Index</strong><span>Reserved stable RADix package metadata.</span></a>
     </div>
   </section>

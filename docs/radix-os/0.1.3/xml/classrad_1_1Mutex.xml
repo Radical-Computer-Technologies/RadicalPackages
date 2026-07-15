@@ -1,0 +1,173 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="classrad_1_1Mutex" kind="class" language="C++" prot="public">
+    <compoundname>rad::Mutex</compoundname>
+    <includes refid="rad__cpp_8h" local="no">rad_cpp.h</includes>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classrad_1_1Mutex_1a6d1502c97322a7d23979a974b01d18b6" prot="private" static="no" mutable="no">
+        <type><ref refid="radixkernel_8h_1a3aa4d7e12a88363191375a63ea457f7c" kindref="member">rad_mutex_t</ref></type>
+        <definition>rad_mutex_t rad::Mutex::handle_</definition>
+        <argsstring></argsstring>
+        <name>handle_</name>
+        <initializer>= nullptr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/headers/radixkernel/rad_cpp.h" line="123" column="17" bodyfile="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/headers/radixkernel/rad_cpp.h" bodystart="123" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classrad_1_1Mutex_1a617d2622fe15d43d5edf7a78a206741d" prot="private" static="no" mutable="no">
+        <type><ref refid="radixkernel_8h_1aeb7c981d4b5f029daa65d3b928bab127" kindref="member">rad_status_t</ref></type>
+        <definition>rad_status_t rad::Mutex::status_</definition>
+        <argsstring></argsstring>
+        <name>status_</name>
+        <initializer>= <ref refid="radixkernel_8h_1aa694fb66cb1a6852963a4d4acd69ea0aa04729699be9d6bcbe0ab4c605d149c83" kindref="member">RAD_STATUS_NOT_INITIALIZED</ref></initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/headers/radixkernel/rad_cpp.h" line="124" column="18" bodyfile="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/headers/radixkernel/rad_cpp.h" bodystart="124" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classrad_1_1Mutex_1a14d5106d39136800764f709d2ffb31f5" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>rad::Mutex::Mutex</definition>
+        <argsstring>()</argsstring>
+        <name>Mutex</name>
+        <briefdescription>
+<para>Create a kernel mutex. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/headers/radixkernel/rad_cpp.h" line="109" column="5" bodyfile="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/headers/radixkernel/rad_cpp.h" bodystart="109" bodyend="109"/>
+      </memberdef>
+      <memberdef kind="function" id="classrad_1_1Mutex_1a13c91828de59bb47f79f6a7120cfe8c5" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>rad::Mutex::~Mutex</definition>
+        <argsstring>()</argsstring>
+        <name>~Mutex</name>
+        <briefdescription>
+<para>Destroy the kernel mutex when it was created successfully. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/headers/radixkernel/rad_cpp.h" line="111" column="5" bodyfile="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/headers/radixkernel/rad_cpp.h" bodystart="111" bodyend="111"/>
+      </memberdef>
+      <memberdef kind="function" id="classrad_1_1Mutex_1ad61e4bf16bc8c57184d7d11d7ea83a12" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>rad::Mutex::Mutex</definition>
+        <argsstring>(const Mutex &amp;)=delete</argsstring>
+        <name>Mutex</name>
+        <param>
+          <type>const <ref refid="classrad_1_1Mutex" kindref="compound">Mutex</ref> &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/headers/radixkernel/rad_cpp.h" line="112" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classrad_1_1Mutex_1a5b05bee04de937c31c0b3ea8dec908a1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classrad_1_1Mutex" kindref="compound">Mutex</ref> &amp;</type>
+        <definition>Mutex&amp; rad::Mutex::operator=</definition>
+        <argsstring>(const Mutex &amp;)=delete</argsstring>
+        <name>operator=</name>
+        <param>
+          <type>const <ref refid="classrad_1_1Mutex" kindref="compound">Mutex</ref> &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/headers/radixkernel/rad_cpp.h" line="113" column="11"/>
+      </memberdef>
+      <memberdef kind="function" id="classrad_1_1Mutex_1ac91a3c7373a61b2a866c04f4c2185c16" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="radixkernel_8h_1aeb7c981d4b5f029daa65d3b928bab127" kindref="member">rad_status_t</ref></type>
+        <definition>rad_status_t rad::Mutex::status</definition>
+        <argsstring>() const</argsstring>
+        <name>status</name>
+        <briefdescription>
+<para>Return construction status. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/headers/radixkernel/rad_cpp.h" line="115" column="18" bodyfile="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/headers/radixkernel/rad_cpp.h" bodystart="115" bodyend="115"/>
+      </memberdef>
+      <memberdef kind="function" id="classrad_1_1Mutex_1a6ec0656bf735c06eec523158b03a17f1" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="radixkernel_8h_1aeb7c981d4b5f029daa65d3b928bab127" kindref="member">rad_status_t</ref></type>
+        <definition>rad_status_t rad::Mutex::lock</definition>
+        <argsstring>()</argsstring>
+        <name>lock</name>
+        <briefdescription>
+<para>Lock the mutex. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/headers/radixkernel/rad_cpp.h" line="117" column="18" bodyfile="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/headers/radixkernel/rad_cpp.h" bodystart="117" bodyend="117"/>
+      </memberdef>
+      <memberdef kind="function" id="classrad_1_1Mutex_1af0a74fe502011c390468fddc225c9b79" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="radixkernel_8h_1aeb7c981d4b5f029daa65d3b928bab127" kindref="member">rad_status_t</ref></type>
+        <definition>rad_status_t rad::Mutex::unlock</definition>
+        <argsstring>()</argsstring>
+        <name>unlock</name>
+        <briefdescription>
+<para>Unlock the mutex. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/headers/radixkernel/rad_cpp.h" line="119" column="18" bodyfile="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/headers/radixkernel/rad_cpp.h" bodystart="119" bodyend="119"/>
+      </memberdef>
+      <memberdef kind="function" id="classrad_1_1Mutex_1a6563bb20bd9bedc96cdd66b41a07bd35" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="radixkernel_8h_1a3aa4d7e12a88363191375a63ea457f7c" kindref="member">rad_mutex_t</ref></type>
+        <definition>rad_mutex_t rad::Mutex::native</definition>
+        <argsstring>() const</argsstring>
+        <name>native</name>
+        <briefdescription>
+<para>Return the raw mutex handle. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/headers/radixkernel/rad_cpp.h" line="121" column="17" bodyfile="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/headers/radixkernel/rad_cpp.h" bodystart="121" bodyend="121"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>RAII wrapper for rad_mutex_t. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/headers/radixkernel/rad_cpp.h" line="106" column="1" bodyfile="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/headers/radixkernel/rad_cpp.h" bodystart="106" bodyend="125"/>
+    <listofallmembers>
+      <member refid="classrad_1_1Mutex_1a6d1502c97322a7d23979a974b01d18b6" prot="private" virt="non-virtual"><scope>rad::Mutex</scope><name>handle_</name></member>
+      <member refid="classrad_1_1Mutex_1a6ec0656bf735c06eec523158b03a17f1" prot="public" virt="non-virtual"><scope>rad::Mutex</scope><name>lock</name></member>
+      <member refid="classrad_1_1Mutex_1a14d5106d39136800764f709d2ffb31f5" prot="public" virt="non-virtual"><scope>rad::Mutex</scope><name>Mutex</name></member>
+      <member refid="classrad_1_1Mutex_1ad61e4bf16bc8c57184d7d11d7ea83a12" prot="public" virt="non-virtual"><scope>rad::Mutex</scope><name>Mutex</name></member>
+      <member refid="classrad_1_1Mutex_1a6563bb20bd9bedc96cdd66b41a07bd35" prot="public" virt="non-virtual"><scope>rad::Mutex</scope><name>native</name></member>
+      <member refid="classrad_1_1Mutex_1a5b05bee04de937c31c0b3ea8dec908a1" prot="public" virt="non-virtual"><scope>rad::Mutex</scope><name>operator=</name></member>
+      <member refid="classrad_1_1Mutex_1ac91a3c7373a61b2a866c04f4c2185c16" prot="public" virt="non-virtual"><scope>rad::Mutex</scope><name>status</name></member>
+      <member refid="classrad_1_1Mutex_1a617d2622fe15d43d5edf7a78a206741d" prot="private" virt="non-virtual"><scope>rad::Mutex</scope><name>status_</name></member>
+      <member refid="classrad_1_1Mutex_1af0a74fe502011c390468fddc225c9b79" prot="public" virt="non-virtual"><scope>rad::Mutex</scope><name>unlock</name></member>
+      <member refid="classrad_1_1Mutex_1a13c91828de59bb47f79f6a7120cfe8c5" prot="public" virt="non-virtual"><scope>rad::Mutex</scope><name>~Mutex</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

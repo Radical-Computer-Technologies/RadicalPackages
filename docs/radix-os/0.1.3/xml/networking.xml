@@ -1,0 +1,64 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="networking" kind="page">
+    <compoundname>networking</compoundname>
+    <title>Experimental Networking</title>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para><anchor id="networking_1md__media_jvincent_Kingspec512_repos_RADix_OS_docs_public_networking"/> RADix-OS Crimson 0.1.3 includes an experimental networking path for the x86 VM target. The goal of this surface is to prove the kernel interfaces for network devices, packet receive, POSIX-inspired datagram sockets, and the first TCP stream socket lifecycle before adding a complete wire-level TCP/IP stack or target-specific production drivers.</para>
+<sect1 id="networking_1autotoc_md36">
+<title>Current Stack</title>
+<para>The network device API exposes link information, frame transmit, frame receive, and polling. The x86 VM target registers a legacy virtio-net device as <computeroutput>/dev/net0</computeroutput> when QEMU exposes one. The VM backend now programs separate legacy virtio RX and TX rings and emits smoke markers when the rings are owned by the guest.</para>
+<para>The socket layer currently supports:</para>
+<para><itemizedlist>
+<listitem><para><computeroutput>RAD_AF_INET</computeroutput></para>
+</listitem><listitem><para><computeroutput>RAD_SOCK_DGRAM</computeroutput></para>
+</listitem><listitem><para><computeroutput>RAD_IPPROTO_UDP</computeroutput></para>
+</listitem><listitem><para><computeroutput>socket</computeroutput>, <computeroutput>bind</computeroutput>, <computeroutput>sendto</computeroutput>, <computeroutput>recvfrom</computeroutput></para>
+</listitem><listitem><para><computeroutput>RAD_SOCK_STREAM</computeroutput></para>
+</listitem><listitem><para><computeroutput>RAD_IPPROTO_TCP</computeroutput></para>
+</listitem><listitem><para><computeroutput>listen</computeroutput>, <computeroutput>accept</computeroutput>, <computeroutput>connect</computeroutput>, <computeroutput>send</computeroutput>, <computeroutput>recv</computeroutput>, <computeroutput>shutdown</computeroutput></para>
+</listitem><listitem><para>fd lifecycle through <computeroutput>close</computeroutput>, <computeroutput>dup</computeroutput>, <computeroutput>dup2</computeroutput>, <computeroutput>fcntl</computeroutput>, fork inheritance, and close-on-exec handling</para>
+</listitem></itemizedlist>
+</para>
+<para>The TCP support in this pass is a kernel socket model and local stream foundation. It verifies listener setup, client connect, accept, connected peer state, stream byte delivery, and shutdown behavior. It is not yet a full wire-level TCP implementation with SYN/ACK sequencing, retransmit timers, congestion control, route lookup, or external host connections.</para>
+<para>The default VM IPv4 profile is static and QEMU-oriented:</para>
+<para><itemizedlist>
+<listitem><para>guest: <computeroutput>10.0.2.15</computeroutput></para>
+</listitem><listitem><para>gateway/host side: <computeroutput>10.0.2.2</computeroutput></para>
+</listitem><listitem><para>MTU: <computeroutput>1500</computeroutput></para>
+</listitem></itemizedlist>
+</para>
+</sect1>
+<sect1 id="networking_1autotoc_md37">
+<title>Current Limits</title>
+<para>This page is intentionally marked experimental. UDP datagrams, local TCP stream sockets, and virtio-net queue setup are verified through host tests and x86 VM smoke markers, but the network stack is still minimal. DHCP, DNS, ICMP, full wire-level TCP, route tables, firewall rules, packet sockets, and non-x86 NIC drivers remain future work.</para>
+</sect1>
+<sect1 id="networking_1autotoc_md38">
+<title>Verification</title>
+<para>Host tests cover network device registration, link info, transmit, receive, UDP datagram socket delivery, and the local TCP listener/connect/accept/stream socket lifecycle.</para>
+<para>The x86 Slint VM smoke gate checks:</para>
+<para><itemizedlist>
+<listitem><para><computeroutput>RADIX_VIRTIO_NET_FOUND</computeroutput></para>
+</listitem><listitem><para><computeroutput>RADIX_NET_DEVICE_REGISTERED</computeroutput></para>
+</listitem><listitem><para><computeroutput>RADIX_VIRTIO_NET_TX_RING_OK</computeroutput></para>
+</listitem><listitem><para><computeroutput>RADIX_VIRTIO_NET_RX_RING_OK</computeroutput></para>
+</listitem><listitem><para><computeroutput>RADIX_ETH_TX_OK</computeroutput></para>
+</listitem><listitem><para><computeroutput>RADIX_ARP_OK</computeroutput></para>
+</listitem><listitem><para><computeroutput>RADIX_IPV4_OK</computeroutput></para>
+</listitem><listitem><para><computeroutput>RADIX_UDP_OK</computeroutput></para>
+</listitem><listitem><para><computeroutput>RADIX_UDP_RX_OK</computeroutput></para>
+</listitem><listitem><para><computeroutput>RADIX_SOCKET_DGRAM_OK</computeroutput></para>
+</listitem><listitem><para><computeroutput>RADIX_TCP_SOCKET_OK</computeroutput></para>
+</listitem><listitem><para><computeroutput>RADIX_TCP_CONNECT_OK</computeroutput></para>
+</listitem><listitem><para><computeroutput>RADIX_TCP_LISTEN_ACCEPT_OK</computeroutput></para>
+</listitem><listitem><para><computeroutput>RADIX_TCP_STREAM_IO_OK</computeroutput></para>
+</listitem><listitem><para><computeroutput>RADIX_TCP_SHUTDOWN_OK</computeroutput> </para>
+</listitem></itemizedlist>
+</para>
+</sect1>
+    </detaileddescription>
+    <location file="/media/jvincent/Kingspec512/repos/RADix-OS/docs/public/networking.md"/>
+  </compounddef>
+</doxygen>

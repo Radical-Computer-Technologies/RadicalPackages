@@ -1,0 +1,102 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="radbuild_8md" kind="file" language="Markdown">
+    <compoundname>radbuild.md</compoundname>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline><highlight class="normal">#<sp/>RadBuild<sp/>Integration<sp/>{#radbuild_integration}</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">RADix-OS<sp/>uses<sp/>RadBuild<sp/>0.2.1<sp/>as<sp/>the<sp/>canonical<sp/>graph<sp/>entrypoint<sp/>for<sp/>repeatable</highlight></codeline>
+<codeline><highlight class="normal">x86<sp/>VM<sp/>image<sp/>builds.<sp/>Crimson<sp/>defines<sp/>standalone<sp/>RadBuild<sp/>project<sp/>JSON<sp/>files<sp/>for</highlight></codeline>
+<codeline><highlight class="normal">the<sp/>terminal<sp/>and<sp/>RADCompositor/Slint<sp/>profiles,<sp/>plus<sp/>a<sp/>root<sp/>`settings.json`<sp/>that</highlight></codeline>
+<codeline><highlight class="normal">can<sp/>build<sp/>both<sp/>profiles<sp/>together.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>Build<sp/>Command</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Run<sp/>from<sp/>the<sp/>RADix-OS<sp/>repository<sp/>root:</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">```bash</highlight></codeline>
+<codeline><highlight class="normal">../RadBuild/radbuild/.tools/radbuild.py<sp/>build<sp/>os<sp/>--settings<sp/>settings.json<sp/>--json-events</highlight></codeline>
+<codeline><highlight class="normal">../RadBuild/radbuild/.tools/radbuild.py<sp/>build<sp/>os<sp/>--settings<sp/>settings.terminal.json<sp/>--json-events</highlight></codeline>
+<codeline><highlight class="normal">../RadBuild/radbuild/.tools/radbuild.py<sp/>build<sp/>os<sp/>--settings<sp/>settings.wm.json<sp/>--json-events</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">The<sp/>provider<sp/>executes<sp/>`tools/embedded/x86_64_grub_slint_smoke.sh`<sp/>with<sp/>the</highlight></codeline>
+<codeline><highlight class="normal">configured<sp/>`ui_profile`<sp/>for<sp/>each<sp/>QEMU<sp/>SMP<sp/>count.<sp/>The<sp/>terminal<sp/>profile<sp/>is<sp/>the</highlight></codeline>
+<codeline><highlight class="normal">default<sp/>VM<sp/>boot<sp/>gate.<sp/>The<sp/>WM<sp/>profile<sp/>is<sp/>the<sp/>RADCompositor/Slint<sp/>UI<sp/>package</highlight></codeline>
+<codeline><highlight class="normal">gate:<sp/>it<sp/>builds<sp/>the<sp/>Slint/RADCompositor<sp/>image<sp/>and<sp/>runs<sp/>the<sp/>hosted<sp/>UI<sp/>smoke,</highlight></codeline>
+<codeline><highlight class="normal">while<sp/>full<sp/>Slint<sp/>startup<sp/>inside<sp/>the<sp/>VM<sp/>remains<sp/>a<sp/>separate<sp/>stabilization<sp/>item.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>Artifact<sp/>Output</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Successful<sp/>builds<sp/>stage<sp/>development<sp/>artifacts<sp/>under:</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">```text</highlight></codeline>
+<codeline><highlight class="normal">artifacts/radix/x86_64-grub-terminal/</highlight></codeline>
+<codeline><highlight class="normal">artifacts/radix/x86_64-grub-wm/</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">The<sp/>staged<sp/>set<sp/>includes<sp/>the<sp/>GRUB<sp/>ISO,<sp/>kernel<sp/>ELF,<sp/>ext4<sp/>root<sp/>filesystem,<sp/>FAT32</highlight></codeline>
+<codeline><highlight class="normal">image,<sp/>`run-radix-vm.sh`,<sp/>one<sp/>serial<sp/>log<sp/>per<sp/>SMP<sp/>smoke,<sp/>and<sp/>`SHA256SUMS`.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">The<sp/>terminal<sp/>profile<sp/>excludes<sp/>Slint/RADCompositor<sp/>chunks<sp/>and<sp/>boots<sp/>directly<sp/>to</highlight></codeline>
+<codeline><highlight class="normal">the<sp/>framebuffer<sp/>terminal.<sp/>The<sp/>WM<sp/>profile<sp/>includes<sp/>the<sp/>Slint-backed</highlight></codeline>
+<codeline><highlight class="normal">RADCompositor<sp/>shell.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>rkconfig<sp/>and<sp/>Root<sp/>Filesystem<sp/>Layout</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Each<sp/>`os.radix`<sp/>system<sp/>can<sp/>provide<sp/>a<sp/>`config.rkconfig`<sp/>object.<sp/>The<sp/>current</highlight></codeline>
+<codeline><highlight class="normal">Crimson<sp/>fields<sp/>are:</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">-<sp/>`hostname`:<sp/>written<sp/>to<sp/>`/etc/hostname`<sp/>and<sp/>used<sp/>by<sp/>the<sp/>`rash`<sp/>prompt.</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>`root_password`:<sp/>hashed<sp/>into<sp/>`/etc/passwords`<sp/>for<sp/>the<sp/>initial<sp/>root<sp/>login.</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>`rootfs_size_mb`:<sp/>ext4<sp/>image<sp/>size<sp/>for<sp/>`/`.</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>`terminal_scale`:<sp/>framebuffer<sp/>terminal<sp/>scale,<sp/>or<sp/>`auto`.</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>`terminal_font`:<sp/>framebuffer<sp/>terminal<sp/>font<sp/>selection.</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>`terminal_theme`:<sp/>framebuffer<sp/>terminal<sp/>color/theme<sp/>selection.</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>`terminal_autocomplete`:<sp/>enables<sp/>`rash`<sp/>tab<sp/>completion.</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>`terminal_posix_compat`:<sp/>enables<sp/>the<sp/>POSIX<sp/>terminal<sp/>compatibility<sp/>layer.</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>`terminal_ncurses`:<sp/>stages<sp/>the<sp/>RADix<sp/>terminfo/sysroot<sp/>readiness<sp/>pieces<sp/>for</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>ncurses-style<sp/>ports.</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>`terminal_nano`:<sp/>disabled<sp/>by<sp/>default;<sp/>reserved<sp/>for<sp/>the<sp/>experimental<sp/>upstream</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>nano<sp/>port<sp/>while<sp/>TTY/libc<sp/>compatibility<sp/>matures.</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>`terminal_vim`:<sp/>disabled<sp/>by<sp/>default;<sp/>enables<sp/>the<sp/>experimental<sp/>upstream</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>vim-tiny<sp/>port<sp/>when<sp/>RadBuild-managed<sp/>Vim<sp/>source<sp/>is<sp/>available.</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>`kernel_max_tasks`<sp/>and<sp/>`kernel_max_processes`:<sp/>scheduler/process<sp/>table</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>capacity,<sp/>defaulting<sp/>to<sp/>128<sp/>for<sp/>the<sp/>x86<sp/>terminal<sp/>profile.</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>`kernel_task_stack_bytes`<sp/>and<sp/>`kernel_task_stack_policy`:<sp/>default<sp/>kernel<sp/>task</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>stack<sp/>size<sp/>and<sp/>`dynamic`<sp/>or<sp/>`static`<sp/>allocation<sp/>policy.<sp/>x86<sp/>defaults<sp/>to</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>dynamic<sp/>512<sp/>KiB<sp/>task<sp/>stacks.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">The<sp/>generated<sp/>ext4<sp/>image<sp/>stages<sp/>a<sp/>Unix-like<sp/>base<sp/>layout:</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">```text</highlight></codeline>
+<codeline><highlight class="normal">/bin<sp/>/dev<sp/>/etc<sp/>/home/root<sp/>/lib<sp/>/lib/radix/modules<sp/>/mnt/fat<sp/>/sbin<sp/>/tmp<sp/>/usr/bin<sp/>/usr/lib<sp/>/var/log</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Kernel<sp/>modules<sp/>use<sp/>the<sp/>`.rko`<sp/>extension<sp/>under<sp/>`/lib/radix/modules`.<sp/>Dynamic</highlight></codeline>
+<codeline><highlight class="normal">shared<sp/>objects<sp/>use<sp/>`.rso`<sp/>under<sp/>`/lib`<sp/>or<sp/>`/usr/lib`<sp/>once<sp/>the<sp/>runtime<sp/>dynamic</highlight></codeline>
+<codeline><highlight class="normal">linker<sp/>lands.<sp/>These<sp/>names<sp/>are<sp/>RADix-specific<sp/>and<sp/>intentionally<sp/>do<sp/>not<sp/>collide</highlight></codeline>
+<codeline><highlight class="normal">with<sp/>Linux<sp/>`.ko`<sp/>kernel<sp/>modules<sp/>or<sp/>`.so`<sp/>shared<sp/>libraries.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">RadBuild<sp/>writes<sp/>the<sp/>machine-readable<sp/>manifest<sp/>at:</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">```text</highlight></codeline>
+<codeline><highlight class="normal">.radmeta/artifacts/radbuild-artifacts.json</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">`artifacts/`<sp/>and<sp/>`.radmeta/`<sp/>are<sp/>local<sp/>build<sp/>outputs<sp/>and<sp/>are<sp/>intentionally<sp/>not</highlight></codeline>
+<codeline><highlight class="normal">tracked<sp/>in<sp/>the<sp/>RADix-OS<sp/>source<sp/>repository.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>Publication</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">RADix-OS<sp/>source<sp/>and<sp/>API<sp/>documentation<sp/>are<sp/>published<sp/>through<sp/>RadicalPackages<sp/>as</highlight></codeline>
+<codeline><highlight class="normal">experimental<sp/>Crimson<sp/>documentation.<sp/>Generated<sp/>VM<sp/>images<sp/>remain<sp/>local<sp/>development</highlight></codeline>
+<codeline><highlight class="normal">artifacts<sp/>until<sp/>a<sp/>separate<sp/>binary<sp/>image<sp/>release<sp/>channel<sp/>is<sp/>defined.</highlight></codeline>
+    </programlisting>
+    <location file="/media/jvincent/Kingspec512/repos/RADix-OS/docs/public/radbuild.md"/>
+  </compounddef>
+</doxygen>

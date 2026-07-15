@@ -1,0 +1,29 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="README_8md" kind="file" language="Markdown">
+    <compoundname>README.md</compoundname>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline><highlight class="normal">#<sp/>RADix<sp/>Platform<sp/>Layout</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">`platforms/a53`<sp/>contains<sp/>portable<sp/>ARMv8-A/Cortex-A53<sp/>execution<sp/>support:<sp/>boot</highlight></codeline>
+<codeline><highlight class="normal">normalization<sp/>contracts,<sp/>4<sp/>KiB<sp/>page-table<sp/>setup,<sp/>TTBR0<sp/>process<sp/>roots,<sp/>TTBR1</highlight></codeline>
+<codeline><highlight class="normal">kernel-root<sp/>setup,<sp/>process<sp/>architecture<sp/>registration,<sp/>user-copy/COW<sp/>interfaces,</highlight></codeline>
+<codeline><highlight class="normal">and<sp/>generic<sp/>A53<sp/>capability<sp/>reporting.<sp/>Code<sp/>in<sp/>this<sp/>directory<sp/>must<sp/>not<sp/>depend<sp/>on</highlight></codeline>
+<codeline><highlight class="normal">Broadcom<sp/>peripheral<sp/>addresses.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">`platforms/a53/bcm283x`<sp/>contains<sp/>Raspberry<sp/>Pi<sp/>Zero<sp/>2<sp/>W<sp/>/<sp/>BCM283x<sp/>platform</highlight></codeline>
+<codeline><highlight class="normal">drivers:<sp/>PL011,<sp/>mailbox<sp/>framebuffer,<sp/>Broadcom<sp/>interrupt<sp/>routing,<sp/>eMMC,<sp/>DWC<sp/>OTG,</highlight></codeline>
+<codeline><highlight class="normal">and<sp/>handoff<sp/>binding.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">`platforms/x86`<sp/>is<sp/>reserved<sp/>for<sp/>the<sp/>x86<sp/>parity<sp/>implementation.<sp/>The<sp/>current<sp/>x86</highlight></codeline>
+<codeline><highlight class="normal">VM<sp/>target<sp/>still<sp/>builds<sp/>from<sp/>`tools/embedded/x86_64_grub_slint`;<sp/>files<sp/>should<sp/>move</highlight></codeline>
+<codeline><highlight class="normal">here<sp/>once<sp/>the<sp/>target<sp/>wrapper<sp/>is<sp/>thin<sp/>enough<sp/>to<sp/>avoid<sp/>changing<sp/>behavior<sp/>during</highlight></codeline>
+<codeline><highlight class="normal">the<sp/>Pi<sp/>parity<sp/>work.</highlight></codeline>
+    </programlisting>
+    <location file="/media/jvincent/Kingspec512/repos/RADix-OS/RADixKernel/platforms/README.md"/>
+  </compounddef>
+</doxygen>
