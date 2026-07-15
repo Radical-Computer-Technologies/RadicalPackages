@@ -70,15 +70,28 @@ radbuild build os --settings settings.wm.json --json-events</code></div>
   <section class="card">
     <h2>RADix Package Repository</h2>
     <p>RadicalPackages hosts RADix <code>.radpm</code> metadata and release archives beside Debian packages. In this release line, RadBuild is the installer: it resolves package metadata and stages package archives into generated root filesystems.</p>
+    <p>Common OS images should select packagegroups first, then add explicit packages only when needed. Packagegroups keep terminal, desktop, networking, and SDK selections reproducible while still letting RadBuild report missing dependencies without silently changing a project.</p>
+    <div class="package-list">
+      <a class="package package-link" href="radpm/dists/experimental/main/packagegroups/radix-terminal-base.json"><code>radix-terminal-base</code><span>Core terminal image set with RADLib, ncurses, and Vim tiny.</span></a>
+      <a class="package package-link" href="radpm/dists/experimental/main/packagegroups/radix-desktop-base.json"><code>radix-desktop-base</code><span>RADCompositor/RADLib UI image set for the window-manager profile.</span></a>
+      <a class="package package-link" href="radpm/dists/experimental/main/packagegroups/radix-networking.json"><code>radix-networking</code><span>Network, DNS resolver, time sync, and timezone packages.</span></a>
+      <a class="package package-link" href="radpm/dists/experimental/main/packagegroups/radix-dev-sdk.json"><code>radix-dev-sdk</code><span>Development/sysroot package set for RADix terminal application ports.</span></a>
+    </div>
     <div class="package-list">
       <a class="package package-link" href="radpm/dists/experimental/main/packages.json"><code>radix-core</code><span>Core RADix userspace layout and boot support metadata.</span></a>
+      <a class="package package-link" href="radpm/dists/experimental/main/packages.json"><code>radix-ncurses</code><span>RADix ncurses/tinfo shared runtime, <code>.rso</code> libraries, static archives, and terminal UI headers.</span></a>
       <a class="package package-link" href="radpm/dists/experimental/main/packages.json"><code>radix-vim-tiny</code><span>Tiny upstream Vim port metadata, RADix defaults, and Vim license for terminal images.</span></a>
       <a class="package package-link" href="radpm/dists/experimental/main/packages.json"><code>radlib</code><span>RADLib aggregate metadata for future RADix userspace and service packages.</span></a>
       <a class="package package-link" href="radpm/dists/experimental/main/packages.json"><code>radlib-runtime</code><span>RADLib runtime package metadata for generated RADix root filesystems.</span></a>
       <a class="package package-link" href="radpm/dists/experimental/main/packages.json"><code>radlib-ui</code><span>RADLib UI and Slint-facing metadata for RADix OS builds.</span></a>
+      <a class="package package-link" href="radpm/dists/experimental/main/packages.json"><code>radix-network</code><span>RADix network service package metadata.</span></a>
+      <a class="package package-link" href="radpm/dists/experimental/main/packages.json"><code>radix-dns-resolver</code><span>DNS resolver service package metadata.</span></a>
+      <a class="package package-link" href="radpm/dists/experimental/main/packages.json"><code>radix-time-sync</code><span>NTP/time synchronization service package metadata.</span></a>
+      <a class="package package-link" href="radpm/dists/experimental/main/packages.json"><code>radix-tzdata</code><span>Timezone data package metadata.</span></a>
     </div>
     <div class="links">
       <a class="link-card" href="radpm/dists/experimental/main/packages.json"><strong>Experimental .radpm Index</strong><span>Machine-readable package records for RadBuild.</span></a>
+      <a class="link-card" href="radpm/dists/experimental/main/packagegroups.json"><strong>Experimental Packagegroups</strong><span>Machine-readable terminal, desktop, networking, and SDK group records.</span></a>
       <a class="link-card" href="https://github.com/Radical-Computer-Technologies/RadicalPackages/releases/tag/radix-os-0.1.3-beta.1"><strong>RADix Release Assets</strong><span>Current <code>.radpm</code> archives and x86 image bundles.</span></a>
       <a class="link-card" href="packages.html"><strong>Package Catalog</strong><span>Debian and RADix package listings.</span></a>
     </div>

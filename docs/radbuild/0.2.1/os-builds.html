@@ -39,8 +39,9 @@ SHA256SUMS</code></pre>
 <h2>RADix Menuconfig</h2>
 <pre><code>radbuild menuconfig --settings settings.terminal.json --list
 radbuild menuconfig --settings settings.terminal.json --apply-profile wm --json
+radbuild menuconfig --settings settings.terminal.json --enable-packagegroup radix-networking --resolve-packages --json
 radbuild menuconfig --settings settings.terminal.json --enable-package radlib-ui --resolve-packages --json</code></pre>
-<p>Package edits are dependency-aware. Enabling a package automatically enables its required packages from the configured <code>.radpm</code> index.</p>
+<p>Packagegroup edits select coherent RADix OS feature sets from the configured <code>.radpm</code> repository. Individual package edits stay explicit: RadBuild reports missing dependencies with the package or packagegroup that can satisfy them instead of silently mutating the project.</p>
   </article>
 </main>
 </body>

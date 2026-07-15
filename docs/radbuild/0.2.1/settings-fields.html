@@ -72,15 +72,18 @@
 <li><code>linux.yocto.layer</code>: generated Yocto layer.</li>
 <li><code>os.radix.target</code>: RADix build target.</li>
 <li><code>os.radix.ui_profile</code>: RADix UI profile such as <code>terminal</code> or <code>wm</code>.</li>
+<li><code>os.radix.source</code>: RADix source acquisition. <code>type=local</code> uses <code>path</code> or <code>source_dir</code>; <code>type=git</code> uses <code>url</code>, optional <code>branch</code>, <code>tag</code>, <code>commit</code>, <code>ref</code>, <code>checkout_dir</code>, <code>update</code>, and <code>depth</code>.</li>
 <li><code>os.radix.feature_chunks</code>: RADix kernel/userspace chunks.</li>
-<li><code>os.radix.rkconfig</code>: RADix runtime kernel/image configuration, including terminal theme, autocomplete, ncurses, nano, and Vim tiny toggles.</li>
-<li><code>os.radix.radpm</code>: RADix package repository, suite, and packages.</li>
+<li><code>os.radix.rkconfig</code>: RADix runtime kernel/image configuration, including terminal theme, package toggles, static IPv4, gateway, DNS, and NTP settings.</li>
+<li><code>os.radix.radpm</code>: RADix package repository, suite, packagegroups, and explicit packages.</li>
+<li><code>os.radix.sdk</code>: RADix SDK export settings. <code>enabled</code> emits a SDK tarball, <code>name</code> sets the archive filename, <code>root_name</code> sets the top-level directory inside the archive, and <code>dir</code> overrides the temporary SDK staging directory.</li>
 <li><code>os.radix.build_dir</code>: RADix build output directory.</li>
 <li><code>os.radix.smoke_script</code>: script invoked by RadBuild.</li>
 <li><code>os.radix.qemu_smp</code>: QEMU SMP counts used by smoke testing.</li>
 <li><code>os.radix.skip_qemu</code>: skip VM execution when true.</li>
 </ul>
 <p>The machine-readable catalog is packaged as <code>radbuild/schemas/project-fields-v0.2.1.json</code>.</p>
+<p>When <code>os.radix.radpm.packagegroups</code> or <code>os.radix.radpm.packages</code> is set, RadBuild resolves the selected metadata, verifies signed <code>.radpm</code> archives when signatures are required, stages package payloads into the generated RADix root filesystem, and reuses development payloads for the exported SDK. Packagegroups select complete feature sets such as <code>radix-terminal-base</code>, while direct packages are intentionally explicit. Missing dependencies are reported with the available packagegroup or package that can satisfy them. The <code>menuconfig</code> interface exposes source, packagegroup selection, package selection, and SDK settings; non-interactive flows can use <code>--set-source KEY=VALUE</code>, <code>--enable-packagegroup</code>, <code>--disable-packagegroup</code>, <code>--enable-package</code>, <code>--disable-package</code>, and <code>--set-sdk KEY=VALUE</code>.</p>
   </article>
 </main>
 </body>

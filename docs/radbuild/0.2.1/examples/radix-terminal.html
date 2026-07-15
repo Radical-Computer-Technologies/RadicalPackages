@@ -37,6 +37,13 @@
       &quot;config&quot;: {
         &quot;target&quot;: &quot;x86_64-grub-terminal&quot;,
         &quot;ui_profile&quot;: &quot;terminal&quot;,
+        &quot;source&quot;: {
+          &quot;type&quot;: &quot;git&quot;,
+          &quot;url&quot;: &quot;https://github.com/Radical-Computer-Technologies/RADix-OS.git&quot;,
+          &quot;branch&quot;: &quot;crimson-v0.1.3&quot;,
+          &quot;checkout_dir&quot;: &quot;.radmeta/sources/RADix-OS&quot;,
+          &quot;update&quot;: true
+        },
         &quot;feature_chunks&quot;: [&quot;kernel.core&quot;, &quot;kernel.x86_64&quot;, &quot;drivers.framebuffer&quot;, &quot;drivers.input.ps2&quot;, &quot;drivers.block.virtio&quot;, &quot;fs.ext4&quot;, &quot;fs.fat&quot;, &quot;services.radinit&quot;, &quot;services.base-terminal&quot;, &quot;userspace.rash&quot;],
         &quot;build_dir&quot;: &quot;build/embedded/x86_64_grub_terminal&quot;,
         &quot;smoke_script&quot;: &quot;tools/embedded/x86_64_grub_slint_smoke.sh&quot;,
@@ -50,12 +57,27 @@
           &quot;terminal_autocomplete&quot;: true,
           &quot;terminal_ncurses&quot;: true,
           &quot;terminal_vim&quot;: true,
-          &quot;terminal_vim_variant&quot;: &quot;tiny&quot;
+          &quot;terminal_vim_variant&quot;: &quot;tiny&quot;,
+          &quot;network_enabled&quot;: true,
+          &quot;net_ipv4&quot;: &quot;10.0.2.15&quot;,
+          &quot;net_netmask&quot;: &quot;255.255.255.0&quot;,
+          &quot;net_gateway&quot;: &quot;10.0.2.2&quot;,
+          &quot;net_ntp_server&quot;: &quot;time.google.com&quot;,
+          &quot;net_ntp_port&quot;: 123,
+          &quot;net_dns_server&quot;: &quot;10.0.2.3&quot;,
+          &quot;dns_search&quot;: &quot;local&quot;,
+          &quot;timezone&quot;: &quot;America/Los_Angeles&quot;
         },
         &quot;radpm&quot;: {
           &quot;repository&quot;: &quot;../RadicalPackages&quot;,
           &quot;suite&quot;: &quot;experimental&quot;,
-          &quot;packages&quot;: [&quot;radix-core&quot;, &quot;radlib&quot;, &quot;radix-vim-tiny&quot;]
+          &quot;packages&quot;: [],
+          &quot;packagegroups&quot;: [&quot;radix-terminal-base&quot;, &quot;radix-networking&quot;]
+        },
+        &quot;sdk&quot;: {
+          &quot;enabled&quot;: true,
+          &quot;name&quot;: &quot;radix-sdk-x86_64-grub-terminal.tar.gz&quot;,
+          &quot;root_name&quot;: &quot;radix-sdk-x86_64-grub-terminal&quot;
         }
       }
     }
@@ -68,11 +90,14 @@
 <h2>Commands</h2>
 <pre><code>radbuild project create ./workspace --non-interactive --template radix-os-terminal --project-name radix-terminal
 radbuild menuconfig --settings ./workspace/radix-terminal/settings.json --list
+radbuild menuconfig --settings ./workspace/radix-terminal/settings.json --set-source branch=crimson-v0.1.3
 radbuild build os --settings settings.json --json-events</code></pre>
 <h2>Expected Artifacts</h2>
 <pre><code>artifacts/radix/x86_64-grub-terminal/radixkernel-x86-64-grub-terminal.iso
 artifacts/radix/x86_64-grub-terminal/radix-rootfs.ext4
-artifacts/radix/x86_64-grub-terminal/run-radix-vm.sh</code></pre>
+artifacts/radix/x86_64-grub-terminal/radix-sdk-x86_64-grub-terminal.tar.gz
+artifacts/radix/x86_64-grub-terminal/run-radix-vm.sh
+artifacts/radix/x86_64-grub-terminal/source-lock.json</code></pre>
   </article>
 </main>
 </body>

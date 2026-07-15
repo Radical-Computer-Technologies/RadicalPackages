@@ -40,7 +40,8 @@
         &quot;radpm&quot;: {
           &quot;repository&quot;: &quot;../RadicalPackages&quot;,
           &quot;suite&quot;: &quot;experimental&quot;,
-          &quot;packages&quot;: [&quot;radix-core&quot;, &quot;radix-vim-tiny&quot;]
+          &quot;packages&quot;: [],
+          &quot;packagegroups&quot;: [&quot;radix-terminal-base&quot;]
         }
       }
     }
@@ -51,12 +52,14 @@
   &quot;packages&quot;: {}
 }</code></pre>
 <h2>Commands</h2>
-<pre><code>radbuild menuconfig --settings settings.json --enable-package radlib-ui --resolve-packages --json</code></pre>
-<p>Expected selected package order:</p>
+<pre><code>radbuild menuconfig --settings settings.json --enable-packagegroup radix-networking --resolve-packages --json
+radbuild menuconfig --settings settings.json --enable-package radlib-ui --resolve-packages --json</code></pre>
+<p>Expected lock package order for <code>radix-terminal-base</code>:</p>
 <pre><code>radix-core
-radlib-runtime
-radlib-ui
+radlib
+radix-ncurses
 radix-vim-tiny</code></pre>
+<p>If an explicit package is selected without its dependencies, RadBuild fails with a package or packagegroup hint instead of silently adding dependencies. For example, selecting <code>radix-vim-tiny</code> alone reports that <code>radix-core</code> is required and is available through <code>radix-terminal-base</code>.</p>
 <p>Expected lock path:</p>
 <pre><code>.radmeta/radix-os/radix-x86/radpm/radpm-lock.json</code></pre>
   </article>
