@@ -61,6 +61,18 @@ sudo apt install radbuild-radhdl radbuild-server radbuild-vscode-support radbuil
   </section>
 
   <section class="card">
+    <h2>VSCode Front-End</h2>
+    <p>The <code>radbuild-vscode-support</code> package stages an installable VSIX with a RadBuild activity-bar panel. The Projects pane lists registered projects with a focused <code>Open</code> action, plus toolbar access to Toolchain Setup, project registration, and template-based project creation.</p>
+    <div class="package-list">
+      <div class="package"><code>Toolchain Setup</code><br><span>Rescans Vivado and PetaLinux roots, prunes invalid versions, and exposes version dropdowns.</span></div>
+      <div class="package"><code>Create Project</code><br><span>Changing templates resets defaults and disables fields that do not apply.</span></div>
+      <div class="package"><code>Project Settings</code><br><span>Edits baseline settings, systems, config values, and toolchain selectors through a form UI.</span></div>
+    </div>
+    <div class="command"><code>sudo apt install radbuild-vscode-support
+code --install-extension /usr/share/radbuild/vscode/radbuild-vscode-0.2.1.vsix --force</code></div>
+  </section>
+
+  <section class="card">
     <h2>Published Packages</h2>
     <table class="package-table">
       <thead><tr><th>Package</th><th>Purpose</th><th>Install</th></tr></thead>

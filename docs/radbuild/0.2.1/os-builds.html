@@ -60,6 +60,7 @@ radbuild menuconfig --settings settings.terminal.json --apply-profile wm --json
 radbuild menuconfig --settings settings.terminal.json --enable-packagegroup radix-networking --resolve-packages --json
 radbuild menuconfig --settings settings.terminal.json --enable-package radlib-ui --resolve-packages --json</code></pre>
 <p>Packagegroup edits select coherent RADix OS feature sets from the configured <code>.radpm</code> repository. Individual package edits stay explicit: RadBuild reports missing dependencies with the package or packagegroup that can satisfy them instead of silently mutating the project.</p>
+<p>The VSCode extension exposes the same state through <code>RadBuild: Configure RADix OS</code>. It reads <code>menuconfig --json --list</code>, edits <code>rkconfig</code>, source checkout, image, SDK, packagegroup, and package fields, then writes changes back through non-interactive <code>radbuild menuconfig</code> flags. This keeps VSCode and terminal configuration behavior identical.</p>
 <h2>PetaLinux Profile</h2>
 <p>Use <code>fpga-mpsoc-petalinux</code> when a Vivado hardware handoff should feed a PetaLinux project. RadBuild generates and validates the graph, carries the XSA directory and firmware/module lists, and can drive PetaLinux commands when the Xilinx tools are installed on the host.</p>
 <pre><code>radbuild project create ./workspace --non-interactive --template fpga-mpsoc-petalinux --project-name zynq-demo

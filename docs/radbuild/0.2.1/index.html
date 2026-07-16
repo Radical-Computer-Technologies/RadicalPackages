@@ -47,6 +47,8 @@
 <pre><code>sudo apt install ./radbuild_0.2.1_amd64.deb
 radbuild project create --list-templates
 radbuild project create ./workspace --non-interactive --template fpga-mpsoc-buildroot --project-name demo
+radbuild project register ./workspace/demo
+radbuild project list --json
 radbuild project validate --settings ./workspace/demo/settings.json
 radbuild generate --settings ./workspace/demo/settings.json
 radbuild build all --settings ./workspace/demo/settings.json --dry-run --json-events</code></pre>
@@ -55,6 +57,9 @@ radbuild build all --settings ./workspace/demo/settings.json --dry-run --json-ev
 {&quot;event&quot;:&quot;system_planned&quot;,&quot;system&quot;:&quot;vivado&quot;,&quot;type&quot;:&quot;fpga.vivado&quot;}
 {&quot;event&quot;:&quot;system_planned&quot;,&quot;system&quot;:&quot;petalinux&quot;,&quot;type&quot;:&quot;linux.petalinux&quot;}
 {&quot;event&quot;:&quot;build_finished&quot;,&quot;status&quot;:&quot;dry-run&quot;}</code></pre>
+<h2>VSCode Front-End</h2>
+<p>The <code>radbuild-vscode-support</code> package includes a VSCode extension with a RadBuild activity-bar view. The first view lists registered projects with a single <code>Open</code> action. Opening a project switches VSCode to that source root and changes the side panel into a project detail view with baseline settings, artifact status, build actions, RADix OS configuration, and a form-based project settings editor. The Projects pane keeps project rows simple while exposing <code>Toolchain Setup</code>, <code>Register Directory</code>, and <code>Create Project</code> in the pane toolbar. A directory is accepted as a RadBuild project only when it contains a schema v2 <code>settings.json</code>.</p>
+<p>The create-project UI is template-aware: changing templates resets fields to that template&#x27;s defaults and disables fields that do not apply. Toolchain setup rescans on extension activation and when opened. Vivado roots are normalized to the folder containing version subdirectories such as <code>2024.1</code>, and versions are accepted only when they contain <code>settings64.sh</code> plus <code>bin/vivado</code>. PetaLinux roots are handled the same way, using <code>settings.sh</code> plus a valid <code>petalinux-build</code> path.</p>
   </article>
 </main>
 </body>

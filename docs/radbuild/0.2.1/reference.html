@@ -27,6 +27,10 @@
 <pre><code>radbuild project create ./workspace --non-interactive --project-name demo
 radbuild project create --list-templates
 radbuild project create ./workspace --non-interactive --template fpga-mpsoc-buildroot --project-name demo
+radbuild project create ./workspace --non-interactive --register --template radix-os-terminal --project-name radix-terminal
+radbuild project register ./workspace/demo
+radbuild project list --json
+radbuild project unregister ./workspace/demo
 radbuild project validate --settings ./workspace/demo/settings.json
 radbuild graph --settings settings.json --json
 radbuild generate --settings settings.json
@@ -63,10 +67,30 @@ radbuild deploy --settings settings.json --json-events</code></pre>
 <li><code>fpga-vivado</code></li>
 <li><code>fpga-mpsoc-petalinux</code></li>
 <li><code>fpga-mpsoc-buildroot</code></li>
+<li><code>fpga-linux-software</code></li>
 <li><code>radix-os-terminal</code></li>
 <li><code>radix-os-wm</code></li>
 </ul>
 <p>Use <code>radbuild project create --list-templates --json</code> for machine-readable template metadata.</p>
+<h2>Project Registry</h2>
+<p>The project registry is a user-level list of RadBuild project roots shared by the CLI and VSCode extension. By default it lives at <code>$XDG_CONFIG_HOME/radbuild/projects.json</code> or <code>~/.config/radbuild/projects.json</code>. Set <code>RADBUILD_PROJECT_REGISTRY=/path/to/projects.json</code> for isolated testing or automation.</p>
+<p>A registered project must point to a directory containing schema v2 <code>settings.json</code>, or directly to a JSON settings file.</p>
+<h2>VSCode Commands</h2>
+<ul>
+<li><code>RadBuild: Projects</code> opens the registered project table. Project rows expose</li>
+<p><code>Open</code>; project-specific settings, artifacts, and build actions appear after a project is active. If the target folder is already open, RadBuild activates the project without forcing a VSCode folder reload.</p>
+<li><code>RadBuild: Register Project Directory</code> validates and registers a project root.</li>
+<li><code>RadBuild: Create Project</code> creates from packaged templates and registers the</li>
+<p>result. Switching templates resets defaults and disables non-applicable fields.</p>
+<li><code>RadBuild: Project Settings</code> opens a form editor for common project fields,</li>
+<p>systems, config values, and project toolchain selectors.</p>
+<li><code>RadBuild: Configure RADix OS</code> edits RADix <code>menuconfig</code> state through JSON</li>
+<p>CLI calls.</p>
+<li><code>RadBuild: Toolchains</code> detects and stores common toolchain paths. Vivado and</li>
+<p>PetaLinux register roots containing valid version directories and expose one selected active version.</p>
+<li><code>RadBuild: Build System</code> builds a selected graph node; <code>Build All</code> builds the</li>
+<p>active project graph.</p>
+</ul>
 <h2>JSON Events</h2>
 <p>Build commands with <code>--json-events</code> emit line-delimited JSON for IDEs and automation. Consumers should read stdout one line at a time and treat unknown event fields as forward-compatible metadata.</p>
   </article>
