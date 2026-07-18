@@ -106,6 +106,7 @@
     </div>
     <div class="links">
       <a class="link-card" href="radix-os.html"><strong>RADPx OS Hub</strong><span>Build profiles, API docs, and package repository notes.</span></a>
+      <a class="link-card" href="radpm-reference.html"><strong>radpm Reference</strong><span>The radpm-package-index schema, packagegroups, and signing.</span></a>
       <a class="link-card" href="radpm/dists/experimental/main/packages.json"><strong>Experimental .radpm Index</strong><span>Machine-readable RADPx package metadata.</span></a>
       <a class="link-card" href="https://github.com/Radical-Computer-Technologies/RadicalPackages/releases/tag/radix-os-0.2.0-beta.1"><strong>RADPx Release Assets</strong><span>Current <code>.radpm</code> package archives and x86 images.</span></a>
       <a class="link-card" href="radpm/dists/stable/main/packages.json"><strong>Stable .radpm Index</strong><span>Reserved stable RADPx package metadata.</span></a>
