@@ -6,7 +6,7 @@
     <div class="nav-links">
       <a href="./">Home</a>
       <a href="packages.html">Packages</a>
-      <a href="radix-os.html">RADix OS</a>
+      <a href="radix-os.html">RADPx OS</a>
       <a href="docs/">Docs</a>
     </div>
   </nav>
@@ -15,7 +15,7 @@
     <div class="eyebrow">Experimental Build Framework</div>
     <h1>RadBuild Packages</h1>
     <p class="lead">
-      RadBuild is the graph-based build framework for FPGA, Linux, firmware, software, package, deployment, RADix-OS image, VSCode, and optional server workflows.
+      RadBuild is the graph-based build framework for FPGA, Linux, firmware, software, package, deployment, RADPx-OS image, VSCode, and optional server workflows.
     </p>
     <div class="status-row">
       <span class="pill"><strong>Version:</strong> 0.2.1</span>
@@ -50,9 +50,9 @@ sudo apt install radbuild-radhdl radbuild-server radbuild-vscode-support radbuil
       <h2>Commands</h2>
       <div class="package-list">
         <div class="package"><code>radbuild project validate</code><br><span>Validate graph settings.</span></div>
-        <div class="package"><code>radbuild build os --json-events</code><br><span>Build and smoke RADix-OS images.</span></div>
-        <div class="package"><code>settings.terminal.json / settings.wm.json</code><br><span>Select terminal-only or RADCompositor/Slint RADix profiles.</span></div>
-        <div class="package"><code>rkconfig</code><br><span>Configure RADix hostname, root password, terminal scale, and rootfs sizing.</span></div>
+        <div class="package"><code>radbuild build os --json-events</code><br><span>Build and smoke RADPx-OS images.</span></div>
+        <div class="package"><code>settings.terminal.json / settings.wm.json</code><br><span>Select terminal-only or RADCompositor/Slint RADPx profiles.</span></div>
+        <div class="package"><code>rkconfig</code><br><span>Configure RADPx hostname, root password, terminal scale, and rootfs sizing.</span></div>
         <div class="package"><code>radbuild build all --json-events</code><br><span>Run graph builds with machine-readable progress.</span></div>
         <div class="package"><code>radbuild-graph</code><br><span>Inspect dependency order.</span></div>
         <div class="package"><code>radbuild-hdlgen</code><br><span>Browse/generate RadHDL assets.</span></div>
@@ -97,8 +97,8 @@ code --install-extension /usr/share/radbuild/vscode/radbuild-vscode-0.2.1.vsix -
   </details>
 
   <section class="card">
-    <h2>RADix From Scratch</h2>
-    <p>After installing only <code>radbuild</code>, create a RADix project from the packaged terminal template, configure it with menuconfig, and build a runnable x86 VM image.</p>
+    <h2>RADPx From Scratch</h2>
+    <p>After installing only <code>radbuild</code>, create a RADPx project from the packaged terminal template, configure it with menuconfig, and build a runnable x86 VM image.</p>
     <div class="command"><code>mkdir -p ~/radix-work
 radbuild project create ~/radix-work --non-interactive --template radix-os-terminal --project-name radix-terminal
 cd ~/radix-work/radix-terminal
@@ -106,8 +106,8 @@ radbuild menuconfig --settings settings.json
 radbuild build os --settings settings.json --json-events
 ./artifacts/radix/x86_64-grub-terminal/run-radix-vm.sh</code></div>
     <div class="links">
-      <a class="link-card" href="docs/radbuild/0.2.1/examples/radix-from-scratch.html"><strong>Full RADix From Scratch Example</strong><span>Project creation, packagegroups, rkconfig, artifacts, and VM login checks.</span></a>
-      <a class="link-card" href="docs/radbuild/0.2.1/os-builds.html"><strong>OS Build Providers</strong><span>RADix, PetaLinux, and Buildroot support levels.</span></a>
+      <a class="link-card" href="docs/radbuild/0.2.1/examples/radix-from-scratch.html"><strong>Full RADPx From Scratch Example</strong><span>Project creation, packagegroups, rkconfig, artifacts, and VM login checks.</span></a>
+      <a class="link-card" href="docs/radbuild/0.2.1/os-builds.html"><strong>OS Build Providers</strong><span>RADPx, PetaLinux, and Buildroot support levels.</span></a>
       <a class="link-card" href="docs/radbuild/0.2.1/settings-fields.html"><strong>Settings Field Reference</strong><span>Detailed <code>settings.json</code>, <code>rkconfig</code>, packagegroup, and SDK fields.</span></a>
     </div>
   </section>
@@ -116,7 +116,7 @@ radbuild build os --settings settings.json --json-events
       <h2>Related Packages</h2>
       <div class="links">
         <a class="link-card" href="radlib.html"><strong>RADLib</strong><span>Runtime libraries consumed by target systems</span></a>
-        <a class="link-card" href="radix-os.html"><strong>RADix-OS</strong><span>Experimental OS image and kernel API track</span></a>
+        <a class="link-card" href="radix-os.html"><strong>RADPx-OS</strong><span>Experimental OS image and kernel API track</span></a>
         <a class="link-card" href="radbard.html"><strong>RADBard</strong><span>Experimental application package track</span></a>
       </div>
   </section>

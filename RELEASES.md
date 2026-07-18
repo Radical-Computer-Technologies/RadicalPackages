@@ -83,13 +83,13 @@ scripts/publish_github_release_assets.py \
   release-staging/apt-experimental
 ```
 
-## RADix OS Images
+## RADPx OS Images
 
-RADix OS images should be uploaded as compressed release bundles, not committed:
+RADPx OS images should be uploaded as compressed release bundles, not committed:
 
 ```bash
 tar --sparse -czf radix-os-crimson_0.1.3-beta.1_x86_64-grub-terminal-interactive.tar.gz \
-  -C ../RADix-OS/artifacts/radix/x86_64-grub-terminal \
+  -C ../RADPx-OS/artifacts/radix/x86_64-grub-terminal \
   radixkernel-x86-64-grub-terminal.iso \
   radix-rootfs.ext4 \
   radix-fat32.img \

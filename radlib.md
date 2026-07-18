@@ -6,7 +6,7 @@
     <div class="nav-links">
       <a href="./">Home</a>
       <a href="packages.html">Packages</a>
-      <a href="radix-os.html">RADix OS</a>
+      <a href="radix-os.html">RADPx OS</a>
       <a href="docs/">Docs</a>
     </div>
   </nav>
@@ -15,8 +15,8 @@
     <div class="eyebrow">Stable Package Line</div>
     <h1>RADLib Packages</h1>
     <p class="lead">
-      RADLib packages are split into ABI-pinned runtime modules, unversioned convenience packages, development headers, documentation, examples, RADpm tooling, and RADix package metadata.
-      Stable currently tracks RADLib 0.1.0. Experimental tracks RADLib 0.2.0 development packages for RADix OS package and service integration.
+      RADLib packages are split into ABI-pinned runtime modules, unversioned convenience packages, development headers, documentation, examples, RADpm tooling, and RADPx package metadata.
+      Stable currently tracks RADLib 0.1.0. Experimental tracks RADLib 0.2.0 development packages for RADPx OS package and service integration.
     </p>
     <div class="status-row">
       <span class="pill"><strong>Version:</strong> 0.1.0</span>
@@ -42,12 +42,12 @@ sudo apt install radlib-media radlib-fpga radlib-web</code></div>
   </section>
 
   <section class="card">
-    <h2>RADix <code>.radpm</code> Metadata</h2>
-    <p>RADLib is also listed in the experimental RADix package index for RadBuild-managed rootfs staging. The 0.2.0 RADix package records match the RADLib 0.2.0 source/package line.</p>
+    <h2>RADPx <code>.radpm</code> Metadata</h2>
+    <p>RADLib is also listed in the experimental RADPx package index for RadBuild-managed rootfs staging. The 0.2.0 RADPx package records match the RADLib 0.2.0 source/package line.</p>
     <div class="links">
       <a class="link-card" href="radpm/dists/experimental/main/packages.json"><strong>RADLib .radpm Records</strong><span><code>radlib</code>, <code>radlib-runtime</code>, and <code>radlib-ui</code> metadata.</span></a>
       <a class="link-card" href="docs/radlib/0.2.0/api/"><strong>RADLib 0.2.0 API Docs</strong><span>Generated beta API documentation, including RADpm and embedded runtime notes.</span></a>
-      <a class="link-card" href="radix-os.html"><strong>RADix OS Hub</strong><span>RADix package repository and OS build notes.</span></a>
+      <a class="link-card" href="radix-os.html"><strong>RADPx OS Hub</strong><span>RADPx package repository and OS build notes.</span></a>
     </div>
   </section>
 
@@ -84,7 +84,7 @@ radpm resolve --packagegroup radix-terminal-base --packagegroup radix-networking
       <div class="package"><code>radlib-dsp</code><br><span>DSP primitives and transforms.</span></div>
       <div class="package"><code>radlib-media</code><br><span>Audio, MIDI, SoundFont, WAV, and MusicXML support.</span></div>
       <div class="package"><code>radlib-fpga</code><br><span>FPGA transport and register-map helpers.</span></div>
-      <a class="package package-link" href="radix-os.html"><code>radlib-embedded-kernel</code><span>Experimental RADix-OS kernel services and HAL-facing runtime.</span></a>
+      <a class="package package-link" href="radix-os.html"><code>radlib-embedded-kernel</code><span>Experimental RADPx-OS kernel services and HAL-facing runtime.</span></a>
       <div class="package"><code>radlib-web</code><br><span>WebKit-backed RADWeb browser components.</span></div>
       <div class="package"><code>radlib-net</code><br><span>Networking and protocol helpers.</span></div>
       <div class="package"><code>radlib-database</code><br><span>SQLite-backed database primitives.</span></div>

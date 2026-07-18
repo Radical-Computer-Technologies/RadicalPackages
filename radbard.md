@@ -6,7 +6,7 @@
     <div class="nav-links">
       <a href="./">Home</a>
       <a href="packages.html">Packages</a>
-      <a href="radix-os.html">RADix OS</a>
+      <a href="radix-os.html">RADPx OS</a>
       <a href="docs/">Docs</a>
     </div>
   </nav>

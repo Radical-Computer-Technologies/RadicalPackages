@@ -6,7 +6,7 @@
     <div class="nav-links">
       <a href="./">Home</a>
       <a href="packages.html">Packages</a>
-      <a href="radix-os.html">RADix OS</a>
+      <a href="radix-os.html">RADPx OS</a>
       <a href="docs/">Docs</a>
     </div>
   </nav>
@@ -20,7 +20,7 @@
     </p>
     <div class="status-row">
       <span class="pill"><strong>Stable:</strong> RADLib 0.1.0</span>
-      <span class="pill"><strong>Experimental:</strong> RadBuild 0.2.1, RADix-OS Crimson 0.2.0, RADBard 0.1.0 beta</span>
+      <span class="pill"><strong>Experimental:</strong> RadBuild 0.2.1, RADPx-OS Crimson 0.2.0, RADBard 0.1.0 beta</span>
       <span class="pill"><strong>Architectures:</strong> amd64, arm64, all</span>
       <span class="pill"><strong>Hosting:</strong> GitHub Releases</span>
     </div>
@@ -71,11 +71,11 @@
         </div>
       </details>
       <details class="doc-release" data-search-item data-search-text="radix os experimental crimson 0.1.3 kernel vm image x86 slint posix radbuild docs radpm package repository vim tiny ncurses">
-        <summary>RADix-OS 0 - Crimson</summary>
+        <summary>RADPx-OS 0 - Crimson</summary>
         <div class="package-list">
-      <a class="package package-link" href="radix-os.html"><code>RADix OS</code><span>Experimental OS hub, kernel API documentation, and VM image build path.</span></a>
+      <a class="package package-link" href="radix-os.html"><code>RADPx OS</code><span>Experimental OS hub, kernel API documentation, and VM image build path.</span></a>
       <a class="package package-link" href="radix-os.html"><code>docs/radix-os/0.1.3</code><span>Published Crimson kernel API documentation.</span></a>
-      <a class="package package-link" href="radix-os.html"><code>radix-vim-tiny</code><span>Tiny upstream Vim package for RADix terminal root filesystems.</span></a>
+      <a class="package package-link" href="radix-os.html"><code>radix-vim-tiny</code><span>Tiny upstream Vim package for RADPx terminal root filesystems.</span></a>
         </div>
       </details>
       <details class="doc-release" data-search-item data-search-text="radbard experimental 0.1.0 beta music audio composition editor notation mixer automation daw amd64 radlib ui media dsp">
@@ -87,28 +87,28 @@
       <details class="doc-release" data-search-item data-search-text="radlib radical radix os experimental 0.1.1 crimson kernel radekernel bare metal hal simulator circle rtos vfs device terminal tasks memory">
         <summary>RADLib 0 - Crimson Experimental</summary>
         <div class="package-list">
-          <a class="package package-link" href="radlib.html"><code>radlib-embedded-kernel</code><span>RADix-OS kernel service layer for simulator and bare-metal HAL backends.</span></a>
-          <a class="package package-link" href="radlib.html"><code>radlib-embedded-kernel-0-1</code><span>ABI-pinned RADix-OS kernel runtime for RADLib 0.1.</span></a>
+          <a class="package package-link" href="radlib.html"><code>radlib-embedded-kernel</code><span>RADPx-OS kernel service layer for simulator and bare-metal HAL backends.</span></a>
+          <a class="package package-link" href="radlib.html"><code>radlib-embedded-kernel-0-1</code><span>ABI-pinned RADPx-OS kernel runtime for RADLib 0.1.</span></a>
         </div>
       </details>
     </details>
   </section>
 
   <section class="card">
-    <h2>RADix OS Packages</h2>
-    <p>RADix packages use <code>.radpm</code> records with release-hosted archives. RadBuild is currently the installer for generated RADix root filesystems; in-OS package management is not enabled yet.</p>
+    <h2>RADPx OS Packages</h2>
+    <p>RADPx packages use <code>.radpm</code> records with release-hosted archives. RadBuild is currently the installer for generated RADPx root filesystems; in-OS package management is not enabled yet.</p>
     <div class="package-list">
-      <a class="package package-link" href="radpm/dists/experimental/main/packages.json"><code>radix-core</code><span>Core RADix userspace layout and boot support metadata.</span></a>
-      <a class="package package-link" href="radpm/dists/experimental/main/packages.json"><code>radix-vim-tiny</code><span>Tiny upstream Vim port metadata, RADix defaults, and Vim license for terminal images.</span></a>
-      <a class="package package-link" href="radpm/dists/experimental/main/packages.json"><code>radlib</code><span>RADLib aggregate metadata for future RADix OS userspace and services.</span></a>
-      <a class="package package-link" href="radpm/dists/experimental/main/packages.json"><code>radlib-runtime</code><span>RADLib runtime metadata for generated RADix root filesystems.</span></a>
-      <a class="package package-link" href="radpm/dists/experimental/main/packages.json"><code>radlib-ui</code><span>RADLib UI and Slint-facing metadata for RADix OS builds.</span></a>
+      <a class="package package-link" href="radpm/dists/experimental/main/packages.json"><code>radix-core</code><span>Core RADPx userspace layout and boot support metadata.</span></a>
+      <a class="package package-link" href="radpm/dists/experimental/main/packages.json"><code>radix-vim-tiny</code><span>Tiny upstream Vim port metadata, RADPx defaults, and Vim license for terminal images.</span></a>
+      <a class="package package-link" href="radpm/dists/experimental/main/packages.json"><code>radlib</code><span>RADLib aggregate metadata for future RADPx OS userspace and services.</span></a>
+      <a class="package package-link" href="radpm/dists/experimental/main/packages.json"><code>radlib-runtime</code><span>RADLib runtime metadata for generated RADPx root filesystems.</span></a>
+      <a class="package package-link" href="radpm/dists/experimental/main/packages.json"><code>radlib-ui</code><span>RADLib UI and Slint-facing metadata for RADPx OS builds.</span></a>
     </div>
     <div class="links">
-      <a class="link-card" href="radix-os.html"><strong>RADix OS Hub</strong><span>Build profiles, API docs, and package repository notes.</span></a>
-      <a class="link-card" href="radpm/dists/experimental/main/packages.json"><strong>Experimental .radpm Index</strong><span>Machine-readable RADix package metadata.</span></a>
-      <a class="link-card" href="https://github.com/Radical-Computer-Technologies/RadicalPackages/releases/tag/radix-os-0.2.0-beta.1"><strong>RADix Release Assets</strong><span>Current <code>.radpm</code> package archives and x86 images.</span></a>
-      <a class="link-card" href="radpm/dists/stable/main/packages.json"><strong>Stable .radpm Index</strong><span>Reserved stable RADix package metadata.</span></a>
+      <a class="link-card" href="radix-os.html"><strong>RADPx OS Hub</strong><span>Build profiles, API docs, and package repository notes.</span></a>
+      <a class="link-card" href="radpm/dists/experimental/main/packages.json"><strong>Experimental .radpm Index</strong><span>Machine-readable RADPx package metadata.</span></a>
+      <a class="link-card" href="https://github.com/Radical-Computer-Technologies/RadicalPackages/releases/tag/radix-os-0.2.0-beta.1"><strong>RADPx Release Assets</strong><span>Current <code>.radpm</code> package archives and x86 images.</span></a>
+      <a class="link-card" href="radpm/dists/stable/main/packages.json"><strong>Stable .radpm Index</strong><span>Reserved stable RADPx package metadata.</span></a>
     </div>
   </section>
 </main>
