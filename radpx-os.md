@@ -20,7 +20,7 @@
     <div class="status-row">
       <span class="pill"><strong>Version:</strong> Crimson 0.2.0</span>
       <span class="pill"><strong>Suite:</strong> experimental</span>
-      <span class="pill"><strong>Build:</strong> RadBuild os.radix</span>
+      <span class="pill"><strong>Build:</strong> RadBuild os.radpx</span>
       <span class="pill"><strong>Current x86:</strong> 0.2.0 beta 1</span>
     </div>
   </section>
