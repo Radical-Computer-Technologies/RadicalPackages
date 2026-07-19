@@ -88,14 +88,14 @@ scripts/publish_github_release_assets.py \
 RADPx OS images should be uploaded as compressed release bundles, not committed:
 
 ```bash
-tar --sparse -czf radix-os-crimson_0.1.3-beta.1_x86_64-grub-terminal-interactive.tar.gz \
-  -C ../RADPx-OS/artifacts/radix/x86_64-grub-terminal \
-  radixkernel-x86-64-grub-terminal.iso \
-  radix-rootfs.ext4 \
-  radix-fat32.img \
-  make-radix-rootfs-ext4.sh \
-  run-radix-vm.sh \
+tar --sparse -czf radpx-os-crimson_0.1.3-beta.1_x86_64-grub-terminal-interactive.tar.gz \
+  -C ../RADPx-OS/artifacts/radpx/x86_64-grub-terminal \
+  radpxkernel-x86-64-grub-terminal.iso \
+  radpx-rootfs.ext4 \
+  radpx-fat32.img \
+  make-radpx-rootfs-ext4.sh \
+  run-radpx-vm.sh \
   SHA256SUMS
 ```
 
-Upload these bundles and any `.radpm` archives with `scripts/publish_github_release_assets.py` to the matching immutable release, such as `radix-os-0.2.0-beta.1`.
+Upload these bundles and any `.radpm` archives with `scripts/publish_github_release_assets.py` to the matching immutable release, such as `radpx-os-0.2.0-beta.1`.

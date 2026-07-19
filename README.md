@@ -181,6 +181,6 @@ scripts/update_radlib_docs.sh ../RADLib 0.1.0
 Regenerate RADPx-OS and RadBuild documentation:
 
 ```bash
-scripts/update_radix_docs.sh ../RADPx-OS 0.1.0
+scripts/update_radpx_docs.sh ../RADPx-OS 0.1.0
 scripts/update_radbuild_docs.sh ../RadBuild 0.2.1
 ```
