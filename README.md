@@ -106,7 +106,7 @@ Experimental packages are allowed to move faster than stable. RADBard, RadBuild,
 - [RADLib 0.2.0 API Documentation](docs/radlib/0.2.0/api/)
 - [RadHDL 0.2.1 Documentation](docs/radhdl/0.2.1/)
 - [RadBuild 0.2.1 Documentation](docs/radbuild/0.2.1/)
-- [RADPx-OS Crimson 0.2.0 API Documentation](docs/radpx-os/0.1.4/api/)
+- [RADPx-OS Crimson 0.1.4 API Documentation](docs/radpx-os/0.1.4/api/)
 
 Documentation is organized by product, release channel, and major version family. Use exact version paths such as `docs/radlib/0.1.0/` and `docs/radhdl/0.2.0/`; newer exact versions supersede older versions without a `current` alias.
 

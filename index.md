@@ -20,7 +20,7 @@
     </p>
     <div class="status-row">
       <span class="pill"><strong>Stable:</strong> RADLib 0.1.0</span>
-      <span class="pill"><strong>Experimental:</strong> RADBard beta, RadBuild 0.2.1, RADPx-OS Crimson 0.2.0</span>
+      <span class="pill"><strong>Experimental:</strong> RADBard beta, RadBuild 0.2.1, RADPx-OS Crimson 0.1.4</span>
       <span class="pill"><strong>Architectures:</strong> amd64, arm64, all</span>
     </div>
   </section>

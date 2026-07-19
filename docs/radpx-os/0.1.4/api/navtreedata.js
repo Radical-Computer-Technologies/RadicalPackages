@@ -57,7 +57,7 @@ var NAVTREE =
       [ "Everything else", "architecture.html#autotoc_md18", null ],
       [ "How a target is assembled", "architecture.html#autotoc_md19", null ]
     ] ],
-    [ "Crimson 0.2.0 Status", "crimson_status.html", [
+    [ "Crimson 0.1.4 Status", "crimson_status.html", [
       [ "Stable-Beta Surface", "crimson_status.html#autotoc_md20", null ],
       [ "Experimental Surface", "crimson_status.html#autotoc_md21", null ],
       [ "Not Yet Complete", "crimson_status.html#autotoc_md22", null ]

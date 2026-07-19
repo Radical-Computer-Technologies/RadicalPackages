@@ -26,7 +26,7 @@ var searchData=
   ['count_68',['count',['../structrad__irq__info.html#aa49da36d153bc529ade79322202e6233',1,'rad_irq_info']]],
   ['cow_5fready_69',['cow_ready',['../structrad__a53__capabilities.html#ad952d27588ccebbf13fc102a157498bf',1,'rad_a53_capabilities']]],
   ['credentials_70',['credentials',['../structrad__process__info.html#a0020a204ccc0c5033daec6e71013027b',1,'rad_process_info']]],
-  ['crimson_200_2e2_2e0_20status_71',['Crimson 0.2.0 Status',['../crimson_status.html',1,'']]],
+  ['crimson_200_2e1_2e4_20status_71',['Crimson 0.1.4 Status',['../crimson_status.html',1,'']]],
   ['cs_72',['cs',['../structrad__spi__transfer.html#a918ee3971d609f8eec94203d29a74e0c',1,'rad_spi_transfer::cs()'],['../structrad__spi__device__info.html#a66beacf77d203561801c27f64bb15263',1,'rad_spi_device_info::cs()'],['../structx86__user__trap__frame.html#aafc8e2dfc48d131b75423b1f4eb08de3',1,'x86_user_trap_frame::cs()']]],
   ['cs_5fgpio_73',['cs_gpio',['../structrad__spi__controller__config.html#a7607bf3faed9ceaccf1510728788f7c8',1,'rad_spi_controller_config::cs_gpio()'],['../structrad__sd__config.html#a5b29f056d6274c0b7f1d8f50ca8da94e',1,'rad_sd_config::cs_gpio()']]],
   ['current_5fcore_74',['current_core',['../structrad__task__info.html#a6efad27410ba109dc95d3c516b460f11',1,'rad_task_info::current_core()'],['../structrad__scheduler__info.html#aeef4f02e78915701beab42e7acf1158a',1,'rad_scheduler_info::current_core()']]],

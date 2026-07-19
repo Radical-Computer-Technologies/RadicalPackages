@@ -20,7 +20,7 @@
     </p>
     <div class="status-row">
       <span class="pill"><strong>Stable:</strong> RADLib 0.1.0</span>
-      <span class="pill"><strong>Experimental:</strong> RadBuild 0.2.1, RADPx-OS Crimson 0.2.0, RADBard 0.1.0 beta</span>
+      <span class="pill"><strong>Experimental:</strong> RadBuild 0.2.1, RADPx-OS Crimson 0.1.4, RADBard 0.1.0 beta</span>
       <span class="pill"><strong>Architectures:</strong> amd64, arm64, all</span>
       <span class="pill"><strong>Hosting:</strong> GitHub Releases</span>
     </div>
@@ -108,7 +108,7 @@
       <a class="link-card" href="radpx-os.html"><strong>RADPx OS Hub</strong><span>Build profiles, API docs, and package repository notes.</span></a>
       <a class="link-card" href="radpm-reference.html"><strong>radpm Reference</strong><span>The radpm-package-index schema, packagegroups, and signing.</span></a>
       <a class="link-card" href="radpm/dists/experimental/main/packages.json"><strong>Experimental .radpm Index</strong><span>Machine-readable RADPx package metadata.</span></a>
-      <a class="link-card" href="https://github.com/Radical-Computer-Technologies/RadicalPackages/releases/tag/radpx-os-0.2.0-beta.1"><strong>RADPx Release Assets</strong><span>Current <code>.radpm</code> package archives and x86 images.</span></a>
+      <a class="link-card" href="https://github.com/Radical-Computer-Technologies/RadicalPackages/releases/tag/radpx-os-0.1.4-beta.1"><strong>RADPx Release Assets</strong><span>Current <code>.radpm</code> package archives and x86 images.</span></a>
       <a class="link-card" href="radpm/dists/stable/main/packages.json"><strong>Stable .radpm Index</strong><span>Reserved stable RADPx package metadata.</span></a>
     </div>
   </section>

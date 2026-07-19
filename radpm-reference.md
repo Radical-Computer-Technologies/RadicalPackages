@@ -202,11 +202,11 @@
   "supported_kernel_versions": [
     ">=0.1.0 <0.3.0"
   ],
-  "archive": "https://github.com/Radical-Computer-Technologies/RadicalPackages/releases/download/radpx-os-0.2.0-beta.1/radpx-ncurses_0.1.0-experimental_radpx-x86_64.radpm",
+  "archive": "https://github.com/Radical-Computer-Technologies/RadicalPackages/releases/download/radpx-os-0.1.4-beta.1/radpx-ncurses_0.1.0-experimental_radpx-x86_64.radpm",
   "sha256": "853b76699f78622fbe7877e4685128e802a96cd7e371479addbe47ef013ed714",
   "bytes": 607457,
   "docs": "radpx-os.html",
-  "signature": "https://github.com/Radical-Computer-Technologies/RadicalPackages/releases/download/radpx-os-0.2.0-beta.1/radpx-ncurses_0.1.0-experimental_radpx-x86_64.radpm.asc",
+  "signature": "https://github.com/Radical-Computer-Technologies/RadicalPackages/releases/download/radpx-os-0.1.4-beta.1/radpx-ncurses_0.1.0-experimental_radpx-x86_64.radpm.asc",
   "signing_key": "F3731ADBB37AFA120A7D5EBD20B2754CF3894789"
 }</code></pre>
     <p>
@@ -221,7 +221,7 @@
   "component": "main",
   "packages": [ /* ...records... */ ],
   "signing_key": "F3731ADBB37AFA120A7D5EBD20B2754CF3894789",
-  "signature": "https://github.com/Radical-Computer-Technologies/RadicalPackages/releases/download/radpx-os-0.2.0-beta.1/packages.json.asc"
+  "signature": "https://github.com/Radical-Computer-Technologies/RadicalPackages/releases/download/radpx-os-0.1.4-beta.1/packages.json.asc"
 }</code></pre>
 
     <h3>Example: A Packagegroup Descriptor</h3>

@@ -88,7 +88,7 @@ $(document).ready(function(){initNavTree('radcompositor.html',''); initResizable
 <div class="title">RADCompositor </div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><p><a class="anchor" id="md__media_jvincent_Kingspec512_repos_RADPx_OS_docs_public_radcompositor"></a> RADCompositor is an experimental Crimson 0.2.0 service for Slint-backed desktop composition. It is intentionally RADLib/RADPx-OS-owned: Slint renders each UI surface, but RADPx-OS owns the screen, window placement, z-order, input routing, and final framebuffer writes.</p>
+<div class="textblock"><p><a class="anchor" id="md__media_jvincent_Kingspec512_repos_RADPx_OS_docs_public_radcompositor"></a> RADCompositor is an experimental Crimson 0.1.4 service for Slint-backed desktop composition. It is intentionally RADLib/RADPx-OS-owned: Slint renders each UI surface, but RADPx-OS owns the screen, window placement, z-order, input routing, and final framebuffer writes.</p>
 <h1><a class="anchor" id="autotoc_md58"></a>
 Architecture</h1>
 <p>Each window-like UI surface renders into an off-screen pixel buffer. The compositor tracks damaged rectangles, copies the current front buffer forward into a software back buffer for those rectangles, redraws intersecting surfaces by z-order, and presents only the touched rectangles to the framebuffer backend. Surfaces may use opaque XRGB pixels or ARGB pixels with alpha blending.</p>

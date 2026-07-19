@@ -6,7 +6,7 @@
     <briefdescription>
     </briefdescription>
     <detaileddescription>
-<para><anchor id="networking_1md__media_jvincent_Kingspec512_repos_RADPx_OS_docs_public_networking"/> RADPx-OS Crimson 0.2.0 includes an experimental networking path for the x86 VM target. The goal of this surface is to prove the kernel interfaces for network devices, packet receive, POSIX-inspired datagram sockets, host-verified UDP, SNTP/NTP sampling, and the first TCP stream socket lifecycle before adding a complete wire-level TCP/IP stack or target-specific production drivers.</para>
+<para><anchor id="networking_1md__media_jvincent_Kingspec512_repos_RADPx_OS_docs_public_networking"/> RADPx-OS Crimson 0.1.4 includes an experimental networking path for the x86 VM target. The goal of this surface is to prove the kernel interfaces for network devices, packet receive, POSIX-inspired datagram sockets, host-verified UDP, SNTP/NTP sampling, and the first TCP stream socket lifecycle before adding a complete wire-level TCP/IP stack or target-specific production drivers.</para>
 <sect1 id="networking_1autotoc_md47">
 <title>Current Stack</title>
 <para>The network device API exposes link information, frame transmit, frame receive, and polling. The x86 VM target registers a legacy virtio-net device as <computeroutput>/dev/net0</computeroutput> when QEMU exposes one. The VM backend now programs separate legacy virtio RX and TX rings and emits smoke markers when the rings are owned by the guest.</para>

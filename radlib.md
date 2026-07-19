@@ -54,7 +54,7 @@ sudo apt install radlib-media radlib-fpga radlib-web</code></div>
   <section class="card">
     <h2>RADpm Tooling</h2>
     <p><code>radpm</code> is the RADLib-owned package-manager executable used by RadBuild to resolve packagegroups, verify package metadata, stage rootfs payloads, and populate SDK/sysroot exports.</p>
-    <div class="command"><code>radpm list --repository https://github.com/Radical-Computer-Technologies/RadicalPackages/releases/download/radpx-os-0.2.0-beta.1 --suite experimental
+    <div class="command"><code>radpm list --repository https://github.com/Radical-Computer-Technologies/RadicalPackages/releases/download/radpx-os-0.1.4-beta.1 --suite experimental
 radpm resolve --packagegroup radpx-terminal-base --packagegroup radpx-networking --out package-lock.json</code></div>
   </section>
 
