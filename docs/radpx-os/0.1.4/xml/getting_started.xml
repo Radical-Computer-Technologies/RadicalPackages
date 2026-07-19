@@ -1,0 +1,76 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="getting_started" kind="page">
+    <compoundname>getting_started</compoundname>
+    <title>Getting Started</title>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para><anchor id="getting_started_1md__media_jvincent_Kingspec512_repos_RADPx_OS_docs_public_getting_started"/> This page takes you from a fresh checkout to a running RADPx-OS image on two targets — the x86_64 GRUB terminal and the ZuBoard-1CG (ZynqMP Cortex-A53) under QEMU. It is the narrative companion to the command reference in the repository README; read this first if you have not built RADPx-OS before.</para>
+<sect1 id="getting_started_1autotoc_md36">
+<title>What you are building</title>
+<para>RADPx-OS is a POSIX-inspired kernel (RADKernel) that runs both as a host simulator and on real hardware. The same kernel core boots on x86_64 and on the Cortex-A53; the target-specific pieces live under <computeroutput>RADKernel/platforms/</computeroutput> and <computeroutput>RADKernel/boards/</computeroutput>. Two things you can produce in a few minutes:</para>
+<para><itemizedlist>
+<listitem><para>an <bold>x86_64 terminal ISO</bold> you can boot in a VM, and</para>
+</listitem><listitem><para>a <bold>ZuBoard-1CG serial image</bold> you can boot in QEMU to an interactive login.</para>
+</listitem></itemizedlist>
+</para>
+</sect1>
+<sect1 id="getting_started_1autotoc_md37">
+<title>Prerequisites</title>
+<para><itemizedlist>
+<listitem><para>A Linux host (Debian/Ubuntu is the tested baseline).</para>
+</listitem><listitem><para><computeroutput>cmake</computeroutput> and a host C++20 toolchain (for the host kernel tests).</para>
+</listitem><listitem><para><computeroutput>qemu-system-aarch64</computeroutput> (for the ZuBoard QEMU smokes).</para>
+</listitem><listitem><para>The <computeroutput>radbuild</computeroutput> driver — install the frozen release once:</para>
+</listitem></itemizedlist>
+</para>
+<para><programlisting filename=".bash"><codeline><highlight class="normal">sudo<sp/>apt<sp/>install<sp/>./radbuild_0.2.1_amd64.deb<sp/><sp/><sp/>#<sp/>from<sp/>a<sp/>RadBuild<sp/>release<sp/>asset</highlight></codeline>
+</programlisting></para>
+<para><computeroutput>radbuild</computeroutput> cross-builds the kernel and userland, assembles the disk images, and runs each target&apos;s smoke. You do not need a Python checkout to use it.</para>
+</sect1>
+<sect1 id="getting_started_1autotoc_md38">
+<title>1. Prove the core builds (host tests, ~1 minute)</title>
+<para>The fastest confidence check needs no emulator — it builds the portable kernel core and runs the host unit tests:</para>
+<para><programlisting filename=".bash"><codeline><highlight class="normal">cmake<sp/>-S<sp/>.<sp/>-B<sp/>build-host<sp/>-DRADPX_OS_BUILD_TESTS=ON</highlight></codeline>
+<codeline><highlight class="normal">cmake<sp/>--build<sp/>build-host<sp/>-j2</highlight></codeline>
+<codeline><highlight class="normal">./build-host/tests/RADKernelTests</highlight></codeline>
+</programlisting></para>
+<para>A green run here means the kernel core, VFS, and filesystem code compile and pass on your host before you involve any target hardware.</para>
+</sect1>
+<sect1 id="getting_started_1autotoc_md39">
+<title>2. Boot the x86_64 terminal (ISO, ~2–3 minutes)</title>
+<para>Build and smoke the default x86_64 GRUB terminal profile:</para>
+<para><programlisting filename=".bash"><codeline><highlight class="normal">radbuild<sp/>build<sp/>os<sp/>--settings<sp/>settings.json<sp/>--json-events</highlight></codeline>
+</programlisting></para>
+<para>RadBuild resolves <computeroutput>settings.json</computeroutput> as an OS build configuration, produces the ISO under <computeroutput>build/embedded/x86_64_grub_terminal/</computeroutput>, and runs the terminal VM smoke. To run just the ISO smoke against an existing build:</para>
+<para><programlisting filename=".bash"><codeline><highlight class="normal">RAD_X86_UI_PROFILE=terminal<sp/>tools/embedded/x86_64_grub_slint_smoke.sh</highlight></codeline>
+</programlisting></para>
+<para>The <computeroutput>settings.wm.json</computeroutput> profile builds the Slint-backed RADCompositor window manager instead of the terminal shell.</para>
+</sect1>
+<sect1 id="getting_started_1autotoc_md40">
+<title>3. Boot the ZuBoard-1CG in QEMU (A53, ~2–3 minutes)</title>
+<para>The ZuBoard profile cross-builds the A53 kernel and userland, assembles the SD image, and runs the QEMU marker smoke that boots to an interactive serial login:</para>
+<para><programlisting filename=".bash"><codeline><highlight class="normal">radbuild<sp/>build<sp/>os<sp/>--settings<sp/>settings.ci.json<sp/>--system<sp/>rad-zuboard-1cg-qemu-ci<sp/>--json-events</highlight></codeline>
+</programlisting></para>
+<para>Once an image exists, you can run the individual A53 smokes directly:</para>
+<para><programlisting filename=".bash"><codeline><highlight class="normal">tools/embedded/rad_zuboard_1cg/qemu_marker_smoke.sh<sp/><sp/><sp/>#<sp/>ordered<sp/>boot-marker<sp/>gate</highlight></codeline>
+<codeline><highlight class="normal">tools/embedded/rad_zuboard_1cg/qemu_login_smoke.sh<sp/><sp/><sp/><sp/>#<sp/>interactive<sp/>login<sp/>/<sp/>ls<sp/>/<sp/>cat<sp/>/<sp/>ps</highlight></codeline>
+<codeline><highlight class="normal">tools/embedded/rad_zuboard_1cg/qemu_smp_smoke.sh<sp/><sp/><sp/><sp/><sp/><sp/>#<sp/>second<sp/>A53<sp/>core<sp/>under<sp/>-smp<sp/>2</highlight></codeline>
+</programlisting></para>
+<para>The marker gate reads <computeroutput>tools/embedded/rad_zuboard_1cg/expected-markers.txt</computeroutput> and requires each <computeroutput>RAD_*</computeroutput> milestone marker to appear in order on the serial log.</para>
+</sect1>
+<sect1 id="getting_started_1autotoc_md41">
+<title>Where to go next</title>
+<para><itemizedlist>
+<listitem><para><ref refid="api_structure" kindref="compound">API Structure</ref> — the stable <computeroutput><ref refid="radkernel_8h" kindref="compound">radkernel.h</ref></computeroutput> C ABI and how the subsystem headers fit together.</para>
+</listitem><listitem><para><ref refid="architecture" kindref="compound">Architecture &amp; Layout</ref> — the source tree: core, fs, drivers, platforms, boards, runtime, hal.</para>
+</listitem><listitem><para><ref refid="networking" kindref="compound">Experimental Networking</ref> and <ref refid="device_tree_guide" kindref="compound">Overlay And Device Tree Guide</ref>, plus the ZuBoard-1CG bring-up notes, for target-specific detail.</para>
+</listitem><listitem><para>The public Crimson API docs are published through RadicalPackages under <computeroutput>docs/radpx-os/0.1.0/api/</computeroutput>. </para>
+</listitem></itemizedlist>
+</para>
+</sect1>
+    </detaileddescription>
+    <location file="/media/jvincent/Kingspec512/repos/RADPx-OS/docs/public/getting-started.md"/>
+  </compounddef>
+</doxygen>

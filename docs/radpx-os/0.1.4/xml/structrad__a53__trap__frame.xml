@@ -1,0 +1,153 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="structrad__a53__trap__frame" kind="struct" language="C++" prot="public">
+    <compoundname>rad_a53_trap_frame</compoundname>
+    <includes refid="radkernel__a53_8h" local="no">radkernel_a53.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structrad__a53__trap__frame_1ab78413340ac3e4b85a9c49d99b432edf" prot="public" static="no" mutable="no">
+        <type>uint64_t</type>
+        <definition>uint64_t rad_a53_trap_frame::x[31]</definition>
+        <argsstring>[31]</argsstring>
+        <name>x</name>
+        <briefdescription>
+<para>General-purpose registers x0-x30 captured at exception entry. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADPx-OS/RADKernel/platforms/a53/radkernel_a53.h" line="63" column="14" bodyfile="/media/jvincent/Kingspec512/repos/RADPx-OS/RADKernel/platforms/a53/radkernel_a53.h" bodystart="63" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structrad__a53__trap__frame_1a2e591abb24dd677d3635af669b50c18a" prot="public" static="no" mutable="no">
+        <type>uintptr_t</type>
+        <definition>uintptr_t rad_a53_trap_frame::sp_el0</definition>
+        <argsstring></argsstring>
+        <name>sp_el0</name>
+        <briefdescription>
+<para>Lower-exception-level stack pointer. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADPx-OS/RADKernel/platforms/a53/radkernel_a53.h" line="64" column="15" bodyfile="/media/jvincent/Kingspec512/repos/RADPx-OS/RADKernel/platforms/a53/radkernel_a53.h" bodystart="64" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structrad__a53__trap__frame_1a279dca66df0e4da2b5195affcf6d5ce9" prot="public" static="no" mutable="no">
+        <type>uintptr_t</type>
+        <definition>uintptr_t rad_a53_trap_frame::elr_el1</definition>
+        <argsstring></argsstring>
+        <name>elr_el1</name>
+        <briefdescription>
+<para>Exception link register used to resume EL0. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADPx-OS/RADKernel/platforms/a53/radkernel_a53.h" line="65" column="15" bodyfile="/media/jvincent/Kingspec512/repos/RADPx-OS/RADKernel/platforms/a53/radkernel_a53.h" bodystart="65" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structrad__a53__trap__frame_1a711c1a1627d95c2c0f3dbbdd5b6651df" prot="public" static="no" mutable="no">
+        <type>uint64_t</type>
+        <definition>uint64_t rad_a53_trap_frame::spsr_el1</definition>
+        <argsstring></argsstring>
+        <name>spsr_el1</name>
+        <briefdescription>
+<para>Saved processor state for the interrupted EL0 context. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADPx-OS/RADKernel/platforms/a53/radkernel_a53.h" line="66" column="14" bodyfile="/media/jvincent/Kingspec512/repos/RADPx-OS/RADKernel/platforms/a53/radkernel_a53.h" bodystart="66" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structrad__a53__trap__frame_1ab2801971ec7da550514e4a9073e3f4c1" prot="public" static="no" mutable="no">
+        <type>uint64_t</type>
+        <definition>uint64_t rad_a53_trap_frame::esr_el1</definition>
+        <argsstring></argsstring>
+        <name>esr_el1</name>
+        <briefdescription>
+<para>Exception syndrome register value. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADPx-OS/RADKernel/platforms/a53/radkernel_a53.h" line="67" column="14" bodyfile="/media/jvincent/Kingspec512/repos/RADPx-OS/RADKernel/platforms/a53/radkernel_a53.h" bodystart="67" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structrad__a53__trap__frame_1a781c432b7555dc78238779cfd9bb68c4" prot="public" static="no" mutable="no">
+        <type>uintptr_t</type>
+        <definition>uintptr_t rad_a53_trap_frame::far_el1</definition>
+        <argsstring></argsstring>
+        <name>far_el1</name>
+        <briefdescription>
+<para>Fault address register value for abort handling. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADPx-OS/RADKernel/platforms/a53/radkernel_a53.h" line="68" column="15" bodyfile="/media/jvincent/Kingspec512/repos/RADPx-OS/RADKernel/platforms/a53/radkernel_a53.h" bodystart="68" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structrad__a53__trap__frame_1a13b4b36234069eec35af12fa3ce25300" prot="public" static="no" mutable="no">
+        <type>uint64_t</type>
+        <definition>uint64_t rad_a53_trap_frame::q[64]</definition>
+        <argsstring>[64]</argsstring>
+        <name>q</name>
+        <briefdescription>
+<para>FP/SIMD registers q0-q31 (two 64-bit halves each). </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADPx-OS/RADKernel/platforms/a53/radkernel_a53.h" line="69" column="14" bodyfile="/media/jvincent/Kingspec512/repos/RADPx-OS/RADKernel/platforms/a53/radkernel_a53.h" bodystart="69" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structrad__a53__trap__frame_1a8c9a7767ae930babc1404aab30191089" prot="public" static="no" mutable="no">
+        <type>uint64_t</type>
+        <definition>uint64_t rad_a53_trap_frame::fpsr</definition>
+        <argsstring></argsstring>
+        <name>fpsr</name>
+        <briefdescription>
+<para>Floating-point status register. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADPx-OS/RADKernel/platforms/a53/radkernel_a53.h" line="70" column="14" bodyfile="/media/jvincent/Kingspec512/repos/RADPx-OS/RADKernel/platforms/a53/radkernel_a53.h" bodystart="70" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structrad__a53__trap__frame_1a072c69f5642392b5a4dc995ec39958cc" prot="public" static="no" mutable="no">
+        <type>uint64_t</type>
+        <definition>uint64_t rad_a53_trap_frame::fpcr</definition>
+        <argsstring></argsstring>
+        <name>fpcr</name>
+        <briefdescription>
+<para>Floating-point control register. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADPx-OS/RADKernel/platforms/a53/radkernel_a53.h" line="71" column="14" bodyfile="/media/jvincent/Kingspec512/repos/RADPx-OS/RADKernel/platforms/a53/radkernel_a53.h" bodystart="71" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>AArch64 lower-EL trap frame used for syscall/fork handoff. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>The FP/SIMD block is appended after the general-purpose fields so their offsets (hardcoded in boot.S) stay stable: q[] at +288, fpsr +800, fpcr +808, total 816 bytes. User processes may use FP/NEON (ports such as ncurses do); kernel code is -mgeneral-regs-only, so the exception paths in boot.S are the only place this state is saved and restored. </para>
+    </detaileddescription>
+    <location file="/media/jvincent/Kingspec512/repos/RADPx-OS/RADKernel/platforms/a53/radkernel_a53.h" line="62" column="1" bodyfile="/media/jvincent/Kingspec512/repos/RADPx-OS/RADKernel/platforms/a53/radkernel_a53.h" bodystart="62" bodyend="72"/>
+    <listofallmembers>
+      <member refid="structrad__a53__trap__frame_1a279dca66df0e4da2b5195affcf6d5ce9" prot="public" virt="non-virtual"><scope>rad_a53_trap_frame</scope><name>elr_el1</name></member>
+      <member refid="structrad__a53__trap__frame_1ab2801971ec7da550514e4a9073e3f4c1" prot="public" virt="non-virtual"><scope>rad_a53_trap_frame</scope><name>esr_el1</name></member>
+      <member refid="structrad__a53__trap__frame_1a781c432b7555dc78238779cfd9bb68c4" prot="public" virt="non-virtual"><scope>rad_a53_trap_frame</scope><name>far_el1</name></member>
+      <member refid="structrad__a53__trap__frame_1a072c69f5642392b5a4dc995ec39958cc" prot="public" virt="non-virtual"><scope>rad_a53_trap_frame</scope><name>fpcr</name></member>
+      <member refid="structrad__a53__trap__frame_1a8c9a7767ae930babc1404aab30191089" prot="public" virt="non-virtual"><scope>rad_a53_trap_frame</scope><name>fpsr</name></member>
+      <member refid="structrad__a53__trap__frame_1a13b4b36234069eec35af12fa3ce25300" prot="public" virt="non-virtual"><scope>rad_a53_trap_frame</scope><name>q</name></member>
+      <member refid="structrad__a53__trap__frame_1a2e591abb24dd677d3635af669b50c18a" prot="public" virt="non-virtual"><scope>rad_a53_trap_frame</scope><name>sp_el0</name></member>
+      <member refid="structrad__a53__trap__frame_1a711c1a1627d95c2c0f3dbbdd5b6651df" prot="public" virt="non-virtual"><scope>rad_a53_trap_frame</scope><name>spsr_el1</name></member>
+      <member refid="structrad__a53__trap__frame_1ab78413340ac3e4b85a9c49d99b432edf" prot="public" virt="non-virtual"><scope>rad_a53_trap_frame</scope><name>x</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

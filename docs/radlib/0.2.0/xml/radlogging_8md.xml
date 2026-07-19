@@ -9,7 +9,28 @@
     <programlisting>
 <codeline><highlight class="normal">#<sp/>RADLogging</highlight></codeline>
 <codeline></codeline>
-<codeline><highlight class="normal">`RADLogging`<sp/>is<sp/>the<sp/>beta<sp/>logging<sp/>layer<sp/>for<sp/>deployed<sp/>RADLib<sp/>applications.</highlight></codeline>
+<codeline><highlight class="normal">`RADLogging`<sp/>is<sp/>the<sp/>beta<sp/>logging<sp/>layer<sp/>for<sp/>deployed<sp/>RADLib<sp/>applications.<sp/>It</highlight></codeline>
+<codeline><highlight class="normal">provides<sp/>an<sp/>async,<sp/>process-wide<sp/>logger<sp/>with<sp/>severity<sp/>levels,<sp/>category<sp/>filters,</highlight></codeline>
+<codeline><highlight class="normal">and<sp/>pluggable<sp/>sinks.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">The<sp/>core<sp/>is<sp/>the<sp/>singleton<sp/>`RADLogging::Logger`,<sp/>obtained<sp/>through</highlight></codeline>
+<codeline><highlight class="normal">`Logger::instance()`.<sp/>Call<sp/>`start()`<sp/>to<sp/>launch<sp/>the<sp/>background<sp/>worker<sp/>thread<sp/>and</highlight></codeline>
+<codeline><highlight class="normal">`shutdown()`<sp/>to<sp/>drain<sp/>and<sp/>stop<sp/>it;<sp/>`flush()`<sp/>forces<sp/>queued<sp/>messages<sp/>out.</highlight></codeline>
+<codeline><highlight class="normal">`setLevel()`<sp/>/<sp/>`level()`<sp/>control<sp/>the<sp/>minimum<sp/>`RADLogging::Level`<sp/>(from<sp/>`Trace`</highlight></codeline>
+<codeline><highlight class="normal">through<sp/>`Critical`,<sp/>plus<sp/>`Off`),<sp/>and<sp/>`setCategoryEnabled()`<sp/>toggles<sp/>individual</highlight></codeline>
+<codeline><highlight class="normal">categories.<sp/>`shouldLog()`<sp/>reports<sp/>whether<sp/>a<sp/>level/category<sp/>pair<sp/>would<sp/>be</highlight></codeline>
+<codeline><highlight class="normal">accepted,<sp/>and<sp/>`log()`<sp/>queues<sp/>a<sp/>message<sp/>directly.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Output<sp/>destinations<sp/>are<sp/>`RADLogging::Sink`<sp/>implementations,<sp/>added<sp/>with</highlight></codeline>
+<codeline><highlight class="normal">`addSink()`<sp/>and<sp/>removed<sp/>with<sp/>`clearSinks()`.<sp/>The<sp/>factory<sp/>functions</highlight></codeline>
+<codeline><highlight class="normal">`consoleSink()`,<sp/>`fileSink()`,<sp/>`rotatingFileSink()`<sp/>(with<sp/>`maxBytes`<sp/>and</highlight></codeline>
+<codeline><highlight class="normal">`maxFiles`),<sp/>and<sp/>`syslogSink()`<sp/>cover<sp/>the<sp/>common<sp/>cases.<sp/>`levelName()`<sp/>formats<sp/>a</highlight></codeline>
+<codeline><highlight class="normal">level<sp/>as<sp/>text.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Most<sp/>application<sp/>code<sp/>uses<sp/>the<sp/>streaming<sp/>macros<sp/>`RADLOG_TRACE`,<sp/>`RADLOG_DEBUG`,</highlight></codeline>
+<codeline><highlight class="normal">`RADLOG_INFO`,<sp/>`RADLOG_WARNING`,<sp/>and<sp/>`RADLOG_ERROR`.<sp/>Each<sp/>takes<sp/>a<sp/>category</highlight></codeline>
+<codeline><highlight class="normal">string<sp/>and<sp/>returns<sp/>a<sp/>`RADLogging::LogStream`<sp/>that<sp/>accumulates<sp/>via<sp/>`operator&lt;&lt;`</highlight></codeline>
+<codeline><highlight class="normal">and<sp/>emits<sp/>the<sp/>completed<sp/>line<sp/>when<sp/>it<sp/>is<sp/>destroyed.</highlight></codeline>
 <codeline></codeline>
 <codeline><highlight class="normal">Core<sp/>features:</highlight></codeline>
 <codeline></codeline>
@@ -17,6 +38,22 @@
 <codeline><highlight class="normal">-<sp/>Severity<sp/>levels<sp/>and<sp/>category<sp/>filters.</highlight></codeline>
 <codeline><highlight class="normal">-<sp/>Console,<sp/>file,<sp/>rotating<sp/>file,<sp/>and<sp/>syslog<sp/>sinks.</highlight></codeline>
 <codeline><highlight class="normal">-<sp/>Streaming<sp/>macros<sp/>such<sp/>as<sp/>`RADLOG_INFO(&quot;category&quot;)<sp/>&lt;&lt;<sp/>&quot;message&quot;`.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Example:</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">```cpp</highlight></codeline>
+<codeline><highlight class="normal">auto&amp;<sp/>logger<sp/>=<sp/>RADLogging::Logger::instance();</highlight></codeline>
+<codeline><highlight class="normal">logger.addSink(RADLogging::consoleSink());</highlight></codeline>
+<codeline><highlight class="normal">logger.addSink(RADLogging::rotatingFileSink(&quot;app.log&quot;,<sp/>1024<sp/>*<sp/>1024,<sp/>3));</highlight></codeline>
+<codeline><highlight class="normal">logger.setLevel(RADLogging::Level::Info);</highlight></codeline>
+<codeline><highlight class="normal">logger.setCategoryEnabled(&quot;net&quot;,<sp/>false);</highlight></codeline>
+<codeline><highlight class="normal">logger.start();</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">RADLOG_INFO(&quot;boot&quot;)<sp/>&lt;&lt;<sp/>&quot;RADLib<sp/>application<sp/>starting&quot;;</highlight></codeline>
+<codeline><highlight class="normal">RADLOG_WARNING(&quot;power&quot;)<sp/>&lt;&lt;<sp/>&quot;battery<sp/>low:<sp/>&quot;<sp/>&lt;&lt;<sp/>12<sp/>&lt;&lt;<sp/>&quot;%&quot;;</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">logger.shutdown();</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
     </programlisting>
     <location file="/media/jvincent/Kingspec512/repos/RADLib/docs/public/radlogging.md"/>
   </compounddef>

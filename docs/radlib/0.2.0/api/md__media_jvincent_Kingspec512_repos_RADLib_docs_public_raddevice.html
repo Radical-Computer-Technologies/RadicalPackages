@@ -88,18 +88,41 @@ $(document).ready(function(){initNavTree('md__media_jvincent_Kingspec512_repos_R
 <div class="title"><a class="el" href="namespaceRADDevice.html">RADDevice</a> </div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><p><a class="el" href="namespaceRADDevice.html">RADDevice</a> covers common embedded Linux device control surfaces:</p>
+<div class="textblock"><p><a class="el" href="namespaceRADDevice.html">RADDevice</a> covers common embedded Linux device control surfaces through file-descriptor and ioctl-friendly wrappers in the <code><a class="el" href="namespaceRADDevice.html">RADDevice</a></code> namespace. Each class targets a standard Linux sysfs/devfs surface, and all of them accept a <code>DevicePaths</code> struct so real device roots can be swapped for test fixtures.</p>
+<p><code>GpioPin</code> drives sysfs GPIO export/unexport, direction (<code>GpioDirection</code>), edge mode (<code>GpioEdge</code>), and value read/write. <code>I2CDevice</code> opens <code>/dev/i2c-*</code> and selects a 7-bit address via the <code>I2C_SLAVE</code> ioctl for <code>read()</code>/<code>write()</code>. <code>SPIDevice</code> opens <code>/dev/spidev*</code>, applies mode/bits/speed with <code>configure()</code>, and runs full-duplex <code>transfer()</code> calls through <code>SPI_IOC_MESSAGE</code>. <code>PwmChannel</code> exports a sysfs PWM channel and sets period, duty cycle, and enable state. <code>AdcChannel</code> reads IIO raw, scale, and scaled samples. <code>Watchdog</code> opens <code>/dev/watchdogN</code> and issues <code>keepAlive()</code> pings, and <code>Led</code> reads and writes sysfs LED brightness. The free functions <code><a class="el" href="namespaceRADDevice.html#ab6726396e042ac7717fe272b18c70d3a" title="Lists LED device names.">listLeds()</a></code> and <code><a class="el" href="namespaceRADDevice.html#a799d6a090f1e414564c018cc862326d1" title="Lists visible IIO device directory names.">listIioDevices()</a></code> enumerate available LED and IIO device names.</p>
+<p>Read-style calls that can fail return <code><a class="el" href="classRADCore_1_1RADResult.html" title="Success-or-error return value for APIs that should not throw.">RADCore::RADResult</a>&lt;T&gt;</code> (for example <code>GpioPin::readValue()</code>, <code>AdcChannel::readRaw()</code>, <code>Led::brightness()</code>), while setup calls take an optional <code>std::string* error</code> out-parameter.</p>
+<h1><a class="anchor" id="autotoc_md11"></a>
+Core features</h1>
 <ul>
 <li><code>GpioPin</code> for sysfs GPIO export, direction, edge, and value.</li>
 <li><code>I2CDevice</code> for <code>/dev/i2c-*</code> with <code>I2C_SLAVE</code> ioctl.</li>
 <li><code>SPIDevice</code> for <code>/dev/spidev*</code> with SPI ioctl configuration and transfers.</li>
 <li><code>PwmChannel</code> for sysfs PWM period, duty, and enable.</li>
-<li><code>AdcChannel</code> for IIO raw and scaled samples.</li>
+<li><code>AdcChannel</code> for IIO raw, scale, and scaled samples.</li>
 <li><code>Watchdog</code> for <code>/dev/watchdog*</code> keepalive ioctl.</li>
-<li><code>Led</code> for sysfs LED brightness.</li>
+<li><code>Led</code> for sysfs LED brightness, plus <code><a class="el" href="namespaceRADDevice.html#ab6726396e042ac7717fe272b18c70d3a" title="Lists LED device names.">listLeds()</a></code>/<code><a class="el" href="namespaceRADDevice.html#a799d6a090f1e414564c018cc862326d1" title="Lists visible IIO device directory names.">listIioDevices()</a></code>.</li>
 </ul>
-<p>The public API is intentionally file-descriptor and ioctl friendly so future RADKernel drivers can expose the same application-facing model. </p>
-</div></div><!-- contents -->
+<p>The public API is intentionally file-descriptor and ioctl friendly so future RADKernel drivers can expose the same application-facing model.</p>
+<p>Example:</p>
+<div class="fragment"><div class="line"><a class="code" href="classRADDevice_1_1GpioPin.html">RADDevice::GpioPin</a> led(17);</div>
+<div class="line">std::string <a class="code" href="namespacerad.html#ac90c7293a399def0b7b53c3911005189acb5e100e5a9a3e7f6d1fd97512215282">error</a>;</div>
+<div class="line">led.exportPin(&amp;error);</div>
+<div class="line">led.setDirection(<a class="code" href="namespaceRADDevice.html#a1f04e8338cd9dd13b817689336e639d7a7c147cda9e49590f6abe83d118b7353b">RADDevice::GpioDirection::Out</a>, &amp;error);</div>
+<div class="line">led.writeValue(<span class="keyword">true</span>, &amp;error);</div>
+<div class="line"> </div>
+<div class="line"><a class="code" href="classRADDevice_1_1I2CDevice.html">RADDevice::I2CDevice</a> sensor;</div>
+<div class="line"><span class="keywordflow">if</span> (sensor.<a class="code" href="classRADDevice_1_1I2CDevice.html#a0eb47cc26f64e05c18d62ca9e9e8c761">open</a>(1, 0x76, {}, &amp;error)) {</div>
+<div class="line">    sensor.<a class="code" href="classRADDevice_1_1I2CDevice.html#a886dc0c83e3095a7b5276630ae4a055a">write</a>({0xF7});</div>
+<div class="line">    std::vector&lt;uint8_t&gt; pressure = sensor.<a class="code" href="classRADDevice_1_1I2CDevice.html#aa9570ba6773a764e6c2c09159e5c14ef">read</a>(3);</div>
+<div class="line">}</div>
+<div class="ttc" id="aclassRADDevice_1_1GpioPin_html"><div class="ttname"><a href="classRADDevice_1_1GpioPin.html">RADDevice::GpioPin</a></div><div class="ttdoc">GPIO sysfs helper.</div><div class="ttdef"><b>Definition:</b> RADDevice.h:104</div></div>
+<div class="ttc" id="aclassRADDevice_1_1I2CDevice_html"><div class="ttname"><a href="classRADDevice_1_1I2CDevice.html">RADDevice::I2CDevice</a></div><div class="ttdoc">Parity-free I2C device wrapper using /dev/i2c-* and I2C_SLAVE ioctl.</div><div class="ttdef"><b>Definition:</b> RADDevice.h:54</div></div>
+<div class="ttc" id="aclassRADDevice_1_1I2CDevice_html_a0eb47cc26f64e05c18d62ca9e9e8c761"><div class="ttname"><a href="classRADDevice_1_1I2CDevice.html#a0eb47cc26f64e05c18d62ca9e9e8c761">RADDevice::I2CDevice::open</a></div><div class="ttdeci">bool open(int bus, int address, const DevicePaths &amp;paths={}, std::string *error=nullptr)</div><div class="ttdoc">Opens bus number and selects 7-bit address.</div></div>
+<div class="ttc" id="aclassRADDevice_1_1I2CDevice_html_a886dc0c83e3095a7b5276630ae4a055a"><div class="ttname"><a href="classRADDevice_1_1I2CDevice.html#a886dc0c83e3095a7b5276630ae4a055a">RADDevice::I2CDevice::write</a></div><div class="ttdeci">ssize_t write(const std::vector&lt; uint8_t &gt; &amp;bytes)</div><div class="ttdoc">Writes bytes to the selected device.</div></div>
+<div class="ttc" id="aclassRADDevice_1_1I2CDevice_html_aa9570ba6773a764e6c2c09159e5c14ef"><div class="ttname"><a href="classRADDevice_1_1I2CDevice.html#aa9570ba6773a764e6c2c09159e5c14ef">RADDevice::I2CDevice::read</a></div><div class="ttdeci">std::vector&lt; uint8_t &gt; read(size_t count)</div><div class="ttdoc">Reads bytes from the selected device.</div></div>
+<div class="ttc" id="anamespaceRADDevice_html_a1f04e8338cd9dd13b817689336e639d7a7c147cda9e49590f6abe83d118b7353b"><div class="ttname"><a href="namespaceRADDevice.html#a1f04e8338cd9dd13b817689336e639d7a7c147cda9e49590f6abe83d118b7353b">RADDevice::GpioDirection::Out</a></div><div class="ttdeci">@ Out</div><div class="ttdoc">Output pin.</div></div>
+<div class="ttc" id="anamespacerad_html_ac90c7293a399def0b7b53c3911005189acb5e100e5a9a3e7f6d1fd97512215282"><div class="ttname"><a href="namespacerad.html#ac90c7293a399def0b7b53c3911005189acb5e100e5a9a3e7f6d1fd97512215282">rad::Status::error</a></div><div class="ttdeci">@ error</div></div>
+</div><!-- fragment --> </div></div><!-- contents -->
 </div><!-- PageDoc -->
 </div><!-- doc-content -->
 <!-- start footer part -->

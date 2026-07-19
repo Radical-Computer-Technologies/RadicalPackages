@@ -9,7 +9,25 @@
     <programlisting>
 <codeline><highlight class="normal">#<sp/>RADSettings</highlight></codeline>
 <codeline></codeline>
-<codeline><highlight class="normal">`RADSettings`<sp/>is<sp/>the<sp/>public<sp/>settings<sp/>library<sp/>for<sp/>application<sp/>configuration.</highlight></codeline>
+<codeline><highlight class="normal">`RADSettings`<sp/>is<sp/>the<sp/>public<sp/>settings<sp/>library<sp/>for<sp/>application<sp/>configuration.<sp/>It</highlight></codeline>
+<codeline><highlight class="normal">stores<sp/>key/value<sp/>settings<sp/>in<sp/>JSON<sp/>or<sp/>INI<sp/>files<sp/>and<sp/>layers<sp/>typed<sp/>accessors<sp/>over</highlight></codeline>
+<codeline><highlight class="normal">`RADCore::RADJsonValue`.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">`RADSettings::Settings`<sp/>is<sp/>the<sp/>store.<sp/>It<sp/>can<sp/>be<sp/>constructed<sp/>with<sp/>an<sp/>explicit</highlight></codeline>
+<codeline><highlight class="normal">`fileName`<sp/>and<sp/>`RADSettings::Format`<sp/>(`Json`<sp/>or<sp/>`Ini`),<sp/>or<sp/>with<sp/>a</highlight></codeline>
+<codeline><highlight class="normal">`RADSettings::AppIdentity`<sp/>(`organization`<sp/>and<sp/>`application`),<sp/>in<sp/>which<sp/>case<sp/>it</highlight></codeline>
+<codeline><highlight class="normal">resolves<sp/>a<sp/>standard<sp/>platform<sp/>config<sp/>path.<sp/>`fileName()`<sp/>and<sp/>`format()`<sp/>report<sp/>the</highlight></codeline>
+<codeline><highlight class="normal">backing<sp/>file,<sp/>`load()`<sp/>reads<sp/>it<sp/>(treating<sp/>a<sp/>missing<sp/>file<sp/>as<sp/>empty),<sp/>and</highlight></codeline>
+<codeline><highlight class="normal">`save()`<sp/>writes<sp/>it,<sp/>creating<sp/>parent<sp/>directories<sp/>as<sp/>needed.<sp/>The<sp/>static</highlight></codeline>
+<codeline><highlight class="normal">`Settings::defaultFileName()`<sp/>returns<sp/>the<sp/>resolved<sp/>config<sp/>path<sp/>for<sp/>an<sp/>identity</highlight></codeline>
+<codeline><highlight class="normal">without<sp/>constructing<sp/>a<sp/>store.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Key<sp/>management<sp/>uses<sp/>`contains()`,<sp/>`remove()`,<sp/>and<sp/>`clear()`.<sp/>Values<sp/>can<sp/>be<sp/>read</highlight></codeline>
+<codeline><highlight class="normal">and<sp/>written<sp/>generically<sp/>through<sp/>`value()`<sp/>/<sp/>`setValue()`<sp/>with</highlight></codeline>
+<codeline><highlight class="normal">`RADCore::RADJsonValue`,<sp/>or<sp/>through<sp/>the<sp/>typed<sp/>helpers:<sp/>`boolValue()`,</highlight></codeline>
+<codeline><highlight class="normal">`intValue()`,<sp/>`doubleValue()`,<sp/>and<sp/>`stringValue()`<sp/>for<sp/>reads,<sp/>and<sp/>`setBool()`,</highlight></codeline>
+<codeline><highlight class="normal">`setInt()`,<sp/>`setDouble()`,<sp/>and<sp/>`setString()`<sp/>for<sp/>writes.<sp/>Each<sp/>typed<sp/>getter<sp/>takes</highlight></codeline>
+<codeline><highlight class="normal">a<sp/>default<sp/>that<sp/>is<sp/>returned<sp/>when<sp/>the<sp/>key<sp/>is<sp/>absent.</highlight></codeline>
 <codeline></codeline>
 <codeline><highlight class="normal">Core<sp/>features:</highlight></codeline>
 <codeline></codeline>
@@ -17,6 +35,27 @@
 <codeline><highlight class="normal">-<sp/>App/organization<sp/>based<sp/>default<sp/>config<sp/>paths.</highlight></codeline>
 <codeline><highlight class="normal">-<sp/>Typed<sp/>getters<sp/>and<sp/>setters<sp/>for<sp/>common<sp/>scalar<sp/>values.</highlight></codeline>
 <codeline><highlight class="normal">-<sp/>Compatibility<sp/>with<sp/>`RADCore::RADJsonValue`.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Example:</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">```cpp</highlight></codeline>
+<codeline><highlight class="normal">RADSettings::AppIdentity<sp/>identity{&quot;RadComp&quot;,<sp/>&quot;RADPxTool&quot;};</highlight></codeline>
+<codeline><highlight class="normal">RADSettings::Settings<sp/>settings(identity,<sp/>RADSettings::Format::Json);</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">std::string<sp/>error;</highlight></codeline>
+<codeline><highlight class="normal">settings.load(&amp;error);</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">int<sp/>width<sp/>=<sp/>settings.intValue(&quot;window/width&quot;,<sp/>1280);</highlight></codeline>
+<codeline><highlight class="normal">bool<sp/>firstRun<sp/>=<sp/>!settings.contains(&quot;initialized&quot;);</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">settings.setInt(&quot;window/width&quot;,<sp/>width);</highlight></codeline>
+<codeline><highlight class="normal">settings.setBool(&quot;initialized&quot;,<sp/>true);</highlight></codeline>
+<codeline><highlight class="normal">settings.setString(&quot;theme&quot;,<sp/>&quot;crimson&quot;);</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">if<sp/>(!settings.save(&amp;error))<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>RADLOG_ERROR(&quot;settings&quot;)<sp/>&lt;&lt;<sp/>&quot;save<sp/>failed:<sp/>&quot;<sp/>&lt;&lt;<sp/>error;</highlight></codeline>
+<codeline><highlight class="normal">}</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
     </programlisting>
     <location file="/media/jvincent/Kingspec512/repos/RADLib/docs/public/radsettings.md"/>
   </compounddef>

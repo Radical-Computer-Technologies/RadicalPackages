@@ -6,14 +6,40 @@
     <briefdescription>
     </briefdescription>
     <detaileddescription>
-<para><ref refid="namespaceRADWeb" kindref="compound">RADWeb</ref> wraps WebKitGTK behind a PIMPL public API. Public headers do not expose GTK or WebKit headers. It provides a browser window with tabs, URL loading, JavaScript evaluation, find-in-page, zoom, history, bookmarks, downloads, settings, permission handling, cookie policy, persistent/ephemeral profiles, and session restore.</para>
+<para><ref refid="namespaceRADWeb" kindref="compound">RADWeb</ref> wraps WebKitGTK behind a PIMPL public API in the <computeroutput><ref refid="namespaceRADWeb" kindref="compound">RADWeb</ref></computeroutput> namespace. Public headers do not expose GTK or WebKit headers. It provides a browser window with tabs, URL loading, JavaScript evaluation, find-in-page, zoom, history, bookmarks, downloads, settings, permission handling, cookie policy, persistent/ephemeral profiles, and session restore.</para>
+<para><computeroutput>RADWebBrowserWindow</computeroutput> is the single public class. It derives from <computeroutput><ref refid="classRADCore_1_1RADObject" kindref="compound">RADCore::RADObject</ref></computeroutput>, so it integrates with <ref refid="namespaceRADCore" kindref="compound">RADCore</ref> events: <computeroutput>RAD_EVENT</computeroutput> signals include <computeroutput>loadStarted</computeroutput>/<computeroutput>loadFinished</computeroutput>/<computeroutput>loadFailed</computeroutput>, <computeroutput>titleChanged</computeroutput>/<computeroutput>uriChanged</computeroutput>, <computeroutput>javaScriptFinished</computeroutput>/<computeroutput>javaScriptFailed</computeroutput>, tab lifecycle (<computeroutput>tabAdded</computeroutput>, <computeroutput>tabClosed</computeroutput>, <computeroutput>activeTabChanged</computeroutput>), download lifecycle (<computeroutput>downloadStarted</computeroutput>, <computeroutput>downloadUpdated</computeroutput>, <computeroutput>downloadFinished</computeroutput>, <computeroutput>downloadFailed</computeroutput>), <computeroutput>permissionRequested</computeroutput>, <computeroutput>historyChanged</computeroutput>, <computeroutput>bookmarksChanged</computeroutput>, and <computeroutput>closed</computeroutput>.</para>
+<para>The window is created with <computeroutput>create()</computeroutput> (basic dimensions or a full <computeroutput>RADWebWindowOptions</computeroutput> struct) and driven with <computeroutput><ref refid="namespaceRADUi_1a9f2f42c53d766024b0bfc37ba4dd6fcc" kindref="member">run()</ref></computeroutput>/<computeroutput><ref refid="namespaceRADUi_1ae14f432fc7f4403737def2488fb7485c" kindref="member">quit()</ref></computeroutput>. Tabs are managed with <computeroutput>newTab()</computeroutput>, <computeroutput>closeTab()</computeroutput>, <computeroutput>duplicateTab()</computeroutput>, <computeroutput>moveTab()</computeroutput>, and <computeroutput>setActiveTab()</computeroutput>, and inspected through <computeroutput>RADWebTabInfo</computeroutput> snapshots. Navigation uses <computeroutput>loadUrl()</computeroutput>, <computeroutput>loadHtml()</computeroutput>, <computeroutput>evaluateJavaScript()</computeroutput>, plus <computeroutput>goBack()</computeroutput>/<computeroutput>goForward()</computeroutput>/<computeroutput>reload()</computeroutput>. Runtime configuration flows through <computeroutput>RADWebSettings</computeroutput> (with <computeroutput>RADWebCookiePolicy</computeroutput> and <computeroutput>RADWebPermissionPolicy</computeroutput> enums) applied via <computeroutput>applySettings()</computeroutput>. Persistent state is exposed as <computeroutput>RADWebHistoryItem</computeroutput>, <computeroutput>RADWebBookmark</computeroutput>, and <computeroutput>RADWebDownloadInfo</computeroutput> records through <computeroutput>history()</computeroutput>, <computeroutput>bookmarks()</computeroutput>, and <computeroutput>downloads()</computeroutput>. <computeroutput>nativeWindow()</computeroutput> and <computeroutput>nativeWebView()</computeroutput> return raw GTK/WebKit pointers for advanced integration.</para>
+<sect1 id="md__media_jvincent_Kingspec512_repos_RADLib_docs_public_radweb_1autotoc_md45">
+<title>Core features</title>
+<para><itemizedlist>
+<listitem><para>Single <computeroutput>RADWebBrowserWindow</computeroutput> class over WebKitGTK, PIMPL-hidden.</para>
+</listitem><listitem><para><ref refid="namespaceRADCore" kindref="compound">RADCore</ref> <computeroutput>RAD_EVENT</computeroutput> signals for load, tab, download, and permission events.</para>
+</listitem><listitem><para>Multi-tab navigation, JavaScript evaluation, find-in-page, and zoom.</para>
+</listitem><listitem><para>History, bookmarks, downloads, cookie/permission policy, and session restore.</para>
+</listitem><listitem><para><computeroutput>RADWebSettings</computeroutput>/<computeroutput>RADWebWindowOptions</computeroutput> configuration and native handle access.</para>
+</listitem></itemizedlist>
+</para>
 <para>Beta notes:</para>
 <para><itemizedlist>
 <listitem><para>Browser behavior depends on the system WebKitGTK and GTK versions.</para>
 </listitem><listitem><para>History, bookmark, download, and session data can be backed by <ref refid="namespaceRADDatabase" kindref="compound">RADDatabase</ref>.</para>
-</listitem><listitem><para>Native handles are available for advanced integrations that need direct WebKitGTK access. </para>
+</listitem><listitem><para>Native handles are available for advanced integrations that need direct WebKitGTK access.</para>
 </listitem></itemizedlist>
 </para>
+<para>Example:</para>
+<para><programlisting filename=".cpp"><codeline><highlight class="normal"><ref refid="classRADWeb_1_1RADWebBrowserWindow" kindref="compound">RADWeb::RADWebBrowserWindow</ref><sp/>browser;</highlight></codeline>
+<codeline><highlight class="normal"><ref refid="RADCore_8h_1a9bb09eb45d06b2d43508263a35c2a9ff" kindref="member">RADCONNECT</ref>(browser,<sp/>loadFinished,<sp/>&amp;listener,<sp/>Listener,<sp/>onLoadFinished);</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><ref refid="structRADWeb_1_1RADWebWindowOptions" kindref="compound">RADWeb::RADWebWindowOptions</ref><sp/>options;</highlight></codeline>
+<codeline><highlight class="normal">options.<ref refid="structRADWeb_1_1RADWebWindowOptions_1a05efbbbf340f5cf066557a76a23a0f18" kindref="member">title</ref><sp/>=<sp/></highlight><highlight class="stringliteral">&quot;RADPx-OS<sp/>Browser&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(browser.<ref refid="classRADWeb_1_1RADWebBrowserWindow_1a625a40f719eca7a53ee5c079186dede1" kindref="member">create</ref>(options))<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>browser.<ref refid="classRADWeb_1_1RADWebBrowserWindow_1af4142adbe91d2bf0c272f62f5b4fa7dc" kindref="member">newTab</ref>(</highlight><highlight class="stringliteral">&quot;https://radcomp.tech&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>browser.<ref refid="classRADWeb_1_1RADWebBrowserWindow_1af43ef42549dcf736df74fb8eff5ade6e" kindref="member">evaluateJavaScript</ref>(</highlight><highlight class="stringliteral">&quot;document.title&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>browser.<ref refid="classRADWeb_1_1RADWebBrowserWindow_1a92c07fc370edb180961ac4377b9273c9" kindref="member">show</ref>();</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>browser.<ref refid="classRADWeb_1_1RADWebBrowserWindow_1a6678acdc36d1c7bb973e62668854abc3" kindref="member">run</ref>();</highlight></codeline>
+<codeline><highlight class="normal">}</highlight></codeline>
+</programlisting> </para>
+</sect1>
     </detaileddescription>
     <location file="/media/jvincent/Kingspec512/repos/RADLib/docs/public/radweb.md"/>
   </compounddef>

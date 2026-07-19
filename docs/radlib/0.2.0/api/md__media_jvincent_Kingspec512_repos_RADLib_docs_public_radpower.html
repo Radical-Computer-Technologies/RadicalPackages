@@ -88,9 +88,39 @@ $(document).ready(function(){initNavTree('md__media_jvincent_Kingspec512_repos_R
 <div class="title"><a class="el" href="namespaceRADPower.html">RADPower</a> </div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><p><a class="el" href="namespaceRADPower.html">RADPower</a> reads power supply, thermal zone, and CPU governor information from Linux sysfs. <code>PowerManager::requestAction()</code> is guarded: it returns the command that would be run by default, and only executes suspend, reboot, or shutdown when <code>execute</code> is explicitly set to true.</p>
-<p>Tests and products can use <code>PowerPaths</code> to target fixture trees, containers, or board-specific sysfs mount points. </p>
-</div></div><!-- contents -->
+<div class="textblock"><p><a class="el" href="namespaceRADPower.html">RADPower</a> reads power supply, thermal zone, and CPU governor information from Linux sysfs, and exposes guarded suspend/reboot/shutdown actions.</p>
+<p><code><a class="el" href="classRADPower_1_1PowerManager.html" title="Power manager with read-only status helpers and explicit dangerous actions.">RADPower::PowerManager</a></code> is the entry point and is constructed with an optional <code>PowerPaths</code>. Its read-only helpers return simple snapshots: <code>powerSupplies()</code> yields <code>PowerSupplyInfo</code> (name, type, charge status, and <code>capacityPercent</code>), <code>thermalZones()</code> yields <code>ThermalZoneInfo</code> with a <code>temperatureC</code> reading, and <code>cpuGovernors()</code> yields <code>CpuGovernorInfo</code> listing the current governor and the available governors per CPU directory. <code>setCpuGovernor()</code> writes a governor for one CPU directory and reports failures through an optional <code>error</code> string.</p>
+<p><code>PowerManager::requestAction()</code> is guarded. Given a <code>PowerAction</code> (<code>Suspend</code>, <code>Reboot</code>, or <code>Shutdown</code>), it returns a <code>PowerActionPlan</code> describing the shell <code>command</code> that would be run. It only mutates host state when <code>execute</code> is explicitly set to <code>true</code>; the returned plan reports <code>executed</code> and any <code>error</code>. This lets callers preview or confirm a dangerous action before committing to it.</p>
+<p>Tests and products can use <code>PowerPaths</code> to target fixture trees, containers, or board-specific sysfs mount points.</p>
+<p>Core features:</p>
+<ul>
+<li>Power supply, thermal zone, and CPU governor snapshots from sysfs.</li>
+<li>Per-CPU governor writes with error reporting.</li>
+<li>Guarded suspend/reboot/shutdown that defaults to dry-run.</li>
+<li><code>PowerActionPlan</code> preview of the exact command before execution.</li>
+<li>Injectable <code>PowerPaths</code> for fixtures and board-specific roots.</li>
+</ul>
+<p>Example:</p>
+<div class="fragment"><div class="line"><a class="code" href="classRADPower_1_1PowerManager.html">RADPower::PowerManager</a> power;</div>
+<div class="line"> </div>
+<div class="line"><span class="keywordflow">for</span> (<span class="keyword">const</span> <span class="keyword">auto</span>&amp; supply : power.<a class="code" href="classRADPower_1_1PowerManager.html#a01917fe5c3a381da286d109645cec028">powerSupplies</a>()) {</div>
+<div class="line">    <a class="code" href="RADLogging_8h.html#aa88dbb52f2771f10bd298dc1ee6309ec">RADLOG_INFO</a>(<span class="stringliteral">&quot;power&quot;</span>) &lt;&lt; supply.name &lt;&lt; <span class="stringliteral">&quot; &quot;</span> &lt;&lt; supply.capacityPercent &lt;&lt; <span class="stringliteral">&quot;%&quot;</span>;</div>
+<div class="line">}</div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// Preview first: execute defaults to false, so nothing is changed.</span></div>
+<div class="line"><span class="keyword">auto</span> plan = power.<a class="code" href="classRADPower_1_1PowerManager.html#a247c62bf789794765b3e7636f120524d">requestAction</a>(<a class="code" href="namespaceRADPower.html#a33409d399371a7b8b3bc36f7e0d3c5aaa1a4ebb180ba59b067782515ffee6e975">RADPower::PowerAction::Shutdown</a>);</div>
+<div class="line"><a class="code" href="RADLogging_8h.html#aa88dbb52f2771f10bd298dc1ee6309ec">RADLOG_INFO</a>(<span class="stringliteral">&quot;power&quot;</span>) &lt;&lt; <span class="stringliteral">&quot;would run: &quot;</span> &lt;&lt; plan.command;</div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// Commit only when explicitly requested.</span></div>
+<div class="line"><span class="keywordflow">if</span> (userConfirmed) {</div>
+<div class="line">    power.<a class="code" href="classRADPower_1_1PowerManager.html#a247c62bf789794765b3e7636f120524d">requestAction</a>(<a class="code" href="namespaceRADPower.html#a33409d399371a7b8b3bc36f7e0d3c5aaa1a4ebb180ba59b067782515ffee6e975">RADPower::PowerAction::Shutdown</a>, <span class="comment">/*execute=*/</span><span class="keyword">true</span>);</div>
+<div class="line">}</div>
+<div class="ttc" id="aRADLogging_8h_html_aa88dbb52f2771f10bd298dc1ee6309ec"><div class="ttname"><a href="RADLogging_8h.html#aa88dbb52f2771f10bd298dc1ee6309ec">RADLOG_INFO</a></div><div class="ttdeci">#define RADLOG_INFO(category)</div><div class="ttdoc">Logs with RADLogging at info level.</div><div class="ttdef"><b>Definition:</b> RADLogging.h:112</div></div>
+<div class="ttc" id="aclassRADPower_1_1PowerManager_html"><div class="ttname"><a href="classRADPower_1_1PowerManager.html">RADPower::PowerManager</a></div><div class="ttdoc">Power manager with read-only status helpers and explicit dangerous actions.</div><div class="ttdef"><b>Definition:</b> RADPower.h:83</div></div>
+<div class="ttc" id="aclassRADPower_1_1PowerManager_html_a01917fe5c3a381da286d109645cec028"><div class="ttname"><a href="classRADPower_1_1PowerManager.html#a01917fe5c3a381da286d109645cec028">RADPower::PowerManager::powerSupplies</a></div><div class="ttdeci">std::vector&lt; PowerSupplyInfo &gt; powerSupplies() const</div><div class="ttdoc">Lists power supplies.</div></div>
+<div class="ttc" id="aclassRADPower_1_1PowerManager_html_a247c62bf789794765b3e7636f120524d"><div class="ttname"><a href="classRADPower_1_1PowerManager.html#a247c62bf789794765b3e7636f120524d">RADPower::PowerManager::requestAction</a></div><div class="ttdeci">PowerActionPlan requestAction(PowerAction action, bool execute=false) const</div><div class="ttdoc">Prepares or executes a system power action. execute must be true to mutate host state.</div></div>
+<div class="ttc" id="anamespaceRADPower_html_a33409d399371a7b8b3bc36f7e0d3c5aaa1a4ebb180ba59b067782515ffee6e975"><div class="ttname"><a href="namespaceRADPower.html#a33409d399371a7b8b3bc36f7e0d3c5aaa1a4ebb180ba59b067782515ffee6e975">RADPower::PowerAction::Shutdown</a></div><div class="ttdeci">@ Shutdown</div><div class="ttdoc">Shut down the system.</div></div>
+</div><!-- fragment --> </div></div><!-- contents -->
 </div><!-- PageDoc -->
 </div><!-- doc-content -->
 <!-- start footer part -->

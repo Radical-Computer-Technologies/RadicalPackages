@@ -7,15 +7,18 @@
   <link rel="stylesheet" href="../../assets/radhdl-docgen.css">
 </head>
 <body>
+<div class="sitebar"><div class="wrap">
+  <a class="brand-mark" href="../../index.html"><img class="brand-logo" src="../../assets/rad-logo.png" alt="" onerror="this.style.display='none'"><span>Radical Computer Technologies</span></a>
+</div></div>
 
 <header><div class="wrap">
   <nav class="breadcrumb"><a href="../../index.html">RadHDL</a> / <a href="../../libraries/radhdl.html">radhdl</a></nav>
   <div class="kicker">DSP / entity</div>
   <h1>raddsp_fft_radix2_batch_core</h1>
-  <div class="meta">Documentation version: 0.2.0 / Package: Transform / Source package: raddsp</div>
+  <div class="meta">Documentation version: 0.2.0 / Subpackage: dsp_transform / Source package: raddsp</div>
   <div class="summary"><p>AXI-stream wrapper around the radix-2 batch FFT core.
 Adapts frame-oriented FFT processing to RadDSP streaming conventions and Vivado IP packaging.</p></div>
-  
+
 </div></header>
 <main class="wrap">
   <h2>Use Cases</h2>
@@ -77,7 +80,8 @@ use radhdl.dsp.all;
     G_INPUT_WIDTH : positive := 16;
     G_TWIDDLE_WIDTH : positive := 16;
     G_OUTPUT_WIDTH : positive := 32;
-    G_SCALE_EACH_STAGE : boolean := true
+    G_SCALE_EACH_STAGE : boolean := true;
+    G_MEMORY_STYLE : string := &quot;block&quot;
   );
   port (
     clk : in std_logic;
@@ -107,7 +111,8 @@ end component;</code></pre><h3>Direct Entity Instantiation</h3><pre><code>u_radd
     G_INPUT_WIDTH      =&gt; 16,
     G_TWIDDLE_WIDTH    =&gt; 16,
     G_OUTPUT_WIDTH     =&gt; 32,
-    G_SCALE_EACH_STAGE =&gt; true
+    G_SCALE_EACH_STAGE =&gt; true,
+    G_MEMORY_STYLE     =&gt; &quot;block&quot;
   )
   port map (
     clk          =&gt; &lt;clk_signal&gt;,
@@ -127,22 +132,16 @@ end component;</code></pre><h3>Direct Entity Instantiation</h3><pre><code>u_radd
     output_re    =&gt; &lt;output_re_signal&gt;,
     output_im    =&gt; &lt;output_im_signal&gt;
   );</code></pre></div></details>
-  <h2>Generics</h2><table><thead><tr><th>Name</th><th>Type</th><th>Default</th><th>Description</th></tr></thead><tbody><tr><td>VENDOR</td><td>string</td><td>&quot;xilinx&quot;</td><td>Selects the vendor-specific implementation path, usually XILINX for DSP48/XPM-backed builds or generic for portable RTL.</td></tr><tr><td>DEVICE_FAMILY</td><td>string</td><td>&quot;ultrascale+&quot;</td><td>Identifies the target FPGA family so wrappers can choose the correct primitive or conservative portable behavior.</td></tr><tr><td>G_POINTS</td><td>positive</td><td>16</td><td>Sets the transform, frame, or vector size used by the datapath.</td></tr><tr><td>G_MAX_POINTS</td><td>positive</td><td>2048</td><td>Sets the transform, frame, or vector size used by the datapath.</td></tr><tr><td>G_RADIX</td><td>positive</td><td>2</td><td>Configures G RADIX for this instance.</td></tr><tr><td>G_INPUT_WIDTH</td><td>positive</td><td>16</td><td>Sets the bit width for G INPUT WIDTH values carried by this module.</td></tr><tr><td>G_TWIDDLE_WIDTH</td><td>positive</td><td>16</td><td>Sets the bit width for G TWIDDLE WIDTH values carried by this module.</td></tr><tr><td>G_OUTPUT_WIDTH</td><td>positive</td><td>32</td><td>Sets the bit width for G OUTPUT WIDTH values carried by this module.</td></tr><tr><td>G_SCALE_EACH_STAGE</td><td>boolean</td><td>true</td><td>Configures G SCALE EACH STAGE for this instance.</td></tr></tbody></table>
+  <h2>Generics</h2><table><thead><tr><th>Name</th><th>Type</th><th>Default</th><th>Description</th></tr></thead><tbody><tr><td>VENDOR</td><td>string</td><td>&quot;xilinx&quot;</td><td>Selects the vendor-specific implementation path, usually XILINX for DSP48/XPM-backed builds or generic for portable RTL.</td></tr><tr><td>DEVICE_FAMILY</td><td>string</td><td>&quot;ultrascale+&quot;</td><td>Identifies the target FPGA family so wrappers can choose the correct primitive or conservative portable behavior.</td></tr><tr><td>G_POINTS</td><td>positive</td><td>16</td><td>Sets the transform, frame, or vector size used by the datapath.</td></tr><tr><td>G_MAX_POINTS</td><td>positive</td><td>2048</td><td>Sets the transform, frame, or vector size used by the datapath.</td></tr><tr><td>G_RADIX</td><td>positive</td><td>2</td><td>Configures G RADIX for this instance.</td></tr><tr><td>G_INPUT_WIDTH</td><td>positive</td><td>16</td><td>Sets the bit width for G INPUT WIDTH values carried by this module.</td></tr><tr><td>G_TWIDDLE_WIDTH</td><td>positive</td><td>16</td><td>Sets the bit width for G TWIDDLE WIDTH values carried by this module.</td></tr><tr><td>G_OUTPUT_WIDTH</td><td>positive</td><td>32</td><td>Sets the bit width for G OUTPUT WIDTH values carried by this module.</td></tr><tr><td>G_SCALE_EACH_STAGE</td><td>boolean</td><td>true</td><td>Configures G SCALE EACH STAGE for this instance.</td></tr><tr><td>G_MEMORY_STYLE</td><td>string</td><td>&quot;block&quot;</td><td>Configures G MEMORY STYLE for this instance.</td></tr></tbody></table>
   <h2>Ports</h2><table><thead><tr><th>Name</th><th>Direction</th><th>Type</th><th>Description</th></tr></thead><tbody><tr><td>clk</td><td>in</td><td>std_logic</td><td>Clock for the associated synchronous logic and handshake domain.</td></tr><tr><td>rst</td><td>in</td><td>std_logic</td><td>Active-high synchronous reset for this clock domain.</td></tr><tr><td>start_frame</td><td>in</td><td>std_logic</td><td>Start frame interface signal.</td></tr><tr><td>sample_valid</td><td>in</td><td>std_logic</td><td>Sample valid interface signal.</td></tr><tr><td>sample_re</td><td>in</td><td>std_logic_vector(31 downto 0)</td><td>Sample re interface signal.</td></tr><tr><td>sample_im</td><td>in</td><td>std_logic_vector(31 downto 0)</td><td>Sample im interface signal.</td></tr><tr><td>sample_ready</td><td>out</td><td>std_logic</td><td>Sample ready interface signal.</td></tr><tr><td>twiddle_addr</td><td>out</td><td>std_logic_vector(31 downto 0)</td><td>Twiddle addr interface signal.</td></tr><tr><td>twiddle_re</td><td>in</td><td>std_logic_vector(31 downto 0)</td><td>Twiddle re interface signal.</td></tr><tr><td>twiddle_im</td><td>in</td><td>std_logic_vector(31 downto 0)</td><td>Twiddle im interface signal.</td></tr><tr><td>busy</td><td>out</td><td>std_logic</td><td>Busy interface signal.</td></tr><tr><td>done</td><td>out</td><td>std_logic</td><td>Done interface signal.</td></tr><tr><td>output_valid</td><td>out</td><td>std_logic</td><td>Output valid interface signal.</td></tr><tr><td>output_index</td><td>out</td><td>std_logic_vector(31 downto 0)</td><td>Output index interface signal.</td></tr><tr><td>output_re</td><td>out</td><td>std_logic_vector(31 downto 0)</td><td>Output re interface signal.</td></tr><tr><td>output_im</td><td>out</td><td>std_logic_vector(31 downto 0)</td><td>Output im interface signal.</td></tr></tbody></table>
-  
-  
+
+
+
   <h2 id="testbenches">Testbenches</h2><p class="summary">No directly associated testbench was found.</p>
   <h2>Sources</h2>
   <ul><li>dsp/hdl/raddsp/wrappers/raddsp_fft_radix2_batch_core.vhd</li></ul>
 </main>
 <footer><div class="wrap">RadHDL documentation version 0.2.0 / Generated by radhdl-docgen 0.1.0</div></footer>
 
-<script>
-document.addEventListener('input', function (event) {
-  if (!event.target.classList || !event.target.classList.contains('wave-zoom')) return;
-  var wave = event.target.closest('.wave');
-  if (wave) wave.style.setProperty('--wave-zoom', String(Number(event.target.value) / 100));
-});
-</script>
 </body>
 </html>

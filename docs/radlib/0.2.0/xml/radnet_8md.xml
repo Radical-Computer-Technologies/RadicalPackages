@@ -9,16 +9,68 @@
     <programlisting>
 <codeline><highlight class="normal">#<sp/>RADNet</highlight></codeline>
 <codeline></codeline>
-<codeline><highlight class="normal">RADNet<sp/>provides<sp/>UDP<sp/>and<sp/>TCP<sp/>socket<sp/>primitives,<sp/>server<sp/>classes,<sp/>a<sp/>socket<sp/>reactor,</highlight></codeline>
-<codeline><highlight class="normal">and<sp/>a<sp/>small<sp/>HTTP<sp/>client.</highlight></codeline>
+<codeline><highlight class="normal">RADNet<sp/>provides<sp/>event-loop<sp/>integrated<sp/>networking<sp/>on<sp/>Linux:<sp/>an<sp/>epoll<sp/>reactor,</highlight></codeline>
+<codeline><highlight class="normal">UDP<sp/>and<sp/>TCP<sp/>sockets,<sp/>server<sp/>classes,<sp/>a<sp/>small<sp/>HTTP<sp/>client,<sp/>and<sp/>a<sp/>framed<sp/>binary</highlight></codeline>
+<codeline><highlight class="normal">protocol<sp/>layer.<sp/>Socket<sp/>events<sp/>are<sp/>delivered<sp/>on<sp/>a<sp/>`RADCore::EventLoop`.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">`RADSocketReactor`<sp/>is<sp/>a<sp/>process-wide<sp/>singleton<sp/>epoll<sp/>reactor,<sp/>obtained<sp/>via</highlight></codeline>
+<codeline><highlight class="normal">`RADSocketReactor::instance()`,<sp/>that<sp/>drives<sp/>readiness<sp/>for<sp/>all<sp/>RADNet<sp/>sockets.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">For<sp/>UDP,<sp/>`RADUdpSocket`<sp/>binds<sp/>with<sp/>`bind()`,<sp/>sends<sp/>with<sp/>`sendTo()`,<sp/>and<sp/>raises</highlight></codeline>
+<codeline><highlight class="normal">`datagramReceived(RADNet::Datagram)`<sp/>and<sp/>`errorOccurred(std::string)`.<sp/>A</highlight></codeline>
+<codeline><highlight class="normal">`Datagram`<sp/>carries<sp/>the<sp/>`payload`,<sp/>sender<sp/>`address`,<sp/>and<sp/>`port`.<sp/>`RADUdpServer`</highlight></codeline>
+<codeline><highlight class="normal">is<sp/>a<sp/>convenience<sp/>wrapper<sp/>that<sp/>re-emits<sp/>those<sp/>events<sp/>after<sp/>`listen()`.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">For<sp/>TCP,<sp/>`RADTcpSocket`<sp/>implements<sp/>`RADCore::RADIODevice`,<sp/>connects<sp/>with</highlight></codeline>
+<codeline><highlight class="normal">`connectToHost()`,<sp/>exposes<sp/>`readData()`/`writeData()`,<sp/>reports<sp/>its<sp/>`SocketState`</highlight></codeline>
+<codeline><highlight class="normal">(`Unconnected`,<sp/>`Connecting`,<sp/>`Connected`,<sp/>`Listening`,<sp/>`Closed`),<sp/>and<sp/>raises</highlight></codeline>
+<codeline><highlight class="normal">`connected()`/`disconnected()`.<sp/>`RADTcpServer`<sp/>listens<sp/>and<sp/>emits</highlight></codeline>
+<codeline><highlight class="normal">`newConnection(std::shared_ptr&lt;RADTcpSocket&gt;)`<sp/>for<sp/>each<sp/>accepted<sp/>client.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">`RADHttpClient`<sp/>is<sp/>a<sp/>small<sp/>libcurl-backed<sp/>client<sp/>with<sp/>both<sp/>blocking<sp/>and<sp/>async</highlight></codeline>
+<codeline><highlight class="normal">APIs.<sp/>Static<sp/>`request()`,<sp/>`get()`,<sp/>and<sp/>`post()`<sp/>return<sp/>an<sp/>optional</highlight></codeline>
+<codeline><highlight class="normal">`RADHttpResponse`<sp/>(with<sp/>`statusCode`,<sp/>`reasonPhrase`,<sp/>`headers`,<sp/>and<sp/>`body`),</highlight></codeline>
+<codeline><highlight class="normal">driven<sp/>by<sp/>a<sp/>`RADHttpRequest`.<sp/>Instances<sp/>constructed<sp/>with<sp/>an<sp/>`EventLoop`<sp/>offer</highlight></codeline>
+<codeline><highlight class="normal">`requestAsync()`/`getAsync()`,<sp/>emitting<sp/>`finished(RADHttpResponse)`<sp/>and</highlight></codeline>
+<codeline><highlight class="normal">`errorOccurred(std::string)`.<sp/>`resolve()`<sp/>returns<sp/>a<sp/>`RADDnsResult`.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">For<sp/>custom<sp/>binary<sp/>protocols,<sp/>`RADTcpFrame`<sp/>(`messageId`<sp/>+<sp/>`payload`)<sp/>is<sp/>encoded</highlight></codeline>
+<codeline><highlight class="normal">by<sp/>`encodeFrame()`<sp/>and<sp/>parsed<sp/>by<sp/>`decodeFrames()`.<sp/>`RADProtocolSocket`<sp/>frames<sp/>a</highlight></codeline>
+<codeline><highlight class="normal">`RADTcpSocket`<sp/>byte<sp/>stream<sp/>and<sp/>raises<sp/>`frameReceived(RADTcpFrame)`,<sp/>with</highlight></codeline>
+<codeline><highlight class="normal">`RADProtocolClient`<sp/>and<sp/>`RADProtocolServer`<sp/>driven<sp/>by<sp/>a<sp/>JSON-loaded</highlight></codeline>
+<codeline><highlight class="normal">`RADProtocolEndpointConfig`<sp/>(via<sp/>`endpointConfigFromJson()`).</highlight></codeline>
 <codeline></codeline>
 <codeline><highlight class="normal">Core<sp/>features:</highlight></codeline>
 <codeline></codeline>
-<codeline><highlight class="normal">-<sp/>Event-loop<sp/>driven<sp/>UDP<sp/>and<sp/>TCP<sp/>sockets.</highlight></codeline>
-<codeline><highlight class="normal">-<sp/>TCP<sp/>server/client<sp/>primitives.</highlight></codeline>
-<codeline><highlight class="normal">-<sp/>Binary<sp/>frame<sp/>helpers<sp/>for<sp/>JSON-defined<sp/>protocols.</highlight></codeline>
-<codeline><highlight class="normal">-<sp/>HTTP<sp/>client<sp/>helpers<sp/>for<sp/>simple<sp/>application<sp/>requests.</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>Event-loop<sp/>driven<sp/>UDP<sp/>and<sp/>TCP<sp/>sockets<sp/>with<sp/>an<sp/>epoll<sp/>reactor.</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>TCP/UDP<sp/>server<sp/>and<sp/>client<sp/>primitives.</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>Binary<sp/>`RADTcpFrame`<sp/>helpers<sp/>for<sp/>JSON-defined<sp/>protocols.</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>Sync<sp/>and<sp/>async<sp/>HTTP<sp/>client<sp/>helpers<sp/>plus<sp/>DNS<sp/>resolution.</highlight></codeline>
 <codeline><highlight class="normal">-<sp/>Epoll-based<sp/>readiness<sp/>handling<sp/>on<sp/>Linux.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Example:</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">```cpp</highlight></codeline>
+<codeline><highlight class="normal">RADCore::EventLoop<sp/>loop;</highlight></codeline>
+<codeline><highlight class="normal">RADNet::RADTcpServer<sp/>server(loop);</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">server.newConnection.connect([](std::shared_ptr&lt;RADNet::RADTcpSocket&gt;<sp/>client)<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>client-&gt;writeData(&quot;HELLO\n&quot;,<sp/>6);</highlight></codeline>
+<codeline><highlight class="normal">});</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">server.listen(9000);</highlight></codeline>
+<codeline><highlight class="normal">loop.run();</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Blocking<sp/>HTTP<sp/>request:</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">```cpp</highlight></codeline>
+<codeline><highlight class="normal">std::string<sp/>error;</highlight></codeline>
+<codeline><highlight class="normal">auto<sp/>resp<sp/>=<sp/>RADNet::RADHttpClient::get(&quot;https://radcomp.tech/status&quot;,<sp/>&amp;error);</highlight></codeline>
+<codeline><highlight class="normal">if<sp/>(resp<sp/>&amp;&amp;<sp/>resp-&gt;statusCode<sp/>==<sp/>200)<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>//<sp/>Use<sp/>resp-&gt;body.</highlight></codeline>
+<codeline><highlight class="normal">}</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
     </programlisting>
     <location file="/media/jvincent/Kingspec512/repos/RADLib/docs/public/radnet.md"/>
   </compounddef>

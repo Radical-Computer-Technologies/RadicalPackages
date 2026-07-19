@@ -15,8 +15,8 @@
 <codeline><highlight class="normal">searchable<sp/>API<sp/>reference.</highlight></codeline>
 <codeline></codeline>
 <codeline><highlight class="normal">RADLib<sp/>0.2.0<sp/>also<sp/>provides<sp/>the<sp/>RADpm<sp/>package-manager<sp/>executable<sp/>used<sp/>by</highlight></codeline>
-<codeline><highlight class="normal">RadBuild<sp/>and<sp/>RADix<sp/>package<sp/>flows.<sp/>RADpm<sp/>is<sp/>built<sp/>as<sp/>a<sp/>RADLib-owned<sp/>tool<sp/>so</highlight></codeline>
-<codeline><highlight class="normal">package<sp/>resolution,<sp/>packagegroup<sp/>handling,<sp/>sysroot<sp/>staging,<sp/>and<sp/>future<sp/>RADix</highlight></codeline>
+<codeline><highlight class="normal">RadBuild<sp/>and<sp/>RADPx<sp/>package<sp/>flows.<sp/>RADpm<sp/>is<sp/>built<sp/>as<sp/>a<sp/>RADLib-owned<sp/>tool<sp/>so</highlight></codeline>
+<codeline><highlight class="normal">package<sp/>resolution,<sp/>packagegroup<sp/>handling,<sp/>sysroot<sp/>staging,<sp/>and<sp/>future<sp/>RADPx</highlight></codeline>
 <codeline><highlight class="normal">live-package<sp/>operations<sp/>share<sp/>the<sp/>same<sp/>library<sp/>foundation.</highlight></codeline>
 <codeline></codeline>
 <codeline><highlight class="normal">The<sp/>documentation<sp/>below<sp/>is<sp/>written<sp/>for<sp/>application<sp/>developers<sp/>consuming<sp/>the</highlight></codeline>
@@ -71,7 +71,7 @@
 <codeline><highlight class="normal">-<sp/>[RADDevice](raddevice.md):<sp/>GPIO,<sp/>I2C,<sp/>SPI,<sp/>PWM,<sp/>ADC,<sp/>watchdog,<sp/>and<sp/>LED<sp/>helpers</highlight></codeline>
 <codeline><highlight class="normal"><sp/><sp/>for<sp/>embedded<sp/>Linux<sp/>devices.</highlight></codeline>
 <codeline><highlight class="normal">-<sp/>[RADEmbeddedKernel](radembeddedkernel.md):<sp/>POSIX-like<sp/>embedded<sp/>kernel<sp/>services</highlight></codeline>
-<codeline><highlight class="normal"><sp/><sp/>for<sp/>simulator<sp/>and<sp/>bare-metal<sp/>HAL<sp/>backends.<sp/>RADix<sp/>OS<sp/>now<sp/>owns<sp/>the<sp/>broader</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>for<sp/>simulator<sp/>and<sp/>bare-metal<sp/>HAL<sp/>backends.<sp/>RADPx<sp/>OS<sp/>now<sp/>owns<sp/>the<sp/>broader</highlight></codeline>
 <codeline><highlight class="normal"><sp/><sp/>POSIX<sp/>kernel<sp/>direction;<sp/>this<sp/>RADLib<sp/>module<sp/>remains<sp/>the<sp/>portable<sp/>embedded</highlight></codeline>
 <codeline><highlight class="normal"><sp/><sp/>service/runtime<sp/>layer<sp/>and<sp/>historical<sp/>compatibility<sp/>surface.</highlight></codeline>
 <codeline><highlight class="normal">-<sp/>[RADPower](radpower.md):<sp/>battery/charger,<sp/>thermal,<sp/>CPU<sp/>governor,<sp/>and<sp/>guarded</highlight></codeline>
@@ -97,8 +97,8 @@
 <codeline><highlight class="normal">minor<sp/>beta<sp/>updates.</highlight></codeline>
 <codeline></codeline>
 <codeline><highlight class="normal">Host<sp/>Linux<sp/>packages<sp/>are<sp/>published<sp/>as<sp/>Debian<sp/>packages<sp/>through<sp/>RadicalPackages.</highlight></codeline>
-<codeline><highlight class="normal">RADix<sp/>image<sp/>builds<sp/>consume<sp/>RADLib<sp/>through<sp/>`.radpm`<sp/>metadata<sp/>and<sp/>RADix-specific</highlight></codeline>
-<codeline><highlight class="normal">payloads.<sp/>For<sp/>normal<sp/>RADix<sp/>image<sp/>creation,<sp/>select<sp/>RADLib<sp/>through<sp/>the</highlight></codeline>
+<codeline><highlight class="normal">RADPx<sp/>image<sp/>builds<sp/>consume<sp/>RADLib<sp/>through<sp/>`.radpm`<sp/>metadata<sp/>and<sp/>RADPx-specific</highlight></codeline>
+<codeline><highlight class="normal">payloads.<sp/>For<sp/>normal<sp/>RADPx<sp/>image<sp/>creation,<sp/>select<sp/>RADLib<sp/>through<sp/>the</highlight></codeline>
 <codeline><highlight class="normal">`radix-terminal-base`<sp/>or<sp/>`radix-desktop-base`<sp/>packagegroups<sp/>rather<sp/>than<sp/>adding</highlight></codeline>
 <codeline><highlight class="normal">individual<sp/>RADLib<sp/>packages<sp/>by<sp/>hand.</highlight></codeline>
     </programlisting>

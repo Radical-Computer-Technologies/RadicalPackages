@@ -88,15 +88,39 @@ $(document).ready(function(){initNavTree('md__media_jvincent_Kingspec512_repos_R
 <div class="title"><a class="el" href="namespaceRADSerial.html">RADSerial</a> </div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><p><code><a class="el" href="namespaceRADSerial.html">RADSerial</a></code> provides Linux serial port support through <code><a class="el" href="classRADSerial_1_1RADSerialPort.html" title="Linux serial port backed by termios and RADCore::RADIODevice.">RADSerial::RADSerialPort</a></code>. It uses <code><a class="el" href="classRADCore_1_1RADIODevice.html" title="Abstract byte-oriented IO device similar to QIODevice.">RADCore::RADIODevice</a></code> and posts read availability through <code><a class="el" href="classRADCore_1_1EventLoop.html" title="RADCore task event loop with locked and low-latency scheduling strategies.">RADCore::EventLoop</a></code>.</p>
+<div class="textblock"><p><a class="el" href="namespaceRADSerial.html">RADSerial</a> provides event-loop integrated Linux serial port support through <code><a class="el" href="classRADSerial_1_1RADSerialPort.html" title="Linux serial port backed by termios and RADCore::RADIODevice.">RADSerial::RADSerialPort</a></code>. It is backed by termios and implements <code><a class="el" href="classRADCore_1_1RADIODevice.html" title="Abstract byte-oriented IO device similar to QIODevice.">RADCore::RADIODevice</a></code>, posting read availability through a <code><a class="el" href="classRADCore_1_1EventLoop.html" title="RADCore task event loop with locked and low-latency scheduling strategies.">RADCore::EventLoop</a></code>.</p>
+<p><code>RADSerialPort</code> is constructed with a reference to the <code>EventLoop</code> that receives its events, and raises <code>opened()</code> and <code>closed()</code> events around the port lifecycle. Configure the device path with <code>setPortName()</code> and the line settings with <code>setConfig()</code>, passing a <code>SerialConfig</code>. That struct carries the <code>baudRate</code> (such as 9600, 115200, or 1000000), <code>dataBits</code>, <code>parity</code>, <code>stopBits</code>, and <code>flowControl</code>. Parity is one of <code>Parity::None</code>, <code>Even</code>, or <code>Odd</code>; stop bits are <code>StopBits::One</code> or <code>Two</code>; and flow control is <code>FlowControl::None</code>, <code>Hardware</code>, or <code>Software</code>.</p>
+<p>Open the port with <code>open(RADCore::OpenMode)</code> and release it with <code>close()</code>, checking <code>isOpen()</code> as needed. Because the port is a <code>RADIODevice</code>, <code>readData()</code> drains the internal async buffer and <code>writeData()</code> writes to the serial file descriptor. The static <code>listPorts()</code> helper returns likely serial devices under <code>/dev</code> as <code>SerialPortInfo</code> records containing a <code>path</code> and display <code>name</code>.</p>
 <p>Core features:</p>
 <ul>
 <li>Baud rate, data bits, parity, stop bits, and flow control configuration.</li>
-<li>Async <code>readyRead</code> delivery.</li>
+<li>Async readiness delivery on a <code><a class="el" href="classRADCore_1_1EventLoop.html" title="RADCore task event loop with locked and low-latency scheduling strategies.">RADCore::EventLoop</a></code>.</li>
+<li><code>opened</code>/<code>closed</code> lifecycle events.</li>
 <li><code>RADIODevice</code> read/write compatibility.</li>
-<li>Basic <code>/dev</code> serial port discovery. </li>
+<li>Basic <code>/dev</code> serial port discovery via <code>listPorts()</code>.</li>
 </ul>
-</div></div><!-- contents -->
+<p>Example:</p>
+<div class="fragment"><div class="line"><a class="code" href="classRADCore_1_1EventLoop.html">RADCore::EventLoop</a> loop;</div>
+<div class="line"><a class="code" href="classRADSerial_1_1RADSerialPort.html">RADSerial::RADSerialPort</a> port(loop);</div>
+<div class="line">port.setPortName(<span class="stringliteral">&quot;/dev/ttyUSB0&quot;</span>);</div>
+<div class="line"> </div>
+<div class="line"><a class="code" href="structRADSerial_1_1SerialConfig.html">RADSerial::SerialConfig</a> cfg;</div>
+<div class="line">cfg.<a class="code" href="structRADSerial_1_1SerialConfig.html#a8bd59a36b8ae31e6b6174851ddd0a3bb">baudRate</a> = 115200;</div>
+<div class="line">cfg.<a class="code" href="structRADSerial_1_1SerialConfig.html#a6a2993e5482e4ecba58792824b762c1b">parity</a> = <a class="code" href="namespaceRADSerial.html#a03bbd9504108adb1d166e2d35ec4e9aba6adf97f83acf6453d4a6a4b1070f3754">RADSerial::Parity::None</a>;</div>
+<div class="line">port.setConfig(cfg);</div>
+<div class="line"> </div>
+<div class="line"><span class="keywordflow">if</span> (port.open(<a class="code" href="namespaceRADCore.html#aefc7037828eebd6f6c85bda2ea2b2852a70a2a84088d405a2e3f1e3accaa16723">RADCore::OpenMode::ReadWrite</a>)) {</div>
+<div class="line">    <span class="keyword">const</span> <span class="keywordtype">char</span>* msg = <span class="stringliteral">&quot;PING\n&quot;</span>;</div>
+<div class="line">    port.writeData(msg, 5);</div>
+<div class="line">}</div>
+<div class="ttc" id="aclassRADCore_1_1EventLoop_html"><div class="ttname"><a href="classRADCore_1_1EventLoop.html">RADCore::EventLoop</a></div><div class="ttdoc">RADCore task event loop with locked and low-latency scheduling strategies.</div><div class="ttdef"><b>Definition:</b> RADCore.h:988</div></div>
+<div class="ttc" id="aclassRADSerial_1_1RADSerialPort_html"><div class="ttname"><a href="classRADSerial_1_1RADSerialPort.html">RADSerial::RADSerialPort</a></div><div class="ttdoc">Linux serial port backed by termios and RADCore::RADIODevice.</div><div class="ttdef"><b>Definition:</b> RADSerial.h:50</div></div>
+<div class="ttc" id="anamespaceRADCore_html_aefc7037828eebd6f6c85bda2ea2b2852a70a2a84088d405a2e3f1e3accaa16723"><div class="ttname"><a href="namespaceRADCore.html#aefc7037828eebd6f6c85bda2ea2b2852a70a2a84088d405a2e3f1e3accaa16723">RADCore::OpenMode::ReadWrite</a></div><div class="ttdeci">@ ReadWrite</div><div class="ttdoc">Open for reads and writes.</div></div>
+<div class="ttc" id="anamespaceRADSerial_html_a03bbd9504108adb1d166e2d35ec4e9aba6adf97f83acf6453d4a6a4b1070f3754"><div class="ttname"><a href="namespaceRADSerial.html#a03bbd9504108adb1d166e2d35ec4e9aba6adf97f83acf6453d4a6a4b1070f3754">RADSerial::Parity::None</a></div><div class="ttdeci">@ None</div></div>
+<div class="ttc" id="astructRADSerial_1_1SerialConfig_html"><div class="ttname"><a href="structRADSerial_1_1SerialConfig.html">RADSerial::SerialConfig</a></div><div class="ttdoc">Serial port configuration.</div><div class="ttdef"><b>Definition:</b> RADSerial.h:28</div></div>
+<div class="ttc" id="astructRADSerial_1_1SerialConfig_html_a6a2993e5482e4ecba58792824b762c1b"><div class="ttname"><a href="structRADSerial_1_1SerialConfig.html#a6a2993e5482e4ecba58792824b762c1b">RADSerial::SerialConfig::parity</a></div><div class="ttdeci">Parity parity</div><div class="ttdoc">Parity mode.</div><div class="ttdef"><b>Definition:</b> RADSerial.h:34</div></div>
+<div class="ttc" id="astructRADSerial_1_1SerialConfig_html_a8bd59a36b8ae31e6b6174851ddd0a3bb"><div class="ttname"><a href="structRADSerial_1_1SerialConfig.html#a8bd59a36b8ae31e6b6174851ddd0a3bb">RADSerial::SerialConfig::baudRate</a></div><div class="ttdeci">int baudRate</div><div class="ttdoc">Baud rate such as 9600, 115200, 1000000.</div><div class="ttdef"><b>Definition:</b> RADSerial.h:30</div></div>
+</div><!-- fragment --> </div></div><!-- contents -->
 </div><!-- PageDoc -->
 </div><!-- doc-content -->
 <!-- start footer part -->

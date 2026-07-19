@@ -9,17 +9,63 @@
     <programlisting>
 <codeline><highlight class="normal">#<sp/>RADNet<sp/>Protocol<sp/>Generation</highlight></codeline>
 <codeline></codeline>
-<codeline><highlight class="normal">RADLib<sp/>includes<sp/>a<sp/>CMake-invoked<sp/>Python<sp/>generator<sp/>for<sp/>compact<sp/>binary<sp/>TCP<sp/>protocols.</highlight></codeline>
+<codeline><highlight class="normal">There<sp/>is<sp/>no<sp/>standalone<sp/>RADProtocol<sp/>module.<sp/>RADLib&apos;s<sp/>binary-protocol<sp/>support<sp/>is<sp/>a</highlight></codeline>
+<codeline><highlight class="normal">facet<sp/>of<sp/>**RADNet**:<sp/>the<sp/>`RADProtocol*`<sp/>types<sp/>live<sp/>in<sp/>the<sp/>`RADNet`<sp/>namespace</highlight></codeline>
+<codeline><highlight class="normal">(`RADNet/headers/RADNet.h`),<sp/>and<sp/>the<sp/>code<sp/>generator<sp/>ships<sp/>as<sp/>a<sp/>CMake-invoked</highlight></codeline>
+<codeline><highlight class="normal">Python<sp/>tool.</highlight></codeline>
 <codeline></codeline>
-<codeline><highlight class="normal">The<sp/>wire<sp/>frame<sp/>is:</highlight></codeline>
+<codeline><highlight class="normal">##<sp/>Wire<sp/>frame</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">RADLib<sp/>includes<sp/>a<sp/>CMake-invoked<sp/>Python<sp/>generator<sp/>for<sp/>compact<sp/>binary<sp/>TCP</highlight></codeline>
+<codeline><highlight class="normal">protocols.<sp/>The<sp/>wire<sp/>frame<sp/>is:</highlight></codeline>
 <codeline></codeline>
 <codeline><highlight class="normal">-<sp/>`uint32<sp/>messageId`<sp/>in<sp/>network<sp/>byte<sp/>order.</highlight></codeline>
 <codeline><highlight class="normal">-<sp/>`uint32<sp/>payloadSize`<sp/>in<sp/>network<sp/>byte<sp/>order.</highlight></codeline>
 <codeline><highlight class="normal">-<sp/>Binary<sp/>payload.</highlight></codeline>
 <codeline></codeline>
 <codeline><highlight class="normal">JSON<sp/>protocol<sp/>files<sp/>define<sp/>messages<sp/>and<sp/>fields.<sp/>The<sp/>generator<sp/>emits<sp/>C++<sp/>structs,</highlight></codeline>
-<codeline><highlight class="normal">message<sp/>IDs,<sp/>payload<sp/>encoders/decoders,<sp/>and<sp/>frame<sp/>helpers.<sp/>Runtime<sp/>endpoint</highlight></codeline>
-<codeline><highlight class="normal">configuration<sp/>remains<sp/>JSON-loadable<sp/>through<sp/>`RADNet::endpointConfigFromJson()`.</highlight></codeline>
+<codeline><highlight class="normal">message<sp/>IDs,<sp/>payload<sp/>encoders/decoders,<sp/>and<sp/>frame<sp/>helpers.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>Runtime<sp/>API</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">At<sp/>runtime<sp/>a<sp/>frame<sp/>is<sp/>the<sp/>`RADNet::RADTcpFrame`<sp/>struct<sp/>(a<sp/>`messageId`<sp/>plus<sp/>a</highlight></codeline>
+<codeline><highlight class="normal">`payload`<sp/>byte<sp/>vector).<sp/>`RADNet::encodeFrame()`<sp/>serializes<sp/>one<sp/>frame<sp/>to<sp/>wire</highlight></codeline>
+<codeline><highlight class="normal">bytes,<sp/>and<sp/>`RADNet::decodeFrames()`<sp/>pulls<sp/>all<sp/>complete<sp/>frames<sp/>out<sp/>of<sp/>a<sp/>receive</highlight></codeline>
+<codeline><highlight class="normal">buffer,<sp/>enforcing<sp/>`maxPayloadBytes`.<sp/>Endpoint<sp/>configuration<sp/>is<sp/>described<sp/>by</highlight></codeline>
+<codeline><highlight class="normal">`RADNet::RADProtocolEndpointConfig`<sp/>(address,<sp/>port,<sp/>backlog,<sp/>connect<sp/>timeout,</highlight></codeline>
+<codeline><highlight class="normal">max<sp/>payload)<sp/>and<sp/>stays<sp/>JSON-loadable<sp/>through<sp/>`RADNet::endpointConfigFromJson()`.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">`RADNet::RADProtocolSocket`<sp/>is<sp/>a<sp/>`RADCore::RADObject`<sp/>that<sp/>frames<sp/>a<sp/>`RADTcpSocket`</highlight></codeline>
+<codeline><highlight class="normal">byte<sp/>stream.<sp/>It<sp/>exposes<sp/>`sendFrame()`<sp/>and<sp/>the<sp/>`frameReceived`,<sp/>`connected`,</highlight></codeline>
+<codeline><highlight class="normal">`disconnected`,<sp/>and<sp/>`errorOccurred`<sp/>events.<sp/>`RADNet::RADProtocolClient`<sp/>adds</highlight></codeline>
+<codeline><highlight class="normal">`connectUsingConfig()`,<sp/>and<sp/>`RADNet::RADProtocolServer`<sp/>adds<sp/>`listenUsingConfig()`</highlight></codeline>
+<codeline><highlight class="normal">plus<sp/>a<sp/>`newConnection`<sp/>event<sp/>delivering<sp/>accepted<sp/>`RADProtocolSocket`<sp/>instances.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>Core<sp/>features</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">-<sp/>CMake-invoked<sp/>Python<sp/>generator<sp/>for<sp/>compact<sp/>binary<sp/>TCP<sp/>protocols.</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>Fixed<sp/>`messageId`/`payloadSize`<sp/>network-byte-order<sp/>frame<sp/>header.</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>`RADTcpFrame`<sp/>with<sp/>`encodeFrame()`/`decodeFrames()`<sp/>helpers.</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>JSON-loadable<sp/>`RADProtocolEndpointConfig`<sp/>via<sp/>`endpointConfigFromJson()`.</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>`RADProtocolSocket`/`RADProtocolClient`/`RADProtocolServer`<sp/>event-driven<sp/>types.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Example:</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">```cpp</highlight></codeline>
+<codeline><highlight class="normal">RADCore::EventLoop<sp/>loop;</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">RADNet::RADProtocolEndpointConfig<sp/>config;</highlight></codeline>
+<codeline><highlight class="normal">config.address<sp/>=<sp/>&quot;127.0.0.1&quot;;</highlight></codeline>
+<codeline><highlight class="normal">config.port<sp/>=<sp/>9000;</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">RADNet::RADProtocolClient<sp/>client(loop);</highlight></codeline>
+<codeline><highlight class="normal">RADCONNECT(client,<sp/>frameReceived,<sp/>&amp;handler,<sp/>Handler,<sp/>onFrame);</highlight></codeline>
+<codeline><highlight class="normal">if<sp/>(client.connectUsingConfig(config))<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>std::vector&lt;uint8_t&gt;<sp/>payload{0x01,<sp/>0x02};</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>client.sendFrame(/*messageId=*/42,<sp/>payload);</highlight></codeline>
+<codeline><highlight class="normal">}</highlight></codeline>
+<codeline><highlight class="normal">loop.exec();</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
     </programlisting>
     <location file="/media/jvincent/Kingspec512/repos/RADLib/docs/public/radprotocol.md"/>
   </compounddef>

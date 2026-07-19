@@ -88,9 +88,37 @@ $(document).ready(function(){initNavTree('md__media_jvincent_Kingspec512_repos_R
 <div class="title"><a class="el" href="namespaceRADUpdate.html">RADUpdate</a> </div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><p><a class="el" href="namespaceRADUpdate.html">RADUpdate</a> verifies signed app-bundle update manifests. A manifest declares the product, version, channel, payload file paths, payload SHA-256 digests, optional payload sizes, optional <a class="el" href="namespaceRADInstaller.html">RADInstaller</a> manifest path, and optional manifest signature path.</p>
-<p><code>UpdateManager::verifyBundle()</code> checks payload existence, size, hashes, and an RSA-SHA256 manifest signature when a public key is supplied. A/B metadata helpers track active and pending slots without performing rootfs switching directly. </p>
-</div></div><!-- contents -->
+<div class="textblock"><p><a class="el" href="namespaceRADUpdate.html">RADUpdate</a> verifies signed app-bundle update manifests and provides A/B slot metadata helpers for embedded products. It bridges verified bundles into <a class="el" href="namespaceRADInstaller.html">RADInstaller</a> for the actual on-disk install step.</p>
+<p>A bundle is described by an <code>UpdateManifest</code>, which declares the <code>product</code>, <code>version</code>, <code>channel</code>, and <code>minimumVersion</code>, plus a list of <code>Payload</code> entries. Each <code>Payload</code> names a <code>path</code> relative to the bundle root, an expected lowercase <code>sha256</code> digest, and an optional <code>size</code> (0 disables size checking). A manifest may also carry an <code>installerManifest</code> path and a <code>signaturePath</code>.</p>
+<p><code>UpdateManager</code> is the entry point. <code>loadManifest()</code> parses manifest JSON into a <code><a class="el" href="classRADCore_1_1RADResult.html" title="Success-or-error return value for APIs that should not throw.">RADCore::RADResult</a>&lt;UpdateManifest&gt;</code>, and <code>manifestToJson()</code> serializes it back. <code>verifyBundle()</code> checks payload existence, sizes, and SHA-256 hashes, and verifies an RSA-SHA256 manifest signature when a public key PEM is supplied, returning a <code>VerificationResult</code> with an <code>ok</code> flag and an <code>errors</code> list. When a manifest carries an <code>installerManifest</code>, <code>installBundle()</code> hands the verified bundle to <a class="el" href="namespaceRADInstaller.html">RADInstaller</a> and returns a <code><a class="el" href="structRADInstaller_1_1Result.html" title="Installer result.">RADInstaller::Result</a></code>.</p>
+<p>For embedded A/B updates, <code>ABMetadata</code> tracks the <code>activeSlot</code>, <code>pendingSlot</code>, <code>bootCount</code>, <code>rollbackReason</code>, and the versions installed in slots A and B. <code>loadABMetadata()</code>, <code>saveABMetadata()</code>, and <code>abMetadataToJson()</code> persist this state without performing rootfs switching directly.</p>
+<p>Core features:</p>
+<ul>
+<li>Signed manifest parsing and JSON round-tripping.</li>
+<li>Payload existence, size, and SHA-256 verification.</li>
+<li>Optional RSA-SHA256 manifest signature checks.</li>
+<li><a class="el" href="namespaceRADInstaller.html">RADInstaller</a> bridge for verified bundles.</li>
+<li>A/B slot metadata tracking for embedded products.</li>
+</ul>
+<p>Example:</p>
+<div class="fragment"><div class="line"><span class="keyword">auto</span> result = <a class="code" href="classRADUpdate_1_1UpdateManager.html#a3aca046051955f54fcdf1c39eb47b341">RADUpdate::UpdateManager::verifyBundle</a>(</div>
+<div class="line">    <span class="stringliteral">&quot;/mnt/bundle&quot;</span>, <span class="stringliteral">&quot;manifest.json&quot;</span>, publicKeyPem);</div>
+<div class="line"> </div>
+<div class="line"><span class="keywordflow">if</span> (result.ok) {</div>
+<div class="line">    <span class="keyword">auto</span> manifest = <a class="code" href="classRADUpdate_1_1UpdateManager.html#af98685fa5a31d7011b0d6e3fc5798db8">RADUpdate::UpdateManager::loadManifest</a>(<span class="stringliteral">&quot;/mnt/bundle/manifest.json&quot;</span>);</div>
+<div class="line">    <span class="keywordflow">if</span> (manifest.hasValue()) {</div>
+<div class="line">        <a class="code" href="classRADUpdate_1_1UpdateManager.html#a91265840879e47743272d1e6d4ad7a91">RADUpdate::UpdateManager::installBundle</a>(</div>
+<div class="line">            <span class="stringliteral">&quot;/mnt/bundle&quot;</span>, manifest.value(), <span class="stringliteral">&quot;/opt/app&quot;</span>);</div>
+<div class="line">    }</div>
+<div class="line">} <span class="keywordflow">else</span> {</div>
+<div class="line">    <span class="keywordflow">for</span> (<span class="keyword">const</span> <span class="keyword">auto</span>&amp; err : result.errors) {</div>
+<div class="line">        <span class="comment">// Report each verification failure.</span></div>
+<div class="line">    }</div>
+<div class="line">}</div>
+<div class="ttc" id="aclassRADUpdate_1_1UpdateManager_html_a3aca046051955f54fcdf1c39eb47b341"><div class="ttname"><a href="classRADUpdate_1_1UpdateManager.html#a3aca046051955f54fcdf1c39eb47b341">RADUpdate::UpdateManager::verifyBundle</a></div><div class="ttdeci">static VerificationResult verifyBundle(const std::string &amp;bundleRoot, const std::string &amp;manifestPath, const std::string &amp;publicKeyPem={})</div><div class="ttdoc">Verifies payload hashes, sizes, and optional manifest signature.</div></div>
+<div class="ttc" id="aclassRADUpdate_1_1UpdateManager_html_a91265840879e47743272d1e6d4ad7a91"><div class="ttname"><a href="classRADUpdate_1_1UpdateManager.html#a91265840879e47743272d1e6d4ad7a91">RADUpdate::UpdateManager::installBundle</a></div><div class="ttdeci">static RADInstaller::Result installBundle(const std::string &amp;bundleRoot, const UpdateManifest &amp;manifest, const std::string &amp;targetRoot, const std::vector&lt; std::string &gt; &amp;selectedComponents={})</div><div class="ttdoc">Installs a bundle using RADInstaller when installerManifest is present.</div></div>
+<div class="ttc" id="aclassRADUpdate_1_1UpdateManager_html_af98685fa5a31d7011b0d6e3fc5798db8"><div class="ttname"><a href="classRADUpdate_1_1UpdateManager.html#af98685fa5a31d7011b0d6e3fc5798db8">RADUpdate::UpdateManager::loadManifest</a></div><div class="ttdeci">static RADCore::RADResult&lt; UpdateManifest &gt; loadManifest(const std::string &amp;path)</div><div class="ttdoc">Loads an update manifest from JSON.</div></div>
+</div><!-- fragment --> </div></div><!-- contents -->
 </div><!-- PageDoc -->
 </div><!-- doc-content -->
 <!-- start footer part -->

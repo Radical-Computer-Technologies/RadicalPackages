@@ -7,23 +7,26 @@
   <link rel="stylesheet" href="../../assets/radhdl-docgen.css">
 </head>
 <body>
+<div class="sitebar"><div class="wrap">
+  <a class="brand-mark" href="../../index.html"><img class="brand-logo" src="../../assets/rad-logo.png" alt="" onerror="this.style.display='none'"><span>Radical Computer Technologies</span></a>
+</div></div>
 
 <header><div class="wrap">
   <nav class="breadcrumb"><a href="../../index.html">RadHDL</a> / <a href="../../libraries/radhdl.html">radhdl</a></nav>
   <div class="kicker">DSP / entity</div>
   <h1>fft_tdp_ram</h1>
-  <div class="meta">Documentation version: 0.2.0 / Package: Transform / Source package: raddsp</div>
+  <div class="meta">Documentation version: 0.2.0 / Subpackage: dsp_transform / Source package: raddsp</div>
   <div class="summary"><p>True dual-port RAM abstraction used by FFT pipeline memories.
 Keeps storage portable while allowing vendor-specific implementations to infer or instantiate block RAM efficiently.</p></div>
-  
+
 </div></header>
 <main class="wrap">
   <h2>Use Cases</h2>
   <ul><li>Reusable FPGA DSP pipelines that need fixed-point, timing-aware implementation.</li></ul>
   <h2>Block Diagram</h2>
-  <div class="diagram"><svg width="582" height="358" viewBox="0 0 582 358" xmlns="http://www.w3.org/2000/svg" role="img">
+  <div class="diagram"><svg width="582" height="386" viewBox="0 0 582 386" xmlns="http://www.w3.org/2000/svg" role="img">
 <style>text{font-family:Inter,Arial,sans-serif;font-size:13px;fill:#111827}.pin{stroke:#106b62;stroke-width:2;fill:none}.interface-pin{stroke:#7b8794;stroke-width:2;fill:#e5e7eb}.box{fill:#f7f9fc;stroke:#26323f;stroke-width:2}.bubble{fill:#fff;stroke:#106b62;stroke-width:2}.clock{fill:none;stroke:#106b62;stroke-width:2}</style>
-<rect class="box" x="72" y="50" width="420" height="268" rx="4"/>
+<rect class="box" x="72" y="50" width="420" height="296" rx="4"/>
 <text x="282.0" y="84" text-anchor="middle" font-weight="700">fft_tdp_ram</text>
 <text x="282.0" y="106" text-anchor="middle">radhdl entity</text>
 <line class="pin" x1="36" y1="130" x2="72" y2="130"/>
@@ -39,6 +42,8 @@ Keeps storage portable while allowing vendor-specific implementations to infer o
 <text x="100" y="246">b_addr</text>
 <line class="pin" x1="36" y1="270" x2="72" y2="270"/>
 <text x="100" y="274">b_din</text>
+<line class="pin" x1="36" y1="298" x2="72" y2="298"/>
+<text x="100" y="302">b_we</text>
 <line class="pin" x1="492" y1="130" x2="528" y2="130"/>
 <text x="464" y="134" text-anchor="end">a_dout</text>
 <line class="pin" x1="492" y1="158" x2="528" y2="158"/>
@@ -56,7 +61,8 @@ use radhdl.dsp.all;
     DEVICE_FAMILY : string := &quot;ultrascale+&quot;;
     MEMORY_STYLE : string := &quot;block&quot;;
     DATA_WIDTH : integer := 64;
-    ADDR_WIDTH : integer := 5
+    ADDR_WIDTH : integer := 5;
+    DEPTH : integer := 32
   );
   port (
     clk : in std_logic;
@@ -66,14 +72,16 @@ use radhdl.dsp.all;
     a_we : in std_logic;
     b_addr : in std_logic_vector(ADDR_WIDTH - 1 downto 0);
     b_din : in std_logic_vector(DATA_WIDTH - 1 downto 0);
-    b_dout : out std_logic_vector(DATA_WIDTH - 1 downto 0)
+    b_dout : out std_logic_vector(DATA_WIDTH - 1 downto 0);
+    b_we : in std_logic
   );
 end component;</code></pre><h3>Direct Entity Instantiation</h3><pre><code>u_fft_tdp_ram : entity radhdl.fft_tdp_ram
   generic map (
     DEVICE_FAMILY =&gt; &quot;ultrascale+&quot;,
     MEMORY_STYLE  =&gt; &quot;block&quot;,
     DATA_WIDTH    =&gt; 64,
-    ADDR_WIDTH    =&gt; 5
+    ADDR_WIDTH    =&gt; 5,
+    DEPTH         =&gt; 32
   )
   port map (
     clk    =&gt; &lt;clk_signal&gt;,
@@ -83,24 +91,19 @@ end component;</code></pre><h3>Direct Entity Instantiation</h3><pre><code>u_fft_
     a_we   =&gt; &lt;a_we_signal&gt;,
     b_addr =&gt; &lt;b_addr_signal&gt;,
     b_din  =&gt; &lt;b_din_signal&gt;,
-    b_dout =&gt; &lt;b_dout_signal&gt;
+    b_dout =&gt; &lt;b_dout_signal&gt;,
+    b_we   =&gt; &lt;b_we_signal&gt;
   );</code></pre></div></details>
-  <h2>Generics</h2><table><thead><tr><th>Name</th><th>Type</th><th>Default</th><th>Description</th></tr></thead><tbody><tr><td>DEVICE_FAMILY</td><td>string</td><td>&quot;ultrascale+&quot;</td><td>Identifies the target FPGA family so wrappers can choose the correct primitive or conservative portable behavior.</td></tr><tr><td>MEMORY_STYLE</td><td>string</td><td>&quot;block&quot;</td><td>Configures MEMORY STYLE for this instance.</td></tr><tr><td>DATA_WIDTH</td><td>integer</td><td>64</td><td>Sets the bit width for DATA WIDTH values carried by this module.</td></tr><tr><td>ADDR_WIDTH</td><td>integer</td><td>5</td><td>Sets the bit width for ADDR WIDTH values carried by this module.</td></tr></tbody></table>
-  <h2>Ports</h2><table><thead><tr><th>Name</th><th>Direction</th><th>Type</th><th>Description</th></tr></thead><tbody><tr><td>clk</td><td>in</td><td>std_logic</td><td>Clock for the associated synchronous logic and handshake domain.</td></tr><tr><td>a_addr</td><td>in</td><td>std_logic_vector(ADDR_WIDTH - 1 downto 0)</td><td>A addr interface signal.</td></tr><tr><td>a_din</td><td>in</td><td>std_logic_vector(DATA_WIDTH - 1 downto 0)</td><td>A din interface signal.</td></tr><tr><td>a_dout</td><td>out</td><td>std_logic_vector(DATA_WIDTH - 1 downto 0)</td><td>A dout interface signal.</td></tr><tr><td>a_we</td><td>in</td><td>std_logic</td><td>A we interface signal.</td></tr><tr><td>b_addr</td><td>in</td><td>std_logic_vector(ADDR_WIDTH - 1 downto 0)</td><td>B addr interface signal.</td></tr><tr><td>b_din</td><td>in</td><td>std_logic_vector(DATA_WIDTH - 1 downto 0)</td><td>B din interface signal.</td></tr><tr><td>b_dout</td><td>out</td><td>std_logic_vector(DATA_WIDTH - 1 downto 0)</td><td>B dout interface signal.</td></tr></tbody></table>
-  
-  
+  <h2>Generics</h2><table><thead><tr><th>Name</th><th>Type</th><th>Default</th><th>Description</th></tr></thead><tbody><tr><td>DEVICE_FAMILY</td><td>string</td><td>&quot;ultrascale+&quot;</td><td>Identifies the target FPGA family so wrappers can choose the correct primitive or conservative portable behavior.</td></tr><tr><td>MEMORY_STYLE</td><td>string</td><td>&quot;block&quot;</td><td>Configures MEMORY STYLE for this instance.</td></tr><tr><td>DATA_WIDTH</td><td>integer</td><td>64</td><td>Sets the bit width for DATA WIDTH values carried by this module.</td></tr><tr><td>ADDR_WIDTH</td><td>integer</td><td>5</td><td>Sets the bit width for ADDR WIDTH values carried by this module.</td></tr><tr><td>DEPTH</td><td>integer</td><td>32</td><td>Sets the storage depth, frame length, or number of buffered samples used internally.</td></tr></tbody></table>
+  <h2>Ports</h2><table><thead><tr><th>Name</th><th>Direction</th><th>Type</th><th>Description</th></tr></thead><tbody><tr><td>clk</td><td>in</td><td>std_logic</td><td>Clock for the associated synchronous logic and handshake domain.</td></tr><tr><td>a_addr</td><td>in</td><td>std_logic_vector(ADDR_WIDTH - 1 downto 0)</td><td>A addr interface signal.</td></tr><tr><td>a_din</td><td>in</td><td>std_logic_vector(DATA_WIDTH - 1 downto 0)</td><td>A din interface signal.</td></tr><tr><td>a_dout</td><td>out</td><td>std_logic_vector(DATA_WIDTH - 1 downto 0)</td><td>A dout interface signal.</td></tr><tr><td>a_we</td><td>in</td><td>std_logic</td><td>A we interface signal.</td></tr><tr><td>b_addr</td><td>in</td><td>std_logic_vector(ADDR_WIDTH - 1 downto 0)</td><td>B addr interface signal.</td></tr><tr><td>b_din</td><td>in</td><td>std_logic_vector(DATA_WIDTH - 1 downto 0)</td><td>B din interface signal.</td></tr><tr><td>b_dout</td><td>out</td><td>std_logic_vector(DATA_WIDTH - 1 downto 0)</td><td>B dout interface signal.</td></tr><tr><td>b_we</td><td>in</td><td>std_logic</td><td>B we interface signal.</td></tr></tbody></table>
+
+
+
   <h2 id="testbenches">Testbenches</h2><p class="summary">No directly associated testbench was found.</p>
   <h2>Sources</h2>
   <ul><li>dsp/hdl/raddsp/src/fft_tdp_ram.vhd</li></ul>
 </main>
 <footer><div class="wrap">RadHDL documentation version 0.2.0 / Generated by radhdl-docgen 0.1.0</div></footer>
 
-<script>
-document.addEventListener('input', function (event) {
-  if (!event.target.classList || !event.target.classList.contains('wave-zoom')) return;
-  var wave = event.target.closest('.wave');
-  if (wave) wave.style.setProperty('--wave-zoom', String(Number(event.target.value) / 100));
-});
-</script>
 </body>
 </html>

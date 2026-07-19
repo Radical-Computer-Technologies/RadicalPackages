@@ -1,0 +1,169 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="examples_8md" kind="file" language="Markdown">
+    <compoundname>examples.md</compoundname>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline><highlight class="normal">#<sp/>Minimal<sp/>Examples<sp/>{#minimal_examples}</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">These<sp/>examples<sp/>show<sp/>the<sp/>intended<sp/>public<sp/>API<sp/>shape.<sp/>They<sp/>omit<sp/>platform-specific</highlight></codeline>
+<codeline><highlight class="normal">register<sp/>setup<sp/>and<sp/>error<sp/>logging<sp/>for<sp/>clarity.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>Register<sp/>A<sp/>Kernel<sp/>Module</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">```c</highlight></codeline>
+<codeline><highlight class="normal">static<sp/>rad_status_t<sp/>my_driver_init(void<sp/>*context)<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>(void)context;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>return<sp/>RAD_STATUS_OK;</highlight></codeline>
+<codeline><highlight class="normal">}</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">static<sp/>void<sp/>my_driver_exit(void<sp/>*context)<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>(void)context;</highlight></codeline>
+<codeline><highlight class="normal">}</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">static<sp/>const<sp/>rad_module_descriptor_t<sp/>module<sp/>=<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>.size<sp/>=<sp/>sizeof(rad_module_descriptor_t),</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>.name<sp/>=<sp/>&quot;rad_example&quot;,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>.bus<sp/>=<sp/>&quot;platform&quot;,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>.compatible<sp/>=<sp/>&quot;rad,example&quot;,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>.init<sp/>=<sp/>my_driver_init,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>.exit<sp/>=<sp/>my_driver_exit,</highlight></codeline>
+<codeline><highlight class="normal">};</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">rad_module_register(&amp;module);</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>Register<sp/>An<sp/>I2C<sp/>Controller<sp/>And<sp/>Child<sp/>Driver</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">```c</highlight></codeline>
+<codeline><highlight class="normal">static<sp/>rad_status_t<sp/>i2c_xfer(void<sp/>*context,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>const<sp/>rad_i2c_transfer_t<sp/>*transfer)<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>(void)context;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>return<sp/>transfer<sp/>?<sp/>RAD_STATUS_OK<sp/>:<sp/>RAD_STATUS_INVALID_ARGUMENT;</highlight></codeline>
+<codeline><highlight class="normal">}</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">static<sp/>rad_status_t<sp/>tmp102_probe(void<sp/>*context,<sp/>rad_i2c_device_t<sp/>*device)<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>(void)context;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>rad_irq_resource_t<sp/>irq;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>if<sp/>(rad_i2c_device_get_irq(device,<sp/>0,<sp/>&amp;irq)<sp/>==<sp/>RAD_STATUS_OK)<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>rad_irq_resource_enable(&amp;irq);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>return<sp/>RAD_STATUS_OK;</highlight></codeline>
+<codeline><highlight class="normal">}</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">rad_i2c_controller_ops_t<sp/>ops<sp/>=<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>.transfer<sp/>=<sp/>i2c_xfer,</highlight></codeline>
+<codeline><highlight class="normal">};</highlight></codeline>
+<codeline><highlight class="normal">rad_i2c_controller_config_t<sp/>controller<sp/>=<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>.size<sp/>=<sp/>sizeof(rad_i2c_controller_config_t),</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>.bus_id<sp/>=<sp/>0,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>.name<sp/>=<sp/>&quot;rad_i2c0&quot;,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>.tree_path<sp/>=<sp/>&quot;/soc/i2c@0&quot;,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>.clock_hz<sp/>=<sp/>400000,</highlight></codeline>
+<codeline><highlight class="normal">};</highlight></codeline>
+<codeline><highlight class="normal">rad_i2c_driver_t<sp/>driver<sp/>=<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>.size<sp/>=<sp/>sizeof(rad_i2c_driver_t),</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>.name<sp/>=<sp/>&quot;rad_i2c_tmp102&quot;,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>.compatible<sp/>=<sp/>&quot;ti,tmp102&quot;,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>.probe<sp/>=<sp/>tmp102_probe,</highlight></codeline>
+<codeline><highlight class="normal">};</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">rad_i2c_driver_register(&amp;driver);</highlight></codeline>
+<codeline><highlight class="normal">rad_i2c_controller_register(&amp;controller,<sp/>&amp;ops);</highlight></codeline>
+<codeline><highlight class="normal">rad_i2c_bind_tree();</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>Register<sp/>DMA<sp/>And<sp/>Use<sp/>SPI<sp/>Auto<sp/>Mode</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">```c</highlight></codeline>
+<codeline><highlight class="normal">rad_dma_controller_config_t<sp/>dma<sp/>=<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>.size<sp/>=<sp/>sizeof(rad_dma_controller_config_t),</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>.name<sp/>=<sp/>&quot;rad_dma0&quot;,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>.channel_count<sp/>=<sp/>8,</highlight></codeline>
+<codeline><highlight class="normal">};</highlight></codeline>
+<codeline><highlight class="normal">rad_dma_backend_ops_t<sp/>dma_ops<sp/>=<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>.request<sp/>=<sp/>my_dma_request,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>.release<sp/>=<sp/>my_dma_release,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>.submit<sp/>=<sp/>my_dma_submit,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>.wait<sp/>=<sp/>my_dma_wait,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>.cancel<sp/>=<sp/>my_dma_cancel,</highlight></codeline>
+<codeline><highlight class="normal">};</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">rad_dma_controller_register(&amp;dma,<sp/>&amp;dma_ops);</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">rad_spi_transfer_t<sp/>transfer<sp/>=<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>.tx_data<sp/>=<sp/>tx,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>.rx_data<sp/>=<sp/>rx,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>.size<sp/>=<sp/>count,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>.speed_hz<sp/>=<sp/>12000000,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>.bits_per_word<sp/>=<sp/>8,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>.cs<sp/>=<sp/>0,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>.transfer_mode<sp/>=<sp/>RAD_SPI_TRANSFER_MODE_AUTO,</highlight></codeline>
+<codeline><highlight class="normal">};</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">rad_spi_device_transfer(device,<sp/>&amp;transfer);</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>Register<sp/>A<sp/>Framebuffer</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">```c</highlight></codeline>
+<codeline><highlight class="normal">rad_framebuffer_config_t<sp/>fb<sp/>=<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>.size<sp/>=<sp/>sizeof(rad_framebuffer_config_t),</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>.name<sp/>=<sp/>&quot;/dev/fb0&quot;,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>.output_type<sp/>=<sp/>RAD_DISPLAY_OUTPUT_GRUB,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>.connector<sp/>=<sp/>&quot;virtio-vga&quot;,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>.primary<sp/>=<sp/>1,</highlight></codeline>
+<codeline><highlight class="normal">};</highlight></codeline>
+<codeline><highlight class="normal">fb.info.size<sp/>=<sp/>sizeof(rad_framebuffer_info_t);</highlight></codeline>
+<codeline><highlight class="normal">fb.info.width<sp/>=<sp/>1024;</highlight></codeline>
+<codeline><highlight class="normal">fb.info.height<sp/>=<sp/>768;</highlight></codeline>
+<codeline><highlight class="normal">fb.info.stride_bytes<sp/>=<sp/>4096;</highlight></codeline>
+<codeline><highlight class="normal">fb.info.pixel_format<sp/>=<sp/>RAD_PIXEL_FORMAT_XRGB8888;</highlight></codeline>
+<codeline><highlight class="normal">fb.info.pixels<sp/>=<sp/>framebuffer_pixels;</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">rad_framebuffer_register_ex(&amp;fb,<sp/>&amp;fb_ops);</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>Read<sp/>Input<sp/>Events</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">```c</highlight></codeline>
+<codeline><highlight class="normal">rad_input_queue_t<sp/>queue;</highlight></codeline>
+<codeline><highlight class="normal">rad_input_queue_create(&quot;kbd0&quot;,<sp/>64,<sp/>&amp;queue);</highlight></codeline>
+<codeline><highlight class="normal">rad_input_device_register_queue(&quot;/dev/input/event0&quot;,<sp/>queue);</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">rad_input_event_t<sp/>events[8];</highlight></codeline>
+<codeline><highlight class="normal">size_t<sp/>count<sp/>=<sp/>0;</highlight></codeline>
+<codeline><highlight class="normal">rad_input_queue_read(queue,<sp/>events,<sp/>8,<sp/>16,<sp/>&amp;count);</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>Mount<sp/>A<sp/>VFS<sp/>Provider</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">```c</highlight></codeline>
+<codeline><highlight class="normal">rad_vfs_backend_ops_t<sp/>ops<sp/>=<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>.context<sp/>=<sp/>fs_context,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>.open<sp/>=<sp/>fs_open,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>.read<sp/>=<sp/>fs_read,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>.write<sp/>=<sp/>fs_write,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>.close<sp/>=<sp/>fs_close,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>.stat<sp/>=<sp/>fs_stat,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>.list<sp/>=<sp/>fs_list,</highlight></codeline>
+<codeline><highlight class="normal">};</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">rad_vfs_mount_provider(&quot;/&quot;,<sp/>&amp;ops);</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>Use<sp/>File<sp/>Descriptors<sp/>Through<sp/>The<sp/>Syscall<sp/>ABI</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">```c</highlight></codeline>
+<codeline><highlight class="normal">int32_t<sp/>fd<sp/>=<sp/>rad_fd_open(&quot;/etc/init.radsh&quot;,<sp/>RAD_VFS_READ);</highlight></codeline>
+<codeline><highlight class="normal">char<sp/>buffer[128];</highlight></codeline>
+<codeline><highlight class="normal">intptr_t<sp/>n<sp/>=<sp/>rad_fd_read(fd,<sp/>buffer,<sp/>sizeof(buffer));</highlight></codeline>
+<codeline><highlight class="normal">rad_fd_close(fd);</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+    </programlisting>
+    <location file="/media/jvincent/Kingspec512/repos/RADPx-OS/docs/public/examples.md"/>
+  </compounddef>
+</doxygen>

@@ -123,7 +123,7 @@ def page(title: str, body: str, rel_root: str) -> str:
     <div class="nav-links">
       <a href="{rel_root}">Home</a>
       <a href="{rel_root}packages.html">Packages</a>
-      <a href="{rel_root}radix-os.html">RADix OS</a>
+      <a href="{rel_root}radpx-os.html">RADPx-OS</a>
       <a href="{rel_root}docs/">Docs</a>
     </div>
   </nav>

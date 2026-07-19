@@ -88,15 +88,51 @@ $(document).ready(function(){initNavTree('md__media_jvincent_Kingspec512_repos_R
 <div class="title"><a class="el" href="namespaceRADNet.html">RADNet</a> Protocol Generation </div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><p>RADLib includes a CMake-invoked Python generator for compact binary TCP protocols.</p>
-<p>The wire frame is:</p>
+<div class="textblock"><p>There is no standalone RADProtocol module. RADLib's binary-protocol support is a facet of <b><a class="el" href="namespaceRADNet.html">RADNet</a></b>: the <code>RADProtocol*</code> types live in the <code><a class="el" href="namespaceRADNet.html">RADNet</a></code> namespace (<code><a class="el" href="RADNet_8h.html" title="Event-loop integrated networking: epoll reactor, UDP/TCP sockets, TCP server, and HTTP client.">RADNet/headers/RADNet.h</a></code>), and the code generator ships as a CMake-invoked Python tool.</p>
+<h1><a class="anchor" id="autotoc_md31"></a>
+Wire frame</h1>
+<p>RADLib includes a CMake-invoked Python generator for compact binary TCP protocols. The wire frame is:</p>
 <ul>
 <li><code>uint32 messageId</code> in network byte order.</li>
 <li><code>uint32 payloadSize</code> in network byte order.</li>
 <li>Binary payload.</li>
 </ul>
-<p>JSON protocol files define messages and fields. The generator emits C++ structs, message IDs, payload encoders/decoders, and frame helpers. Runtime endpoint configuration remains JSON-loadable through <code><a class="el" href="namespaceRADNet.html#ae30adbe571690eef5da7562f7b4fdf34" title="Loads endpoint config from a JSON object.">RADNet::endpointConfigFromJson()</a></code>. </p>
-</div></div><!-- contents -->
+<p>JSON protocol files define messages and fields. The generator emits C++ structs, message IDs, payload encoders/decoders, and frame helpers.</p>
+<h1><a class="anchor" id="autotoc_md32"></a>
+Runtime API</h1>
+<p>At runtime a frame is the <code><a class="el" href="structRADNet_1_1RADTcpFrame.html" title="Binary TCP protocol frame: u32 messageId, u32 payloadSize, payload.">RADNet::RADTcpFrame</a></code> struct (a <code>messageId</code> plus a <code>payload</code> byte vector). <code><a class="el" href="namespaceRADNet.html#a9d156def92974f671a032af23f9134e8" title="Encodes a RADTcpFrame into wire bytes.">RADNet::encodeFrame()</a></code> serializes one frame to wire bytes, and <code><a class="el" href="namespaceRADNet.html#a4413bcf8b0a3e870aac91a07cf3c4b32" title="Attempts to decode all complete frames from buffer, removing consumed bytes.">RADNet::decodeFrames()</a></code> pulls all complete frames out of a receive buffer, enforcing <code>maxPayloadBytes</code>. Endpoint configuration is described by <code><a class="el" href="structRADNet_1_1RADProtocolEndpointConfig.html" title="Runtime endpoint configuration loaded from JSON.">RADNet::RADProtocolEndpointConfig</a></code> (address, port, backlog, connect timeout, max payload) and stays JSON-loadable through <code><a class="el" href="namespaceRADNet.html#ae30adbe571690eef5da7562f7b4fdf34" title="Loads endpoint config from a JSON object.">RADNet::endpointConfigFromJson()</a></code>.</p>
+<p><code><a class="el" href="classRADNet_1_1RADProtocolSocket.html" title="Protocol socket wrapper that frames RADTcpSocket byte streams.">RADNet::RADProtocolSocket</a></code> is a <code><a class="el" href="classRADCore_1_1RADObject.html" title="Base class for event receivers, senders, and thread-affinity aware objects.">RADCore::RADObject</a></code> that frames a <code>RADTcpSocket</code> byte stream. It exposes <code>sendFrame()</code> and the <code>frameReceived</code>, <code>connected</code>, <code>disconnected</code>, and <code>errorOccurred</code> events. <code><a class="el" href="classRADNet_1_1RADProtocolClient.html" title="Framed protocol TCP client.">RADNet::RADProtocolClient</a></code> adds <code>connectUsingConfig()</code>, and <code><a class="el" href="classRADNet_1_1RADProtocolServer.html" title="Framed protocol TCP server.">RADNet::RADProtocolServer</a></code> adds <code>listenUsingConfig()</code> plus a <code>newConnection</code> event delivering accepted <code>RADProtocolSocket</code> instances.</p>
+<h1><a class="anchor" id="autotoc_md33"></a>
+Core features</h1>
+<ul>
+<li>CMake-invoked Python generator for compact binary TCP protocols.</li>
+<li>Fixed <code>messageId</code>/<code>payloadSize</code> network-byte-order frame header.</li>
+<li><code>RADTcpFrame</code> with <code><a class="el" href="namespaceRADNet.html#a9d156def92974f671a032af23f9134e8" title="Encodes a RADTcpFrame into wire bytes.">encodeFrame()</a></code>/<code><a class="el" href="namespaceRADNet.html#a4413bcf8b0a3e870aac91a07cf3c4b32" title="Attempts to decode all complete frames from buffer, removing consumed bytes.">decodeFrames()</a></code> helpers.</li>
+<li>JSON-loadable <code>RADProtocolEndpointConfig</code> via <code><a class="el" href="namespaceRADNet.html#ae30adbe571690eef5da7562f7b4fdf34" title="Loads endpoint config from a JSON object.">endpointConfigFromJson()</a></code>.</li>
+<li><code>RADProtocolSocket</code>/<code>RADProtocolClient</code>/<code>RADProtocolServer</code> event-driven types.</li>
+</ul>
+<p>Example:</p>
+<div class="fragment"><div class="line"><a class="code" href="classRADCore_1_1EventLoop.html">RADCore::EventLoop</a> loop;</div>
+<div class="line"> </div>
+<div class="line"><a class="code" href="structRADNet_1_1RADProtocolEndpointConfig.html">RADNet::RADProtocolEndpointConfig</a> config;</div>
+<div class="line">config.<a class="code" href="structRADNet_1_1RADProtocolEndpointConfig.html#a96d896d9fa9ba373444e78fe975f327c">address</a> = <span class="stringliteral">&quot;127.0.0.1&quot;</span>;</div>
+<div class="line">config.<a class="code" href="structRADNet_1_1RADProtocolEndpointConfig.html#ac0e1d14bd915f974105cd87a768930da">port</a> = 9000;</div>
+<div class="line"> </div>
+<div class="line"><a class="code" href="classRADNet_1_1RADProtocolClient.html">RADNet::RADProtocolClient</a> client(loop);</div>
+<div class="line"><a class="code" href="RADCore_8h.html#a9bb09eb45d06b2d43508263a35c2a9ff">RADCONNECT</a>(client, frameReceived, &amp;handler, Handler, onFrame);</div>
+<div class="line"><span class="keywordflow">if</span> (client.connectUsingConfig(config)) {</div>
+<div class="line">    std::vector&lt;uint8_t&gt; payload{0x01, 0x02};</div>
+<div class="line">    client.sendFrame(<span class="comment">/*messageId=*/</span>42, payload);</div>
+<div class="line">}</div>
+<div class="line">loop.<a class="code" href="classRADCore_1_1EventLoop.html#a58a7597add777bc7c648ccb58bc662ae">exec</a>();</div>
+<div class="ttc" id="aRADCore_8h_html_a9bb09eb45d06b2d43508263a35c2a9ff"><div class="ttname"><a href="RADCore_8h.html#a9bb09eb45d06b2d43508263a35c2a9ff">RADCONNECT</a></div><div class="ttdeci">#define RADCONNECT(Sender, RadEvent, Receiver, Class, RadEventHandler)</div><div class="ttdoc">Connects an event to a receiver handler using the receiver's thread affinity.</div><div class="ttdef"><b>Definition:</b> RADCore.h:100</div></div>
+<div class="ttc" id="aclassRADCore_1_1EventLoop_html"><div class="ttname"><a href="classRADCore_1_1EventLoop.html">RADCore::EventLoop</a></div><div class="ttdoc">RADCore task event loop with locked and low-latency scheduling strategies.</div><div class="ttdef"><b>Definition:</b> RADCore.h:988</div></div>
+<div class="ttc" id="aclassRADCore_1_1EventLoop_html_a58a7597add777bc7c648ccb58bc662ae"><div class="ttname"><a href="classRADCore_1_1EventLoop.html#a58a7597add777bc7c648ccb58bc662ae">RADCore::EventLoop::exec</a></div><div class="ttdeci">void exec()</div><div class="ttdoc">Runs the event loop until quit() is called.</div></div>
+<div class="ttc" id="aclassRADNet_1_1RADProtocolClient_html"><div class="ttname"><a href="classRADNet_1_1RADProtocolClient.html">RADNet::RADProtocolClient</a></div><div class="ttdoc">Framed protocol TCP client.</div><div class="ttdef"><b>Definition:</b> RADNet.h:357</div></div>
+<div class="ttc" id="astructRADNet_1_1RADProtocolEndpointConfig_html"><div class="ttname"><a href="structRADNet_1_1RADProtocolEndpointConfig.html">RADNet::RADProtocolEndpointConfig</a></div><div class="ttdoc">Runtime endpoint configuration loaded from JSON.</div><div class="ttdef"><b>Definition:</b> RADNet.h:278</div></div>
+<div class="ttc" id="astructRADNet_1_1RADProtocolEndpointConfig_html_a96d896d9fa9ba373444e78fe975f327c"><div class="ttname"><a href="structRADNet_1_1RADProtocolEndpointConfig.html#a96d896d9fa9ba373444e78fe975f327c">RADNet::RADProtocolEndpointConfig::address</a></div><div class="ttdeci">std::string address</div><div class="ttdoc">Server bind address or client host.</div><div class="ttdef"><b>Definition:</b> RADNet.h:280</div></div>
+<div class="ttc" id="astructRADNet_1_1RADProtocolEndpointConfig_html_ac0e1d14bd915f974105cd87a768930da"><div class="ttname"><a href="structRADNet_1_1RADProtocolEndpointConfig.html#ac0e1d14bd915f974105cd87a768930da">RADNet::RADProtocolEndpointConfig::port</a></div><div class="ttdeci">uint16_t port</div><div class="ttdoc">TCP port.</div><div class="ttdef"><b>Definition:</b> RADNet.h:282</div></div>
+</div><!-- fragment --> </div></div><!-- contents -->
 </div><!-- PageDoc -->
 </div><!-- doc-content -->
 <!-- start footer part -->

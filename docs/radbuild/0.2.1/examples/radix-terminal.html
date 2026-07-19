@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Example: RADix OS Terminal Image</title>
+  <title>Example: RADPx OS Terminal Image</title>
   <link rel="stylesheet" href="../../../../assets/site.css">
 </head>
 <body>
@@ -13,21 +13,21 @@
     <div class="nav-links">
       <a href="../../../../">Home</a>
       <a href="../../../../packages.html">Packages</a>
-      <a href="../../../../radix-os.html">RADix OS</a>
+      <a href="../../../../radpx-os.html">RADPx-OS</a>
       <a href="../../../../docs/">Docs</a>
     </div>
   </nav>
   <section class="hero compact-hero">
     <div class="eyebrow">RadBuild 0.2.1</div>
-    <h1>Example: RADix OS Terminal Image</h1>
+    <h1>Example: RADPx OS Terminal Image</h1>
   </section>
   <article class="card doc-content">
-<h1>Example: RADix OS Terminal Image</h1>
+<h1>Example: RADPx OS Terminal Image</h1>
 <h2>settings.json</h2>
 <pre><code>{
   &quot;radbuild_schema&quot;: &quot;2.0&quot;,
   &quot;radbuild_version&quot;: &quot;0.2.1&quot;,
-  &quot;project_name&quot;: &quot;RADix-OS Terminal&quot;,
+  &quot;project_name&quot;: &quot;RADPx-OS Terminal&quot;,
   &quot;systems&quot;: [
     {
       &quot;id&quot;: &quot;radix-x86-64-grub-terminal&quot;,
@@ -39,9 +39,9 @@
         &quot;ui_profile&quot;: &quot;terminal&quot;,
         &quot;source&quot;: {
           &quot;type&quot;: &quot;git&quot;,
-          &quot;url&quot;: &quot;https://github.com/Radical-Computer-Technologies/RADix-OS.git&quot;,
+          &quot;url&quot;: &quot;https://github.com/Radical-Computer-Technologies/RADPx-OS.git&quot;,
           &quot;branch&quot;: &quot;crimson-v0.1.3&quot;,
-          &quot;checkout_dir&quot;: &quot;.radmeta/sources/RADix-OS&quot;,
+          &quot;checkout_dir&quot;: &quot;.radmeta/sources/RADPx-OS&quot;,
           &quot;update&quot;: true
         },
         &quot;feature_chunks&quot;: [&quot;kernel.core&quot;, &quot;kernel.x86_64&quot;, &quot;drivers.framebuffer&quot;, &quot;drivers.input.ps2&quot;, &quot;drivers.block.virtio&quot;, &quot;fs.ext4&quot;, &quot;fs.fat&quot;, &quot;services.radinit&quot;, &quot;services.base-terminal&quot;, &quot;userspace.rash&quot;],

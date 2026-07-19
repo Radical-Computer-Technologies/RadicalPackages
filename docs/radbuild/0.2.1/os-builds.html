@@ -13,7 +13,7 @@
     <div class="nav-links">
       <a href="../../../">Home</a>
       <a href="../../../packages.html">Packages</a>
-      <a href="../../../radix-os.html">RADix OS</a>
+      <a href="../../../radpx-os.html">RADPx-OS</a>
       <a href="../../../docs/">Docs</a>
     </div>
   </nav>
@@ -25,15 +25,15 @@
 <h1>OS Builds</h1>
 <p>RadBuild 0.2.1 supports three OS build families:</p>
 <ul>
-<li><code>os.radix</code> for RADix OS images, packagegroups, SDK/sysroot export, and QEMU</li>
+<li><code>os.radix</code> for RADPx OS images, packagegroups, SDK/sysroot export, and QEMU</li>
 <p>verification.</p>
 <li><code>linux.petalinux</code> for Xilinx/Zynq MPSoC projects that already rely on</li>
 <p>PetaLinux tooling.</p>
 <li><code>linux.buildroot</code> for projects that need a smaller generated Buildroot</li>
 <p>external tree.</p>
 </ul>
-<p>The RADix provider is the most integrated path. It owns source checkout, feature selection, <code>rkconfig</code>, <code>.radpm</code> package staging, rootfs generation, SDK export, and VM launch scripts. PetaLinux and Buildroot support remain useful FPGA/Linux companion flows, but they do not currently expose the same packagegroup and RADix rootfs automation.</p>
-<h2>RADix From Scratch</h2>
+<p>The RADPx provider is the most integrated path. It owns source checkout, feature selection, <code>rkconfig</code>, <code>.radpm</code> package staging, rootfs generation, SDK export, and VM launch scripts. PetaLinux and Buildroot support remain useful FPGA/Linux companion flows, but they do not currently expose the same packagegroup and RADPx rootfs automation.</p>
+<h2>RADPx From Scratch</h2>
 <p>Starting with only the packaged RadBuild CLI installed:</p>
 <pre><code>mkdir -p ~/radix-work
 radbuild project create ~/radix-work --non-interactive --template radix-os-terminal --project-name radix-terminal
@@ -41,7 +41,7 @@ cd ~/radix-work/radix-terminal
 radbuild menuconfig --settings settings.json
 radbuild build os --settings settings.json --json-events
 ./artifacts/radix/x86_64-grub-terminal/run-radix-vm.sh</code></pre>
-<p>The template pulls RADix OS from the configured Git branch, resolves the selected RadicalPackages <code>.radpm</code> packagegroups, creates the ext4/FAT images, and emits a runnable x86_64 GRUB VM bundle.</p>
+<p>The template pulls RADPx OS from the configured Git branch, resolves the selected RadicalPackages <code>.radpm</code> packagegroups, creates the ext4/FAT images, and emits a runnable x86_64 GRUB VM bundle.</p>
 <h2>Terminal Profile</h2>
 <pre><code>radbuild build os --settings settings.terminal.json --json-events</code></pre>
 <p>Expected artifacts:</p>
@@ -54,13 +54,13 @@ SHA256SUMS</code></pre>
 <h2>Window Manager Profile</h2>
 <pre><code>radbuild build os --settings settings.wm.json --json-events</code></pre>
 <p>The window-manager profile enables RADCompositor and Slint shell chunks while keeping the same package and artifact flow.</p>
-<h2>RADix Menuconfig</h2>
+<h2>RADPx Menuconfig</h2>
 <pre><code>radbuild menuconfig --settings settings.terminal.json --list
 radbuild menuconfig --settings settings.terminal.json --apply-profile wm --json
 radbuild menuconfig --settings settings.terminal.json --enable-packagegroup radix-networking --resolve-packages --json
 radbuild menuconfig --settings settings.terminal.json --enable-package radlib-ui --resolve-packages --json</code></pre>
-<p>Packagegroup edits select coherent RADix OS feature sets from the configured <code>.radpm</code> repository. Individual package edits stay explicit: RadBuild reports missing dependencies with the package or packagegroup that can satisfy them instead of silently mutating the project.</p>
-<p>The VSCode extension exposes the same state through <code>RadBuild: Configure RADix OS</code>. It reads <code>menuconfig --json --list</code>, edits <code>rkconfig</code>, source checkout, image, SDK, packagegroup, and package fields, then writes changes back through non-interactive <code>radbuild menuconfig</code> flags. This keeps VSCode and terminal configuration behavior identical.</p>
+<p>Packagegroup edits select coherent RADPx OS feature sets from the configured <code>.radpm</code> repository. Individual package edits stay explicit: RadBuild reports missing dependencies with the package or packagegroup that can satisfy them instead of silently mutating the project.</p>
+<p>The VSCode extension exposes the same state through <code>RadBuild: Configure RADPx OS</code>. It reads <code>menuconfig --json --list</code>, edits <code>rkconfig</code>, source checkout, image, SDK, packagegroup, and package fields, then writes changes back through non-interactive <code>radbuild menuconfig</code> flags. This keeps VSCode and terminal configuration behavior identical.</p>
 <h2>PetaLinux Profile</h2>
 <p>Use <code>fpga-mpsoc-petalinux</code> when a Vivado hardware handoff should feed a PetaLinux project. RadBuild generates and validates the graph, carries the XSA directory and firmware/module lists, and can drive PetaLinux commands when the Xilinx tools are installed on the host.</p>
 <pre><code>radbuild project create ./workspace --non-interactive --template fpga-mpsoc-petalinux --project-name zynq-demo

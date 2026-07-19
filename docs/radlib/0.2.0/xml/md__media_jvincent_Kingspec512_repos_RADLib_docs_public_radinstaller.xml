@@ -7,7 +7,7 @@
     </briefdescription>
     <detaileddescription>
 <para><ref refid="namespaceRADInstaller" kindref="compound">RADInstaller</ref> is the manifest-driven install engine used by RADLib package and application installers. It copies selected components from a package root into an install root, verifies optional payload checksums, rolls back partial installs on failure, creates desktop entries, and writes an uninstall manifest.</para>
-<sect1 id="md__media_jvincent_Kingspec512_repos_RADLib_docs_public_radinstaller_1autotoc_md21">
+<sect1 id="md__media_jvincent_Kingspec512_repos_RADLib_docs_public_radinstaller_1autotoc_md24">
 <title>Manifest Shape</title>
 <para>Installer manifests are JSON files with product metadata, component file lists, and optional desktop entries.</para>
 <para><programlisting filename=".json"><codeline><highlight class="normal">{</highlight></codeline>
@@ -39,7 +39,7 @@
 <codeline><highlight class="normal">}</highlight></codeline>
 </programlisting></para>
 </sect1>
-<sect1 id="md__media_jvincent_Kingspec512_repos_RADLib_docs_public_radinstaller_1autotoc_md22">
+<sect1 id="md__media_jvincent_Kingspec512_repos_RADLib_docs_public_radinstaller_1autotoc_md25">
 <title>API Flow</title>
 <para>Use <computeroutput><ref refid="classRADInstaller_1_1Installer_1ad3e1c0ce80253b938bfcdb82e102a3dd" kindref="member">RADInstaller::Installer::loadManifest()</ref></computeroutput> to parse JSON, then call <computeroutput>install()</computeroutput> with a source package root and target install root. Pass explicit component ids to install a custom selection, or pass an empty list to install components where <computeroutput>defaultSelected</computeroutput> is true. The generated uninstall manifest is written to <computeroutput>.radinstall/uninstall.json</computeroutput> under the target root.</para>
 <para>The <computeroutput>RADInstallerUiExample</computeroutput> Slint app demonstrates the same engine from a GUI. RADLib SDK archives include a <computeroutput>radinstall.json</computeroutput> manifest, so the UI example can install an unpacked RADLib SDK without requiring RADLib implementation sources. </para>

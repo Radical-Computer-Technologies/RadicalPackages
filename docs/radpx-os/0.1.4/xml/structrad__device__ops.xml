@@ -1,0 +1,77 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="structrad__device__ops" kind="struct" language="C++" prot="public">
+    <compoundname>rad_device_ops</compoundname>
+    <includes refid="radkernel_8h" local="no">radkernel.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structrad__device__ops_1a20ab5f53bafef906c12521b450bbb859" prot="public" static="no" mutable="no">
+        <type>void *</type>
+        <definition>void* rad_device_ops::context</definition>
+        <argsstring></argsstring>
+        <name>context</name>
+        <briefdescription>
+<para>Public structure field. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADPx-OS/RADKernel/headers/radkernel/radkernel.h" line="890" column="10" bodyfile="/media/jvincent/Kingspec512/repos/RADPx-OS/RADKernel/headers/radkernel/radkernel.h" bodystart="890" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structrad__device__ops_1ab07d11b0b7518224275645d1820e781c" prot="public" static="no" mutable="no">
+        <type><ref refid="radkernel_8h_1aeb7c981d4b5f029daa65d3b928bab127" kindref="member">rad_status_t</ref>(*</type>
+        <definition>rad_status_t(* rad_device_ops::read) (void *context, void *buffer, size_t size, size_t *bytes_read)</definition>
+        <argsstring>)(void *context, void *buffer, size_t size, size_t *bytes_read)</argsstring>
+        <name>read</name>
+        <briefdescription>
+<para>Public callback slot. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADPx-OS/RADKernel/headers/radkernel/radkernel.h" line="891" column="5" bodyfile="/media/jvincent/Kingspec512/repos/RADPx-OS/RADKernel/headers/radkernel/radkernel.h" bodystart="891" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structrad__device__ops_1a17a502c9b57a12f2e10d8dc171230e2b" prot="public" static="no" mutable="no">
+        <type><ref refid="radkernel_8h_1aeb7c981d4b5f029daa65d3b928bab127" kindref="member">rad_status_t</ref>(*</type>
+        <definition>rad_status_t(* rad_device_ops::write) (void *context, const void *buffer, size_t size, size_t *bytes_written)</definition>
+        <argsstring>)(void *context, const void *buffer, size_t size, size_t *bytes_written)</argsstring>
+        <name>write</name>
+        <briefdescription>
+<para>Public callback slot. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADPx-OS/RADKernel/headers/radkernel/radkernel.h" line="892" column="5" bodyfile="/media/jvincent/Kingspec512/repos/RADPx-OS/RADKernel/headers/radkernel/radkernel.h" bodystart="892" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structrad__device__ops_1acd3b60c003cc2bad830ca1891aea9d13" prot="public" static="no" mutable="no">
+        <type><ref refid="radkernel_8h_1aeb7c981d4b5f029daa65d3b928bab127" kindref="member">rad_status_t</ref>(*</type>
+        <definition>rad_status_t(* rad_device_ops::ioctl) (void *context, uint32_t request, void *argument)</definition>
+        <argsstring>)(void *context, uint32_t request, void *argument)</argsstring>
+        <name>ioctl</name>
+        <briefdescription>
+<para>Public callback slot. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADPx-OS/RADKernel/headers/radkernel/radkernel.h" line="893" column="5" bodyfile="/media/jvincent/Kingspec512/repos/RADPx-OS/RADKernel/headers/radkernel/radkernel.h" bodystart="893" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Public data structure for <ref refid="structrad__device__ops" kindref="compound">rad_device_ops</ref>. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/media/jvincent/Kingspec512/repos/RADPx-OS/RADKernel/headers/radkernel/radkernel.h" line="889" column="1" bodyfile="/media/jvincent/Kingspec512/repos/RADPx-OS/RADKernel/headers/radkernel/radkernel.h" bodystart="889" bodyend="894"/>
+    <listofallmembers>
+      <member refid="structrad__device__ops_1a20ab5f53bafef906c12521b450bbb859" prot="public" virt="non-virtual"><scope>rad_device_ops</scope><name>context</name></member>
+      <member refid="structrad__device__ops_1acd3b60c003cc2bad830ca1891aea9d13" prot="public" virt="non-virtual"><scope>rad_device_ops</scope><name>ioctl</name></member>
+      <member refid="structrad__device__ops_1ab07d11b0b7518224275645d1820e781c" prot="public" virt="non-virtual"><scope>rad_device_ops</scope><name>read</name></member>
+      <member refid="structrad__device__ops_1a17a502c9b57a12f2e10d8dc171230e2b" prot="public" virt="non-virtual"><scope>rad_device_ops</scope><name>write</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -7,12 +7,15 @@
   <link rel="stylesheet" href="../../assets/radhdl-docgen.css">
 </head>
 <body>
+<div class="sitebar"><div class="wrap">
+  <a class="brand-mark" href="../../index.html"><img class="brand-logo" src="../../assets/rad-logo.png" alt="" onerror="this.style.display='none'"><span>Radical Computer Technologies</span></a>
+</div></div>
 
 <header><div class="wrap">
   <nav class="breadcrumb"><a href="../../index.html">RadHDL</a> / <a href="../../libraries/radhdl.html">radhdl</a></nav>
   <div class="kicker">DSP / entity</div>
   <h1>raddsp_axis_radfft_radix2_tdp</h1>
-  <div class="meta">Documentation version: 0.2.0 / Package: Transform / Source package: raddsp</div>
+  <div class="meta">Documentation version: 0.2.0 / Subpackage: dsp_transform / Source package: raddsp</div>
   <div class="summary"><p>Radix-2 true-dual-port-memory AXI-stream RadFFT engine.
 Uses dual-port scratch memories to schedule butterfly passes with predictable memory access patterns.</p></div>
   <div class="quick-links"><a class="pill" href="#register-interfaces">Register interfaces</a></div>
@@ -55,6 +58,8 @@ Uses dual-port scratch memories to schedule butterfly passes with predictable me
 <text x="464" y="162" text-anchor="end">twiddle_addr_o</text>
 <line class="pin" x1="492" y1="186" x2="528" y2="186"/>
 <text x="464" y="190" text-anchor="end">busy_o</text>
+<line class="pin" x1="492" y1="214" x2="528" y2="214"/>
+<text x="464" y="218" text-anchor="end">frame_done_o</text>
 </svg></div>
   <details class="doc-section"><summary>VHDL Include And Instantiation Template</summary><div class="doc-section-body"><h3>File Header</h3><pre><code>library ieee;
 use ieee.std_logic_1164.all;
@@ -77,7 +82,8 @@ use radhdl.dsp.all;
     G_MEMORY_STYLE : string := &quot;block&quot;;
     G_TWIDDLE_MEMORY_STYLE : string := &quot;block&quot;;
     G_TWIDDLE_INIT_FILE : string := &quot;none&quot;;
-    G_EXTERNAL_TWIDDLES : boolean := false
+    G_EXTERNAL_TWIDDLES : boolean := false;
+    G_MEMORY_WORD_SAMPLES : positive := 4
   );
   port (
     m_axis_tvalid : out std_logic;
@@ -98,7 +104,8 @@ use radhdl.dsp.all;
     twiddle_addr_o : out std_logic_vector(31 downto 0);
     twiddle_re_i : in std_logic_vector(G_TWIDDLE_WIDTH - 1 downto 0);
     twiddle_im_i : in std_logic_vector(G_TWIDDLE_WIDTH - 1 downto 0);
-    busy_o : out std_logic
+    busy_o : out std_logic;
+    frame_done_o : out std_logic
   );
 end component;</code></pre><h3>Direct Entity Instantiation</h3><pre><code>u_raddsp_axis_radfft_radix2_tdp : entity radhdl.raddsp_axis_radfft_radix2_tdp
   generic map (
@@ -114,7 +121,8 @@ end component;</code></pre><h3>Direct Entity Instantiation</h3><pre><code>u_radd
     G_MEMORY_STYLE         =&gt; &quot;block&quot;,
     G_TWIDDLE_MEMORY_STYLE =&gt; &quot;block&quot;,
     G_TWIDDLE_INIT_FILE    =&gt; &quot;none&quot;,
-    G_EXTERNAL_TWIDDLES    =&gt; false
+    G_EXTERNAL_TWIDDLES    =&gt; false,
+    G_MEMORY_WORD_SAMPLES  =&gt; 4
   )
   port map (
     m_axis_tvalid         =&gt; &lt;m_axis_tvalid_signal&gt;,
@@ -135,24 +143,19 @@ end component;</code></pre><h3>Direct Entity Instantiation</h3><pre><code>u_radd
     twiddle_addr_o        =&gt; &lt;twiddle_addr_o_signal&gt;,
     twiddle_re_i          =&gt; &lt;twiddle_re_i_signal&gt;,
     twiddle_im_i          =&gt; &lt;twiddle_im_i_signal&gt;,
-    busy_o                =&gt; &lt;busy_o_signal&gt;
+    busy_o                =&gt; &lt;busy_o_signal&gt;,
+    frame_done_o          =&gt; &lt;frame_done_o_signal&gt;
   );</code></pre></div></details>
-  <h2>Generics</h2><table><thead><tr><th>Name</th><th>Type</th><th>Default</th><th>Description</th></tr></thead><tbody><tr><td>VENDOR</td><td>string</td><td>&quot;xilinx&quot;</td><td>Selects the vendor-specific implementation path, usually XILINX for DSP48/XPM-backed builds or generic for portable RTL.</td></tr><tr><td>DEVICE_FAMILY</td><td>string</td><td>&quot;ultrascaleplus&quot;</td><td>Identifies the target FPGA family so wrappers can choose the correct primitive or conservative portable behavior.</td></tr><tr><td>G_POINTS</td><td>positive</td><td>1024</td><td>Sets the transform, frame, or vector size used by the datapath.</td></tr><tr><td>G_MAX_POINTS</td><td>positive</td><td>1024</td><td>Sets the transform, frame, or vector size used by the datapath.</td></tr><tr><td>G_INVERSE_FFT</td><td>boolean</td><td>false</td><td>Sets the transform, frame, or vector size used by the datapath.</td></tr><tr><td>G_INPUT_WIDTH</td><td>positive</td><td>16</td><td>Sets the bit width for G INPUT WIDTH values carried by this module.</td></tr><tr><td>G_TWIDDLE_WIDTH</td><td>positive</td><td>16</td><td>Sets the bit width for G TWIDDLE WIDTH values carried by this module.</td></tr><tr><td>G_OUTPUT_WIDTH</td><td>positive</td><td>24</td><td>Sets the bit width for G OUTPUT WIDTH values carried by this module.</td></tr><tr><td>G_SCALE_EACH_STAGE</td><td>boolean</td><td>true</td><td>Configures G SCALE EACH STAGE for this instance.</td></tr><tr><td>G_MEMORY_STYLE</td><td>string</td><td>&quot;block&quot;</td><td>Configures G MEMORY STYLE for this instance.</td></tr><tr><td>G_TWIDDLE_MEMORY_STYLE</td><td>string</td><td>&quot;block&quot;</td><td>Configures G TWIDDLE MEMORY STYLE for this instance.</td></tr><tr><td>G_TWIDDLE_INIT_FILE</td><td>string</td><td>&quot;none&quot;</td><td>Configures G TWIDDLE INIT FILE for this instance.</td></tr><tr><td>G_EXTERNAL_TWIDDLES</td><td>boolean</td><td>false</td><td>Configures G EXTERNAL TWIDDLES for this instance.</td></tr></tbody></table>
-  <h2>Ports</h2><table><thead><tr><th>Name</th><th>Direction</th><th>Type</th><th>Description</th></tr></thead><tbody><tr><td>m_axis_tvalid</td><td>out</td><td>std_logic</td><td>Output AXI-stream valid qualifier for the current result beat.</td></tr><tr><td>m_axis_tready</td><td>in</td><td>std_logic</td><td>Output AXI-stream ready input from the downstream block.</td></tr><tr><td>m_axis_tdata</td><td>out</td><td>std_logic_vector((2 * G_OUTPUT_WIDTH) - 1 downto 0)</td><td>Output AXI-stream payload containing packed processed result lanes.</td></tr><tr><td>m_axis_tlast</td><td>out</td><td>std_logic</td><td>Output AXI-stream frame marker aligned with the processed result beat.</td></tr><tr><td>s_axis_tvalid</td><td>in</td><td>std_logic</td><td>Input AXI-stream valid qualifier for the current sample beat.</td></tr><tr><td>s_axis_tready</td><td>out</td><td>std_logic</td><td>Input AXI-stream ready response indicating this block can accept a beat.</td></tr><tr><td>s_axis_tdata</td><td>in</td><td>std_logic_vector((2 * G_INPUT_WIDTH) - 1 downto 0)</td><td>Input AXI-stream payload containing packed sample or feature lanes.</td></tr><tr><td>s_axis_tlast</td><td>in</td><td>std_logic</td><td>Input AXI-stream frame marker for the final beat of a frame.</td></tr><tr><td>clk</td><td>in</td><td>std_logic</td><td>Clock for the associated synchronous logic and handshake domain.</td></tr><tr><td>rst</td><td>in</td><td>std_logic</td><td>Active-high synchronous reset for this clock domain.</td></tr><tr><td>runtime_inverse_i</td><td>in</td><td>std_logic := &#x27;0&#x27;</td><td>Input runtime inverse i signal for this module.</td></tr><tr><td>active_point_log2_i</td><td>in</td><td>std_logic_vector(7 downto 0) := (others =&gt; &#x27;0&#x27;)</td><td>Input active point log2 i signal for this module.</td></tr><tr><td>active_radix4_i</td><td>in</td><td>std_logic := &#x27;0&#x27;</td><td>Input active radix4 i signal for this module.</td></tr><tr><td>active_input_width_i</td><td>in</td><td>std_logic_vector(7 downto 0) := (others =&gt; &#x27;0&#x27;)</td><td>Input active input width i signal for this module.</td></tr><tr><td>active_output_width_i</td><td>in</td><td>std_logic_vector(7 downto 0) := (others =&gt; &#x27;0&#x27;)</td><td>Input active output width i signal for this module.</td></tr><tr><td>twiddle_addr_o</td><td>out</td><td>std_logic_vector(31 downto 0)</td><td>Output twiddle addr o signal generated by this module.</td></tr><tr><td>twiddle_re_i</td><td>in</td><td>std_logic_vector(G_TWIDDLE_WIDTH - 1 downto 0)</td><td>Input twiddle re i signal for this module.</td></tr><tr><td>twiddle_im_i</td><td>in</td><td>std_logic_vector(G_TWIDDLE_WIDTH - 1 downto 0)</td><td>Input twiddle im i signal for this module.</td></tr><tr><td>busy_o</td><td>out</td><td>std_logic</td><td>Output busy o signal generated by this module.</td></tr></tbody></table>
+  <h2>Generics</h2><table><thead><tr><th>Name</th><th>Type</th><th>Default</th><th>Description</th></tr></thead><tbody><tr><td>VENDOR</td><td>string</td><td>&quot;xilinx&quot;</td><td>Selects the vendor-specific implementation path, usually XILINX for DSP48/XPM-backed builds or generic for portable RTL.</td></tr><tr><td>DEVICE_FAMILY</td><td>string</td><td>&quot;ultrascaleplus&quot;</td><td>Identifies the target FPGA family so wrappers can choose the correct primitive or conservative portable behavior.</td></tr><tr><td>G_POINTS</td><td>positive</td><td>1024</td><td>Sets the transform, frame, or vector size used by the datapath.</td></tr><tr><td>G_MAX_POINTS</td><td>positive</td><td>1024</td><td>Sets the transform, frame, or vector size used by the datapath.</td></tr><tr><td>G_INVERSE_FFT</td><td>boolean</td><td>false</td><td>Sets the transform, frame, or vector size used by the datapath.</td></tr><tr><td>G_INPUT_WIDTH</td><td>positive</td><td>16</td><td>Sets the bit width for G INPUT WIDTH values carried by this module.</td></tr><tr><td>G_TWIDDLE_WIDTH</td><td>positive</td><td>16</td><td>Sets the bit width for G TWIDDLE WIDTH values carried by this module.</td></tr><tr><td>G_OUTPUT_WIDTH</td><td>positive</td><td>24</td><td>Sets the bit width for G OUTPUT WIDTH values carried by this module.</td></tr><tr><td>G_SCALE_EACH_STAGE</td><td>boolean</td><td>true</td><td>Configures G SCALE EACH STAGE for this instance.</td></tr><tr><td>G_MEMORY_STYLE</td><td>string</td><td>&quot;block&quot;</td><td>Configures G MEMORY STYLE for this instance.</td></tr><tr><td>G_TWIDDLE_MEMORY_STYLE</td><td>string</td><td>&quot;block&quot;</td><td>Configures G TWIDDLE MEMORY STYLE for this instance.</td></tr><tr><td>G_TWIDDLE_INIT_FILE</td><td>string</td><td>&quot;none&quot;</td><td>Configures G TWIDDLE INIT FILE for this instance.</td></tr><tr><td>G_EXTERNAL_TWIDDLES</td><td>boolean</td><td>false</td><td>Configures G EXTERNAL TWIDDLES for this instance.</td></tr><tr><td>G_MEMORY_WORD_SAMPLES</td><td>positive</td><td>4</td><td>Sets the width or count of samples handled by the datapath.</td></tr></tbody></table>
+  <h2>Ports</h2><table><thead><tr><th>Name</th><th>Direction</th><th>Type</th><th>Description</th></tr></thead><tbody><tr><td>m_axis_tvalid</td><td>out</td><td>std_logic</td><td>Output AXI-stream valid qualifier for the current result beat.</td></tr><tr><td>m_axis_tready</td><td>in</td><td>std_logic</td><td>Output AXI-stream ready input from the downstream block.</td></tr><tr><td>m_axis_tdata</td><td>out</td><td>std_logic_vector((2 * G_OUTPUT_WIDTH) - 1 downto 0)</td><td>Output AXI-stream payload containing packed processed result lanes.</td></tr><tr><td>m_axis_tlast</td><td>out</td><td>std_logic</td><td>Output AXI-stream frame marker aligned with the processed result beat.</td></tr><tr><td>s_axis_tvalid</td><td>in</td><td>std_logic</td><td>Input AXI-stream valid qualifier for the current sample beat.</td></tr><tr><td>s_axis_tready</td><td>out</td><td>std_logic</td><td>Input AXI-stream ready response indicating this block can accept a beat.</td></tr><tr><td>s_axis_tdata</td><td>in</td><td>std_logic_vector((2 * G_INPUT_WIDTH) - 1 downto 0)</td><td>Input AXI-stream payload containing packed sample or feature lanes.</td></tr><tr><td>s_axis_tlast</td><td>in</td><td>std_logic</td><td>Input AXI-stream frame marker for the final beat of a frame.</td></tr><tr><td>clk</td><td>in</td><td>std_logic</td><td>Clock for the associated synchronous logic and handshake domain.</td></tr><tr><td>rst</td><td>in</td><td>std_logic</td><td>Active-high synchronous reset for this clock domain.</td></tr><tr><td>runtime_inverse_i</td><td>in</td><td>std_logic := &#x27;0&#x27;</td><td>Input runtime inverse i signal for this module.</td></tr><tr><td>active_point_log2_i</td><td>in</td><td>std_logic_vector(7 downto 0) := (others =&gt; &#x27;0&#x27;)</td><td>Input active point log2 i signal for this module.</td></tr><tr><td>active_radix4_i</td><td>in</td><td>std_logic := &#x27;0&#x27;</td><td>Input active radix4 i signal for this module.</td></tr><tr><td>active_input_width_i</td><td>in</td><td>std_logic_vector(7 downto 0) := (others =&gt; &#x27;0&#x27;)</td><td>Input active input width i signal for this module.</td></tr><tr><td>active_output_width_i</td><td>in</td><td>std_logic_vector(7 downto 0) := (others =&gt; &#x27;0&#x27;)</td><td>Input active output width i signal for this module.</td></tr><tr><td>twiddle_addr_o</td><td>out</td><td>std_logic_vector(31 downto 0)</td><td>Output twiddle addr o signal generated by this module.</td></tr><tr><td>twiddle_re_i</td><td>in</td><td>std_logic_vector(G_TWIDDLE_WIDTH - 1 downto 0)</td><td>Input twiddle re i signal for this module.</td></tr><tr><td>twiddle_im_i</td><td>in</td><td>std_logic_vector(G_TWIDDLE_WIDTH - 1 downto 0)</td><td>Input twiddle im i signal for this module.</td></tr><tr><td>busy_o</td><td>out</td><td>std_logic</td><td>Output busy o signal generated by this module.</td></tr><tr><td>frame_done_o</td><td>out</td><td>std_logic</td><td>Output frame done o signal generated by this module.</td></tr></tbody></table>
+
   <h2 id="register-interfaces">Register Interfaces</h2><p>No fixed register map was found; this section documents the exposed register/control interface ports.</p><table><thead><tr><th>Interface</th><th>Directions</th><th>Signals</th><th>Representative ports</th></tr></thead><tbody><tr><td>M_AXIS</td><td>in, out</td><td>4</td><td>m_axis_tvalid, m_axis_tready, m_axis_tdata, m_axis_tlast</td></tr><tr><td>S_AXIS</td><td>in, out</td><td>4</td><td>s_axis_tvalid, s_axis_tready, s_axis_tdata, s_axis_tlast</td></tr></tbody></table>
-  
+
   <h2 id="testbenches">Testbenches</h2><p class="summary">No directly associated testbench was found.</p>
   <h2>Sources</h2>
   <ul><li>dsp/hdl/raddsp/src/raddsp_axis_radfft_radix2_tdp.vhd</li></ul>
 </main>
 <footer><div class="wrap">RadHDL documentation version 0.2.0 / Generated by radhdl-docgen 0.1.0</div></footer>
 
-<script>
-document.addEventListener('input', function (event) {
-  if (!event.target.classList || !event.target.classList.contains('wave-zoom')) return;
-  var wave = event.target.closest('.wave');
-  if (wave) wave.style.setProperty('--wave-zoom', String(Number(event.target.value) / 100));
-});
-</script>
 </body>
 </html>

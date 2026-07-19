@@ -1,0 +1,92 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="architecture" kind="page">
+    <compoundname>architecture</compoundname>
+    <title>Architecture &amp; Layout</title>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para><anchor id="architecture_1md__media_jvincent_Kingspec512_repos_RADPx_OS_docs_public_architecture"/> RADPx-OS keeps one portable kernel core (RADKernel) shared across every target and pushes hardware-specific code to the edges. This page maps the source tree so you know where a given concern lives before you change it.</para>
+<sect1 id="architecture_1autotoc_md16">
+<title>Design shape</title>
+<para><itemizedlist>
+<listitem><para><bold>One core, many backends.</bold> The portable kernel logic is arch-neutral. Each target supplies a thin platform/board layer and a HAL; the core does not change per target.</para>
+</listitem><listitem><para><bold>Stable C ABI.</bold> Everything the kernel exposes goes through <computeroutput><ref refid="radkernel_8h" kindref="compound">radkernel.h</ref></computeroutput> (see <ref refid="api_structure" kindref="compound">API Structure</ref>). Subsystem headers under <computeroutput>RADKernel/headers/radkernel/</computeroutput> (<computeroutput><ref refid="rad__vfs_8h_source" kindref="compound">rad_vfs.h</ref></computeroutput>, <computeroutput><ref refid="rad__net_8h_source" kindref="compound">rad_net.h</ref></computeroutput>, <computeroutput><ref refid="rad__spi_8h_source" kindref="compound">rad_spi.h</ref></computeroutput>, …) each include that ABI so a driver or app pulls in only what it uses.</para>
+</listitem><listitem><para><bold>Shared services, not copies.</bold> Filesystems, drivers, and the freestanding runtime are written once under shared trees and linked by every target that needs them, rather than being duplicated per platform.</para>
+</listitem></itemizedlist>
+</para>
+</sect1>
+<sect1 id="architecture_1autotoc_md17">
+<title>The &lt;tt&gt;RADKernel/&lt;/tt&gt; tree</title>
+<para><table rows="12" cols="2"><row>
+<entry thead="yes"><para>Directory   </para>
+</entry><entry thead="yes"><para>Role    </para>
+</entry></row>
+<row>
+<entry thead="no"><para><computeroutput>core/</computeroutput>   </para>
+</entry><entry thead="no"><para>The portable kernel core. <computeroutput>RADKernel.cpp</computeroutput> is the host-simulator backend; <computeroutput>RADKernel_runtime.cpp</computeroutput> is the embedded/freestanding backend. Selected by <computeroutput>RAD_KERNEL_BACKEND</computeroutput>.    </para>
+</entry></row>
+<row>
+<entry thead="no"><para><computeroutput>headers/radkernel/</computeroutput>   </para>
+</entry><entry thead="no"><para>The public C ABI: <computeroutput><ref refid="radkernel_8h" kindref="compound">radkernel.h</ref></computeroutput> plus the per-subsystem headers (<computeroutput><ref refid="rad__vfs_8h_source" kindref="compound">rad_vfs.h</ref></computeroutput>, <computeroutput><ref refid="rad__task_8h_source" kindref="compound">rad_task.h</ref></computeroutput>, <computeroutput><ref refid="rad__net_8h_source" kindref="compound">rad_net.h</ref></computeroutput>, <computeroutput><ref refid="rad__tty_8h_source" kindref="compound">rad_tty.h</ref></computeroutput>, <computeroutput><ref refid="rad__spi_8h_source" kindref="compound">rad_spi.h</ref></computeroutput>, <computeroutput><ref refid="rad__irq_8h_source" kindref="compound">rad_irq.h</ref></computeroutput>, …).    </para>
+</entry></row>
+<row>
+<entry thead="no"><para><computeroutput>boot/</computeroutput>   </para>
+</entry><entry thead="no"><para><computeroutput>radboot</computeroutput> — the <computeroutput>rad_boot_info_t</computeroutput> hand-off that platform code fills before <computeroutput><ref refid="radkernel_8h_1a0464ae9d92f6b0c74daf6f4e7400f57c" kindref="member">rad_kernel_init()</ref></computeroutput>.    </para>
+</entry></row>
+<row>
+<entry thead="no"><para><computeroutput>fs/</computeroutput>   </para>
+</entry><entry thead="no"><para>Portable, block-device filesystems shared by all targets: <computeroutput>ext4</computeroutput>, <computeroutput>ext2</computeroutput>, <computeroutput>fat</computeroutput>.    </para>
+</entry></row>
+<row>
+<entry thead="no"><para><computeroutput>drivers/</computeroutput>   </para>
+</entry><entry thead="no"><para>Portable device drivers. <computeroutput>drivers/net/gem_cadence.cpp</computeroutput> is the Cadence GEM NIC used on ZynqMP.    </para>
+</entry></row>
+<row>
+<entry thead="no"><para><computeroutput>platforms/</computeroutput>   </para>
+</entry><entry thead="no"><para>Arch- and SoC-specific code. <computeroutput>x86_64/</computeroutput> (CPU, VM, user, storage, boot). <computeroutput>a53/</computeroutput> for Cortex-A53, with the <computeroutput>zynqmp/</computeroutput> (ZuBoard/ZynqMP) and <computeroutput>bcm283x/</computeroutput> (Pi) SoC HALs beneath it.    </para>
+</entry></row>
+<row>
+<entry thead="no"><para><computeroutput>boards/</computeroutput>   </para>
+</entry><entry thead="no"><para>Per-board kernel entry sources. <computeroutput>boards/zuboard_1cg/</computeroutput> holds that board&apos;s <computeroutput>kernel.cpp</computeroutput>, <computeroutput>boot.S</computeroutput>, and <computeroutput>linker.ld</computeroutput>.    </para>
+</entry></row>
+<row>
+<entry thead="no"><para><computeroutput>runtime/</computeroutput>   </para>
+</entry><entry thead="no"><para>The freestanding kernel runtime (<computeroutput>freestanding_runtime.cpp</computeroutput>) — heap, <computeroutput>malloc</computeroutput>/<computeroutput>free</computeroutput>, formatting, mem/string — for targets built <computeroutput>-nostdlib</computeroutput>.    </para>
+</entry></row>
+<row>
+<entry thead="no"><para><computeroutput>hal/</computeroutput>   </para>
+</entry><entry thead="no"><para>Toolchain/SDK glue kept out of the core: <computeroutput>hal/circle/</computeroutput> (Circle SDK + newlib runtime glue) and <computeroutput>hal/rp235x_pico/</computeroutput>.    </para>
+</entry></row>
+<row>
+<entry thead="no"><para><computeroutput>subsystems/</computeroutput>   </para>
+</entry><entry thead="no"><para>Cross-cutting runtime subsystems. <computeroutput>RADOverlayRuntime.cpp</computeroutput> binds the device-tree/overlay description to buses, devices, framebuffers, and interrupt domains.    </para>
+</entry></row>
+<row>
+<entry thead="no"><para><computeroutput>modules/</computeroutput>   </para>
+</entry><entry thead="no"><para>Reserved for loadable-module content.   </para>
+</entry></row>
+</table>
+</para>
+</sect1>
+<sect1 id="architecture_1autotoc_md18">
+<title>Everything else</title>
+<para><itemizedlist>
+<listitem><para><computeroutput>tools/embedded/</computeroutput> — the buildable target glue and smoke scripts (Makefiles, CMake, QEMU runners). The x86_64 GRUB terminal/WM profiles and the <computeroutput>rad_zuboard_1cg/</computeroutput> ZuBoard target live here; the board <emphasis>source</emphasis> is under <computeroutput>RADKernel/boards/</computeroutput>, while the <emphasis>build glue</emphasis> stays here.</para>
+</listitem><listitem><para><computeroutput>userland/</computeroutput> — RADPx-OS userspace program source (init, the <computeroutput>rash</computeroutput> shell, login, coreutils shims).</para>
+</listitem><listitem><para><computeroutput>libs/</computeroutput> — userspace libraries: <computeroutput>libradc</computeroutput> (the RADPx-OS C library) and the ncurses port.</para>
+</listitem><listitem><para><computeroutput>services/</computeroutput> — the daemon/service set (<computeroutput>RADServiceManager</computeroutput>/radinit and friends).</para>
+</listitem><listitem><para><computeroutput>tests/</computeroutput> — host-side kernel unit tests (<computeroutput>RADKernelTests</computeroutput>).</para>
+</listitem><listitem><para><computeroutput>docs/</computeroutput> — this documentation set (<computeroutput>docs/public/</computeroutput>) and the Doxygen config.</para>
+</listitem></itemizedlist>
+</para>
+</sect1>
+<sect1 id="architecture_1autotoc_md19">
+<title>How a target is assembled</title>
+<para>A target build links the <bold>core</bold> (<computeroutput>RADKernel_runtime.cpp</computeroutput>) + the <bold>shared services</bold> it needs (<computeroutput>fs/</computeroutput>, <computeroutput>drivers/</computeroutput>, <computeroutput>runtime/</computeroutput> or a HAL) + its <bold>platform</bold> (<computeroutput>platforms/&lt;arch&gt;/</computeroutput>) + its <bold>board entry</bold> (<computeroutput>boards/&lt;board&gt;/</computeroutput>). For example, the ZuBoard-1CG image links the A53 platform, the ZynqMP SoC HAL, the ext4 filesystem, the Cadence GEM driver, and the <computeroutput>zuboard_1cg</computeroutput> board entry. Because the core and shared services are identical across targets, parity work on one target (a filesystem fix, a syscall) benefits the others without a port.</para>
+<para>See <ref refid="getting_started" kindref="compound">Getting Started</ref> to build and boot a target, and the <ref refid="md__media_jvincent_Kingspec512_repos_RADPx_OS_docs_public_zuboard_1cg" kindref="compound">ZuBoard-1CG</ref> notes for the A53 bring-up specifics. </para>
+</sect1>
+    </detaileddescription>
+    <location file="/media/jvincent/Kingspec512/repos/RADPx-OS/docs/public/architecture.md"/>
+  </compounddef>
+</doxygen>

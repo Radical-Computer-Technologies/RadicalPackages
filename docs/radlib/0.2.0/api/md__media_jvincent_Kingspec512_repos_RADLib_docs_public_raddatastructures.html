@@ -88,10 +88,42 @@ $(document).ready(function(){initNavTree('md__media_jvincent_Kingspec512_repos_R
 <div class="title">RADDataStructures </div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><p>RADDataStructures provides RAD-owned C++20 containers for applications that need predictable allocation behavior, compact storage, and cache-conscious data layout.</p>
-<p>The v1 module includes contiguous vectors, small vectors with inline storage, ring buffers, queue/stack adapters, a single-producer/single-consumer queue, flat hash map/set containers, and a stable-node list.</p>
-<p>RADLib public APIs remain STL-compatible in the beta SDK, so these containers are optional for application code. Use them where their allocation and layout properties are a better fit than the standard library containers. </p>
-</div></div><!-- contents -->
+<div class="textblock"><p>RADDataStructures provides RAD-owned C++20 containers for applications that need predictable allocation behavior, compact storage, and cache-conscious data layout. Everything lives in the <code><a class="el" href="namespaceRADData.html">RADData</a></code> namespace and is header-only.</p>
+<p><code>RADVector</code> is the contiguous growable array used on RADLib hot paths, and <code>RADSmallVector&lt;T, InlineN&gt;</code> keeps its first <code>InlineN</code> elements inline before falling back to the heap. <code>RADRingBuffer</code> is a power-of-two circular buffer with push/pop at both ends, and it backs the <code>RADQueue</code> FIFO adapter; <code>RADStack</code> is a LIFO adapter over <code>RADVector</code>. <code>RADSpscQueue</code> is a lock-free, bounded single-producer/single-consumer queue with <code>try_push()</code>/<code>try_pop()</code> for thread-to-thread handoff without mutexes.</p>
+<p>For associative storage, <code>RADFlatHashMap</code> is an open-addressed, cache-local hash map with tombstone-aware probing, and <code>RADFlatHashSet</code> is built on top of it. <code>RADList</code> is a stable-node doubly linked list for cases where element addresses must not move. <code>RADByteArray</code> and the non-owning <code>RADArrayView</code> (aliased as <code>RADByteArrayView</code>/<code>RADConstByteArrayView</code>) cover raw byte storage and views.</p>
+<p>Allocation strategy is pluggable. <code>RADMonotonicArena</code> is a bump allocator for short-lived allocations that <code>reset()</code>s in one step; <code>RADFixedPool</code> hands out same-size blocks; and the standard-compatible <code>RADMonotonicAllocator</code> and <code>RADAlignedAllocator</code> let the containers above draw from an arena or an aligned heap.</p>
+<h1><a class="anchor" id="autotoc_md9"></a>
+Core features</h1>
+<ul>
+<li><code>RADVector</code> and inline-storage <code>RADSmallVector&lt;T, InlineN&gt;</code> contiguous arrays.</li>
+<li><code>RADRingBuffer</code> double-ended ring with <code>RADQueue</code>/<code>RADStack</code> adapters.</li>
+<li>Lock-free bounded <code>RADSpscQueue</code> for one-producer/one-consumer handoff.</li>
+<li><code>RADFlatHashMap</code>/<code>RADFlatHashSet</code> open-addressed associative containers.</li>
+<li>Stable-node <code>RADList</code>, plus <code>RADByteArray</code>/<code>RADArrayView</code> byte storage.</li>
+<li><code>RADMonotonicArena</code>, <code>RADFixedPool</code>, and STL-compatible allocators.</li>
+</ul>
+<p>RADLib public APIs remain STL-compatible in the beta SDK, so these containers are optional for application code. Use them where their allocation and layout properties are a better fit than the standard library containers.</p>
+<p>Example:</p>
+<div class="fragment"><div class="line"><a class="code" href="classRADData_1_1RADMonotonicArena.html">RADData::RADMonotonicArena</a> arena(64 * 1024);</div>
+<div class="line"><a class="code" href="classRADData_1_1RADVector.html">RADData::RADVector&lt;int, RADData::RADMonotonicAllocator&lt;int&gt;</a>&gt; ids{</div>
+<div class="line">    <a class="code" href="classRADData_1_1RADMonotonicAllocator.html">RADData::RADMonotonicAllocator&lt;int&gt;</a>(&amp;arena)};</div>
+<div class="line">ids.reserve(256);</div>
+<div class="line">ids.push_back(42);</div>
+<div class="line"> </div>
+<div class="line"><a class="code" href="classRADData_1_1RADFlatHashMap.html">RADData::RADFlatHashMap&lt;std::string, int&gt;</a> counts;</div>
+<div class="line">counts[<span class="stringliteral">&quot;frames&quot;</span>] += 1;</div>
+<div class="line"><span class="keywordflow">if</span> (<span class="keyword">const</span> <span class="keywordtype">int</span>* frames = counts.<a class="code" href="classRADData_1_1RADFlatHashMap.html#ac194236ba2dfc81bdbdf02949b16ce8d">find</a>(<span class="stringliteral">&quot;frames&quot;</span>)) {</div>
+<div class="line">    <a class="code" href="classRADData_1_1RADSpscQueue.html">RADData::RADSpscQueue&lt;int&gt;</a> pending(1024);</div>
+<div class="line">    pending.try_push(*frames);</div>
+<div class="line">}</div>
+<div class="line">arena.reset(); <span class="comment">// drops every arena-backed allocation at once</span></div>
+<div class="ttc" id="aclassRADData_1_1RADFlatHashMap_html"><div class="ttname"><a href="classRADData_1_1RADFlatHashMap.html">RADData::RADFlatHashMap</a></div><div class="ttdoc">Open-addressed flat hash map optimized for cache-local lookups.</div><div class="ttdef"><b>Definition:</b> RADDataStructures.h:1098</div></div>
+<div class="ttc" id="aclassRADData_1_1RADFlatHashMap_html_ac194236ba2dfc81bdbdf02949b16ce8d"><div class="ttname"><a href="classRADData_1_1RADFlatHashMap.html#ac194236ba2dfc81bdbdf02949b16ce8d">RADData::RADFlatHashMap::find</a></div><div class="ttdeci">V * find(const K &amp;key)</div><div class="ttdoc">Returns pointer to mapped value for key, or nullptr when absent.</div><div class="ttdef"><b>Definition:</b> RADDataStructures.h:1266</div></div>
+<div class="ttc" id="aclassRADData_1_1RADMonotonicAllocator_html"><div class="ttname"><a href="classRADData_1_1RADMonotonicAllocator.html">RADData::RADMonotonicAllocator</a></div><div class="ttdoc">Standard-compatible allocator backed by RADMonotonicArena.</div><div class="ttdef"><b>Definition:</b> RADDataStructures.h:193</div></div>
+<div class="ttc" id="aclassRADData_1_1RADMonotonicArena_html"><div class="ttname"><a href="classRADData_1_1RADMonotonicArena.html">RADData::RADMonotonicArena</a></div><div class="ttdoc">Simple monotonic arena for short-lived allocations.</div><div class="ttdef"><b>Definition:</b> RADDataStructures.h:124</div></div>
+<div class="ttc" id="aclassRADData_1_1RADSpscQueue_html"><div class="ttname"><a href="classRADData_1_1RADSpscQueue.html">RADData::RADSpscQueue</a></div><div class="ttdoc">Lock-free single-producer/single-consumer bounded queue.</div><div class="ttdef"><b>Definition:</b> RADDataStructures.h:1021</div></div>
+<div class="ttc" id="aclassRADData_1_1RADVector_html"><div class="ttname"><a href="classRADData_1_1RADVector.html">RADData::RADVector</a></div><div class="ttdoc">Contiguous dynamic array optimized for RADLib hot paths.</div><div class="ttdef"><b>Definition:</b> RADDataStructures.h:279</div></div>
+</div><!-- fragment --> </div></div><!-- contents -->
 </div><!-- PageDoc -->
 </div><!-- doc-content -->
 <!-- start footer part -->

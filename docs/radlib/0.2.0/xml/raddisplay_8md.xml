@@ -13,9 +13,54 @@
 <codeline><highlight class="normal">enumerates<sp/>DRM<sp/>connector<sp/>sysfs<sp/>entries,<sp/>framebuffer<sp/>nodes,<sp/>backlight<sp/>devices,</highlight></codeline>
 <codeline><highlight class="normal">Wayland/X11<sp/>environment<sp/>availability,<sp/>and<sp/>simple<sp/>orientation<sp/>names.</highlight></codeline>
 <codeline></codeline>
+<codeline><highlight class="normal">The<sp/>main<sp/>entry<sp/>point<sp/>is<sp/>`RADDisplay::DisplayManager`.<sp/>It<sp/>is<sp/>constructed<sp/>with<sp/>an</highlight></codeline>
+<codeline><highlight class="normal">optional<sp/>`DisplayPaths`,<sp/>so<sp/>real<sp/>hardware,<sp/>test<sp/>fixtures,<sp/>and<sp/>custom<sp/>embedded</highlight></codeline>
+<codeline><highlight class="normal">roots<sp/>all<sp/>share<sp/>one<sp/>code<sp/>path.<sp/>`DisplayManager::capabilities()`<sp/>returns<sp/>a</highlight></codeline>
+<codeline><highlight class="normal">`DisplayCapabilities`<sp/>struct<sp/>with<sp/>the<sp/>`drm`,<sp/>`framebuffer`,<sp/>`wayland`,<sp/>`x11`,</highlight></codeline>
+<codeline><highlight class="normal">and<sp/>`backlight`<sp/>flags<sp/>describing<sp/>what<sp/>the<sp/>backend<sp/>exposes.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">`DisplayManager::displays()`<sp/>lists<sp/>DRM<sp/>connectors<sp/>and<sp/>framebuffer<sp/>nodes<sp/>as</highlight></codeline>
+<codeline><highlight class="normal">`DisplayInfo`<sp/>records<sp/>(`name`,<sp/>`path`,<sp/>`status`,<sp/>`mode`),<sp/>for<sp/>example<sp/>a</highlight></codeline>
+<codeline><highlight class="normal">connector<sp/>named<sp/>`card0-HDMI-A-1`<sp/>or<sp/>a<sp/>framebuffer<sp/>named<sp/>`fb0`.</highlight></codeline>
+<codeline><highlight class="normal">`DisplayManager::backlights()`<sp/>returns<sp/>`BacklightInfo`<sp/>records<sp/>that<sp/>include<sp/>the</highlight></codeline>
+<codeline><highlight class="normal">current<sp/>and<sp/>maximum<sp/>brightness<sp/>values.</highlight></codeline>
+<codeline></codeline>
 <codeline><highlight class="normal">`DisplayManager::setBacklightBrightness()`<sp/>writes<sp/>only<sp/>the<sp/>selected<sp/>backlight</highlight></codeline>
-<codeline><highlight class="normal">sysfs<sp/>brightness<sp/>file.<sp/>Pass<sp/>`DisplayPaths`<sp/>for<sp/>test<sp/>fixtures<sp/>or<sp/>custom<sp/>embedded</highlight></codeline>
-<codeline><highlight class="normal">roots.</highlight></codeline>
+<codeline><highlight class="normal">sysfs<sp/>brightness<sp/>file<sp/>and<sp/>reports<sp/>failures<sp/>through<sp/>an<sp/>optional<sp/>`error`<sp/>string.</highlight></codeline>
+<codeline><highlight class="normal">Orientation<sp/>is<sp/>expressed<sp/>with<sp/>the<sp/>`Orientation`<sp/>enum<sp/>(`Landscape0`,</highlight></codeline>
+<codeline><highlight class="normal">`Portrait90`,<sp/>`Landscape180`,<sp/>`Portrait270`);<sp/>the<sp/>static</highlight></codeline>
+<codeline><highlight class="normal">`DisplayManager::orientationName()`<sp/>converts<sp/>a<sp/>value<sp/>into<sp/>a</highlight></codeline>
+<codeline><highlight class="normal">compositor/backend-friendly<sp/>string.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Core<sp/>features:</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">-<sp/>DRM<sp/>connector<sp/>and<sp/>framebuffer<sp/>enumeration<sp/>without<sp/>libdrm.</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>Backlight<sp/>discovery<sp/>and<sp/>guarded<sp/>brightness<sp/>writes.</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>Wayland/X11<sp/>environment<sp/>and<sp/>capability<sp/>detection.</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>Orientation<sp/>name<sp/>helpers<sp/>for<sp/>compositors<sp/>and<sp/>backends.</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>Injectable<sp/>`DisplayPaths`<sp/>for<sp/>tests<sp/>and<sp/>embedded<sp/>roots.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Example:</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">```cpp</highlight></codeline>
+<codeline><highlight class="normal">RADDisplay::DisplayManager<sp/>manager;</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">auto<sp/>caps<sp/>=<sp/>manager.capabilities();</highlight></codeline>
+<codeline><highlight class="normal">if<sp/>(caps.backlight)<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>for<sp/>(const<sp/>auto&amp;<sp/>backlight<sp/>:<sp/>manager.backlights())<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>//<sp/>Set<sp/>each<sp/>panel<sp/>to<sp/>half<sp/>of<sp/>its<sp/>reported<sp/>maximum<sp/>brightness.</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::string<sp/>error;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>if<sp/>(!manager.setBacklightBrightness(</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>backlight.name,<sp/>backlight.maxBrightness<sp/>/<sp/>2,<sp/>&amp;error))<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>RADLOG_WARNING(&quot;display&quot;)<sp/>&lt;&lt;<sp/>&quot;backlight<sp/>write<sp/>failed:<sp/>&quot;<sp/>&lt;&lt;<sp/>error;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline><highlight class="normal">}</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">for<sp/>(const<sp/>auto&amp;<sp/>display<sp/>:<sp/>manager.displays())<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>RADLOG_INFO(&quot;display&quot;)<sp/>&lt;&lt;<sp/>display.name<sp/>&lt;&lt;<sp/>&quot;<sp/>&quot;<sp/>&lt;&lt;<sp/>display.status;</highlight></codeline>
+<codeline><highlight class="normal">}</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
     </programlisting>
     <location file="/media/jvincent/Kingspec512/repos/RADLib/docs/public/raddisplay.md"/>
   </compounddef>

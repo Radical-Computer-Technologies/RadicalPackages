@@ -6,15 +6,31 @@
     <briefdescription>
     </briefdescription>
     <detaileddescription>
-<para><computeroutput><ref refid="namespaceRADLogging" kindref="compound">RADLogging</ref></computeroutput> is the beta logging layer for deployed RADLib applications.</para>
+<para><computeroutput><ref refid="namespaceRADLogging" kindref="compound">RADLogging</ref></computeroutput> is the beta logging layer for deployed RADLib applications. It provides an async, process-wide logger with severity levels, category filters, and pluggable sinks.</para>
+<para>The core is the singleton <computeroutput><ref refid="classRADLogging_1_1Logger" kindref="compound">RADLogging::Logger</ref></computeroutput>, obtained through <computeroutput>Logger::instance()</computeroutput>. Call <computeroutput>start()</computeroutput> to launch the background worker thread and <computeroutput>shutdown()</computeroutput> to drain and stop it; <computeroutput>flush()</computeroutput> forces queued messages out. <computeroutput>setLevel()</computeroutput> / <computeroutput>level()</computeroutput> control the minimum <computeroutput><ref refid="namespaceRADLogging_1a8317de65c6fc04ea0c80520b60f81949" kindref="member">RADLogging::Level</ref></computeroutput> (from <computeroutput>Trace</computeroutput> through <computeroutput>Critical</computeroutput>, plus <computeroutput>Off</computeroutput>), and <computeroutput>setCategoryEnabled()</computeroutput> toggles individual categories. <computeroutput>shouldLog()</computeroutput> reports whether a level/category pair would be accepted, and <computeroutput>log()</computeroutput> queues a message directly.</para>
+<para>Output destinations are <computeroutput><ref refid="classRADLogging_1_1Sink" kindref="compound">RADLogging::Sink</ref></computeroutput> implementations, added with <computeroutput>addSink()</computeroutput> and removed with <computeroutput>clearSinks()</computeroutput>. The factory functions <computeroutput><ref refid="namespaceRADLogging_1a7b1efd6887917cbb12a0aeed746e69f8" kindref="member">consoleSink()</ref></computeroutput>, <computeroutput><ref refid="namespaceRADLogging_1acb1a1928470f11f9f17aa1c707f48b39" kindref="member">fileSink()</ref></computeroutput>, <computeroutput><ref refid="namespaceRADLogging_1a9e4f35016775cc63ee16d7321744d4ae" kindref="member">rotatingFileSink()</ref></computeroutput> (with <computeroutput>maxBytes</computeroutput> and <computeroutput>maxFiles</computeroutput>), and <computeroutput><ref refid="namespaceRADLogging_1a98a7850711add8537adcfcfc7f66d4ac" kindref="member">syslogSink()</ref></computeroutput> cover the common cases. <computeroutput><ref refid="namespaceRADLogging_1a917bc044cf4ed6df70315ac34d06486b" kindref="member">levelName()</ref></computeroutput> formats a level as text.</para>
+<para>Most application code uses the streaming macros <computeroutput>RADLOG_TRACE</computeroutput>, <computeroutput>RADLOG_DEBUG</computeroutput>, <computeroutput>RADLOG_INFO</computeroutput>, <computeroutput>RADLOG_WARNING</computeroutput>, and <computeroutput>RADLOG_ERROR</computeroutput>. Each takes a category string and returns a <computeroutput><ref refid="classRADLogging_1_1LogStream" kindref="compound">RADLogging::LogStream</ref></computeroutput> that accumulates via <computeroutput>operator&lt;&lt;</computeroutput> and emits the completed line when it is destroyed.</para>
 <para>Core features:</para>
 <para><itemizedlist>
 <listitem><para>Async process-wide logger.</para>
 </listitem><listitem><para>Severity levels and category filters.</para>
 </listitem><listitem><para>Console, file, rotating file, and syslog sinks.</para>
-</listitem><listitem><para>Streaming macros such as <computeroutput>RADLOG_INFO(&quot;category&quot;) &lt;&lt; &quot;message&quot;</computeroutput>. </para>
+</listitem><listitem><para>Streaming macros such as <computeroutput>RADLOG_INFO(&quot;category&quot;) &lt;&lt; &quot;message&quot;</computeroutput>.</para>
 </listitem></itemizedlist>
 </para>
+<para>Example:</para>
+<para><programlisting filename=".cpp"><codeline><highlight class="keyword">auto</highlight><highlight class="normal">&amp;<sp/>logger<sp/>=<sp/><ref refid="classRADLogging_1_1Logger_1a00264b88e7c6ebf986859c6ef5ce02c5" kindref="member">RADLogging::Logger::instance</ref>();</highlight></codeline>
+<codeline><highlight class="normal">logger.addSink(<ref refid="namespaceRADLogging_1a7b1efd6887917cbb12a0aeed746e69f8" kindref="member">RADLogging::consoleSink</ref>());</highlight></codeline>
+<codeline><highlight class="normal">logger.addSink(<ref refid="namespaceRADLogging_1a9e4f35016775cc63ee16d7321744d4ae" kindref="member">RADLogging::rotatingFileSink</ref>(</highlight><highlight class="stringliteral">&quot;app.log&quot;</highlight><highlight class="normal">,<sp/>1024<sp/>*<sp/>1024,<sp/>3));</highlight></codeline>
+<codeline><highlight class="normal">logger.setLevel(<ref refid="namespaceRADLogging_1a8317de65c6fc04ea0c80520b60f81949a4059b0251f66a18cb56f544728796875" kindref="member">RADLogging::Level::Info</ref>);</highlight></codeline>
+<codeline><highlight class="normal">logger.setCategoryEnabled(</highlight><highlight class="stringliteral">&quot;net&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">);</highlight></codeline>
+<codeline><highlight class="normal">logger.start();</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><ref refid="RADLogging_8h_1aa88dbb52f2771f10bd298dc1ee6309ec" kindref="member">RADLOG_INFO</ref>(</highlight><highlight class="stringliteral">&quot;boot&quot;</highlight><highlight class="normal">)<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;RADLib<sp/>application<sp/>starting&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline><highlight class="normal"><ref refid="RADLogging_8h_1ad5d88a9d741012af89cd0128a328edf1" kindref="member">RADLOG_WARNING</ref>(</highlight><highlight class="stringliteral">&quot;power&quot;</highlight><highlight class="normal">)<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;battery<sp/>low:<sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>12<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;%&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal">logger.shutdown();</highlight></codeline>
+</programlisting> </para>
     </detaileddescription>
     <location file="/media/jvincent/Kingspec512/repos/RADLib/docs/public/radlogging.md"/>
   </compounddef>

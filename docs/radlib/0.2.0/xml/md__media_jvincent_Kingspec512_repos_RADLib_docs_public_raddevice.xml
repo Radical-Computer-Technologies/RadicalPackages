@@ -6,18 +6,36 @@
     <briefdescription>
     </briefdescription>
     <detaileddescription>
-<para><ref refid="namespaceRADDevice" kindref="compound">RADDevice</ref> covers common embedded Linux device control surfaces:</para>
+<para><ref refid="namespaceRADDevice" kindref="compound">RADDevice</ref> covers common embedded Linux device control surfaces through file-descriptor and ioctl-friendly wrappers in the <computeroutput><ref refid="namespaceRADDevice" kindref="compound">RADDevice</ref></computeroutput> namespace. Each class targets a standard Linux sysfs/devfs surface, and all of them accept a <computeroutput>DevicePaths</computeroutput> struct so real device roots can be swapped for test fixtures.</para>
+<para><computeroutput>GpioPin</computeroutput> drives sysfs GPIO export/unexport, direction (<computeroutput>GpioDirection</computeroutput>), edge mode (<computeroutput>GpioEdge</computeroutput>), and value read/write. <computeroutput>I2CDevice</computeroutput> opens <computeroutput>/dev/i2c-*</computeroutput> and selects a 7-bit address via the <computeroutput>I2C_SLAVE</computeroutput> ioctl for <computeroutput>read()</computeroutput>/<computeroutput>write()</computeroutput>. <computeroutput>SPIDevice</computeroutput> opens <computeroutput>/dev/spidev*</computeroutput>, applies mode/bits/speed with <computeroutput>configure()</computeroutput>, and runs full-duplex <computeroutput>transfer()</computeroutput> calls through <computeroutput>SPI_IOC_MESSAGE</computeroutput>. <computeroutput>PwmChannel</computeroutput> exports a sysfs PWM channel and sets period, duty cycle, and enable state. <computeroutput>AdcChannel</computeroutput> reads IIO raw, scale, and scaled samples. <computeroutput>Watchdog</computeroutput> opens <computeroutput>/dev/watchdogN</computeroutput> and issues <computeroutput>keepAlive()</computeroutput> pings, and <computeroutput>Led</computeroutput> reads and writes sysfs LED brightness. The free functions <computeroutput><ref refid="namespaceRADDevice_1ab6726396e042ac7717fe272b18c70d3a" kindref="member">listLeds()</ref></computeroutput> and <computeroutput><ref refid="namespaceRADDevice_1a799d6a090f1e414564c018cc862326d1" kindref="member">listIioDevices()</ref></computeroutput> enumerate available LED and IIO device names.</para>
+<para>Read-style calls that can fail return <computeroutput><ref refid="classRADCore_1_1RADResult" kindref="compound">RADCore::RADResult</ref>&lt;T&gt;</computeroutput> (for example <computeroutput>GpioPin::readValue()</computeroutput>, <computeroutput>AdcChannel::readRaw()</computeroutput>, <computeroutput>Led::brightness()</computeroutput>), while setup calls take an optional <computeroutput>std::string* error</computeroutput> out-parameter.</para>
+<sect1 id="md__media_jvincent_Kingspec512_repos_RADLib_docs_public_raddevice_1autotoc_md11">
+<title>Core features</title>
 <para><itemizedlist>
 <listitem><para><computeroutput>GpioPin</computeroutput> for sysfs GPIO export, direction, edge, and value.</para>
 </listitem><listitem><para><computeroutput>I2CDevice</computeroutput> for <computeroutput>/dev/i2c-*</computeroutput> with <computeroutput>I2C_SLAVE</computeroutput> ioctl.</para>
 </listitem><listitem><para><computeroutput>SPIDevice</computeroutput> for <computeroutput>/dev/spidev*</computeroutput> with SPI ioctl configuration and transfers.</para>
 </listitem><listitem><para><computeroutput>PwmChannel</computeroutput> for sysfs PWM period, duty, and enable.</para>
-</listitem><listitem><para><computeroutput>AdcChannel</computeroutput> for IIO raw and scaled samples.</para>
+</listitem><listitem><para><computeroutput>AdcChannel</computeroutput> for IIO raw, scale, and scaled samples.</para>
 </listitem><listitem><para><computeroutput>Watchdog</computeroutput> for <computeroutput>/dev/watchdog*</computeroutput> keepalive ioctl.</para>
-</listitem><listitem><para><computeroutput>Led</computeroutput> for sysfs LED brightness.</para>
+</listitem><listitem><para><computeroutput>Led</computeroutput> for sysfs LED brightness, plus <computeroutput><ref refid="namespaceRADDevice_1ab6726396e042ac7717fe272b18c70d3a" kindref="member">listLeds()</ref></computeroutput>/<computeroutput><ref refid="namespaceRADDevice_1a799d6a090f1e414564c018cc862326d1" kindref="member">listIioDevices()</ref></computeroutput>.</para>
 </listitem></itemizedlist>
 </para>
-<para>The public API is intentionally file-descriptor and ioctl friendly so future RADKernel drivers can expose the same application-facing model. </para>
+<para>The public API is intentionally file-descriptor and ioctl friendly so future RADKernel drivers can expose the same application-facing model.</para>
+<para>Example:</para>
+<para><programlisting filename=".cpp"><codeline><highlight class="normal"><ref refid="classRADDevice_1_1GpioPin" kindref="compound">RADDevice::GpioPin</ref><sp/>led(17);</highlight></codeline>
+<codeline><highlight class="normal">std::string<sp/><ref refid="namespacerad_1ac90c7293a399def0b7b53c3911005189acb5e100e5a9a3e7f6d1fd97512215282" kindref="member">error</ref>;</highlight></codeline>
+<codeline><highlight class="normal">led.exportPin(&amp;error);</highlight></codeline>
+<codeline><highlight class="normal">led.setDirection(<ref refid="namespaceRADDevice_1a1f04e8338cd9dd13b817689336e639d7a7c147cda9e49590f6abe83d118b7353b" kindref="member">RADDevice::GpioDirection::Out</ref>,<sp/>&amp;error);</highlight></codeline>
+<codeline><highlight class="normal">led.writeValue(</highlight><highlight class="keyword">true</highlight><highlight class="normal">,<sp/>&amp;error);</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><ref refid="classRADDevice_1_1I2CDevice" kindref="compound">RADDevice::I2CDevice</ref><sp/>sensor;</highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(sensor.<ref refid="classRADDevice_1_1I2CDevice_1a0eb47cc26f64e05c18d62ca9e9e8c761" kindref="member">open</ref>(1,<sp/>0x76,<sp/>{},<sp/>&amp;error))<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>sensor.<ref refid="classRADDevice_1_1I2CDevice_1a886dc0c83e3095a7b5276630ae4a055a" kindref="member">write</ref>({0xF7});</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>std::vector&lt;uint8_t&gt;<sp/>pressure<sp/>=<sp/>sensor.<ref refid="classRADDevice_1_1I2CDevice_1aa9570ba6773a764e6c2c09159e5c14ef" kindref="member">read</ref>(3);</highlight></codeline>
+<codeline><highlight class="normal">}</highlight></codeline>
+</programlisting> </para>
+</sect1>
     </detaileddescription>
     <location file="/media/jvincent/Kingspec512/repos/RADLib/docs/public/raddevice.md"/>
   </compounddef>

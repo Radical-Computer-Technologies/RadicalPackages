@@ -6,7 +6,7 @@
     <div class="nav-links">
       <a href="./">Home</a>
       <a href="packages.html">Packages</a>
-      <a href="radix-os.html">RADPx OS</a>
+      <a href="radpx-os.html">RADPx OS</a>
       <a href="docs/">Docs</a>
     </div>
   </nav>
@@ -116,7 +116,7 @@ radbuild build os --settings settings.json --json-events
       <h2>Related Packages</h2>
       <div class="links">
         <a class="link-card" href="radlib.html"><strong>RADLib</strong><span>Runtime libraries consumed by target systems</span></a>
-        <a class="link-card" href="radix-os.html"><strong>RADPx-OS</strong><span>Experimental OS image and kernel API track</span></a>
+        <a class="link-card" href="radpx-os.html"><strong>RADPx-OS</strong><span>Experimental OS image and kernel API track</span></a>
         <a class="link-card" href="radbard.html"><strong>RADBard</strong><span>Experimental application package track</span></a>
       </div>
   </section>

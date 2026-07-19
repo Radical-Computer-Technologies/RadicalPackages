@@ -1,0 +1,116 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="networking_8md" kind="file" language="Markdown">
+    <compoundname>networking.md</compoundname>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline><highlight class="normal">#<sp/>Experimental<sp/>Networking<sp/>{#networking}</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">RADPx-OS<sp/>Crimson<sp/>0.2.0<sp/>includes<sp/>an<sp/>experimental<sp/>networking<sp/>path<sp/>for<sp/>the<sp/>x86<sp/>VM</highlight></codeline>
+<codeline><highlight class="normal">target.<sp/>The<sp/>goal<sp/>of<sp/>this<sp/>surface<sp/>is<sp/>to<sp/>prove<sp/>the<sp/>kernel<sp/>interfaces<sp/>for<sp/>network</highlight></codeline>
+<codeline><highlight class="normal">devices,<sp/>packet<sp/>receive,<sp/>POSIX-inspired<sp/>datagram<sp/>sockets,<sp/>host-verified<sp/>UDP,</highlight></codeline>
+<codeline><highlight class="normal">SNTP/NTP<sp/>sampling,<sp/>and<sp/>the<sp/>first<sp/>TCP<sp/>stream<sp/>socket<sp/>lifecycle<sp/>before<sp/>adding<sp/>a</highlight></codeline>
+<codeline><highlight class="normal">complete<sp/>wire-level<sp/>TCP/IP<sp/>stack<sp/>or<sp/>target-specific<sp/>production<sp/>drivers.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>Current<sp/>Stack</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">The<sp/>network<sp/>device<sp/>API<sp/>exposes<sp/>link<sp/>information,<sp/>frame<sp/>transmit,<sp/>frame<sp/>receive,</highlight></codeline>
+<codeline><highlight class="normal">and<sp/>polling.<sp/>The<sp/>x86<sp/>VM<sp/>target<sp/>registers<sp/>a<sp/>legacy<sp/>virtio-net<sp/>device<sp/>as</highlight></codeline>
+<codeline><highlight class="normal">`/dev/net0`<sp/>when<sp/>QEMU<sp/>exposes<sp/>one.<sp/>The<sp/>VM<sp/>backend<sp/>now<sp/>programs<sp/>separate<sp/>legacy</highlight></codeline>
+<codeline><highlight class="normal">virtio<sp/>RX<sp/>and<sp/>TX<sp/>rings<sp/>and<sp/>emits<sp/>smoke<sp/>markers<sp/>when<sp/>the<sp/>rings<sp/>are<sp/>owned<sp/>by<sp/>the</highlight></codeline>
+<codeline><highlight class="normal">guest.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">The<sp/>minimal<sp/>IPv4<sp/>path<sp/>now<sp/>includes<sp/>Ethernet<sp/>II<sp/>dispatch,<sp/>ARP<sp/>request/reply<sp/>and</highlight></codeline>
+<codeline><highlight class="normal">cache<sp/>learning,<sp/>IPv4<sp/>checksum<sp/>validation,<sp/>UDP<sp/>transmit/receive,<sp/>ICMP<sp/>echo</highlight></codeline>
+<codeline><highlight class="normal">reply,<sp/>static<sp/>default-gateway<sp/>routing,<sp/>IPv4<sp/>DNS<sp/>A-record<sp/>lookup,<sp/>and</highlight></codeline>
+<codeline><highlight class="normal">SNTP/NTP<sp/>sampling.<sp/>RADPx-OS<sp/>uses<sp/>this<sp/>path<sp/>for<sp/>host<sp/>UDP<sp/>echo<sp/>verification<sp/>and<sp/>can</highlight></codeline>
+<codeline><highlight class="normal">query<sp/>either<sp/>the<sp/>deterministic<sp/>host-side<sp/>test<sp/>responder<sp/>or<sp/>public<sp/>NTP<sp/>servers.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">The<sp/>socket<sp/>layer<sp/>currently<sp/>supports:</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">-<sp/>`RAD_AF_INET`</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>`RAD_SOCK_DGRAM`</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>`RAD_IPPROTO_UDP`</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>`socket`,<sp/>`bind`,<sp/>`sendto`,<sp/>`recvfrom`</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>`getaddrinfo`,<sp/>`freeaddrinfo`,<sp/>`gethostbyname`</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>`inet_aton`,<sp/>`inet_pton(AF_INET)`,<sp/>`inet_ntop(AF_INET)`</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>`RAD_SOCK_STREAM`</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>`RAD_IPPROTO_TCP`</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>`listen`,<sp/>`accept`,<sp/>`connect`,<sp/>`send`,<sp/>`recv`,<sp/>`shutdown`</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>fd<sp/>lifecycle<sp/>through<sp/>`close`,<sp/>`dup`,<sp/>`dup2`,<sp/>`fcntl`,<sp/>fork<sp/>inheritance,<sp/>and</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>close-on-exec<sp/>handling</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">The<sp/>x86<sp/>sysroot<sp/>also<sp/>exposes<sp/>minimal<sp/>`sys/socket.h`,<sp/>`netinet/in.h`,<sp/>and</highlight></codeline>
+<codeline><highlight class="normal">`arpa/inet.h`<sp/>headers<sp/>plus<sp/>libc<sp/>wrappers<sp/>for<sp/>the<sp/>socket<sp/>calls<sp/>above.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">The<sp/>TCP<sp/>support<sp/>in<sp/>this<sp/>pass<sp/>is<sp/>a<sp/>kernel<sp/>socket<sp/>model<sp/>and<sp/>local<sp/>stream</highlight></codeline>
+<codeline><highlight class="normal">foundation.<sp/>It<sp/>verifies<sp/>listener<sp/>setup,<sp/>client<sp/>connect,<sp/>accept,<sp/>connected<sp/>peer</highlight></codeline>
+<codeline><highlight class="normal">state,<sp/>stream<sp/>byte<sp/>delivery,<sp/>and<sp/>shutdown<sp/>behavior.<sp/>It<sp/>is<sp/>not<sp/>yet<sp/>a<sp/>full</highlight></codeline>
+<codeline><highlight class="normal">wire-level<sp/>TCP<sp/>implementation<sp/>with<sp/>SYN/ACK<sp/>sequencing,<sp/>retransmit<sp/>timers,</highlight></codeline>
+<codeline><highlight class="normal">congestion<sp/>control,<sp/>route<sp/>lookup,<sp/>or<sp/>external<sp/>host<sp/>connections.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">The<sp/>default<sp/>VM<sp/>IPv4<sp/>profile<sp/>is<sp/>static<sp/>and<sp/>QEMU-oriented:</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">-<sp/>guest:<sp/>`10.0.2.15`</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>netmask:<sp/>`255.255.255.0`</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>gateway/host<sp/>side:<sp/>`10.0.2.2`</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>default<sp/>DNS<sp/>resolver:<sp/>`10.0.2.3`</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>default<sp/>SNTP/NTP<sp/>target:<sp/>`time.google.com:123`</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>MTU:<sp/>`1500`</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">RADBuild/rkconfig<sp/>can<sp/>override<sp/>these<sp/>with<sp/>`network_enabled`,<sp/>`net_ipv4`,</highlight></codeline>
+<codeline><highlight class="normal">`net_netmask`,<sp/>`net_gateway`,<sp/>`net_ntp_server`,<sp/>`net_ntp_port`,<sp/>and</highlight></codeline>
+<codeline><highlight class="normal">`net_dns_server`.<sp/>Deterministic<sp/>VM<sp/>smoke<sp/>runs<sp/>may<sp/>still<sp/>override<sp/>NTP<sp/>to</highlight></codeline>
+<codeline><highlight class="normal">`10.0.2.2:12300`<sp/>and<sp/>use<sp/>the<sp/>host<sp/>UDP/NTP<sp/>responder.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">The<sp/>`rash`<sp/>shell<sp/>includes:</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">-<sp/>`net`<sp/>to<sp/>show<sp/>`/dev/net0`,<sp/>static<sp/>IPv4<sp/>state,<sp/>counters,<sp/>ARP<sp/>cache<sp/>count,<sp/>and</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>default<sp/>NTP<sp/>target</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>`ntpdate<sp/>[-q]<sp/>[host-or-ip]<sp/>[port]`<sp/>to<sp/>run<sp/>a<sp/>userspace<sp/>UDP<sp/>SNTP/NTP<sp/>query,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>resolve<sp/>hostnames<sp/>through<sp/>DNS,<sp/>and<sp/>set<sp/>the<sp/>realtime<sp/>clock<sp/>unless<sp/>`-q`<sp/>is<sp/>used</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>Current<sp/>Limits</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">This<sp/>page<sp/>is<sp/>intentionally<sp/>marked<sp/>experimental.<sp/>UDP<sp/>datagrams,<sp/>local<sp/>TCP<sp/>stream</highlight></codeline>
+<codeline><highlight class="normal">sockets,<sp/>virtio-net<sp/>queue<sp/>setup,<sp/>host<sp/>UDP<sp/>echo,<sp/>and<sp/>NTP<sp/>sampling<sp/>are<sp/>verified</highlight></codeline>
+<codeline><highlight class="normal">through<sp/>x86<sp/>VM<sp/>smoke<sp/>markers,<sp/>but<sp/>the<sp/>network<sp/>stack<sp/>is<sp/>still<sp/>minimal.<sp/>DHCP,</highlight></codeline>
+<codeline><highlight class="normal">IPv6,<sp/>DNS<sp/>caching,<sp/>TCP<sp/>DNS<sp/>fallback,<sp/>full<sp/>wire-level<sp/>TCP,<sp/>richer<sp/>route<sp/>tables,</highlight></codeline>
+<codeline><highlight class="normal">firewall<sp/>rules,<sp/>packet<sp/>sockets,<sp/>and<sp/>non-x86<sp/>NIC<sp/>drivers<sp/>remain<sp/>future<sp/>work.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>Verification</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Host<sp/>tests<sp/>cover<sp/>network<sp/>device<sp/>registration,<sp/>link<sp/>info,<sp/>transmit,<sp/>receive,<sp/>UDP</highlight></codeline>
+<codeline><highlight class="normal">datagram<sp/>socket<sp/>delivery,<sp/>and<sp/>the<sp/>local<sp/>TCP<sp/>listener/connect/accept/stream</highlight></codeline>
+<codeline><highlight class="normal">socket<sp/>lifecycle.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">The<sp/>x86<sp/>Slint<sp/>VM<sp/>smoke<sp/>gate<sp/>checks:</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">-<sp/>`RAD_VIRTIO_NET_FOUND`</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>`RAD_NET_DEVICE_REGISTERED`</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>`RAD_VIRTIO_NET_TX_RING_OK`</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>`RAD_VIRTIO_NET_RX_RING_OK`</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>`RAD_ETH_TX_OK`</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>`RAD_ARP_OK`</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>`RAD_IPV4_OK`</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>`RAD_UDP_OK`</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>`RAD_UDP_RX_OK`</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>`RAD_NET_UDP_TX_OK`</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>`RAD_NET_UDP_RX_OK`</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>`RAD_NET_HOST_UDP_ECHO_OK`</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>`RAD_NTP_QUERY_OK`</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>`RAD_NTP_RESPONSE_OK`</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>`RAD_NTP_TIME_SAMPLE_OK`</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>`RAD_SOCKET_DGRAM_OK`</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>`RAD_TCP_SOCKET_OK`</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>`RAD_TCP_CONNECT_OK`</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>`RAD_TCP_LISTEN_ACCEPT_OK`</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>`RAD_TCP_STREAM_IO_OK`</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>`RAD_TCP_SHUTDOWN_OK`</highlight></codeline>
+    </programlisting>
+    <location file="/media/jvincent/Kingspec512/repos/RADPx-OS/docs/public/networking.md"/>
+  </compounddef>
+</doxygen>

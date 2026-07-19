@@ -9,11 +9,39 @@
     <programlisting>
 <codeline><highlight class="normal">#<sp/>RADWeb</highlight></codeline>
 <codeline></codeline>
-<codeline><highlight class="normal">RADWeb<sp/>wraps<sp/>WebKitGTK<sp/>behind<sp/>a<sp/>PIMPL<sp/>public<sp/>API.<sp/>Public<sp/>headers<sp/>do<sp/>not<sp/>expose</highlight></codeline>
-<codeline><highlight class="normal">GTK<sp/>or<sp/>WebKit<sp/>headers.<sp/>It<sp/>provides<sp/>a<sp/>browser<sp/>window<sp/>with<sp/>tabs,<sp/>URL<sp/>loading,</highlight></codeline>
-<codeline><highlight class="normal">JavaScript<sp/>evaluation,<sp/>find-in-page,<sp/>zoom,<sp/>history,<sp/>bookmarks,<sp/>downloads,</highlight></codeline>
-<codeline><highlight class="normal">settings,<sp/>permission<sp/>handling,<sp/>cookie<sp/>policy,<sp/>persistent/ephemeral<sp/>profiles,<sp/>and</highlight></codeline>
-<codeline><highlight class="normal">session<sp/>restore.</highlight></codeline>
+<codeline><highlight class="normal">RADWeb<sp/>wraps<sp/>WebKitGTK<sp/>behind<sp/>a<sp/>PIMPL<sp/>public<sp/>API<sp/>in<sp/>the<sp/>`RADWeb`<sp/>namespace.</highlight></codeline>
+<codeline><highlight class="normal">Public<sp/>headers<sp/>do<sp/>not<sp/>expose<sp/>GTK<sp/>or<sp/>WebKit<sp/>headers.<sp/>It<sp/>provides<sp/>a<sp/>browser<sp/>window</highlight></codeline>
+<codeline><highlight class="normal">with<sp/>tabs,<sp/>URL<sp/>loading,<sp/>JavaScript<sp/>evaluation,<sp/>find-in-page,<sp/>zoom,<sp/>history,</highlight></codeline>
+<codeline><highlight class="normal">bookmarks,<sp/>downloads,<sp/>settings,<sp/>permission<sp/>handling,<sp/>cookie<sp/>policy,</highlight></codeline>
+<codeline><highlight class="normal">persistent/ephemeral<sp/>profiles,<sp/>and<sp/>session<sp/>restore.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">`RADWebBrowserWindow`<sp/>is<sp/>the<sp/>single<sp/>public<sp/>class.<sp/>It<sp/>derives<sp/>from</highlight></codeline>
+<codeline><highlight class="normal">`RADCore::RADObject`,<sp/>so<sp/>it<sp/>integrates<sp/>with<sp/>RADCore<sp/>events:<sp/>`RAD_EVENT`<sp/>signals</highlight></codeline>
+<codeline><highlight class="normal">include<sp/>`loadStarted`/`loadFinished`/`loadFailed`,<sp/>`titleChanged`/`uriChanged`,</highlight></codeline>
+<codeline><highlight class="normal">`javaScriptFinished`/`javaScriptFailed`,<sp/>tab<sp/>lifecycle<sp/>(`tabAdded`,<sp/>`tabClosed`,</highlight></codeline>
+<codeline><highlight class="normal">`activeTabChanged`),<sp/>download<sp/>lifecycle<sp/>(`downloadStarted`,<sp/>`downloadUpdated`,</highlight></codeline>
+<codeline><highlight class="normal">`downloadFinished`,<sp/>`downloadFailed`),<sp/>`permissionRequested`,<sp/>`historyChanged`,</highlight></codeline>
+<codeline><highlight class="normal">`bookmarksChanged`,<sp/>and<sp/>`closed`.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">The<sp/>window<sp/>is<sp/>created<sp/>with<sp/>`create()`<sp/>(basic<sp/>dimensions<sp/>or<sp/>a<sp/>full</highlight></codeline>
+<codeline><highlight class="normal">`RADWebWindowOptions`<sp/>struct)<sp/>and<sp/>driven<sp/>with<sp/>`run()`/`quit()`.<sp/>Tabs<sp/>are<sp/>managed</highlight></codeline>
+<codeline><highlight class="normal">with<sp/>`newTab()`,<sp/>`closeTab()`,<sp/>`duplicateTab()`,<sp/>`moveTab()`,<sp/>and<sp/>`setActiveTab()`,</highlight></codeline>
+<codeline><highlight class="normal">and<sp/>inspected<sp/>through<sp/>`RADWebTabInfo`<sp/>snapshots.<sp/>Navigation<sp/>uses<sp/>`loadUrl()`,</highlight></codeline>
+<codeline><highlight class="normal">`loadHtml()`,<sp/>`evaluateJavaScript()`,<sp/>plus<sp/>`goBack()`/`goForward()`/`reload()`.</highlight></codeline>
+<codeline><highlight class="normal">Runtime<sp/>configuration<sp/>flows<sp/>through<sp/>`RADWebSettings`<sp/>(with<sp/>`RADWebCookiePolicy`</highlight></codeline>
+<codeline><highlight class="normal">and<sp/>`RADWebPermissionPolicy`<sp/>enums)<sp/>applied<sp/>via<sp/>`applySettings()`.<sp/>Persistent</highlight></codeline>
+<codeline><highlight class="normal">state<sp/>is<sp/>exposed<sp/>as<sp/>`RADWebHistoryItem`,<sp/>`RADWebBookmark`,<sp/>and</highlight></codeline>
+<codeline><highlight class="normal">`RADWebDownloadInfo`<sp/>records<sp/>through<sp/>`history()`,<sp/>`bookmarks()`,<sp/>and</highlight></codeline>
+<codeline><highlight class="normal">`downloads()`.<sp/>`nativeWindow()`<sp/>and<sp/>`nativeWebView()`<sp/>return<sp/>raw<sp/>GTK/WebKit</highlight></codeline>
+<codeline><highlight class="normal">pointers<sp/>for<sp/>advanced<sp/>integration.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>Core<sp/>features</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">-<sp/>Single<sp/>`RADWebBrowserWindow`<sp/>class<sp/>over<sp/>WebKitGTK,<sp/>PIMPL-hidden.</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>RADCore<sp/>`RAD_EVENT`<sp/>signals<sp/>for<sp/>load,<sp/>tab,<sp/>download,<sp/>and<sp/>permission<sp/>events.</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>Multi-tab<sp/>navigation,<sp/>JavaScript<sp/>evaluation,<sp/>find-in-page,<sp/>and<sp/>zoom.</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>History,<sp/>bookmarks,<sp/>downloads,<sp/>cookie/permission<sp/>policy,<sp/>and<sp/>session<sp/>restore.</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>`RADWebSettings`/`RADWebWindowOptions`<sp/>configuration<sp/>and<sp/>native<sp/>handle<sp/>access.</highlight></codeline>
 <codeline></codeline>
 <codeline><highlight class="normal">Beta<sp/>notes:</highlight></codeline>
 <codeline></codeline>
@@ -21,6 +49,22 @@
 <codeline><highlight class="normal">-<sp/>History,<sp/>bookmark,<sp/>download,<sp/>and<sp/>session<sp/>data<sp/>can<sp/>be<sp/>backed<sp/>by<sp/>RADDatabase.</highlight></codeline>
 <codeline><highlight class="normal">-<sp/>Native<sp/>handles<sp/>are<sp/>available<sp/>for<sp/>advanced<sp/>integrations<sp/>that<sp/>need<sp/>direct</highlight></codeline>
 <codeline><highlight class="normal"><sp/><sp/>WebKitGTK<sp/>access.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Example:</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">```cpp</highlight></codeline>
+<codeline><highlight class="normal">RADWeb::RADWebBrowserWindow<sp/>browser;</highlight></codeline>
+<codeline><highlight class="normal">RADCONNECT(browser,<sp/>loadFinished,<sp/>&amp;listener,<sp/>Listener,<sp/>onLoadFinished);</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">RADWeb::RADWebWindowOptions<sp/>options;</highlight></codeline>
+<codeline><highlight class="normal">options.title<sp/>=<sp/>&quot;RADPx-OS<sp/>Browser&quot;;</highlight></codeline>
+<codeline><highlight class="normal">if<sp/>(browser.create(options))<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>browser.newTab(&quot;https://radcomp.tech&quot;);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>browser.evaluateJavaScript(&quot;document.title&quot;);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>browser.show();</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>browser.run();</highlight></codeline>
+<codeline><highlight class="normal">}</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
     </programlisting>
     <location file="/media/jvincent/Kingspec512/repos/RADLib/docs/public/radweb.md"/>
   </compounddef>

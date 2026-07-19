@@ -6,8 +6,35 @@
     <briefdescription>
     </briefdescription>
     <detaileddescription>
-<para><ref refid="namespaceRADUpdate" kindref="compound">RADUpdate</ref> verifies signed app-bundle update manifests. A manifest declares the product, version, channel, payload file paths, payload SHA-256 digests, optional payload sizes, optional <ref refid="namespaceRADInstaller" kindref="compound">RADInstaller</ref> manifest path, and optional manifest signature path.</para>
-<para><computeroutput>UpdateManager::verifyBundle()</computeroutput> checks payload existence, size, hashes, and an RSA-SHA256 manifest signature when a public key is supplied. A/B metadata helpers track active and pending slots without performing rootfs switching directly. </para>
+<para><ref refid="namespaceRADUpdate" kindref="compound">RADUpdate</ref> verifies signed app-bundle update manifests and provides A/B slot metadata helpers for embedded products. It bridges verified bundles into <ref refid="namespaceRADInstaller" kindref="compound">RADInstaller</ref> for the actual on-disk install step.</para>
+<para>A bundle is described by an <computeroutput>UpdateManifest</computeroutput>, which declares the <computeroutput>product</computeroutput>, <computeroutput>version</computeroutput>, <computeroutput>channel</computeroutput>, and <computeroutput>minimumVersion</computeroutput>, plus a list of <computeroutput>Payload</computeroutput> entries. Each <computeroutput>Payload</computeroutput> names a <computeroutput>path</computeroutput> relative to the bundle root, an expected lowercase <computeroutput>sha256</computeroutput> digest, and an optional <computeroutput>size</computeroutput> (0 disables size checking). A manifest may also carry an <computeroutput>installerManifest</computeroutput> path and a <computeroutput>signaturePath</computeroutput>.</para>
+<para><computeroutput>UpdateManager</computeroutput> is the entry point. <computeroutput>loadManifest()</computeroutput> parses manifest JSON into a <computeroutput><ref refid="classRADCore_1_1RADResult" kindref="compound">RADCore::RADResult</ref>&lt;UpdateManifest&gt;</computeroutput>, and <computeroutput>manifestToJson()</computeroutput> serializes it back. <computeroutput>verifyBundle()</computeroutput> checks payload existence, sizes, and SHA-256 hashes, and verifies an RSA-SHA256 manifest signature when a public key PEM is supplied, returning a <computeroutput>VerificationResult</computeroutput> with an <computeroutput>ok</computeroutput> flag and an <computeroutput>errors</computeroutput> list. When a manifest carries an <computeroutput>installerManifest</computeroutput>, <computeroutput>installBundle()</computeroutput> hands the verified bundle to <ref refid="namespaceRADInstaller" kindref="compound">RADInstaller</ref> and returns a <computeroutput><ref refid="structRADInstaller_1_1Result" kindref="compound">RADInstaller::Result</ref></computeroutput>.</para>
+<para>For embedded A/B updates, <computeroutput>ABMetadata</computeroutput> tracks the <computeroutput>activeSlot</computeroutput>, <computeroutput>pendingSlot</computeroutput>, <computeroutput>bootCount</computeroutput>, <computeroutput>rollbackReason</computeroutput>, and the versions installed in slots A and B. <computeroutput>loadABMetadata()</computeroutput>, <computeroutput>saveABMetadata()</computeroutput>, and <computeroutput>abMetadataToJson()</computeroutput> persist this state without performing rootfs switching directly.</para>
+<para>Core features:</para>
+<para><itemizedlist>
+<listitem><para>Signed manifest parsing and JSON round-tripping.</para>
+</listitem><listitem><para>Payload existence, size, and SHA-256 verification.</para>
+</listitem><listitem><para>Optional RSA-SHA256 manifest signature checks.</para>
+</listitem><listitem><para><ref refid="namespaceRADInstaller" kindref="compound">RADInstaller</ref> bridge for verified bundles.</para>
+</listitem><listitem><para>A/B slot metadata tracking for embedded products.</para>
+</listitem></itemizedlist>
+</para>
+<para>Example:</para>
+<para><programlisting filename=".cpp"><codeline><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>result<sp/>=<sp/><ref refid="classRADUpdate_1_1UpdateManager_1a3aca046051955f54fcdf1c39eb47b341" kindref="member">RADUpdate::UpdateManager::verifyBundle</ref>(</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;/mnt/bundle&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;manifest.json&quot;</highlight><highlight class="normal">,<sp/>publicKeyPem);</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(result.ok)<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>manifest<sp/>=<sp/><ref refid="classRADUpdate_1_1UpdateManager_1af98685fa5a31d7011b0d6e3fc5798db8" kindref="member">RADUpdate::UpdateManager::loadManifest</ref>(</highlight><highlight class="stringliteral">&quot;/mnt/bundle/manifest.json&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(manifest.hasValue())<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classRADUpdate_1_1UpdateManager_1a91265840879e47743272d1e6d4ad7a91" kindref="member">RADUpdate::UpdateManager::installBundle</ref>(</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;/mnt/bundle&quot;</highlight><highlight class="normal">,<sp/>manifest.value(),<sp/></highlight><highlight class="stringliteral">&quot;/opt/app&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline><highlight class="normal">}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal">&amp;<sp/>err<sp/>:<sp/>result.errors)<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Report<sp/>each<sp/>verification<sp/>failure.</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline><highlight class="normal">}</highlight></codeline>
+</programlisting> </para>
     </detaileddescription>
     <location file="/media/jvincent/Kingspec512/repos/RADLib/docs/public/radupdate.md"/>
   </compounddef>

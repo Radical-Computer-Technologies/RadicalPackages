@@ -88,9 +88,47 @@ $(document).ready(function(){initNavTree('md__media_jvincent_Kingspec512_repos_R
 <div class="title"><a class="el" href="namespaceRADInput.html">RADInput</a> </div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><p><a class="el" href="namespaceRADInput.html">RADInput</a> discovers Linux evdev devices from <code>/dev/input</code> and <code>/sys/class/input</code>. <code>InputManager</code> can read raw input events on a background thread and emit them through <a class="el" href="namespaceRADCore.html">RADCore</a> events, optionally posted back to a target <code><a class="el" href="classRADCore_1_1EventLoop.html" title="RADCore task event loop with locked and low-latency scheduling strategies.">RADCore::EventLoop</a></code>.</p>
-<p>Use <code>Calibration</code> to map raw touch/pointer coordinates into display-space coordinates. Tests and embedded products can pass <code>InputPaths</code> to point the API at a fixture tree or alternate device root. </p>
-</div></div><!-- contents -->
+<div class="textblock"><p><a class="el" href="namespaceRADInput.html">RADInput</a> discovers Linux evdev devices from <code>/dev/input</code> and <code>/sys/class/input</code>. <code><a class="el" href="classRADInput_1_1InputManager.html" title="Input manager that reads evdev events and emits RADCore events.">RADInput::InputManager</a></code> can read raw input events on a background thread and emit them through <a class="el" href="namespaceRADCore.html">RADCore</a> events, optionally posted back to a target <code><a class="el" href="classRADCore_1_1EventLoop.html" title="RADCore task event loop with locked and low-latency scheduling strategies.">RADCore::EventLoop</a></code>.</p>
+<p><code>InputManager</code> derives from <code><a class="el" href="classRADCore_1_1RADObject.html" title="Base class for event receivers, senders, and thread-affinity aware objects.">RADCore::RADObject</a></code> and is constructed with an optional <code>InputPaths</code> and an optional target <code><a class="el" href="classRADCore_1_1EventLoop.html" title="RADCore task event loop with locked and low-latency scheduling strategies.">RADCore::EventLoop</a>*</code>. <code>InputManager::discover()</code> returns <code>InputDeviceInfo</code> records (<code>path</code>, <code>name</code>, <code>sysfsPath</code>) for the event nodes it finds. <code>InputManager::startDevice()</code> begins reading a single evdev node on a background reader thread, while <code>startHotplugMonitor()</code> / <code>stopHotplugMonitor()</code> run a lightweight polling loop that re-scans devices at a configurable interval. <code>stopAll()</code> stops every active reader, and <code>isRunning()</code> reports whether any reader is live.</p>
+<p>Events are delivered through the <code>RAD_EVENT</code> signals <code>eventReceived</code>, which carries a <code><a class="el" href="structRADInput_1_1InputEvent.html" title="Raw Linux input_event translated into RADInput form.">RADInput::InputEvent</a></code> (device path, timestamp, Linux <code>type</code>, <code>code</code>, and <code>value</code>), and <code>devicesChanged</code>, which carries the updated device list when hotplug detection sees a change. When an <code>EventLoop</code> is supplied, emissions are posted back onto that loop's thread.</p>
+<p>Use <code><a class="el" href="structRADInput_1_1Calibration.html" title="2D touch/pointer calibration transform.">RADInput::Calibration</a></code> to map raw touch/pointer coordinates into display-space coordinates. Its <code>map()</code> method applies the configured input and output ranges plus the <code>invertX</code> / <code>invertY</code> flags. Tests and embedded products can pass <code>InputPaths</code> to point the API at a fixture tree or alternate device root.</p>
+<p>Core features:</p>
+<ul>
+<li>evdev discovery from <code>/dev/input</code> and <code>/sys/class/input</code>.</li>
+<li>Background raw event reading emitted through <a class="el" href="namespaceRADCore.html">RADCore</a> events.</li>
+<li>Lightweight polling hotplug detection via <code>devicesChanged</code>.</li>
+<li>Touch/pointer calibration with range mapping and axis inversion.</li>
+<li>Injectable <code>InputPaths</code> for fixtures and embedded roots.</li>
+</ul>
+<p>Example:</p>
+<div class="fragment"><div class="line"><a class="code" href="classRADCore_1_1EventLoop.html">RADCore::EventLoop</a> loop;</div>
+<div class="line"><a class="code" href="classRADInput_1_1InputManager.html">RADInput::InputManager</a> input({}, &amp;loop);</div>
+<div class="line"> </div>
+<div class="line"><a class="code" href="structRADInput_1_1Calibration.html">RADInput::Calibration</a> calibration;</div>
+<div class="line">calibration.<a class="code" href="structRADInput_1_1Calibration.html#ab7cb98102bff7608aa12ff9bbb9ba040">inMaxX</a> = 4095.0;</div>
+<div class="line">calibration.inMaxY = 4095.0;</div>
+<div class="line">calibration.outMaxX = 1920.0;</div>
+<div class="line">calibration.outMaxY = 1080.0;</div>
+<div class="line"> </div>
+<div class="line">input.eventReceived.connect([&amp;](<span class="keyword">const</span> <a class="code" href="structRADInput_1_1InputEvent.html">RADInput::InputEvent</a>&amp; event) {</div>
+<div class="line">    <span class="keyword">auto</span> [x, y] = calibration.map(event.<a class="code" href="structRADInput_1_1InputEvent.html#a2327552fd6f7a24b48de2253342637bf">value</a>, event.<a class="code" href="structRADInput_1_1InputEvent.html#a2327552fd6f7a24b48de2253342637bf">value</a>);</div>
+<div class="line">    <a class="code" href="RADLogging_8h.html#a1c04f5122034d98cefa3320275787614">RADLOG_TRACE</a>(<span class="stringliteral">&quot;input&quot;</span>) &lt;&lt; event.<a class="code" href="structRADInput_1_1InputEvent.html#a0246c7ea353fba6de57577b0bd75f9fa">devicePath</a> &lt;&lt; <span class="stringliteral">&quot; &quot;</span> &lt;&lt; x &lt;&lt; <span class="stringliteral">&quot;,&quot;</span> &lt;&lt; y;</div>
+<div class="line">});</div>
+<div class="line"> </div>
+<div class="line"><span class="keywordflow">for</span> (<span class="keyword">const</span> <span class="keyword">auto</span>&amp; device : input.discover()) {</div>
+<div class="line">    input.startDevice(device.path);</div>
+<div class="line">}</div>
+<div class="line">input.startHotplugMonitor(1000);</div>
+<div class="line">loop.run();</div>
+<div class="ttc" id="aRADLogging_8h_html_a1c04f5122034d98cefa3320275787614"><div class="ttname"><a href="RADLogging_8h.html#a1c04f5122034d98cefa3320275787614">RADLOG_TRACE</a></div><div class="ttdeci">#define RADLOG_TRACE(category)</div><div class="ttdoc">Logs with RADLogging at trace level.</div><div class="ttdef"><b>Definition:</b> RADLogging.h:108</div></div>
+<div class="ttc" id="aclassRADCore_1_1EventLoop_html"><div class="ttname"><a href="classRADCore_1_1EventLoop.html">RADCore::EventLoop</a></div><div class="ttdoc">RADCore task event loop with locked and low-latency scheduling strategies.</div><div class="ttdef"><b>Definition:</b> RADCore.h:988</div></div>
+<div class="ttc" id="aclassRADInput_1_1InputManager_html"><div class="ttname"><a href="classRADInput_1_1InputManager.html">RADInput::InputManager</a></div><div class="ttdoc">Input manager that reads evdev events and emits RADCore events.</div><div class="ttdef"><b>Definition:</b> RADInput.h:84</div></div>
+<div class="ttc" id="astructRADInput_1_1Calibration_html"><div class="ttname"><a href="structRADInput_1_1Calibration.html">RADInput::Calibration</a></div><div class="ttdoc">2D touch/pointer calibration transform.</div><div class="ttdef"><b>Definition:</b> RADInput.h:57</div></div>
+<div class="ttc" id="astructRADInput_1_1Calibration_html_ab7cb98102bff7608aa12ff9bbb9ba040"><div class="ttname"><a href="structRADInput_1_1Calibration.html#ab7cb98102bff7608aa12ff9bbb9ba040">RADInput::Calibration::inMaxX</a></div><div class="ttdeci">double inMaxX</div><div class="ttdoc">Input maximum X.</div><div class="ttdef"><b>Definition:</b> RADInput.h:61</div></div>
+<div class="ttc" id="astructRADInput_1_1InputEvent_html"><div class="ttname"><a href="structRADInput_1_1InputEvent.html">RADInput::InputEvent</a></div><div class="ttdoc">Raw Linux input_event translated into RADInput form.</div><div class="ttdef"><b>Definition:</b> RADInput.h:41</div></div>
+<div class="ttc" id="astructRADInput_1_1InputEvent_html_a0246c7ea353fba6de57577b0bd75f9fa"><div class="ttname"><a href="structRADInput_1_1InputEvent.html#a0246c7ea353fba6de57577b0bd75f9fa">RADInput::InputEvent::devicePath</a></div><div class="ttdeci">std::string devicePath</div><div class="ttdoc">Device path that produced the event.</div><div class="ttdef"><b>Definition:</b> RADInput.h:43</div></div>
+<div class="ttc" id="astructRADInput_1_1InputEvent_html_a2327552fd6f7a24b48de2253342637bf"><div class="ttname"><a href="structRADInput_1_1InputEvent.html#a2327552fd6f7a24b48de2253342637bf">RADInput::InputEvent::value</a></div><div class="ttdeci">int32_t value</div><div class="ttdoc">Linux event value.</div><div class="ttdef"><b>Definition:</b> RADInput.h:53</div></div>
+</div><!-- fragment --> </div></div><!-- contents -->
 </div><!-- PageDoc -->
 </div><!-- doc-content -->
 <!-- start footer part -->

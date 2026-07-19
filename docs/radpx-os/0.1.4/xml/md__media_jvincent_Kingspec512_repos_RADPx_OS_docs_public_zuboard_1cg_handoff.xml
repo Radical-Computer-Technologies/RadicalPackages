@@ -1,0 +1,70 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="md__media_jvincent_Kingspec512_repos_RADPx_OS_docs_public_zuboard_1cg_handoff" kind="page">
+    <compoundname>md__media_jvincent_Kingspec512_repos_RADPx_OS_docs_public_zuboard_1cg_handoff</compoundname>
+    <title>ZuBoard 1CG A53 Handoff Status</title>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>This note captures the current handoff point for the RADPx-OS ZuBoard/ZynqMP A53 bring-up.</para>
+<sect1 id="md__media_jvincent_Kingspec512_repos_RADPx_OS_docs_public_zuboard_1cg_handoff_1autotoc_md63">
+<title>What Works</title>
+<para><itemizedlist>
+<listitem><para><computeroutput>tools/embedded/rad_zuboard_1cg/boot.S</computeroutput> masks interrupts, selects core 0, parks nonzero MPIDR cores in <computeroutput>wfe</computeroutput>, clears BSS, installs a clean stack, and enters the C++ kernel.</para>
+</listitem><listitem><para>QEMU smoke works against <computeroutput>qemu-system-aarch64 -M xlnx-zcu102</computeroutput> with single-threaded TCG. The local helper is:</para>
+</listitem></itemizedlist>
+</para>
+<para><programlisting filename=".bash"><codeline><highlight class="normal">RAD_QEMU_BUILD=0<sp/>RAD_QEMU_TIMEOUT=40<sp/>\</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>tools/embedded/rad_zuboard_1cg/run-qemu.sh</highlight></codeline>
+</programlisting></para>
+<para><itemizedlist>
+<listitem><para>The QEMU profile uses <computeroutput>RAD_ZYNQMP_SDHCI_BASE=0xff160000u</computeroutput>; hardware keeps the ZuBoard default <computeroutput>0xff170000u</computeroutput>.</para>
+</listitem><listitem><para>The ZynqMP HAL initializes the Cadence PS UART, registers <computeroutput>/dev/console</computeroutput>, creates serial-backed <computeroutput>/dev/tty0</computeroutput>, initializes SDHCI, registers <computeroutput>/dev/mmcblk0</computeroutput>, reads the MBR, and registers <computeroutput>/dev/mmcblk0p1</computeroutput> and <computeroutput>/dev/mmcblk0p2</computeroutput>.</para>
+</listitem><listitem><para>The A53 MMU now identity-maps the full 32-bit physical address window and treats the high ZynqMP MMIO range as device memory.</para>
+</listitem><listitem><para>The kernel mounts ext4 from <computeroutput>/dev/mmcblk0p2</computeroutput>, finds <computeroutput>/bin/init</computeroutput>, creates the user process, binds stdio to <computeroutput>/dev/tty0</computeroutput>, and reaches the serial login-ready handoff point.</para>
+</listitem><listitem><para>RadBuild has a <computeroutput>rad-zuboard-1cg-qemu</computeroutput> system profile and emits <computeroutput>artifacts/rad/zuboard-1cg-qemu/rad-zuboard-1cg-qemu.img</computeroutput> as a padded 512 MiB QEMU SD image.</para>
+</listitem></itemizedlist>
+</para>
+</sect1>
+<sect1 id="md__media_jvincent_Kingspec512_repos_RADPx_OS_docs_public_zuboard_1cg_handoff_1autotoc_md64">
+<title>Verified Marker Path</title>
+<para>The current QEMU smoke reaches:</para>
+<para><programlisting filename=".text"><codeline><highlight class="normal">RAD_ZUBOARD_SD_OK</highlight></codeline>
+<codeline><highlight class="normal">RAD_ZUBOARD_MMCBLK0_OK</highlight></codeline>
+<codeline><highlight class="normal">RAD_ZUBOARD_PARTITION_BOOT_OK</highlight></codeline>
+<codeline><highlight class="normal">RAD_ZUBOARD_PARTITION_ROOT_OK</highlight></codeline>
+<codeline><highlight class="normal">RAD_AARCH64_MMU_ON_OK</highlight></codeline>
+<codeline><highlight class="normal">RAD_AARCH64_EXCEPTION_VECTORS_OK</highlight></codeline>
+<codeline><highlight class="normal">RAD_EXT4_MOUNT_OK</highlight></codeline>
+<codeline><highlight class="normal">RAD_ZUBOARD_EXT4_ROOT_OK</highlight></codeline>
+<codeline><highlight class="normal">RAD_ROOTFS_INIT_FOUND</highlight></codeline>
+<codeline><highlight class="normal">RAD_AARCH64_USER_PROCESS_SPAWN_OK</highlight></codeline>
+<codeline><highlight class="normal">RAD_LOGIN_SPAWN_OK</highlight></codeline>
+<codeline><highlight class="normal">RAD_ZUBOARD_SERIAL_LOGIN_READY</highlight></codeline>
+<codeline><highlight class="normal">RAD_ZUBOARD_SERIAL_READY</highlight></codeline>
+<codeline><highlight class="normal">RAD_AARCH64_USERMODE_ENTER_OK</highlight></codeline>
+</programlisting></para>
+</sect1>
+<sect1 id="md__media_jvincent_Kingspec512_repos_RADPx_OS_docs_public_zuboard_1cg_handoff_1autotoc_md65">
+<title>Current Blocker</title>
+<para>The first ext4-rootfs user process enters EL0 and immediately traps back to EL1 at the first instruction of <computeroutput>/bin/init</computeroutput>:</para>
+<para><programlisting filename=".text"><codeline><highlight class="normal">[ERR]<sp/>RAD_AARCH64_USER_EXCEPTION<sp/>el=1<sp/>esr=0x2000000<sp/>far=0x0<sp/>elr=0x80000000</highlight></codeline>
+<codeline><highlight class="normal">RAD_AARCH64_USER_EXCEPTION_EXIT_OK</highlight></codeline>
+</programlisting></para>
+<para><computeroutput>0x80000000</computeroutput> is the <computeroutput>_start</computeroutput> address of the generated AArch64 user ELF. The first instruction is valid (<computeroutput>ldr x0, [sp]</computeroutput>), so the next pass should focus on the EL0 exception-return and user translation state rather than SD, ext4, or process spawning.</para>
+</sect1>
+<sect1 id="md__media_jvincent_Kingspec512_repos_RADPx_OS_docs_public_zuboard_1cg_handoff_1autotoc_md66">
+<title>Recommended Next Steps</title>
+<para><orderedlist>
+<listitem><para>Split the AArch64 vector entries so the trap log records the exact vector slot: current/lower EL, AArch64/AArch32, SP0/SPx, sync/IRQ/FIQ/SError.</para>
+</listitem><listitem><para>Dump <computeroutput>SCTLR_EL1</computeroutput>, <computeroutput>TCR_EL1</computeroutput>, <computeroutput>MAIR_EL1</computeroutput>, <computeroutput>TTBR0_EL1</computeroutput>, <computeroutput>TTBR1_EL1</computeroutput>, <computeroutput>CPACR_EL1</computeroutput>, and the user leaf PTE for <computeroutput>0x80000000</computeroutput> before <computeroutput>eret</computeroutput>.</para>
+</listitem><listitem><para>Add a minimal one-instruction user smoke ELF that only performs <computeroutput>svc exit</computeroutput>. If that also traps at <computeroutput>0x80000000</computeroutput>, the fault is the EL0 return or execute permission state. If it runs, the issue is in the generated init stack or <computeroutput>libradc</computeroutput> entry path.</para>
+</listitem><listitem><para>Change ELF segment mapping to honor permissions: executable text should be user-readable/executable and not writable; data should be writable and UXN.</para>
+</listitem><listitem><para>After EL0 executes reliably, verify <computeroutput>/dev/tty0</computeroutput> login input over QEMU serial and then repeat on hardware through U-Boot <computeroutput>bootelf</computeroutput>. </para>
+</listitem></orderedlist>
+</para>
+</sect1>
+    </detaileddescription>
+    <location file="/media/jvincent/Kingspec512/repos/RADPx-OS/docs/public/zuboard-1cg-handoff.md"/>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,16 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="md__media_jvincent_Kingspec512_repos_RADPx_OS_RADKernel_platforms_README" kind="page">
+    <compoundname>md__media_jvincent_Kingspec512_repos_RADPx_OS_RADKernel_platforms_README</compoundname>
+    <title>RADPx-OS Platform Layout</title>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para><computeroutput>platforms/a53</computeroutput> contains portable ARMv8-A/Cortex-A53 execution support: boot normalization contracts, 4 KiB page-table setup, TTBR0 process roots, TTBR1 kernel-root setup, process architecture registration, user-copy/COW interfaces, and generic A53 capability reporting. Code in this directory must not depend on Broadcom peripheral addresses.</para>
+<para><computeroutput>platforms/a53/bcm283x</computeroutput> contains Raspberry Pi Zero 2 W / BCM283x platform drivers: PL011, mailbox framebuffer, Broadcom interrupt routing, eMMC, DWC OTG, and handoff binding.</para>
+<para><computeroutput>platforms/a53/zynqmp</computeroutput> contains Avnet/Tria ZUBoard 1CG / Zynq UltraScale+ MPSoC platform drivers. The first target is serial-only: Cadence PS UART, generic-timer timekeeping, A53 core-0 boot, and secondary-A53 parking. SD, USB, Ethernet, PL accelerators, and R5 AMP scheduling are intentionally later platform services.</para>
+<para><computeroutput>platforms/x86</computeroutput> is reserved for the x86 parity implementation. The current x86 VM target still builds from <computeroutput>tools/embedded/x86_64_grub_slint</computeroutput>; files should move here once the target wrapper is thin enough to avoid changing behavior during the Pi parity work. </para>
+    </detaileddescription>
+    <location file="/media/jvincent/Kingspec512/repos/RADPx-OS/RADKernel/platforms/README.md"/>
+  </compounddef>
+</doxygen>

@@ -10,12 +10,53 @@
 <codeline><highlight class="normal">#<sp/>RADPower</highlight></codeline>
 <codeline></codeline>
 <codeline><highlight class="normal">RADPower<sp/>reads<sp/>power<sp/>supply,<sp/>thermal<sp/>zone,<sp/>and<sp/>CPU<sp/>governor<sp/>information<sp/>from</highlight></codeline>
-<codeline><highlight class="normal">Linux<sp/>sysfs.<sp/>`PowerManager::requestAction()`<sp/>is<sp/>guarded:<sp/>it<sp/>returns<sp/>the<sp/>command</highlight></codeline>
-<codeline><highlight class="normal">that<sp/>would<sp/>be<sp/>run<sp/>by<sp/>default,<sp/>and<sp/>only<sp/>executes<sp/>suspend,<sp/>reboot,<sp/>or<sp/>shutdown</highlight></codeline>
-<codeline><highlight class="normal">when<sp/>`execute`<sp/>is<sp/>explicitly<sp/>set<sp/>to<sp/>true.</highlight></codeline>
+<codeline><highlight class="normal">Linux<sp/>sysfs,<sp/>and<sp/>exposes<sp/>guarded<sp/>suspend/reboot/shutdown<sp/>actions.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">`RADPower::PowerManager`<sp/>is<sp/>the<sp/>entry<sp/>point<sp/>and<sp/>is<sp/>constructed<sp/>with<sp/>an<sp/>optional</highlight></codeline>
+<codeline><highlight class="normal">`PowerPaths`.<sp/>Its<sp/>read-only<sp/>helpers<sp/>return<sp/>simple<sp/>snapshots:</highlight></codeline>
+<codeline><highlight class="normal">`powerSupplies()`<sp/>yields<sp/>`PowerSupplyInfo`<sp/>(name,<sp/>type,<sp/>charge<sp/>status,<sp/>and</highlight></codeline>
+<codeline><highlight class="normal">`capacityPercent`),<sp/>`thermalZones()`<sp/>yields<sp/>`ThermalZoneInfo`<sp/>with<sp/>a</highlight></codeline>
+<codeline><highlight class="normal">`temperatureC`<sp/>reading,<sp/>and<sp/>`cpuGovernors()`<sp/>yields<sp/>`CpuGovernorInfo`<sp/>listing<sp/>the</highlight></codeline>
+<codeline><highlight class="normal">current<sp/>governor<sp/>and<sp/>the<sp/>available<sp/>governors<sp/>per<sp/>CPU<sp/>directory.</highlight></codeline>
+<codeline><highlight class="normal">`setCpuGovernor()`<sp/>writes<sp/>a<sp/>governor<sp/>for<sp/>one<sp/>CPU<sp/>directory<sp/>and<sp/>reports<sp/>failures</highlight></codeline>
+<codeline><highlight class="normal">through<sp/>an<sp/>optional<sp/>`error`<sp/>string.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">`PowerManager::requestAction()`<sp/>is<sp/>guarded.<sp/>Given<sp/>a<sp/>`PowerAction`</highlight></codeline>
+<codeline><highlight class="normal">(`Suspend`,<sp/>`Reboot`,<sp/>or<sp/>`Shutdown`),<sp/>it<sp/>returns<sp/>a<sp/>`PowerActionPlan`<sp/>describing</highlight></codeline>
+<codeline><highlight class="normal">the<sp/>shell<sp/>`command`<sp/>that<sp/>would<sp/>be<sp/>run.<sp/>It<sp/>only<sp/>mutates<sp/>host<sp/>state<sp/>when<sp/>`execute`</highlight></codeline>
+<codeline><highlight class="normal">is<sp/>explicitly<sp/>set<sp/>to<sp/>`true`;<sp/>the<sp/>returned<sp/>plan<sp/>reports<sp/>`executed`<sp/>and<sp/>any</highlight></codeline>
+<codeline><highlight class="normal">`error`.<sp/>This<sp/>lets<sp/>callers<sp/>preview<sp/>or<sp/>confirm<sp/>a<sp/>dangerous<sp/>action<sp/>before</highlight></codeline>
+<codeline><highlight class="normal">committing<sp/>to<sp/>it.</highlight></codeline>
 <codeline></codeline>
 <codeline><highlight class="normal">Tests<sp/>and<sp/>products<sp/>can<sp/>use<sp/>`PowerPaths`<sp/>to<sp/>target<sp/>fixture<sp/>trees,<sp/>containers,<sp/>or</highlight></codeline>
 <codeline><highlight class="normal">board-specific<sp/>sysfs<sp/>mount<sp/>points.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Core<sp/>features:</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">-<sp/>Power<sp/>supply,<sp/>thermal<sp/>zone,<sp/>and<sp/>CPU<sp/>governor<sp/>snapshots<sp/>from<sp/>sysfs.</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>Per-CPU<sp/>governor<sp/>writes<sp/>with<sp/>error<sp/>reporting.</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>Guarded<sp/>suspend/reboot/shutdown<sp/>that<sp/>defaults<sp/>to<sp/>dry-run.</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>`PowerActionPlan`<sp/>preview<sp/>of<sp/>the<sp/>exact<sp/>command<sp/>before<sp/>execution.</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>Injectable<sp/>`PowerPaths`<sp/>for<sp/>fixtures<sp/>and<sp/>board-specific<sp/>roots.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Example:</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">```cpp</highlight></codeline>
+<codeline><highlight class="normal">RADPower::PowerManager<sp/>power;</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">for<sp/>(const<sp/>auto&amp;<sp/>supply<sp/>:<sp/>power.powerSupplies())<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>RADLOG_INFO(&quot;power&quot;)<sp/>&lt;&lt;<sp/>supply.name<sp/>&lt;&lt;<sp/>&quot;<sp/>&quot;<sp/>&lt;&lt;<sp/>supply.capacityPercent<sp/>&lt;&lt;<sp/>&quot;%&quot;;</highlight></codeline>
+<codeline><highlight class="normal">}</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">//<sp/>Preview<sp/>first:<sp/>execute<sp/>defaults<sp/>to<sp/>false,<sp/>so<sp/>nothing<sp/>is<sp/>changed.</highlight></codeline>
+<codeline><highlight class="normal">auto<sp/>plan<sp/>=<sp/>power.requestAction(RADPower::PowerAction::Shutdown);</highlight></codeline>
+<codeline><highlight class="normal">RADLOG_INFO(&quot;power&quot;)<sp/>&lt;&lt;<sp/>&quot;would<sp/>run:<sp/>&quot;<sp/>&lt;&lt;<sp/>plan.command;</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">//<sp/>Commit<sp/>only<sp/>when<sp/>explicitly<sp/>requested.</highlight></codeline>
+<codeline><highlight class="normal">if<sp/>(userConfirmed)<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>power.requestAction(RADPower::PowerAction::Shutdown,<sp/>/*execute=*/true);</highlight></codeline>
+<codeline><highlight class="normal">}</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
     </programlisting>
     <location file="/media/jvincent/Kingspec512/repos/RADLib/docs/public/radpower.md"/>
   </compounddef>

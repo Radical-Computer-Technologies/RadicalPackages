@@ -89,7 +89,7 @@ $(document).ready(function(){initNavTree('md__media_jvincent_Kingspec512_repos_R
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><p><a class="el" href="namespaceRADUi.html">RADUi</a> provides backend-neutral UI dispatching, reusable UI state models, Slint backend integration, plotting, terminal helpers, and an application-shell layer for desktop and embedded tools.</p>
-<h1><a class="anchor" id="autotoc_md33"></a>
+<h1><a class="anchor" id="autotoc_md39"></a>
 Application Shell</h1>
 <p><code><a class="el" href="RADAppKit_8h.html" title="Application-shell, dock, workspace, command, notification, file, log, and virtual data models.">RADAppKit.h</a></code> adds models for IDE-style applications:</p>
 <ul>
@@ -100,14 +100,14 @@ Application Shell</h1>
 <li><code>NotificationModel</code> stores toasts/status messages and action ids.</li>
 <li><code>VirtualTableModel</code>, <code>FileBrowserModel</code>, <code>LogViewModel</code>, <code>SearchBoxModel</code>, and <code>ProgressModel</code> cover common tool surfaces.</li>
 </ul>
-<h1><a class="anchor" id="autotoc_md34"></a>
+<h1><a class="anchor" id="autotoc_md40"></a>
 Theme System</h1>
 <p><code><a class="el" href="RADTheme_8h.html" title="RADUi theme tokens, runtime theme manager, and JSON persistence.">RADTheme.h</a></code> adds <code>Theme</code>, <code>ThemeManager</code>, and JSON persistence for color, spacing, typography, radius, toolbar, status bar, and icon-name tokens.</p>
 <p>Use <code><a class="el" href="namespaceRADUi_1_1Slint.html#a365381bdb513b75e70477c80c8a0a323" title="Binds ThemeManager changes to a generated Slint component callback.">RADUi::Slint::bindTheme()</a></code> to push theme changes into generated Slint components while keeping the C++ state backend-neutral.</p>
-<h1><a class="anchor" id="autotoc_md35"></a>
+<h1><a class="anchor" id="autotoc_md41"></a>
 Slint Backend</h1>
 <p>Slint remains the first concrete backend. Slint-specific helpers live under <code><a class="el" href="namespaceRADUi_1_1Slint.html">RADUi::Slint</a></code> and should adapt generated components to backend-neutral <a class="el" href="namespaceRADUi.html">RADUi</a> models rather than storing application state directly in <code>.slint</code> files.</p>
-<h1><a class="anchor" id="autotoc_md36"></a>
+<h1><a class="anchor" id="autotoc_md42"></a>
 Examples</h1>
 <p>The beta SDK includes developer-tool examples:</p>
 <ul>

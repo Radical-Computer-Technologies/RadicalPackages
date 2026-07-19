@@ -6,7 +6,7 @@
     <div class="nav-links">
       <a href="./">Home</a>
       <a href="packages.html">Packages</a>
-      <a href="radix-os.html">RADPx OS</a>
+      <a href="radpx-os.html">RADPx OS</a>
       <a href="docs/">Docs</a>
     </div>
   </nav>
@@ -87,7 +87,7 @@ curl -fsSL https://radical-computer-technologies.github.io/RadicalPackages/keys/
       <details class="doc-release" data-search-item data-search-text="radix os experimental crimson 0.1.3 kernel vm image x86 slint posix radbuild vim tiny ncurses">
         <summary>RADPx-OS 0 - Crimson</summary>
         <div class="links">
-          <a class="link-card" href="radix-os.html"><strong>RADPx OS</strong><span>Experimental POSIX-inspired kernel, VM image path, API documentation, and RADPx package hub.</span></a>
+          <a class="link-card" href="radpx-os.html"><strong>RADPx OS</strong><span>Experimental POSIX-inspired kernel, VM image path, API documentation, and RADPx package hub.</span></a>
         </div>
       </details>
       <details class="doc-release" data-search-item data-search-text="radbard experimental 0.1.0 beta music audio composition daw editor">
@@ -99,7 +99,7 @@ curl -fsSL https://radical-computer-technologies.github.io/RadicalPackages/keys/
     </details>
     <div class="links">
       <a class="link-card" href="packages.html"><strong>Packages Page</strong><span>Full searchable package catalog.</span></a>
-      <a class="link-card" href="radix-os.html"><strong>RADPx OS Hub</strong><span>RADPx OS builds, docs, and <code>.radpm</code> package metadata.</span></a>
+      <a class="link-card" href="radpx-os.html"><strong>RADPx OS Hub</strong><span>RADPx OS builds, docs, and <code>.radpm</code> package metadata.</span></a>
       <a class="link-card" href="https://github.com/Radical-Computer-Technologies/RadicalPackages/releases"><strong>Release Assets</strong><span>APT channel assets, package files, and OS image bundles.</span></a>
     </div>
   </section>

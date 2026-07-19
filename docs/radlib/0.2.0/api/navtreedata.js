@@ -31,44 +31,56 @@ var NAVTREE =
       [ "Package and Release Status", "index.html#autotoc_md3", null ]
     ] ],
     [ "RADCLI", "md__media_jvincent_Kingspec512_repos_RADLib_docs_public_radcli.html", null ],
-    [ "RADCore", "md__media_jvincent_Kingspec512_repos_RADLib_docs_public_radcore.html", null ],
+    [ "RADCore", "md__media_jvincent_Kingspec512_repos_RADLib_docs_public_radcore.html", [
+      [ "Core features", "md__media_jvincent_Kingspec512_repos_RADLib_docs_public_radcore.html#autotoc_md6", null ]
+    ] ],
     [ "RADDatabase", "md__media_jvincent_Kingspec512_repos_RADLib_docs_public_raddatabase.html", null ],
-    [ "RADDataStructures", "md__media_jvincent_Kingspec512_repos_RADLib_docs_public_raddatastructures.html", null ],
-    [ "RADDevice", "md__media_jvincent_Kingspec512_repos_RADLib_docs_public_raddevice.html", null ],
+    [ "RADDataStructures", "md__media_jvincent_Kingspec512_repos_RADLib_docs_public_raddatastructures.html", [
+      [ "Core features", "md__media_jvincent_Kingspec512_repos_RADLib_docs_public_raddatastructures.html#autotoc_md9", null ]
+    ] ],
+    [ "RADDevice", "md__media_jvincent_Kingspec512_repos_RADLib_docs_public_raddevice.html", [
+      [ "Core features", "md__media_jvincent_Kingspec512_repos_RADLib_docs_public_raddevice.html#autotoc_md11", null ]
+    ] ],
     [ "RADDisplay", "md__media_jvincent_Kingspec512_repos_RADLib_docs_public_raddisplay.html", null ],
     [ "RADDsp", "md__media_jvincent_Kingspec512_repos_RADLib_docs_public_raddsp.html", [
-      [ "Real-time audio effects", "md__media_jvincent_Kingspec512_repos_RADLib_docs_public_raddsp.html#autotoc_md11", null ]
+      [ "Real-time audio effects", "md__media_jvincent_Kingspec512_repos_RADLib_docs_public_raddsp.html#autotoc_md14", null ]
     ] ],
     [ "RADEmbeddedKernel", "md__media_jvincent_Kingspec512_repos_RADLib_docs_public_radembeddedkernel.html", [
-      [ "Backends", "md__media_jvincent_Kingspec512_repos_RADLib_docs_public_radembeddedkernel.html#autotoc_md13", null ],
-      [ "Service Model", "md__media_jvincent_Kingspec512_repos_RADLib_docs_public_radembeddedkernel.html#autotoc_md14", null ],
-      [ "RP235x Storage", "md__media_jvincent_Kingspec512_repos_RADLib_docs_public_radembeddedkernel.html#autotoc_md15", null ],
-      [ "Build Configuration", "md__media_jvincent_Kingspec512_repos_RADLib_docs_public_radembeddedkernel.html#autotoc_md16", null ],
-      [ "Embedded Portability", "md__media_jvincent_Kingspec512_repos_RADLib_docs_public_radembeddedkernel.html#autotoc_md17", null ],
-      [ "Current Limits", "md__media_jvincent_Kingspec512_repos_RADLib_docs_public_radembeddedkernel.html#autotoc_md18", null ]
+      [ "Backends", "md__media_jvincent_Kingspec512_repos_RADLib_docs_public_radembeddedkernel.html#autotoc_md16", null ],
+      [ "Service Model", "md__media_jvincent_Kingspec512_repos_RADLib_docs_public_radembeddedkernel.html#autotoc_md17", null ],
+      [ "RP235x Storage", "md__media_jvincent_Kingspec512_repos_RADLib_docs_public_radembeddedkernel.html#autotoc_md18", null ],
+      [ "Build Configuration", "md__media_jvincent_Kingspec512_repos_RADLib_docs_public_radembeddedkernel.html#autotoc_md19", null ],
+      [ "Embedded Portability", "md__media_jvincent_Kingspec512_repos_RADLib_docs_public_radembeddedkernel.html#autotoc_md20", null ],
+      [ "Current Limits", "md__media_jvincent_Kingspec512_repos_RADLib_docs_public_radembeddedkernel.html#autotoc_md21", null ]
     ] ],
     [ "RADInput", "md__media_jvincent_Kingspec512_repos_RADLib_docs_public_radinput.html", null ],
     [ "RADInstaller", "md__media_jvincent_Kingspec512_repos_RADLib_docs_public_radinstaller.html", [
-      [ "Manifest Shape", "md__media_jvincent_Kingspec512_repos_RADLib_docs_public_radinstaller.html#autotoc_md21", null ],
-      [ "API Flow", "md__media_jvincent_Kingspec512_repos_RADLib_docs_public_radinstaller.html#autotoc_md22", null ]
+      [ "Manifest Shape", "md__media_jvincent_Kingspec512_repos_RADLib_docs_public_radinstaller.html#autotoc_md24", null ],
+      [ "API Flow", "md__media_jvincent_Kingspec512_repos_RADLib_docs_public_radinstaller.html#autotoc_md25", null ]
     ] ],
     [ "RADLogging", "md__media_jvincent_Kingspec512_repos_RADLib_docs_public_radlogging.html", null ],
     [ "RADMedia", "md__media_jvincent_Kingspec512_repos_RADLib_docs_public_radmedia.html", null ],
     [ "RADNet", "md__media_jvincent_Kingspec512_repos_RADLib_docs_public_radnet.html", null ],
     [ "RADPower", "md__media_jvincent_Kingspec512_repos_RADLib_docs_public_radpower.html", null ],
-    [ "RADNet Protocol Generation", "md__media_jvincent_Kingspec512_repos_RADLib_docs_public_radprotocol.html", null ],
+    [ "RADNet Protocol Generation", "md__media_jvincent_Kingspec512_repos_RADLib_docs_public_radprotocol.html", [
+      [ "Wire frame", "md__media_jvincent_Kingspec512_repos_RADLib_docs_public_radprotocol.html#autotoc_md31", null ],
+      [ "Runtime API", "md__media_jvincent_Kingspec512_repos_RADLib_docs_public_radprotocol.html#autotoc_md32", null ],
+      [ "Core features", "md__media_jvincent_Kingspec512_repos_RADLib_docs_public_radprotocol.html#autotoc_md33", null ]
+    ] ],
     [ "RADSecurity", "md__media_jvincent_Kingspec512_repos_RADLib_docs_public_radsecurity.html", null ],
     [ "RADSerial", "md__media_jvincent_Kingspec512_repos_RADLib_docs_public_radserial.html", null ],
     [ "RADService", "md__media_jvincent_Kingspec512_repos_RADLib_docs_public_radservice.html", null ],
     [ "RADSettings", "md__media_jvincent_Kingspec512_repos_RADLib_docs_public_radsettings.html", null ],
     [ "RADUi", "md__media_jvincent_Kingspec512_repos_RADLib_docs_public_radui.html", [
-      [ "Application Shell", "md__media_jvincent_Kingspec512_repos_RADLib_docs_public_radui.html#autotoc_md33", null ],
-      [ "Theme System", "md__media_jvincent_Kingspec512_repos_RADLib_docs_public_radui.html#autotoc_md34", null ],
-      [ "Slint Backend", "md__media_jvincent_Kingspec512_repos_RADLib_docs_public_radui.html#autotoc_md35", null ],
-      [ "Examples", "md__media_jvincent_Kingspec512_repos_RADLib_docs_public_radui.html#autotoc_md36", null ]
+      [ "Application Shell", "md__media_jvincent_Kingspec512_repos_RADLib_docs_public_radui.html#autotoc_md39", null ],
+      [ "Theme System", "md__media_jvincent_Kingspec512_repos_RADLib_docs_public_radui.html#autotoc_md40", null ],
+      [ "Slint Backend", "md__media_jvincent_Kingspec512_repos_RADLib_docs_public_radui.html#autotoc_md41", null ],
+      [ "Examples", "md__media_jvincent_Kingspec512_repos_RADLib_docs_public_radui.html#autotoc_md42", null ]
     ] ],
     [ "RADUpdate", "md__media_jvincent_Kingspec512_repos_RADLib_docs_public_radupdate.html", null ],
-    [ "RADWeb", "md__media_jvincent_Kingspec512_repos_RADLib_docs_public_radweb.html", null ],
+    [ "RADWeb", "md__media_jvincent_Kingspec512_repos_RADLib_docs_public_radweb.html", [
+      [ "Core features", "md__media_jvincent_Kingspec512_repos_RADLib_docs_public_radweb.html#autotoc_md45", null ]
+    ] ],
     [ "Namespaces", "namespaces.html", [
       [ "Namespace List", "namespaces.html", "namespaces_dup" ],
       [ "Namespace Members", "namespacemembers.html", [
@@ -117,15 +129,15 @@ var NAVTREEINDEX =
 "classRADUi_1_1DocumentWorkspaceModel.html#a4b01e743df5829e9a21b03f88dacd52c",
 "classRADUi_1_1TextEditorModel.html#a95cba0390904db195e8acd5bcab9cd92",
 "dir_e7f595210f25f7b034447fc7dd2fa0a0.html",
-"namespaceRADData.html#a5f16f18d5965238baba76856e2560435",
-"namespaceRADUi.html#aae1cf4ed7a7c53a1a58507d311d90da1a760716b590ee7c0adc25f434f577d8be",
-"radekernel_8h.html#a253520a55acf68bac100d85384f0eff6ad484cdf90661427571a5d43382b2ce01",
-"radekernel_8h.html#a9f8425e323f6cc374781e600b517ba2c",
-"radekernel_8h.html#af4bc84ebfe711cfe924811eeb9953c7e",
-"structRADMedia_1_1MusicXmlScoreOptions.html#a1a400face0a57aa5372415fc4ea4364d",
-"structRADUi_1_1PlotPixel.html#a92ebcbad1e702ec6e2f6e5ce6b8f5f12",
-"structrad__driver__info.html#a1792406cada50218be448ae95625ca98",
-"structrad__spi__driver.html#a71e3ba21131cee4c3f4fae9b7396da20"
+"namespaceRADCore_1_1FileSystem.html#ab939fca3d9da30535576cf30a4bc1c39",
+"namespaceRADUi.html#aa10adbef68ce037efe6d110ee03f5694a3fec520e33032983ea108fcaba30a74d",
+"radekernel_8h.html#a24766067d26a0cbdaf6054ba1e817857",
+"radekernel_8h.html#a9783de6874b0958b3f0b7bbb68311eb9",
+"radekernel_8h.html#af1e7a61f2d75f0384ef96186b9f65696ab4afea55d4b0f9aa88ab63b1b0e0bd16",
+"structRADMedia_1_1MusicXmlRepeatEvent.html",
+"structRADUi_1_1PlotModelSnapshot.html",
+"structrad__dma__transfer.html#a35a086d16cf4e1345a574c8fd08fa57a",
+"structrad__spi__device__info.html#a952d3bbe1d915e582e367e49aa1f8e24"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

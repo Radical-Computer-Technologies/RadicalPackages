@@ -88,15 +88,36 @@ $(document).ready(function(){initNavTree('md__media_jvincent_Kingspec512_repos_R
 <div class="title"><a class="el" href="namespaceRADLogging.html">RADLogging</a> </div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><p><code><a class="el" href="namespaceRADLogging.html">RADLogging</a></code> is the beta logging layer for deployed RADLib applications.</p>
+<div class="textblock"><p><code><a class="el" href="namespaceRADLogging.html">RADLogging</a></code> is the beta logging layer for deployed RADLib applications. It provides an async, process-wide logger with severity levels, category filters, and pluggable sinks.</p>
+<p>The core is the singleton <code><a class="el" href="classRADLogging_1_1Logger.html" title="Async process-wide logger.">RADLogging::Logger</a></code>, obtained through <code>Logger::instance()</code>. Call <code>start()</code> to launch the background worker thread and <code>shutdown()</code> to drain and stop it; <code>flush()</code> forces queued messages out. <code>setLevel()</code> / <code>level()</code> control the minimum <code><a class="el" href="namespaceRADLogging.html#a8317de65c6fc04ea0c80520b60f81949" title="Log severity.">RADLogging::Level</a></code> (from <code>Trace</code> through <code>Critical</code>, plus <code>Off</code>), and <code>setCategoryEnabled()</code> toggles individual categories. <code>shouldLog()</code> reports whether a level/category pair would be accepted, and <code>log()</code> queues a message directly.</p>
+<p>Output destinations are <code><a class="el" href="classRADLogging_1_1Sink.html" title="Logger sink interface.">RADLogging::Sink</a></code> implementations, added with <code>addSink()</code> and removed with <code>clearSinks()</code>. The factory functions <code><a class="el" href="namespaceRADLogging.html#a7b1efd6887917cbb12a0aeed746e69f8" title="Creates a console sink.">consoleSink()</a></code>, <code><a class="el" href="namespaceRADLogging.html#acb1a1928470f11f9f17aa1c707f48b39" title="Creates a file sink.">fileSink()</a></code>, <code><a class="el" href="namespaceRADLogging.html#a9e4f35016775cc63ee16d7321744d4ae" title="Creates a rotating file sink.">rotatingFileSink()</a></code> (with <code>maxBytes</code> and <code>maxFiles</code>), and <code><a class="el" href="namespaceRADLogging.html#a98a7850711add8537adcfcfc7f66d4ac" title="Creates a syslog sink.">syslogSink()</a></code> cover the common cases. <code><a class="el" href="namespaceRADLogging.html#a917bc044cf4ed6df70315ac34d06486b" title="Formats a level as text.">levelName()</a></code> formats a level as text.</p>
+<p>Most application code uses the streaming macros <code>RADLOG_TRACE</code>, <code>RADLOG_DEBUG</code>, <code>RADLOG_INFO</code>, <code>RADLOG_WARNING</code>, and <code>RADLOG_ERROR</code>. Each takes a category string and returns a <code><a class="el" href="classRADLogging_1_1LogStream.html" title="Streaming log record; emits on destruction.">RADLogging::LogStream</a></code> that accumulates via <code>operator&lt;&lt;</code> and emits the completed line when it is destroyed.</p>
 <p>Core features:</p>
 <ul>
 <li>Async process-wide logger.</li>
 <li>Severity levels and category filters.</li>
 <li>Console, file, rotating file, and syslog sinks.</li>
-<li>Streaming macros such as <code>RADLOG_INFO("category") &lt;&lt; "message"</code>. </li>
+<li>Streaming macros such as <code>RADLOG_INFO("category") &lt;&lt; "message"</code>.</li>
 </ul>
-</div></div><!-- contents -->
+<p>Example:</p>
+<div class="fragment"><div class="line"><span class="keyword">auto</span>&amp; logger = <a class="code" href="classRADLogging_1_1Logger.html#a00264b88e7c6ebf986859c6ef5ce02c5">RADLogging::Logger::instance</a>();</div>
+<div class="line">logger.addSink(<a class="code" href="namespaceRADLogging.html#a7b1efd6887917cbb12a0aeed746e69f8">RADLogging::consoleSink</a>());</div>
+<div class="line">logger.addSink(<a class="code" href="namespaceRADLogging.html#a9e4f35016775cc63ee16d7321744d4ae">RADLogging::rotatingFileSink</a>(<span class="stringliteral">&quot;app.log&quot;</span>, 1024 * 1024, 3));</div>
+<div class="line">logger.setLevel(<a class="code" href="namespaceRADLogging.html#a8317de65c6fc04ea0c80520b60f81949a4059b0251f66a18cb56f544728796875">RADLogging::Level::Info</a>);</div>
+<div class="line">logger.setCategoryEnabled(<span class="stringliteral">&quot;net&quot;</span>, <span class="keyword">false</span>);</div>
+<div class="line">logger.start();</div>
+<div class="line"> </div>
+<div class="line"><a class="code" href="RADLogging_8h.html#aa88dbb52f2771f10bd298dc1ee6309ec">RADLOG_INFO</a>(<span class="stringliteral">&quot;boot&quot;</span>) &lt;&lt; <span class="stringliteral">&quot;RADLib application starting&quot;</span>;</div>
+<div class="line"><a class="code" href="RADLogging_8h.html#ad5d88a9d741012af89cd0128a328edf1">RADLOG_WARNING</a>(<span class="stringliteral">&quot;power&quot;</span>) &lt;&lt; <span class="stringliteral">&quot;battery low: &quot;</span> &lt;&lt; 12 &lt;&lt; <span class="stringliteral">&quot;%&quot;</span>;</div>
+<div class="line"> </div>
+<div class="line">logger.shutdown();</div>
+<div class="ttc" id="aRADLogging_8h_html_aa88dbb52f2771f10bd298dc1ee6309ec"><div class="ttname"><a href="RADLogging_8h.html#aa88dbb52f2771f10bd298dc1ee6309ec">RADLOG_INFO</a></div><div class="ttdeci">#define RADLOG_INFO(category)</div><div class="ttdoc">Logs with RADLogging at info level.</div><div class="ttdef"><b>Definition:</b> RADLogging.h:112</div></div>
+<div class="ttc" id="aRADLogging_8h_html_ad5d88a9d741012af89cd0128a328edf1"><div class="ttname"><a href="RADLogging_8h.html#ad5d88a9d741012af89cd0128a328edf1">RADLOG_WARNING</a></div><div class="ttdeci">#define RADLOG_WARNING(category)</div><div class="ttdoc">Logs with RADLogging at warning level.</div><div class="ttdef"><b>Definition:</b> RADLogging.h:114</div></div>
+<div class="ttc" id="aclassRADLogging_1_1Logger_html_a00264b88e7c6ebf986859c6ef5ce02c5"><div class="ttname"><a href="classRADLogging_1_1Logger.html#a00264b88e7c6ebf986859c6ef5ce02c5">RADLogging::Logger::instance</a></div><div class="ttdeci">static Logger &amp; instance()</div><div class="ttdoc">Returns singleton logger.</div></div>
+<div class="ttc" id="anamespaceRADLogging_html_a7b1efd6887917cbb12a0aeed746e69f8"><div class="ttname"><a href="namespaceRADLogging.html#a7b1efd6887917cbb12a0aeed746e69f8">RADLogging::consoleSink</a></div><div class="ttdeci">std::shared_ptr&lt; Sink &gt; consoleSink(bool stderrForWarnings=true)</div><div class="ttdoc">Creates a console sink.</div></div>
+<div class="ttc" id="anamespaceRADLogging_html_a8317de65c6fc04ea0c80520b60f81949a4059b0251f66a18cb56f544728796875"><div class="ttname"><a href="namespaceRADLogging.html#a8317de65c6fc04ea0c80520b60f81949a4059b0251f66a18cb56f544728796875">RADLogging::Level::Info</a></div><div class="ttdeci">@ Info</div></div>
+<div class="ttc" id="anamespaceRADLogging_html_a9e4f35016775cc63ee16d7321744d4ae"><div class="ttname"><a href="namespaceRADLogging.html#a9e4f35016775cc63ee16d7321744d4ae">RADLogging::rotatingFileSink</a></div><div class="ttdeci">std::shared_ptr&lt; Sink &gt; rotatingFileSink(const std::string &amp;path, size_t maxBytes, size_t maxFiles=3)</div><div class="ttdoc">Creates a rotating file sink.</div></div>
+</div><!-- fragment --> </div></div><!-- contents -->
 </div><!-- PageDoc -->
 </div><!-- doc-content -->
 <!-- start footer part -->

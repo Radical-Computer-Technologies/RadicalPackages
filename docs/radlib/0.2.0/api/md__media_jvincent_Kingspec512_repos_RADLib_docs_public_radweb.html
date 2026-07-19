@@ -88,14 +88,46 @@ $(document).ready(function(){initNavTree('md__media_jvincent_Kingspec512_repos_R
 <div class="title"><a class="el" href="namespaceRADWeb.html">RADWeb</a> </div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><p><a class="el" href="namespaceRADWeb.html">RADWeb</a> wraps WebKitGTK behind a PIMPL public API. Public headers do not expose GTK or WebKit headers. It provides a browser window with tabs, URL loading, JavaScript evaluation, find-in-page, zoom, history, bookmarks, downloads, settings, permission handling, cookie policy, persistent/ephemeral profiles, and session restore.</p>
+<div class="textblock"><p><a class="el" href="namespaceRADWeb.html">RADWeb</a> wraps WebKitGTK behind a PIMPL public API in the <code><a class="el" href="namespaceRADWeb.html">RADWeb</a></code> namespace. Public headers do not expose GTK or WebKit headers. It provides a browser window with tabs, URL loading, JavaScript evaluation, find-in-page, zoom, history, bookmarks, downloads, settings, permission handling, cookie policy, persistent/ephemeral profiles, and session restore.</p>
+<p><code>RADWebBrowserWindow</code> is the single public class. It derives from <code><a class="el" href="classRADCore_1_1RADObject.html" title="Base class for event receivers, senders, and thread-affinity aware objects.">RADCore::RADObject</a></code>, so it integrates with <a class="el" href="namespaceRADCore.html">RADCore</a> events: <code>RAD_EVENT</code> signals include <code>loadStarted</code>/<code>loadFinished</code>/<code>loadFailed</code>, <code>titleChanged</code>/<code>uriChanged</code>, <code>javaScriptFinished</code>/<code>javaScriptFailed</code>, tab lifecycle (<code>tabAdded</code>, <code>tabClosed</code>, <code>activeTabChanged</code>), download lifecycle (<code>downloadStarted</code>, <code>downloadUpdated</code>, <code>downloadFinished</code>, <code>downloadFailed</code>), <code>permissionRequested</code>, <code>historyChanged</code>, <code>bookmarksChanged</code>, and <code>closed</code>.</p>
+<p>The window is created with <code>create()</code> (basic dimensions or a full <code>RADWebWindowOptions</code> struct) and driven with <code><a class="el" href="namespaceRADUi.html#a9f2f42c53d766024b0bfc37ba4dd6fcc" title="Runs the installed backend&#39;s UI event loop.">run()</a></code>/<code><a class="el" href="namespaceRADUi.html#ae14f432fc7f4403737def2488fb7485c" title="Requests the installed backend to quit.">quit()</a></code>. Tabs are managed with <code>newTab()</code>, <code>closeTab()</code>, <code>duplicateTab()</code>, <code>moveTab()</code>, and <code>setActiveTab()</code>, and inspected through <code>RADWebTabInfo</code> snapshots. Navigation uses <code>loadUrl()</code>, <code>loadHtml()</code>, <code>evaluateJavaScript()</code>, plus <code>goBack()</code>/<code>goForward()</code>/<code>reload()</code>. Runtime configuration flows through <code>RADWebSettings</code> (with <code>RADWebCookiePolicy</code> and <code>RADWebPermissionPolicy</code> enums) applied via <code>applySettings()</code>. Persistent state is exposed as <code>RADWebHistoryItem</code>, <code>RADWebBookmark</code>, and <code>RADWebDownloadInfo</code> records through <code>history()</code>, <code>bookmarks()</code>, and <code>downloads()</code>. <code>nativeWindow()</code> and <code>nativeWebView()</code> return raw GTK/WebKit pointers for advanced integration.</p>
+<h1><a class="anchor" id="autotoc_md45"></a>
+Core features</h1>
+<ul>
+<li>Single <code>RADWebBrowserWindow</code> class over WebKitGTK, PIMPL-hidden.</li>
+<li><a class="el" href="namespaceRADCore.html">RADCore</a> <code>RAD_EVENT</code> signals for load, tab, download, and permission events.</li>
+<li>Multi-tab navigation, JavaScript evaluation, find-in-page, and zoom.</li>
+<li>History, bookmarks, downloads, cookie/permission policy, and session restore.</li>
+<li><code>RADWebSettings</code>/<code>RADWebWindowOptions</code> configuration and native handle access.</li>
+</ul>
 <p>Beta notes:</p>
 <ul>
 <li>Browser behavior depends on the system WebKitGTK and GTK versions.</li>
 <li>History, bookmark, download, and session data can be backed by <a class="el" href="namespaceRADDatabase.html">RADDatabase</a>.</li>
-<li>Native handles are available for advanced integrations that need direct WebKitGTK access. </li>
+<li>Native handles are available for advanced integrations that need direct WebKitGTK access.</li>
 </ul>
-</div></div><!-- contents -->
+<p>Example:</p>
+<div class="fragment"><div class="line"><a class="code" href="classRADWeb_1_1RADWebBrowserWindow.html">RADWeb::RADWebBrowserWindow</a> browser;</div>
+<div class="line"><a class="code" href="RADCore_8h.html#a9bb09eb45d06b2d43508263a35c2a9ff">RADCONNECT</a>(browser, loadFinished, &amp;listener, Listener, onLoadFinished);</div>
+<div class="line"> </div>
+<div class="line"><a class="code" href="structRADWeb_1_1RADWebWindowOptions.html">RADWeb::RADWebWindowOptions</a> options;</div>
+<div class="line">options.<a class="code" href="structRADWeb_1_1RADWebWindowOptions.html#a05efbbbf340f5cf066557a76a23a0f18">title</a> = <span class="stringliteral">&quot;RADPx-OS Browser&quot;</span>;</div>
+<div class="line"><span class="keywordflow">if</span> (browser.<a class="code" href="classRADWeb_1_1RADWebBrowserWindow.html#a625a40f719eca7a53ee5c079186dede1">create</a>(options)) {</div>
+<div class="line">    browser.<a class="code" href="classRADWeb_1_1RADWebBrowserWindow.html#af4142adbe91d2bf0c272f62f5b4fa7dc">newTab</a>(<span class="stringliteral">&quot;https://radcomp.tech&quot;</span>);</div>
+<div class="line">    browser.<a class="code" href="classRADWeb_1_1RADWebBrowserWindow.html#af43ef42549dcf736df74fb8eff5ade6e">evaluateJavaScript</a>(<span class="stringliteral">&quot;document.title&quot;</span>);</div>
+<div class="line">    browser.<a class="code" href="classRADWeb_1_1RADWebBrowserWindow.html#a92c07fc370edb180961ac4377b9273c9">show</a>();</div>
+<div class="line">    browser.<a class="code" href="classRADWeb_1_1RADWebBrowserWindow.html#a6678acdc36d1c7bb973e62668854abc3">run</a>();</div>
+<div class="line">}</div>
+<div class="ttc" id="aRADCore_8h_html_a9bb09eb45d06b2d43508263a35c2a9ff"><div class="ttname"><a href="RADCore_8h.html#a9bb09eb45d06b2d43508263a35c2a9ff">RADCONNECT</a></div><div class="ttdeci">#define RADCONNECT(Sender, RadEvent, Receiver, Class, RadEventHandler)</div><div class="ttdoc">Connects an event to a receiver handler using the receiver's thread affinity.</div><div class="ttdef"><b>Definition:</b> RADCore.h:100</div></div>
+<div class="ttc" id="aclassRADWeb_1_1RADWebBrowserWindow_html"><div class="ttname"><a href="classRADWeb_1_1RADWebBrowserWindow.html">RADWeb::RADWebBrowserWindow</a></div><div class="ttdoc">WebKitGTK-backed browser window with tabs, history, downloads, and settings.</div><div class="ttdef"><b>Definition:</b> RADWeb.h:140</div></div>
+<div class="ttc" id="aclassRADWeb_1_1RADWebBrowserWindow_html_a625a40f719eca7a53ee5c079186dede1"><div class="ttname"><a href="classRADWeb_1_1RADWebBrowserWindow.html#a625a40f719eca7a53ee5c079186dede1">RADWeb::RADWebBrowserWindow::create</a></div><div class="ttdeci">bool create(int width=1200, int height=800, const std::string &amp;title=&quot;RADWeb Browser&quot;)</div><div class="ttdoc">Creates the browser window with basic dimensions and title.</div></div>
+<div class="ttc" id="aclassRADWeb_1_1RADWebBrowserWindow_html_a6678acdc36d1c7bb973e62668854abc3"><div class="ttname"><a href="classRADWeb_1_1RADWebBrowserWindow.html#a6678acdc36d1c7bb973e62668854abc3">RADWeb::RADWebBrowserWindow::run</a></div><div class="ttdeci">void run()</div><div class="ttdoc">Runs the GTK/WebKit event loop.</div></div>
+<div class="ttc" id="aclassRADWeb_1_1RADWebBrowserWindow_html_a92c07fc370edb180961ac4377b9273c9"><div class="ttname"><a href="classRADWeb_1_1RADWebBrowserWindow.html#a92c07fc370edb180961ac4377b9273c9">RADWeb::RADWebBrowserWindow::show</a></div><div class="ttdeci">void show()</div><div class="ttdoc">Shows the native browser window.</div></div>
+<div class="ttc" id="aclassRADWeb_1_1RADWebBrowserWindow_html_af4142adbe91d2bf0c272f62f5b4fa7dc"><div class="ttname"><a href="classRADWeb_1_1RADWebBrowserWindow.html#af4142adbe91d2bf0c272f62f5b4fa7dc">RADWeb::RADWebBrowserWindow::newTab</a></div><div class="ttdeci">int newTab(const std::string &amp;url=&quot;about:blank&quot;, bool makeActive=true)</div><div class="ttdoc">Opens url in a new tab and returns the tab id.</div></div>
+<div class="ttc" id="aclassRADWeb_1_1RADWebBrowserWindow_html_af43ef42549dcf736df74fb8eff5ade6e"><div class="ttname"><a href="classRADWeb_1_1RADWebBrowserWindow.html#af43ef42549dcf736df74fb8eff5ade6e">RADWeb::RADWebBrowserWindow::evaluateJavaScript</a></div><div class="ttdeci">void evaluateJavaScript(const std::string &amp;script)</div><div class="ttdoc">Evaluates JavaScript in the active tab.</div></div>
+<div class="ttc" id="astructRADWeb_1_1RADWebWindowOptions_html"><div class="ttname"><a href="structRADWeb_1_1RADWebWindowOptions.html">RADWeb::RADWebWindowOptions</a></div><div class="ttdoc">Creation options for RADWebBrowserWindow.</div><div class="ttdef"><b>Definition:</b> RADWeb.h:122</div></div>
+<div class="ttc" id="astructRADWeb_1_1RADWebWindowOptions_html_a05efbbbf340f5cf066557a76a23a0f18"><div class="ttname"><a href="structRADWeb_1_1RADWebWindowOptions.html#a05efbbbf340f5cf066557a76a23a0f18">RADWeb::RADWebWindowOptions::title</a></div><div class="ttdeci">std::string title</div><div class="ttdoc">Initial window title.</div><div class="ttdef"><b>Definition:</b> RADWeb.h:128</div></div>
+</div><!-- fragment --> </div></div><!-- contents -->
 </div><!-- PageDoc -->
 </div><!-- doc-content -->
 <!-- start footer part -->

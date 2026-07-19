@@ -1,0 +1,132 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="classrad_1_1Module" kind="class" language="C++" prot="public">
+    <compoundname>rad::Module</compoundname>
+    <includes refid="rad__cpp_8h" local="no">rad_cpp.h</includes>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classrad_1_1Module_1a0549c5500126fb61f4775ecb2c2abcb0" prot="private" static="no" mutable="no">
+        <type>const char *</type>
+        <definition>const char* rad::Module::name_</definition>
+        <argsstring></argsstring>
+        <name>name_</name>
+        <initializer>= nullptr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADPx-OS/RADKernel/headers/radkernel/rad_cpp.h" line="163" column="16" bodyfile="/media/jvincent/Kingspec512/repos/RADPx-OS/RADKernel/headers/radkernel/rad_cpp.h" bodystart="163" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classrad_1_1Module_1aec4c32cd06aced7bdfaa98e37e0520ac" prot="private" static="no" mutable="no">
+        <type><ref refid="radkernel_8h_1aeb7c981d4b5f029daa65d3b928bab127" kindref="member">rad_status_t</ref></type>
+        <definition>rad_status_t rad::Module::status_</definition>
+        <argsstring></argsstring>
+        <name>status_</name>
+        <initializer>= <ref refid="radkernel_8h_1aa694fb66cb1a6852963a4d4acd69ea0aa04729699be9d6bcbe0ab4c605d149c83" kindref="member">RAD_STATUS_NOT_INITIALIZED</ref></initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADPx-OS/RADKernel/headers/radkernel/rad_cpp.h" line="164" column="18" bodyfile="/media/jvincent/Kingspec512/repos/RADPx-OS/RADKernel/headers/radkernel/rad_cpp.h" bodystart="164" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classrad_1_1Module_1a11a40c21a2463b818d31ed5593b7cacb" prot="public" static="no" const="no" explicit="yes" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>rad::Module::Module</definition>
+        <argsstring>(const rad_module_descriptor_t &amp;descriptor)</argsstring>
+        <name>Module</name>
+        <param>
+          <type>const <ref refid="radkernel_8h_1aaf8ba4467e7ad0f37c3df2bfba318603" kindref="member">rad_module_descriptor_t</ref> &amp;</type>
+          <declname>descriptor</declname>
+        </param>
+        <briefdescription>
+<para>Register a module descriptor and unregister it on destruction. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADPx-OS/RADKernel/headers/radkernel/rad_cpp.h" line="153" column="14" bodyfile="/media/jvincent/Kingspec512/repos/RADPx-OS/RADKernel/headers/radkernel/rad_cpp.h" bodystart="153" bodyend="155"/>
+      </memberdef>
+      <memberdef kind="function" id="classrad_1_1Module_1ad94235b9df90db690959dcf87cb4a995" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>rad::Module::~Module</definition>
+        <argsstring>()</argsstring>
+        <name>~Module</name>
+        <briefdescription>
+<para>Unregister the module when registration succeeded. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADPx-OS/RADKernel/headers/radkernel/rad_cpp.h" line="157" column="5" bodyfile="/media/jvincent/Kingspec512/repos/RADPx-OS/RADKernel/headers/radkernel/rad_cpp.h" bodystart="157" bodyend="157"/>
+      </memberdef>
+      <memberdef kind="function" id="classrad_1_1Module_1a3014c724365bc4a66f1010da225e9cc5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>rad::Module::Module</definition>
+        <argsstring>(const Module &amp;)=delete</argsstring>
+        <name>Module</name>
+        <param>
+          <type>const <ref refid="classrad_1_1Module" kindref="compound">Module</ref> &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADPx-OS/RADKernel/headers/radkernel/rad_cpp.h" line="158" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classrad_1_1Module_1a8c39c7d3c000fbd4b18fc286c3e8f905" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classrad_1_1Module" kindref="compound">Module</ref> &amp;</type>
+        <definition>Module&amp; rad::Module::operator=</definition>
+        <argsstring>(const Module &amp;)=delete</argsstring>
+        <name>operator=</name>
+        <param>
+          <type>const <ref refid="classrad_1_1Module" kindref="compound">Module</ref> &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADPx-OS/RADKernel/headers/radkernel/rad_cpp.h" line="159" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classrad_1_1Module_1a61294413da507f54fc8a432564bd1000" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="radkernel_8h_1aeb7c981d4b5f029daa65d3b928bab127" kindref="member">rad_status_t</ref></type>
+        <definition>rad_status_t rad::Module::status</definition>
+        <argsstring>() const</argsstring>
+        <name>status</name>
+        <briefdescription>
+<para>Return registration status. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADPx-OS/RADKernel/headers/radkernel/rad_cpp.h" line="161" column="18" bodyfile="/media/jvincent/Kingspec512/repos/RADPx-OS/RADKernel/headers/radkernel/rad_cpp.h" bodystart="161" bodyend="161"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>RAII registration wrapper for rad_module_descriptor_t. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/media/jvincent/Kingspec512/repos/RADPx-OS/RADKernel/headers/radkernel/rad_cpp.h" line="150" column="1" bodyfile="/media/jvincent/Kingspec512/repos/RADPx-OS/RADKernel/headers/radkernel/rad_cpp.h" bodystart="150" bodyend="165"/>
+    <listofallmembers>
+      <member refid="classrad_1_1Module_1a11a40c21a2463b818d31ed5593b7cacb" prot="public" virt="non-virtual"><scope>rad::Module</scope><name>Module</name></member>
+      <member refid="classrad_1_1Module_1a3014c724365bc4a66f1010da225e9cc5" prot="public" virt="non-virtual"><scope>rad::Module</scope><name>Module</name></member>
+      <member refid="classrad_1_1Module_1a0549c5500126fb61f4775ecb2c2abcb0" prot="private" virt="non-virtual"><scope>rad::Module</scope><name>name_</name></member>
+      <member refid="classrad_1_1Module_1a8c39c7d3c000fbd4b18fc286c3e8f905" prot="public" virt="non-virtual"><scope>rad::Module</scope><name>operator=</name></member>
+      <member refid="classrad_1_1Module_1a61294413da507f54fc8a432564bd1000" prot="public" virt="non-virtual"><scope>rad::Module</scope><name>status</name></member>
+      <member refid="classrad_1_1Module_1aec4c32cd06aced7bdfaa98e37e0520ac" prot="private" virt="non-virtual"><scope>rad::Module</scope><name>status_</name></member>
+      <member refid="classrad_1_1Module_1ad94235b9df90db690959dcf87cb4a995" prot="public" virt="non-virtual"><scope>rad::Module</scope><name>~Module</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

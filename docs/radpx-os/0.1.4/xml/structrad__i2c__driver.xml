@@ -1,0 +1,107 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="structrad__i2c__driver" kind="struct" language="C++" prot="public">
+    <compoundname>rad_i2c_driver</compoundname>
+    <includes refid="radkernel_8h" local="no">radkernel.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structrad__i2c__driver_1af5448ef486cc3ac765269d016b42e196" prot="public" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t rad_i2c_driver::size</definition>
+        <argsstring></argsstring>
+        <name>size</name>
+        <briefdescription>
+<para>Public structure field. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADPx-OS/RADKernel/headers/radkernel/radkernel.h" line="1056" column="14" bodyfile="/media/jvincent/Kingspec512/repos/RADPx-OS/RADKernel/headers/radkernel/radkernel.h" bodystart="1056" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structrad__i2c__driver_1a85337a246d38cd26aab41c0a16dc620b" prot="public" static="no" mutable="no">
+        <type>const char *</type>
+        <definition>const char* rad_i2c_driver::name</definition>
+        <argsstring></argsstring>
+        <name>name</name>
+        <briefdescription>
+<para>Public structure field. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADPx-OS/RADKernel/headers/radkernel/radkernel.h" line="1057" column="16" bodyfile="/media/jvincent/Kingspec512/repos/RADPx-OS/RADKernel/headers/radkernel/radkernel.h" bodystart="1057" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structrad__i2c__driver_1a8882448c1cccc706b2ad080eccc9886c" prot="public" static="no" mutable="no">
+        <type>const char *</type>
+        <definition>const char* rad_i2c_driver::compatible</definition>
+        <argsstring></argsstring>
+        <name>compatible</name>
+        <briefdescription>
+<para>Public structure field. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADPx-OS/RADKernel/headers/radkernel/radkernel.h" line="1058" column="16" bodyfile="/media/jvincent/Kingspec512/repos/RADPx-OS/RADKernel/headers/radkernel/radkernel.h" bodystart="1058" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structrad__i2c__driver_1a4524c9bc7f087032acc25ca8e80003ce" prot="public" static="no" mutable="no">
+        <type>void *</type>
+        <definition>void* rad_i2c_driver::context</definition>
+        <argsstring></argsstring>
+        <name>context</name>
+        <briefdescription>
+<para>Public structure field. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADPx-OS/RADKernel/headers/radkernel/radkernel.h" line="1059" column="10" bodyfile="/media/jvincent/Kingspec512/repos/RADPx-OS/RADKernel/headers/radkernel/radkernel.h" bodystart="1059" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structrad__i2c__driver_1ac7158af6c04c56bcde0b4b26f08d19b7" prot="public" static="no" mutable="no">
+        <type><ref refid="radkernel_8h_1aeb7c981d4b5f029daa65d3b928bab127" kindref="member">rad_status_t</ref>(*</type>
+        <definition>rad_status_t(* rad_i2c_driver::probe) (void *context, rad_i2c_device_t *device)</definition>
+        <argsstring>)(void *context, rad_i2c_device_t *device)</argsstring>
+        <name>probe</name>
+        <briefdescription>
+<para>Public callback slot. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADPx-OS/RADKernel/headers/radkernel/radkernel.h" line="1060" column="5" bodyfile="/media/jvincent/Kingspec512/repos/RADPx-OS/RADKernel/headers/radkernel/radkernel.h" bodystart="1060" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structrad__i2c__driver_1a32257ef1c87ad53bc28d09b35e5f7038" prot="public" static="no" mutable="no">
+        <type>void(*</type>
+        <definition>void(* rad_i2c_driver::remove) (void *context, rad_i2c_device_t *device)</definition>
+        <argsstring>)(void *context, rad_i2c_device_t *device)</argsstring>
+        <name>remove</name>
+        <briefdescription>
+<para>Public callback slot. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADPx-OS/RADKernel/headers/radkernel/radkernel.h" line="1061" column="5" bodyfile="/media/jvincent/Kingspec512/repos/RADPx-OS/RADKernel/headers/radkernel/radkernel.h" bodystart="1061" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Public data structure for <ref refid="structrad__i2c__driver" kindref="compound">rad_i2c_driver</ref>. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/media/jvincent/Kingspec512/repos/RADPx-OS/RADKernel/headers/radkernel/radkernel.h" line="1055" column="1" bodyfile="/media/jvincent/Kingspec512/repos/RADPx-OS/RADKernel/headers/radkernel/radkernel.h" bodystart="1055" bodyend="1062"/>
+    <listofallmembers>
+      <member refid="structrad__i2c__driver_1a8882448c1cccc706b2ad080eccc9886c" prot="public" virt="non-virtual"><scope>rad_i2c_driver</scope><name>compatible</name></member>
+      <member refid="structrad__i2c__driver_1a4524c9bc7f087032acc25ca8e80003ce" prot="public" virt="non-virtual"><scope>rad_i2c_driver</scope><name>context</name></member>
+      <member refid="structrad__i2c__driver_1a85337a246d38cd26aab41c0a16dc620b" prot="public" virt="non-virtual"><scope>rad_i2c_driver</scope><name>name</name></member>
+      <member refid="structrad__i2c__driver_1ac7158af6c04c56bcde0b4b26f08d19b7" prot="public" virt="non-virtual"><scope>rad_i2c_driver</scope><name>probe</name></member>
+      <member refid="structrad__i2c__driver_1a32257ef1c87ad53bc28d09b35e5f7038" prot="public" virt="non-virtual"><scope>rad_i2c_driver</scope><name>remove</name></member>
+      <member refid="structrad__i2c__driver_1af5448ef486cc3ac765269d016b42e196" prot="public" virt="non-virtual"><scope>rad_i2c_driver</scope><name>size</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

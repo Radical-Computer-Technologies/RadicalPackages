@@ -88,15 +88,44 @@ $(document).ready(function(){initNavTree('md__media_jvincent_Kingspec512_repos_R
 <div class="title"><a class="el" href="namespaceRADCLI.html">RADCLI</a> </div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><p><code><a class="el" href="namespaceRADCLI.html">RADCLI</a></code> provides command-line and application utility helpers.</p>
+<div class="textblock"><p><code><a class="el" href="namespaceRADCLI.html">RADCLI</a></code> provides command-line parsing and application utility helpers for RADLib tools and examples.</p>
+<p><code><a class="el" href="classRADCLI_1_1CommandLineParser.html" title="Small command-line parser for RADLib tools and examples.">RADCLI::CommandLineParser</a></code> is the core type. It is constructed with an application name, takes an optional description via <code>setDescription()</code>, and accepts option definitions through <code>addOption()</code>. Each <code><a class="el" href="structRADCLI_1_1Option.html" title="One command-line option definition.">RADCLI::Option</a></code> declares a long <code>name</code>, an optional <code>shortName</code>, <code>description</code>, and the <code>requiresValue</code>, <code>required</code>, and <code>defaultValue</code> fields that control validation and defaults. <code>parse()</code> accepts either <code>argc</code>/<code>argv</code> or a <code>std::vector&lt;std::string&gt;</code> (where <code>args[0]</code> is the program name), and <code>helpText()</code> builds formatted usage text from the registered options.</p>
+<p>Parsing yields a <code><a class="el" href="classRADCLI_1_1ParseResult.html" title="Parsed command-line result.">RADCLI::ParseResult</a></code>. Call <code>ok()</code> and <code>error()</code> to check for failures, <code>has()</code> to test whether an option was explicitly provided, <code>value()</code> to read an option value or its default, and <code>positionals()</code> to read the remaining positional arguments.</p>
+<p><a class="el" href="namespaceRADCLI.html">RADCLI</a> also exposes free-function application helpers: <code><a class="el" href="namespaceRADCLI.html#abf666f5ada86197d2a8949e4ec050b6d" title="Returns an environment variable value when present.">environmentVariable()</a></code> and <code><a class="el" href="namespaceRADCLI.html#a9badbd653a5f9552775186e1522e3765" title="Sets or unsets an environment variable.">setEnvironmentVariable()</a></code> for the process environment, <code><a class="el" href="namespaceRADCLI.html#a49eaf45dc00f1d2d07c82bd3a012c214" title="Returns the current executable path when available.">executablePath()</a></code> for the current binary path, <code><a class="el" href="namespaceRADCLI.html#a54d41d6cc7a3f1dda387b78f0c3f9440" title="Returns the current username when available.">currentUserName()</a></code> for the active user, and <code><a class="el" href="namespaceRADCLI.html#a7b710c172eaf0adbf55470cd4544b369" title="Returns the RADLib version string.">radlibVersionString()</a></code> for the RADLib version string.</p>
 <p>Core features:</p>
 <ul>
 <li>Long and short options.</li>
 <li>Required options, defaults, flags, and positional arguments.</li>
 <li>Help text generation.</li>
-<li>Environment, executable path, current user, and RADLib version helpers. </li>
+<li>Environment, executable path, current user, and RADLib version helpers.</li>
 </ul>
-</div></div><!-- contents -->
+<p>Example:</p>
+<div class="fragment"><div class="line"><a class="code" href="classRADCLI_1_1CommandLineParser.html">RADCLI::CommandLineParser</a> parser(<span class="stringliteral">&quot;radtool&quot;</span>);</div>
+<div class="line">parser.setDescription(<span class="stringliteral">&quot;Example RADLib command-line tool.&quot;</span>);</div>
+<div class="line">parser.addOption({<span class="stringliteral">&quot;config&quot;</span>, <span class="charliteral">&#39;c&#39;</span>, <span class="stringliteral">&quot;Config file path&quot;</span>, <span class="keyword">true</span>, <span class="keyword">true</span>, <span class="stringliteral">&quot;&quot;</span>});</div>
+<div class="line">parser.addOption({<span class="stringliteral">&quot;verbose&quot;</span>, <span class="charliteral">&#39;v&#39;</span>, <span class="stringliteral">&quot;Enable verbose output&quot;</span>, <span class="keyword">false</span>, <span class="keyword">false</span>, <span class="stringliteral">&quot;&quot;</span>});</div>
+<div class="line"> </div>
+<div class="line"><a class="code" href="classRADCLI_1_1ParseResult.html">RADCLI::ParseResult</a> result = parser.parse(argc, argv);</div>
+<div class="line"><span class="keywordflow">if</span> (!result.<a class="code" href="classRADCLI_1_1ParseResult.html#a9a361888d7f9c39b037f82735e4baf43">ok</a>()) {</div>
+<div class="line">    <a class="code" href="RADLogging_8h.html#adcc91b12946e023f3e02364924f79aeb">RADLOG_ERROR</a>(<span class="stringliteral">&quot;cli&quot;</span>) &lt;&lt; result.<a class="code" href="classRADCLI_1_1ParseResult.html#ad3f9feb08d21d09d6aa4f68106b23b46">error</a>();</div>
+<div class="line">    std::puts(parser.helpText().c_str());</div>
+<div class="line">    <span class="keywordflow">return</span> 1;</div>
+<div class="line">}</div>
+<div class="line"> </div>
+<div class="line">std::string configPath = result.<a class="code" href="classRADCLI_1_1ParseResult.html#ac622ac4176beba698e48faff808cfff5">value</a>(<span class="stringliteral">&quot;config&quot;</span>, <span class="stringliteral">&quot;default.json&quot;</span>);</div>
+<div class="line"><span class="keywordtype">bool</span> verbose = result.<a class="code" href="classRADCLI_1_1ParseResult.html#a49b66dd0ade2921288804022276639e7">has</a>(<span class="stringliteral">&quot;verbose&quot;</span>);</div>
+<div class="line"><a class="code" href="RADLogging_8h.html#aa88dbb52f2771f10bd298dc1ee6309ec">RADLOG_INFO</a>(<span class="stringliteral">&quot;cli&quot;</span>) &lt;&lt; <span class="stringliteral">&quot;radlib &quot;</span> &lt;&lt; <a class="code" href="namespaceRADCLI.html#a7b710c172eaf0adbf55470cd4544b369">RADCLI::radlibVersionString</a>()</div>
+<div class="line">                   &lt;&lt; <span class="stringliteral">&quot; config=&quot;</span> &lt;&lt; configPath;</div>
+<div class="ttc" id="aRADLogging_8h_html_aa88dbb52f2771f10bd298dc1ee6309ec"><div class="ttname"><a href="RADLogging_8h.html#aa88dbb52f2771f10bd298dc1ee6309ec">RADLOG_INFO</a></div><div class="ttdeci">#define RADLOG_INFO(category)</div><div class="ttdoc">Logs with RADLogging at info level.</div><div class="ttdef"><b>Definition:</b> RADLogging.h:112</div></div>
+<div class="ttc" id="aRADLogging_8h_html_adcc91b12946e023f3e02364924f79aeb"><div class="ttname"><a href="RADLogging_8h.html#adcc91b12946e023f3e02364924f79aeb">RADLOG_ERROR</a></div><div class="ttdeci">#define RADLOG_ERROR(category)</div><div class="ttdoc">Logs with RADLogging at error level.</div><div class="ttdef"><b>Definition:</b> RADLogging.h:116</div></div>
+<div class="ttc" id="aclassRADCLI_1_1CommandLineParser_html"><div class="ttname"><a href="classRADCLI_1_1CommandLineParser.html">RADCLI::CommandLineParser</a></div><div class="ttdoc">Small command-line parser for RADLib tools and examples.</div><div class="ttdef"><b>Definition:</b> RADCLI.h:60</div></div>
+<div class="ttc" id="aclassRADCLI_1_1ParseResult_html"><div class="ttname"><a href="classRADCLI_1_1ParseResult.html">RADCLI::ParseResult</a></div><div class="ttdoc">Parsed command-line result.</div><div class="ttdef"><b>Definition:</b> RADCLI.h:37</div></div>
+<div class="ttc" id="aclassRADCLI_1_1ParseResult_html_a49b66dd0ade2921288804022276639e7"><div class="ttname"><a href="classRADCLI_1_1ParseResult.html#a49b66dd0ade2921288804022276639e7">RADCLI::ParseResult::has</a></div><div class="ttdeci">bool has(const std::string &amp;name) const</div><div class="ttdoc">Returns true when option was explicitly provided.</div></div>
+<div class="ttc" id="aclassRADCLI_1_1ParseResult_html_a9a361888d7f9c39b037f82735e4baf43"><div class="ttname"><a href="classRADCLI_1_1ParseResult.html#a9a361888d7f9c39b037f82735e4baf43">RADCLI::ParseResult::ok</a></div><div class="ttdeci">bool ok() const</div><div class="ttdoc">Returns true when parsing succeeded.</div></div>
+<div class="ttc" id="aclassRADCLI_1_1ParseResult_html_ac622ac4176beba698e48faff808cfff5"><div class="ttname"><a href="classRADCLI_1_1ParseResult.html#ac622ac4176beba698e48faff808cfff5">RADCLI::ParseResult::value</a></div><div class="ttdeci">std::string value(const std::string &amp;name, const std::string &amp;defaultValue={}) const</div><div class="ttdoc">Returns option value or defaultValue.</div></div>
+<div class="ttc" id="aclassRADCLI_1_1ParseResult_html_ad3f9feb08d21d09d6aa4f68106b23b46"><div class="ttname"><a href="classRADCLI_1_1ParseResult.html#ad3f9feb08d21d09d6aa4f68106b23b46">RADCLI::ParseResult::error</a></div><div class="ttdeci">const std::string &amp; error() const</div><div class="ttdoc">Returns parser error text.</div></div>
+<div class="ttc" id="anamespaceRADCLI_html_a7b710c172eaf0adbf55470cd4544b369"><div class="ttname"><a href="namespaceRADCLI.html#a7b710c172eaf0adbf55470cd4544b369">RADCLI::radlibVersionString</a></div><div class="ttdeci">std::string radlibVersionString()</div><div class="ttdoc">Returns the RADLib version string.</div></div>
+</div><!-- fragment --> </div></div><!-- contents -->
 </div><!-- PageDoc -->
 </div><!-- doc-content -->
 <!-- start footer part -->

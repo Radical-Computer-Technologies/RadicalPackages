@@ -1,0 +1,69 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="md__media_jvincent_Kingspec512_repos_RADPx_OS_docs_public_zuboard_1cg" kind="page">
+    <compoundname>md__media_jvincent_Kingspec512_repos_RADPx_OS_docs_public_zuboard_1cg</compoundname>
+    <title>ZuBoard 1CG Serial Bring-Up</title>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>RADPx-OS includes an experimental serial-only target for the Avnet/Tria ZuBoard 1CG. This is the first Zynq UltraScale+ MPSoC platform target and is intended to prove A53 boot handoff before SD, USB, Ethernet, framebuffer, PL runtime, or R5 AMP scheduling work.</para>
+<para>Current bring-up state and next debugging steps are tracked in <ref refid="md__media_jvincent_Kingspec512_repos_RADPx_OS_docs_public_zuboard_1cg_handoff" kindref="compound">`zuboard-1cg-handoff.md`</ref>.</para>
+<sect1 id="md__media_jvincent_Kingspec512_repos_RADPx_OS_docs_public_zuboard_1cg_1autotoc_md68">
+<title>Boot Model</title>
+<para>The first pass uses the standard ZynqMP boot chain:</para>
+<para><orderedlist>
+<listitem><para>FSBL initializes the processing system and DDR from an XSA.</para>
+</listitem><listitem><para>PMU firmware and optional TF-A/BL31 establish the firmware handoff state.</para>
+</listitem><listitem><para>U-Boot loads <computeroutput>rad-zuboard.elf</computeroutput> from the ext4 root partition.</para>
+</listitem><listitem><para>U-Boot enters RADPx-OS with <computeroutput>bootelf</computeroutput>.</para>
+</listitem></orderedlist>
+</para>
+<para>RadBuild owns the repeatable flow around this chain. It can stage the local <computeroutput>../ZUBoard-1CG_RT</computeroutput> reference XSA for quick bring-up, generate a PS-only XSA when Avnet board files are available, write XSCT firmware scripts, write a Bootgen BIF, and stage SD-card boot files.</para>
+</sect1>
+<sect1 id="md__media_jvincent_Kingspec512_repos_RADPx_OS_docs_public_zuboard_1cg_1autotoc_md69">
+<title>Current Kernel Scope</title>
+<para>The <computeroutput>zynqmp_zuboard_1cg</computeroutput> backend currently provides:</para>
+<para><itemizedlist>
+<listitem><para>A53 core-0 boot entry with all nonzero MPIDR cores parked in <computeroutput>wfe</computeroutput>.</para>
+</listitem><listitem><para>Secondary A53 parking markers for the dual-core ZuBoard target.</para>
+</listitem><listitem><para>Cadence PS UART console at 115200 8N1.</para>
+</listitem><listitem><para>ZynqMP SDHCI block registration as <computeroutput>/dev/mmcblk0</computeroutput> with MBR partitions.</para>
+</listitem><listitem><para>ext4 rootfs mount from <computeroutput>/dev/mmcblk0p2</computeroutput>.</para>
+</listitem><listitem><para>ARM generic timer delays.</para>
+</listitem><listitem><para>AArch64 exception vector install, EL1 MMU enable, 4 GiB identity kernel mapping, and high ZynqMP MMIO mapped as device memory.</para>
+</listitem><listitem><para>A53 process scale aligned with the x86 early target: 128 kernel tasks, 128 architecture-tracked user processes, and 512 KiB kernel task stacks.</para>
+</listitem><listitem><para><computeroutput>/bin/init</computeroutput>, <computeroutput>/bin/login</computeroutput>, <computeroutput>/bin/rash</computeroutput>, <computeroutput>/bin/sh</computeroutput>, and <computeroutput>libradc.rso</computeroutput> in the ext4 rootfs.</para>
+</listitem></itemizedlist>
+</para>
+<para>Expected serial markers include <computeroutput>RAD_ZUBOARD_UART_OK</computeroutput> and <computeroutput>RAD_ZUBOARD_SERIAL_LOGIN_READY</computeroutput>. The QEMU smoke should also emit <computeroutput>RAD_AARCH64_MMU_ON_OK</computeroutput>, <computeroutput>RAD_EXT4_MOUNT_OK</computeroutput>, <computeroutput>RAD_ZUBOARD_EXT4_ROOT_OK</computeroutput>, <computeroutput>RAD_AARCH64_USERLAND_OK</computeroutput>, and <computeroutput>RAD_LOGIN_SPAWN_OK</computeroutput>.</para>
+</sect1>
+<sect1 id="md__media_jvincent_Kingspec512_repos_RADPx_OS_docs_public_zuboard_1cg_1autotoc_md70">
+<title>Build</title>
+<para><programlisting filename=".bash"><codeline><highlight class="normal">make<sp/>-C<sp/>tools/embedded/rad_zuboard_1cg</highlight></codeline>
+</programlisting></para>
+<para>Or create a RadBuild project:</para>
+<para><programlisting filename=".bash"><codeline><highlight class="normal">radbuild<sp/>project<sp/>create<sp/>\</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>--non-interactive<sp/>\</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>--template<sp/>radpx-os-zuboard-serial<sp/>\</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>--project-name<sp/>rad_zuboard<sp/>\</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>--workspace<sp/>/path/to/workspace</highlight></codeline>
+<codeline><highlight class="normal">radbuild<sp/>build<sp/>os<sp/>--settings<sp/>/path/to/workspace/rad_zuboard/settings.json</highlight></codeline>
+</programlisting></para>
+<para>The generated artifact directory contains the RADPx-OS ELF/image, reference or generated XSA files, boot scripts, and staging files for the SD FAT partition.</para>
+</sect1>
+<sect1 id="md__media_jvincent_Kingspec512_repos_RADPx_OS_docs_public_zuboard_1cg_1autotoc_md71">
+<title>QEMU Smoke</title>
+<para>The local QEMU smoke uses QEMU&apos;s <computeroutput>xlnx-zcu102</computeroutput> machine model as a close ZynqMP A53/SDHCI/UART proxy. QEMU exposes SDHCI at a different base address than the hardware ZuBoard path, so the QEMU profile rebuilds the kernel with <computeroutput>RAD_ZYNQMP_SDHCI_BASE=0xff160000u</computeroutput> and pads the SD image to 512 MiB because QEMU&apos;s SD backend requires a power-of-two card size.</para>
+<para><programlisting filename=".bash"><codeline><highlight class="normal">radbuild<sp/>build<sp/>os<sp/>--system<sp/>rad-zuboard-1cg-qemu</highlight></codeline>
+<codeline><highlight class="normal">tools/embedded/rad_zuboard_1cg/run-qemu.sh</highlight></codeline>
+</programlisting></para>
+<para>For automated marker checks:</para>
+<para><programlisting filename=".bash"><codeline><highlight class="normal">RAD_QEMU_BUILD=0<sp/>RAD_QEMU_TIMEOUT=45<sp/>\</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>tools/embedded/rad_zuboard_1cg/run-qemu.sh</highlight></codeline>
+</programlisting></para>
+<para>Use <computeroutput>RAD_QEMU_SMP=1</computeroutput> for the first smoke. The boot assembly parks all cores except core 0; once GIC and per-core scheduling are brought up for ZynqMP, the QEMU profile can be expanded to validate secondary A53 startup. </para>
+</sect1>
+    </detaileddescription>
+    <location file="/media/jvincent/Kingspec512/repos/RADPx-OS/docs/public/zuboard-1cg.md"/>
+  </compounddef>
+</doxygen>

@@ -9,14 +9,55 @@
     <programlisting>
 <codeline><highlight class="normal">#<sp/>RADUpdate</highlight></codeline>
 <codeline></codeline>
-<codeline><highlight class="normal">RADUpdate<sp/>verifies<sp/>signed<sp/>app-bundle<sp/>update<sp/>manifests.<sp/>A<sp/>manifest<sp/>declares<sp/>the</highlight></codeline>
-<codeline><highlight class="normal">product,<sp/>version,<sp/>channel,<sp/>payload<sp/>file<sp/>paths,<sp/>payload<sp/>SHA-256<sp/>digests,<sp/>optional</highlight></codeline>
-<codeline><highlight class="normal">payload<sp/>sizes,<sp/>optional<sp/>RADInstaller<sp/>manifest<sp/>path,<sp/>and<sp/>optional<sp/>manifest</highlight></codeline>
-<codeline><highlight class="normal">signature<sp/>path.</highlight></codeline>
+<codeline><highlight class="normal">RADUpdate<sp/>verifies<sp/>signed<sp/>app-bundle<sp/>update<sp/>manifests<sp/>and<sp/>provides<sp/>A/B<sp/>slot</highlight></codeline>
+<codeline><highlight class="normal">metadata<sp/>helpers<sp/>for<sp/>embedded<sp/>products.<sp/>It<sp/>bridges<sp/>verified<sp/>bundles<sp/>into</highlight></codeline>
+<codeline><highlight class="normal">RADInstaller<sp/>for<sp/>the<sp/>actual<sp/>on-disk<sp/>install<sp/>step.</highlight></codeline>
 <codeline></codeline>
-<codeline><highlight class="normal">`UpdateManager::verifyBundle()`<sp/>checks<sp/>payload<sp/>existence,<sp/>size,<sp/>hashes,<sp/>and<sp/>an</highlight></codeline>
-<codeline><highlight class="normal">RSA-SHA256<sp/>manifest<sp/>signature<sp/>when<sp/>a<sp/>public<sp/>key<sp/>is<sp/>supplied.<sp/>A/B<sp/>metadata<sp/>helpers</highlight></codeline>
-<codeline><highlight class="normal">track<sp/>active<sp/>and<sp/>pending<sp/>slots<sp/>without<sp/>performing<sp/>rootfs<sp/>switching<sp/>directly.</highlight></codeline>
+<codeline><highlight class="normal">A<sp/>bundle<sp/>is<sp/>described<sp/>by<sp/>an<sp/>`UpdateManifest`,<sp/>which<sp/>declares<sp/>the<sp/>`product`,</highlight></codeline>
+<codeline><highlight class="normal">`version`,<sp/>`channel`,<sp/>and<sp/>`minimumVersion`,<sp/>plus<sp/>a<sp/>list<sp/>of<sp/>`Payload`<sp/>entries.</highlight></codeline>
+<codeline><highlight class="normal">Each<sp/>`Payload`<sp/>names<sp/>a<sp/>`path`<sp/>relative<sp/>to<sp/>the<sp/>bundle<sp/>root,<sp/>an<sp/>expected<sp/>lowercase</highlight></codeline>
+<codeline><highlight class="normal">`sha256`<sp/>digest,<sp/>and<sp/>an<sp/>optional<sp/>`size`<sp/>(0<sp/>disables<sp/>size<sp/>checking).<sp/>A<sp/>manifest</highlight></codeline>
+<codeline><highlight class="normal">may<sp/>also<sp/>carry<sp/>an<sp/>`installerManifest`<sp/>path<sp/>and<sp/>a<sp/>`signaturePath`.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">`UpdateManager`<sp/>is<sp/>the<sp/>entry<sp/>point.<sp/>`loadManifest()`<sp/>parses<sp/>manifest<sp/>JSON<sp/>into<sp/>a</highlight></codeline>
+<codeline><highlight class="normal">`RADCore::RADResult&lt;UpdateManifest&gt;`,<sp/>and<sp/>`manifestToJson()`<sp/>serializes<sp/>it<sp/>back.</highlight></codeline>
+<codeline><highlight class="normal">`verifyBundle()`<sp/>checks<sp/>payload<sp/>existence,<sp/>sizes,<sp/>and<sp/>SHA-256<sp/>hashes,<sp/>and</highlight></codeline>
+<codeline><highlight class="normal">verifies<sp/>an<sp/>RSA-SHA256<sp/>manifest<sp/>signature<sp/>when<sp/>a<sp/>public<sp/>key<sp/>PEM<sp/>is<sp/>supplied,</highlight></codeline>
+<codeline><highlight class="normal">returning<sp/>a<sp/>`VerificationResult`<sp/>with<sp/>an<sp/>`ok`<sp/>flag<sp/>and<sp/>an<sp/>`errors`<sp/>list.<sp/>When<sp/>a</highlight></codeline>
+<codeline><highlight class="normal">manifest<sp/>carries<sp/>an<sp/>`installerManifest`,<sp/>`installBundle()`<sp/>hands<sp/>the<sp/>verified</highlight></codeline>
+<codeline><highlight class="normal">bundle<sp/>to<sp/>RADInstaller<sp/>and<sp/>returns<sp/>a<sp/>`RADInstaller::Result`.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">For<sp/>embedded<sp/>A/B<sp/>updates,<sp/>`ABMetadata`<sp/>tracks<sp/>the<sp/>`activeSlot`,<sp/>`pendingSlot`,</highlight></codeline>
+<codeline><highlight class="normal">`bootCount`,<sp/>`rollbackReason`,<sp/>and<sp/>the<sp/>versions<sp/>installed<sp/>in<sp/>slots<sp/>A<sp/>and<sp/>B.</highlight></codeline>
+<codeline><highlight class="normal">`loadABMetadata()`,<sp/>`saveABMetadata()`,<sp/>and<sp/>`abMetadataToJson()`<sp/>persist<sp/>this</highlight></codeline>
+<codeline><highlight class="normal">state<sp/>without<sp/>performing<sp/>rootfs<sp/>switching<sp/>directly.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Core<sp/>features:</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">-<sp/>Signed<sp/>manifest<sp/>parsing<sp/>and<sp/>JSON<sp/>round-tripping.</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>Payload<sp/>existence,<sp/>size,<sp/>and<sp/>SHA-256<sp/>verification.</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>Optional<sp/>RSA-SHA256<sp/>manifest<sp/>signature<sp/>checks.</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>RADInstaller<sp/>bridge<sp/>for<sp/>verified<sp/>bundles.</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>A/B<sp/>slot<sp/>metadata<sp/>tracking<sp/>for<sp/>embedded<sp/>products.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Example:</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">```cpp</highlight></codeline>
+<codeline><highlight class="normal">auto<sp/>result<sp/>=<sp/>RADUpdate::UpdateManager::verifyBundle(</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>&quot;/mnt/bundle&quot;,<sp/>&quot;manifest.json&quot;,<sp/>publicKeyPem);</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">if<sp/>(result.ok)<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>auto<sp/>manifest<sp/>=<sp/>RADUpdate::UpdateManager::loadManifest(&quot;/mnt/bundle/manifest.json&quot;);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>if<sp/>(manifest.hasValue())<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>RADUpdate::UpdateManager::installBundle(</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;/mnt/bundle&quot;,<sp/>manifest.value(),<sp/>&quot;/opt/app&quot;);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline><highlight class="normal">}<sp/>else<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>for<sp/>(const<sp/>auto&amp;<sp/>err<sp/>:<sp/>result.errors)<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>//<sp/>Report<sp/>each<sp/>verification<sp/>failure.</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline><highlight class="normal">}</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
     </programlisting>
     <location file="/media/jvincent/Kingspec512/repos/RADLib/docs/public/radupdate.md"/>
   </compounddef>

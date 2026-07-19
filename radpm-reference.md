@@ -6,7 +6,7 @@
     <div class="nav-links">
       <a href="./">Home</a>
       <a href="packages.html">Packages</a>
-      <a href="radix-os.html">RADPx OS</a>
+      <a href="radpx-os.html">RADPx OS</a>
       <a href="docs/">Docs</a>
     </div>
   </nav>
@@ -63,7 +63,7 @@
     <ul>
       <li><code>schema</code> — string identifier, always <code>"radpm-package-index"</code>. Present in every index; a format marker.</li>
       <li><code>schema_version</code> — integer, currently <code>1</code>. Present in every index.</li>
-      <li><code>repository</code> — human-readable repository name (e.g. <code>"RadicalPackages RADix Package Repository"</code>). The <code>radpm</code> tool reads this into the repository <em>provider</em> field (default <code>"unknown"</code>), which then supplies each package's default provider.</li>
+      <li><code>repository</code> — human-readable repository name (e.g. <code>"RadicalPackages RADPx Package Repository"</code>). The <code>radpm</code> tool reads this into the repository <em>provider</em> field (default <code>"unknown"</code>), which then supplies each package's default provider.</li>
       <li><code>suite</code> — the suite the index belongs to (<code>"stable"</code> or <code>"experimental"</code>). Informational in the file; the tool takes the active suite from its <code>--suite</code> option rather than this field.</li>
       <li><code>component</code> — component name, currently always <code>"main"</code>. Present in the file; not consumed by the tool.</li>
       <li><code>packages</code> — array of package records (see below). Empty arrays are valid; the stable index currently ships <code>"packages": []</code>.</li>
@@ -87,7 +87,7 @@
       <li><code>archive</code> — location of the <code>.radpm</code> archive: an absolute <code>http(s)</code> URL or a path relative to the index. May be <code>null</code>/absent for pure metadata packages. On resolve the tool computes an absolute <code>archive_location</code> from this.</li>
       <li><code>sha256</code> — hex SHA-256 of the archive. This is the integrity check the tool actually enforces: <code>install</code> runs <code>sha256sum</code> on the downloaded archive and fails on mismatch. May be <code>null</code>/absent when there is no archive.</li>
       <li><code>bytes</code> — integer archive size in bytes (default <code>0</code>).</li>
-      <li><code>docs</code> — documentation reference for the package. Observed values are relative doc paths (<code>"docs/radix-os/0.2.0/api/"</code>, <code>"docs/radlib/0.2.0/api/"</code>) or a portal page (<code>"radix-os.html"</code>).</li>
+      <li><code>docs</code> — documentation reference for the package. Observed values are relative doc paths (<code>"docs/radpx-os/0.1.4/api/"</code>, <code>"docs/radlib/0.2.0/api/"</code>) or a portal page (<code>"radpx-os.html"</code>).</li>
       <li><code>signature</code> — <em>optional</em>. URL of a detached ASCII-armored signature over the archive (the archive URL with a <code>.asc</code> suffix). May be <code>null</code>/absent. See GPG Signing below.</li>
       <li><code>signing_key</code> — <em>optional</em>. GPG key fingerprint that signed the archive. May be <code>null</code>/absent. Every signed package in the experimental index uses fingerprint <code>F3731ADBB37AFA120A7D5EBD20B2754CF3894789</code>.</li>
       <li><code>provider</code> — <em>optional</em>. Provider name; defaults to the repository's <code>repository</code> value when omitted (the current records omit it and inherit the default).</li>
@@ -130,7 +130,7 @@
       <li><code>repository_url</code> — <em>optional</em>. Provider repository URL; defaults to the repository root.</li>
       <li><code>summary</code> — one-line human description.</li>
       <li><code>packages</code> — array of member package names.</li>
-      <li><code>docs</code> — documentation reference (observed: <code>"radix-os.html#packagegroups"</code>).</li>
+      <li><code>docs</code> — documentation reference (observed: <code>"radpx-os.html#packagegroups"</code>).</li>
     </ul>
     <p>
       Published experimental groups: <code>radix-terminal-base</code>, <code>radix-desktop-base</code>,
@@ -188,7 +188,7 @@
   "version": "0.1.0-experimental",
   "suite": "experimental",
   "architecture": "radix-x86_64",
-  "summary": "RADix ncurses/tinfo shared runtime and development headers for x86_64 terminal applications.",
+  "summary": "RADPx ncurses/tinfo shared runtime and development headers for x86_64 terminal applications.",
   "dependencies": [
     "radix-core"
   ],
@@ -205,7 +205,7 @@
   "archive": "https://github.com/Radical-Computer-Technologies/RadicalPackages/releases/download/radix-os-0.2.0-beta.1/radix-ncurses_0.1.0-experimental_radix-x86_64.radpm",
   "sha256": "853b76699f78622fbe7877e4685128e802a96cd7e371479addbe47ef013ed714",
   "bytes": 607457,
-  "docs": "radix-os.html",
+  "docs": "radpx-os.html",
   "signature": "https://github.com/Radical-Computer-Technologies/RadicalPackages/releases/download/radix-os-0.2.0-beta.1/radix-ncurses_0.1.0-experimental_radix-x86_64.radpm.asc",
   "signing_key": "F3731ADBB37AFA120A7D5EBD20B2754CF3894789"
 }</code></pre>
@@ -216,7 +216,7 @@
     <pre><code>{
   "schema": "radpm-package-index",
   "schema_version": 1,
-  "repository": "RadicalPackages RADix Package Repository",
+  "repository": "RadicalPackages RADPx Package Repository",
   "suite": "experimental",
   "component": "main",
   "packages": [ /* ...records... */ ],
@@ -233,21 +233,21 @@
   "version": "0.2.0-beta.1",
   "provider": "RadicalPackages",
   "repository_url": "https://github.com/Radical-Computer-Technologies/RadicalPackages",
-  "summary": "Core RADix terminal image package set with RADLib, ncurses, and vim-tiny.",
+  "summary": "Core RADPx terminal image package set with RADLib, ncurses, and vim-tiny.",
   "packages": [
     "radix-core",
     "radlib",
     "radix-ncurses",
     "radix-vim-tiny"
   ],
-  "docs": "radix-os.html#packagegroups"
+  "docs": "radpx-os.html#packagegroups"
 }</code></pre>
   </section>
 
   <section class="card">
     <h2>Related</h2>
     <div class="links">
-      <a class="link-card" href="radix-os.html"><strong>RADPx OS Hub</strong><span>Build profiles, packagegroups, and repository notes.</span></a>
+      <a class="link-card" href="radpx-os.html"><strong>RADPx OS Hub</strong><span>Build profiles, packagegroups, and repository notes.</span></a>
       <a class="link-card" href="radpm/dists/experimental/main/packages.json"><strong>Experimental .radpm Index</strong><span>Machine-readable package records.</span></a>
       <a class="link-card" href="radpm/dists/experimental/main/packagegroups.json"><strong>Experimental Packagegroups</strong><span>Machine-readable group records.</span></a>
       <a class="link-card" href="keys/radical-packages-archive-key.asc"><strong>Archive Signing Key</strong><span>Public GPG key for verifying signatures.</span></a>

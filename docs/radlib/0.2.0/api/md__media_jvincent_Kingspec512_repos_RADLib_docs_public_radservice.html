@@ -88,15 +88,43 @@ $(document).ready(function(){initNavTree('md__media_jvincent_Kingspec512_repos_R
 <div class="title"><a class="el" href="namespaceRADService.html">RADService</a> </div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><p><a class="el" href="namespaceRADService.html">RADService</a> contains deployment-oriented helpers:</p>
+<div class="textblock"><p><a class="el" href="namespaceRADService.html">RADService</a> contains deployment-oriented helpers for running RADLib programs as long-lived services: systemd unit generation, watchdog/ready notifications, single-instance locks, and Unix daemonization. These helpers are useful for embedded appliances and desktop background tools that need reproducible service metadata.</p>
+<p>A <code>ServiceUnit</code> describes a systemd service: its <code>name</code>, <code>description</code>, <code>execStart</code> command, optional <code>workingDirectory</code>, <code>environment</code> map, <code>user</code>, and <code>wantedBy</code> target. The <code>restart</code> policy is a <code>RestartPolicy</code> (<code>No</code>, <code>OnFailure</code>, or <code>Always</code>), and <code>watchdogSec</code> enables <code>WatchdogSec</code> when non-zero.</p>
+<p><code>ServiceManager</code> exposes the static helpers. <code>generateSystemdUnit()</code> serializes a <code>ServiceUnit</code> to unit-file text, and <code>writeSystemdUnit()</code> writes it into a target directory. <code>restartPolicyName()</code> converts a policy to its systemd token. For runtime supervision, <code>notify()</code> sends an sd_notify-compatible message to <code>NOTIFY_SOCKET</code> without linking libsystemd, with <code>notifyReady()</code> sending <code>READY=1</code> and <code>notifyWatchdog()</code> sending <code>WATCHDOG=1</code>. <code>daemonize()</code> performs a Unix double-fork when supported.</p>
+<p><code>SingleInstanceLock</code> guards against concurrent instances using a <code><a class="el" href="classRADCore_1_1RADLockFile.html" title="Advisory filesystem lock file.">RADCore::RADLockFile</a></code>. Construct it with a lock path, call <code>tryLock()</code>, and check <code>isLocked()</code>; the lock is released in the destructor.</p>
+<p>Core features:</p>
 <ul>
-<li>systemd unit generation and writing,</li>
-<li>sd_notify-compatible ready/watchdog messages without libsystemd,</li>
-<li>single-instance process locks via <code><a class="el" href="classRADCore_1_1RADLockFile.html" title="Advisory filesystem lock file.">RADCore::RADLockFile</a></code>,</li>
-<li>optional Unix daemonization for service-style programs.</li>
+<li>systemd unit generation and writing from a <code>ServiceUnit</code>.</li>
+<li>sd_notify-compatible ready/watchdog messages without libsystemd.</li>
+<li>Single-instance process locks via <code><a class="el" href="classRADCore_1_1RADLockFile.html" title="Advisory filesystem lock file.">RADCore::RADLockFile</a></code>.</li>
+<li>Optional Unix double-fork daemonization.</li>
 </ul>
-<p>These helpers are useful for embedded appliances and desktop background tools that need reproducible service metadata. </p>
-</div></div><!-- contents -->
+<p>Example:</p>
+<div class="fragment"><div class="line"><a class="code" href="classRADService_1_1SingleInstanceLock.html">RADService::SingleInstanceLock</a> lock(<span class="stringliteral">&quot;/run/radappd.lock&quot;</span>);</div>
+<div class="line"><span class="keywordflow">if</span> (!lock.tryLock()) {</div>
+<div class="line">    <span class="keywordflow">return</span> 1; <span class="comment">// Another instance is already running.</span></div>
+<div class="line">}</div>
+<div class="line"> </div>
+<div class="line"><a class="code" href="structRADService_1_1ServiceUnit.html">RADService::ServiceUnit</a> unit;</div>
+<div class="line">unit.<a class="code" href="structRADService_1_1ServiceUnit.html#aee6674b972f3ae85c8dee1cc0f791236">name</a> = <span class="stringliteral">&quot;radappd&quot;</span>;</div>
+<div class="line">unit.<a class="code" href="structRADService_1_1ServiceUnit.html#a94737bf5b1e504b73790dee378959395">description</a> = <span class="stringliteral">&quot;RAD appliance daemon&quot;</span>;</div>
+<div class="line">unit.<a class="code" href="structRADService_1_1ServiceUnit.html#ad7fb2ce7d9f2041b9a971e45da34b1de">execStart</a> = <span class="stringliteral">&quot;/usr/bin/radappd&quot;</span>;</div>
+<div class="line">unit.<a class="code" href="structRADService_1_1ServiceUnit.html#a12d916b3ad9fe936258455ea3674b73b">restart</a> = <a class="code" href="namespaceRADService.html#ad48c24e7fb20b3de7548d5d0e40d32f4abafe37a0acd9d474a837ffb4cdec8e9e">RADService::RestartPolicy::OnFailure</a>;</div>
+<div class="line">unit.<a class="code" href="structRADService_1_1ServiceUnit.html#acc330522f33f9624883ced302701fedc">watchdogSec</a> = 30;</div>
+<div class="line"><a class="code" href="classRADService_1_1ServiceManager.html#a4c2b7c5d156d04a58ed4ec4bd3e7d24a">RADService::ServiceManager::writeSystemdUnit</a>(unit, <span class="stringliteral">&quot;/etc/systemd/system&quot;</span>);</div>
+<div class="line"> </div>
+<div class="line"><a class="code" href="classRADService_1_1ServiceManager.html#adae59da1d42079d8312fa40cdd437bd8">RADService::ServiceManager::notifyReady</a>();</div>
+<div class="ttc" id="aclassRADService_1_1ServiceManager_html_a4c2b7c5d156d04a58ed4ec4bd3e7d24a"><div class="ttname"><a href="classRADService_1_1ServiceManager.html#a4c2b7c5d156d04a58ed4ec4bd3e7d24a">RADService::ServiceManager::writeSystemdUnit</a></div><div class="ttdeci">static bool writeSystemdUnit(const ServiceUnit &amp;unit, const std::string &amp;directory, std::string *error=nullptr)</div><div class="ttdoc">Writes a systemd unit file to directory.</div></div>
+<div class="ttc" id="aclassRADService_1_1ServiceManager_html_adae59da1d42079d8312fa40cdd437bd8"><div class="ttname"><a href="classRADService_1_1ServiceManager.html#adae59da1d42079d8312fa40cdd437bd8">RADService::ServiceManager::notifyReady</a></div><div class="ttdeci">static bool notifyReady(std::string *error=nullptr)</div><div class="ttdoc">Sends READY=1 notification.</div></div>
+<div class="ttc" id="aclassRADService_1_1SingleInstanceLock_html"><div class="ttname"><a href="classRADService_1_1SingleInstanceLock.html">RADService::SingleInstanceLock</a></div><div class="ttdoc">Single-instance app lock using RADCore::RADLockFile.</div><div class="ttdef"><b>Definition:</b> RADService.h:53</div></div>
+<div class="ttc" id="anamespaceRADService_html_ad48c24e7fb20b3de7548d5d0e40d32f4abafe37a0acd9d474a837ffb4cdec8e9e"><div class="ttname"><a href="namespaceRADService.html#ad48c24e7fb20b3de7548d5d0e40d32f4abafe37a0acd9d474a837ffb4cdec8e9e">RADService::RestartPolicy::OnFailure</a></div><div class="ttdeci">@ OnFailure</div><div class="ttdoc">Restart on abnormal failure.</div></div>
+<div class="ttc" id="astructRADService_1_1ServiceUnit_html"><div class="ttname"><a href="structRADService_1_1ServiceUnit.html">RADService::ServiceUnit</a></div><div class="ttdoc">Systemd service unit description.</div><div class="ttdef"><b>Definition:</b> RADService.h:31</div></div>
+<div class="ttc" id="astructRADService_1_1ServiceUnit_html_a12d916b3ad9fe936258455ea3674b73b"><div class="ttname"><a href="structRADService_1_1ServiceUnit.html#a12d916b3ad9fe936258455ea3674b73b">RADService::ServiceUnit::restart</a></div><div class="ttdeci">RestartPolicy restart</div><div class="ttdoc">Restart policy.</div><div class="ttdef"><b>Definition:</b> RADService.h:43</div></div>
+<div class="ttc" id="astructRADService_1_1ServiceUnit_html_a94737bf5b1e504b73790dee378959395"><div class="ttname"><a href="structRADService_1_1ServiceUnit.html#a94737bf5b1e504b73790dee378959395">RADService::ServiceUnit::description</a></div><div class="ttdeci">std::string description</div><div class="ttdoc">Description text.</div><div class="ttdef"><b>Definition:</b> RADService.h:35</div></div>
+<div class="ttc" id="astructRADService_1_1ServiceUnit_html_acc330522f33f9624883ced302701fedc"><div class="ttname"><a href="structRADService_1_1ServiceUnit.html#acc330522f33f9624883ced302701fedc">RADService::ServiceUnit::watchdogSec</a></div><div class="ttdeci">int watchdogSec</div><div class="ttdoc">Watchdog timeout seconds; 0 disables WatchdogSec.</div><div class="ttdef"><b>Definition:</b> RADService.h:45</div></div>
+<div class="ttc" id="astructRADService_1_1ServiceUnit_html_ad7fb2ce7d9f2041b9a971e45da34b1de"><div class="ttname"><a href="structRADService_1_1ServiceUnit.html#ad7fb2ce7d9f2041b9a971e45da34b1de">RADService::ServiceUnit::execStart</a></div><div class="ttdeci">std::string execStart</div><div class="ttdoc">Executable command.</div><div class="ttdef"><b>Definition:</b> RADService.h:37</div></div>
+<div class="ttc" id="astructRADService_1_1ServiceUnit_html_aee6674b972f3ae85c8dee1cc0f791236"><div class="ttname"><a href="structRADService_1_1ServiceUnit.html#aee6674b972f3ae85c8dee1cc0f791236">RADService::ServiceUnit::name</a></div><div class="ttdeci">std::string name</div><div class="ttdoc">Unit name without .service.</div><div class="ttdef"><b>Definition:</b> RADService.h:33</div></div>
+</div><!-- fragment --> </div></div><!-- contents -->
 </div><!-- PageDoc -->
 </div><!-- doc-content -->
 <!-- start footer part -->

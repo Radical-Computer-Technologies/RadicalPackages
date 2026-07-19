@@ -10,17 +10,75 @@
 <codeline><highlight class="normal">#<sp/>RADCore</highlight></codeline>
 <codeline></codeline>
 <codeline><highlight class="normal">RADCore<sp/>is<sp/>the<sp/>foundation<sp/>module.<sp/>It<sp/>provides<sp/>the<sp/>event<sp/>system,<sp/>connection</highlight></codeline>
-<codeline><highlight class="normal">handles,<sp/>event<sp/>loops,<sp/>timers,<sp/>cross-thread<sp/>invocation<sp/>helpers,<sp/>IODevice,<sp/>memory</highlight></codeline>
-<codeline><highlight class="normal">buffers,<sp/>files,<sp/>binary<sp/>data<sp/>streams,<sp/>JSON,<sp/>settings,<sp/>filesystem<sp/>utilities,</highlight></codeline>
-<codeline><highlight class="normal">process/PTY<sp/>handling,<sp/>thread<sp/>pool/future<sp/>helpers,<sp/>and<sp/>compact<sp/>value<sp/>primitives.</highlight></codeline>
+<codeline><highlight class="normal">handles,<sp/>event<sp/>loops,<sp/>timers,<sp/>cross-thread<sp/>invocation<sp/>helpers,<sp/>IO<sp/>devices,</highlight></codeline>
+<codeline><highlight class="normal">memory<sp/>buffers,<sp/>files,<sp/>binary<sp/>data<sp/>streams,<sp/>JSON,<sp/>settings,<sp/>filesystem</highlight></codeline>
+<codeline><highlight class="normal">utilities,<sp/>futures,<sp/>and<sp/>compact<sp/>value<sp/>primitives.<sp/>Everything<sp/>lives<sp/>in<sp/>the</highlight></codeline>
+<codeline><highlight class="normal">`RADCore`<sp/>namespace.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">The<sp/>event<sp/>system<sp/>is<sp/>built<sp/>on<sp/>`RADObject`,<sp/>the<sp/>base<sp/>class<sp/>that<sp/>tracks<sp/>thread</highlight></codeline>
+<codeline><highlight class="normal">affinity<sp/>and<sp/>auto-disconnects<sp/>connections<sp/>when<sp/>a<sp/>receiver<sp/>is<sp/>destroyed.<sp/>Typed</highlight></codeline>
+<codeline><highlight class="normal">events<sp/>are<sp/>declared<sp/>with<sp/>the<sp/>`RAD_EVENT(name,<sp/>(Args...))`<sp/>macro<sp/>and<sp/>wired<sp/>with</highlight></codeline>
+<codeline><highlight class="normal">`RADCONNECT`/`RADCONNECT_QUEUED`;<sp/>`Event::connect()`<sp/>delivers<sp/>directly<sp/>on<sp/>the</highlight></codeline>
+<codeline><highlight class="normal">receiver&apos;s<sp/>thread<sp/>while<sp/>`connect_queued()`<sp/>posts<sp/>through<sp/>an<sp/>explicit<sp/>`EventLoop`.</highlight></codeline>
+<codeline><highlight class="normal">Connections<sp/>are<sp/>represented<sp/>by<sp/>the<sp/>`Connection`<sp/>handle<sp/>returned<sp/>from<sp/>`connect()`.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">`EventLoop`<sp/>is<sp/>the<sp/>task<sp/>loop,<sp/>selectable<sp/>between<sp/>the<sp/>locked<sp/>`RADEVENT_LOCK`<sp/>and</highlight></codeline>
+<codeline><highlight class="normal">low-latency<sp/>`RADEVENT_NOLOCK`<sp/>strategies,<sp/>with<sp/>`post()`,<sp/>`postDelayed()`,</highlight></codeline>
+<codeline><highlight class="normal">`exec()`,<sp/>and<sp/>`quit()`.<sp/>`EventLoopHandle`<sp/>is<sp/>a<sp/>weak<sp/>posting<sp/>handle<sp/>safe<sp/>to<sp/>keep</highlight></codeline>
+<codeline><highlight class="normal">beyond<sp/>the<sp/>loop&apos;s<sp/>lifetime,<sp/>and<sp/>`singleShot()`,<sp/>`invoke()`,<sp/>and<sp/>`invokeBlocking()`</highlight></codeline>
+<codeline><highlight class="normal">are<sp/>free-function<sp/>helpers<sp/>for<sp/>cross-thread<sp/>work.<sp/>`RADElapsedTimer`,</highlight></codeline>
+<codeline><highlight class="normal">`RADDeadlineTimer`,<sp/>and<sp/>the<sp/>`RADCancellationSource`/`RADCancellationToken`<sp/>pair</highlight></codeline>
+<codeline><highlight class="normal">cover<sp/>timing<sp/>and<sp/>cooperative<sp/>cancellation.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">IO<sp/>is<sp/>modeled<sp/>on<sp/>the<sp/>abstract<sp/>`RADIODevice`,<sp/>with<sp/>`RADFile`<sp/>and<sp/>in-memory</highlight></codeline>
+<codeline><highlight class="normal">`RADBuffer`<sp/>implementations,<sp/>`OpenMode`<sp/>flags,<sp/>and<sp/>`RADDataStream`<sp/>for</highlight></codeline>
+<codeline><highlight class="normal">endian-aware<sp/>binary<sp/>serialization.<sp/>Structured<sp/>returns<sp/>use<sp/>`RADResult&lt;T&gt;`<sp/>and</highlight></codeline>
+<codeline><highlight class="normal">`RADError`<sp/>rather<sp/>than<sp/>exceptions.<sp/>Data<sp/>primitives<sp/>include<sp/>`RADVariant`,</highlight></codeline>
+<codeline><highlight class="normal">`RADDateTime`,<sp/>`RADUuid`,<sp/>`RADUrl`,<sp/>and<sp/>the<sp/>`RADJsonValue`/`RADJsonDocument`</highlight></codeline>
+<codeline><highlight class="normal">JSON<sp/>tree,<sp/>with<sp/>`RADSettings`<sp/>layering<sp/>a<sp/>JSON-file-backed<sp/>key/value<sp/>store<sp/>on<sp/>top.</highlight></codeline>
+<codeline><highlight class="normal">Filesystem<sp/>helpers<sp/>live<sp/>in<sp/>the<sp/>`RADCore::FileSystem`<sp/>namespace,<sp/>alongside<sp/>RAII</highlight></codeline>
+<codeline><highlight class="normal">`RADTemporaryDirectory`,<sp/>`RADTemporaryFile`,<sp/>`RADLockFile`,<sp/>and<sp/>the</highlight></codeline>
+<codeline><highlight class="normal">`RADFileSystemWatcher`<sp/>(inotify-backed).<sp/>`RADFuture`/`RADFutureT&lt;T&gt;`<sp/>wrap<sp/>shared</highlight></codeline>
+<codeline><highlight class="normal">futures<sp/>for<sp/>async<sp/>results.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">RADCore<sp/>also<sp/>exposes<sp/>runtime<sp/>build<sp/>introspection<sp/>through<sp/>`runtimeEdition()`,</highlight></codeline>
+<codeline><highlight class="normal">`runtimeRequiresLicenseKey()`,<sp/>and<sp/>`runtimeAuditStamp()`<sp/>(defined<sp/>in</highlight></codeline>
+<codeline><highlight class="normal">`RADCoreExtras.cpp`),<sp/>which<sp/>report<sp/>the<sp/>edition<sp/>and<sp/>license<sp/>expectations<sp/>of<sp/>the</highlight></codeline>
+<codeline><highlight class="normal">loaded<sp/>library<sp/>for<sp/>diagnostics.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>Core<sp/>features</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">-<sp/>`RADObject`<sp/>+<sp/>`RAD_EVENT`/`RADCONNECT`<sp/>typed<sp/>events<sp/>with<sp/>automatic<sp/>cleanup.</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>`EventLoop`<sp/>(locked<sp/>and<sp/>lock-free<sp/>strategies)<sp/>with<sp/>`EventLoopHandle`<sp/>posting.</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>`RADIODevice`,<sp/>`RADFile`,<sp/>`RADBuffer`,<sp/>and<sp/>endian-aware<sp/>`RADDataStream`.</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>`RADJsonValue`/`RADJsonDocument`<sp/>and<sp/>JSON-backed<sp/>`RADSettings`.</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>`RADResult&lt;T&gt;`/`RADError`,<sp/>plus<sp/>`RADVariant`,<sp/>`RADDateTime`,<sp/>`RADUuid`,<sp/>`RADUrl`.</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>`RADCore::FileSystem`<sp/>helpers,<sp/>RAII<sp/>temp<sp/>files/locks,<sp/>`RADFileSystemWatcher`.</highlight></codeline>
 <codeline></codeline>
 <codeline><highlight class="normal">Beta<sp/>notes:</highlight></codeline>
 <codeline></codeline>
-<codeline><highlight class="normal">-<sp/>`RADCore::EventLoop`,<sp/>`RADCore::Connection`,<sp/>`RADCore::Timer`,</highlight></codeline>
-<codeline><highlight class="normal"><sp/><sp/>`RADCore::RADIODevice`,<sp/>`RADCore::RADFile`,<sp/>`RADCore::RADBuffer`,</highlight></codeline>
-<codeline><highlight class="normal"><sp/><sp/>`RADCore::RADDataStream`,<sp/>`RADCore::RADJsonDocument`,<sp/>and</highlight></codeline>
-<codeline><highlight class="normal"><sp/><sp/>`RADCore::RADSettings`<sp/>are<sp/>the<sp/>primary<sp/>foundation<sp/>APIs.</highlight></codeline>
 <codeline><highlight class="normal">-<sp/>File<sp/>watching<sp/>and<sp/>process/PTY<sp/>helpers<sp/>are<sp/>Linux-first<sp/>in<sp/>this<sp/>beta.</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>`RADFuture`/`RADFutureT`<sp/>and<sp/>other<sp/>threaded<sp/>helpers<sp/>are<sp/>excluded<sp/>from</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>`RADLIB_EMBEDDED`<sp/>builds.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Example:</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">```cpp</highlight></codeline>
+<codeline><highlight class="normal">RADCore::EventLoop<sp/>loop(RADCore::RADEVENT_LOCK);</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">RADCore::RADFile<sp/>file(&quot;config.json&quot;);</highlight></codeline>
+<codeline><highlight class="normal">if<sp/>(file.open(RADCore::OpenMode::ReadOnly))<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>auto<sp/>bytes<sp/>=<sp/>file.readAll();</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>std::string<sp/>text(bytes.begin(),<sp/>bytes.end());</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>if<sp/>(auto<sp/>doc<sp/>=<sp/>RADCore::RADJsonDocument::fromJson(text))<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>const<sp/>auto&amp;<sp/>root<sp/>=<sp/>doc-&gt;root();</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>RADInfo()<sp/>&lt;&lt;<sp/>&quot;port<sp/>=<sp/>&quot;<sp/>&lt;&lt;<sp/>root[&quot;port&quot;].toInt(8080);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline><highlight class="normal">}</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">RADCore::singleShot(250,<sp/>loop,<sp/>[&amp;loop]<sp/>{<sp/>loop.quit();<sp/>});</highlight></codeline>
+<codeline><highlight class="normal">loop.exec();</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
     </programlisting>
     <location file="/media/jvincent/Kingspec512/repos/RADLib/docs/public/radcore.md"/>
   </compounddef>

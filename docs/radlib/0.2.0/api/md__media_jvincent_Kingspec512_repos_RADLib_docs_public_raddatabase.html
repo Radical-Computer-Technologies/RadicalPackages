@@ -88,15 +88,37 @@ $(document).ready(function(){initNavTree('md__media_jvincent_Kingspec512_repos_R
 <div class="title"><a class="el" href="namespaceRADDatabase.html">RADDatabase</a> </div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><p><a class="el" href="namespaceRADDatabase.html">RADDatabase</a> provides a compact SQLite wrapper for application data, settings, browser-style history/bookmark stores, local caches, and embedded metadata.</p>
+<div class="textblock"><p><a class="el" href="namespaceRADDatabase.html">RADDatabase</a> provides a compact SQLite wrapper for application data, settings, browser-style history/bookmark stores, local caches, and embedded metadata. It favors explicit result objects and boolean status returns over hidden exception flow for routine SQL failures.</p>
+<p><code>RADSqlDatabase</code> owns a SQLite connection. It derives from <code><a class="el" href="classRADCore_1_1RADObject.html" title="Base class for event receivers, senders, and thread-affinity aware objects.">RADCore::RADObject</a></code> and raises an <code>errorOccurred(std::string)</code> event when open, execute, query, or transaction handling fails. After <code>setFileName()</code>, call <code>open()</code>/<code>close()</code> and check <code>isOpen()</code> or <code>lastError()</code>. <code>execute()</code> runs statements that need no rows, while <code>query()</code> returns a <code>RADSqlResult</code>. <code>queryAsync()</code> runs a query on a <code><a class="el" href="classRADCore_1_1RADThreadPool.html" title="Simple worker thread pool that reports completion through RADFuture.">RADCore::RADThreadPool</a></code> and posts completion to an <code>EventLoop</code> as a <code><a class="el" href="classRADCore_1_1RADFutureT.html" title="Typed shared future with optional continuation support.">RADCore::RADFutureT</a>&lt;RADSqlResult&gt;</code>. Schema evolution is handled by <code>schemaVersion()</code> and <code>migrateTo()</code>, which applies ordered migrations from the <code>rad_schema_version</code> table.</p>
+<p><code>RADSqlResult</code> is a value object holding the returned rows. Each row is a <code>RADSqlRow</code> (a <code>std::map</code> of column name to <code><a class="el" href="classRADCore_1_1RADVariant.html" title="Small value container used by models, futures, settings, and database rows.">RADCore::RADVariant</a></code>). Use <code>rowCount()</code>, <code>empty()</code>, <code>row(index)</code>, and <code>rows()</code> to inspect results.</p>
+<p><code>RADSqlStatement</code> is a move-only prepared statement obtained from <code>prepare()</code>. It offers typed, 1-based <code>bind()</code> overloads (integer, double, text, blob, and <code>RADVariant</code>) plus <code>bindNull()</code>, <code>clearBindings()</code>, and <code>reset()</code>. Advance with <code>step()</code> for row-returning queries or <code>execute()</code> for writes, and read the current row via <code>columnCount()</code>, <code>columnName()</code>, and <code>columnValue()</code>.</p>
+<p><code>RADSqlTransaction</code> is an RAII helper that begins a transaction on construction and rolls back in its destructor unless <code>commit()</code> was called; <code>RADSqlDatabase</code> also exposes <code>beginTransaction()</code>, <code>commit()</code>, and <code>rollback()</code> directly.</p>
 <p>Core features:</p>
 <ul>
-<li>Connection ownership through <code>RADSqlDatabase</code>.</li>
-<li>Prepared statements through <code>RADSqlStatement</code>.</li>
-<li>Explicit result objects and transaction helpers.</li>
-<li>No hidden exception flow for routine SQL failures. </li>
+<li>Connection ownership through <code>RADSqlDatabase</code> with event-based error reporting.</li>
+<li>Prepared statements with typed binding through <code>RADSqlStatement</code>.</li>
+<li>Explicit <code>RADSqlResult</code> rows and RAII <code>RADSqlTransaction</code> helpers.</li>
+<li>Async queries via <code>queryAsync()</code> and ordered schema migrations.</li>
+<li>No hidden exception flow for routine SQL failures.</li>
 </ul>
-</div></div><!-- contents -->
+<p>Example:</p>
+<div class="fragment"><div class="line"><a class="code" href="classRADDatabase_1_1RADSqlDatabase.html">RADDatabase::RADSqlDatabase</a> db(<span class="stringliteral">&quot;history.sqlite&quot;</span>);</div>
+<div class="line"><span class="keywordflow">if</span> (db.open()) {</div>
+<div class="line">    <a class="code" href="classRADDatabase_1_1RADSqlTransaction.html">RADDatabase::RADSqlTransaction</a> tx(db);</div>
+<div class="line">    <span class="keyword">auto</span> stmt = db.prepare(<span class="stringliteral">&quot;INSERT INTO visits(url, ts) VALUES(?, ?)&quot;</span>);</div>
+<div class="line">    stmt.bind(1, std::string(<span class="stringliteral">&quot;https://radcomp.tech&quot;</span>));</div>
+<div class="line">    stmt.bind(2, int64_t(1721030400));</div>
+<div class="line">    stmt.execute();</div>
+<div class="line">    tx.commit();</div>
+<div class="line"> </div>
+<div class="line">    <span class="keyword">auto</span> result = db.query(<span class="stringliteral">&quot;SELECT url FROM visits ORDER BY ts DESC&quot;</span>);</div>
+<div class="line">    <span class="keywordflow">for</span> (<span class="keyword">const</span> <span class="keyword">auto</span>&amp; row : result.rows()) {</div>
+<div class="line">        <span class="comment">// row.at(&quot;url&quot;) holds a RADCore::RADVariant.</span></div>
+<div class="line">    }</div>
+<div class="line">}</div>
+<div class="ttc" id="aclassRADDatabase_1_1RADSqlDatabase_html"><div class="ttname"><a href="classRADDatabase_1_1RADSqlDatabase.html">RADDatabase::RADSqlDatabase</a></div><div class="ttdoc">SQLite connection wrapper with RADCore event reporting.</div><div class="ttdef"><b>Definition:</b> RADDatabase.h:47</div></div>
+<div class="ttc" id="aclassRADDatabase_1_1RADSqlTransaction_html"><div class="ttname"><a href="classRADDatabase_1_1RADSqlTransaction.html">RADDatabase::RADSqlTransaction</a></div><div class="ttdoc">RAII transaction that rolls back unless committed.</div><div class="ttdef"><b>Definition:</b> RADDatabase.h:162</div></div>
+</div><!-- fragment --> </div></div><!-- contents -->
 </div><!-- PageDoc -->
 </div><!-- doc-content -->
 <!-- start footer part -->

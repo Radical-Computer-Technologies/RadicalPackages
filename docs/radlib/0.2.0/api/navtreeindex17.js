@@ -1,5 +1,12 @@
 var NAVTREEINDEX17 =
 {
+"structrad__dma__transfer.html#a35a086d16cf4e1345a574c8fd08fa57a":[24,0,33,5],
+"structrad__dma__transfer.html#a55d03ec3ac17cc633c34e5bd1353dbf3":[24,0,33,1],
+"structrad__dma__transfer.html#abd0ac6138fe65a22a6fc12a319b9166f":[24,0,33,2],
+"structrad__dma__transfer.html#ac2146cb0f52a28afb217a56ad3ac0351":[24,0,33,3],
+"structrad__dma__transfer.html#ae9b0577ef8dc86afa4f6729c2243822b":[24,0,33,0],
+"structrad__dma__transfer.html#aeb9ef987c74842bf1331b3019a28f2a6":[24,0,33,4],
+"structrad__driver__info.html":[24,0,34],
 "structrad__driver__info.html#a1792406cada50218be448ae95625ca98":[24,0,34,2],
 "structrad__driver__info.html#a2863026c3407ec893d24284d6fff8617":[24,0,34,3],
 "structrad__driver__info.html#a2f29eb2feaba41604ea715890675de2f":[24,0,34,1],
@@ -242,12 +249,5 @@ var NAVTREEINDEX17 =
 "structrad__spi__device__info.html#a57c1752f4a13a8394ccbbaba68f3a523":[24,0,68,3],
 "structrad__spi__device__info.html#a5f09e5e3bacb3fcec85016e41e0a2939":[24,0,68,0],
 "structrad__spi__device__info.html#a66beacf77d203561801c27f64bb15263":[24,0,68,5],
-"structrad__spi__device__info.html#a8a0c0c660ef735989fa5f54795e46d09":[24,0,68,6],
-"structrad__spi__device__info.html#a952d3bbe1d915e582e367e49aa1f8e24":[24,0,68,11],
-"structrad__spi__device__info.html#acfb35e5740033cdd8e4155e320886cd7":[24,0,68,4],
-"structrad__spi__device__info.html#ae7e424802c6c23b55e3b47cc23e63135":[24,0,68,9],
-"structrad__spi__driver.html":[24,0,69],
-"structrad__spi__driver.html#a291977426237ffe0db565d19ead92247":[24,0,69,4],
-"structrad__spi__driver.html#a58679c8987b4ce4c594be4f0618e3084":[24,0,69,5],
-"structrad__spi__driver.html#a5a755f7baa18559b6d65fed7d43cfad2":[24,0,69,2]
+"structrad__spi__device__info.html#a8a0c0c660ef735989fa5f54795e46d09":[24,0,68,6]
 };

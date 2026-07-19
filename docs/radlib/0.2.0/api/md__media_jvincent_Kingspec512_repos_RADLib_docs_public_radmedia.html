@@ -88,14 +88,36 @@ $(document).ready(function(){initNavTree('md__media_jvincent_Kingspec512_repos_R
 <div class="title"><a class="el" href="namespaceRADMedia.html">RADMedia</a> </div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><p><a class="el" href="namespaceRADMedia.html">RADMedia</a> currently focuses on audio. It supports robust WAV parsing, WAV streaming, ALSA device enumeration, audio input/output through <code>RADIODevice</code>, audio playback, and decoder streams.</p>
-<p>Beta notes:</p>
+<div class="textblock"><p><a class="el" href="namespaceRADMedia.html">RADMedia</a> currently focuses on audio: WAV parsing and streaming, ALSA device enumeration and I/O, whole-file and streaming decoding, playback, MIDI input, and a lightweight MIDI preview renderer with MusicXML score export. WAV and raw PCM are the primary stable paths; compressed codecs and the synth backend depend on installed system libraries.</p>
+<p>WAV files are described by <code>WavFormat</code> (channels, sample rate, bits, and an <code>AudioSampleFormat</code> such as <code>Int16</code> or <code>Float32</code>). <code>WavFile</code> loads a whole file via <code>load()</code> and writes 16-bit PCM via <code>savePcm16()</code>, while <code>WavStreamReader</code> parses the header and reads frames incrementally with <code>readFrames()</code>. <code>AudioBuffer</code> holds interleaved Float32 samples.</p>
+<p>Device I/O centers on <code>RADAudioDevice</code>, an ALSA-backed <code><a class="el" href="classRADCore_1_1RADIODevice.html" title="Abstract byte-oriented IO device similar to QIODevice.">RADCore::RADIODevice</a></code> constructed with an <code>EventLoop</code> and an <code>AudioDeviceDirection</code> (<code>Input</code> or <code>Output</code>). It raises <code>started</code>, <code>stopped</code>, and <code>underrun</code> events, exposes <code>readData()</code>/<code>writeData()</code>/<code>writeFrames()</code>, and tunes latency through <code>setFramesPerChunk()</code>, <code>setTargetLatencyUsec()</code>, <code>setPeriodFrames()</code>, and <code>setBufferFrames()</code>. <code>AudioInputDevice</code> is an input-only convenience subclass. <code>AudioDevice::outputDevices()</code> and <code>inputDevices()</code> enumerate ALSA endpoints.</p>
+<p><code>AudioPlayer</code> is a <code><a class="el" href="classRADCore_1_1RADObject.html" title="Base class for event receivers, senders, and thread-affinity aware objects.">RADCore::RADObject</a></code> for playback, offering synchronous <code>play()</code>, <code>playBuffer()</code>, and <code>playFile()</code> plus async <code>playAsync()</code> and <code>playFileAsync()</code>, and it emits <code>started</code>, <code>finished</code>, <code>stopped</code>, and <code>errorOccurred</code>. <code>AudioDecoder</code> and <code>AudioDecoderStream</code> decode compressed files into Float32 buffers.</p>
+<p>For MIDI, <code>MidiInputDevice</code> reads decoded <code>MidiMessage</code> values from ALSA raw-MIDI hardware. <code>MidiClip</code> schedules <code>MidiNoteEvent</code>, <code>MidiProgramChange</code>, and <code>MidiPitchBend</code> events, which <code>MidiSynthesizer</code> renders to an <code>AudioBuffer</code> via <code>render()</code>, <code>renderClip()</code>, or streaming <code>beginStream()</code>/<code>renderNext()</code>. <code>SoundFontCatalog</code> discovers <code>.sf2</code>/<code>.sf3</code> files and their presets, and <code>MusicXml::partwiseScore()</code> exports <code>MusicXmlNoteEvent</code> data as MusicXML 3.1.</p>
+<p>Core features:</p>
 <ul>
-<li>WAV and raw PCM support are the primary stable paths.</li>
-<li>Compressed codec and resampler support are optional and depend on installed system libraries.</li>
-<li>Devices are enumerated through ALSA on Linux. </li>
+<li>Robust WAV parsing (<code>WavFile</code>) and streaming (<code>WavStreamReader</code>).</li>
+<li>ALSA device enumeration and <code>RADIODevice</code> input/output via <code>RADAudioDevice</code>.</li>
+<li>Sync and async playback through <code>AudioPlayer</code>.</li>
+<li>Whole-file and streaming decoders (<code>AudioDecoder</code>, <code>AudioDecoderStream</code>).</li>
+<li>MIDI input, SoundFont discovery, preview synthesis, and MusicXML export.</li>
 </ul>
-</div></div><!-- contents -->
+<p>Example:</p>
+<div class="fragment"><div class="line"><a class="code" href="classRADCore_1_1EventLoop.html">RADCore::EventLoop</a> loop;</div>
+<div class="line"><a class="code" href="classRADMedia_1_1AudioPlayer.html">RADMedia::AudioPlayer</a> player;</div>
+<div class="line"> </div>
+<div class="line">player.<a class="code" href="classRADMedia_1_1AudioPlayer.html#a4de36336c4f5a42db56dd6de26a8b069">finished</a>.connect([&amp;loop]() { loop.<a class="code" href="classRADCore_1_1EventLoop.html#ae8a1e1a8dc12ed6a70792d450feb5632">quit</a>(); });</div>
+<div class="line"> </div>
+<div class="line">std::string <a class="code" href="namespacerad.html#ac90c7293a399def0b7b53c3911005189acb5e100e5a9a3e7f6d1fd97512215282">error</a>;</div>
+<div class="line"><span class="keywordflow">if</span> (!player.<a class="code" href="classRADMedia_1_1AudioPlayer.html#a40697813cfb44160f100e2093105d105">playFile</a>(<span class="stringliteral">&quot;chime.wav&quot;</span>, <span class="stringliteral">&quot;default&quot;</span>, &amp;error)) {</div>
+<div class="line">    <span class="comment">// Report playback failure via error.</span></div>
+<div class="line">}</div>
+<div class="ttc" id="aclassRADCore_1_1EventLoop_html"><div class="ttname"><a href="classRADCore_1_1EventLoop.html">RADCore::EventLoop</a></div><div class="ttdoc">RADCore task event loop with locked and low-latency scheduling strategies.</div><div class="ttdef"><b>Definition:</b> RADCore.h:988</div></div>
+<div class="ttc" id="aclassRADCore_1_1EventLoop_html_ae8a1e1a8dc12ed6a70792d450feb5632"><div class="ttname"><a href="classRADCore_1_1EventLoop.html#ae8a1e1a8dc12ed6a70792d450feb5632">RADCore::EventLoop::quit</a></div><div class="ttdeci">void quit()</div><div class="ttdoc">Requests the event loop to exit.</div></div>
+<div class="ttc" id="aclassRADMedia_1_1AudioPlayer_html"><div class="ttname"><a href="classRADMedia_1_1AudioPlayer.html">RADMedia::AudioPlayer</a></div><div class="ttdoc">Convenience WAV/audio playback object with sync and async APIs.</div><div class="ttdef"><b>Definition:</b> RADMedia.h:638</div></div>
+<div class="ttc" id="aclassRADMedia_1_1AudioPlayer_html_a40697813cfb44160f100e2093105d105"><div class="ttname"><a href="classRADMedia_1_1AudioPlayer.html#a40697813cfb44160f100e2093105d105">RADMedia::AudioPlayer::playFile</a></div><div class="ttdeci">bool playFile(const std::string &amp;path, const std::string &amp;deviceId=&quot;default&quot;, std::string *error=nullptr)</div><div class="ttdoc">Loads and plays a WAV file synchronously.</div></div>
+<div class="ttc" id="aclassRADMedia_1_1AudioPlayer_html_a4de36336c4f5a42db56dd6de26a8b069"><div class="ttname"><a href="classRADMedia_1_1AudioPlayer.html#a4de36336c4f5a42db56dd6de26a8b069">RADMedia::AudioPlayer::finished</a></div><div class="ttdeci">RADCore::Event&lt; void() &gt; finished</div><div class="ttdoc">Raised when playback reaches the end.</div><div class="ttdef"><b>Definition:</b> RADMedia.h:644</div></div>
+<div class="ttc" id="anamespacerad_html_ac90c7293a399def0b7b53c3911005189acb5e100e5a9a3e7f6d1fd97512215282"><div class="ttname"><a href="namespacerad.html#ac90c7293a399def0b7b53c3911005189acb5e100e5a9a3e7f6d1fd97512215282">rad::Status::error</a></div><div class="ttdeci">@ error</div></div>
+</div><!-- fragment --> </div></div><!-- contents -->
 </div><!-- PageDoc -->
 </div><!-- doc-content -->
 <!-- start footer part -->

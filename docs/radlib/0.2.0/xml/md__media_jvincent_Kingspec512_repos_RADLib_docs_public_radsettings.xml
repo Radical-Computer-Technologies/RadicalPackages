@@ -6,15 +6,35 @@
     <briefdescription>
     </briefdescription>
     <detaileddescription>
-<para><computeroutput><ref refid="namespaceRADSettings" kindref="compound">RADSettings</ref></computeroutput> is the public settings library for application configuration.</para>
+<para><computeroutput><ref refid="namespaceRADSettings" kindref="compound">RADSettings</ref></computeroutput> is the public settings library for application configuration. It stores key/value settings in JSON or INI files and layers typed accessors over <computeroutput><ref refid="classRADCore_1_1RADJsonValue" kindref="compound">RADCore::RADJsonValue</ref></computeroutput>.</para>
+<para><computeroutput><ref refid="classRADSettings_1_1Settings" kindref="compound">RADSettings::Settings</ref></computeroutput> is the store. It can be constructed with an explicit <computeroutput>fileName</computeroutput> and <computeroutput><ref refid="namespaceRADSettings_1adee08119aa62eaee465299f6ee2df817" kindref="member">RADSettings::Format</ref></computeroutput> (<computeroutput>Json</computeroutput> or <computeroutput>Ini</computeroutput>), or with a <computeroutput><ref refid="structRADSettings_1_1AppIdentity" kindref="compound">RADSettings::AppIdentity</ref></computeroutput> (<computeroutput>organization</computeroutput> and <computeroutput>application</computeroutput>), in which case it resolves a standard platform config path. <computeroutput><ref refid="namespaceRADCore_1_1FileSystem_1ab3a7b1207191cf4ffc45aea948bd9b10" kindref="member">fileName()</ref></computeroutput> and <computeroutput>format()</computeroutput> report the backing file, <computeroutput>load()</computeroutput> reads it (treating a missing file as empty), and <computeroutput>save()</computeroutput> writes it, creating parent directories as needed. The static <computeroutput>Settings::defaultFileName()</computeroutput> returns the resolved config path for an identity without constructing a store.</para>
+<para>Key management uses <computeroutput>contains()</computeroutput>, <computeroutput><ref refid="namespaceRADCore_1_1FileSystem_1a6bc6992b65ca3ee5f0bda17f950733b5" kindref="member">remove()</ref></computeroutput>, and <computeroutput>clear()</computeroutput>. Values can be read and written generically through <computeroutput>value()</computeroutput> / <computeroutput>setValue()</computeroutput> with <computeroutput><ref refid="classRADCore_1_1RADJsonValue" kindref="compound">RADCore::RADJsonValue</ref></computeroutput>, or through the typed helpers: <computeroutput>boolValue()</computeroutput>, <computeroutput>intValue()</computeroutput>, <computeroutput>doubleValue()</computeroutput>, and <computeroutput>stringValue()</computeroutput> for reads, and <computeroutput>setBool()</computeroutput>, <computeroutput>setInt()</computeroutput>, <computeroutput>setDouble()</computeroutput>, and <computeroutput>setString()</computeroutput> for writes. Each typed getter takes a default that is returned when the key is absent.</para>
 <para>Core features:</para>
 <para><itemizedlist>
 <listitem><para>JSON and INI settings files.</para>
 </listitem><listitem><para>App/organization based default config paths.</para>
 </listitem><listitem><para>Typed getters and setters for common scalar values.</para>
-</listitem><listitem><para>Compatibility with <computeroutput><ref refid="classRADCore_1_1RADJsonValue" kindref="compound">RADCore::RADJsonValue</ref></computeroutput>. </para>
+</listitem><listitem><para>Compatibility with <computeroutput><ref refid="classRADCore_1_1RADJsonValue" kindref="compound">RADCore::RADJsonValue</ref></computeroutput>.</para>
 </listitem></itemizedlist>
 </para>
+<para>Example:</para>
+<para><programlisting filename=".cpp"><codeline><highlight class="normal"><ref refid="structRADSettings_1_1AppIdentity" kindref="compound">RADSettings::AppIdentity</ref><sp/>identity{</highlight><highlight class="stringliteral">&quot;RadComp&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;RADPxTool&quot;</highlight><highlight class="normal">};</highlight></codeline>
+<codeline><highlight class="normal"><ref refid="classRADSettings_1_1Settings" kindref="compound">RADSettings::Settings</ref><sp/>settings(identity,<sp/><ref refid="namespaceRADSettings_1adee08119aa62eaee465299f6ee2df817aeed8d85b888a6c015834240885ee6333" kindref="member">RADSettings::Format::Json</ref>);</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal">std::string<sp/><ref refid="namespacerad_1ac90c7293a399def0b7b53c3911005189acb5e100e5a9a3e7f6d1fd97512215282" kindref="member">error</ref>;</highlight></codeline>
+<codeline><highlight class="normal">settings.load(&amp;error);</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>width<sp/>=<sp/>settings.intValue(</highlight><highlight class="stringliteral">&quot;window/width&quot;</highlight><highlight class="normal">,<sp/>1280);</highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>firstRun<sp/>=<sp/>!settings.contains(</highlight><highlight class="stringliteral">&quot;initialized&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal">settings.setInt(</highlight><highlight class="stringliteral">&quot;window/width&quot;</highlight><highlight class="normal">,<sp/>width);</highlight></codeline>
+<codeline><highlight class="normal">settings.setBool(</highlight><highlight class="stringliteral">&quot;initialized&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">);</highlight></codeline>
+<codeline><highlight class="normal">settings.setString(</highlight><highlight class="stringliteral">&quot;theme&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;crimson&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!settings.save(&amp;error))<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="RADLogging_8h_1adcc91b12946e023f3e02364924f79aeb" kindref="member">RADLOG_ERROR</ref>(</highlight><highlight class="stringliteral">&quot;settings&quot;</highlight><highlight class="normal">)<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;save<sp/>failed:<sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/><ref refid="namespacerad_1ac90c7293a399def0b7b53c3911005189acb5e100e5a9a3e7f6d1fd97512215282" kindref="member">error</ref>;</highlight></codeline>
+<codeline><highlight class="normal">}</highlight></codeline>
+</programlisting> </para>
     </detaileddescription>
     <location file="/media/jvincent/Kingspec512/repos/RADLib/docs/public/radsettings.md"/>
   </compounddef>

@@ -11,15 +11,58 @@
 <codeline></codeline>
 <codeline><highlight class="normal">RADDataStructures<sp/>provides<sp/>RAD-owned<sp/>C++20<sp/>containers<sp/>for<sp/>applications<sp/>that<sp/>need</highlight></codeline>
 <codeline><highlight class="normal">predictable<sp/>allocation<sp/>behavior,<sp/>compact<sp/>storage,<sp/>and<sp/>cache-conscious<sp/>data</highlight></codeline>
-<codeline><highlight class="normal">layout.</highlight></codeline>
+<codeline><highlight class="normal">layout.<sp/>Everything<sp/>lives<sp/>in<sp/>the<sp/>`RADData`<sp/>namespace<sp/>and<sp/>is<sp/>header-only.</highlight></codeline>
 <codeline></codeline>
-<codeline><highlight class="normal">The<sp/>v1<sp/>module<sp/>includes<sp/>contiguous<sp/>vectors,<sp/>small<sp/>vectors<sp/>with<sp/>inline<sp/>storage,</highlight></codeline>
-<codeline><highlight class="normal">ring<sp/>buffers,<sp/>queue/stack<sp/>adapters,<sp/>a<sp/>single-producer/single-consumer<sp/>queue,</highlight></codeline>
-<codeline><highlight class="normal">flat<sp/>hash<sp/>map/set<sp/>containers,<sp/>and<sp/>a<sp/>stable-node<sp/>list.</highlight></codeline>
+<codeline><highlight class="normal">`RADVector`<sp/>is<sp/>the<sp/>contiguous<sp/>growable<sp/>array<sp/>used<sp/>on<sp/>RADLib<sp/>hot<sp/>paths,<sp/>and</highlight></codeline>
+<codeline><highlight class="normal">`RADSmallVector&lt;T,<sp/>InlineN&gt;`<sp/>keeps<sp/>its<sp/>first<sp/>`InlineN`<sp/>elements<sp/>inline<sp/>before</highlight></codeline>
+<codeline><highlight class="normal">falling<sp/>back<sp/>to<sp/>the<sp/>heap.<sp/>`RADRingBuffer`<sp/>is<sp/>a<sp/>power-of-two<sp/>circular<sp/>buffer<sp/>with</highlight></codeline>
+<codeline><highlight class="normal">push/pop<sp/>at<sp/>both<sp/>ends,<sp/>and<sp/>it<sp/>backs<sp/>the<sp/>`RADQueue`<sp/>FIFO<sp/>adapter;<sp/>`RADStack`<sp/>is<sp/>a</highlight></codeline>
+<codeline><highlight class="normal">LIFO<sp/>adapter<sp/>over<sp/>`RADVector`.<sp/>`RADSpscQueue`<sp/>is<sp/>a<sp/>lock-free,<sp/>bounded</highlight></codeline>
+<codeline><highlight class="normal">single-producer/single-consumer<sp/>queue<sp/>with<sp/>`try_push()`/`try_pop()`<sp/>for</highlight></codeline>
+<codeline><highlight class="normal">thread-to-thread<sp/>handoff<sp/>without<sp/>mutexes.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">For<sp/>associative<sp/>storage,<sp/>`RADFlatHashMap`<sp/>is<sp/>an<sp/>open-addressed,<sp/>cache-local<sp/>hash</highlight></codeline>
+<codeline><highlight class="normal">map<sp/>with<sp/>tombstone-aware<sp/>probing,<sp/>and<sp/>`RADFlatHashSet`<sp/>is<sp/>built<sp/>on<sp/>top<sp/>of<sp/>it.</highlight></codeline>
+<codeline><highlight class="normal">`RADList`<sp/>is<sp/>a<sp/>stable-node<sp/>doubly<sp/>linked<sp/>list<sp/>for<sp/>cases<sp/>where<sp/>element<sp/>addresses</highlight></codeline>
+<codeline><highlight class="normal">must<sp/>not<sp/>move.<sp/>`RADByteArray`<sp/>and<sp/>the<sp/>non-owning<sp/>`RADArrayView`<sp/>(aliased<sp/>as</highlight></codeline>
+<codeline><highlight class="normal">`RADByteArrayView`/`RADConstByteArrayView`)<sp/>cover<sp/>raw<sp/>byte<sp/>storage<sp/>and<sp/>views.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Allocation<sp/>strategy<sp/>is<sp/>pluggable.<sp/>`RADMonotonicArena`<sp/>is<sp/>a<sp/>bump<sp/>allocator<sp/>for</highlight></codeline>
+<codeline><highlight class="normal">short-lived<sp/>allocations<sp/>that<sp/>`reset()`s<sp/>in<sp/>one<sp/>step;<sp/>`RADFixedPool`<sp/>hands<sp/>out</highlight></codeline>
+<codeline><highlight class="normal">same-size<sp/>blocks;<sp/>and<sp/>the<sp/>standard-compatible<sp/>`RADMonotonicAllocator`<sp/>and</highlight></codeline>
+<codeline><highlight class="normal">`RADAlignedAllocator`<sp/>let<sp/>the<sp/>containers<sp/>above<sp/>draw<sp/>from<sp/>an<sp/>arena<sp/>or<sp/>an<sp/>aligned</highlight></codeline>
+<codeline><highlight class="normal">heap.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>Core<sp/>features</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">-<sp/>`RADVector`<sp/>and<sp/>inline-storage<sp/>`RADSmallVector&lt;T,<sp/>InlineN&gt;`<sp/>contiguous<sp/>arrays.</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>`RADRingBuffer`<sp/>double-ended<sp/>ring<sp/>with<sp/>`RADQueue`/`RADStack`<sp/>adapters.</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>Lock-free<sp/>bounded<sp/>`RADSpscQueue`<sp/>for<sp/>one-producer/one-consumer<sp/>handoff.</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>`RADFlatHashMap`/`RADFlatHashSet`<sp/>open-addressed<sp/>associative<sp/>containers.</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>Stable-node<sp/>`RADList`,<sp/>plus<sp/>`RADByteArray`/`RADArrayView`<sp/>byte<sp/>storage.</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>`RADMonotonicArena`,<sp/>`RADFixedPool`,<sp/>and<sp/>STL-compatible<sp/>allocators.</highlight></codeline>
 <codeline></codeline>
 <codeline><highlight class="normal">RADLib<sp/>public<sp/>APIs<sp/>remain<sp/>STL-compatible<sp/>in<sp/>the<sp/>beta<sp/>SDK,<sp/>so<sp/>these<sp/>containers</highlight></codeline>
 <codeline><highlight class="normal">are<sp/>optional<sp/>for<sp/>application<sp/>code.<sp/>Use<sp/>them<sp/>where<sp/>their<sp/>allocation<sp/>and<sp/>layout</highlight></codeline>
 <codeline><highlight class="normal">properties<sp/>are<sp/>a<sp/>better<sp/>fit<sp/>than<sp/>the<sp/>standard<sp/>library<sp/>containers.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Example:</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">```cpp</highlight></codeline>
+<codeline><highlight class="normal">RADData::RADMonotonicArena<sp/>arena(64<sp/>*<sp/>1024);</highlight></codeline>
+<codeline><highlight class="normal">RADData::RADVector&lt;int,<sp/>RADData::RADMonotonicAllocator&lt;int&gt;&gt;<sp/>ids{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>RADData::RADMonotonicAllocator&lt;int&gt;(&amp;arena)};</highlight></codeline>
+<codeline><highlight class="normal">ids.reserve(256);</highlight></codeline>
+<codeline><highlight class="normal">ids.push_back(42);</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">RADData::RADFlatHashMap&lt;std::string,<sp/>int&gt;<sp/>counts;</highlight></codeline>
+<codeline><highlight class="normal">counts[&quot;frames&quot;]<sp/>+=<sp/>1;</highlight></codeline>
+<codeline><highlight class="normal">if<sp/>(const<sp/>int*<sp/>frames<sp/>=<sp/>counts.find(&quot;frames&quot;))<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>RADData::RADSpscQueue&lt;int&gt;<sp/>pending(1024);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>pending.try_push(*frames);</highlight></codeline>
+<codeline><highlight class="normal">}</highlight></codeline>
+<codeline><highlight class="normal">arena.reset();<sp/>//<sp/>drops<sp/>every<sp/>arena-backed<sp/>allocation<sp/>at<sp/>once</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
     </programlisting>
     <location file="/media/jvincent/Kingspec512/repos/RADLib/docs/public/raddatastructures.md"/>
   </compounddef>

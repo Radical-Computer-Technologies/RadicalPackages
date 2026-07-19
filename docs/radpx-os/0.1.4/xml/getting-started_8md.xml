@@ -1,0 +1,108 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="getting-started_8md" kind="file" language="Markdown">
+    <compoundname>getting-started.md</compoundname>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline><highlight class="normal">#<sp/>Getting<sp/>Started<sp/>{#getting_started}</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">This<sp/>page<sp/>takes<sp/>you<sp/>from<sp/>a<sp/>fresh<sp/>checkout<sp/>to<sp/>a<sp/>running<sp/>RADPx-OS<sp/>image<sp/>on<sp/>two</highlight></codeline>
+<codeline><highlight class="normal">targets<sp/>—<sp/>the<sp/>x86_64<sp/>GRUB<sp/>terminal<sp/>and<sp/>the<sp/>ZuBoard-1CG<sp/>(ZynqMP<sp/>Cortex-A53)</highlight></codeline>
+<codeline><highlight class="normal">under<sp/>QEMU.<sp/>It<sp/>is<sp/>the<sp/>narrative<sp/>companion<sp/>to<sp/>the<sp/>command<sp/>reference<sp/>in<sp/>the</highlight></codeline>
+<codeline><highlight class="normal">repository<sp/>README;<sp/>read<sp/>this<sp/>first<sp/>if<sp/>you<sp/>have<sp/>not<sp/>built<sp/>RADPx-OS<sp/>before.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>What<sp/>you<sp/>are<sp/>building</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">RADPx-OS<sp/>is<sp/>a<sp/>POSIX-inspired<sp/>kernel<sp/>(RADKernel)<sp/>that<sp/>runs<sp/>both<sp/>as<sp/>a<sp/>host</highlight></codeline>
+<codeline><highlight class="normal">simulator<sp/>and<sp/>on<sp/>real<sp/>hardware.<sp/>The<sp/>same<sp/>kernel<sp/>core<sp/>boots<sp/>on<sp/>x86_64<sp/>and<sp/>on<sp/>the</highlight></codeline>
+<codeline><highlight class="normal">Cortex-A53;<sp/>the<sp/>target-specific<sp/>pieces<sp/>live<sp/>under<sp/>`RADKernel/platforms/`<sp/>and</highlight></codeline>
+<codeline><highlight class="normal">`RADKernel/boards/`.<sp/>Two<sp/>things<sp/>you<sp/>can<sp/>produce<sp/>in<sp/>a<sp/>few<sp/>minutes:</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">-<sp/>an<sp/>**x86_64<sp/>terminal<sp/>ISO**<sp/>you<sp/>can<sp/>boot<sp/>in<sp/>a<sp/>VM,<sp/>and</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>a<sp/>**ZuBoard-1CG<sp/>serial<sp/>image**<sp/>you<sp/>can<sp/>boot<sp/>in<sp/>QEMU<sp/>to<sp/>an<sp/>interactive<sp/>login.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>Prerequisites</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">-<sp/>A<sp/>Linux<sp/>host<sp/>(Debian/Ubuntu<sp/>is<sp/>the<sp/>tested<sp/>baseline).</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>`cmake`<sp/>and<sp/>a<sp/>host<sp/>C++20<sp/>toolchain<sp/>(for<sp/>the<sp/>host<sp/>kernel<sp/>tests).</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>`qemu-system-aarch64`<sp/>(for<sp/>the<sp/>ZuBoard<sp/>QEMU<sp/>smokes).</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>The<sp/>`radbuild`<sp/>driver<sp/>—<sp/>install<sp/>the<sp/>frozen<sp/>release<sp/>once:</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/>```bash</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>sudo<sp/>apt<sp/>install<sp/>./radbuild_0.2.1_amd64.deb<sp/><sp/><sp/>#<sp/>from<sp/>a<sp/>RadBuild<sp/>release<sp/>asset</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/>`radbuild`<sp/>cross-builds<sp/>the<sp/>kernel<sp/>and<sp/>userland,<sp/>assembles<sp/>the<sp/>disk<sp/>images,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>and<sp/>runs<sp/>each<sp/>target&apos;s<sp/>smoke.<sp/>You<sp/>do<sp/>not<sp/>need<sp/>a<sp/>Python<sp/>checkout<sp/>to<sp/>use<sp/>it.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>1.<sp/>Prove<sp/>the<sp/>core<sp/>builds<sp/>(host<sp/>tests,<sp/>~1<sp/>minute)</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">The<sp/>fastest<sp/>confidence<sp/>check<sp/>needs<sp/>no<sp/>emulator<sp/>—<sp/>it<sp/>builds<sp/>the<sp/>portable<sp/>kernel</highlight></codeline>
+<codeline><highlight class="normal">core<sp/>and<sp/>runs<sp/>the<sp/>host<sp/>unit<sp/>tests:</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">```bash</highlight></codeline>
+<codeline><highlight class="normal">cmake<sp/>-S<sp/>.<sp/>-B<sp/>build-host<sp/>-DRADPX_OS_BUILD_TESTS=ON</highlight></codeline>
+<codeline><highlight class="normal">cmake<sp/>--build<sp/>build-host<sp/>-j2</highlight></codeline>
+<codeline><highlight class="normal">./build-host/tests/RADKernelTests</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">A<sp/>green<sp/>run<sp/>here<sp/>means<sp/>the<sp/>kernel<sp/>core,<sp/>VFS,<sp/>and<sp/>filesystem<sp/>code<sp/>compile<sp/>and</highlight></codeline>
+<codeline><highlight class="normal">pass<sp/>on<sp/>your<sp/>host<sp/>before<sp/>you<sp/>involve<sp/>any<sp/>target<sp/>hardware.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>2.<sp/>Boot<sp/>the<sp/>x86_64<sp/>terminal<sp/>(ISO,<sp/>~2–3<sp/>minutes)</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Build<sp/>and<sp/>smoke<sp/>the<sp/>default<sp/>x86_64<sp/>GRUB<sp/>terminal<sp/>profile:</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">```bash</highlight></codeline>
+<codeline><highlight class="normal">radbuild<sp/>build<sp/>os<sp/>--settings<sp/>settings.json<sp/>--json-events</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">RadBuild<sp/>resolves<sp/>`settings.json`<sp/>as<sp/>an<sp/>OS<sp/>build<sp/>configuration,<sp/>produces<sp/>the</highlight></codeline>
+<codeline><highlight class="normal">ISO<sp/>under<sp/>`build/embedded/x86_64_grub_terminal/`,<sp/>and<sp/>runs<sp/>the<sp/>terminal<sp/>VM</highlight></codeline>
+<codeline><highlight class="normal">smoke.<sp/>To<sp/>run<sp/>just<sp/>the<sp/>ISO<sp/>smoke<sp/>against<sp/>an<sp/>existing<sp/>build:</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">```bash</highlight></codeline>
+<codeline><highlight class="normal">RAD_X86_UI_PROFILE=terminal<sp/>tools/embedded/x86_64_grub_slint_smoke.sh</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">The<sp/>`settings.wm.json`<sp/>profile<sp/>builds<sp/>the<sp/>Slint-backed<sp/>RADCompositor<sp/>window</highlight></codeline>
+<codeline><highlight class="normal">manager<sp/>instead<sp/>of<sp/>the<sp/>terminal<sp/>shell.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>3.<sp/>Boot<sp/>the<sp/>ZuBoard-1CG<sp/>in<sp/>QEMU<sp/>(A53,<sp/>~2–3<sp/>minutes)</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">The<sp/>ZuBoard<sp/>profile<sp/>cross-builds<sp/>the<sp/>A53<sp/>kernel<sp/>and<sp/>userland,<sp/>assembles<sp/>the<sp/>SD</highlight></codeline>
+<codeline><highlight class="normal">image,<sp/>and<sp/>runs<sp/>the<sp/>QEMU<sp/>marker<sp/>smoke<sp/>that<sp/>boots<sp/>to<sp/>an<sp/>interactive<sp/>serial</highlight></codeline>
+<codeline><highlight class="normal">login:</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">```bash</highlight></codeline>
+<codeline><highlight class="normal">radbuild<sp/>build<sp/>os<sp/>--settings<sp/>settings.ci.json<sp/>--system<sp/>rad-zuboard-1cg-qemu-ci<sp/>--json-events</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Once<sp/>an<sp/>image<sp/>exists,<sp/>you<sp/>can<sp/>run<sp/>the<sp/>individual<sp/>A53<sp/>smokes<sp/>directly:</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">```bash</highlight></codeline>
+<codeline><highlight class="normal">tools/embedded/rad_zuboard_1cg/qemu_marker_smoke.sh<sp/><sp/><sp/>#<sp/>ordered<sp/>boot-marker<sp/>gate</highlight></codeline>
+<codeline><highlight class="normal">tools/embedded/rad_zuboard_1cg/qemu_login_smoke.sh<sp/><sp/><sp/><sp/>#<sp/>interactive<sp/>login<sp/>/<sp/>ls<sp/>/<sp/>cat<sp/>/<sp/>ps</highlight></codeline>
+<codeline><highlight class="normal">tools/embedded/rad_zuboard_1cg/qemu_smp_smoke.sh<sp/><sp/><sp/><sp/><sp/><sp/>#<sp/>second<sp/>A53<sp/>core<sp/>under<sp/>-smp<sp/>2</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">The<sp/>marker<sp/>gate<sp/>reads<sp/>`tools/embedded/rad_zuboard_1cg/expected-markers.txt`<sp/>and</highlight></codeline>
+<codeline><highlight class="normal">requires<sp/>each<sp/>`RAD_*`<sp/>milestone<sp/>marker<sp/>to<sp/>appear<sp/>in<sp/>order<sp/>on<sp/>the<sp/>serial<sp/>log.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>Where<sp/>to<sp/>go<sp/>next</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">-<sp/>@ref<sp/>api_structure<sp/>—<sp/>the<sp/>stable<sp/>`radkernel.h`<sp/>C<sp/>ABI<sp/>and<sp/>how<sp/>the<sp/>subsystem</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>headers<sp/>fit<sp/>together.</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>@ref<sp/>architecture<sp/>—<sp/>the<sp/>source<sp/>tree:<sp/>core,<sp/>fs,<sp/>drivers,<sp/>platforms,<sp/>boards,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>runtime,<sp/>hal.</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>@ref<sp/>networking<sp/>and<sp/>@ref<sp/>device_tree_guide,<sp/>plus<sp/>the<sp/>ZuBoard-1CG<sp/>bring-up</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>notes,<sp/>for<sp/>target-specific<sp/>detail.</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>The<sp/>public<sp/>Crimson<sp/>API<sp/>docs<sp/>are<sp/>published<sp/>through<sp/>RadicalPackages<sp/>under</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>`docs/radpx-os/0.1.0/api/`.</highlight></codeline>
+    </programlisting>
+    <location file="/media/jvincent/Kingspec512/repos/RADPx-OS/docs/public/getting-started.md"/>
+  </compounddef>
+</doxygen>

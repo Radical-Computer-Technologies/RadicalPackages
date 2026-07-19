@@ -6,16 +6,39 @@
     <briefdescription>
     </briefdescription>
     <detaileddescription>
-<para><ref refid="namespaceRADNet" kindref="compound">RADNet</ref> provides UDP and TCP socket primitives, server classes, a socket reactor, and a small HTTP client.</para>
+<para><ref refid="namespaceRADNet" kindref="compound">RADNet</ref> provides event-loop integrated networking on Linux: an epoll reactor, UDP and TCP sockets, server classes, a small HTTP client, and a framed binary protocol layer. Socket events are delivered on a <computeroutput><ref refid="classRADCore_1_1EventLoop" kindref="compound">RADCore::EventLoop</ref></computeroutput>.</para>
+<para><computeroutput>RADSocketReactor</computeroutput> is a process-wide singleton epoll reactor, obtained via <computeroutput>RADSocketReactor::instance()</computeroutput>, that drives readiness for all <ref refid="namespaceRADNet" kindref="compound">RADNet</ref> sockets.</para>
+<para>For UDP, <computeroutput>RADUdpSocket</computeroutput> binds with <computeroutput>bind()</computeroutput>, sends with <computeroutput>sendTo()</computeroutput>, and raises <computeroutput>datagramReceived(RADNet::Datagram)</computeroutput> and <computeroutput>errorOccurred(std::string)</computeroutput>. A <computeroutput>Datagram</computeroutput> carries the <computeroutput>payload</computeroutput>, sender <computeroutput>address</computeroutput>, and <computeroutput>port</computeroutput>. <computeroutput>RADUdpServer</computeroutput> is a convenience wrapper that re-emits those events after <computeroutput>listen()</computeroutput>.</para>
+<para>For TCP, <computeroutput>RADTcpSocket</computeroutput> implements <computeroutput><ref refid="classRADCore_1_1RADIODevice" kindref="compound">RADCore::RADIODevice</ref></computeroutput>, connects with <computeroutput>connectToHost()</computeroutput>, exposes <computeroutput>readData()</computeroutput>/<computeroutput>writeData()</computeroutput>, reports its <computeroutput>SocketState</computeroutput> (<computeroutput>Unconnected</computeroutput>, <computeroutput>Connecting</computeroutput>, <computeroutput>Connected</computeroutput>, <computeroutput>Listening</computeroutput>, <computeroutput>Closed</computeroutput>), and raises <computeroutput>connected()</computeroutput>/<computeroutput>disconnected()</computeroutput>. <computeroutput>RADTcpServer</computeroutput> listens and emits <computeroutput>newConnection(std::shared_ptr&lt;RADTcpSocket&gt;)</computeroutput> for each accepted client.</para>
+<para><computeroutput>RADHttpClient</computeroutput> is a small libcurl-backed client with both blocking and async APIs. Static <computeroutput>request()</computeroutput>, <computeroutput>get()</computeroutput>, and <computeroutput>post()</computeroutput> return an optional <computeroutput>RADHttpResponse</computeroutput> (with <computeroutput>statusCode</computeroutput>, <computeroutput>reasonPhrase</computeroutput>, <computeroutput>headers</computeroutput>, and <computeroutput>body</computeroutput>), driven by a <computeroutput>RADHttpRequest</computeroutput>. Instances constructed with an <computeroutput>EventLoop</computeroutput> offer <computeroutput>requestAsync()</computeroutput>/<computeroutput>getAsync()</computeroutput>, emitting <computeroutput>finished(RADHttpResponse)</computeroutput> and <computeroutput>errorOccurred(std::string)</computeroutput>. <computeroutput>resolve()</computeroutput> returns a <computeroutput>RADDnsResult</computeroutput>.</para>
+<para>For custom binary protocols, <computeroutput>RADTcpFrame</computeroutput> (<computeroutput>messageId</computeroutput> + <computeroutput>payload</computeroutput>) is encoded by <computeroutput><ref refid="namespaceRADNet_1a9d156def92974f671a032af23f9134e8" kindref="member">encodeFrame()</ref></computeroutput> and parsed by <computeroutput><ref refid="namespaceRADNet_1a4413bcf8b0a3e870aac91a07cf3c4b32" kindref="member">decodeFrames()</ref></computeroutput>. <computeroutput>RADProtocolSocket</computeroutput> frames a <computeroutput>RADTcpSocket</computeroutput> byte stream and raises <computeroutput>frameReceived(RADTcpFrame)</computeroutput>, with <computeroutput>RADProtocolClient</computeroutput> and <computeroutput>RADProtocolServer</computeroutput> driven by a JSON-loaded <computeroutput>RADProtocolEndpointConfig</computeroutput> (via <computeroutput><ref refid="namespaceRADNet_1ae30adbe571690eef5da7562f7b4fdf34" kindref="member">endpointConfigFromJson()</ref></computeroutput>).</para>
 <para>Core features:</para>
 <para><itemizedlist>
-<listitem><para>Event-loop driven UDP and TCP sockets.</para>
-</listitem><listitem><para>TCP server/client primitives.</para>
-</listitem><listitem><para>Binary frame helpers for JSON-defined protocols.</para>
-</listitem><listitem><para>HTTP client helpers for simple application requests.</para>
-</listitem><listitem><para>Epoll-based readiness handling on Linux. </para>
+<listitem><para>Event-loop driven UDP and TCP sockets with an epoll reactor.</para>
+</listitem><listitem><para>TCP/UDP server and client primitives.</para>
+</listitem><listitem><para>Binary <computeroutput>RADTcpFrame</computeroutput> helpers for JSON-defined protocols.</para>
+</listitem><listitem><para>Sync and async HTTP client helpers plus DNS resolution.</para>
+</listitem><listitem><para>Epoll-based readiness handling on Linux.</para>
 </listitem></itemizedlist>
 </para>
+<para>Example:</para>
+<para><programlisting filename=".cpp"><codeline><highlight class="normal"><ref refid="classRADCore_1_1EventLoop" kindref="compound">RADCore::EventLoop</ref><sp/>loop;</highlight></codeline>
+<codeline><highlight class="normal"><ref refid="classRADNet_1_1RADTcpServer" kindref="compound">RADNet::RADTcpServer</ref><sp/>server(loop);</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal">server.newConnection.connect([](std::shared_ptr&lt;RADNet::RADTcpSocket&gt;<sp/>client)<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>client-&gt;writeData(</highlight><highlight class="stringliteral">&quot;HELLO\n&quot;</highlight><highlight class="normal">,<sp/>6);</highlight></codeline>
+<codeline><highlight class="normal">});</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal">server.listen(9000);</highlight></codeline>
+<codeline><highlight class="normal">loop.run();</highlight></codeline>
+</programlisting></para>
+<para>Blocking HTTP request:</para>
+<para><programlisting filename=".cpp"><codeline><highlight class="normal">std::string<sp/><ref refid="namespacerad_1ac90c7293a399def0b7b53c3911005189acb5e100e5a9a3e7f6d1fd97512215282" kindref="member">error</ref>;</highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>resp<sp/>=<sp/><ref refid="classRADNet_1_1RADHttpClient_1a125c08fff88db046bda76e796d1d6659" kindref="member">RADNet::RADHttpClient::get</ref>(</highlight><highlight class="stringliteral">&quot;https://radcomp.tech/status&quot;</highlight><highlight class="normal">,<sp/>&amp;error);</highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(resp<sp/>&amp;&amp;<sp/>resp-&gt;statusCode<sp/>==<sp/>200)<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Use<sp/>resp-&gt;body.</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal">}</highlight></codeline>
+</programlisting> </para>
     </detaileddescription>
     <location file="/media/jvincent/Kingspec512/repos/RADLib/docs/public/radnet.md"/>
   </compounddef>

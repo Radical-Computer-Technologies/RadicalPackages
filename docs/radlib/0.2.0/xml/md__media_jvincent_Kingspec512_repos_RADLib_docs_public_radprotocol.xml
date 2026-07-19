@@ -6,15 +6,49 @@
     <briefdescription>
     </briefdescription>
     <detaileddescription>
-<para>RADLib includes a CMake-invoked Python generator for compact binary TCP protocols.</para>
-<para>The wire frame is:</para>
+<para>There is no standalone RADProtocol module. RADLib&apos;s binary-protocol support is a facet of <bold><ref refid="namespaceRADNet" kindref="compound">RADNet</ref></bold>: the <computeroutput>RADProtocol*</computeroutput> types live in the <computeroutput><ref refid="namespaceRADNet" kindref="compound">RADNet</ref></computeroutput> namespace (<computeroutput><ref refid="RADNet_8h" kindref="compound">RADNet/headers/RADNet.h</ref></computeroutput>), and the code generator ships as a CMake-invoked Python tool.</para>
+<sect1 id="md__media_jvincent_Kingspec512_repos_RADLib_docs_public_radprotocol_1autotoc_md31">
+<title>Wire frame</title>
+<para>RADLib includes a CMake-invoked Python generator for compact binary TCP protocols. The wire frame is:</para>
 <para><itemizedlist>
 <listitem><para><computeroutput>uint32 messageId</computeroutput> in network byte order.</para>
 </listitem><listitem><para><computeroutput>uint32 payloadSize</computeroutput> in network byte order.</para>
 </listitem><listitem><para>Binary payload.</para>
 </listitem></itemizedlist>
 </para>
-<para>JSON protocol files define messages and fields. The generator emits C++ structs, message IDs, payload encoders/decoders, and frame helpers. Runtime endpoint configuration remains JSON-loadable through <computeroutput><ref refid="namespaceRADNet_1ae30adbe571690eef5da7562f7b4fdf34" kindref="member">RADNet::endpointConfigFromJson()</ref></computeroutput>. </para>
+<para>JSON protocol files define messages and fields. The generator emits C++ structs, message IDs, payload encoders/decoders, and frame helpers.</para>
+</sect1>
+<sect1 id="md__media_jvincent_Kingspec512_repos_RADLib_docs_public_radprotocol_1autotoc_md32">
+<title>Runtime API</title>
+<para>At runtime a frame is the <computeroutput><ref refid="structRADNet_1_1RADTcpFrame" kindref="compound">RADNet::RADTcpFrame</ref></computeroutput> struct (a <computeroutput>messageId</computeroutput> plus a <computeroutput>payload</computeroutput> byte vector). <computeroutput><ref refid="namespaceRADNet_1a9d156def92974f671a032af23f9134e8" kindref="member">RADNet::encodeFrame()</ref></computeroutput> serializes one frame to wire bytes, and <computeroutput><ref refid="namespaceRADNet_1a4413bcf8b0a3e870aac91a07cf3c4b32" kindref="member">RADNet::decodeFrames()</ref></computeroutput> pulls all complete frames out of a receive buffer, enforcing <computeroutput>maxPayloadBytes</computeroutput>. Endpoint configuration is described by <computeroutput><ref refid="structRADNet_1_1RADProtocolEndpointConfig" kindref="compound">RADNet::RADProtocolEndpointConfig</ref></computeroutput> (address, port, backlog, connect timeout, max payload) and stays JSON-loadable through <computeroutput><ref refid="namespaceRADNet_1ae30adbe571690eef5da7562f7b4fdf34" kindref="member">RADNet::endpointConfigFromJson()</ref></computeroutput>.</para>
+<para><computeroutput><ref refid="classRADNet_1_1RADProtocolSocket" kindref="compound">RADNet::RADProtocolSocket</ref></computeroutput> is a <computeroutput><ref refid="classRADCore_1_1RADObject" kindref="compound">RADCore::RADObject</ref></computeroutput> that frames a <computeroutput>RADTcpSocket</computeroutput> byte stream. It exposes <computeroutput>sendFrame()</computeroutput> and the <computeroutput>frameReceived</computeroutput>, <computeroutput>connected</computeroutput>, <computeroutput>disconnected</computeroutput>, and <computeroutput>errorOccurred</computeroutput> events. <computeroutput><ref refid="classRADNet_1_1RADProtocolClient" kindref="compound">RADNet::RADProtocolClient</ref></computeroutput> adds <computeroutput>connectUsingConfig()</computeroutput>, and <computeroutput><ref refid="classRADNet_1_1RADProtocolServer" kindref="compound">RADNet::RADProtocolServer</ref></computeroutput> adds <computeroutput>listenUsingConfig()</computeroutput> plus a <computeroutput>newConnection</computeroutput> event delivering accepted <computeroutput>RADProtocolSocket</computeroutput> instances.</para>
+</sect1>
+<sect1 id="md__media_jvincent_Kingspec512_repos_RADLib_docs_public_radprotocol_1autotoc_md33">
+<title>Core features</title>
+<para><itemizedlist>
+<listitem><para>CMake-invoked Python generator for compact binary TCP protocols.</para>
+</listitem><listitem><para>Fixed <computeroutput>messageId</computeroutput>/<computeroutput>payloadSize</computeroutput> network-byte-order frame header.</para>
+</listitem><listitem><para><computeroutput>RADTcpFrame</computeroutput> with <computeroutput><ref refid="namespaceRADNet_1a9d156def92974f671a032af23f9134e8" kindref="member">encodeFrame()</ref></computeroutput>/<computeroutput><ref refid="namespaceRADNet_1a4413bcf8b0a3e870aac91a07cf3c4b32" kindref="member">decodeFrames()</ref></computeroutput> helpers.</para>
+</listitem><listitem><para>JSON-loadable <computeroutput>RADProtocolEndpointConfig</computeroutput> via <computeroutput><ref refid="namespaceRADNet_1ae30adbe571690eef5da7562f7b4fdf34" kindref="member">endpointConfigFromJson()</ref></computeroutput>.</para>
+</listitem><listitem><para><computeroutput>RADProtocolSocket</computeroutput>/<computeroutput>RADProtocolClient</computeroutput>/<computeroutput>RADProtocolServer</computeroutput> event-driven types.</para>
+</listitem></itemizedlist>
+</para>
+<para>Example:</para>
+<para><programlisting filename=".cpp"><codeline><highlight class="normal"><ref refid="classRADCore_1_1EventLoop" kindref="compound">RADCore::EventLoop</ref><sp/>loop;</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><ref refid="structRADNet_1_1RADProtocolEndpointConfig" kindref="compound">RADNet::RADProtocolEndpointConfig</ref><sp/>config;</highlight></codeline>
+<codeline><highlight class="normal">config.<ref refid="structRADNet_1_1RADProtocolEndpointConfig_1a96d896d9fa9ba373444e78fe975f327c" kindref="member">address</ref><sp/>=<sp/></highlight><highlight class="stringliteral">&quot;127.0.0.1&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline><highlight class="normal">config.<ref refid="structRADNet_1_1RADProtocolEndpointConfig_1ac0e1d14bd915f974105cd87a768930da" kindref="member">port</ref><sp/>=<sp/>9000;</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><ref refid="classRADNet_1_1RADProtocolClient" kindref="compound">RADNet::RADProtocolClient</ref><sp/>client(loop);</highlight></codeline>
+<codeline><highlight class="normal"><ref refid="RADCore_8h_1a9bb09eb45d06b2d43508263a35c2a9ff" kindref="member">RADCONNECT</ref>(client,<sp/>frameReceived,<sp/>&amp;handler,<sp/>Handler,<sp/>onFrame);</highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(client.connectUsingConfig(config))<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>std::vector&lt;uint8_t&gt;<sp/>payload{0x01,<sp/>0x02};</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>client.sendFrame(</highlight><highlight class="comment">/*messageId=*/</highlight><highlight class="normal">42,<sp/>payload);</highlight></codeline>
+<codeline><highlight class="normal">}</highlight></codeline>
+<codeline><highlight class="normal">loop.<ref refid="classRADCore_1_1EventLoop_1a58a7597add777bc7c648ccb58bc662ae" kindref="member">exec</ref>();</highlight></codeline>
+</programlisting> </para>
+</sect1>
     </detaileddescription>
     <location file="/media/jvincent/Kingspec512/repos/RADLib/docs/public/radprotocol.md"/>
   </compounddef>

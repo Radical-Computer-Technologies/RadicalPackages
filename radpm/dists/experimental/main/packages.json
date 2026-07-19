@@ -1,7 +1,7 @@
 {
   "schema": "radpm-package-index",
   "schema_version": 1,
-  "repository": "RadicalPackages RADix Package Repository",
+  "repository": "RadicalPackages RADPx Package Repository",
   "suite": "experimental",
   "component": "main",
   "packages": [
@@ -10,7 +10,7 @@
       "version": "0.1.0-crimson",
       "suite": "experimental",
       "architecture": "radix-any",
-      "summary": "Core RADix userspace layout and boot support metadata.",
+      "summary": "Core RADPx userspace layout and boot support metadata.",
       "dependencies": [],
       "provides": [
         "radix-base"
@@ -21,7 +21,7 @@
       "archive": "https://github.com/Radical-Computer-Technologies/RadicalPackages/releases/download/radix-os-0.2.0-beta.1/radix-core_0.1.0-crimson_radix-any.radpm",
       "sha256": "94e2a33f06d27ac0ee1f2615b779bc0ff08bc11f167373e62159a2cb5bef80f0",
       "bytes": 533,
-      "docs": "docs/radix-os/0.2.0/api/",
+      "docs": "docs/radpx-os/0.1.4/api/",
       "signature": "https://github.com/Radical-Computer-Technologies/RadicalPackages/releases/download/radix-os-0.2.0-beta.1/radix-core_0.1.0-crimson_radix-any.radpm.asc",
       "signing_key": "F3731ADBB37AFA120A7D5EBD20B2754CF3894789"
     },
@@ -30,7 +30,7 @@
       "version": "0.1.0-experimental",
       "suite": "experimental",
       "architecture": "radix-x86_64",
-      "summary": "RADix ncurses/tinfo shared runtime and development headers for x86_64 terminal applications.",
+      "summary": "RADPx ncurses/tinfo shared runtime and development headers for x86_64 terminal applications.",
       "dependencies": [
         "radix-core"
       ],
@@ -47,7 +47,7 @@
       "archive": "https://github.com/Radical-Computer-Technologies/RadicalPackages/releases/download/radix-os-0.2.0-beta.1/radix-ncurses_0.1.0-experimental_radix-x86_64.radpm",
       "sha256": "853b76699f78622fbe7877e4685128e802a96cd7e371479addbe47ef013ed714",
       "bytes": 607457,
-      "docs": "radix-os.html",
+      "docs": "radpx-os.html",
       "signature": "https://github.com/Radical-Computer-Technologies/RadicalPackages/releases/download/radix-os-0.2.0-beta.1/radix-ncurses_0.1.0-experimental_radix-x86_64.radpm.asc",
       "signing_key": "F3731ADBB37AFA120A7D5EBD20B2754CF3894789"
     },
@@ -56,7 +56,7 @@
       "version": "0.1.0-experimental",
       "suite": "experimental",
       "architecture": "radix-x86_64",
-      "summary": "Tiny upstream Vim port for RADix OS terminal images.",
+      "summary": "Tiny upstream Vim port for RADPx OS terminal images.",
       "dependencies": [
         "radix-core",
         "radlib",
@@ -73,7 +73,7 @@
       "archive": "https://github.com/Radical-Computer-Technologies/RadicalPackages/releases/download/radix-os-0.2.0-beta.1/radix-vim-tiny_0.1.0-experimental_radix-x86_64.radpm",
       "sha256": "8cadcb0a5b436dac330c9f448ac994d730f38f9b03f8301296f73a9c187c326a",
       "bytes": 2714,
-      "docs": "radix-os.html",
+      "docs": "radpx-os.html",
       "signature": "https://github.com/Radical-Computer-Technologies/RadicalPackages/releases/download/radix-os-0.2.0-beta.1/radix-vim-tiny_0.1.0-experimental_radix-x86_64.radpm.asc",
       "signing_key": "F3731ADBB37AFA120A7D5EBD20B2754CF3894789"
     },
@@ -82,7 +82,7 @@
       "version": "0.2.0-radix",
       "suite": "experimental",
       "architecture": "radix-any",
-      "summary": "RADLib aggregate metadata for RADix OS userspace, services, and RADpm package integration.",
+      "summary": "RADLib aggregate metadata for RADPx OS userspace, services, and RADpm package integration.",
       "dependencies": [
         "radix-core"
       ],
@@ -104,7 +104,7 @@
       "version": "0.2.0-radix",
       "suite": "experimental",
       "architecture": "radix-any",
-      "summary": "RADLib runtime package metadata for generated RADix root filesystems.",
+      "summary": "RADLib runtime package metadata for generated RADPx root filesystems.",
       "dependencies": [
         "radix-core"
       ],
@@ -124,7 +124,7 @@
       "version": "0.2.0-radix",
       "suite": "experimental",
       "architecture": "radix-any",
-      "summary": "RADLib UI and Slint-facing metadata for RADix OS builds.",
+      "summary": "RADLib UI and Slint-facing metadata for RADPx OS builds.",
       "dependencies": [
         "radlib-runtime"
       ],
@@ -146,7 +146,7 @@
       "version": "0.1.0-experimental",
       "suite": "experimental",
       "architecture": "radix-any",
-      "summary": "RADix network service metadata and default service configuration.",
+      "summary": "RADPx network service metadata and default service configuration.",
       "dependencies": [
         "radix-core"
       ],
@@ -159,7 +159,7 @@
       "archive": "https://github.com/Radical-Computer-Technologies/RadicalPackages/releases/download/radix-os-0.2.0-beta.1/radix-network_0.1.0-experimental_radix-any.radpm",
       "sha256": "0b7329621f29e27d58c0ec6535e9354f45d36e757552a81c83b680d959fa38ce",
       "bytes": 471,
-      "docs": "radix-os.html",
+      "docs": "radpx-os.html",
       "signature": "https://github.com/Radical-Computer-Technologies/RadicalPackages/releases/download/radix-os-0.2.0-beta.1/radix-network_0.1.0-experimental_radix-any.radpm.asc",
       "signing_key": "F3731ADBB37AFA120A7D5EBD20B2754CF3894789"
     },
@@ -168,7 +168,7 @@
       "version": "0.1.0-experimental",
       "suite": "experimental",
       "architecture": "radix-any",
-      "summary": "RADix DNS resolver service metadata and default service configuration.",
+      "summary": "RADPx DNS resolver service metadata and default service configuration.",
       "dependencies": [
         "radix-core",
         "radix-network"
@@ -182,7 +182,7 @@
       "archive": "https://github.com/Radical-Computer-Technologies/RadicalPackages/releases/download/radix-os-0.2.0-beta.1/radix-dns-resolver_0.1.0-experimental_radix-any.radpm",
       "sha256": "a33f51bfce9658c5b06b912281182c638a2c7895f3ce7e8900d76d53e3d8e79a",
       "bytes": 485,
-      "docs": "radix-os.html",
+      "docs": "radpx-os.html",
       "signature": "https://github.com/Radical-Computer-Technologies/RadicalPackages/releases/download/radix-os-0.2.0-beta.1/radix-dns-resolver_0.1.0-experimental_radix-any.radpm.asc",
       "signing_key": "F3731ADBB37AFA120A7D5EBD20B2754CF3894789"
     },
@@ -191,7 +191,7 @@
       "version": "0.1.0-experimental",
       "suite": "experimental",
       "architecture": "radix-any",
-      "summary": "RADix time synchronization service metadata and default service configuration.",
+      "summary": "RADPx time synchronization service metadata and default service configuration.",
       "dependencies": [
         "radix-core",
         "radix-network"
@@ -205,7 +205,7 @@
       "archive": "https://github.com/Radical-Computer-Technologies/RadicalPackages/releases/download/radix-os-0.2.0-beta.1/radix-time-sync_0.1.0-experimental_radix-any.radpm",
       "sha256": "a90ab346286eeff5424ea737007a77ea777dcb28631686e9bec0867bbae43e4a",
       "bytes": 502,
-      "docs": "radix-os.html",
+      "docs": "radpx-os.html",
       "signature": "https://github.com/Radical-Computer-Technologies/RadicalPackages/releases/download/radix-os-0.2.0-beta.1/radix-time-sync_0.1.0-experimental_radix-any.radpm.asc",
       "signing_key": "F3731ADBB37AFA120A7D5EBD20B2754CF3894789"
     },
@@ -214,7 +214,7 @@
       "version": "0.1.0-experimental",
       "suite": "experimental",
       "architecture": "radix-any",
-      "summary": "RADix timezone data metadata and default timezone files.",
+      "summary": "RADPx timezone data metadata and default timezone files.",
       "dependencies": [
         "radix-core"
       ],
@@ -227,7 +227,7 @@
       "archive": "https://github.com/Radical-Computer-Technologies/RadicalPackages/releases/download/radix-os-0.2.0-beta.1/radix-tzdata_0.1.0-experimental_radix-any.radpm",
       "sha256": "726d5b35b5c4f13a56a615265fe9270216833e68f901715165ca321078cb0498",
       "bytes": 454,
-      "docs": "radix-os.html",
+      "docs": "radpx-os.html",
       "signature": "https://github.com/Radical-Computer-Technologies/RadicalPackages/releases/download/radix-os-0.2.0-beta.1/radix-tzdata_0.1.0-experimental_radix-any.radpm.asc",
       "signing_key": "F3731ADBB37AFA120A7D5EBD20B2754CF3894789"
     }

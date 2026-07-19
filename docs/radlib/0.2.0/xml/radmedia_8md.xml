@@ -9,16 +9,60 @@
     <programlisting>
 <codeline><highlight class="normal">#<sp/>RADMedia</highlight></codeline>
 <codeline></codeline>
-<codeline><highlight class="normal">RADMedia<sp/>currently<sp/>focuses<sp/>on<sp/>audio.<sp/>It<sp/>supports<sp/>robust<sp/>WAV<sp/>parsing,<sp/>WAV</highlight></codeline>
-<codeline><highlight class="normal">streaming,<sp/>ALSA<sp/>device<sp/>enumeration,<sp/>audio<sp/>input/output<sp/>through<sp/>`RADIODevice`,</highlight></codeline>
-<codeline><highlight class="normal">audio<sp/>playback,<sp/>and<sp/>decoder<sp/>streams.</highlight></codeline>
+<codeline><highlight class="normal">RADMedia<sp/>currently<sp/>focuses<sp/>on<sp/>audio:<sp/>WAV<sp/>parsing<sp/>and<sp/>streaming,<sp/>ALSA<sp/>device</highlight></codeline>
+<codeline><highlight class="normal">enumeration<sp/>and<sp/>I/O,<sp/>whole-file<sp/>and<sp/>streaming<sp/>decoding,<sp/>playback,<sp/>MIDI<sp/>input,</highlight></codeline>
+<codeline><highlight class="normal">and<sp/>a<sp/>lightweight<sp/>MIDI<sp/>preview<sp/>renderer<sp/>with<sp/>MusicXML<sp/>score<sp/>export.<sp/>WAV<sp/>and<sp/>raw</highlight></codeline>
+<codeline><highlight class="normal">PCM<sp/>are<sp/>the<sp/>primary<sp/>stable<sp/>paths;<sp/>compressed<sp/>codecs<sp/>and<sp/>the<sp/>synth<sp/>backend<sp/>depend</highlight></codeline>
+<codeline><highlight class="normal">on<sp/>installed<sp/>system<sp/>libraries.</highlight></codeline>
 <codeline></codeline>
-<codeline><highlight class="normal">Beta<sp/>notes:</highlight></codeline>
+<codeline><highlight class="normal">WAV<sp/>files<sp/>are<sp/>described<sp/>by<sp/>`WavFormat`<sp/>(channels,<sp/>sample<sp/>rate,<sp/>bits,<sp/>and<sp/>an</highlight></codeline>
+<codeline><highlight class="normal">`AudioSampleFormat`<sp/>such<sp/>as<sp/>`Int16`<sp/>or<sp/>`Float32`).<sp/>`WavFile`<sp/>loads<sp/>a<sp/>whole<sp/>file</highlight></codeline>
+<codeline><highlight class="normal">via<sp/>`load()`<sp/>and<sp/>writes<sp/>16-bit<sp/>PCM<sp/>via<sp/>`savePcm16()`,<sp/>while<sp/>`WavStreamReader`</highlight></codeline>
+<codeline><highlight class="normal">parses<sp/>the<sp/>header<sp/>and<sp/>reads<sp/>frames<sp/>incrementally<sp/>with<sp/>`readFrames()`.</highlight></codeline>
+<codeline><highlight class="normal">`AudioBuffer`<sp/>holds<sp/>interleaved<sp/>Float32<sp/>samples.</highlight></codeline>
 <codeline></codeline>
-<codeline><highlight class="normal">-<sp/>WAV<sp/>and<sp/>raw<sp/>PCM<sp/>support<sp/>are<sp/>the<sp/>primary<sp/>stable<sp/>paths.</highlight></codeline>
-<codeline><highlight class="normal">-<sp/>Compressed<sp/>codec<sp/>and<sp/>resampler<sp/>support<sp/>are<sp/>optional<sp/>and<sp/>depend<sp/>on<sp/>installed</highlight></codeline>
-<codeline><highlight class="normal"><sp/><sp/>system<sp/>libraries.</highlight></codeline>
-<codeline><highlight class="normal">-<sp/>Devices<sp/>are<sp/>enumerated<sp/>through<sp/>ALSA<sp/>on<sp/>Linux.</highlight></codeline>
+<codeline><highlight class="normal">Device<sp/>I/O<sp/>centers<sp/>on<sp/>`RADAudioDevice`,<sp/>an<sp/>ALSA-backed<sp/>`RADCore::RADIODevice`</highlight></codeline>
+<codeline><highlight class="normal">constructed<sp/>with<sp/>an<sp/>`EventLoop`<sp/>and<sp/>an<sp/>`AudioDeviceDirection`<sp/>(`Input`<sp/>or</highlight></codeline>
+<codeline><highlight class="normal">`Output`).<sp/>It<sp/>raises<sp/>`started`,<sp/>`stopped`,<sp/>and<sp/>`underrun`<sp/>events,<sp/>exposes</highlight></codeline>
+<codeline><highlight class="normal">`readData()`/`writeData()`/`writeFrames()`,<sp/>and<sp/>tunes<sp/>latency<sp/>through</highlight></codeline>
+<codeline><highlight class="normal">`setFramesPerChunk()`,<sp/>`setTargetLatencyUsec()`,<sp/>`setPeriodFrames()`,<sp/>and</highlight></codeline>
+<codeline><highlight class="normal">`setBufferFrames()`.<sp/>`AudioInputDevice`<sp/>is<sp/>an<sp/>input-only<sp/>convenience<sp/>subclass.</highlight></codeline>
+<codeline><highlight class="normal">`AudioDevice::outputDevices()`<sp/>and<sp/>`inputDevices()`<sp/>enumerate<sp/>ALSA<sp/>endpoints.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">`AudioPlayer`<sp/>is<sp/>a<sp/>`RADCore::RADObject`<sp/>for<sp/>playback,<sp/>offering<sp/>synchronous</highlight></codeline>
+<codeline><highlight class="normal">`play()`,<sp/>`playBuffer()`,<sp/>and<sp/>`playFile()`<sp/>plus<sp/>async<sp/>`playAsync()`<sp/>and</highlight></codeline>
+<codeline><highlight class="normal">`playFileAsync()`,<sp/>and<sp/>it<sp/>emits<sp/>`started`,<sp/>`finished`,<sp/>`stopped`,<sp/>and</highlight></codeline>
+<codeline><highlight class="normal">`errorOccurred`.<sp/>`AudioDecoder`<sp/>and<sp/>`AudioDecoderStream`<sp/>decode<sp/>compressed<sp/>files</highlight></codeline>
+<codeline><highlight class="normal">into<sp/>Float32<sp/>buffers.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">For<sp/>MIDI,<sp/>`MidiInputDevice`<sp/>reads<sp/>decoded<sp/>`MidiMessage`<sp/>values<sp/>from<sp/>ALSA</highlight></codeline>
+<codeline><highlight class="normal">raw-MIDI<sp/>hardware.<sp/>`MidiClip`<sp/>schedules<sp/>`MidiNoteEvent`,<sp/>`MidiProgramChange`,<sp/>and</highlight></codeline>
+<codeline><highlight class="normal">`MidiPitchBend`<sp/>events,<sp/>which<sp/>`MidiSynthesizer`<sp/>renders<sp/>to<sp/>an<sp/>`AudioBuffer`<sp/>via</highlight></codeline>
+<codeline><highlight class="normal">`render()`,<sp/>`renderClip()`,<sp/>or<sp/>streaming<sp/>`beginStream()`/`renderNext()`.</highlight></codeline>
+<codeline><highlight class="normal">`SoundFontCatalog`<sp/>discovers<sp/>`.sf2`/`.sf3`<sp/>files<sp/>and<sp/>their<sp/>presets,<sp/>and</highlight></codeline>
+<codeline><highlight class="normal">`MusicXml::partwiseScore()`<sp/>exports<sp/>`MusicXmlNoteEvent`<sp/>data<sp/>as<sp/>MusicXML<sp/>3.1.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Core<sp/>features:</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">-<sp/>Robust<sp/>WAV<sp/>parsing<sp/>(`WavFile`)<sp/>and<sp/>streaming<sp/>(`WavStreamReader`).</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>ALSA<sp/>device<sp/>enumeration<sp/>and<sp/>`RADIODevice`<sp/>input/output<sp/>via<sp/>`RADAudioDevice`.</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>Sync<sp/>and<sp/>async<sp/>playback<sp/>through<sp/>`AudioPlayer`.</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>Whole-file<sp/>and<sp/>streaming<sp/>decoders<sp/>(`AudioDecoder`,<sp/>`AudioDecoderStream`).</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>MIDI<sp/>input,<sp/>SoundFont<sp/>discovery,<sp/>preview<sp/>synthesis,<sp/>and<sp/>MusicXML<sp/>export.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Example:</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">```cpp</highlight></codeline>
+<codeline><highlight class="normal">RADCore::EventLoop<sp/>loop;</highlight></codeline>
+<codeline><highlight class="normal">RADMedia::AudioPlayer<sp/>player;</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">player.finished.connect([&amp;loop]()<sp/>{<sp/>loop.quit();<sp/>});</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">std::string<sp/>error;</highlight></codeline>
+<codeline><highlight class="normal">if<sp/>(!player.playFile(&quot;chime.wav&quot;,<sp/>&quot;default&quot;,<sp/>&amp;error))<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>//<sp/>Report<sp/>playback<sp/>failure<sp/>via<sp/>error.</highlight></codeline>
+<codeline><highlight class="normal">}</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
     </programlisting>
     <location file="/media/jvincent/Kingspec512/repos/RADLib/docs/public/radmedia.md"/>
   </compounddef>

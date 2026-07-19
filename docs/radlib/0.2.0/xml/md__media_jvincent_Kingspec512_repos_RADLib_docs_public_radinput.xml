@@ -6,8 +6,40 @@
     <briefdescription>
     </briefdescription>
     <detaileddescription>
-<para><ref refid="namespaceRADInput" kindref="compound">RADInput</ref> discovers Linux evdev devices from <computeroutput>/dev/input</computeroutput> and <computeroutput>/sys/class/input</computeroutput>. <computeroutput>InputManager</computeroutput> can read raw input events on a background thread and emit them through <ref refid="namespaceRADCore" kindref="compound">RADCore</ref> events, optionally posted back to a target <computeroutput><ref refid="classRADCore_1_1EventLoop" kindref="compound">RADCore::EventLoop</ref></computeroutput>.</para>
-<para>Use <computeroutput>Calibration</computeroutput> to map raw touch/pointer coordinates into display-space coordinates. Tests and embedded products can pass <computeroutput>InputPaths</computeroutput> to point the API at a fixture tree or alternate device root. </para>
+<para><ref refid="namespaceRADInput" kindref="compound">RADInput</ref> discovers Linux evdev devices from <computeroutput>/dev/input</computeroutput> and <computeroutput>/sys/class/input</computeroutput>. <computeroutput><ref refid="classRADInput_1_1InputManager" kindref="compound">RADInput::InputManager</ref></computeroutput> can read raw input events on a background thread and emit them through <ref refid="namespaceRADCore" kindref="compound">RADCore</ref> events, optionally posted back to a target <computeroutput><ref refid="classRADCore_1_1EventLoop" kindref="compound">RADCore::EventLoop</ref></computeroutput>.</para>
+<para><computeroutput>InputManager</computeroutput> derives from <computeroutput><ref refid="classRADCore_1_1RADObject" kindref="compound">RADCore::RADObject</ref></computeroutput> and is constructed with an optional <computeroutput>InputPaths</computeroutput> and an optional target <computeroutput><ref refid="classRADCore_1_1EventLoop" kindref="compound">RADCore::EventLoop</ref>*</computeroutput>. <computeroutput>InputManager::discover()</computeroutput> returns <computeroutput>InputDeviceInfo</computeroutput> records (<computeroutput>path</computeroutput>, <computeroutput>name</computeroutput>, <computeroutput>sysfsPath</computeroutput>) for the event nodes it finds. <computeroutput>InputManager::startDevice()</computeroutput> begins reading a single evdev node on a background reader thread, while <computeroutput>startHotplugMonitor()</computeroutput> / <computeroutput>stopHotplugMonitor()</computeroutput> run a lightweight polling loop that re-scans devices at a configurable interval. <computeroutput>stopAll()</computeroutput> stops every active reader, and <computeroutput>isRunning()</computeroutput> reports whether any reader is live.</para>
+<para>Events are delivered through the <computeroutput>RAD_EVENT</computeroutput> signals <computeroutput>eventReceived</computeroutput>, which carries a <computeroutput><ref refid="structRADInput_1_1InputEvent" kindref="compound">RADInput::InputEvent</ref></computeroutput> (device path, timestamp, Linux <computeroutput>type</computeroutput>, <computeroutput>code</computeroutput>, and <computeroutput>value</computeroutput>), and <computeroutput>devicesChanged</computeroutput>, which carries the updated device list when hotplug detection sees a change. When an <computeroutput>EventLoop</computeroutput> is supplied, emissions are posted back onto that loop&apos;s thread.</para>
+<para>Use <computeroutput><ref refid="structRADInput_1_1Calibration" kindref="compound">RADInput::Calibration</ref></computeroutput> to map raw touch/pointer coordinates into display-space coordinates. Its <computeroutput>map()</computeroutput> method applies the configured input and output ranges plus the <computeroutput>invertX</computeroutput> / <computeroutput>invertY</computeroutput> flags. Tests and embedded products can pass <computeroutput>InputPaths</computeroutput> to point the API at a fixture tree or alternate device root.</para>
+<para>Core features:</para>
+<para><itemizedlist>
+<listitem><para>evdev discovery from <computeroutput>/dev/input</computeroutput> and <computeroutput>/sys/class/input</computeroutput>.</para>
+</listitem><listitem><para>Background raw event reading emitted through <ref refid="namespaceRADCore" kindref="compound">RADCore</ref> events.</para>
+</listitem><listitem><para>Lightweight polling hotplug detection via <computeroutput>devicesChanged</computeroutput>.</para>
+</listitem><listitem><para>Touch/pointer calibration with range mapping and axis inversion.</para>
+</listitem><listitem><para>Injectable <computeroutput>InputPaths</computeroutput> for fixtures and embedded roots.</para>
+</listitem></itemizedlist>
+</para>
+<para>Example:</para>
+<para><programlisting filename=".cpp"><codeline><highlight class="normal"><ref refid="classRADCore_1_1EventLoop" kindref="compound">RADCore::EventLoop</ref><sp/>loop;</highlight></codeline>
+<codeline><highlight class="normal"><ref refid="classRADInput_1_1InputManager" kindref="compound">RADInput::InputManager</ref><sp/>input({},<sp/>&amp;loop);</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><ref refid="structRADInput_1_1Calibration" kindref="compound">RADInput::Calibration</ref><sp/>calibration;</highlight></codeline>
+<codeline><highlight class="normal">calibration.<ref refid="structRADInput_1_1Calibration_1ab7cb98102bff7608aa12ff9bbb9ba040" kindref="member">inMaxX</ref><sp/>=<sp/>4095.0;</highlight></codeline>
+<codeline><highlight class="normal">calibration.inMaxY<sp/>=<sp/>4095.0;</highlight></codeline>
+<codeline><highlight class="normal">calibration.outMaxX<sp/>=<sp/>1920.0;</highlight></codeline>
+<codeline><highlight class="normal">calibration.outMaxY<sp/>=<sp/>1080.0;</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal">input.eventReceived.connect([&amp;](</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structRADInput_1_1InputEvent" kindref="compound">RADInput::InputEvent</ref>&amp;<sp/>event)<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>[x,<sp/>y]<sp/>=<sp/>calibration.map(event.<ref refid="structRADInput_1_1InputEvent_1a2327552fd6f7a24b48de2253342637bf" kindref="member">value</ref>,<sp/>event.<ref refid="structRADInput_1_1InputEvent_1a2327552fd6f7a24b48de2253342637bf" kindref="member">value</ref>);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="RADLogging_8h_1a1c04f5122034d98cefa3320275787614" kindref="member">RADLOG_TRACE</ref>(</highlight><highlight class="stringliteral">&quot;input&quot;</highlight><highlight class="normal">)<sp/>&lt;&lt;<sp/>event.<ref refid="structRADInput_1_1InputEvent_1a0246c7ea353fba6de57577b0bd75f9fa" kindref="member">devicePath</ref><sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;<sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>x<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;,&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>y;</highlight></codeline>
+<codeline><highlight class="normal">});</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal">&amp;<sp/>device<sp/>:<sp/>input.discover())<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>input.startDevice(device.path);</highlight></codeline>
+<codeline><highlight class="normal">}</highlight></codeline>
+<codeline><highlight class="normal">input.startHotplugMonitor(1000);</highlight></codeline>
+<codeline><highlight class="normal">loop.run();</highlight></codeline>
+</programlisting> </para>
     </detaileddescription>
     <location file="/media/jvincent/Kingspec512/repos/RADLib/docs/public/radinput.md"/>
   </compounddef>

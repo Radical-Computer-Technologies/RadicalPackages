@@ -89,7 +89,7 @@ $(document).ready(function(){initNavTree('index.html',''); initResizable(); });
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><p><a class="anchor" id="md__media_jvincent_Kingspec512_repos_RADLib_docs_public_mainpage"></a> RADLib is a modular C++20 application framework for Linux desktop, embedded Linux, instrumentation, media, networking, and UI applications. The beta SDK includes public headers, shared libraries, examples, package metadata, and this searchable API reference.</p>
-<p>RADLib 0.2.0 also provides the RADpm package-manager executable used by RadBuild and RADix package flows. RADpm is built as a RADLib-owned tool so package resolution, packagegroup handling, sysroot staging, and future RADix live-package operations share the same library foundation.</p>
+<p>RADLib 0.2.0 also provides the RADpm package-manager executable used by RadBuild and RADPx package flows. RADpm is built as a RADLib-owned tool so package resolution, packagegroup handling, sysroot staging, and future RADPx live-package operations share the same library foundation.</p>
 <p>The documentation below is written for application developers consuming the RADLib SDK. It does not require access to RADLib implementation source files.</p>
 <h1><a class="anchor" id="autotoc_md1"></a>
 License Acknowledgement</h1>
@@ -112,7 +112,7 @@ Modules</h1>
 <li><a class="el" href="md__media_jvincent_Kingspec512_repos_RADLib_docs_public_radinput.html">RADInput</a>: evdev input discovery, input event delivery, and pointer/touch calibration helpers.</li>
 <li><a class="el" href="md__media_jvincent_Kingspec512_repos_RADLib_docs_public_raddisplay.html">RADDisplay</a>: DRM/KMS and framebuffer discovery, backlight control, orientation helpers, and display capability reporting.</li>
 <li><a class="el" href="md__media_jvincent_Kingspec512_repos_RADLib_docs_public_raddevice.html">RADDevice</a>: GPIO, I2C, SPI, PWM, ADC, watchdog, and LED helpers for embedded Linux devices.</li>
-<li><a class="el" href="md__media_jvincent_Kingspec512_repos_RADLib_docs_public_radembeddedkernel.html">RADEmbeddedKernel</a>: POSIX-like embedded kernel services for simulator and bare-metal HAL backends. RADix OS now owns the broader POSIX kernel direction; this RADLib module remains the portable embedded service/runtime layer and historical compatibility surface.</li>
+<li><a class="el" href="md__media_jvincent_Kingspec512_repos_RADLib_docs_public_radembeddedkernel.html">RADEmbeddedKernel</a>: POSIX-like embedded kernel services for simulator and bare-metal HAL backends. RADPx OS now owns the broader POSIX kernel direction; this RADLib module remains the portable embedded service/runtime layer and historical compatibility surface.</li>
 <li><a class="el" href="md__media_jvincent_Kingspec512_repos_RADLib_docs_public_radpower.html">RADPower</a>: battery/charger, thermal, CPU governor, and guarded suspend/reboot/shutdown helpers.</li>
 <li><a class="el" href="md__media_jvincent_Kingspec512_repos_RADLib_docs_public_radservice.html">RADService</a>: systemd unit generation, daemon helpers, watchdog notification, and single-instance app locks.</li>
 <li><a class="el" href="md__media_jvincent_Kingspec512_repos_RADLib_docs_public_radupdate.html">RADUpdate</a>: signed app-bundle manifests, payload verification, <a class="el" href="namespaceRADInstaller.html">RADInstaller</a> handoff, and A/B metadata tracking.</li>
@@ -125,7 +125,7 @@ Modules</h1>
 <h1><a class="anchor" id="autotoc_md3"></a>
 Package and Release Status</h1>
 <p>RADLib is currently a beta SDK. APIs are suitable for evaluation and early application development, but ABI compatibility is not yet guaranteed across minor beta updates.</p>
-<p>Host Linux packages are published as Debian packages through RadicalPackages. RADix image builds consume RADLib through <code>.radpm</code> metadata and RADix-specific payloads. For normal RADix image creation, select RADLib through the <code>radix-terminal-base</code> or <code>radix-desktop-base</code> packagegroups rather than adding individual RADLib packages by hand. </p>
+<p>Host Linux packages are published as Debian packages through RadicalPackages. RADPx image builds consume RADLib through <code>.radpm</code> metadata and RADPx-specific payloads. For normal RADPx image creation, select RADLib through the <code>radix-terminal-base</code> or <code>radix-desktop-base</code> packagegroups rather than adding individual RADLib packages by hand. </p>
 </div></div><!-- PageDoc -->
 </div><!-- contents -->
 </div><!-- doc-content -->

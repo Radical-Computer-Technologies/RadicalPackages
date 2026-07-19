@@ -89,14 +89,14 @@ $(document).ready(function(){initNavTree('md__media_jvincent_Kingspec512_repos_R
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><p>RADEmbeddedKernel is RADLib's portable embedded kernel service layer. It gives bare-metal and simulator targets a small POSIX-like contract for tasks, events, time, VFS access, devices, bus transfers, audio devices, terminal commands, and memory accounting.</p>
-<p>RADix OS is now the main operating-system repository for x86 VM work, processes, POSIX compatibility, packageable services, and broader architecture ports. RADEmbeddedKernel remains useful as the RADLib-side embedded runtime module and as a source-compatible bridge for MCU-class and simple bare-metal targets.</p>
+<p>RADPx OS is now the main operating-system repository for x86 VM work, processes, POSIX compatibility, packageable services, and broader architecture ports. RADEmbeddedKernel remains useful as the RADLib-side embedded runtime module and as a source-compatible bridge for MCU-class and simple bare-metal targets.</p>
 <p>The public interface is a C ABI with lightweight C++ wrappers. The C ABI is the stable boundary for future embedded plugins and for source-distributable HAL adapters. The C++ wrappers are convenience helpers for RADLib applications.</p>
-<h1><a class="anchor" id="autotoc_md13"></a>
+<h1><a class="anchor" id="autotoc_md16"></a>
 Backends</h1>
 <p><code>linux_sim</code> is the first functional backend. It maps kernel services to desktop threads, filesystems, clocks, mutexes, events, and fake devices so behavior can be validated in CI before hardware testing.</p>
 <p><code>rp235x_pico</code> is the first MCU-class backend. It targets RP2350/RP2354 A/B Cortex-M33 devices through the Pico SDK, defaults to <code>PICO_BOARD=pico2</code> and <code>PICO_PLATFORM=rp2350-arm-s</code>, and is configured by RADLib's Python/JSON build flow before CMake is invoked.</p>
 <p><code>circle_pi</code> is the first Raspberry Pi bare-metal backend. It targets Pi Zero 2 W through Circle and uses Circle's native Makefile flow for the smoke image. Circle remains optional; RADEmbeddedKernel is not architecturally tied to Circle.</p>
-<h1><a class="anchor" id="autotoc_md14"></a>
+<h1><a class="anchor" id="autotoc_md17"></a>
 Service Model</h1>
 <p>The first-pass kernel surface includes:</p>
 <ul>
@@ -113,11 +113,11 @@ Service Model</h1>
 <li>cooperative embedded run-loop APIs: <code><a class="el" href="radekernel_8h.html#a924d9dcd4d6790a17ea5470015765c60">rad_kernel_poll()</a></code>, <code><a class="el" href="radekernel_8h.html#a44d4005c886d90ca5f2dbbdaa387e303">rad_kernel_run()</a></code>, <code><a class="el" href="radekernel_8h.html#aa4c16108a8634970040e1f04b8671a33">rad_kernel_request_shutdown()</a></code>, and <code><a class="el" href="radekernel_8h.html#ad17d72c80fd219707a8773f0f070f83b">rad_kernel_is_shutdown_requested()</a></code></li>
 </ul>
 <p>Built-in terminal commands include <code>help</code>, <code>tasks</code>, <code>mem</code>, <code>mounts</code>, <code>ls</code>, <code>cat</code>, <code>devices</code>, <code>time</code>, and <code>bootinfo</code>. On embedded backends, unsupported commands return <code>RAD_STATUS_NOT_SUPPORTED</code> instead of failing silently.</p>
-<h1><a class="anchor" id="autotoc_md15"></a>
+<h1><a class="anchor" id="autotoc_md18"></a>
 RP235x Storage</h1>
 <p>RP235x normal VFS storage is SD-card only in this pass. Flash is intentionally not exposed as a normal writable filesystem. SPI SD is the conservative baseline path. Optional 4-bit PIO SDIO is exposed behind <code>RADEKERNEL_ENABLE_SDIO_PIO=ON</code> and <code>RADEKERNEL_SD_MODE=pio_sdio</code> or <code>auto</code>.</p>
 <p>PIO SDIO requires correct board wiring: SD CLK, CMD, and four consecutive data GPIOs. The preferred integration candidate is <code>inindev/pico-fatfs-sd</code>, a trimmed RP2040/RP2350 FatFs SDIO/SPI driver with RP2350B GPIO support. The kernel exposes the HAL seam for this driver, but the external driver is not vendored into RADLib by default.</p>
-<h1><a class="anchor" id="autotoc_md16"></a>
+<h1><a class="anchor" id="autotoc_md19"></a>
 Build Configuration</h1>
 <p>Embedded settings live in <code>buildconfig.json</code> under <code>embedded</code> and can be overridden by <code>build.py</code> flags. Committed defaults are intentionally portable: machine-local SDK, Circle, and toolchain paths should be supplied by local config, environment, or command-line flags instead of being committed.</p>
 <ul>
@@ -134,11 +134,11 @@ Build Configuration</h1>
 <p>RADpm package-manager development is separate from embedded HAL builds:</p>
 <div class="fragment"><div class="line">cmake -S . -B build-radpm -DBUILD_RADPM_TOOL=ON -DBUILD_RADUi=OFF</div>
 <div class="line">cmake --build build-radpm --target radpm</div>
-</div><!-- fragment --><h1><a class="anchor" id="autotoc_md17"></a>
+</div><!-- fragment --><h1><a class="anchor" id="autotoc_md20"></a>
 Embedded Portability</h1>
 <p>Small targets compile only the services they need and provide fixed-pool or static backing storage through the HAL. Pi-class and Zynq-class targets can enable the fuller VFS, terminal, and device registry model. MCU-class targets such as RP2040 and RP2350 start with time, events, device registry, bus dispatch, memory pools, serial shell, and SD-card VFS hooks.</p>
 <p>The public headers and HAL adapter sources can be shared across ports, but the kernel archive itself must be built per architecture, ABI, and toolchain. A Cortex-M RP2350 build, a Cortex-A AArch64 Raspberry Pi build, and a Zynq A9 build cannot consume one universal static archive. They should instead ship as target-specific archives such as <code>libradekernel-rp2350-cortex-m33.a</code>, <code>libradekernel-aarch64-none-elf.a</code>, or <code>libradekernel-zynq-a9.a</code>, all exposing the same <code>radekernel</code> C ABI.</p>
-<h1><a class="anchor" id="autotoc_md18"></a>
+<h1><a class="anchor" id="autotoc_md21"></a>
 Current Limits</h1>
 <p>Dynamic ELF/plugin loading is not part of the first pass. The ABI is shaped so a future loader can pass a kernel API table to trusted plugins. User/kernel privilege separation is also out of scope for this preview; early embedded plugins and tasks should be treated as trusted code.</p>
 <p>The RP235x boot shim is deliberately small: no filesystem, no dynamic allocation, and no shell. It prepares the boot handoff struct and jumps into the kernel entry path. The target budget is under 8 KiB of code and under 1 KiB of RAM for the shim. </p>

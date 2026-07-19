@@ -89,8 +89,44 @@ $(document).ready(function(){initNavTree('md__media_jvincent_Kingspec512_repos_R
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><p><a class="el" href="namespaceRADDisplay.html">RADDisplay</a> reports display backend capabilities without requiring libdrm. It enumerates DRM connector sysfs entries, framebuffer nodes, backlight devices, Wayland/X11 environment availability, and simple orientation names.</p>
-<p><code>DisplayManager::setBacklightBrightness()</code> writes only the selected backlight sysfs brightness file. Pass <code>DisplayPaths</code> for test fixtures or custom embedded roots. </p>
-</div></div><!-- contents -->
+<p>The main entry point is <code><a class="el" href="classRADDisplay_1_1DisplayManager.html" title="Display discovery and control helpers.">RADDisplay::DisplayManager</a></code>. It is constructed with an optional <code>DisplayPaths</code>, so real hardware, test fixtures, and custom embedded roots all share one code path. <code>DisplayManager::capabilities()</code> returns a <code>DisplayCapabilities</code> struct with the <code>drm</code>, <code>framebuffer</code>, <code>wayland</code>, <code>x11</code>, and <code>backlight</code> flags describing what the backend exposes.</p>
+<p><code>DisplayManager::displays()</code> lists DRM connectors and framebuffer nodes as <code>DisplayInfo</code> records (<code>name</code>, <code>path</code>, <code>status</code>, <code>mode</code>), for example a connector named <code>card0-HDMI-A-1</code> or a framebuffer named <code>fb0</code>. <code>DisplayManager::backlights()</code> returns <code>BacklightInfo</code> records that include the current and maximum brightness values.</p>
+<p><code>DisplayManager::setBacklightBrightness()</code> writes only the selected backlight sysfs brightness file and reports failures through an optional <code>error</code> string. Orientation is expressed with the <code>Orientation</code> enum (<code>Landscape0</code>, <code>Portrait90</code>, <code>Landscape180</code>, <code>Portrait270</code>); the static <code>DisplayManager::orientationName()</code> converts a value into a compositor/backend-friendly string.</p>
+<p>Core features:</p>
+<ul>
+<li>DRM connector and framebuffer enumeration without libdrm.</li>
+<li>Backlight discovery and guarded brightness writes.</li>
+<li>Wayland/X11 environment and capability detection.</li>
+<li>Orientation name helpers for compositors and backends.</li>
+<li>Injectable <code>DisplayPaths</code> for tests and embedded roots.</li>
+</ul>
+<p>Example:</p>
+<div class="fragment"><div class="line"><a class="code" href="classRADDisplay_1_1DisplayManager.html">RADDisplay::DisplayManager</a> manager;</div>
+<div class="line"> </div>
+<div class="line"><span class="keyword">auto</span> caps = manager.<a class="code" href="classRADDisplay_1_1DisplayManager.html#aeaf51e9c2fe71e3cd5e6825691fcbf27">capabilities</a>();</div>
+<div class="line"><span class="keywordflow">if</span> (caps.backlight) {</div>
+<div class="line">    <span class="keywordflow">for</span> (<span class="keyword">const</span> <span class="keyword">auto</span>&amp; backlight : manager.<a class="code" href="classRADDisplay_1_1DisplayManager.html#ad3ee2c5fe199bc5c3fe5ceddbba5959a">backlights</a>()) {</div>
+<div class="line">        <span class="comment">// Set each panel to half of its reported maximum brightness.</span></div>
+<div class="line">        std::string <a class="code" href="namespacerad.html#ac90c7293a399def0b7b53c3911005189acb5e100e5a9a3e7f6d1fd97512215282">error</a>;</div>
+<div class="line">        <span class="keywordflow">if</span> (!manager.<a class="code" href="classRADDisplay_1_1DisplayManager.html#abc1081b36460a9e92d79c1843555deaa">setBacklightBrightness</a>(</div>
+<div class="line">                backlight.name, backlight.maxBrightness / 2, &amp;error)) {</div>
+<div class="line">            <a class="code" href="RADLogging_8h.html#ad5d88a9d741012af89cd0128a328edf1">RADLOG_WARNING</a>(<span class="stringliteral">&quot;display&quot;</span>) &lt;&lt; <span class="stringliteral">&quot;backlight write failed: &quot;</span> &lt;&lt; <a class="code" href="namespacerad.html#ac90c7293a399def0b7b53c3911005189acb5e100e5a9a3e7f6d1fd97512215282">error</a>;</div>
+<div class="line">        }</div>
+<div class="line">    }</div>
+<div class="line">}</div>
+<div class="line"> </div>
+<div class="line"><span class="keywordflow">for</span> (<span class="keyword">const</span> <span class="keyword">auto</span>&amp; display : manager.<a class="code" href="classRADDisplay_1_1DisplayManager.html#ad3cb904157a14470b4e9f90f6798ca12">displays</a>()) {</div>
+<div class="line">    <a class="code" href="RADLogging_8h.html#aa88dbb52f2771f10bd298dc1ee6309ec">RADLOG_INFO</a>(<span class="stringliteral">&quot;display&quot;</span>) &lt;&lt; display.name &lt;&lt; <span class="stringliteral">&quot; &quot;</span> &lt;&lt; display.status;</div>
+<div class="line">}</div>
+<div class="ttc" id="aRADLogging_8h_html_aa88dbb52f2771f10bd298dc1ee6309ec"><div class="ttname"><a href="RADLogging_8h.html#aa88dbb52f2771f10bd298dc1ee6309ec">RADLOG_INFO</a></div><div class="ttdeci">#define RADLOG_INFO(category)</div><div class="ttdoc">Logs with RADLogging at info level.</div><div class="ttdef"><b>Definition:</b> RADLogging.h:112</div></div>
+<div class="ttc" id="aRADLogging_8h_html_ad5d88a9d741012af89cd0128a328edf1"><div class="ttname"><a href="RADLogging_8h.html#ad5d88a9d741012af89cd0128a328edf1">RADLOG_WARNING</a></div><div class="ttdeci">#define RADLOG_WARNING(category)</div><div class="ttdoc">Logs with RADLogging at warning level.</div><div class="ttdef"><b>Definition:</b> RADLogging.h:114</div></div>
+<div class="ttc" id="aclassRADDisplay_1_1DisplayManager_html"><div class="ttname"><a href="classRADDisplay_1_1DisplayManager.html">RADDisplay::DisplayManager</a></div><div class="ttdoc">Display discovery and control helpers.</div><div class="ttdef"><b>Definition:</b> RADDisplay.h:81</div></div>
+<div class="ttc" id="aclassRADDisplay_1_1DisplayManager_html_abc1081b36460a9e92d79c1843555deaa"><div class="ttname"><a href="classRADDisplay_1_1DisplayManager.html#abc1081b36460a9e92d79c1843555deaa">RADDisplay::DisplayManager::setBacklightBrightness</a></div><div class="ttdeci">bool setBacklightBrightness(const std::string &amp;name, int brightness, std::string *error=nullptr) const</div><div class="ttdoc">Writes brightness to a backlight device.</div></div>
+<div class="ttc" id="aclassRADDisplay_1_1DisplayManager_html_ad3cb904157a14470b4e9f90f6798ca12"><div class="ttname"><a href="classRADDisplay_1_1DisplayManager.html#ad3cb904157a14470b4e9f90f6798ca12">RADDisplay::DisplayManager::displays</a></div><div class="ttdeci">std::vector&lt; DisplayInfo &gt; displays() const</div><div class="ttdoc">Lists DRM connectors and framebuffer nodes.</div></div>
+<div class="ttc" id="aclassRADDisplay_1_1DisplayManager_html_ad3ee2c5fe199bc5c3fe5ceddbba5959a"><div class="ttname"><a href="classRADDisplay_1_1DisplayManager.html#ad3ee2c5fe199bc5c3fe5ceddbba5959a">RADDisplay::DisplayManager::backlights</a></div><div class="ttdeci">std::vector&lt; BacklightInfo &gt; backlights() const</div><div class="ttdoc">Lists backlight devices.</div></div>
+<div class="ttc" id="aclassRADDisplay_1_1DisplayManager_html_aeaf51e9c2fe71e3cd5e6825691fcbf27"><div class="ttname"><a href="classRADDisplay_1_1DisplayManager.html#aeaf51e9c2fe71e3cd5e6825691fcbf27">RADDisplay::DisplayManager::capabilities</a></div><div class="ttdeci">DisplayCapabilities capabilities() const</div><div class="ttdoc">Returns display backend capability flags.</div></div>
+<div class="ttc" id="anamespacerad_html_ac90c7293a399def0b7b53c3911005189acb5e100e5a9a3e7f6d1fd97512215282"><div class="ttname"><a href="namespacerad.html#ac90c7293a399def0b7b53c3911005189acb5e100e5a9a3e7f6d1fd97512215282">rad::Status::error</a></div><div class="ttdeci">@ error</div></div>
+</div><!-- fragment --> </div></div><!-- contents -->
 </div><!-- PageDoc -->
 </div><!-- doc-content -->
 <!-- start footer part -->

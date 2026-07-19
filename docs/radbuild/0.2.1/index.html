@@ -13,7 +13,7 @@
     <div class="nav-links">
       <a href="../../../">Home</a>
       <a href="../../../packages.html">Packages</a>
-      <a href="../../../radix-os.html">RADix OS</a>
+      <a href="../../../radpx-os.html">RADPx-OS</a>
       <a href="../../../docs/">Docs</a>
     </div>
   </nav>
@@ -23,7 +23,7 @@
   </section>
   <article class="card doc-content">
 <h1>RadBuild 0.2.1</h1>
-<p>RadBuild 0.2.1 is the Crimson experimental build framework for Radical Computer Technologies projects. It uses schema v2 JSON project files to build FPGA designs, Linux/embedded software graphs, RADix OS images, package metadata, and deployment artifacts through one CLI.</p>
+<p>RadBuild 0.2.1 is the Crimson experimental build framework for Radical Computer Technologies projects. It uses schema v2 JSON project files to build FPGA designs, Linux/embedded software graphs, RADPx OS images, package metadata, and deployment artifacts through one CLI.</p>
 <h2>Release Channels</h2>
 <ul>
 <li>Suite: experimental</li>
@@ -58,7 +58,7 @@ radbuild build all --settings ./workspace/demo/settings.json --dry-run --json-ev
 {&quot;event&quot;:&quot;system_planned&quot;,&quot;system&quot;:&quot;petalinux&quot;,&quot;type&quot;:&quot;linux.petalinux&quot;}
 {&quot;event&quot;:&quot;build_finished&quot;,&quot;status&quot;:&quot;dry-run&quot;}</code></pre>
 <h2>VSCode Front-End</h2>
-<p>The <code>radbuild-vscode-support</code> package includes a VSCode extension with a RadBuild activity-bar view. The first view lists registered projects with a single <code>Open</code> action. Opening a project switches VSCode to that source root and changes the side panel into a project detail view with baseline settings, artifact status, build actions, RADix OS configuration, and a form-based project settings editor. The Projects pane keeps project rows simple while exposing <code>Toolchain Setup</code>, <code>Register Directory</code>, and <code>Create Project</code> in the pane toolbar. A directory is accepted as a RadBuild project only when it contains a schema v2 <code>settings.json</code>.</p>
+<p>The <code>radbuild-vscode-support</code> package includes a VSCode extension with a RadBuild activity-bar view. The first view lists registered projects with a single <code>Open</code> action. Opening a project switches VSCode to that source root and changes the side panel into a project detail view with baseline settings, artifact status, build actions, RADPx OS configuration, and a form-based project settings editor. The Projects pane keeps project rows simple while exposing <code>Toolchain Setup</code>, <code>Register Directory</code>, and <code>Create Project</code> in the pane toolbar. A directory is accepted as a RadBuild project only when it contains a schema v2 <code>settings.json</code>.</p>
 <p>The create-project UI is template-aware: changing templates resets fields to that template&#x27;s defaults and disables fields that do not apply. Toolchain setup rescans on extension activation and when opened. Vivado roots are normalized to the folder containing version subdirectories such as <code>2024.1</code>, and versions are accepted only when they contain <code>settings64.sh</code> plus <code>bin/vivado</code>. PetaLinux roots are handled the same way, using <code>settings.sh</code> plus a valid <code>petalinux-build</code> path.</p>
   </article>
 </main>

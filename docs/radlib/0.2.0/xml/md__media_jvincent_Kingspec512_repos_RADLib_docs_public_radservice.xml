@@ -6,15 +6,34 @@
     <briefdescription>
     </briefdescription>
     <detaileddescription>
-<para><ref refid="namespaceRADService" kindref="compound">RADService</ref> contains deployment-oriented helpers:</para>
+<para><ref refid="namespaceRADService" kindref="compound">RADService</ref> contains deployment-oriented helpers for running RADLib programs as long-lived services: systemd unit generation, watchdog/ready notifications, single-instance locks, and Unix daemonization. These helpers are useful for embedded appliances and desktop background tools that need reproducible service metadata.</para>
+<para>A <computeroutput>ServiceUnit</computeroutput> describes a systemd service: its <computeroutput>name</computeroutput>, <computeroutput>description</computeroutput>, <computeroutput>execStart</computeroutput> command, optional <computeroutput>workingDirectory</computeroutput>, <computeroutput>environment</computeroutput> map, <computeroutput>user</computeroutput>, and <computeroutput>wantedBy</computeroutput> target. The <computeroutput>restart</computeroutput> policy is a <computeroutput>RestartPolicy</computeroutput> (<computeroutput>No</computeroutput>, <computeroutput>OnFailure</computeroutput>, or <computeroutput>Always</computeroutput>), and <computeroutput>watchdogSec</computeroutput> enables <computeroutput>WatchdogSec</computeroutput> when non-zero.</para>
+<para><computeroutput>ServiceManager</computeroutput> exposes the static helpers. <computeroutput>generateSystemdUnit()</computeroutput> serializes a <computeroutput>ServiceUnit</computeroutput> to unit-file text, and <computeroutput>writeSystemdUnit()</computeroutput> writes it into a target directory. <computeroutput>restartPolicyName()</computeroutput> converts a policy to its systemd token. For runtime supervision, <computeroutput>notify()</computeroutput> sends an sd_notify-compatible message to <computeroutput>NOTIFY_SOCKET</computeroutput> without linking libsystemd, with <computeroutput>notifyReady()</computeroutput> sending <computeroutput>READY=1</computeroutput> and <computeroutput>notifyWatchdog()</computeroutput> sending <computeroutput>WATCHDOG=1</computeroutput>. <computeroutput>daemonize()</computeroutput> performs a Unix double-fork when supported.</para>
+<para><computeroutput>SingleInstanceLock</computeroutput> guards against concurrent instances using a <computeroutput><ref refid="classRADCore_1_1RADLockFile" kindref="compound">RADCore::RADLockFile</ref></computeroutput>. Construct it with a lock path, call <computeroutput>tryLock()</computeroutput>, and check <computeroutput>isLocked()</computeroutput>; the lock is released in the destructor.</para>
+<para>Core features:</para>
 <para><itemizedlist>
-<listitem><para>systemd unit generation and writing,</para>
-</listitem><listitem><para>sd_notify-compatible ready/watchdog messages without libsystemd,</para>
-</listitem><listitem><para>single-instance process locks via <computeroutput><ref refid="classRADCore_1_1RADLockFile" kindref="compound">RADCore::RADLockFile</ref></computeroutput>,</para>
-</listitem><listitem><para>optional Unix daemonization for service-style programs.</para>
+<listitem><para>systemd unit generation and writing from a <computeroutput>ServiceUnit</computeroutput>.</para>
+</listitem><listitem><para>sd_notify-compatible ready/watchdog messages without libsystemd.</para>
+</listitem><listitem><para>Single-instance process locks via <computeroutput><ref refid="classRADCore_1_1RADLockFile" kindref="compound">RADCore::RADLockFile</ref></computeroutput>.</para>
+</listitem><listitem><para>Optional Unix double-fork daemonization.</para>
 </listitem></itemizedlist>
 </para>
-<para>These helpers are useful for embedded appliances and desktop background tools that need reproducible service metadata. </para>
+<para>Example:</para>
+<para><programlisting filename=".cpp"><codeline><highlight class="normal"><ref refid="classRADService_1_1SingleInstanceLock" kindref="compound">RADService::SingleInstanceLock</ref><sp/>lock(</highlight><highlight class="stringliteral">&quot;/run/radappd.lock&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!lock.tryLock())<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>1;<sp/></highlight><highlight class="comment">//<sp/>Another<sp/>instance<sp/>is<sp/>already<sp/>running.</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal">}</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><ref refid="structRADService_1_1ServiceUnit" kindref="compound">RADService::ServiceUnit</ref><sp/>unit;</highlight></codeline>
+<codeline><highlight class="normal">unit.<ref refid="structRADService_1_1ServiceUnit_1aee6674b972f3ae85c8dee1cc0f791236" kindref="member">name</ref><sp/>=<sp/></highlight><highlight class="stringliteral">&quot;radappd&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline><highlight class="normal">unit.<ref refid="structRADService_1_1ServiceUnit_1a94737bf5b1e504b73790dee378959395" kindref="member">description</ref><sp/>=<sp/></highlight><highlight class="stringliteral">&quot;RAD<sp/>appliance<sp/>daemon&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline><highlight class="normal">unit.<ref refid="structRADService_1_1ServiceUnit_1ad7fb2ce7d9f2041b9a971e45da34b1de" kindref="member">execStart</ref><sp/>=<sp/></highlight><highlight class="stringliteral">&quot;/usr/bin/radappd&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline><highlight class="normal">unit.<ref refid="structRADService_1_1ServiceUnit_1a12d916b3ad9fe936258455ea3674b73b" kindref="member">restart</ref><sp/>=<sp/><ref refid="namespaceRADService_1ad48c24e7fb20b3de7548d5d0e40d32f4abafe37a0acd9d474a837ffb4cdec8e9e" kindref="member">RADService::RestartPolicy::OnFailure</ref>;</highlight></codeline>
+<codeline><highlight class="normal">unit.<ref refid="structRADService_1_1ServiceUnit_1acc330522f33f9624883ced302701fedc" kindref="member">watchdogSec</ref><sp/>=<sp/>30;</highlight></codeline>
+<codeline><highlight class="normal"><ref refid="classRADService_1_1ServiceManager_1a4c2b7c5d156d04a58ed4ec4bd3e7d24a" kindref="member">RADService::ServiceManager::writeSystemdUnit</ref>(unit,<sp/></highlight><highlight class="stringliteral">&quot;/etc/systemd/system&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><ref refid="classRADService_1_1ServiceManager_1adae59da1d42079d8312fa40cdd437bd8" kindref="member">RADService::ServiceManager::notifyReady</ref>();</highlight></codeline>
+</programlisting> </para>
     </detaileddescription>
     <location file="/media/jvincent/Kingspec512/repos/RADLib/docs/public/radservice.md"/>
   </compounddef>

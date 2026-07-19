@@ -6,9 +6,38 @@
     <briefdescription>
     </briefdescription>
     <detaileddescription>
-<para>RADDataStructures provides RAD-owned C++20 containers for applications that need predictable allocation behavior, compact storage, and cache-conscious data layout.</para>
-<para>The v1 module includes contiguous vectors, small vectors with inline storage, ring buffers, queue/stack adapters, a single-producer/single-consumer queue, flat hash map/set containers, and a stable-node list.</para>
-<para>RADLib public APIs remain STL-compatible in the beta SDK, so these containers are optional for application code. Use them where their allocation and layout properties are a better fit than the standard library containers. </para>
+<para>RADDataStructures provides RAD-owned C++20 containers for applications that need predictable allocation behavior, compact storage, and cache-conscious data layout. Everything lives in the <computeroutput><ref refid="namespaceRADData" kindref="compound">RADData</ref></computeroutput> namespace and is header-only.</para>
+<para><computeroutput>RADVector</computeroutput> is the contiguous growable array used on RADLib hot paths, and <computeroutput>RADSmallVector&lt;T, InlineN&gt;</computeroutput> keeps its first <computeroutput>InlineN</computeroutput> elements inline before falling back to the heap. <computeroutput>RADRingBuffer</computeroutput> is a power-of-two circular buffer with push/pop at both ends, and it backs the <computeroutput>RADQueue</computeroutput> FIFO adapter; <computeroutput>RADStack</computeroutput> is a LIFO adapter over <computeroutput>RADVector</computeroutput>. <computeroutput>RADSpscQueue</computeroutput> is a lock-free, bounded single-producer/single-consumer queue with <computeroutput>try_push()</computeroutput>/<computeroutput>try_pop()</computeroutput> for thread-to-thread handoff without mutexes.</para>
+<para>For associative storage, <computeroutput>RADFlatHashMap</computeroutput> is an open-addressed, cache-local hash map with tombstone-aware probing, and <computeroutput>RADFlatHashSet</computeroutput> is built on top of it. <computeroutput>RADList</computeroutput> is a stable-node doubly linked list for cases where element addresses must not move. <computeroutput>RADByteArray</computeroutput> and the non-owning <computeroutput>RADArrayView</computeroutput> (aliased as <computeroutput>RADByteArrayView</computeroutput>/<computeroutput>RADConstByteArrayView</computeroutput>) cover raw byte storage and views.</para>
+<para>Allocation strategy is pluggable. <computeroutput>RADMonotonicArena</computeroutput> is a bump allocator for short-lived allocations that <computeroutput>reset()</computeroutput>s in one step; <computeroutput>RADFixedPool</computeroutput> hands out same-size blocks; and the standard-compatible <computeroutput>RADMonotonicAllocator</computeroutput> and <computeroutput>RADAlignedAllocator</computeroutput> let the containers above draw from an arena or an aligned heap.</para>
+<sect1 id="md__media_jvincent_Kingspec512_repos_RADLib_docs_public_raddatastructures_1autotoc_md9">
+<title>Core features</title>
+<para><itemizedlist>
+<listitem><para><computeroutput>RADVector</computeroutput> and inline-storage <computeroutput>RADSmallVector&lt;T, InlineN&gt;</computeroutput> contiguous arrays.</para>
+</listitem><listitem><para><computeroutput>RADRingBuffer</computeroutput> double-ended ring with <computeroutput>RADQueue</computeroutput>/<computeroutput>RADStack</computeroutput> adapters.</para>
+</listitem><listitem><para>Lock-free bounded <computeroutput>RADSpscQueue</computeroutput> for one-producer/one-consumer handoff.</para>
+</listitem><listitem><para><computeroutput>RADFlatHashMap</computeroutput>/<computeroutput>RADFlatHashSet</computeroutput> open-addressed associative containers.</para>
+</listitem><listitem><para>Stable-node <computeroutput>RADList</computeroutput>, plus <computeroutput>RADByteArray</computeroutput>/<computeroutput>RADArrayView</computeroutput> byte storage.</para>
+</listitem><listitem><para><computeroutput>RADMonotonicArena</computeroutput>, <computeroutput>RADFixedPool</computeroutput>, and STL-compatible allocators.</para>
+</listitem></itemizedlist>
+</para>
+<para>RADLib public APIs remain STL-compatible in the beta SDK, so these containers are optional for application code. Use them where their allocation and layout properties are a better fit than the standard library containers.</para>
+<para>Example:</para>
+<para><programlisting filename=".cpp"><codeline><highlight class="normal"><ref refid="classRADData_1_1RADMonotonicArena" kindref="compound">RADData::RADMonotonicArena</ref><sp/>arena(64<sp/>*<sp/>1024);</highlight></codeline>
+<codeline><highlight class="normal"><ref refid="classRADData_1_1RADVector" kindref="compound">RADData::RADVector&lt;int, RADData::RADMonotonicAllocator&lt;int&gt;</ref>&gt;<sp/>ids{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classRADData_1_1RADMonotonicAllocator" kindref="compound">RADData::RADMonotonicAllocator&lt;int&gt;</ref>(&amp;arena)};</highlight></codeline>
+<codeline><highlight class="normal">ids.reserve(256);</highlight></codeline>
+<codeline><highlight class="normal">ids.push_back(42);</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><ref refid="classRADData_1_1RADFlatHashMap" kindref="compound">RADData::RADFlatHashMap&lt;std::string, int&gt;</ref><sp/>counts;</highlight></codeline>
+<codeline><highlight class="normal">counts[</highlight><highlight class="stringliteral">&quot;frames&quot;</highlight><highlight class="normal">]<sp/>+=<sp/>1;</highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal">*<sp/>frames<sp/>=<sp/>counts.<ref refid="classRADData_1_1RADFlatHashMap_1ac194236ba2dfc81bdbdf02949b16ce8d" kindref="member">find</ref>(</highlight><highlight class="stringliteral">&quot;frames&quot;</highlight><highlight class="normal">))<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classRADData_1_1RADSpscQueue" kindref="compound">RADData::RADSpscQueue&lt;int&gt;</ref><sp/>pending(1024);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>pending.try_push(*frames);</highlight></codeline>
+<codeline><highlight class="normal">}</highlight></codeline>
+<codeline><highlight class="normal">arena.reset();<sp/></highlight><highlight class="comment">//<sp/>drops<sp/>every<sp/>arena-backed<sp/>allocation<sp/>at<sp/>once</highlight></codeline>
+</programlisting> </para>
+</sect1>
     </detaileddescription>
     <location file="/media/jvincent/Kingspec512/repos/RADLib/docs/public/raddatastructures.md"/>
   </compounddef>

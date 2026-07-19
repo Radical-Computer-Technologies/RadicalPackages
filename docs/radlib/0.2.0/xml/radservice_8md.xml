@@ -9,15 +9,54 @@
     <programlisting>
 <codeline><highlight class="normal">#<sp/>RADService</highlight></codeline>
 <codeline></codeline>
-<codeline><highlight class="normal">RADService<sp/>contains<sp/>deployment-oriented<sp/>helpers:</highlight></codeline>
+<codeline><highlight class="normal">RADService<sp/>contains<sp/>deployment-oriented<sp/>helpers<sp/>for<sp/>running<sp/>RADLib<sp/>programs<sp/>as</highlight></codeline>
+<codeline><highlight class="normal">long-lived<sp/>services:<sp/>systemd<sp/>unit<sp/>generation,<sp/>watchdog/ready<sp/>notifications,</highlight></codeline>
+<codeline><highlight class="normal">single-instance<sp/>locks,<sp/>and<sp/>Unix<sp/>daemonization.<sp/>These<sp/>helpers<sp/>are<sp/>useful<sp/>for</highlight></codeline>
+<codeline><highlight class="normal">embedded<sp/>appliances<sp/>and<sp/>desktop<sp/>background<sp/>tools<sp/>that<sp/>need<sp/>reproducible<sp/>service</highlight></codeline>
+<codeline><highlight class="normal">metadata.</highlight></codeline>
 <codeline></codeline>
-<codeline><highlight class="normal">-<sp/>systemd<sp/>unit<sp/>generation<sp/>and<sp/>writing,</highlight></codeline>
-<codeline><highlight class="normal">-<sp/>sd_notify-compatible<sp/>ready/watchdog<sp/>messages<sp/>without<sp/>libsystemd,</highlight></codeline>
-<codeline><highlight class="normal">-<sp/>single-instance<sp/>process<sp/>locks<sp/>via<sp/>`RADCore::RADLockFile`,</highlight></codeline>
-<codeline><highlight class="normal">-<sp/>optional<sp/>Unix<sp/>daemonization<sp/>for<sp/>service-style<sp/>programs.</highlight></codeline>
+<codeline><highlight class="normal">A<sp/>`ServiceUnit`<sp/>describes<sp/>a<sp/>systemd<sp/>service:<sp/>its<sp/>`name`,<sp/>`description`,</highlight></codeline>
+<codeline><highlight class="normal">`execStart`<sp/>command,<sp/>optional<sp/>`workingDirectory`,<sp/>`environment`<sp/>map,<sp/>`user`,<sp/>and</highlight></codeline>
+<codeline><highlight class="normal">`wantedBy`<sp/>target.<sp/>The<sp/>`restart`<sp/>policy<sp/>is<sp/>a<sp/>`RestartPolicy`<sp/>(`No`,<sp/>`OnFailure`,</highlight></codeline>
+<codeline><highlight class="normal">or<sp/>`Always`),<sp/>and<sp/>`watchdogSec`<sp/>enables<sp/>`WatchdogSec`<sp/>when<sp/>non-zero.</highlight></codeline>
 <codeline></codeline>
-<codeline><highlight class="normal">These<sp/>helpers<sp/>are<sp/>useful<sp/>for<sp/>embedded<sp/>appliances<sp/>and<sp/>desktop<sp/>background<sp/>tools</highlight></codeline>
-<codeline><highlight class="normal">that<sp/>need<sp/>reproducible<sp/>service<sp/>metadata.</highlight></codeline>
+<codeline><highlight class="normal">`ServiceManager`<sp/>exposes<sp/>the<sp/>static<sp/>helpers.<sp/>`generateSystemdUnit()`<sp/>serializes<sp/>a</highlight></codeline>
+<codeline><highlight class="normal">`ServiceUnit`<sp/>to<sp/>unit-file<sp/>text,<sp/>and<sp/>`writeSystemdUnit()`<sp/>writes<sp/>it<sp/>into<sp/>a<sp/>target</highlight></codeline>
+<codeline><highlight class="normal">directory.<sp/>`restartPolicyName()`<sp/>converts<sp/>a<sp/>policy<sp/>to<sp/>its<sp/>systemd<sp/>token.<sp/>For</highlight></codeline>
+<codeline><highlight class="normal">runtime<sp/>supervision,<sp/>`notify()`<sp/>sends<sp/>an<sp/>sd_notify-compatible<sp/>message<sp/>to</highlight></codeline>
+<codeline><highlight class="normal">`NOTIFY_SOCKET`<sp/>without<sp/>linking<sp/>libsystemd,<sp/>with<sp/>`notifyReady()`<sp/>sending</highlight></codeline>
+<codeline><highlight class="normal">`READY=1`<sp/>and<sp/>`notifyWatchdog()`<sp/>sending<sp/>`WATCHDOG=1`.<sp/>`daemonize()`<sp/>performs<sp/>a</highlight></codeline>
+<codeline><highlight class="normal">Unix<sp/>double-fork<sp/>when<sp/>supported.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">`SingleInstanceLock`<sp/>guards<sp/>against<sp/>concurrent<sp/>instances<sp/>using<sp/>a</highlight></codeline>
+<codeline><highlight class="normal">`RADCore::RADLockFile`.<sp/>Construct<sp/>it<sp/>with<sp/>a<sp/>lock<sp/>path,<sp/>call<sp/>`tryLock()`,<sp/>and</highlight></codeline>
+<codeline><highlight class="normal">check<sp/>`isLocked()`;<sp/>the<sp/>lock<sp/>is<sp/>released<sp/>in<sp/>the<sp/>destructor.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Core<sp/>features:</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">-<sp/>systemd<sp/>unit<sp/>generation<sp/>and<sp/>writing<sp/>from<sp/>a<sp/>`ServiceUnit`.</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>sd_notify-compatible<sp/>ready/watchdog<sp/>messages<sp/>without<sp/>libsystemd.</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>Single-instance<sp/>process<sp/>locks<sp/>via<sp/>`RADCore::RADLockFile`.</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>Optional<sp/>Unix<sp/>double-fork<sp/>daemonization.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Example:</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">```cpp</highlight></codeline>
+<codeline><highlight class="normal">RADService::SingleInstanceLock<sp/>lock(&quot;/run/radappd.lock&quot;);</highlight></codeline>
+<codeline><highlight class="normal">if<sp/>(!lock.tryLock())<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>return<sp/>1;<sp/>//<sp/>Another<sp/>instance<sp/>is<sp/>already<sp/>running.</highlight></codeline>
+<codeline><highlight class="normal">}</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">RADService::ServiceUnit<sp/>unit;</highlight></codeline>
+<codeline><highlight class="normal">unit.name<sp/>=<sp/>&quot;radappd&quot;;</highlight></codeline>
+<codeline><highlight class="normal">unit.description<sp/>=<sp/>&quot;RAD<sp/>appliance<sp/>daemon&quot;;</highlight></codeline>
+<codeline><highlight class="normal">unit.execStart<sp/>=<sp/>&quot;/usr/bin/radappd&quot;;</highlight></codeline>
+<codeline><highlight class="normal">unit.restart<sp/>=<sp/>RADService::RestartPolicy::OnFailure;</highlight></codeline>
+<codeline><highlight class="normal">unit.watchdogSec<sp/>=<sp/>30;</highlight></codeline>
+<codeline><highlight class="normal">RADService::ServiceManager::writeSystemdUnit(unit,<sp/>&quot;/etc/systemd/system&quot;);</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">RADService::ServiceManager::notifyReady();</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
     </programlisting>
     <location file="/media/jvincent/Kingspec512/repos/RADLib/docs/public/radservice.md"/>
   </compounddef>

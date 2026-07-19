@@ -9,15 +9,50 @@
     <programlisting>
 <codeline><highlight class="normal">#<sp/>RADSerial</highlight></codeline>
 <codeline></codeline>
-<codeline><highlight class="normal">`RADSerial`<sp/>provides<sp/>Linux<sp/>serial<sp/>port<sp/>support<sp/>through<sp/>`RADSerial::RADSerialPort`.</highlight></codeline>
-<codeline><highlight class="normal">It<sp/>uses<sp/>`RADCore::RADIODevice`<sp/>and<sp/>posts<sp/>read<sp/>availability<sp/>through<sp/>`RADCore::EventLoop`.</highlight></codeline>
+<codeline><highlight class="normal">RADSerial<sp/>provides<sp/>event-loop<sp/>integrated<sp/>Linux<sp/>serial<sp/>port<sp/>support<sp/>through</highlight></codeline>
+<codeline><highlight class="normal">`RADSerial::RADSerialPort`.<sp/>It<sp/>is<sp/>backed<sp/>by<sp/>termios<sp/>and<sp/>implements</highlight></codeline>
+<codeline><highlight class="normal">`RADCore::RADIODevice`,<sp/>posting<sp/>read<sp/>availability<sp/>through<sp/>a<sp/>`RADCore::EventLoop`.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">`RADSerialPort`<sp/>is<sp/>constructed<sp/>with<sp/>a<sp/>reference<sp/>to<sp/>the<sp/>`EventLoop`<sp/>that<sp/>receives</highlight></codeline>
+<codeline><highlight class="normal">its<sp/>events,<sp/>and<sp/>raises<sp/>`opened()`<sp/>and<sp/>`closed()`<sp/>events<sp/>around<sp/>the<sp/>port</highlight></codeline>
+<codeline><highlight class="normal">lifecycle.<sp/>Configure<sp/>the<sp/>device<sp/>path<sp/>with<sp/>`setPortName()`<sp/>and<sp/>the<sp/>line<sp/>settings</highlight></codeline>
+<codeline><highlight class="normal">with<sp/>`setConfig()`,<sp/>passing<sp/>a<sp/>`SerialConfig`.<sp/>That<sp/>struct<sp/>carries<sp/>the<sp/>`baudRate`</highlight></codeline>
+<codeline><highlight class="normal">(such<sp/>as<sp/>9600,<sp/>115200,<sp/>or<sp/>1000000),<sp/>`dataBits`,<sp/>`parity`,<sp/>`stopBits`,<sp/>and</highlight></codeline>
+<codeline><highlight class="normal">`flowControl`.<sp/>Parity<sp/>is<sp/>one<sp/>of<sp/>`Parity::None`,<sp/>`Even`,<sp/>or<sp/>`Odd`;<sp/>stop<sp/>bits<sp/>are</highlight></codeline>
+<codeline><highlight class="normal">`StopBits::One`<sp/>or<sp/>`Two`;<sp/>and<sp/>flow<sp/>control<sp/>is<sp/>`FlowControl::None`,<sp/>`Hardware`,</highlight></codeline>
+<codeline><highlight class="normal">or<sp/>`Software`.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Open<sp/>the<sp/>port<sp/>with<sp/>`open(RADCore::OpenMode)`<sp/>and<sp/>release<sp/>it<sp/>with<sp/>`close()`,</highlight></codeline>
+<codeline><highlight class="normal">checking<sp/>`isOpen()`<sp/>as<sp/>needed.<sp/>Because<sp/>the<sp/>port<sp/>is<sp/>a<sp/>`RADIODevice`,<sp/>`readData()`</highlight></codeline>
+<codeline><highlight class="normal">drains<sp/>the<sp/>internal<sp/>async<sp/>buffer<sp/>and<sp/>`writeData()`<sp/>writes<sp/>to<sp/>the<sp/>serial<sp/>file</highlight></codeline>
+<codeline><highlight class="normal">descriptor.<sp/>The<sp/>static<sp/>`listPorts()`<sp/>helper<sp/>returns<sp/>likely<sp/>serial<sp/>devices<sp/>under</highlight></codeline>
+<codeline><highlight class="normal">`/dev`<sp/>as<sp/>`SerialPortInfo`<sp/>records<sp/>containing<sp/>a<sp/>`path`<sp/>and<sp/>display<sp/>`name`.</highlight></codeline>
 <codeline></codeline>
 <codeline><highlight class="normal">Core<sp/>features:</highlight></codeline>
 <codeline></codeline>
 <codeline><highlight class="normal">-<sp/>Baud<sp/>rate,<sp/>data<sp/>bits,<sp/>parity,<sp/>stop<sp/>bits,<sp/>and<sp/>flow<sp/>control<sp/>configuration.</highlight></codeline>
-<codeline><highlight class="normal">-<sp/>Async<sp/>`readyRead`<sp/>delivery.</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>Async<sp/>readiness<sp/>delivery<sp/>on<sp/>a<sp/>`RADCore::EventLoop`.</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>`opened`/`closed`<sp/>lifecycle<sp/>events.</highlight></codeline>
 <codeline><highlight class="normal">-<sp/>`RADIODevice`<sp/>read/write<sp/>compatibility.</highlight></codeline>
-<codeline><highlight class="normal">-<sp/>Basic<sp/>`/dev`<sp/>serial<sp/>port<sp/>discovery.</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>Basic<sp/>`/dev`<sp/>serial<sp/>port<sp/>discovery<sp/>via<sp/>`listPorts()`.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Example:</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">```cpp</highlight></codeline>
+<codeline><highlight class="normal">RADCore::EventLoop<sp/>loop;</highlight></codeline>
+<codeline><highlight class="normal">RADSerial::RADSerialPort<sp/>port(loop);</highlight></codeline>
+<codeline><highlight class="normal">port.setPortName(&quot;/dev/ttyUSB0&quot;);</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">RADSerial::SerialConfig<sp/>cfg;</highlight></codeline>
+<codeline><highlight class="normal">cfg.baudRate<sp/>=<sp/>115200;</highlight></codeline>
+<codeline><highlight class="normal">cfg.parity<sp/>=<sp/>RADSerial::Parity::None;</highlight></codeline>
+<codeline><highlight class="normal">port.setConfig(cfg);</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">if<sp/>(port.open(RADCore::OpenMode::ReadWrite))<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>const<sp/>char*<sp/>msg<sp/>=<sp/>&quot;PING\n&quot;;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>port.writeData(msg,<sp/>5);</highlight></codeline>
+<codeline><highlight class="normal">}</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
     </programlisting>
     <location file="/media/jvincent/Kingspec512/repos/RADLib/docs/public/radserial.md"/>
   </compounddef>

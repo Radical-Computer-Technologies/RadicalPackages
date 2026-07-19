@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Example: RADix From Scratch</title>
+  <title>Example: RADPx From Scratch</title>
   <link rel="stylesheet" href="../../../../assets/site.css">
 </head>
 <body>
@@ -13,16 +13,16 @@
     <div class="nav-links">
       <a href="../../../../">Home</a>
       <a href="../../../../packages.html">Packages</a>
-      <a href="../../../../radix-os.html">RADix OS</a>
+      <a href="../../../../radpx-os.html">RADPx-OS</a>
       <a href="../../../../docs/">Docs</a>
     </div>
   </nav>
   <section class="hero compact-hero">
     <div class="eyebrow">RadBuild 0.2.1</div>
-    <h1>Example: RADix From Scratch</h1>
+    <h1>Example: RADPx From Scratch</h1>
   </section>
   <article class="card doc-content">
-<h1>Example: RADix From Scratch</h1>
+<h1>Example: RADPx From Scratch</h1>
 <p>This example starts with a clean Ubuntu/KDE or terminal workstation where only RadBuild has been installed from RadicalPackages.</p>
 <h2>Install</h2>
 <pre><code>sudo apt update
@@ -31,7 +31,7 @@ sudo apt install radbuild</code></pre>
 <pre><code>mkdir -p ~/radix-work
 radbuild project create ~/radix-work --non-interactive --template radix-os-terminal --project-name radix-terminal
 cd ~/radix-work/radix-terminal</code></pre>
-<p>The template contains an <code>os.radix</code> system with a Git source checkout, the terminal feature chunks, RADix packagegroups, and SDK export defaults.</p>
+<p>The template contains an <code>os.radix</code> system with a Git source checkout, the terminal feature chunks, RADPx packagegroups, and SDK export defaults.</p>
 <h2>Configure</h2>
 <pre><code>radbuild menuconfig --settings settings.json
 radbuild menuconfig --settings settings.json --enable-packagegroup radix-networking --resolve-packages --json

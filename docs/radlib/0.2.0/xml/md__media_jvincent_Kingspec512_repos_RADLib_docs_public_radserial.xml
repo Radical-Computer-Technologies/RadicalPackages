@@ -6,15 +6,33 @@
     <briefdescription>
     </briefdescription>
     <detaileddescription>
-<para><computeroutput><ref refid="namespaceRADSerial" kindref="compound">RADSerial</ref></computeroutput> provides Linux serial port support through <computeroutput><ref refid="classRADSerial_1_1RADSerialPort" kindref="compound">RADSerial::RADSerialPort</ref></computeroutput>. It uses <computeroutput><ref refid="classRADCore_1_1RADIODevice" kindref="compound">RADCore::RADIODevice</ref></computeroutput> and posts read availability through <computeroutput><ref refid="classRADCore_1_1EventLoop" kindref="compound">RADCore::EventLoop</ref></computeroutput>.</para>
+<para><ref refid="namespaceRADSerial" kindref="compound">RADSerial</ref> provides event-loop integrated Linux serial port support through <computeroutput><ref refid="classRADSerial_1_1RADSerialPort" kindref="compound">RADSerial::RADSerialPort</ref></computeroutput>. It is backed by termios and implements <computeroutput><ref refid="classRADCore_1_1RADIODevice" kindref="compound">RADCore::RADIODevice</ref></computeroutput>, posting read availability through a <computeroutput><ref refid="classRADCore_1_1EventLoop" kindref="compound">RADCore::EventLoop</ref></computeroutput>.</para>
+<para><computeroutput>RADSerialPort</computeroutput> is constructed with a reference to the <computeroutput>EventLoop</computeroutput> that receives its events, and raises <computeroutput>opened()</computeroutput> and <computeroutput>closed()</computeroutput> events around the port lifecycle. Configure the device path with <computeroutput>setPortName()</computeroutput> and the line settings with <computeroutput>setConfig()</computeroutput>, passing a <computeroutput>SerialConfig</computeroutput>. That struct carries the <computeroutput>baudRate</computeroutput> (such as 9600, 115200, or 1000000), <computeroutput>dataBits</computeroutput>, <computeroutput>parity</computeroutput>, <computeroutput>stopBits</computeroutput>, and <computeroutput>flowControl</computeroutput>. Parity is one of <computeroutput>Parity::None</computeroutput>, <computeroutput>Even</computeroutput>, or <computeroutput>Odd</computeroutput>; stop bits are <computeroutput>StopBits::One</computeroutput> or <computeroutput>Two</computeroutput>; and flow control is <computeroutput>FlowControl::None</computeroutput>, <computeroutput>Hardware</computeroutput>, or <computeroutput>Software</computeroutput>.</para>
+<para>Open the port with <computeroutput>open(RADCore::OpenMode)</computeroutput> and release it with <computeroutput>close()</computeroutput>, checking <computeroutput>isOpen()</computeroutput> as needed. Because the port is a <computeroutput>RADIODevice</computeroutput>, <computeroutput>readData()</computeroutput> drains the internal async buffer and <computeroutput>writeData()</computeroutput> writes to the serial file descriptor. The static <computeroutput>listPorts()</computeroutput> helper returns likely serial devices under <computeroutput>/dev</computeroutput> as <computeroutput>SerialPortInfo</computeroutput> records containing a <computeroutput>path</computeroutput> and display <computeroutput>name</computeroutput>.</para>
 <para>Core features:</para>
 <para><itemizedlist>
 <listitem><para>Baud rate, data bits, parity, stop bits, and flow control configuration.</para>
-</listitem><listitem><para>Async <computeroutput>readyRead</computeroutput> delivery.</para>
+</listitem><listitem><para>Async readiness delivery on a <computeroutput><ref refid="classRADCore_1_1EventLoop" kindref="compound">RADCore::EventLoop</ref></computeroutput>.</para>
+</listitem><listitem><para><computeroutput>opened</computeroutput>/<computeroutput>closed</computeroutput> lifecycle events.</para>
 </listitem><listitem><para><computeroutput>RADIODevice</computeroutput> read/write compatibility.</para>
-</listitem><listitem><para>Basic <computeroutput>/dev</computeroutput> serial port discovery. </para>
+</listitem><listitem><para>Basic <computeroutput>/dev</computeroutput> serial port discovery via <computeroutput>listPorts()</computeroutput>.</para>
 </listitem></itemizedlist>
 </para>
+<para>Example:</para>
+<para><programlisting filename=".cpp"><codeline><highlight class="normal"><ref refid="classRADCore_1_1EventLoop" kindref="compound">RADCore::EventLoop</ref><sp/>loop;</highlight></codeline>
+<codeline><highlight class="normal"><ref refid="classRADSerial_1_1RADSerialPort" kindref="compound">RADSerial::RADSerialPort</ref><sp/>port(loop);</highlight></codeline>
+<codeline><highlight class="normal">port.setPortName(</highlight><highlight class="stringliteral">&quot;/dev/ttyUSB0&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><ref refid="structRADSerial_1_1SerialConfig" kindref="compound">RADSerial::SerialConfig</ref><sp/>cfg;</highlight></codeline>
+<codeline><highlight class="normal">cfg.<ref refid="structRADSerial_1_1SerialConfig_1a8bd59a36b8ae31e6b6174851ddd0a3bb" kindref="member">baudRate</ref><sp/>=<sp/>115200;</highlight></codeline>
+<codeline><highlight class="normal">cfg.<ref refid="structRADSerial_1_1SerialConfig_1a6a2993e5482e4ecba58792824b762c1b" kindref="member">parity</ref><sp/>=<sp/><ref refid="namespaceRADSerial_1a03bbd9504108adb1d166e2d35ec4e9aba6adf97f83acf6453d4a6a4b1070f3754" kindref="member">RADSerial::Parity::None</ref>;</highlight></codeline>
+<codeline><highlight class="normal">port.setConfig(cfg);</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(port.open(<ref refid="namespaceRADCore_1aefc7037828eebd6f6c85bda2ea2b2852a70a2a84088d405a2e3f1e3accaa16723" kindref="member">RADCore::OpenMode::ReadWrite</ref>))<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>msg<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;PING\n&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>port.writeData(msg,<sp/>5);</highlight></codeline>
+<codeline><highlight class="normal">}</highlight></codeline>
+</programlisting> </para>
     </detaileddescription>
     <location file="/media/jvincent/Kingspec512/repos/RADLib/docs/public/radserial.md"/>
   </compounddef>

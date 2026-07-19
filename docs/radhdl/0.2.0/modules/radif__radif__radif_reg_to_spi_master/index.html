@@ -1,0 +1,587 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>radif_reg_to_spi_master Datasheet</title>
+  <link rel="stylesheet" href="../../assets/radhdl-docgen.css">
+</head>
+<body>
+<div class="sitebar"><div class="wrap">
+  <a class="brand-mark" href="../../index.html"><img class="brand-logo" src="../../assets/rad-logo.png" alt="" onerror="this.style.display='none'"><span>Radical Computer Technologies</span></a>
+</div></div>
+
+<header><div class="wrap">
+  <nav class="breadcrumb"><a href="../../index.html">RadHDL</a> / <a href="../../libraries/radhdl.html">radhdl</a></nav>
+  <div class="kicker">Interfaces / entity</div>
+  <h1>radif_reg_to_spi_master</h1>
+  <div class="meta">Documentation version: 0.2.0 / Subpackage: radif_spi / Source package: radif</div>
+  <div class="summary"><p>Register-controlled SPI master.
+Provides a small software-visible register bank that launches single-word, 4-wire SPI transfers with programmable SCLK timing, chip-select polarity, clock polarity, and clock phase.</p></div>
+  <div class="quick-links"><a class="pill" href="#register-interfaces">Register interfaces</a><a class="pill" href="#register-maps">Register maps: radif_reg_to_spi_master (6 registers)</a><a class="pill" href="#testbenches">Testbenches: 1</a><a class="pill" href="#implementation-metrics">Implementation metrics: 1</a></div>
+</div></header>
+<main class="wrap">
+  <h2>Use Cases</h2>
+  <ul><li>Memory-mapped control/status integration with software-visible register maps.</li></ul>
+  <h2>Block Diagram</h2>
+  <div class="diagram"><svg width="582" height="442" viewBox="0 0 582 442" xmlns="http://www.w3.org/2000/svg" role="img">
+<style>text{font-family:Inter,Arial,sans-serif;font-size:13px;fill:#111827}.pin{stroke:#106b62;stroke-width:2;fill:none}.interface-pin{stroke:#7b8794;stroke-width:2;fill:#e5e7eb}.box{fill:#f7f9fc;stroke:#26323f;stroke-width:2}.bubble{fill:#fff;stroke:#106b62;stroke-width:2}.clock{fill:none;stroke:#106b62;stroke-width:2}</style>
+<rect class="box" x="72" y="50" width="420" height="352" rx="4"/>
+<text x="282.0" y="84" text-anchor="middle" font-weight="700">radif_reg_to_spi_master</text>
+<text x="282.0" y="106" text-anchor="middle">radhdl entity</text>
+<line class="pin" x1="36" y1="130" x2="72" y2="130"/>
+<text x="100" y="134">clk</text>
+<path class="clock" d="M 74 123 L 87 130 L 74 137"/>
+<line class="pin" x1="36" y1="158" x2="72" y2="158"/>
+<text x="100" y="162">rstn</text>
+<circle class="bubble" cx="84" cy="158" r="5"/>
+<line class="pin" x1="36" y1="186" x2="72" y2="186"/>
+<text x="100" y="190">reg_wr_addr</text>
+<line class="pin" x1="36" y1="214" x2="72" y2="214"/>
+<text x="100" y="218">reg_rd_addr</text>
+<line class="pin" x1="36" y1="242" x2="72" y2="242"/>
+<text x="100" y="246">reg_wr_en</text>
+<line class="pin" x1="36" y1="270" x2="72" y2="270"/>
+<text x="100" y="274">reg_rd_en</text>
+<line class="pin" x1="36" y1="298" x2="72" y2="298"/>
+<text x="100" y="302">reg_data_in</text>
+<line class="pin" x1="36" y1="326" x2="72" y2="326"/>
+<text x="100" y="330">spi_miso_i</text>
+<line class="pin" x1="492" y1="130" x2="528" y2="130"/>
+<text x="464" y="134" text-anchor="end">reg_data_out</text>
+<line class="pin" x1="492" y1="158" x2="528" y2="158"/>
+<text x="464" y="162" text-anchor="end">reg_wr_rdy</text>
+<line class="pin" x1="492" y1="186" x2="528" y2="186"/>
+<text x="464" y="190" text-anchor="end">reg_rd_rdy</text>
+<line class="pin" x1="492" y1="214" x2="528" y2="214"/>
+<text x="464" y="218" text-anchor="end">reg_wr_valid</text>
+<line class="pin" x1="492" y1="242" x2="528" y2="242"/>
+<text x="464" y="246" text-anchor="end">reg_rd_valid</text>
+<line class="pin" x1="492" y1="270" x2="528" y2="270"/>
+<text x="464" y="274" text-anchor="end">reg_error</text>
+<line class="pin" x1="492" y1="298" x2="528" y2="298"/>
+<text x="464" y="302" text-anchor="end">spi_sclk_o</text>
+<line class="pin" x1="492" y1="326" x2="528" y2="326"/>
+<text x="464" y="330" text-anchor="end">spi_cs_n_o</text>
+<line class="pin" x1="492" y1="354" x2="528" y2="354"/>
+<text x="464" y="358" text-anchor="end">spi_mosi_o</text>
+</svg></div>
+  <details class="doc-section"><summary>VHDL Include And Instantiation Template</summary><div class="doc-section-body"><h3>File Header</h3><pre><code>library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+
+library radhdl;
+-- Direct entity instantiation below does not require importing the entity name.
+use radhdl.interfaces.all;
+-- Narrower alternative: use radhdl.interfaces_spi.all;</code></pre><h3>Component Declaration</h3><pre><code>component radif_reg_to_spi_master is
+  generic (
+    DATA_WIDTH : positive := 32;
+    REG_ADDR_WIDTH : positive := 16;
+    DEFAULT_SCLK_DIV : natural := 124;
+    DEFAULT_BIT_COUNT : positive := 8;
+    VENDOR_TAG : string := &quot;GENERIC&quot;;
+    PRODUCT_SERIES_TAG : string := &quot;GENERIC&quot;
+  );
+  port (
+    clk : in std_logic;
+    rstn : in std_logic;
+    reg_wr_addr : in std_logic_vector(REG_ADDR_WIDTH - 1 downto 0);
+    reg_rd_addr : in std_logic_vector(REG_ADDR_WIDTH - 1 downto 0);
+    reg_wr_en : in std_logic;
+    reg_rd_en : in std_logic;
+    reg_data_in : in std_logic_vector(DATA_WIDTH - 1 downto 0);
+    reg_data_out : out std_logic_vector(DATA_WIDTH - 1 downto 0);
+    reg_wr_rdy : out std_logic;
+    reg_rd_rdy : out std_logic;
+    reg_wr_valid : out std_logic;
+    reg_rd_valid : out std_logic;
+    reg_error : out std_logic;
+    spi_sclk_o : out std_logic;
+    spi_cs_n_o : out std_logic;
+    spi_mosi_o : out std_logic;
+    spi_miso_i : in std_logic
+  );
+end component;</code></pre><h3>Direct Entity Instantiation</h3><pre><code>u_radif_reg_to_spi_master : entity radhdl.radif_reg_to_spi_master
+  generic map (
+    DATA_WIDTH         =&gt; 32,
+    REG_ADDR_WIDTH     =&gt; 16,
+    DEFAULT_SCLK_DIV   =&gt; 124,
+    DEFAULT_BIT_COUNT  =&gt; 8,
+    VENDOR_TAG         =&gt; &quot;GENERIC&quot;,
+    PRODUCT_SERIES_TAG =&gt; &quot;GENERIC&quot;
+  )
+  port map (
+    clk          =&gt; &lt;clk_signal&gt;,
+    rstn         =&gt; &lt;rstn_signal&gt;,
+    reg_wr_addr  =&gt; &lt;reg_wr_addr_signal&gt;,
+    reg_rd_addr  =&gt; &lt;reg_rd_addr_signal&gt;,
+    reg_wr_en    =&gt; &lt;reg_wr_en_signal&gt;,
+    reg_rd_en    =&gt; &lt;reg_rd_en_signal&gt;,
+    reg_data_in  =&gt; &lt;reg_data_in_signal&gt;,
+    reg_data_out =&gt; &lt;reg_data_out_signal&gt;,
+    reg_wr_rdy   =&gt; &lt;reg_wr_rdy_signal&gt;,
+    reg_rd_rdy   =&gt; &lt;reg_rd_rdy_signal&gt;,
+    reg_wr_valid =&gt; &lt;reg_wr_valid_signal&gt;,
+    reg_rd_valid =&gt; &lt;reg_rd_valid_signal&gt;,
+    reg_error    =&gt; &lt;reg_error_signal&gt;,
+    spi_sclk_o   =&gt; &lt;spi_sclk_o_signal&gt;,
+    spi_cs_n_o   =&gt; &lt;spi_cs_n_o_signal&gt;,
+    spi_mosi_o   =&gt; &lt;spi_mosi_o_signal&gt;,
+    spi_miso_i   =&gt; &lt;spi_miso_i_signal&gt;
+  );</code></pre></div></details>
+  <h2>Generics</h2><table><thead><tr><th>Name</th><th>Type</th><th>Default</th><th>Description</th></tr></thead><tbody><tr><td>DATA_WIDTH</td><td>positive</td><td>32</td><td>Width of the RADIF register data bus and the maximum SPI transfer word.</td></tr><tr><td>REG_ADDR_WIDTH</td><td>positive</td><td>16</td><td>Width of the RADIF register address bus.</td></tr><tr><td>DEFAULT_SCLK_DIV</td><td>natural</td><td>124</td><td>Default half-period divider for SCLK generation. The active half-period is divider + 1 FPGA clock cycles.</td></tr><tr><td>DEFAULT_BIT_COUNT</td><td>positive</td><td>8</td><td>Default number of bits shifted per transfer.</td></tr><tr><td>VENDOR_TAG</td><td>string</td><td>&quot;GENERIC&quot;</td><td>Selects the vendor-specific implementation path. This core is portable RTL for all values.</td></tr><tr><td>PRODUCT_SERIES_TAG</td><td>string</td><td>&quot;GENERIC&quot;</td><td>Identifies the target FPGA family for generated project metadata.</td></tr></tbody></table>
+  <h2>Ports</h2><table><thead><tr><th>Name</th><th>Direction</th><th>Type</th><th>Description</th></tr></thead><tbody><tr><td>clk</td><td>in</td><td>std_logic</td><td>FPGA/register clock domain.</td></tr><tr><td>rstn</td><td>in</td><td>std_logic</td><td>Active-low reset for the FPGA/register clock domain.</td></tr><tr><td>reg_wr_addr</td><td>in</td><td>std_logic_vector(REG_ADDR_WIDTH - 1 downto 0)</td><td>Register write address.</td></tr><tr><td>reg_rd_addr</td><td>in</td><td>std_logic_vector(REG_ADDR_WIDTH - 1 downto 0)</td><td>Register read address.</td></tr><tr><td>reg_wr_en</td><td>in</td><td>std_logic</td><td>One-cycle register write request.</td></tr><tr><td>reg_rd_en</td><td>in</td><td>std_logic</td><td>One-cycle register read request.</td></tr><tr><td>reg_data_in</td><td>in</td><td>std_logic_vector(DATA_WIDTH - 1 downto 0)</td><td>Register write data.</td></tr><tr><td>reg_data_out</td><td>out</td><td>std_logic_vector(DATA_WIDTH - 1 downto 0)</td><td>Register read data.</td></tr><tr><td>reg_wr_rdy</td><td>out</td><td>std_logic</td><td>Register write ready.</td></tr><tr><td>reg_rd_rdy</td><td>out</td><td>std_logic</td><td>Register read ready.</td></tr><tr><td>reg_wr_valid</td><td>out</td><td>std_logic</td><td>Register write response valid.</td></tr><tr><td>reg_rd_valid</td><td>out</td><td>std_logic</td><td>Register read response valid.</td></tr><tr><td>reg_error</td><td>out</td><td>std_logic</td><td>Register address or transaction error.</td></tr><tr><td>spi_sclk_o</td><td>out</td><td>std_logic</td><td>SPI serial clock.</td></tr><tr><td>spi_cs_n_o</td><td>out</td><td>std_logic</td><td>SPI chip select, active low by default.</td></tr><tr><td>spi_mosi_o</td><td>out</td><td>std_logic</td><td>SPI master-out/slave-in data.</td></tr><tr><td>spi_miso_i</td><td>in</td><td>std_logic</td><td>SPI master-in/slave-out data sampled into the RX_DATA register.</td></tr></tbody></table>
+  <h2 id="implementation-metrics">Measured Implementation Metrics</h2><p class="summary">Metrics are generated by RadBuild from real Vivado synthesis reports for representative device targets. Raw report paths are preserved in the checked summary JSON.</p><table><thead><tr><th>Part</th><th>Clock ns</th><th>MHz</th><th>LUTs</th><th>FFs</th><th>BRAM tiles</th><th>DSPs</th><th>Setup WNS ns</th><th>Hold WHS ns</th><th>Generics</th><th>Summary</th></tr></thead><tbody><tr><td>xc7z020clg400-1</td><td>10.0</td><td>100.0</td><td>202</td><td>272</td><td>0</td><td>0</td><td>5.704</td><td>0.152</td><td>-</td><td>projects/synth_reports/radif_reg_to_spi_master/xc7z020clg400-1/synth_summary.json</td></tr></tbody></table>
+  <h2 id="register-interfaces">Register Interfaces</h2><p>Static register maps are rendered below for this module.</p><table><thead><tr><th>Interface</th><th>Directions</th><th>Signals</th><th>Representative ports</th></tr></thead><tbody><tr><td>Register control/status</td><td>in, out</td><td>11</td><td>reg_wr_addr, reg_rd_addr, reg_wr_en, reg_rd_en, reg_data_in, reg_data_out, reg_wr_rdy, reg_rd_rdy, +3 more</td></tr></tbody></table>
+  <h2 id="register-maps">Register Maps</h2><h3>radif_reg_to_spi_master</h3><p class="meta">Source: interfaces/hdl/radif/register_maps/radif_reg_to_spi_master.map.json</p><p>Controls single-word SPI transfers, SCLK timing, transfer width, and SPI mode.</p><table><thead><tr><th>Register</th><th>Offset</th><th>Access</th><th>Reset</th><th>Description</th></tr></thead><tbody><tr><td>control</td><td>0x00</td><td>rw</td><td>0x00000000</td><td>Launches single-word SPI transfers and clears sticky completion/error status.</td></tr><tr><td>status</td><td>0x04</td><td>ro</td><td>0x00000000</td><td>Reports current SPI transfer state and sticky completion/error status.</td></tr><tr><td>clk_div</td><td>0x08</td><td>rw</td><td>DEFAULT_SCLK_DIV</td><td>Configures the SPI SCLK timing derived from the FPGA/register clock.</td></tr><tr><td>config</td><td>0x0C</td><td>rw</td><td>DEFAULT_BIT_COUNT &lt;&lt; 8</td><td>Configures SPI clock mode, chip-select polarity, and transfer width.</td></tr><tr><td>tx_data</td><td>0x10</td><td>rw</td><td>0x00000000</td><td>Stores the MSB-first MOSI transmit word used by the next SPI transfer. Reads return the transmit holding register, not sampled MISO data.</td></tr><tr><td>rx_data</td><td>0x14</td><td>ro</td><td>0x00000000</td><td>Returns the MSB-first MISO receive word captured by the most recent SPI transfer.</td></tr></tbody></table><div class="reg-card"><h4>control</h4><div class="reg-meta">Offset 0x00 / Access rw / Reset 0x00000000</div><p>Launches single-word SPI transfers and clears sticky completion/error status.</p><div class="reg-slice"><div class="reg-slice-title">Control[15:0]</div><div class="reg-ruler" style="grid-template-columns: repeat(16, minmax(48px, 1fr));"><span>15</span><span>14</span><span>13</span><span>12</span><span>11</span><span>10</span><span>9</span><span>8</span><span>7</span><span>6</span><span>5</span><span>4</span><span>3</span><span>2</span><span>1</span><span>0</span></div><div class="reg-bits" style="grid-template-columns: repeat(16, minmax(48px, 1fr));"><div class="reg-field reserved" style="grid-column: 1 / span 14;">RSVD [15:2]</div><div class="reg-field" style="grid-column: 15 / span 1;">CLEAR</div><div class="reg-field" style="grid-column: 16 / span 1;">START</div></div></div><div class="reg-slice"><div class="reg-slice-title">Control[31:16]</div><div class="reg-ruler" style="grid-template-columns: repeat(16, minmax(48px, 1fr));"><span>31</span><span>30</span><span>29</span><span>28</span><span>27</span><span>26</span><span>25</span><span>24</span><span>23</span><span>22</span><span>21</span><span>20</span><span>19</span><span>18</span><span>17</span><span>16</span></div><div class="reg-bits" style="grid-template-columns: repeat(16, minmax(48px, 1fr));"><div class="reg-field reserved" style="grid-column: 1 / span 16;">RSVD [31:16]</div></div></div><table class="field-table"><thead><tr><th>Name</th><th>Register bit(s)</th><th>Description</th></tr></thead><tbody><tr><td>CLEAR</td><td>Control[1]</td><td>Writing 1 clears STATUS.DONE and STATUS.ERR. Software should write this as a pulse when it wants fresh transaction status.</td></tr><tr><td>START</td><td>Control[0]</td><td>Writing 1 starts a SPI transfer when the master is idle. The transfer uses CONFIG, CLK_DIV, and TX_DATA values already written before START.</td></tr></tbody></table></div><div class="reg-card"><h4>status</h4><div class="reg-meta">Offset 0x04 / Access ro / Reset 0x00000000</div><p>Reports current SPI transfer state and sticky completion/error status.</p><div class="reg-slice"><div class="reg-slice-title">Status[15:0]</div><div class="reg-ruler" style="grid-template-columns: repeat(16, minmax(48px, 1fr));"><span>15</span><span>14</span><span>13</span><span>12</span><span>11</span><span>10</span><span>9</span><span>8</span><span>7</span><span>6</span><span>5</span><span>4</span><span>3</span><span>2</span><span>1</span><span>0</span></div><div class="reg-bits" style="grid-template-columns: repeat(16, minmax(48px, 1fr));"><div class="reg-field reserved" style="grid-column: 1 / span 13;">RSVD [15:3]</div><div class="reg-field" style="grid-column: 14 / span 1;">ERR</div><div class="reg-field" style="grid-column: 15 / span 1;">DONE</div><div class="reg-field" style="grid-column: 16 / span 1;">BUSY</div></div></div><div class="reg-slice"><div class="reg-slice-title">Status[31:16]</div><div class="reg-ruler" style="grid-template-columns: repeat(16, minmax(48px, 1fr));"><span>31</span><span>30</span><span>29</span><span>28</span><span>27</span><span>26</span><span>25</span><span>24</span><span>23</span><span>22</span><span>21</span><span>20</span><span>19</span><span>18</span><span>17</span><span>16</span></div><div class="reg-bits" style="grid-template-columns: repeat(16, minmax(48px, 1fr));"><div class="reg-field reserved" style="grid-column: 1 / span 16;">RSVD [31:16]</div></div></div><table class="field-table"><thead><tr><th>Name</th><th>Register bit(s)</th><th>Description</th></tr></thead><tbody><tr><td>ERR</td><td>Status[2]</td><td>Sticky error bit set when START is requested while BUSY or an unsupported register access is attempted.</td></tr><tr><td>DONE</td><td>Status[1]</td><td>Sticky completion bit set after the configured number of bits has been shifted and chip select is released.</td></tr><tr><td>BUSY</td><td>Status[0]</td><td>Set while chip select is asserted or bits are actively being shifted on SCLK.</td></tr></tbody></table></div><div class="reg-card"><h4>clk_div</h4><div class="reg-meta">Offset 0x08 / Access rw / Reset DEFAULT_SCLK_DIV</div><p>Configures the SPI SCLK timing derived from the FPGA/register clock.</p><div class="reg-slice"><div class="reg-slice-title">ClkDiv[15:0]</div><div class="reg-ruler" style="grid-template-columns: repeat(16, minmax(48px, 1fr));"><span>15</span><span>14</span><span>13</span><span>12</span><span>11</span><span>10</span><span>9</span><span>8</span><span>7</span><span>6</span><span>5</span><span>4</span><span>3</span><span>2</span><span>1</span><span>0</span></div><div class="reg-bits" style="grid-template-columns: repeat(16, minmax(48px, 1fr));"><div class="reg-field" style="grid-column: 1 / span 16;">SCLK DIV [15:0]</div></div></div><div class="reg-slice"><div class="reg-slice-title">ClkDiv[31:16]</div><div class="reg-ruler" style="grid-template-columns: repeat(16, minmax(48px, 1fr));"><span>31</span><span>30</span><span>29</span><span>28</span><span>27</span><span>26</span><span>25</span><span>24</span><span>23</span><span>22</span><span>21</span><span>20</span><span>19</span><span>18</span><span>17</span><span>16</span></div><div class="reg-bits" style="grid-template-columns: repeat(16, minmax(48px, 1fr));"><div class="reg-field reserved" style="grid-column: 1 / span 16;">RSVD [31:16]</div></div></div><table class="field-table"><thead><tr><th>Name</th><th>Register bit(s)</th><th>Description</th></tr></thead><tbody><tr><td>SCLK DIV</td><td>ClkDiv[15:0]</td><td>SCLK half-period divider. The generated SCLK phase changes every SCLK_DIV + 1 FPGA clock cycles.</td></tr></tbody></table></div><div class="reg-card"><h4>config</h4><div class="reg-meta">Offset 0x0C / Access rw / Reset DEFAULT_BIT_COUNT &lt;&lt; 8</div><p>Configures SPI clock mode, chip-select polarity, and transfer width.</p><div class="reg-slice"><div class="reg-slice-title">Config[15:0]</div><div class="reg-ruler" style="grid-template-columns: repeat(16, minmax(48px, 1fr));"><span>15</span><span>14</span><span>13</span><span>12</span><span>11</span><span>10</span><span>9</span><span>8</span><span>7</span><span>6</span><span>5</span><span>4</span><span>3</span><span>2</span><span>1</span><span>0</span></div><div class="reg-bits" style="grid-template-columns: repeat(16, minmax(48px, 1fr));"><div class="reg-field" style="grid-column: 1 / span 8;">BIT COUNT [15:8]</div><div class="reg-field reserved" style="grid-column: 9 / span 5;">RSVD [7:3]</div><div class="reg-field" style="grid-column: 14 / span 1;">CS ACTIVE HIGH</div><div class="reg-field" style="grid-column: 15 / span 1;">CPHA</div><div class="reg-field" style="grid-column: 16 / span 1;">CPOL</div></div></div><div class="reg-slice"><div class="reg-slice-title">Config[31:16]</div><div class="reg-ruler" style="grid-template-columns: repeat(16, minmax(48px, 1fr));"><span>31</span><span>30</span><span>29</span><span>28</span><span>27</span><span>26</span><span>25</span><span>24</span><span>23</span><span>22</span><span>21</span><span>20</span><span>19</span><span>18</span><span>17</span><span>16</span></div><div class="reg-bits" style="grid-template-columns: repeat(16, minmax(48px, 1fr));"><div class="reg-field reserved" style="grid-column: 1 / span 16;">RSVD [31:16]</div></div></div><table class="field-table"><thead><tr><th>Name</th><th>Register bit(s)</th><th>Description</th></tr></thead><tbody><tr><td>BIT COUNT</td><td>Config[15:8]</td><td>Number of bits shifted during each transfer. Values below 1 clamp to 1 and values above DATA_WIDTH clamp to DATA_WIDTH.</td></tr><tr><td>CS ACTIVE HIGH</td><td>Config[2]</td><td>Chip-select polarity selector. 0 drives spi_cs_n_o low during transfers, 1 inverts the output polarity for active-high chip-select wiring.</td></tr><tr><td>CPHA</td><td>Config[1]</td><td>SPI clock phase. 0 samples MISO on the first active clock edge, 1 samples MISO on the second active clock edge.</td></tr><tr><td>CPOL</td><td>Config[0]</td><td>SPI clock polarity. 0 idles SCLK low, 1 idles SCLK high.</td></tr></tbody></table></div><div class="reg-card"><h4>tx_data</h4><div class="reg-meta">Offset 0x10 / Access rw / Reset 0x00000000</div><p>Stores the MSB-first MOSI transmit word used by the next SPI transfer. Reads return the transmit holding register, not sampled MISO data.</p><div class="reg-slice"><div class="reg-slice-title">TxData[15:0]</div><div class="reg-ruler" style="grid-template-columns: repeat(16, minmax(48px, 1fr));"><span>15</span><span>14</span><span>13</span><span>12</span><span>11</span><span>10</span><span>9</span><span>8</span><span>7</span><span>6</span><span>5</span><span>4</span><span>3</span><span>2</span><span>1</span><span>0</span></div><div class="reg-bits" style="grid-template-columns: repeat(16, minmax(48px, 1fr));"><div class="reg-field" style="grid-column: 1 / span 16;">TX WORD [15:0]</div></div></div><div class="reg-slice"><div class="reg-slice-title">TxData[31:16]</div><div class="reg-ruler" style="grid-template-columns: repeat(16, minmax(48px, 1fr));"><span>31</span><span>30</span><span>29</span><span>28</span><span>27</span><span>26</span><span>25</span><span>24</span><span>23</span><span>22</span><span>21</span><span>20</span><span>19</span><span>18</span><span>17</span><span>16</span></div><div class="reg-bits" style="grid-template-columns: repeat(16, minmax(48px, 1fr));"><div class="reg-field" style="grid-column: 1 / span 16;">TX WORD [31:16]</div></div></div><table class="field-table"><thead><tr><th>Name</th><th>Register bit(s)</th><th>Description</th></tr></thead><tbody><tr><td>TX WORD</td><td>TxData[31:0]</td><td>MOSI transmit shift word. The core begins with TX_WORD[31], so transfers shorter than 32 bits should place the intended output payload in the most-significant bits.</td></tr></tbody></table></div><div class="reg-card"><h4>rx_data</h4><div class="reg-meta">Offset 0x14 / Access ro / Reset 0x00000000</div><p>Returns the MSB-first MISO receive word captured by the most recent SPI transfer.</p><div class="reg-slice"><div class="reg-slice-title">RxData[15:0]</div><div class="reg-ruler" style="grid-template-columns: repeat(16, minmax(48px, 1fr));"><span>15</span><span>14</span><span>13</span><span>12</span><span>11</span><span>10</span><span>9</span><span>8</span><span>7</span><span>6</span><span>5</span><span>4</span><span>3</span><span>2</span><span>1</span><span>0</span></div><div class="reg-bits" style="grid-template-columns: repeat(16, minmax(48px, 1fr));"><div class="reg-field" style="grid-column: 1 / span 16;">RX WORD [15:0]</div></div></div><div class="reg-slice"><div class="reg-slice-title">RxData[31:16]</div><div class="reg-ruler" style="grid-template-columns: repeat(16, minmax(48px, 1fr));"><span>31</span><span>30</span><span>29</span><span>28</span><span>27</span><span>26</span><span>25</span><span>24</span><span>23</span><span>22</span><span>21</span><span>20</span><span>19</span><span>18</span><span>17</span><span>16</span></div><div class="reg-bits" style="grid-template-columns: repeat(16, minmax(48px, 1fr));"><div class="reg-field" style="grid-column: 1 / span 16;">RX WORD [31:16]</div></div></div><table class="field-table"><thead><tr><th>Name</th><th>Register bit(s)</th><th>Description</th></tr></thead><tbody><tr><td>RX WORD</td><td>RxData[31:0]</td><td>MISO receive shift word. For transfers shorter than 32 bits, sampled input bits are accumulated into the least-significant bits in transfer order after the configured number of clocks.</td></tr></tbody></table></div>
+  <h2 id="testbenches">Testbenches</h2><details class="testbench-section"><summary>tb_radif_reg_to_spi_master <span class="meta">interface timing diagram</span></summary><div class="testbench-body"><p class="meta">Source: interfaces/hdl/radif/testbenches/tb_radif_reg_to_spi_master.vhd</p><p>Exercises the register-controlled 4-wire SPI master with a looped-back MISO/MOSI path.
+The waveform shows software register writes, chip-select assertion, generated SCLK pulses, MOSI output shifting, MISO input sampling, and transaction completion status.</p><div class="wave"><h4>Interface Timing Diagram</h4><p class="meta">Source: interfaces/hdl/radif/testbenches/tb_radif_reg_to_spi_master.vhd</p><div class="wave-controls"><label>Horizontal <input class="wave-zoom-x" type="range" min="60" max="3000" value="100"></label><label>Vertical <input class="wave-zoom-y" type="range" min="70" max="260" value="100"></label></div><div class="wave-viewport"><div class="wave-stage" style="height:538px"><div class="wave-label-pane" style="height:538px"><div class="wave-label-row" style="top:39px;height:32px;line-height:32px">clk</div><div class="wave-label-row" style="top:73px;height:32px;line-height:32px">rstn</div><div class="wave-label-row" style="top:107px;height:32px;line-height:32px">reg_rd_valid</div><div class="wave-label-row" style="top:141px;height:32px;line-height:32px">reg_wr_valid</div><div class="wave-label-row" style="top:175px;height:32px;line-height:32px">reg_data_in</div><div class="wave-label-row" style="top:209px;height:32px;line-height:32px">reg_data_out</div><div class="wave-label-row" style="top:243px;height:32px;line-height:32px">reg_rd_addr</div><div class="wave-label-row" style="top:277px;height:32px;line-height:32px">reg_wr_addr</div><div class="wave-label-row" style="top:311px;height:32px;line-height:32px">reg_error</div><div class="wave-label-row" style="top:345px;height:32px;line-height:32px">reg_rd_en</div><div class="wave-label-row" style="top:379px;height:32px;line-height:32px">reg_rd_rdy</div><div class="wave-label-row" style="top:413px;height:32px;line-height:32px">reg_wr_en</div><div class="wave-label-row" style="top:447px;height:32px;line-height:32px">reg_wr_rdy</div><div class="wave-label-row" style="top:481px;height:32px;line-height:32px">SPI</div></div><div class="wave-plot-pane" style="width:894px;min-width:894px;height:538px"><canvas class="waveform-canvas" width="894" height="538" aria-label="Interface Timing Diagram"></canvas></div><span class="wave-hover-readout" hidden></span><script type="application/json" class="wave-data">{"title":"Interface Timing Diagram","endTime":120,"basePlotWidth":894,"labelWidth":190,"top":34,"rowHeight":34,"traceHeight":16,"ticks":[{"time":5,"clock":true,"cycle":0,"tickLabel":"C0","label":"cycle 0"},{"time":15,"clock":true,"cycle":1,"tickLabel":"C1","label":"cycle 1"},{"time":25,"clock":true,"cycle":2,"tickLabel":"C2","label":"cycle 2"},{"time":35,"clock":true,"cycle":3,"tickLabel":"C3","label":"cycle 3"},{"time":45,"clock":true,"cycle":4,"tickLabel":"C4","label":"cycle 4"},{"time":55,"clock":true,"cycle":5,"tickLabel":"C5","label":"cycle 5"},{"time":65,"clock":true,"cycle":6,"tickLabel":"C6","label":"cycle 6"},{"time":75,"clock":true,"cycle":7,"tickLabel":"C7","label":"cycle 7"},{"time":85,"clock":true,"cycle":8,"tickLabel":"C8","label":"cycle 8"},{"time":95,"clock":true,"cycle":9,"tickLabel":"C9","label":"cycle 9"},{"time":105,"clock":true,"cycle":10,"tickLabel":"C10","label":"cycle 10"},{"time":115,"clock":true,"cycle":11,"tickLabel":"C11","label":"cycle 11"},{"time":125,"clock":true,"cycle":12,"tickLabel":"C12","label":"cycle 12"}],"signals":[{"name":"clk","kind":"signal","count":0,"scalar":true,"samples":[[0,"0"],[5,"1"],[10,"0"],[15,"1"],[20,"0"],[25,"1"],[30,"0"],[35,"1"],[40,"0"],[45,"1"],[50,"0"],[55,"1"],[60,"0"],[65,"1"],[70,"0"],[75,"1"],[80,"0"],[85,"1"],[90,"0"],[95,"1"],[100,"0"],[105,"1"],[110,"0"],[115,"1"],[120,"0"]]},{"name":"rstn","kind":"signal","count":0,"scalar":true,"samples":[[0,"0"],[18,"1"]]},{"name":"reg_rd_valid","kind":"signal","count":0,"scalar":true,"samples":[[0,"0"],[31,"1"],[79,"0"],[105,"1"]]},{"name":"reg_wr_valid","kind":"signal","count":0,"scalar":true,"samples":[[0,"0"],[34,"1"],[82,"0"],[108,"1"]]},{"name":"reg_data_in","kind":"signal","count":0,"scalar":false,"samples":[[0,"00000000"],[24,"00010010"],[54,"10100101"],[92,"00111100"]]},{"name":"reg_data_out","kind":"signal","count":0,"scalar":false,"samples":[[0,"00000000"],[24,"00010010"],[54,"10100101"],[92,"00111100"]]},{"name":"reg_rd_addr","kind":"signal","count":0,"scalar":false,"samples":[[0,"00000000"],[24,"00010010"],[54,"10100101"],[92,"00111100"]]},{"name":"reg_wr_addr","kind":"signal","count":0,"scalar":false,"samples":[[0,"00000000"],[24,"00010010"],[54,"10100101"],[92,"00111100"]]},{"name":"reg_error","kind":"signal","count":0,"scalar":true,"samples":[[0,"0"],[54,"1"],[106,"0"]]},{"name":"reg_rd_en","kind":"signal","count":0,"scalar":true,"samples":[[0,"0"],[56,"1"],[108,"0"]]},{"name":"reg_rd_rdy","kind":"signal","count":0,"scalar":true,"samples":[[0,"0"],[58,"1"],[110,"0"]]},{"name":"reg_wr_en","kind":"signal","count":0,"scalar":true,"samples":[[0,"0"],[60,"1"],[112,"0"]]},{"name":"reg_wr_rdy","kind":"signal","count":0,"scalar":true,"samples":[[0,"0"],[62,"1"],[114,"0"]]},{"name":"SPI","kind":"interface","count":4,"scalar":true,"samples":[[0,"0"],[5,"1"],[10,"0"],[15,"1"],[20,"0"],[25,"1"],[30,"0"],[35,"1"],[40,"0"],[45,"1"],[50,"0"],[55,"1"],[60,"0"],[64,"1"],[70,"0"],[75,"1"],[80,"0"],[85,"1"],[90,"0"],[95,"1"],[100,"0"],[105,"1"],[110,"0"],[115,"1"],[120,"0"]]}]}</script></div></div><script>
+(() => {
+  document.querySelectorAll(".wave").forEach((wave) => {
+    if (wave.dataset.ready === "1") return;
+    wave.dataset.ready = "1";
+    const zoomX = wave.querySelector(".wave-zoom-x");
+    const zoomY = wave.querySelector(".wave-zoom-y");
+    const viewport = wave.querySelector(".wave-viewport");
+    const stage = wave.querySelector(".wave-stage");
+    const canvas = wave.querySelector("canvas.waveform-canvas");
+    const plotPane = wave.querySelector(".wave-plot-pane");
+    const labelPane = wave.querySelector(".wave-label-pane");
+    const labelRows = Array.from(wave.querySelectorAll(".wave-label-row"));
+    const readout = wave.querySelector(".wave-hover-readout");
+    const dataNode = wave.querySelector("script.wave-data");
+    if (!viewport || !stage || !canvas || !plotPane || !labelPane || !dataNode) return;
+    let payload;
+    try {
+      payload = JSON.parse(dataNode.textContent || "{}");
+    } catch (_) {
+      return;
+    }
+    const ctx = canvas.getContext("2d");
+    if (!ctx) return;
+    const css = getComputedStyle(wave);
+    const colors = {
+      card: css.getPropertyValue("--card").trim() || "#111827",
+      line: css.getPropertyValue("--line").trim() || "#273244",
+      muted: css.getPropertyValue("--muted").trim() || "#93a4b8",
+      ink: css.getPropertyValue("--ink").trim() || "#e8eef7",
+      accent: css.getPropertyValue("--accent").trim() || "#62d6c7",
+      bus: "rgba(98, 214, 199, .14)",
+      iface: "rgba(139, 211, 255, .14)",
+      hover: "#ffd84d",
+      unknown: "#d59b35"
+    };
+    const fallbackPlotWidth = Number(payload.basePlotWidth || 894);
+    const labelWidth = Number(payload.labelWidth || 190);
+    const baseRowHeight = Number(payload.rowHeight || 34);
+    const top = Number(payload.top || 34);
+    const traceHeight = Number(payload.traceHeight || 16);
+    const endTime = Math.max(1, Number(payload.endTime || 1));
+    const signals = Array.isArray(payload.signals) ? payload.signals : [];
+    const ticks = Array.isArray(payload.ticks) ? payload.ticks : [];
+    const compactValue = (value) => {
+      const text = String(value || "").replaceAll("_", "");
+      if (!text) return "";
+      if (text.length > 8 && /^[01]+$/i.test(text)) return `0x${parseInt(text, 2).toString(16).toUpperCase()}`;
+      if (text.length > 18) return `${text.slice(0, 15)}...`;
+      return text.toUpperCase();
+    };
+    const isScalar = (signal) => signal.scalar === true;
+    const yForScalar = (value, highY, lowY) => {
+      const text = String(value || "").toLowerCase();
+      if (text === "1") return highY;
+      if (text === "0") return lowY;
+      return (highY + lowY) / 2;
+    };
+    let hoverTick = null;
+    const nearestTick = (x, plotWidth) => {
+      const snapTicks = ticks.length ? ticks : [{time: 0, label: "t=0"}, {time: endTime, label: `t=${endTime}`}];
+      let best = snapTicks[0];
+      let bestDistance = Infinity;
+      snapTicks.forEach((tick) => {
+        const tx = (Number(tick.time || 0) / endTime) * plotWidth;
+        const distance = Math.abs(tx - x);
+        if (distance < bestDistance) {
+          best = tick;
+          bestDistance = distance;
+        }
+      });
+      return best;
+    };
+    const draw = () => {
+      const valueX = zoomX ? Number(zoomX.value) / 100 : 1;
+      const valueY = zoomY ? Number(zoomY.value) / 100 : 1;
+      const visiblePlotWidth = Math.max(360, viewport.clientWidth - labelWidth);
+      const basePlotWidth = Math.max(fallbackPlotWidth, visiblePlotWidth);
+      const plotWidth = Math.max(240, basePlotWidth * valueX);
+      const rowHeight = Math.max(18, baseRowHeight * valueY);
+      const height = Math.ceil(top + (signals.length * rowHeight) + 28);
+      const dpr = window.devicePixelRatio || 1;
+      stage.style.width = `${labelWidth + plotWidth}px`;
+      stage.style.minWidth = `${labelWidth + plotWidth}px`;
+      stage.style.height = `${height}px`;
+      stage.style.gridTemplateColumns = `${labelWidth}px ${plotWidth}px`;
+      labelPane.style.width = `${labelWidth}px`;
+      labelPane.style.minWidth = `${labelWidth}px`;
+      plotPane.style.width = `${plotWidth}px`;
+      plotPane.style.minWidth = `${plotWidth}px`;
+      plotPane.style.height = `${height}px`;
+      labelPane.style.height = `${height}px`;
+      canvas.style.width = `${plotWidth}px`;
+      canvas.style.height = `${height}px`;
+      canvas.width = Math.max(1, Math.ceil(plotWidth * dpr));
+      canvas.height = Math.max(1, Math.ceil(height * dpr));
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      ctx.clearRect(0, 0, plotWidth, height);
+      ctx.fillStyle = colors.card;
+      ctx.fillRect(0, 0, plotWidth, height);
+      labelRows.forEach((row, index) => {
+        row.style.top = `${top + (index * rowHeight) + 5}px`;
+        row.style.height = `${Math.max(16, rowHeight - 2)}px`;
+        row.style.lineHeight = `${Math.max(16, rowHeight - 2)}px`;
+      });
+      ctx.font = "11px ui-monospace, SFMono-Regular, Menlo, Consolas, monospace";
+      ctx.textBaseline = "middle";
+      const minTickSpacing = valueX >= 20 ? 24 : valueX >= 12 ? 26 : valueX >= 8 ? 28 : valueX >= 4 ? 34 : valueX >= 2.8 ? 42 : valueX >= 1.7 ? 54 : 88;
+      let lastTickX = -Infinity;
+      ticks.forEach((tick, index) => {
+        const x = (Number(tick.time || 0) / endTime) * plotWidth;
+        ctx.strokeStyle = colors.line;
+        ctx.globalAlpha = tick.clock ? 0.45 : 0.62;
+        ctx.beginPath();
+        ctx.moveTo(x, 20);
+        ctx.lineTo(x, height - 18);
+        ctx.stroke();
+        ctx.globalAlpha = 1;
+        if (x - lastTickX >= minTickSpacing) {
+          ctx.fillStyle = colors.muted;
+          ctx.fillText(String(tick.tickLabel || tick.label || index), x + 3, 14);
+          lastTickX = x;
+        }
+      });
+      signals.forEach((signal, index) => {
+        const rowY = top + (index * rowHeight);
+        const traceY = rowY + Math.max(3, rowHeight * 0.12);
+        const traceH = Math.min(traceHeight, Math.max(10, rowHeight * 0.48));
+        const lowY = traceY + traceH;
+        const highY = traceY;
+        ctx.strokeStyle = colors.line;
+        ctx.globalAlpha = 1;
+        ctx.beginPath();
+        ctx.moveTo(0, lowY);
+        ctx.lineTo(plotWidth, lowY);
+        ctx.stroke();
+        const samples = Array.isArray(signal.samples) ? signal.samples : [];
+        if (signal.kind === "interface") {
+          ctx.fillStyle = colors.iface;
+          ctx.strokeStyle = "#8bd3ff";
+          ctx.lineWidth = 1.2;
+          ctx.fillRect(0, traceY - 1, plotWidth, traceH + 2);
+          ctx.strokeRect(0, traceY - 1, plotWidth, traceH + 2);
+          ctx.fillStyle = colors.ink;
+          ctx.font = "12px ui-monospace, SFMono-Regular, Menlo, Consolas, monospace";
+          ctx.fillText(`${signal.name} interface (${signal.count || 0} signals)`, 8, traceY + (traceH / 2));
+          return;
+        }
+        if (!samples.length) return;
+        if (isScalar(signal)) {
+          let unknown = false;
+          ctx.beginPath();
+          samples.forEach((sample, sampleIndex) => {
+            const x = (Number(sample[0] || 0) / endTime) * plotWidth;
+            const y = yForScalar(sample[1], highY, lowY);
+            unknown = unknown || !["0", "1"].includes(String(sample[1]).toLowerCase());
+            if (sampleIndex === 0) {
+              ctx.moveTo(x, y);
+            } else {
+              const previous = samples[sampleIndex - 1];
+              const previousY = yForScalar(previous[1], highY, lowY);
+              ctx.lineTo(x, previousY);
+              ctx.lineTo(x, y);
+            }
+          });
+          const last = samples[samples.length - 1];
+          ctx.lineTo(plotWidth, yForScalar(last[1], highY, lowY));
+          ctx.strokeStyle = unknown ? colors.unknown : colors.accent;
+          ctx.lineWidth = 2.2;
+          ctx.stroke();
+          return;
+        }
+        ctx.font = "11px ui-monospace, SFMono-Regular, Menlo, Consolas, monospace";
+        samples.forEach((sample, sampleIndex) => {
+          const next = samples[sampleIndex + 1];
+          const x1 = (Number(sample[0] || 0) / endTime) * plotWidth;
+          const x2 = next ? (Number(next[0] || 0) / endTime) * plotWidth : plotWidth;
+          const width = Math.max(3, x2 - x1);
+          ctx.fillStyle = colors.bus;
+          ctx.strokeStyle = colors.accent;
+          ctx.lineWidth = 1.1;
+          ctx.fillRect(x1, traceY, width, traceH);
+          ctx.strokeRect(x1, traceY, width, traceH);
+          if (width >= 38) {
+            ctx.fillStyle = colors.ink;
+            ctx.fillText(compactValue(sample[1]), x1 + 5, traceY + (traceH / 2));
+          }
+        });
+      });
+      if (hoverTick) {
+        const x = (Number(hoverTick.time || 0) / endTime) * plotWidth;
+        ctx.strokeStyle = colors.hover;
+        ctx.lineWidth = 2;
+        ctx.beginPath();
+        ctx.moveTo(x, 20);
+        ctx.lineTo(x, height - 18);
+        ctx.stroke();
+        if (readout) {
+          readout.hidden = false;
+          readout.textContent = hoverTick.label || `t=${hoverTick.time}`;
+        }
+      } else if (readout) {
+        readout.hidden = true;
+      }
+    };
+    draw();
+    if (zoomX) zoomX.addEventListener("input", draw);
+    if (zoomY) zoomY.addEventListener("input", draw);
+    canvas.addEventListener("mousemove", (event) => {
+      const rect = canvas.getBoundingClientRect();
+      const x = event.clientX - rect.left;
+      hoverTick = nearestTick(x, rect.width);
+      draw();
+    });
+    canvas.addEventListener("mouseleave", () => {
+      hoverTick = null;
+      draw();
+    });
+    window.addEventListener("resize", draw);
+  });
+})();
+</script></div><details class="wave-group"><summary>SPI interface signals</summary><div class="wave-group-body"><div class="wave"><h4>SPI Interface Waveform</h4><p class="meta">Source: interfaces/hdl/radif/testbenches/tb_radif_reg_to_spi_master.vhd</p><div class="wave-controls"><label>Horizontal <input class="wave-zoom-x" type="range" min="60" max="3000" value="100"></label><label>Vertical <input class="wave-zoom-y" type="range" min="70" max="260" value="100"></label></div><div class="wave-viewport"><div class="wave-stage" style="height:198px"><div class="wave-label-pane" style="height:198px"><div class="wave-label-row" style="top:39px;height:32px;line-height:32px">spi_sclk_o</div><div class="wave-label-row" style="top:73px;height:32px;line-height:32px">spi_cs_n_o</div><div class="wave-label-row" style="top:107px;height:32px;line-height:32px">spi_miso_i</div><div class="wave-label-row" style="top:141px;height:32px;line-height:32px">spi_mosi_o</div></div><div class="wave-plot-pane" style="width:894px;min-width:894px;height:198px"><canvas class="waveform-canvas" width="894" height="198" aria-label="SPI Interface Waveform"></canvas></div><span class="wave-hover-readout" hidden></span><script type="application/json" class="wave-data">{"title":"SPI Interface Waveform","endTime":120,"basePlotWidth":894,"labelWidth":190,"top":34,"rowHeight":34,"traceHeight":16,"ticks":[{"time":5,"clock":true,"cycle":0,"tickLabel":"C0","label":"cycle 0"},{"time":15,"clock":true,"cycle":1,"tickLabel":"C1","label":"cycle 1"},{"time":25,"clock":true,"cycle":2,"tickLabel":"C2","label":"cycle 2"},{"time":35,"clock":true,"cycle":3,"tickLabel":"C3","label":"cycle 3"},{"time":45,"clock":true,"cycle":4,"tickLabel":"C4","label":"cycle 4"},{"time":55,"clock":true,"cycle":5,"tickLabel":"C5","label":"cycle 5"},{"time":65,"clock":true,"cycle":6,"tickLabel":"C6","label":"cycle 6"},{"time":75,"clock":true,"cycle":7,"tickLabel":"C7","label":"cycle 7"},{"time":85,"clock":true,"cycle":8,"tickLabel":"C8","label":"cycle 8"},{"time":95,"clock":true,"cycle":9,"tickLabel":"C9","label":"cycle 9"},{"time":105,"clock":true,"cycle":10,"tickLabel":"C10","label":"cycle 10"},{"time":115,"clock":true,"cycle":11,"tickLabel":"C11","label":"cycle 11"},{"time":125,"clock":true,"cycle":12,"tickLabel":"C12","label":"cycle 12"}],"signals":[{"name":"spi_sclk_o","kind":"signal","count":0,"scalar":true,"samples":[[0,"0"],[5,"1"],[10,"0"],[15,"1"],[20,"0"],[25,"1"],[30,"0"],[35,"1"],[40,"0"],[45,"1"],[50,"0"],[55,"1"],[60,"0"],[65,"1"],[70,"0"],[75,"1"],[80,"0"],[85,"1"],[90,"0"],[95,"1"],[100,"0"],[105,"1"],[110,"0"],[115,"1"],[120,"0"]]},{"name":"spi_cs_n_o","kind":"signal","count":0,"scalar":true,"samples":[[0,"0"],[64,"1"],[116,"0"]]},{"name":"spi_miso_i","kind":"signal","count":0,"scalar":true,"samples":[[0,"0"],[66,"1"],[118,"0"]]},{"name":"spi_mosi_o","kind":"signal","count":0,"scalar":true,"samples":[[0,"0"],[68,"1"],[120,"0"]]}]}</script></div></div><script>
+(() => {
+  document.querySelectorAll(".wave").forEach((wave) => {
+    if (wave.dataset.ready === "1") return;
+    wave.dataset.ready = "1";
+    const zoomX = wave.querySelector(".wave-zoom-x");
+    const zoomY = wave.querySelector(".wave-zoom-y");
+    const viewport = wave.querySelector(".wave-viewport");
+    const stage = wave.querySelector(".wave-stage");
+    const canvas = wave.querySelector("canvas.waveform-canvas");
+    const plotPane = wave.querySelector(".wave-plot-pane");
+    const labelPane = wave.querySelector(".wave-label-pane");
+    const labelRows = Array.from(wave.querySelectorAll(".wave-label-row"));
+    const readout = wave.querySelector(".wave-hover-readout");
+    const dataNode = wave.querySelector("script.wave-data");
+    if (!viewport || !stage || !canvas || !plotPane || !labelPane || !dataNode) return;
+    let payload;
+    try {
+      payload = JSON.parse(dataNode.textContent || "{}");
+    } catch (_) {
+      return;
+    }
+    const ctx = canvas.getContext("2d");
+    if (!ctx) return;
+    const css = getComputedStyle(wave);
+    const colors = {
+      card: css.getPropertyValue("--card").trim() || "#111827",
+      line: css.getPropertyValue("--line").trim() || "#273244",
+      muted: css.getPropertyValue("--muted").trim() || "#93a4b8",
+      ink: css.getPropertyValue("--ink").trim() || "#e8eef7",
+      accent: css.getPropertyValue("--accent").trim() || "#62d6c7",
+      bus: "rgba(98, 214, 199, .14)",
+      iface: "rgba(139, 211, 255, .14)",
+      hover: "#ffd84d",
+      unknown: "#d59b35"
+    };
+    const fallbackPlotWidth = Number(payload.basePlotWidth || 894);
+    const labelWidth = Number(payload.labelWidth || 190);
+    const baseRowHeight = Number(payload.rowHeight || 34);
+    const top = Number(payload.top || 34);
+    const traceHeight = Number(payload.traceHeight || 16);
+    const endTime = Math.max(1, Number(payload.endTime || 1));
+    const signals = Array.isArray(payload.signals) ? payload.signals : [];
+    const ticks = Array.isArray(payload.ticks) ? payload.ticks : [];
+    const compactValue = (value) => {
+      const text = String(value || "").replaceAll("_", "");
+      if (!text) return "";
+      if (text.length > 8 && /^[01]+$/i.test(text)) return `0x${parseInt(text, 2).toString(16).toUpperCase()}`;
+      if (text.length > 18) return `${text.slice(0, 15)}...`;
+      return text.toUpperCase();
+    };
+    const isScalar = (signal) => signal.scalar === true;
+    const yForScalar = (value, highY, lowY) => {
+      const text = String(value || "").toLowerCase();
+      if (text === "1") return highY;
+      if (text === "0") return lowY;
+      return (highY + lowY) / 2;
+    };
+    let hoverTick = null;
+    const nearestTick = (x, plotWidth) => {
+      const snapTicks = ticks.length ? ticks : [{time: 0, label: "t=0"}, {time: endTime, label: `t=${endTime}`}];
+      let best = snapTicks[0];
+      let bestDistance = Infinity;
+      snapTicks.forEach((tick) => {
+        const tx = (Number(tick.time || 0) / endTime) * plotWidth;
+        const distance = Math.abs(tx - x);
+        if (distance < bestDistance) {
+          best = tick;
+          bestDistance = distance;
+        }
+      });
+      return best;
+    };
+    const draw = () => {
+      const valueX = zoomX ? Number(zoomX.value) / 100 : 1;
+      const valueY = zoomY ? Number(zoomY.value) / 100 : 1;
+      const visiblePlotWidth = Math.max(360, viewport.clientWidth - labelWidth);
+      const basePlotWidth = Math.max(fallbackPlotWidth, visiblePlotWidth);
+      const plotWidth = Math.max(240, basePlotWidth * valueX);
+      const rowHeight = Math.max(18, baseRowHeight * valueY);
+      const height = Math.ceil(top + (signals.length * rowHeight) + 28);
+      const dpr = window.devicePixelRatio || 1;
+      stage.style.width = `${labelWidth + plotWidth}px`;
+      stage.style.minWidth = `${labelWidth + plotWidth}px`;
+      stage.style.height = `${height}px`;
+      stage.style.gridTemplateColumns = `${labelWidth}px ${plotWidth}px`;
+      labelPane.style.width = `${labelWidth}px`;
+      labelPane.style.minWidth = `${labelWidth}px`;
+      plotPane.style.width = `${plotWidth}px`;
+      plotPane.style.minWidth = `${plotWidth}px`;
+      plotPane.style.height = `${height}px`;
+      labelPane.style.height = `${height}px`;
+      canvas.style.width = `${plotWidth}px`;
+      canvas.style.height = `${height}px`;
+      canvas.width = Math.max(1, Math.ceil(plotWidth * dpr));
+      canvas.height = Math.max(1, Math.ceil(height * dpr));
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      ctx.clearRect(0, 0, plotWidth, height);
+      ctx.fillStyle = colors.card;
+      ctx.fillRect(0, 0, plotWidth, height);
+      labelRows.forEach((row, index) => {
+        row.style.top = `${top + (index * rowHeight) + 5}px`;
+        row.style.height = `${Math.max(16, rowHeight - 2)}px`;
+        row.style.lineHeight = `${Math.max(16, rowHeight - 2)}px`;
+      });
+      ctx.font = "11px ui-monospace, SFMono-Regular, Menlo, Consolas, monospace";
+      ctx.textBaseline = "middle";
+      const minTickSpacing = valueX >= 20 ? 24 : valueX >= 12 ? 26 : valueX >= 8 ? 28 : valueX >= 4 ? 34 : valueX >= 2.8 ? 42 : valueX >= 1.7 ? 54 : 88;
+      let lastTickX = -Infinity;
+      ticks.forEach((tick, index) => {
+        const x = (Number(tick.time || 0) / endTime) * plotWidth;
+        ctx.strokeStyle = colors.line;
+        ctx.globalAlpha = tick.clock ? 0.45 : 0.62;
+        ctx.beginPath();
+        ctx.moveTo(x, 20);
+        ctx.lineTo(x, height - 18);
+        ctx.stroke();
+        ctx.globalAlpha = 1;
+        if (x - lastTickX >= minTickSpacing) {
+          ctx.fillStyle = colors.muted;
+          ctx.fillText(String(tick.tickLabel || tick.label || index), x + 3, 14);
+          lastTickX = x;
+        }
+      });
+      signals.forEach((signal, index) => {
+        const rowY = top + (index * rowHeight);
+        const traceY = rowY + Math.max(3, rowHeight * 0.12);
+        const traceH = Math.min(traceHeight, Math.max(10, rowHeight * 0.48));
+        const lowY = traceY + traceH;
+        const highY = traceY;
+        ctx.strokeStyle = colors.line;
+        ctx.globalAlpha = 1;
+        ctx.beginPath();
+        ctx.moveTo(0, lowY);
+        ctx.lineTo(plotWidth, lowY);
+        ctx.stroke();
+        const samples = Array.isArray(signal.samples) ? signal.samples : [];
+        if (signal.kind === "interface") {
+          ctx.fillStyle = colors.iface;
+          ctx.strokeStyle = "#8bd3ff";
+          ctx.lineWidth = 1.2;
+          ctx.fillRect(0, traceY - 1, plotWidth, traceH + 2);
+          ctx.strokeRect(0, traceY - 1, plotWidth, traceH + 2);
+          ctx.fillStyle = colors.ink;
+          ctx.font = "12px ui-monospace, SFMono-Regular, Menlo, Consolas, monospace";
+          ctx.fillText(`${signal.name} interface (${signal.count || 0} signals)`, 8, traceY + (traceH / 2));
+          return;
+        }
+        if (!samples.length) return;
+        if (isScalar(signal)) {
+          let unknown = false;
+          ctx.beginPath();
+          samples.forEach((sample, sampleIndex) => {
+            const x = (Number(sample[0] || 0) / endTime) * plotWidth;
+            const y = yForScalar(sample[1], highY, lowY);
+            unknown = unknown || !["0", "1"].includes(String(sample[1]).toLowerCase());
+            if (sampleIndex === 0) {
+              ctx.moveTo(x, y);
+            } else {
+              const previous = samples[sampleIndex - 1];
+              const previousY = yForScalar(previous[1], highY, lowY);
+              ctx.lineTo(x, previousY);
+              ctx.lineTo(x, y);
+            }
+          });
+          const last = samples[samples.length - 1];
+          ctx.lineTo(plotWidth, yForScalar(last[1], highY, lowY));
+          ctx.strokeStyle = unknown ? colors.unknown : colors.accent;
+          ctx.lineWidth = 2.2;
+          ctx.stroke();
+          return;
+        }
+        ctx.font = "11px ui-monospace, SFMono-Regular, Menlo, Consolas, monospace";
+        samples.forEach((sample, sampleIndex) => {
+          const next = samples[sampleIndex + 1];
+          const x1 = (Number(sample[0] || 0) / endTime) * plotWidth;
+          const x2 = next ? (Number(next[0] || 0) / endTime) * plotWidth : plotWidth;
+          const width = Math.max(3, x2 - x1);
+          ctx.fillStyle = colors.bus;
+          ctx.strokeStyle = colors.accent;
+          ctx.lineWidth = 1.1;
+          ctx.fillRect(x1, traceY, width, traceH);
+          ctx.strokeRect(x1, traceY, width, traceH);
+          if (width >= 38) {
+            ctx.fillStyle = colors.ink;
+            ctx.fillText(compactValue(sample[1]), x1 + 5, traceY + (traceH / 2));
+          }
+        });
+      });
+      if (hoverTick) {
+        const x = (Number(hoverTick.time || 0) / endTime) * plotWidth;
+        ctx.strokeStyle = colors.hover;
+        ctx.lineWidth = 2;
+        ctx.beginPath();
+        ctx.moveTo(x, 20);
+        ctx.lineTo(x, height - 18);
+        ctx.stroke();
+        if (readout) {
+          readout.hidden = false;
+          readout.textContent = hoverTick.label || `t=${hoverTick.time}`;
+        }
+      } else if (readout) {
+        readout.hidden = true;
+      }
+    };
+    draw();
+    if (zoomX) zoomX.addEventListener("input", draw);
+    if (zoomY) zoomY.addEventListener("input", draw);
+    canvas.addEventListener("mousemove", (event) => {
+      const rect = canvas.getBoundingClientRect();
+      const x = event.clientX - rect.left;
+      hoverTick = nearestTick(x, rect.width);
+      draw();
+    });
+    canvas.addEventListener("mouseleave", () => {
+      hoverTick = null;
+      draw();
+    });
+    window.addEventListener("resize", draw);
+  });
+})();
+</script></div></div></details></div></details>
+  <h2>Sources</h2>
+  <ul><li>interfaces/hdl/radif/src/radif_reg_to_spi_master.vhd</li></ul>
+</main>
+<footer><div class="wrap">RadHDL documentation version 0.2.0 / Generated by radhdl-docgen 0.1.0</div></footer>
+
+</body>
+</html>

@@ -1,5 +1,12 @@
 var NAVTREEINDEX16 =
 {
+"structRADUi_1_1PlotModelSnapshot.html":[24,0,18,27],
+"structRADUi_1_1PlotModelSnapshot.html#a0c695137bba7983bfcd556e17022d5a8":[24,0,18,27,3],
+"structRADUi_1_1PlotModelSnapshot.html#a3bdc403849a3b07101716d489ccb759e":[24,0,18,27,1],
+"structRADUi_1_1PlotModelSnapshot.html#a510ccfd6c2a19149d2856b16e5f364ca":[24,0,18,27,2],
+"structRADUi_1_1PlotModelSnapshot.html#ab5d774f6d47741ba776656444c7656a2":[24,0,18,27,0],
+"structRADUi_1_1PlotPixel.html":[24,0,18,29],
+"structRADUi_1_1PlotPixel.html#a7201fcf71aa208454e49779863631eae":[24,0,18,29,1],
 "structRADUi_1_1PlotPixel.html#a92ebcbad1e702ec6e2f6e5ce6b8f5f12":[24,0,18,29,0],
 "structRADUi_1_1PlotPixel.html#abed3c18cc093b59c92cf9199e6f07f38":[24,0,18,29,3],
 "structRADUi_1_1PlotPixel.html#ae34b4ca6f5d0c9c2b9f350921a0abfdb":[24,0,18,29,2],
@@ -242,12 +249,5 @@ var NAVTREEINDEX16 =
 "structrad__dma__controller__config.html#ab105a7d3b1eb1aaf6e24db07af3990c2":[24,0,32,2],
 "structrad__dma__controller__config.html#af1e1e7423ff05ec9e8e2b1ef83ba06dc":[24,0,32,0],
 "structrad__dma__transfer.html":[24,0,33],
-"structrad__dma__transfer.html#a10e7e5af23f44684416a4307cc63ef72":[24,0,33,6],
-"structrad__dma__transfer.html#a35a086d16cf4e1345a574c8fd08fa57a":[24,0,33,5],
-"structrad__dma__transfer.html#a55d03ec3ac17cc633c34e5bd1353dbf3":[24,0,33,1],
-"structrad__dma__transfer.html#abd0ac6138fe65a22a6fc12a319b9166f":[24,0,33,2],
-"structrad__dma__transfer.html#ac2146cb0f52a28afb217a56ad3ac0351":[24,0,33,3],
-"structrad__dma__transfer.html#ae9b0577ef8dc86afa4f6729c2243822b":[24,0,33,0],
-"structrad__dma__transfer.html#aeb9ef987c74842bf1331b3019a28f2a6":[24,0,33,4],
-"structrad__driver__info.html":[24,0,34]
+"structrad__dma__transfer.html#a10e7e5af23f44684416a4307cc63ef72":[24,0,33,6]
 };

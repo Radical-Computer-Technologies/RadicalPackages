@@ -1,5 +1,12 @@
 var NAVTREEINDEX18 =
 {
+"structrad__spi__device__info.html#a952d3bbe1d915e582e367e49aa1f8e24":[24,0,68,11],
+"structrad__spi__device__info.html#acfb35e5740033cdd8e4155e320886cd7":[24,0,68,4],
+"structrad__spi__device__info.html#ae7e424802c6c23b55e3b47cc23e63135":[24,0,68,9],
+"structrad__spi__driver.html":[24,0,69],
+"structrad__spi__driver.html#a291977426237ffe0db565d19ead92247":[24,0,69,4],
+"structrad__spi__driver.html#a58679c8987b4ce4c594be4f0618e3084":[24,0,69,5],
+"structrad__spi__driver.html#a5a755f7baa18559b6d65fed7d43cfad2":[24,0,69,2],
 "structrad__spi__driver.html#a71e3ba21131cee4c3f4fae9b7396da20":[24,0,69,0],
 "structrad__spi__driver.html#ac2f83d89b21405bd98b5ffe0ff579106":[24,0,69,1],
 "structrad__spi__driver.html#acf5b2df97ef1f03bd71c7d95c210b3db":[24,0,69,3],

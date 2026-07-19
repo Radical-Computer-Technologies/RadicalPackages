@@ -10,14 +10,60 @@
 <codeline><highlight class="normal">#<sp/>RADDatabase</highlight></codeline>
 <codeline></codeline>
 <codeline><highlight class="normal">RADDatabase<sp/>provides<sp/>a<sp/>compact<sp/>SQLite<sp/>wrapper<sp/>for<sp/>application<sp/>data,<sp/>settings,</highlight></codeline>
-<codeline><highlight class="normal">browser-style<sp/>history/bookmark<sp/>stores,<sp/>local<sp/>caches,<sp/>and<sp/>embedded<sp/>metadata.</highlight></codeline>
+<codeline><highlight class="normal">browser-style<sp/>history/bookmark<sp/>stores,<sp/>local<sp/>caches,<sp/>and<sp/>embedded<sp/>metadata.<sp/>It</highlight></codeline>
+<codeline><highlight class="normal">favors<sp/>explicit<sp/>result<sp/>objects<sp/>and<sp/>boolean<sp/>status<sp/>returns<sp/>over<sp/>hidden<sp/>exception</highlight></codeline>
+<codeline><highlight class="normal">flow<sp/>for<sp/>routine<sp/>SQL<sp/>failures.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">`RADSqlDatabase`<sp/>owns<sp/>a<sp/>SQLite<sp/>connection.<sp/>It<sp/>derives<sp/>from<sp/>`RADCore::RADObject`</highlight></codeline>
+<codeline><highlight class="normal">and<sp/>raises<sp/>an<sp/>`errorOccurred(std::string)`<sp/>event<sp/>when<sp/>open,<sp/>execute,<sp/>query,<sp/>or</highlight></codeline>
+<codeline><highlight class="normal">transaction<sp/>handling<sp/>fails.<sp/>After<sp/>`setFileName()`,<sp/>call<sp/>`open()`/`close()`<sp/>and</highlight></codeline>
+<codeline><highlight class="normal">check<sp/>`isOpen()`<sp/>or<sp/>`lastError()`.<sp/>`execute()`<sp/>runs<sp/>statements<sp/>that<sp/>need<sp/>no</highlight></codeline>
+<codeline><highlight class="normal">rows,<sp/>while<sp/>`query()`<sp/>returns<sp/>a<sp/>`RADSqlResult`.<sp/>`queryAsync()`<sp/>runs<sp/>a<sp/>query<sp/>on<sp/>a</highlight></codeline>
+<codeline><highlight class="normal">`RADCore::RADThreadPool`<sp/>and<sp/>posts<sp/>completion<sp/>to<sp/>an<sp/>`EventLoop`<sp/>as<sp/>a</highlight></codeline>
+<codeline><highlight class="normal">`RADCore::RADFutureT&lt;RADSqlResult&gt;`.<sp/>Schema<sp/>evolution<sp/>is<sp/>handled<sp/>by</highlight></codeline>
+<codeline><highlight class="normal">`schemaVersion()`<sp/>and<sp/>`migrateTo()`,<sp/>which<sp/>applies<sp/>ordered<sp/>migrations<sp/>from<sp/>the</highlight></codeline>
+<codeline><highlight class="normal">`rad_schema_version`<sp/>table.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">`RADSqlResult`<sp/>is<sp/>a<sp/>value<sp/>object<sp/>holding<sp/>the<sp/>returned<sp/>rows.<sp/>Each<sp/>row<sp/>is<sp/>a</highlight></codeline>
+<codeline><highlight class="normal">`RADSqlRow`<sp/>(a<sp/>`std::map`<sp/>of<sp/>column<sp/>name<sp/>to<sp/>`RADCore::RADVariant`).<sp/>Use</highlight></codeline>
+<codeline><highlight class="normal">`rowCount()`,<sp/>`empty()`,<sp/>`row(index)`,<sp/>and<sp/>`rows()`<sp/>to<sp/>inspect<sp/>results.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">`RADSqlStatement`<sp/>is<sp/>a<sp/>move-only<sp/>prepared<sp/>statement<sp/>obtained<sp/>from<sp/>`prepare()`.<sp/>It</highlight></codeline>
+<codeline><highlight class="normal">offers<sp/>typed,<sp/>1-based<sp/>`bind()`<sp/>overloads<sp/>(integer,<sp/>double,<sp/>text,<sp/>blob,<sp/>and</highlight></codeline>
+<codeline><highlight class="normal">`RADVariant`)<sp/>plus<sp/>`bindNull()`,<sp/>`clearBindings()`,<sp/>and<sp/>`reset()`.<sp/>Advance<sp/>with</highlight></codeline>
+<codeline><highlight class="normal">`step()`<sp/>for<sp/>row-returning<sp/>queries<sp/>or<sp/>`execute()`<sp/>for<sp/>writes,<sp/>and<sp/>read<sp/>the</highlight></codeline>
+<codeline><highlight class="normal">current<sp/>row<sp/>via<sp/>`columnCount()`,<sp/>`columnName()`,<sp/>and<sp/>`columnValue()`.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">`RADSqlTransaction`<sp/>is<sp/>an<sp/>RAII<sp/>helper<sp/>that<sp/>begins<sp/>a<sp/>transaction<sp/>on<sp/>construction</highlight></codeline>
+<codeline><highlight class="normal">and<sp/>rolls<sp/>back<sp/>in<sp/>its<sp/>destructor<sp/>unless<sp/>`commit()`<sp/>was<sp/>called;<sp/>`RADSqlDatabase`</highlight></codeline>
+<codeline><highlight class="normal">also<sp/>exposes<sp/>`beginTransaction()`,<sp/>`commit()`,<sp/>and<sp/>`rollback()`<sp/>directly.</highlight></codeline>
 <codeline></codeline>
 <codeline><highlight class="normal">Core<sp/>features:</highlight></codeline>
 <codeline></codeline>
-<codeline><highlight class="normal">-<sp/>Connection<sp/>ownership<sp/>through<sp/>`RADSqlDatabase`.</highlight></codeline>
-<codeline><highlight class="normal">-<sp/>Prepared<sp/>statements<sp/>through<sp/>`RADSqlStatement`.</highlight></codeline>
-<codeline><highlight class="normal">-<sp/>Explicit<sp/>result<sp/>objects<sp/>and<sp/>transaction<sp/>helpers.</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>Connection<sp/>ownership<sp/>through<sp/>`RADSqlDatabase`<sp/>with<sp/>event-based<sp/>error<sp/>reporting.</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>Prepared<sp/>statements<sp/>with<sp/>typed<sp/>binding<sp/>through<sp/>`RADSqlStatement`.</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>Explicit<sp/>`RADSqlResult`<sp/>rows<sp/>and<sp/>RAII<sp/>`RADSqlTransaction`<sp/>helpers.</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>Async<sp/>queries<sp/>via<sp/>`queryAsync()`<sp/>and<sp/>ordered<sp/>schema<sp/>migrations.</highlight></codeline>
 <codeline><highlight class="normal">-<sp/>No<sp/>hidden<sp/>exception<sp/>flow<sp/>for<sp/>routine<sp/>SQL<sp/>failures.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Example:</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">```cpp</highlight></codeline>
+<codeline><highlight class="normal">RADDatabase::RADSqlDatabase<sp/>db(&quot;history.sqlite&quot;);</highlight></codeline>
+<codeline><highlight class="normal">if<sp/>(db.open())<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>RADDatabase::RADSqlTransaction<sp/>tx(db);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>auto<sp/>stmt<sp/>=<sp/>db.prepare(&quot;INSERT<sp/>INTO<sp/>visits(url,<sp/>ts)<sp/>VALUES(?,<sp/>?)&quot;);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>stmt.bind(1,<sp/>std::string(&quot;https://radcomp.tech&quot;));</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>stmt.bind(2,<sp/>int64_t(1721030400));</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>stmt.execute();</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>tx.commit();</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>auto<sp/>result<sp/>=<sp/>db.query(&quot;SELECT<sp/>url<sp/>FROM<sp/>visits<sp/>ORDER<sp/>BY<sp/>ts<sp/>DESC&quot;);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>for<sp/>(const<sp/>auto&amp;<sp/>row<sp/>:<sp/>result.rows())<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>//<sp/>row.at(&quot;url&quot;)<sp/>holds<sp/>a<sp/>RADCore::RADVariant.</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline><highlight class="normal">}</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
     </programlisting>
     <location file="/media/jvincent/Kingspec512/repos/RADLib/docs/public/raddatabase.md"/>
   </compounddef>

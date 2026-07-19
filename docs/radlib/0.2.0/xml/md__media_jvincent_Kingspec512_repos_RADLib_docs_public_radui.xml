@@ -7,7 +7,7 @@
     </briefdescription>
     <detaileddescription>
 <para><ref refid="namespaceRADUi" kindref="compound">RADUi</ref> provides backend-neutral UI dispatching, reusable UI state models, Slint backend integration, plotting, terminal helpers, and an application-shell layer for desktop and embedded tools.</para>
-<sect1 id="md__media_jvincent_Kingspec512_repos_RADLib_docs_public_radui_1autotoc_md33">
+<sect1 id="md__media_jvincent_Kingspec512_repos_RADLib_docs_public_radui_1autotoc_md39">
 <title>Application Shell</title>
 <para><computeroutput><ref refid="RADAppKit_8h" kindref="compound">RADAppKit.h</ref></computeroutput> adds models for IDE-style applications:</para>
 <para><itemizedlist>
@@ -20,16 +20,16 @@
 </listitem></itemizedlist>
 </para>
 </sect1>
-<sect1 id="md__media_jvincent_Kingspec512_repos_RADLib_docs_public_radui_1autotoc_md34">
+<sect1 id="md__media_jvincent_Kingspec512_repos_RADLib_docs_public_radui_1autotoc_md40">
 <title>Theme System</title>
 <para><computeroutput><ref refid="RADTheme_8h" kindref="compound">RADTheme.h</ref></computeroutput> adds <computeroutput>Theme</computeroutput>, <computeroutput>ThemeManager</computeroutput>, and JSON persistence for color, spacing, typography, radius, toolbar, status bar, and icon-name tokens.</para>
 <para>Use <computeroutput><ref refid="namespaceRADUi_1_1Slint_1a365381bdb513b75e70477c80c8a0a323" kindref="member">RADUi::Slint::bindTheme()</ref></computeroutput> to push theme changes into generated Slint components while keeping the C++ state backend-neutral.</para>
 </sect1>
-<sect1 id="md__media_jvincent_Kingspec512_repos_RADLib_docs_public_radui_1autotoc_md35">
+<sect1 id="md__media_jvincent_Kingspec512_repos_RADLib_docs_public_radui_1autotoc_md41">
 <title>Slint Backend</title>
 <para>Slint remains the first concrete backend. Slint-specific helpers live under <computeroutput><ref refid="namespaceRADUi_1_1Slint" kindref="compound">RADUi::Slint</ref></computeroutput> and should adapt generated components to backend-neutral <ref refid="namespaceRADUi" kindref="compound">RADUi</ref> models rather than storing application state directly in <computeroutput>.slint</computeroutput> files.</para>
 </sect1>
-<sect1 id="md__media_jvincent_Kingspec512_repos_RADLib_docs_public_radui_1autotoc_md36">
+<sect1 id="md__media_jvincent_Kingspec512_repos_RADLib_docs_public_radui_1autotoc_md42">
 <title>Examples</title>
 <para>The beta SDK includes developer-tool examples:</para>
 <para><itemizedlist>

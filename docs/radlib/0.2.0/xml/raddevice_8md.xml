@@ -9,18 +9,54 @@
     <programlisting>
 <codeline><highlight class="normal">#<sp/>RADDevice</highlight></codeline>
 <codeline></codeline>
-<codeline><highlight class="normal">RADDevice<sp/>covers<sp/>common<sp/>embedded<sp/>Linux<sp/>device<sp/>control<sp/>surfaces:</highlight></codeline>
+<codeline><highlight class="normal">RADDevice<sp/>covers<sp/>common<sp/>embedded<sp/>Linux<sp/>device<sp/>control<sp/>surfaces<sp/>through</highlight></codeline>
+<codeline><highlight class="normal">file-descriptor<sp/>and<sp/>ioctl-friendly<sp/>wrappers<sp/>in<sp/>the<sp/>`RADDevice`<sp/>namespace.<sp/>Each</highlight></codeline>
+<codeline><highlight class="normal">class<sp/>targets<sp/>a<sp/>standard<sp/>Linux<sp/>sysfs/devfs<sp/>surface,<sp/>and<sp/>all<sp/>of<sp/>them<sp/>accept<sp/>a</highlight></codeline>
+<codeline><highlight class="normal">`DevicePaths`<sp/>struct<sp/>so<sp/>real<sp/>device<sp/>roots<sp/>can<sp/>be<sp/>swapped<sp/>for<sp/>test<sp/>fixtures.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">`GpioPin`<sp/>drives<sp/>sysfs<sp/>GPIO<sp/>export/unexport,<sp/>direction<sp/>(`GpioDirection`),<sp/>edge</highlight></codeline>
+<codeline><highlight class="normal">mode<sp/>(`GpioEdge`),<sp/>and<sp/>value<sp/>read/write.<sp/>`I2CDevice`<sp/>opens<sp/>`/dev/i2c-*`<sp/>and</highlight></codeline>
+<codeline><highlight class="normal">selects<sp/>a<sp/>7-bit<sp/>address<sp/>via<sp/>the<sp/>`I2C_SLAVE`<sp/>ioctl<sp/>for<sp/>`read()`/`write()`.</highlight></codeline>
+<codeline><highlight class="normal">`SPIDevice`<sp/>opens<sp/>`/dev/spidev*`,<sp/>applies<sp/>mode/bits/speed<sp/>with<sp/>`configure()`,</highlight></codeline>
+<codeline><highlight class="normal">and<sp/>runs<sp/>full-duplex<sp/>`transfer()`<sp/>calls<sp/>through<sp/>`SPI_IOC_MESSAGE`.<sp/>`PwmChannel`</highlight></codeline>
+<codeline><highlight class="normal">exports<sp/>a<sp/>sysfs<sp/>PWM<sp/>channel<sp/>and<sp/>sets<sp/>period,<sp/>duty<sp/>cycle,<sp/>and<sp/>enable<sp/>state.</highlight></codeline>
+<codeline><highlight class="normal">`AdcChannel`<sp/>reads<sp/>IIO<sp/>raw,<sp/>scale,<sp/>and<sp/>scaled<sp/>samples.<sp/>`Watchdog`<sp/>opens</highlight></codeline>
+<codeline><highlight class="normal">`/dev/watchdogN`<sp/>and<sp/>issues<sp/>`keepAlive()`<sp/>pings,<sp/>and<sp/>`Led`<sp/>reads<sp/>and<sp/>writes</highlight></codeline>
+<codeline><highlight class="normal">sysfs<sp/>LED<sp/>brightness.<sp/>The<sp/>free<sp/>functions<sp/>`listLeds()`<sp/>and<sp/>`listIioDevices()`</highlight></codeline>
+<codeline><highlight class="normal">enumerate<sp/>available<sp/>LED<sp/>and<sp/>IIO<sp/>device<sp/>names.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Read-style<sp/>calls<sp/>that<sp/>can<sp/>fail<sp/>return<sp/>`RADCore::RADResult&lt;T&gt;`<sp/>(for<sp/>example</highlight></codeline>
+<codeline><highlight class="normal">`GpioPin::readValue()`,<sp/>`AdcChannel::readRaw()`,<sp/>`Led::brightness()`),<sp/>while</highlight></codeline>
+<codeline><highlight class="normal">setup<sp/>calls<sp/>take<sp/>an<sp/>optional<sp/>`std::string*<sp/>error`<sp/>out-parameter.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>Core<sp/>features</highlight></codeline>
 <codeline></codeline>
 <codeline><highlight class="normal">-<sp/>`GpioPin`<sp/>for<sp/>sysfs<sp/>GPIO<sp/>export,<sp/>direction,<sp/>edge,<sp/>and<sp/>value.</highlight></codeline>
 <codeline><highlight class="normal">-<sp/>`I2CDevice`<sp/>for<sp/>`/dev/i2c-*`<sp/>with<sp/>`I2C_SLAVE`<sp/>ioctl.</highlight></codeline>
 <codeline><highlight class="normal">-<sp/>`SPIDevice`<sp/>for<sp/>`/dev/spidev*`<sp/>with<sp/>SPI<sp/>ioctl<sp/>configuration<sp/>and<sp/>transfers.</highlight></codeline>
 <codeline><highlight class="normal">-<sp/>`PwmChannel`<sp/>for<sp/>sysfs<sp/>PWM<sp/>period,<sp/>duty,<sp/>and<sp/>enable.</highlight></codeline>
-<codeline><highlight class="normal">-<sp/>`AdcChannel`<sp/>for<sp/>IIO<sp/>raw<sp/>and<sp/>scaled<sp/>samples.</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>`AdcChannel`<sp/>for<sp/>IIO<sp/>raw,<sp/>scale,<sp/>and<sp/>scaled<sp/>samples.</highlight></codeline>
 <codeline><highlight class="normal">-<sp/>`Watchdog`<sp/>for<sp/>`/dev/watchdog*`<sp/>keepalive<sp/>ioctl.</highlight></codeline>
-<codeline><highlight class="normal">-<sp/>`Led`<sp/>for<sp/>sysfs<sp/>LED<sp/>brightness.</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>`Led`<sp/>for<sp/>sysfs<sp/>LED<sp/>brightness,<sp/>plus<sp/>`listLeds()`/`listIioDevices()`.</highlight></codeline>
 <codeline></codeline>
 <codeline><highlight class="normal">The<sp/>public<sp/>API<sp/>is<sp/>intentionally<sp/>file-descriptor<sp/>and<sp/>ioctl<sp/>friendly<sp/>so<sp/>future</highlight></codeline>
 <codeline><highlight class="normal">RADKernel<sp/>drivers<sp/>can<sp/>expose<sp/>the<sp/>same<sp/>application-facing<sp/>model.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Example:</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">```cpp</highlight></codeline>
+<codeline><highlight class="normal">RADDevice::GpioPin<sp/>led(17);</highlight></codeline>
+<codeline><highlight class="normal">std::string<sp/>error;</highlight></codeline>
+<codeline><highlight class="normal">led.exportPin(&amp;error);</highlight></codeline>
+<codeline><highlight class="normal">led.setDirection(RADDevice::GpioDirection::Out,<sp/>&amp;error);</highlight></codeline>
+<codeline><highlight class="normal">led.writeValue(true,<sp/>&amp;error);</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">RADDevice::I2CDevice<sp/>sensor;</highlight></codeline>
+<codeline><highlight class="normal">if<sp/>(sensor.open(1,<sp/>0x76,<sp/>{},<sp/>&amp;error))<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>sensor.write({0xF7});</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>std::vector&lt;uint8_t&gt;<sp/>pressure<sp/>=<sp/>sensor.read(3);</highlight></codeline>
+<codeline><highlight class="normal">}</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
     </programlisting>
     <location file="/media/jvincent/Kingspec512/repos/RADLib/docs/public/raddevice.md"/>
   </compounddef>

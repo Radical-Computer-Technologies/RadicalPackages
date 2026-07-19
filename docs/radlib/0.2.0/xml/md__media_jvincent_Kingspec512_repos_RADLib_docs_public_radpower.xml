@@ -6,8 +6,35 @@
     <briefdescription>
     </briefdescription>
     <detaileddescription>
-<para><ref refid="namespaceRADPower" kindref="compound">RADPower</ref> reads power supply, thermal zone, and CPU governor information from Linux sysfs. <computeroutput>PowerManager::requestAction()</computeroutput> is guarded: it returns the command that would be run by default, and only executes suspend, reboot, or shutdown when <computeroutput>execute</computeroutput> is explicitly set to true.</para>
-<para>Tests and products can use <computeroutput>PowerPaths</computeroutput> to target fixture trees, containers, or board-specific sysfs mount points. </para>
+<para><ref refid="namespaceRADPower" kindref="compound">RADPower</ref> reads power supply, thermal zone, and CPU governor information from Linux sysfs, and exposes guarded suspend/reboot/shutdown actions.</para>
+<para><computeroutput><ref refid="classRADPower_1_1PowerManager" kindref="compound">RADPower::PowerManager</ref></computeroutput> is the entry point and is constructed with an optional <computeroutput>PowerPaths</computeroutput>. Its read-only helpers return simple snapshots: <computeroutput>powerSupplies()</computeroutput> yields <computeroutput>PowerSupplyInfo</computeroutput> (name, type, charge status, and <computeroutput>capacityPercent</computeroutput>), <computeroutput>thermalZones()</computeroutput> yields <computeroutput>ThermalZoneInfo</computeroutput> with a <computeroutput>temperatureC</computeroutput> reading, and <computeroutput>cpuGovernors()</computeroutput> yields <computeroutput>CpuGovernorInfo</computeroutput> listing the current governor and the available governors per CPU directory. <computeroutput>setCpuGovernor()</computeroutput> writes a governor for one CPU directory and reports failures through an optional <computeroutput>error</computeroutput> string.</para>
+<para><computeroutput>PowerManager::requestAction()</computeroutput> is guarded. Given a <computeroutput>PowerAction</computeroutput> (<computeroutput>Suspend</computeroutput>, <computeroutput>Reboot</computeroutput>, or <computeroutput>Shutdown</computeroutput>), it returns a <computeroutput>PowerActionPlan</computeroutput> describing the shell <computeroutput>command</computeroutput> that would be run. It only mutates host state when <computeroutput>execute</computeroutput> is explicitly set to <computeroutput>true</computeroutput>; the returned plan reports <computeroutput>executed</computeroutput> and any <computeroutput>error</computeroutput>. This lets callers preview or confirm a dangerous action before committing to it.</para>
+<para>Tests and products can use <computeroutput>PowerPaths</computeroutput> to target fixture trees, containers, or board-specific sysfs mount points.</para>
+<para>Core features:</para>
+<para><itemizedlist>
+<listitem><para>Power supply, thermal zone, and CPU governor snapshots from sysfs.</para>
+</listitem><listitem><para>Per-CPU governor writes with error reporting.</para>
+</listitem><listitem><para>Guarded suspend/reboot/shutdown that defaults to dry-run.</para>
+</listitem><listitem><para><computeroutput>PowerActionPlan</computeroutput> preview of the exact command before execution.</para>
+</listitem><listitem><para>Injectable <computeroutput>PowerPaths</computeroutput> for fixtures and board-specific roots.</para>
+</listitem></itemizedlist>
+</para>
+<para>Example:</para>
+<para><programlisting filename=".cpp"><codeline><highlight class="normal"><ref refid="classRADPower_1_1PowerManager" kindref="compound">RADPower::PowerManager</ref><sp/>power;</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal">&amp;<sp/>supply<sp/>:<sp/>power.<ref refid="classRADPower_1_1PowerManager_1a01917fe5c3a381da286d109645cec028" kindref="member">powerSupplies</ref>())<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="RADLogging_8h_1aa88dbb52f2771f10bd298dc1ee6309ec" kindref="member">RADLOG_INFO</ref>(</highlight><highlight class="stringliteral">&quot;power&quot;</highlight><highlight class="normal">)<sp/>&lt;&lt;<sp/>supply.name<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;<sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>supply.capacityPercent<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;%&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline><highlight class="normal">}</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="comment">//<sp/>Preview<sp/>first:<sp/>execute<sp/>defaults<sp/>to<sp/>false,<sp/>so<sp/>nothing<sp/>is<sp/>changed.</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>plan<sp/>=<sp/>power.<ref refid="classRADPower_1_1PowerManager_1a247c62bf789794765b3e7636f120524d" kindref="member">requestAction</ref>(<ref refid="namespaceRADPower_1a33409d399371a7b8b3bc36f7e0d3c5aaa1a4ebb180ba59b067782515ffee6e975" kindref="member">RADPower::PowerAction::Shutdown</ref>);</highlight></codeline>
+<codeline><highlight class="normal"><ref refid="RADLogging_8h_1aa88dbb52f2771f10bd298dc1ee6309ec" kindref="member">RADLOG_INFO</ref>(</highlight><highlight class="stringliteral">&quot;power&quot;</highlight><highlight class="normal">)<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;would<sp/>run:<sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>plan.command;</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="comment">//<sp/>Commit<sp/>only<sp/>when<sp/>explicitly<sp/>requested.</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(userConfirmed)<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>power.<ref refid="classRADPower_1_1PowerManager_1a247c62bf789794765b3e7636f120524d" kindref="member">requestAction</ref>(<ref refid="namespaceRADPower_1a33409d399371a7b8b3bc36f7e0d3c5aaa1a4ebb180ba59b067782515ffee6e975" kindref="member">RADPower::PowerAction::Shutdown</ref>,<sp/></highlight><highlight class="comment">/*execute=*/</highlight><highlight class="keyword">true</highlight><highlight class="normal">);</highlight></codeline>
+<codeline><highlight class="normal">}</highlight></codeline>
+</programlisting> </para>
     </detaileddescription>
     <location file="/media/jvincent/Kingspec512/repos/RADLib/docs/public/radpower.md"/>
   </compounddef>

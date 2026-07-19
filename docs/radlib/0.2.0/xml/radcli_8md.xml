@@ -9,7 +9,27 @@
     <programlisting>
 <codeline><highlight class="normal">#<sp/>RADCLI</highlight></codeline>
 <codeline></codeline>
-<codeline><highlight class="normal">`RADCLI`<sp/>provides<sp/>command-line<sp/>and<sp/>application<sp/>utility<sp/>helpers.</highlight></codeline>
+<codeline><highlight class="normal">`RADCLI`<sp/>provides<sp/>command-line<sp/>parsing<sp/>and<sp/>application<sp/>utility<sp/>helpers<sp/>for</highlight></codeline>
+<codeline><highlight class="normal">RADLib<sp/>tools<sp/>and<sp/>examples.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">`RADCLI::CommandLineParser`<sp/>is<sp/>the<sp/>core<sp/>type.<sp/>It<sp/>is<sp/>constructed<sp/>with<sp/>an</highlight></codeline>
+<codeline><highlight class="normal">application<sp/>name,<sp/>takes<sp/>an<sp/>optional<sp/>description<sp/>via<sp/>`setDescription()`,<sp/>and</highlight></codeline>
+<codeline><highlight class="normal">accepts<sp/>option<sp/>definitions<sp/>through<sp/>`addOption()`.<sp/>Each<sp/>`RADCLI::Option`</highlight></codeline>
+<codeline><highlight class="normal">declares<sp/>a<sp/>long<sp/>`name`,<sp/>an<sp/>optional<sp/>`shortName`,<sp/>`description`,<sp/>and<sp/>the</highlight></codeline>
+<codeline><highlight class="normal">`requiresValue`,<sp/>`required`,<sp/>and<sp/>`defaultValue`<sp/>fields<sp/>that<sp/>control<sp/>validation</highlight></codeline>
+<codeline><highlight class="normal">and<sp/>defaults.<sp/>`parse()`<sp/>accepts<sp/>either<sp/>`argc`/`argv`<sp/>or<sp/>a</highlight></codeline>
+<codeline><highlight class="normal">`std::vector&lt;std::string&gt;`<sp/>(where<sp/>`args[0]`<sp/>is<sp/>the<sp/>program<sp/>name),<sp/>and</highlight></codeline>
+<codeline><highlight class="normal">`helpText()`<sp/>builds<sp/>formatted<sp/>usage<sp/>text<sp/>from<sp/>the<sp/>registered<sp/>options.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Parsing<sp/>yields<sp/>a<sp/>`RADCLI::ParseResult`.<sp/>Call<sp/>`ok()`<sp/>and<sp/>`error()`<sp/>to<sp/>check<sp/>for</highlight></codeline>
+<codeline><highlight class="normal">failures,<sp/>`has()`<sp/>to<sp/>test<sp/>whether<sp/>an<sp/>option<sp/>was<sp/>explicitly<sp/>provided,</highlight></codeline>
+<codeline><highlight class="normal">`value()`<sp/>to<sp/>read<sp/>an<sp/>option<sp/>value<sp/>or<sp/>its<sp/>default,<sp/>and<sp/>`positionals()`<sp/>to<sp/>read</highlight></codeline>
+<codeline><highlight class="normal">the<sp/>remaining<sp/>positional<sp/>arguments.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">RADCLI<sp/>also<sp/>exposes<sp/>free-function<sp/>application<sp/>helpers:<sp/>`environmentVariable()`</highlight></codeline>
+<codeline><highlight class="normal">and<sp/>`setEnvironmentVariable()`<sp/>for<sp/>the<sp/>process<sp/>environment,<sp/>`executablePath()`</highlight></codeline>
+<codeline><highlight class="normal">for<sp/>the<sp/>current<sp/>binary<sp/>path,<sp/>`currentUserName()`<sp/>for<sp/>the<sp/>active<sp/>user,<sp/>and</highlight></codeline>
+<codeline><highlight class="normal">`radlibVersionString()`<sp/>for<sp/>the<sp/>RADLib<sp/>version<sp/>string.</highlight></codeline>
 <codeline></codeline>
 <codeline><highlight class="normal">Core<sp/>features:</highlight></codeline>
 <codeline></codeline>
@@ -17,6 +37,27 @@
 <codeline><highlight class="normal">-<sp/>Required<sp/>options,<sp/>defaults,<sp/>flags,<sp/>and<sp/>positional<sp/>arguments.</highlight></codeline>
 <codeline><highlight class="normal">-<sp/>Help<sp/>text<sp/>generation.</highlight></codeline>
 <codeline><highlight class="normal">-<sp/>Environment,<sp/>executable<sp/>path,<sp/>current<sp/>user,<sp/>and<sp/>RADLib<sp/>version<sp/>helpers.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Example:</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">```cpp</highlight></codeline>
+<codeline><highlight class="normal">RADCLI::CommandLineParser<sp/>parser(&quot;radtool&quot;);</highlight></codeline>
+<codeline><highlight class="normal">parser.setDescription(&quot;Example<sp/>RADLib<sp/>command-line<sp/>tool.&quot;);</highlight></codeline>
+<codeline><highlight class="normal">parser.addOption({&quot;config&quot;,<sp/>&apos;c&apos;,<sp/>&quot;Config<sp/>file<sp/>path&quot;,<sp/>true,<sp/>true,<sp/>&quot;&quot;});</highlight></codeline>
+<codeline><highlight class="normal">parser.addOption({&quot;verbose&quot;,<sp/>&apos;v&apos;,<sp/>&quot;Enable<sp/>verbose<sp/>output&quot;,<sp/>false,<sp/>false,<sp/>&quot;&quot;});</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">RADCLI::ParseResult<sp/>result<sp/>=<sp/>parser.parse(argc,<sp/>argv);</highlight></codeline>
+<codeline><highlight class="normal">if<sp/>(!result.ok())<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>RADLOG_ERROR(&quot;cli&quot;)<sp/>&lt;&lt;<sp/>result.error();</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>std::puts(parser.helpText().c_str());</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>return<sp/>1;</highlight></codeline>
+<codeline><highlight class="normal">}</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">std::string<sp/>configPath<sp/>=<sp/>result.value(&quot;config&quot;,<sp/>&quot;default.json&quot;);</highlight></codeline>
+<codeline><highlight class="normal">bool<sp/>verbose<sp/>=<sp/>result.has(&quot;verbose&quot;);</highlight></codeline>
+<codeline><highlight class="normal">RADLOG_INFO(&quot;cli&quot;)<sp/>&lt;&lt;<sp/>&quot;radlib<sp/>&quot;<sp/>&lt;&lt;<sp/>RADCLI::radlibVersionString()</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&lt;&lt;<sp/>&quot;<sp/>config=&quot;<sp/>&lt;&lt;<sp/>configPath;</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
     </programlisting>
     <location file="/media/jvincent/Kingspec512/repos/RADLib/docs/public/radcli.md"/>
   </compounddef>

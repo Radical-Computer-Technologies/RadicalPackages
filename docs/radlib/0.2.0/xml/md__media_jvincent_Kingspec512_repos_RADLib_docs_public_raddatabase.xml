@@ -6,15 +6,36 @@
     <briefdescription>
     </briefdescription>
     <detaileddescription>
-<para><ref refid="namespaceRADDatabase" kindref="compound">RADDatabase</ref> provides a compact SQLite wrapper for application data, settings, browser-style history/bookmark stores, local caches, and embedded metadata.</para>
+<para><ref refid="namespaceRADDatabase" kindref="compound">RADDatabase</ref> provides a compact SQLite wrapper for application data, settings, browser-style history/bookmark stores, local caches, and embedded metadata. It favors explicit result objects and boolean status returns over hidden exception flow for routine SQL failures.</para>
+<para><computeroutput>RADSqlDatabase</computeroutput> owns a SQLite connection. It derives from <computeroutput><ref refid="classRADCore_1_1RADObject" kindref="compound">RADCore::RADObject</ref></computeroutput> and raises an <computeroutput>errorOccurred(std::string)</computeroutput> event when open, execute, query, or transaction handling fails. After <computeroutput>setFileName()</computeroutput>, call <computeroutput>open()</computeroutput>/<computeroutput>close()</computeroutput> and check <computeroutput>isOpen()</computeroutput> or <computeroutput>lastError()</computeroutput>. <computeroutput>execute()</computeroutput> runs statements that need no rows, while <computeroutput>query()</computeroutput> returns a <computeroutput>RADSqlResult</computeroutput>. <computeroutput>queryAsync()</computeroutput> runs a query on a <computeroutput><ref refid="classRADCore_1_1RADThreadPool" kindref="compound">RADCore::RADThreadPool</ref></computeroutput> and posts completion to an <computeroutput>EventLoop</computeroutput> as a <computeroutput><ref refid="classRADCore_1_1RADFutureT" kindref="compound">RADCore::RADFutureT</ref>&lt;RADSqlResult&gt;</computeroutput>. Schema evolution is handled by <computeroutput>schemaVersion()</computeroutput> and <computeroutput>migrateTo()</computeroutput>, which applies ordered migrations from the <computeroutput>rad_schema_version</computeroutput> table.</para>
+<para><computeroutput>RADSqlResult</computeroutput> is a value object holding the returned rows. Each row is a <computeroutput>RADSqlRow</computeroutput> (a <computeroutput>std::map</computeroutput> of column name to <computeroutput><ref refid="classRADCore_1_1RADVariant" kindref="compound">RADCore::RADVariant</ref></computeroutput>). Use <computeroutput>rowCount()</computeroutput>, <computeroutput>empty()</computeroutput>, <computeroutput>row(index)</computeroutput>, and <computeroutput>rows()</computeroutput> to inspect results.</para>
+<para><computeroutput>RADSqlStatement</computeroutput> is a move-only prepared statement obtained from <computeroutput>prepare()</computeroutput>. It offers typed, 1-based <computeroutput>bind()</computeroutput> overloads (integer, double, text, blob, and <computeroutput>RADVariant</computeroutput>) plus <computeroutput>bindNull()</computeroutput>, <computeroutput>clearBindings()</computeroutput>, and <computeroutput>reset()</computeroutput>. Advance with <computeroutput>step()</computeroutput> for row-returning queries or <computeroutput>execute()</computeroutput> for writes, and read the current row via <computeroutput>columnCount()</computeroutput>, <computeroutput>columnName()</computeroutput>, and <computeroutput>columnValue()</computeroutput>.</para>
+<para><computeroutput>RADSqlTransaction</computeroutput> is an RAII helper that begins a transaction on construction and rolls back in its destructor unless <computeroutput>commit()</computeroutput> was called; <computeroutput>RADSqlDatabase</computeroutput> also exposes <computeroutput>beginTransaction()</computeroutput>, <computeroutput>commit()</computeroutput>, and <computeroutput>rollback()</computeroutput> directly.</para>
 <para>Core features:</para>
 <para><itemizedlist>
-<listitem><para>Connection ownership through <computeroutput>RADSqlDatabase</computeroutput>.</para>
-</listitem><listitem><para>Prepared statements through <computeroutput>RADSqlStatement</computeroutput>.</para>
-</listitem><listitem><para>Explicit result objects and transaction helpers.</para>
-</listitem><listitem><para>No hidden exception flow for routine SQL failures. </para>
+<listitem><para>Connection ownership through <computeroutput>RADSqlDatabase</computeroutput> with event-based error reporting.</para>
+</listitem><listitem><para>Prepared statements with typed binding through <computeroutput>RADSqlStatement</computeroutput>.</para>
+</listitem><listitem><para>Explicit <computeroutput>RADSqlResult</computeroutput> rows and RAII <computeroutput>RADSqlTransaction</computeroutput> helpers.</para>
+</listitem><listitem><para>Async queries via <computeroutput>queryAsync()</computeroutput> and ordered schema migrations.</para>
+</listitem><listitem><para>No hidden exception flow for routine SQL failures.</para>
 </listitem></itemizedlist>
 </para>
+<para>Example:</para>
+<para><programlisting filename=".cpp"><codeline><highlight class="normal"><ref refid="classRADDatabase_1_1RADSqlDatabase" kindref="compound">RADDatabase::RADSqlDatabase</ref><sp/>db(</highlight><highlight class="stringliteral">&quot;history.sqlite&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(db.open())<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classRADDatabase_1_1RADSqlTransaction" kindref="compound">RADDatabase::RADSqlTransaction</ref><sp/>tx(db);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>stmt<sp/>=<sp/>db.prepare(</highlight><highlight class="stringliteral">&quot;INSERT<sp/>INTO<sp/>visits(url,<sp/>ts)<sp/>VALUES(?,<sp/>?)&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>stmt.bind(1,<sp/>std::string(</highlight><highlight class="stringliteral">&quot;https://radcomp.tech&quot;</highlight><highlight class="normal">));</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>stmt.bind(2,<sp/>int64_t(1721030400));</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>stmt.execute();</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>tx.commit();</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>result<sp/>=<sp/>db.query(</highlight><highlight class="stringliteral">&quot;SELECT<sp/>url<sp/>FROM<sp/>visits<sp/>ORDER<sp/>BY<sp/>ts<sp/>DESC&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal">&amp;<sp/>row<sp/>:<sp/>result.rows())<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>row.at(&quot;url&quot;)<sp/>holds<sp/>a<sp/>RADCore::RADVariant.</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline><highlight class="normal">}</highlight></codeline>
+</programlisting> </para>
     </detaileddescription>
     <location file="/media/jvincent/Kingspec512/repos/RADLib/docs/public/raddatabase.md"/>
   </compounddef>
