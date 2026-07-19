@@ -17,7 +17,7 @@ docs/                               published HTML docs by product/version
   radlib/<version>/api/
   radhdl/<version>/
   radbuild/0.2.1/
-  radix-os/<version>/api/
+  radpx-os/<version>/api/
 docs_src/                           documentation sources
 scripts/                            staging/publishing/doc-regeneration helpers
 release-staging/                    generated APT channel staging
@@ -64,7 +64,7 @@ Regenerate documentation from sibling checkouts:
 
 ```bash
 scripts/update_radlib_docs.sh ../RADLib
-scripts/update_radix_docs.sh ../RADPx-OS 0.1.0
+scripts/update_radpx_docs.sh ../RADPx-OS 0.1.0
 scripts/update_radbuild_docs.sh ../RadBuild 0.2.1
 ```
 

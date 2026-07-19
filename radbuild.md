@@ -99,14 +99,14 @@ code --install-extension /usr/share/radbuild/vscode/radbuild-vscode-0.2.1.vsix -
   <section class="card">
     <h2>RADPx From Scratch</h2>
     <p>After installing only <code>radbuild</code>, create a RADPx project from the packaged terminal template, configure it with menuconfig, and build a runnable x86 VM image.</p>
-    <div class="command"><code>mkdir -p ~/radix-work
-radbuild project create ~/radix-work --non-interactive --template radix-os-terminal --project-name radix-terminal
-cd ~/radix-work/radix-terminal
+    <div class="command"><code>mkdir -p ~/radpx-work
+radbuild project create ~/radpx-work --non-interactive --template radpx-os-terminal --project-name radpx-terminal
+cd ~/radpx-work/radpx-terminal
 radbuild menuconfig --settings settings.json
 radbuild build os --settings settings.json --json-events
-./artifacts/radix/x86_64-grub-terminal/run-radix-vm.sh</code></div>
+./artifacts/radpx/x86_64-grub-terminal/run-radpx-vm.sh</code></div>
     <div class="links">
-      <a class="link-card" href="docs/radbuild/0.2.1/examples/radix-from-scratch.html"><strong>Full RADPx From Scratch Example</strong><span>Project creation, packagegroups, rkconfig, artifacts, and VM login checks.</span></a>
+      <a class="link-card" href="docs/radbuild/0.2.1/examples/radpx-from-scratch.html"><strong>Full RADPx From Scratch Example</strong><span>Project creation, packagegroups, rkconfig, artifacts, and VM login checks.</span></a>
       <a class="link-card" href="docs/radbuild/0.2.1/os-builds.html"><strong>OS Build Providers</strong><span>RADPx, PetaLinux, and Buildroot support levels.</span></a>
       <a class="link-card" href="docs/radbuild/0.2.1/settings-fields.html"><strong>Settings Field Reference</strong><span>Detailed <code>settings.json</code>, <code>rkconfig</code>, packagegroup, and SDK fields.</span></a>
     </div>

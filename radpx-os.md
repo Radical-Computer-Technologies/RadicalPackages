@@ -29,10 +29,10 @@
     <h2>Current Crimson x86 Release</h2>
     <p>The current x86_64 GRUB release bundles include the bootable ISO, ext4 root filesystem image, FAT image, checksums, and helper scripts where available.</p>
     <div class="links">
-      <a class="link-card" href="https://github.com/Radical-Computer-Technologies/RadicalPackages/releases/tag/radix-os-0.2.0-beta.1"><strong>RADPx OS 0.2.0 beta 1</strong><span>Versioned GitHub Release for Crimson x86 terminal, smoke-test, RADCompositor images, and RADpm packages.</span></a>
-      <a class="link-card" href="https://github.com/Radical-Computer-Technologies/RadicalPackages/releases/download/radix-os-0.2.0-beta.1/radix-os-crimson_0.2.0-beta.1_x86_64-grub-terminal-interactive.tar.gz"><strong>x86_64 Interactive Terminal Bundle</strong><span>Framebuffer login shell profile with Vim tiny, ncurses metadata, ISO, ext4, and FAT images.</span></a>
-      <a class="link-card" href="https://github.com/Radical-Computer-Technologies/RadicalPackages/releases/download/radix-os-0.2.0-beta.1/radix-os-crimson_0.2.0-beta.1_x86_64-grub-terminal-smoke.tar.gz"><strong>x86_64 Smoke Terminal Bundle</strong><span>Autologin/autotest terminal profile for scripted VM checks.</span></a>
-      <a class="link-card" href="https://github.com/Radical-Computer-Technologies/RadicalPackages/releases/download/radix-os-0.2.0-beta.1/radix-os-crimson_0.2.0-beta.1_x86_64-grub-wm.tar.gz"><strong>x86_64 RADCompositor Bundle</strong><span>Slint/RADCompositor profile with Vim tiny, ISO, ext4, and FAT images.</span></a>
+      <a class="link-card" href="https://github.com/Radical-Computer-Technologies/RadicalPackages/releases/tag/radpx-os-0.2.0-beta.1"><strong>RADPx OS 0.2.0 beta 1</strong><span>Versioned GitHub Release for Crimson x86 terminal, smoke-test, RADCompositor images, and RADpm packages.</span></a>
+      <a class="link-card" href="https://github.com/Radical-Computer-Technologies/RadicalPackages/releases/download/radpx-os-0.2.0-beta.1/radpx-os-crimson_0.2.0-beta.1_x86_64-grub-terminal-interactive.tar.gz"><strong>x86_64 Interactive Terminal Bundle</strong><span>Framebuffer login shell profile with Vim tiny, ncurses metadata, ISO, ext4, and FAT images.</span></a>
+      <a class="link-card" href="https://github.com/Radical-Computer-Technologies/RadicalPackages/releases/download/radpx-os-0.2.0-beta.1/radpx-os-crimson_0.2.0-beta.1_x86_64-grub-terminal-smoke.tar.gz"><strong>x86_64 Smoke Terminal Bundle</strong><span>Autologin/autotest terminal profile for scripted VM checks.</span></a>
+      <a class="link-card" href="https://github.com/Radical-Computer-Technologies/RadicalPackages/releases/download/radpx-os-0.2.0-beta.1/radpx-os-crimson_0.2.0-beta.1_x86_64-grub-wm.tar.gz"><strong>x86_64 RADCompositor Bundle</strong><span>Slint/RADCompositor profile with Vim tiny, ISO, ext4, and FAT images.</span></a>
     </div>
   </section>
 
@@ -72,27 +72,27 @@ radbuild build os --settings settings.wm.json --json-events</code></div>
     <p>RadicalPackages hosts RADPx <code>.radpm</code> metadata and release archives beside Debian packages. In this release line, RadBuild is the installer: it resolves package metadata and stages package archives into generated root filesystems.</p>
     <p>Common OS images should select packagegroups first, then add explicit packages only when needed. Packagegroups keep terminal, desktop, networking, and SDK selections reproducible while still letting RadBuild report missing dependencies without silently changing a project.</p>
     <div class="package-list">
-      <a class="package package-link" href="radpm/dists/experimental/main/packagegroups/radix-terminal-base.json"><code>radix-terminal-base</code><span>Core terminal image set with RADLib, ncurses, and Vim tiny.</span></a>
-      <a class="package package-link" href="radpm/dists/experimental/main/packagegroups/radix-desktop-base.json"><code>radix-desktop-base</code><span>RADCompositor/RADLib UI image set for the window-manager profile.</span></a>
-      <a class="package package-link" href="radpm/dists/experimental/main/packagegroups/radix-networking.json"><code>radix-networking</code><span>Network, DNS resolver, time sync, and timezone packages.</span></a>
-      <a class="package package-link" href="radpm/dists/experimental/main/packagegroups/radix-dev-sdk.json"><code>radix-dev-sdk</code><span>Development/sysroot package set for RADPx terminal application ports.</span></a>
+      <a class="package package-link" href="radpm/dists/experimental/main/packagegroups/radpx-terminal-base.json"><code>radpx-terminal-base</code><span>Core terminal image set with RADLib, ncurses, and Vim tiny.</span></a>
+      <a class="package package-link" href="radpm/dists/experimental/main/packagegroups/radpx-desktop-base.json"><code>radpx-desktop-base</code><span>RADCompositor/RADLib UI image set for the window-manager profile.</span></a>
+      <a class="package package-link" href="radpm/dists/experimental/main/packagegroups/radpx-networking.json"><code>radpx-networking</code><span>Network, DNS resolver, time sync, and timezone packages.</span></a>
+      <a class="package package-link" href="radpm/dists/experimental/main/packagegroups/radpx-dev-sdk.json"><code>radpx-dev-sdk</code><span>Development/sysroot package set for RADPx terminal application ports.</span></a>
     </div>
     <div class="package-list">
-      <a class="package package-link" href="radpm/dists/experimental/main/packages.json"><code>radix-core</code><span>Core RADPx userspace layout and boot support metadata.</span></a>
-      <a class="package package-link" href="radpm/dists/experimental/main/packages.json"><code>radix-ncurses</code><span>RADPx ncurses/tinfo shared runtime, <code>.rso</code> libraries, static archives, and terminal UI headers.</span></a>
-      <a class="package package-link" href="radpm/dists/experimental/main/packages.json"><code>radix-vim-tiny</code><span>Tiny upstream Vim port metadata, RADPx defaults, and Vim license for terminal images.</span></a>
+      <a class="package package-link" href="radpm/dists/experimental/main/packages.json"><code>radpx-core</code><span>Core RADPx userspace layout and boot support metadata.</span></a>
+      <a class="package package-link" href="radpm/dists/experimental/main/packages.json"><code>radpx-ncurses</code><span>RADPx ncurses/tinfo shared runtime, <code>.rso</code> libraries, static archives, and terminal UI headers.</span></a>
+      <a class="package package-link" href="radpm/dists/experimental/main/packages.json"><code>radpx-vim-tiny</code><span>Tiny upstream Vim port metadata, RADPx defaults, and Vim license for terminal images.</span></a>
       <a class="package package-link" href="radpm/dists/experimental/main/packages.json"><code>radlib</code><span>RADLib aggregate metadata for future RADPx userspace and service packages.</span></a>
       <a class="package package-link" href="radpm/dists/experimental/main/packages.json"><code>radlib-runtime</code><span>RADLib runtime package metadata for generated RADPx root filesystems.</span></a>
       <a class="package package-link" href="radpm/dists/experimental/main/packages.json"><code>radlib-ui</code><span>RADLib UI and Slint-facing metadata for RADPx OS builds.</span></a>
-      <a class="package package-link" href="radpm/dists/experimental/main/packages.json"><code>radix-network</code><span>RADPx network service package metadata.</span></a>
-      <a class="package package-link" href="radpm/dists/experimental/main/packages.json"><code>radix-dns-resolver</code><span>DNS resolver service package metadata.</span></a>
-      <a class="package package-link" href="radpm/dists/experimental/main/packages.json"><code>radix-time-sync</code><span>NTP/time synchronization service package metadata.</span></a>
-      <a class="package package-link" href="radpm/dists/experimental/main/packages.json"><code>radix-tzdata</code><span>Timezone data package metadata.</span></a>
+      <a class="package package-link" href="radpm/dists/experimental/main/packages.json"><code>radpx-network</code><span>RADPx network service package metadata.</span></a>
+      <a class="package package-link" href="radpm/dists/experimental/main/packages.json"><code>radpx-dns-resolver</code><span>DNS resolver service package metadata.</span></a>
+      <a class="package package-link" href="radpm/dists/experimental/main/packages.json"><code>radpx-time-sync</code><span>NTP/time synchronization service package metadata.</span></a>
+      <a class="package package-link" href="radpm/dists/experimental/main/packages.json"><code>radpx-tzdata</code><span>Timezone data package metadata.</span></a>
     </div>
     <div class="links">
       <a class="link-card" href="radpm/dists/experimental/main/packages.json"><strong>Experimental .radpm Index</strong><span>Machine-readable package records for RadBuild.</span></a>
       <a class="link-card" href="radpm/dists/experimental/main/packagegroups.json"><strong>Experimental Packagegroups</strong><span>Machine-readable terminal, desktop, networking, and SDK group records.</span></a>
-      <a class="link-card" href="https://github.com/Radical-Computer-Technologies/RadicalPackages/releases/tag/radix-os-0.2.0-beta.1"><strong>RADPx Release Assets</strong><span>Current <code>.radpm</code> archives and x86 image bundles.</span></a>
+      <a class="link-card" href="https://github.com/Radical-Computer-Technologies/RadicalPackages/releases/tag/radpx-os-0.2.0-beta.1"><strong>RADPx Release Assets</strong><span>Current <code>.radpm</code> archives and x86 image bundles.</span></a>
       <a class="link-card" href="packages.html"><strong>Package Catalog</strong><span>Debian and RADPx package listings.</span></a>
     </div>
   </section>
@@ -101,13 +101,13 @@ radbuild build os --settings settings.wm.json --json-events</code></div>
     <h2>Create an Image From Scratch</h2>
     <p>Install RadBuild, create a RADPx project from a packaged template, use menuconfig to select packagegroups and runtime settings, then run the emitted VM script.</p>
     <div class="command"><code>sudo apt install radbuild
-radbuild project create ~/radix-work --non-interactive --template radix-os-terminal --project-name radix-terminal
-cd ~/radix-work/radix-terminal
+radbuild project create ~/radpx-work --non-interactive --template radpx-os-terminal --project-name radpx-terminal
+cd ~/radpx-work/radpx-terminal
 radbuild menuconfig --settings settings.json
 radbuild build os --settings settings.json --json-events
-./artifacts/radix/x86_64-grub-terminal/run-radix-vm.sh</code></div>
+./artifacts/radpx/x86_64-grub-terminal/run-radpx-vm.sh</code></div>
     <div class="links">
-      <a class="link-card" href="docs/radbuild/0.2.1/examples/radix-from-scratch.html"><strong>Full Walkthrough</strong><span>Template, source checkout, packagegroups, rkconfig, SDK, artifacts, and VM checks.</span></a>
+      <a class="link-card" href="docs/radbuild/0.2.1/examples/radpx-from-scratch.html"><strong>Full Walkthrough</strong><span>Template, source checkout, packagegroups, rkconfig, SDK, artifacts, and VM checks.</span></a>
       <a class="link-card" href="docs/radbuild/0.2.1/settings-fields.html"><strong>Configuration Reference</strong><span>All important RADPx, RADpm, rkconfig, and SDK settings.</span></a>
     </div>
   </section>

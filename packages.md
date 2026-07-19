@@ -60,7 +60,7 @@
 
     <details class="doc-group package-search-group" data-search-group>
       <summary>Experimental</summary>
-      <details class="doc-release" data-search-item data-search-text="radbuild experimental 0.2.1 crimson cli server vscode support radhdl docs graph build framework project fpga linux firmware software packages deploy all radix os image">
+      <details class="doc-release" data-search-item data-search-text="radbuild experimental 0.2.1 crimson cli server vscode support radhdl docs graph build framework project fpga linux firmware software packages deploy all radpx os image">
         <summary>RadBuild 0 - Crimson</summary>
         <div class="package-list">
           <a class="package package-link" href="radbuild.html"><code>radbuild</code><span>Frozen CLI and graph build helper executables.</span></a>
@@ -70,12 +70,12 @@
           <a class="package package-link" href="radbuild.html"><code>radbuild-doc</code><span>RadBuild documentation package.</span></a>
         </div>
       </details>
-      <details class="doc-release" data-search-item data-search-text="radix os experimental crimson 0.1.3 kernel vm image x86 slint posix radbuild docs radpm package repository vim tiny ncurses">
+      <details class="doc-release" data-search-item data-search-text="radpx os experimental crimson 0.1.3 kernel vm image x86 slint posix radbuild docs radpm package repository vim tiny ncurses">
         <summary>RADPx-OS 0 - Crimson</summary>
         <div class="package-list">
       <a class="package package-link" href="radpx-os.html"><code>RADPx OS</code><span>Experimental OS hub, kernel API documentation, and VM image build path.</span></a>
       <a class="package package-link" href="radpx-os.html"><code>docs/radpx-os/0.1.4</code><span>Published Crimson kernel API documentation.</span></a>
-      <a class="package package-link" href="radpx-os.html"><code>radix-vim-tiny</code><span>Tiny upstream Vim package for RADPx terminal root filesystems.</span></a>
+      <a class="package package-link" href="radpx-os.html"><code>radpx-vim-tiny</code><span>Tiny upstream Vim package for RADPx terminal root filesystems.</span></a>
         </div>
       </details>
       <details class="doc-release" data-search-item data-search-text="radbard experimental 0.1.0 beta music audio composition editor notation mixer automation daw amd64 radlib ui media dsp">
@@ -84,7 +84,7 @@
           <a class="package package-link" href="radbard.html"><code>radbard</code><span>Experimental music and audio composition suite beta.</span></a>
         </div>
       </details>
-      <details class="doc-release" data-search-item data-search-text="radlib radical radix os experimental 0.1.1 crimson kernel radekernel bare metal hal simulator circle rtos vfs device terminal tasks memory">
+      <details class="doc-release" data-search-item data-search-text="radlib radical radpx os experimental 0.1.1 crimson kernel radekernel bare metal hal simulator circle rtos vfs device terminal tasks memory">
         <summary>RADLib 0 - Crimson Experimental</summary>
         <div class="package-list">
           <a class="package package-link" href="radlib.html"><code>radlib-embedded-kernel</code><span>RADPx-OS kernel service layer for simulator and bare-metal HAL backends.</span></a>
@@ -98,8 +98,8 @@
     <h2>RADPx OS Packages</h2>
     <p>RADPx packages use <code>.radpm</code> records with release-hosted archives. RadBuild is currently the installer for generated RADPx root filesystems; in-OS package management is not enabled yet.</p>
     <div class="package-list">
-      <a class="package package-link" href="radpm/dists/experimental/main/packages.json"><code>radix-core</code><span>Core RADPx userspace layout and boot support metadata.</span></a>
-      <a class="package package-link" href="radpm/dists/experimental/main/packages.json"><code>radix-vim-tiny</code><span>Tiny upstream Vim port metadata, RADPx defaults, and Vim license for terminal images.</span></a>
+      <a class="package package-link" href="radpm/dists/experimental/main/packages.json"><code>radpx-core</code><span>Core RADPx userspace layout and boot support metadata.</span></a>
+      <a class="package package-link" href="radpm/dists/experimental/main/packages.json"><code>radpx-vim-tiny</code><span>Tiny upstream Vim port metadata, RADPx defaults, and Vim license for terminal images.</span></a>
       <a class="package package-link" href="radpm/dists/experimental/main/packages.json"><code>radlib</code><span>RADLib aggregate metadata for future RADPx OS userspace and services.</span></a>
       <a class="package package-link" href="radpm/dists/experimental/main/packages.json"><code>radlib-runtime</code><span>RADLib runtime metadata for generated RADPx root filesystems.</span></a>
       <a class="package package-link" href="radpm/dists/experimental/main/packages.json"><code>radlib-ui</code><span>RADLib UI and Slint-facing metadata for RADPx OS builds.</span></a>
@@ -108,7 +108,7 @@
       <a class="link-card" href="radpx-os.html"><strong>RADPx OS Hub</strong><span>Build profiles, API docs, and package repository notes.</span></a>
       <a class="link-card" href="radpm-reference.html"><strong>radpm Reference</strong><span>The radpm-package-index schema, packagegroups, and signing.</span></a>
       <a class="link-card" href="radpm/dists/experimental/main/packages.json"><strong>Experimental .radpm Index</strong><span>Machine-readable RADPx package metadata.</span></a>
-      <a class="link-card" href="https://github.com/Radical-Computer-Technologies/RadicalPackages/releases/tag/radix-os-0.2.0-beta.1"><strong>RADPx Release Assets</strong><span>Current <code>.radpm</code> package archives and x86 images.</span></a>
+      <a class="link-card" href="https://github.com/Radical-Computer-Technologies/RadicalPackages/releases/tag/radpx-os-0.2.0-beta.1"><strong>RADPx Release Assets</strong><span>Current <code>.radpm</code> package archives and x86 images.</span></a>
       <a class="link-card" href="radpm/dists/stable/main/packages.json"><strong>Stable .radpm Index</strong><span>Reserved stable RADPx package metadata.</span></a>
     </div>
   </section>

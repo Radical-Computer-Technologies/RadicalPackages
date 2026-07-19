@@ -78,12 +78,12 @@
     </p>
     <ul>
       <li><code>name</code> — package name (required; the tool errors on a record with no name).</li>
-      <li><code>version</code> — package version string, e.g. <code>"0.1.0-crimson"</code>, <code>"0.2.0-radix"</code> (required).</li>
+      <li><code>version</code> — package version string, e.g. <code>"0.1.0-crimson"</code>, <code>"0.2.0-radpx"</code> (required).</li>
       <li><code>suite</code> — suite for this package; defaults to the repository suite when omitted.</li>
-      <li><code>architecture</code> — target architecture slug. Observed values: <code>radix-any</code> (architecture-independent) and <code>radix-x86_64</code>.</li>
+      <li><code>architecture</code> — target architecture slug. Observed values: <code>radpx-any</code> (architecture-independent) and <code>radpx-x86_64</code>.</li>
       <li><code>summary</code> — one-line human description.</li>
       <li><code>dependencies</code> — array of package names (or provided virtual names) this package requires. Used by <code>resolve</code>/<code>verify</code> to report unmet dependencies.</li>
-      <li><code>provides</code> — array of virtual names this package satisfies. A dependency is considered met if some selected package's <code>name</code> or one of its <code>provides</code> entries matches. Example: <code>radix-ncurses</code> provides <code>libncurses</code>, <code>libtinfo</code>, <code>libradixc</code>, etc.</li>
+      <li><code>provides</code> — array of virtual names this package satisfies. A dependency is considered met if some selected package's <code>name</code> or one of its <code>provides</code> entries matches. Example: <code>radpx-ncurses</code> provides <code>libncurses</code>, <code>libtinfo</code>, <code>libradpxc</code>, etc.</li>
       <li><code>archive</code> — location of the <code>.radpm</code> archive: an absolute <code>http(s)</code> URL or a path relative to the index. May be <code>null</code>/absent for pure metadata packages. On resolve the tool computes an absolute <code>archive_location</code> from this.</li>
       <li><code>sha256</code> — hex SHA-256 of the archive. This is the integrity check the tool actually enforces: <code>install</code> runs <code>sha256sum</code> on the downloaded archive and fails on mismatch. May be <code>null</code>/absent when there is no archive.</li>
       <li><code>bytes</code> — integer archive size in bytes (default <code>0</code>).</li>
@@ -119,12 +119,12 @@
 
     <h3>Packagegroup Descriptor (<code>radpm-packagegroup</code>)</h3>
     <p>
-      Each descriptor file (e.g. <code>packagegroups/radix-terminal-base.json</code>) is parsed by
+      Each descriptor file (e.g. <code>packagegroups/radpx-terminal-base.json</code>) is parsed by
       <code>parseGroupDescriptor()</code>:
     </p>
     <ul>
       <li><code>schema</code> — <code>"radpm-packagegroup"</code>; <code>schema_version</code> — <code>1</code> (present in file, not parsed).</li>
-      <li><code>name</code> — group name (required), e.g. <code>radix-terminal-base</code>.</li>
+      <li><code>name</code> — group name (required), e.g. <code>radpx-terminal-base</code>.</li>
       <li><code>version</code> — group version (required), e.g. <code>"0.2.0-beta.1"</code>.</li>
       <li><code>provider</code> — <em>optional</em>. Provider name; defaults to the repository provider.</li>
       <li><code>repository_url</code> — <em>optional</em>. Provider repository URL; defaults to the repository root.</li>
@@ -133,8 +133,8 @@
       <li><code>docs</code> — documentation reference (observed: <code>"radpx-os.html#packagegroups"</code>).</li>
     </ul>
     <p>
-      Published experimental groups: <code>radix-terminal-base</code>, <code>radix-desktop-base</code>,
-      <code>radix-networking</code>, and <code>radix-dev-sdk</code>.
+      Published experimental groups: <code>radpx-terminal-base</code>, <code>radpx-desktop-base</code>,
+      <code>radpx-networking</code>, and <code>radpx-dev-sdk</code>.
     </p>
   </section>
 
@@ -180,33 +180,33 @@
     <h2>Example: A Real Package Record</h2>
     <p>
       Drawn verbatim from <code>radpm/dists/experimental/main/packages.json</code> (the
-      <code>radix-ncurses</code> record), showing an architecture-specific, signed package with virtual
+      <code>radpx-ncurses</code> record), showing an architecture-specific, signed package with virtual
       <code>provides</code>:
     </p>
     <pre><code>{
-  "name": "radix-ncurses",
+  "name": "radpx-ncurses",
   "version": "0.1.0-experimental",
   "suite": "experimental",
-  "architecture": "radix-x86_64",
+  "architecture": "radpx-x86_64",
   "summary": "RADPx ncurses/tinfo shared runtime and development headers for x86_64 terminal applications.",
   "dependencies": [
-    "radix-core"
+    "radpx-core"
   ],
   "provides": [
     "libncurses",
     "libncursesw",
     "libtinfo",
-    "libradixc",
-    "radix-terminal-ui-dev"
+    "libradpxc",
+    "radpx-terminal-ui-dev"
   ],
   "supported_kernel_versions": [
     ">=0.1.0 <0.3.0"
   ],
-  "archive": "https://github.com/Radical-Computer-Technologies/RadicalPackages/releases/download/radix-os-0.2.0-beta.1/radix-ncurses_0.1.0-experimental_radix-x86_64.radpm",
+  "archive": "https://github.com/Radical-Computer-Technologies/RadicalPackages/releases/download/radpx-os-0.2.0-beta.1/radpx-ncurses_0.1.0-experimental_radpx-x86_64.radpm",
   "sha256": "853b76699f78622fbe7877e4685128e802a96cd7e371479addbe47ef013ed714",
   "bytes": 607457,
   "docs": "radpx-os.html",
-  "signature": "https://github.com/Radical-Computer-Technologies/RadicalPackages/releases/download/radix-os-0.2.0-beta.1/radix-ncurses_0.1.0-experimental_radix-x86_64.radpm.asc",
+  "signature": "https://github.com/Radical-Computer-Technologies/RadicalPackages/releases/download/radpx-os-0.2.0-beta.1/radpx-ncurses_0.1.0-experimental_radpx-x86_64.radpm.asc",
   "signing_key": "F3731ADBB37AFA120A7D5EBD20B2754CF3894789"
 }</code></pre>
     <p>
@@ -221,24 +221,24 @@
   "component": "main",
   "packages": [ /* ...records... */ ],
   "signing_key": "F3731ADBB37AFA120A7D5EBD20B2754CF3894789",
-  "signature": "https://github.com/Radical-Computer-Technologies/RadicalPackages/releases/download/radix-os-0.2.0-beta.1/packages.json.asc"
+  "signature": "https://github.com/Radical-Computer-Technologies/RadicalPackages/releases/download/radpx-os-0.2.0-beta.1/packages.json.asc"
 }</code></pre>
 
     <h3>Example: A Packagegroup Descriptor</h3>
-    <p>From <code>radpm/dists/experimental/main/packagegroups/radix-terminal-base.json</code>:</p>
+    <p>From <code>radpm/dists/experimental/main/packagegroups/radpx-terminal-base.json</code>:</p>
     <pre><code>{
   "schema": "radpm-packagegroup",
   "schema_version": 1,
-  "name": "radix-terminal-base",
+  "name": "radpx-terminal-base",
   "version": "0.2.0-beta.1",
   "provider": "RadicalPackages",
   "repository_url": "https://github.com/Radical-Computer-Technologies/RadicalPackages",
   "summary": "Core RADPx terminal image package set with RADLib, ncurses, and vim-tiny.",
   "packages": [
-    "radix-core",
+    "radpx-core",
     "radlib",
-    "radix-ncurses",
-    "radix-vim-tiny"
+    "radpx-ncurses",
+    "radpx-vim-tiny"
   ],
   "docs": "radpx-os.html#packagegroups"
 }</code></pre>

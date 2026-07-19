@@ -78,13 +78,13 @@ curl -fsSL https://radical-computer-technologies.github.io/RadicalPackages/keys/
     </details>
     <details class="doc-group package-search-group" data-search-group>
       <summary>Experimental</summary>
-      <details class="doc-release" data-search-item data-search-text="radbuild experimental 0.2.1 cli server vscode radhdl docs graph build framework radix os image">
+      <details class="doc-release" data-search-item data-search-text="radbuild experimental 0.2.1 cli server vscode radhdl docs graph build framework radpx os image">
         <summary>RadBuild 0 - Crimson</summary>
         <div class="links">
           <a class="link-card" href="radbuild.html"><strong>RadBuild Packages</strong><span>Graph build framework, server, VSCode support, RADPx-OS provider, RadHDL package, and docs.</span></a>
         </div>
       </details>
-      <details class="doc-release" data-search-item data-search-text="radix os experimental crimson 0.1.3 kernel vm image x86 slint posix radbuild vim tiny ncurses">
+      <details class="doc-release" data-search-item data-search-text="radpx os experimental crimson 0.1.3 kernel vm image x86 slint posix radbuild vim tiny ncurses">
         <summary>RADPx-OS 0 - Crimson</summary>
         <div class="links">
           <a class="link-card" href="radpx-os.html"><strong>RADPx OS</strong><span>Experimental POSIX-inspired kernel, VM image path, API documentation, and RADPx package hub.</span></a>
