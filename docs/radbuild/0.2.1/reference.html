@@ -27,7 +27,7 @@
 <pre><code>radbuild project create ./workspace --non-interactive --project-name demo
 radbuild project create --list-templates
 radbuild project create ./workspace --non-interactive --template fpga-mpsoc-buildroot --project-name demo
-radbuild project create ./workspace --non-interactive --register --template radix-os-terminal --project-name radix-terminal
+radbuild project create ./workspace --non-interactive --register --template radpx-os-terminal --project-name radpx-terminal
 radbuild project register ./workspace/demo
 radbuild project list --json
 radbuild project unregister ./workspace/demo
@@ -56,7 +56,7 @@ radbuild deploy --settings settings.json --json-events</code></pre>
 <li><code>linux.petalinux</code></li>
 <li><code>linux.buildroot</code></li>
 <li><code>linux.yocto</code></li>
-<li><code>os.radix</code></li>
+<li><code>os.radpx</code></li>
 <li><code>software.native</code></li>
 <li><code>software.cross</code></li>
 <li><code>firmware.generic</code></li>
@@ -68,8 +68,8 @@ radbuild deploy --settings settings.json --json-events</code></pre>
 <li><code>fpga-mpsoc-petalinux</code></li>
 <li><code>fpga-mpsoc-buildroot</code></li>
 <li><code>fpga-linux-software</code></li>
-<li><code>radix-os-terminal</code></li>
-<li><code>radix-os-wm</code></li>
+<li><code>radpx-os-terminal</code></li>
+<li><code>radpx-os-wm</code></li>
 </ul>
 <p>Use <code>radbuild project create --list-templates --json</code> for machine-readable template metadata.</p>
 <h2>Project Registry</h2>

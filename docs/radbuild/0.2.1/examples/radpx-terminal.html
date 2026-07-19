@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Example: RADPx OS Window Manager Image</title>
+  <title>Example: RADPx OS Terminal Image</title>
   <link rel="stylesheet" href="../../../../assets/site.css">
 </head>
 <body>
@@ -19,24 +19,24 @@
   </nav>
   <section class="hero compact-hero">
     <div class="eyebrow">RadBuild 0.2.1</div>
-    <h1>Example: RADPx OS Window Manager Image</h1>
+    <h1>Example: RADPx OS Terminal Image</h1>
   </section>
   <article class="card doc-content">
-<h1>Example: RADPx OS Window Manager Image</h1>
+<h1>Example: RADPx OS Terminal Image</h1>
 <h2>settings.json</h2>
 <pre><code>{
   &quot;radbuild_schema&quot;: &quot;2.0&quot;,
   &quot;radbuild_version&quot;: &quot;0.2.1&quot;,
-  &quot;project_name&quot;: &quot;RADPx-OS Window Manager&quot;,
+  &quot;project_name&quot;: &quot;RADPx-OS Terminal&quot;,
   &quot;systems&quot;: [
     {
-      &quot;id&quot;: &quot;radix-x86-64-grub-wm&quot;,
-      &quot;type&quot;: &quot;os.radix&quot;,
-      &quot;provider&quot;: &quot;radix-os&quot;,
+      &quot;id&quot;: &quot;radpx-x86-64-grub-terminal&quot;,
+      &quot;type&quot;: &quot;os.radpx&quot;,
+      &quot;provider&quot;: &quot;radpx-os&quot;,
       &quot;depends_on&quot;: [],
       &quot;config&quot;: {
-        &quot;target&quot;: &quot;x86_64-grub-wm&quot;,
-        &quot;ui_profile&quot;: &quot;wm&quot;,
+        &quot;target&quot;: &quot;x86_64-grub-terminal&quot;,
+        &quot;ui_profile&quot;: &quot;terminal&quot;,
         &quot;source&quot;: {
           &quot;type&quot;: &quot;git&quot;,
           &quot;url&quot;: &quot;https://github.com/Radical-Computer-Technologies/RADPx-OS.git&quot;,
@@ -44,17 +44,16 @@
           &quot;checkout_dir&quot;: &quot;.radmeta/sources/RADPx-OS&quot;,
           &quot;update&quot;: true
         },
-        &quot;feature_chunks&quot;: [&quot;kernel.core&quot;, &quot;kernel.x86_64&quot;, &quot;drivers.framebuffer&quot;, &quot;drivers.input.ps2&quot;, &quot;drivers.block.virtio&quot;, &quot;fs.ext4&quot;, &quot;fs.fat&quot;, &quot;services.radinit&quot;, &quot;services.radcompositor&quot;, &quot;services.slint-shell&quot;, &quot;userspace.rash&quot;],
-        &quot;build_dir&quot;: &quot;build/embedded/x86_64_grub_wm&quot;,
+        &quot;feature_chunks&quot;: [&quot;kernel.core&quot;, &quot;kernel.x86_64&quot;, &quot;drivers.framebuffer&quot;, &quot;drivers.input.ps2&quot;, &quot;drivers.block.virtio&quot;, &quot;fs.ext4&quot;, &quot;fs.fat&quot;, &quot;services.radinit&quot;, &quot;services.base-terminal&quot;, &quot;userspace.rash&quot;],
+        &quot;build_dir&quot;: &quot;build/embedded/x86_64_grub_terminal&quot;,
         &quot;smoke_script&quot;: &quot;tools/embedded/x86_64_grub_slint_smoke.sh&quot;,
-        &quot;artifact_dir&quot;: &quot;artifacts/radix/x86_64-grub-wm&quot;,
-        &quot;skip_qemu&quot;: true,
+        &quot;artifact_dir&quot;: &quot;artifacts/radpx/x86_64-grub-terminal&quot;,
         &quot;qemu_smp&quot;: [2],
         &quot;rkconfig&quot;: {
-          &quot;hostname&quot;: &quot;radix&quot;,
-          &quot;root_password&quot;: &quot;radix&quot;,
+          &quot;hostname&quot;: &quot;radpx&quot;,
+          &quot;root_password&quot;: &quot;radpx&quot;,
           &quot;rootfs_size_mb&quot;: 256,
-          &quot;terminal_theme&quot;: &quot;radix-dark&quot;,
+          &quot;terminal_theme&quot;: &quot;radpx-dark&quot;,
           &quot;terminal_autocomplete&quot;: true,
           &quot;terminal_ncurses&quot;: true,
           &quot;terminal_vim&quot;: true,
@@ -73,12 +72,12 @@
           &quot;repository&quot;: &quot;../RadicalPackages&quot;,
           &quot;suite&quot;: &quot;experimental&quot;,
           &quot;packages&quot;: [],
-          &quot;packagegroups&quot;: [&quot;radix-desktop-base&quot;, &quot;radix-networking&quot;]
+          &quot;packagegroups&quot;: [&quot;radpx-terminal-base&quot;, &quot;radpx-networking&quot;]
         },
         &quot;sdk&quot;: {
           &quot;enabled&quot;: true,
-          &quot;name&quot;: &quot;radix-sdk-x86_64-grub-wm.tar.gz&quot;,
-          &quot;root_name&quot;: &quot;radix-sdk-x86_64-grub-wm&quot;
+          &quot;name&quot;: &quot;radpx-sdk-x86_64-grub-terminal.tar.gz&quot;,
+          &quot;root_name&quot;: &quot;radpx-sdk-x86_64-grub-terminal&quot;
         }
       }
     }
@@ -89,14 +88,16 @@
   &quot;packages&quot;: {}
 }</code></pre>
 <h2>Commands</h2>
-<pre><code>radbuild project create ./workspace --non-interactive --template radix-os-wm --project-name radix-wm
-radbuild menuconfig --settings settings.json --apply-profile wm --json
+<pre><code>radbuild project create ./workspace --non-interactive --template radpx-os-terminal --project-name radpx-terminal
+radbuild menuconfig --settings ./workspace/radpx-terminal/settings.json --list
+radbuild menuconfig --settings ./workspace/radpx-terminal/settings.json --set-source branch=crimson-v0.1.3
 radbuild build os --settings settings.json --json-events</code></pre>
-<h2>Expected Output</h2>
-<pre><code>{&quot;event&quot;:&quot;system_started&quot;,&quot;system&quot;:&quot;radix-x86-64-grub-wm&quot;}
-{&quot;event&quot;:&quot;radix_source&quot;,&quot;system&quot;:&quot;radix-x86-64-grub-wm&quot;,&quot;source_type&quot;:&quot;git&quot;}
-{&quot;event&quot;:&quot;artifact&quot;,&quot;system&quot;:&quot;radix-x86-64-grub-wm&quot;,&quot;artifact_id&quot;:&quot;iso&quot;}
-{&quot;event&quot;:&quot;artifact&quot;,&quot;system&quot;:&quot;radix-x86-64-grub-wm&quot;,&quot;artifact_id&quot;:&quot;sdk&quot;}</code></pre>
+<h2>Expected Artifacts</h2>
+<pre><code>artifacts/radpx/x86_64-grub-terminal/radpxkernel-x86-64-grub-terminal.iso
+artifacts/radpx/x86_64-grub-terminal/radpx-rootfs.ext4
+artifacts/radpx/x86_64-grub-terminal/radpx-sdk-x86_64-grub-terminal.tar.gz
+artifacts/radpx/x86_64-grub-terminal/run-radpx-vm.sh
+artifacts/radpx/x86_64-grub-terminal/source-lock.json</code></pre>
   </article>
 </main>
 </body>

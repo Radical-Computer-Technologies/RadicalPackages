@@ -30,9 +30,9 @@
   &quot;project_name&quot;: &quot;radpm-demo&quot;,
   &quot;systems&quot;: [
     {
-      &quot;id&quot;: &quot;radix-x86&quot;,
-      &quot;type&quot;: &quot;os.radix&quot;,
-      &quot;provider&quot;: &quot;radix-os&quot;,
+      &quot;id&quot;: &quot;radpx-x86&quot;,
+      &quot;type&quot;: &quot;os.radpx&quot;,
+      &quot;provider&quot;: &quot;radpx-os&quot;,
       &quot;depends_on&quot;: [],
       &quot;config&quot;: {
         &quot;ui_profile&quot;: &quot;terminal&quot;,
@@ -41,7 +41,7 @@
           &quot;repository&quot;: &quot;../RadicalPackages&quot;,
           &quot;suite&quot;: &quot;experimental&quot;,
           &quot;packages&quot;: [],
-          &quot;packagegroups&quot;: [&quot;radix-terminal-base&quot;]
+          &quot;packagegroups&quot;: [&quot;radpx-terminal-base&quot;]
         }
       }
     }
@@ -52,16 +52,16 @@
   &quot;packages&quot;: {}
 }</code></pre>
 <h2>Commands</h2>
-<pre><code>radbuild menuconfig --settings settings.json --enable-packagegroup radix-networking --resolve-packages --json
+<pre><code>radbuild menuconfig --settings settings.json --enable-packagegroup radpx-networking --resolve-packages --json
 radbuild menuconfig --settings settings.json --enable-package radlib-ui --resolve-packages --json</code></pre>
-<p>Expected lock package order for <code>radix-terminal-base</code>:</p>
-<pre><code>radix-core
+<p>Expected lock package order for <code>radpx-terminal-base</code>:</p>
+<pre><code>radpx-core
 radlib
-radix-ncurses
-radix-vim-tiny</code></pre>
-<p>If an explicit package is selected without its dependencies, RadBuild fails with a package or packagegroup hint instead of silently adding dependencies. For example, selecting <code>radix-vim-tiny</code> alone reports that <code>radix-core</code> is required and is available through <code>radix-terminal-base</code>.</p>
+radpx-ncurses
+radpx-vim-tiny</code></pre>
+<p>If an explicit package is selected without its dependencies, RadBuild fails with a package or packagegroup hint instead of silently adding dependencies. For example, selecting <code>radpx-vim-tiny</code> alone reports that <code>radpx-core</code> is required and is available through <code>radpx-terminal-base</code>.</p>
 <p>Expected lock path:</p>
-<pre><code>.radmeta/radix-os/radix-x86/radpm/radpm-lock.json</code></pre>
+<pre><code>.radmeta/radpx-os/radpx-x86/radpm/radpm-lock.json</code></pre>
   </article>
 </main>
 </body>

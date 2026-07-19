@@ -25,7 +25,7 @@
 <h1>OS Builds</h1>
 <p>RadBuild 0.2.1 supports three OS build families:</p>
 <ul>
-<li><code>os.radix</code> for RADPx OS images, packagegroups, SDK/sysroot export, and QEMU</li>
+<li><code>os.radpx</code> for RADPx OS images, packagegroups, SDK/sysroot export, and QEMU</li>
 <p>verification.</p>
 <li><code>linux.petalinux</code> for Xilinx/Zynq MPSoC projects that already rely on</li>
 <p>PetaLinux tooling.</p>
@@ -35,21 +35,21 @@
 <p>The RADPx provider is the most integrated path. It owns source checkout, feature selection, <code>rkconfig</code>, <code>.radpm</code> package staging, rootfs generation, SDK export, and VM launch scripts. PetaLinux and Buildroot support remain useful FPGA/Linux companion flows, but they do not currently expose the same packagegroup and RADPx rootfs automation.</p>
 <h2>RADPx From Scratch</h2>
 <p>Starting with only the packaged RadBuild CLI installed:</p>
-<pre><code>mkdir -p ~/radix-work
-radbuild project create ~/radix-work --non-interactive --template radix-os-terminal --project-name radix-terminal
-cd ~/radix-work/radix-terminal
+<pre><code>mkdir -p ~/radpx-work
+radbuild project create ~/radpx-work --non-interactive --template radpx-os-terminal --project-name radpx-terminal
+cd ~/radpx-work/radpx-terminal
 radbuild menuconfig --settings settings.json
 radbuild build os --settings settings.json --json-events
-./artifacts/radix/x86_64-grub-terminal/run-radix-vm.sh</code></pre>
+./artifacts/radpx/x86_64-grub-terminal/run-radpx-vm.sh</code></pre>
 <p>The template pulls RADPx OS from the configured Git branch, resolves the selected RadicalPackages <code>.radpm</code> packagegroups, creates the ext4/FAT images, and emits a runnable x86_64 GRUB VM bundle.</p>
 <h2>Terminal Profile</h2>
 <pre><code>radbuild build os --settings settings.terminal.json --json-events</code></pre>
 <p>Expected artifacts:</p>
-<pre><code>radixkernel-x86-64-grub-terminal.iso
-radixkernel-x86-64-grub-terminal
-radix-rootfs.ext4
-radix-fat32.img
-run-radix-vm.sh
+<pre><code>radpxkernel-x86-64-grub-terminal.iso
+radpxkernel-x86-64-grub-terminal
+radpx-rootfs.ext4
+radpx-fat32.img
+run-radpx-vm.sh
 SHA256SUMS</code></pre>
 <h2>Window Manager Profile</h2>
 <pre><code>radbuild build os --settings settings.wm.json --json-events</code></pre>
@@ -57,7 +57,7 @@ SHA256SUMS</code></pre>
 <h2>RADPx Menuconfig</h2>
 <pre><code>radbuild menuconfig --settings settings.terminal.json --list
 radbuild menuconfig --settings settings.terminal.json --apply-profile wm --json
-radbuild menuconfig --settings settings.terminal.json --enable-packagegroup radix-networking --resolve-packages --json
+radbuild menuconfig --settings settings.terminal.json --enable-packagegroup radpx-networking --resolve-packages --json
 radbuild menuconfig --settings settings.terminal.json --enable-package radlib-ui --resolve-packages --json</code></pre>
 <p>Packagegroup edits select coherent RADPx OS feature sets from the configured <code>.radpm</code> repository. Individual package edits stay explicit: RadBuild reports missing dependencies with the package or packagegroup that can satisfy them instead of silently mutating the project.</p>
 <p>The VSCode extension exposes the same state through <code>RadBuild: Configure RADPx OS</code>. It reads <code>menuconfig --json --list</code>, edits <code>rkconfig</code>, source checkout, image, SDK, packagegroup, and package fields, then writes changes back through non-interactive <code>radbuild menuconfig</code> flags. This keeps VSCode and terminal configuration behavior identical.</p>

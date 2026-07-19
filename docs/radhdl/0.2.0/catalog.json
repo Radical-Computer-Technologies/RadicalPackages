@@ -2461,7 +2461,7 @@
       "path": "dsp/hdl/raddsp/src/raddsp_audio_stereo_gain.vhd",
       "library": "radhdl",
       "category": "DSP",
-      "description": "Portable stereo fixed-point gain stage for audio sample streams.\nApplies independent left/right coefficients to signed PCM samples and emits\nsaturated signed PCM output after the Gowin multiplier pipeline latency.",
+      "description": "Portable stereo fixed-point gain stage for audio sample streams.\nApplies independent left/right coefficients to signed PCM samples and emits\nsaturated signed PCM output one cycle after each valid input sample.",
       "generics": [
         {
           "name": "SAMPLE_WIDTH",
@@ -14985,13 +14985,6 @@
           "description": "Configures READ WRITE REG COUNT for this instance."
         },
         {
-          "name": "PIPELINED_READ",
-          "direction": "",
-          "data_type": "boolean",
-          "default": "false",
-          "description": "Adds one read-response pipeline stage to break large register-bank read mux timing."
-        },
-        {
           "name": "VENDOR_TAG",
           "direction": "",
           "data_type": "string",
@@ -19641,7 +19634,7 @@
       "path": "dsp/hdl/raddsp/src/raddsp_audio_stereo_gain.vhd",
       "library": "radhdl",
       "category": "DSP",
-      "description": "Portable stereo fixed-point gain stage for audio sample streams.\nApplies independent left/right coefficients to signed PCM samples and emits\nsaturated signed PCM output after the Gowin multiplier pipeline latency.",
+      "description": "Portable stereo fixed-point gain stage for audio sample streams.\nApplies independent left/right coefficients to signed PCM samples and emits\nsaturated signed PCM output one cycle after each valid input sample.",
       "generics": [
         {
           "name": "SAMPLE_WIDTH",
@@ -31081,13 +31074,6 @@
           "description": "Configures READ WRITE REG COUNT for this instance."
         },
         {
-          "name": "PIPELINED_READ",
-          "direction": "",
-          "data_type": "boolean",
-          "default": "false",
-          "description": "Adds one read-response pipeline stage to break large register-bank read mux timing."
-        },
-        {
           "name": "VENDOR_TAG",
           "direction": "",
           "data_type": "string",
@@ -32062,13 +32048,6 @@
           "data_type": "integer",
           "default": "64",
           "description": "Configures READ WRITE REG COUNT for this instance."
-        },
-        {
-          "name": "PIPELINED_READ",
-          "direction": "",
-          "data_type": "boolean",
-          "default": "false",
-          "description": "Adds one read-response pipeline stage to break large register-bank read mux timing."
         },
         {
           "name": "VENDOR_TAG",
@@ -35641,13 +35620,6 @@
           "data_type": "integer",
           "default": "64",
           "description": "Configures READ WRITE REG COUNT for this instance."
-        },
-        {
-          "name": "PIPELINED_READ",
-          "direction": "",
-          "data_type": "boolean",
-          "default": "false",
-          "description": "Adds one read-response pipeline stage to break large register-bank read mux timing."
         },
         {
           "name": "VENDOR_TAG",

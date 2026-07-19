@@ -28,19 +28,19 @@
 <pre><code>sudo apt update
 sudo apt install radbuild</code></pre>
 <h2>Create the Project</h2>
-<pre><code>mkdir -p ~/radix-work
-radbuild project create ~/radix-work --non-interactive --template radix-os-terminal --project-name radix-terminal
-cd ~/radix-work/radix-terminal</code></pre>
-<p>The template contains an <code>os.radix</code> system with a Git source checkout, the terminal feature chunks, RADPx packagegroups, and SDK export defaults.</p>
+<pre><code>mkdir -p ~/radpx-work
+radbuild project create ~/radpx-work --non-interactive --template radpx-os-terminal --project-name radpx-terminal
+cd ~/radpx-work/radpx-terminal</code></pre>
+<p>The template contains an <code>os.radpx</code> system with a Git source checkout, the terminal feature chunks, RADPx packagegroups, and SDK export defaults.</p>
 <h2>Configure</h2>
 <pre><code>radbuild menuconfig --settings settings.json
-radbuild menuconfig --settings settings.json --enable-packagegroup radix-networking --resolve-packages --json
+radbuild menuconfig --settings settings.json --enable-packagegroup radpx-networking --resolve-packages --json
 radbuild menuconfig --settings settings.json --set-source branch=crimson-v0.1.3 --json</code></pre>
 <p>Recommended first-image settings:</p>
 <pre><code>{
-  &quot;hostname&quot;: &quot;radix&quot;,
-  &quot;root_password&quot;: &quot;radix&quot;,
-  &quot;terminal_theme&quot;: &quot;radix-dark&quot;,
+  &quot;hostname&quot;: &quot;radpx&quot;,
+  &quot;root_password&quot;: &quot;radpx&quot;,
+  &quot;terminal_theme&quot;: &quot;radpx-dark&quot;,
   &quot;terminal_autocomplete&quot;: true,
   &quot;terminal_ncurses&quot;: true,
   &quot;terminal_vim&quot;: true,
@@ -50,21 +50,21 @@ radbuild menuconfig --settings settings.json --set-source branch=crimson-v0.1.3 
 }</code></pre>
 <h2>Build and Run</h2>
 <pre><code>radbuild build os --settings settings.json --json-events
-./artifacts/radix/x86_64-grub-terminal/run-radix-vm.sh</code></pre>
+./artifacts/radpx/x86_64-grub-terminal/run-radpx-vm.sh</code></pre>
 <p>Expected artifact layout:</p>
-<pre><code>artifacts/radix/x86_64-grub-terminal/
-  radixkernel-x86-64-grub-terminal.iso
-  radix-rootfs.ext4
-  radix-fat32.img
-  run-radix-vm.sh
-  radix-sdk-x86_64-grub-terminal.tar.gz
+<pre><code>artifacts/radpx/x86_64-grub-terminal/
+  radpxkernel-x86-64-grub-terminal.iso
+  radpx-rootfs.ext4
+  radpx-fat32.img
+  run-radpx-vm.sh
+  radpx-sdk-x86_64-grub-terminal.tar.gz
   SHA256SUMS</code></pre>
 <p>Inside the VM, log in with the configured root password and test the staged terminal packages:</p>
 <pre><code>login: root
-password: radix
-root@radix:/$ ls /
-root@radix:/$ vi /tmp/hello.txt
-root@radix:/$ date</code></pre>
+password: radpx
+root@radpx:/$ ls /
+root@radpx:/$ vi /tmp/hello.txt
+root@radpx:/$ date</code></pre>
   </article>
 </main>
 </body>

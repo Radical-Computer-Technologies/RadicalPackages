@@ -29,7 +29,7 @@ Documentation is organized by product, release channel, and major version
 family. Use exact version paths such as `docs/radlib/0.1.0/` and
 `docs/radhdl/0.2.0/`; newer exact versions supersede older ones without a
 `current` alias. The top-level `index.md`, `packages.md`, `RELEASES.md`, and the
-per-product pages (`radlib.md`, `radbuild.md`, `radix-os.md`, `radbard.md`) are
+per-product pages (`radlib.md`, `radbuild.md`, `radpx-os.md`, `radbard.md`) are
 the portal's landing content.
 
 ## Maintainer workflow
