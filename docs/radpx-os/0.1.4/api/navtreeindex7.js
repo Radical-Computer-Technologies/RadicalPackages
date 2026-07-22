@@ -1,5 +1,6 @@
 var NAVTREEINDEX7 =
 {
+"structx86__storage__summary.html#a506a57bc551730894517c2fefefac814":[16,0,86,5],
 "structx86__storage__summary.html#a5d5bac3ab9a74097c1532a27e1186f50":[16,0,86,8],
 "structx86__storage__summary.html#a830991b54e0fd27baade4f25fad55419":[16,0,86,1],
 "structx86__storage__summary.html#aa1cff393b57c7db5efa6dd625843c58d":[16,0,86,3],
@@ -52,8 +53,8 @@ var NAVTREEINDEX7 =
 "structx86__vm__summary.html#a8926cde00b5a7036cd87c5630f4e7840":[16,0,89,5],
 "structx86__vm__summary.html#a9c05108a7fed8f73fc6c3045c6c1c3b4":[16,0,89,2],
 "structx86__vm__summary.html#aa5f0c39222b7de923b30827501a4541f":[16,0,89,6],
-"x86__cpu_8h_source.html":[17,0,0,0,2,1,0],
-"x86__storage_8h_source.html":[17,0,0,0,2,1,1],
-"x86__user_8h_source.html":[17,0,0,0,2,1,2],
-"x86__vm_8h_source.html":[17,0,0,0,2,1,3]
+"x86__cpu_8h_source.html":[17,0,0,2,1,0],
+"x86__storage_8h_source.html":[17,0,0,2,1,1],
+"x86__user_8h_source.html":[17,0,0,2,1,2],
+"x86__vm_8h_source.html":[17,0,0,2,1,3]
 };

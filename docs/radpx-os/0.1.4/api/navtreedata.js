@@ -31,8 +31,8 @@ var NAVTREE =
       [ "Filesystem and Package Profile", "index.html#autotoc_md45", null ],
       [ "Verification", "index.html#autotoc_md46", null ]
     ] ],
-    [ "RADPx-OS Platform Layout", "md__media_jvincent_Kingspec512_repos_RADPx_OS_RADKernel_platforms_README.html", null ],
-    [ "RADPx-OS x86_64 Platform", "md__media_jvincent_Kingspec512_repos_RADPx_OS_RADKernel_platforms_x86_64_README.html", null ],
+    [ "RADPx-OS Platform Layout", "md_RADKernel_platforms_README.html", null ],
+    [ "RADPx-OS x86_64 Platform", "md_RADKernel_platforms_x86_64_README.html", null ],
     [ "API Groups", "api_groups.html", [
       [ "Kernel And Boot", "api_groups.html#autotoc_md2", null ],
       [ "Time, Tasks, And Synchronization", "api_groups.html#autotoc_md3", null ],
@@ -106,21 +106,23 @@ var NAVTREE =
     ] ],
     [ "RADCompositor", "radcompositor.html", [
       [ "Architecture", "radcompositor.html#autotoc_md58", null ],
-      [ "Shared-Memory IPC", "radcompositor.html#autotoc_md59", null ],
-      [ "Current Limits", "radcompositor.html#autotoc_md60", null ],
-      [ "Verification", "radcompositor.html#autotoc_md61", null ]
+      [ "Dynamic Slint in the freestanding kernel", "radcompositor.html#autotoc_md59", null ],
+      [ "Focus and input routing", "radcompositor.html#autotoc_md60", null ],
+      [ "Shared-memory IPC and the client/server direction", "radcompositor.html#autotoc_md61", null ],
+      [ "Current limits", "radcompositor.html#autotoc_md62", null ],
+      [ "Verification", "radcompositor.html#autotoc_md63", null ]
     ] ],
-    [ "ZuBoard 1CG A53 Handoff Status", "md__media_jvincent_Kingspec512_repos_RADPx_OS_docs_public_zuboard_1cg_handoff.html", [
-      [ "What Works", "md__media_jvincent_Kingspec512_repos_RADPx_OS_docs_public_zuboard_1cg_handoff.html#autotoc_md63", null ],
-      [ "Verified Marker Path", "md__media_jvincent_Kingspec512_repos_RADPx_OS_docs_public_zuboard_1cg_handoff.html#autotoc_md64", null ],
-      [ "Current Blocker", "md__media_jvincent_Kingspec512_repos_RADPx_OS_docs_public_zuboard_1cg_handoff.html#autotoc_md65", null ],
-      [ "Recommended Next Steps", "md__media_jvincent_Kingspec512_repos_RADPx_OS_docs_public_zuboard_1cg_handoff.html#autotoc_md66", null ]
+    [ "ZuBoard 1CG A53 Handoff Status", "md_docs_public_zuboard_1cg_handoff.html", [
+      [ "What Works", "md_docs_public_zuboard_1cg_handoff.html#autotoc_md65", null ],
+      [ "Verified Marker Path", "md_docs_public_zuboard_1cg_handoff.html#autotoc_md66", null ],
+      [ "Current Blocker", "md_docs_public_zuboard_1cg_handoff.html#autotoc_md67", null ],
+      [ "Recommended Next Steps", "md_docs_public_zuboard_1cg_handoff.html#autotoc_md68", null ]
     ] ],
-    [ "ZuBoard 1CG Serial Bring-Up", "md__media_jvincent_Kingspec512_repos_RADPx_OS_docs_public_zuboard_1cg.html", [
-      [ "Boot Model", "md__media_jvincent_Kingspec512_repos_RADPx_OS_docs_public_zuboard_1cg.html#autotoc_md68", null ],
-      [ "Current Kernel Scope", "md__media_jvincent_Kingspec512_repos_RADPx_OS_docs_public_zuboard_1cg.html#autotoc_md69", null ],
-      [ "Build", "md__media_jvincent_Kingspec512_repos_RADPx_OS_docs_public_zuboard_1cg.html#autotoc_md70", null ],
-      [ "QEMU Smoke", "md__media_jvincent_Kingspec512_repos_RADPx_OS_docs_public_zuboard_1cg.html#autotoc_md71", null ]
+    [ "ZuBoard 1CG Serial Bring-Up", "md_docs_public_zuboard_1cg.html", [
+      [ "Boot Model", "md_docs_public_zuboard_1cg.html#autotoc_md70", null ],
+      [ "Current Kernel Scope", "md_docs_public_zuboard_1cg.html#autotoc_md71", null ],
+      [ "Build", "md_docs_public_zuboard_1cg.html#autotoc_md72", null ],
+      [ "QEMU Smoke", "md_docs_public_zuboard_1cg.html#autotoc_md73", null ]
     ] ],
     [ "Classes", "annotated.html", [
       [ "Class List", "annotated.html", "annotated_dup" ],
@@ -148,13 +150,13 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "a53__parity__selftest_8h_source.html",
-"radbuild_integration.html#autotoc_md54",
-"radkernel_8h.html#a5a4249cecdfe8ab58425c9aa2d7b9a69",
-"radkernel_8h.html#aa02986f24b8df7c531767da0e3750177",
-"radkernel_8h.html#adf7bbeb23054ca24451821557c27e1a2af773b2e5252c8fc9918e986bf13a187c",
-"structrad__display__mode.html#ad5bc39bc4a473ecf7362590931a11cf3",
-"structrad__process__arch__ops.html#a84bde395ce45e1a0d1908b020d6219dc",
-"structx86__storage__summary.html#a5d5bac3ab9a74097c1532a27e1186f50"
+"radbuild_integration.html#autotoc_md55",
+"radkernel_8h.html#a594ab8987129512685e36db21d06a297",
+"radkernel_8h.html#a9f8836898b22bdc306474ab4351b9495",
+"radkernel_8h.html#adf7bbeb23054ca24451821557c27e1a2aeef94300e1c9542c2b7761413da60581",
+"structrad__display__mode.html#accc19088192b5e618ac674f5a18f4e1e",
+"structrad__process__arch__ops.html#a76665bf5f9469ffabdad0e88496cd6f1",
+"structx86__storage__summary.html#a506a57bc551730894517c2fefefac814"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

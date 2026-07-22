@@ -1,4 +1,4 @@
 var files_dup =
 [
-    [ "RADPx-OS", "dir_0e58dfbf8cff7573854cd467b1dd7960.html", "dir_0e58dfbf8cff7573854cd467b1dd7960" ]
+    [ "RADKernel", "dir_fb680ad99fc5347a832ac668648b6544.html", "dir_fb680ad99fc5347a832ac668648b6544" ]
 ];

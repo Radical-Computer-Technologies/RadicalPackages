@@ -88,7 +88,7 @@ $(document).ready(function(){initNavTree('getting_started.html',''); initResizab
 <div class="title">Getting Started </div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><p><a class="anchor" id="md__media_jvincent_Kingspec512_repos_RADPx_OS_docs_public_getting_started"></a> This page takes you from a fresh checkout to a running RADPx-OS image on two targets — the x86_64 GRUB terminal and the ZuBoard-1CG (ZynqMP Cortex-A53) under QEMU. It is the narrative companion to the command reference in the repository README; read this first if you have not built RADPx-OS before.</p>
+<div class="textblock"><p><a class="anchor" id="md_docs_public_getting_started"></a> This page takes you from a fresh checkout to a running RADPx-OS image on two targets — the x86_64 GRUB terminal and the ZuBoard-1CG (ZynqMP Cortex-A53) under QEMU. It is the narrative companion to the command reference in the repository README; read this first if you have not built RADPx-OS before.</p>
 <h1><a class="anchor" id="autotoc_md36"></a>
 What you are building</h1>
 <p>RADPx-OS is a POSIX-inspired kernel (RADKernel) that runs both as a host simulator and on real hardware. The same kernel core boots on x86_64 and on the Cortex-A53; the target-specific pieces live under <code>RADKernel/platforms/</code> and <code>RADKernel/boards/</code>. Two things you can produce in a few minutes:</p>
@@ -119,8 +119,9 @@ Prerequisites</h1>
 <div class="fragment"><div class="line">radbuild build os --settings settings.json --json-events</div>
 </div><!-- fragment --><p>RadBuild resolves <code>settings.json</code> as an OS build configuration, produces the ISO under <code>build/embedded/x86_64_grub_terminal/</code>, and runs the terminal VM smoke. To run just the ISO smoke against an existing build:</p>
 <div class="fragment"><div class="line">RAD_X86_UI_PROFILE=terminal tools/embedded/x86_64_grub_slint_smoke.sh</div>
-</div><!-- fragment --><p>The <code>settings.wm.json</code> profile builds the Slint-backed RADCompositor window manager instead of the terminal shell.</p>
-<h1><a class="anchor" id="autotoc_md40"></a>
+</div><!-- fragment --><p>The <code>settings.wm.json</code> profile builds the Slint-backed RADCompositor desktop shell instead of the plain terminal image. That shell boots a multi-window desktop — a gradient dock with an app launcher plus Terminal, File Explorer, and Text Editor windows — rendered by the freestanding Slint software renderer in the kernel. Run it with <code>-enable-kvm -cpu host</code> for smooth window drag:</p>
+<div class="fragment"><div class="line">RAD_X86_UI_PROFILE=wm tools/embedded/x86_64_grub_slint_smoke.sh</div>
+</div><!-- fragment --><h1><a class="anchor" id="autotoc_md40"></a>
 3. Boot the ZuBoard-1CG in QEMU (A53, ~2–3 minutes)</h1>
 <p>The ZuBoard profile cross-builds the A53 kernel and userland, assembles the SD image, and runs the QEMU marker smoke that boots to an interactive serial login:</p>
 <div class="fragment"><div class="line">radbuild build os --settings settings.ci.json --system rad-zuboard-1cg-qemu-ci --json-events</div>
@@ -135,7 +136,7 @@ Where to go next</h1>
 <li><a class="el" href="api_structure.html">API Structure</a> — the stable <code><a class="el" href="radkernel_8h.html" title="Portable RADPx-OS kernel service ABI for RADLib and RADPx-OS targets.">radkernel.h</a></code> C ABI and how the subsystem headers fit together.</li>
 <li><a class="el" href="architecture.html">Architecture &amp; Layout</a> — the source tree: core, fs, drivers, platforms, boards, runtime, hal.</li>
 <li><a class="el" href="networking.html">Experimental Networking</a> and <a class="el" href="device_tree_guide.html">Overlay And Device Tree Guide</a>, plus the ZuBoard-1CG bring-up notes, for target-specific detail.</li>
-<li>The public Crimson API docs are published through RadicalPackages under <code>docs/radpx-os/0.1.0/api/</code>. </li>
+<li>The public Crimson API docs are published through RadicalPackages under <code>docs/radpx-os/0.1.4/api/</code>. </li>
 </ul>
 </div></div><!-- contents -->
 </div><!-- PageDoc -->

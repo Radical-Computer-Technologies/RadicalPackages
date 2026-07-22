@@ -88,26 +88,42 @@ $(document).ready(function(){initNavTree('radcompositor.html',''); initResizable
 <div class="title">RADCompositor </div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><p><a class="anchor" id="md__media_jvincent_Kingspec512_repos_RADPx_OS_docs_public_radcompositor"></a> RADCompositor is an experimental Crimson 0.1.4 service for Slint-backed desktop composition. It is intentionally RADLib/RADPx-OS-owned: Slint renders each UI surface, but RADPx-OS owns the screen, window placement, z-order, input routing, and final framebuffer writes.</p>
+<div class="textblock"><p><a class="anchor" id="md_docs_public_radcompositor"></a> RADCompositor is the Crimson 0.1.4 Slint-backed desktop service for RADPx-OS. It is intentionally RADPx-OS-owned: Slint renders each UI surface, but RADPx-OS owns the screen, window placement, z-order, focus, input routing, and the final framebuffer writes.</p>
+<p>As of 0.1.4-beta.2 the x86 VM target boots a real <b>multi-window desktop shell</b> with a dock, an app launcher, and three kernel-rendered application windows — Terminal, File Explorer, and Text Editor — each a live Slint surface.</p>
 <h1><a class="anchor" id="autotoc_md58"></a>
 Architecture</h1>
-<p>Each window-like UI surface renders into an off-screen pixel buffer. The compositor tracks damaged rectangles, copies the current front buffer forward into a software back buffer for those rectangles, redraws intersecting surfaces by z-order, and presents only the touched rectangles to the framebuffer backend. Surfaces may use opaque XRGB pixels or ARGB pixels with alpha blending.</p>
-<p>The x86 VM target currently starts two Slint surfaces:</p>
+<p>Each window-like UI surface renders into its own off-screen pixel buffer. The compositor (<code>RADCompositorCore</code>) tracks damaged rectangles, copies the current front buffer forward into a software back buffer, redraws the intersecting surfaces by z-order, and presents the touched rectangles to the framebuffer backend through a double-buffered (front/back) present path. Surfaces may use opaque XRGB pixels or ARGB pixels with source-over alpha blending. The compositor holds up to 16 surfaces with a 64-entry damage ring.</p>
+<p>The kernel-side runtime model (<code>EmbeddedDesktopShellModel</code> in <code>SlintShell.cpp</code>) drives the shell: it owns each window record (bounds, z-order, focus, open order), exclusive focus, and the dock/launcher state, and it maps the RADPx-OS input queue onto the correct surface.</p>
+<p>The x86 VM target starts these Slint surfaces:</p>
 <ul>
-<li><code>RadDesktopSurface</code> for the desktop background, status, and applications menu.</li>
-<li><code>RadTerminalSurface</code> for the first terminal window backed by a RADPx-OS PTY.</li>
+<li><code>RadDesktopSurface</code> — desktop background, top bar, and the gradient left dock (app launcher + open-app icons in open order, with a right-click "Close" dropdown per icon).</li>
+<li><code>RadTerminalSurface</code> — a terminal window backed by a RADPx-OS PTY running the interactive shell.</li>
+<li><code>RadFileExplorerSurface</code> — a real directory browser over the in-kernel VFS.</li>
+<li><code>RadTextEditorSurface</code> — a text editor that opens and saves files through the VFS.</li>
 </ul>
-<p>Input events enter through the RADPx-OS input queue. Pointer coordinates are tested against compositor surface bounds in global screen space, translated into local surface coordinates, and then dispatched to the matching Slint window adapter.</p>
 <h1><a class="anchor" id="autotoc_md59"></a>
-Shared-Memory IPC</h1>
-<p>The x86 VM target exposes POSIX-inspired shared-memory syscalls for the first process-boundary compositor path. A userspace producer can create a shm object, map it with <code>mmap</code>, write pixels directly into that mapping, open <code>/dev/compositor0</code>, attach the shm fd as a compositor surface, and queue dirty rectangles with compositor ioctls.</p>
-<p>This first producer path is intentionally small: <code>/bin/radgfx-smoke</code> maps a one-page XRGB surface and submits damage to prove that userspace pixels reach the compositor without copying through a pipe or PTY.</p>
+Dynamic Slint in the freestanding kernel</h1>
+<p>The shell UI is <b>fully dynamic Slint</b>, not fixed-slot immediate mode. Slint <code>for</code> repeaters over <code>[struct]</code> models and the <code>std-widgets</code> set (<code>Button</code>, <code>LineEdit</code>, <code>TextEdit</code>, <code>ScrollView</code>) link and run in the freestanding (<code>-nostdlib</code>, <code>-fno-exceptions</code>) kernel. This is enabled by a small set of libstdc++ support symbols implemented in <code>RADKernel/runtime/freestanding_runtime.cpp</code> (the <code>std::__throw_*</code> container error handlers as diagnostic kernel panics, <code>std::_Sp_make_shared_tag::_S_eq</code>, and <code>__libc_single_threaded = 1</code> for single-threaded shared_ptr refcounts). With those, <code>std::make_shared&lt;slint::VectorModel&lt;T&gt;&gt;</code> works in the kernel exactly as on the host.</p>
+<p>Concretely:</p>
+<ul>
+<li>The File Explorer builds a <code>[RadFileEntry]</code> model from <code>rad_vfs_opendir</code> / <code>rad_vfs_readdir</code>, renders it with a repeater (folder/file icons, hover, a path breadcrumb), and descends directories via a <code>navigate(index)</code> callback.</li>
+<li>The Text Editor uses a <code>std-widgets</code> <code>TextEdit</code> for the document plus a <code>LineEdit</code> path field and Open/Save buttons, reading and writing through the VFS.</li>
+<li>The dock renders open-app icons from a <code>[RadDockIcon]</code> model in open order.</li>
+</ul>
 <h1><a class="anchor" id="autotoc_md60"></a>
-Current Limits</h1>
-<p>This path is still experimental. The boot desktop and terminal surfaces are trusted in-process objects, while the smoke producer is a separate process using shared pages. The x86 GRUB framebuffer still uses software shadow buffers rather than hardware page flip. Future passes should generalize shm-backed Slint applications, add damage extraction from Slint internals, add SIMD copy/blend backends, and make the cursor a compositor-managed surface.</p>
+Focus and input routing</h1>
+<p>Input events enter through the RADPx-OS input queue. Pointer coordinates are tested against surface bounds in global screen space, translated into local surface coordinates, and dispatched to the matching Slint window adapter; a press on a window raises it and gives it exclusive focus.</p>
+<p>Keyboard events route to the <b>focused</b> window's adapter. The Terminal role translates keys to bytes and writes them to its PTY (so the interactive shell, and escape sequences, reach the program); the other roles dispatch the key to Slint so the Text Editor's <code>TextEdit</code> receives input. Escape no longer closes a window — it dismisses any open menu/dropdown and otherwise forwards to the PTY.</p>
 <h1><a class="anchor" id="autotoc_md61"></a>
+Shared-memory IPC and the client/server direction</h1>
+<p>The x86 VM target also exposes POSIX-inspired shared-memory syscalls for the first process-boundary compositor path. A userspace producer can create a shm object, <code>mmap</code> it, write pixels directly into that mapping, open <code>/dev/compositor0</code>, attach the shm fd as a compositor surface, and queue dirty rectangles with compositor ioctls. <code>/bin/radgfx-smoke</code> maps a one-page XRGB surface and submits damage to prove that userspace pixels reach the compositor without copying through a pipe or PTY.</p>
+<p>The current app windows (Terminal, File Explorer, Text Editor) are trusted in-process Slint surfaces. The next architectural step (the 0.1.5 line) is a Wayland-style client/server model in which applications run as separate userland processes that render into shared-memory surfaces composited by the kernel — the shm producer path is the seed of that work.</p>
+<h1><a class="anchor" id="autotoc_md62"></a>
+Current limits</h1>
+<p>The x86 GRUB framebuffer still uses software shadow buffers rather than a hardware page flip, and surface buffers are currently allocated at full screen resolution. Damage extraction is at the surface-rectangle granularity rather than from Slint's internal dirty regions. The Pi (aarch64) target has parity markers but does not yet link the Slint renderer; the ZuBoard is headless. Future passes generalize shm-backed Slint applications (the client/server model), size surface buffers per window rather than per screen, add SIMD copy/blend backends, and make the cursor a compositor-managed surface.</p>
+<h1><a class="anchor" id="autotoc_md63"></a>
 Verification</h1>
-<p>The hosted Slint example and x86 VM smoke gate the compositor path with markers for surface creation, off-screen rendering, dirty queue submission, copy-forward, dirty framebuffer present, z-order, alpha blending, hit testing, input coordinate translation, and shared-memory process IPC. </p>
+<p>The hosted Slint self-test and the x86 VM smoke gate the compositor path with markers for surface creation, off-screen rendering, dirty-queue submission, copy-forward, dirty-framebuffer present, z-order, alpha blending, hit testing, input coordinate translation, multi-window open/focus/close, and shared-memory process IPC. </p>
 </div></div><!-- contents -->
 </div><!-- PageDoc -->
 </div><!-- doc-content -->

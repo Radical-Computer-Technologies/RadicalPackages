@@ -9,6 +9,11 @@ and this project aims to adhere to [Semantic Versioning](https://semver.org/spec
 
 ### Changed
 
+- 2026-07-22: Refreshed the RADPx-OS narrative docs and regenerated the Doxygen
+  API reference so the published pages describe the shipped multi-window desktop
+  shell (compositor, status, mainpage, getting-started) instead of the older
+  single desktop+terminal surface state. Updated the portal summary and the
+  window-manager profile description to match.
 - 2026-07-22: Published **RADPx-OS 0.1.4-beta.2** release documentation and
   regenerated the Doxygen API reference. This release adds the multi-window
   RADCompositor desktop shell (Terminal, File Explorer, and Text Editor) with

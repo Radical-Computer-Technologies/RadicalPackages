@@ -88,7 +88,7 @@ $(document).ready(function(){initNavTree('architecture.html',''); initResizable(
 <div class="title">Architecture &amp; Layout </div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><p><a class="anchor" id="md__media_jvincent_Kingspec512_repos_RADPx_OS_docs_public_architecture"></a> RADPx-OS keeps one portable kernel core (RADKernel) shared across every target and pushes hardware-specific code to the edges. This page maps the source tree so you know where a given concern lives before you change it.</p>
+<div class="textblock"><p><a class="anchor" id="md_docs_public_architecture"></a> RADPx-OS keeps one portable kernel core (RADKernel) shared across every target and pushes hardware-specific code to the edges. This page maps the source tree so you know where a given concern lives before you change it.</p>
 <h1><a class="anchor" id="autotoc_md16"></a>
 Design shape</h1>
 <ul>
@@ -137,7 +137,7 @@ Everything else</h1>
 <h1><a class="anchor" id="autotoc_md19"></a>
 How a target is assembled</h1>
 <p>A target build links the <b>core</b> (<code>RADKernel_runtime.cpp</code>) + the <b>shared services</b> it needs (<code>fs/</code>, <code>drivers/</code>, <code>runtime/</code> or a HAL) + its <b>platform</b> (<code>platforms/&lt;arch&gt;/</code>) + its <b>board entry</b> (<code>boards/&lt;board&gt;/</code>). For example, the ZuBoard-1CG image links the A53 platform, the ZynqMP SoC HAL, the ext4 filesystem, the Cadence GEM driver, and the <code>zuboard_1cg</code> board entry. Because the core and shared services are identical across targets, parity work on one target (a filesystem fix, a syscall) benefits the others without a port.</p>
-<p>See <a class="el" href="getting_started.html">Getting Started</a> to build and boot a target, and the <a class="el" href="md__media_jvincent_Kingspec512_repos_RADPx_OS_docs_public_zuboard_1cg.html">ZuBoard-1CG</a> notes for the A53 bring-up specifics. </p>
+<p>See <a class="el" href="getting_started.html">Getting Started</a> to build and boot a target, and the <a class="el" href="md_docs_public_zuboard_1cg.html">ZuBoard-1CG</a> notes for the A53 bring-up specifics. </p>
 </div></div><!-- contents -->
 </div><!-- PageDoc -->
 </div><!-- doc-content -->

@@ -88,7 +88,7 @@ $(document).ready(function(){initNavTree('pi_zero2w.html',''); initResizable(); 
 <div class="title">Pi Zero 2 W Bring-Up </div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><p><a class="anchor" id="md__media_jvincent_Kingspec512_repos_RADPx_OS_docs_public_pi_zero2w"></a> RADPx-OS now has the first pieces of the Raspberry Pi Zero 2 W port. Raspberry Pi firmware remains the real first-stage boot path: the GPU ROM, <code>bootcode.bin</code>, and <code>start4.elf</code> initialize RAM, read <code>config.txt</code>, load the ARM payload, and release the AArch64 cores. The RADPx-OS-specific second stage is optional, but it is still useful as a maintenance loader for future boot menus, kernel selection, reflash tools, handoff validation, and hardware policy.</p>
+<div class="textblock"><p><a class="anchor" id="md_docs_public_pi_zero2w"></a> RADPx-OS now has the first pieces of the Raspberry Pi Zero 2 W port. Raspberry Pi firmware remains the real first-stage boot path: the GPU ROM, <code>bootcode.bin</code>, and <code>start4.elf</code> initialize RAM, read <code>config.txt</code>, load the ARM payload, and release the AArch64 cores. The RADPx-OS-specific second stage is optional, but it is still useful as a maintenance loader for future boot menus, kernel selection, reflash tools, handoff validation, and hardware policy.</p>
 <p>The intended final shape is:</p>
 <ul>
 <li>Pi firmware performs first-stage hardware boot.</li>
