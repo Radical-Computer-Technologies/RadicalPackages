@@ -1,5 +1,6 @@
 var NAVTREEINDEX5 =
 {
+"structrad__display__mode.html#ad5bc39bc4a473ecf7362590931a11cf3":[16,0,18,0],
 "structrad__dma__backend__ops.html":[16,0,19],
 "structrad__dma__backend__ops.html#a2bdcf81c84d1d97e99368f6f18403394":[16,0,19,3],
 "structrad__dma__backend__ops.html#a2e582ea16dcf2c00e26506869200d7a3":[16,0,19,4],
@@ -248,6 +249,5 @@ var NAVTREEINDEX5 =
 "structrad__posix__timeval.html#aed6007ec07697cb1e99c1b7dbd056ded":[16,0,55,0],
 "structrad__process__arch__ops.html":[16,0,56],
 "structrad__process__arch__ops.html#a30bcb47a437c98c4c19b4a1204dac17d":[16,0,56,3],
-"structrad__process__arch__ops.html#a76665bf5f9469ffabdad0e88496cd6f1":[16,0,56,1],
-"structrad__process__arch__ops.html#a84bde395ce45e1a0d1908b020d6219dc":[16,0,56,2]
+"structrad__process__arch__ops.html#a76665bf5f9469ffabdad0e88496cd6f1":[16,0,56,1]
 };

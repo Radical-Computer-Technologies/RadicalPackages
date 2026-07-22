@@ -1,5 +1,6 @@
 var NAVTREEINDEX6 =
 {
+"structrad__process__arch__ops.html#a84bde395ce45e1a0d1908b020d6219dc":[16,0,56,2],
 "structrad__process__arch__ops.html#aeb49d8a42001101ddeeca7bcae2bba85":[16,0,56,0],
 "structrad__process__info.html":[16,0,57],
 "structrad__process__info.html#a0020a204ccc0c5033daec6e71013027b":[16,0,57,0],
@@ -248,6 +249,5 @@ var NAVTREEINDEX6 =
 "structx86__address__space.html#acb0c01b24438979a84810615575f4cb9":[16,0,85,0],
 "structx86__storage__summary.html":[16,0,86],
 "structx86__storage__summary.html#a3053e0fdc353bf8629c63191615e91b0":[16,0,86,4],
-"structx86__storage__summary.html#a506a57bc551730894517c2fefefac814":[16,0,86,5],
-"structx86__storage__summary.html#a5d5bac3ab9a74097c1532a27e1186f50":[16,0,86,8]
+"structx86__storage__summary.html#a506a57bc551730894517c2fefefac814":[16,0,86,5]
 };

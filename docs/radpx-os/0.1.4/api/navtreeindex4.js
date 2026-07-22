@@ -1,5 +1,6 @@
 var NAVTREEINDEX4 =
 {
+"radkernel_8h.html#adf7bbeb23054ca24451821557c27e1a2af773b2e5252c8fc9918e986bf13a187c":[17,0,0,0,1,0,27,347,21],
 "radkernel_8h.html#adfa95941daea5a79c60c98766f453bfb":[17,0,0,0,1,0,27,173],
 "radkernel_8h.html#ae01a3003d6bf546499e3f0ddf14e2972":[17,0,0,0,1,0,27,257],
 "radkernel_8h.html#ae0ef77026828c8d5ba0ffead952d8e99":[17,0,0,0,1,0,27,166],
@@ -102,7 +103,7 @@ var NAVTREEINDEX4 =
 "radkernel_8h.html#afe58c139da257b370de3194ccb04b672":[17,0,0,0,1,0,27,496],
 "radkernel_8h.html#afe8fbbd35b65399b8237d979987ad846":[17,0,0,0,1,0,27,623],
 "radkernel_8h_source.html":[17,0,0,0,1,0,27],
-"radkernel__a53_8h_source.html":[17,0,0,0,2,0,0],
+"radkernel__a53_8h_source.html":[17,0,0,0,2,0,1],
 "structrad__a53__address__space.html":[16,0,1],
 "structrad__a53__address__space.html#a1985bbf3ca100c5e9fecbf88941e6deb":[16,0,1,0],
 "structrad__a53__address__space.html#a642ac49963c5ac4962e390beaabef3d3":[16,0,1,3],
@@ -248,6 +249,5 @@ var NAVTREEINDEX4 =
 "structrad__display__mode.html#a5b231867ad73dc780605fe22602035fc":[16,0,18,1],
 "structrad__display__mode.html#a766affdbdde86da8b257c8a98647d02b":[16,0,18,4],
 "structrad__display__mode.html#a8e7ebe067996b55a35003d75182b79c8":[16,0,18,2],
-"structrad__display__mode.html#accc19088192b5e618ac674f5a18f4e1e":[16,0,18,3],
-"structrad__display__mode.html#ad5bc39bc4a473ecf7362590931a11cf3":[16,0,18,0]
+"structrad__display__mode.html#accc19088192b5e618ac674f5a18f4e1e":[16,0,18,3]
 };

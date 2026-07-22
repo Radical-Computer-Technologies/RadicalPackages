@@ -1,5 +1,6 @@
 var NAVTREEINDEX7 =
 {
+"structx86__storage__summary.html#a5d5bac3ab9a74097c1532a27e1186f50":[16,0,86,8],
 "structx86__storage__summary.html#a830991b54e0fd27baade4f25fad55419":[16,0,86,1],
 "structx86__storage__summary.html#aa1cff393b57c7db5efa6dd625843c58d":[16,0,86,3],
 "structx86__storage__summary.html#ad5ed341396a6dc555ab4fbacd8da903c":[16,0,86,0],

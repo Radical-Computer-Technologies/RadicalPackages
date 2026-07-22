@@ -9,5 +9,10 @@ and this project aims to adhere to [Semantic Versioning](https://semver.org/spec
 
 ### Changed
 
+- 2026-07-22: Published **RADPx-OS 0.1.4-beta.2** release documentation and
+  regenerated the Doxygen API reference. This release adds the multi-window
+  RADCompositor desktop shell (Terminal, File Explorer, and Text Editor) with
+  dynamic Slint UIs running in the freestanding kernel. Corrected the RADPx-OS
+  portal version labels (`0.2.0` -> `0.1.4`).
 - 2026-07-18: Updated branding and published documentation for the **RADPx-OS**
   / **RADKernel** rename across the portal and package descriptions.
