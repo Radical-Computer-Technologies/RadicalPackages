@@ -1,0 +1,1692 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>radif_i2c_slave_to_reg Datasheet</title>
+  <link rel="stylesheet" href="../../assets/radhdl-docgen.css">
+</head>
+<body>
+<div class="sitebar"><div class="wrap">
+  <a class="brand-mark" href="../../index.html"><img class="brand-logo" src="../../assets/rad-logo.png" alt="" onerror="this.style.display='none'"><span>Radical Computer Technologies</span></a>
+</div></div>
+
+<header><div class="wrap">
+  <nav class="breadcrumb"><a href="../../index.html">RadHDL</a> / <a href="../../libraries/radhdl.html">radhdl</a></nav>
+  <div class="kicker">Interfaces / entity</div>
+  <h1>radif_i2c_slave_to_reg</h1>
+  <div class="meta">Documentation version: 0.2.2 / Subpackage: radif_i2c / Source package: radif</div>
+  <div class="summary"><p>I2C slave bridge to the RadIF register transaction interface.
+Decodes host I2C register accesses and presents them as synchronous register read/write requests.</p></div>
+  <div class="quick-links"><a class="pill" href="#register-interfaces">Register interfaces</a><a class="pill" href="#testbenches">Testbenches: 1</a></div>
+</div></header>
+<main class="wrap">
+  <h2>Use Cases</h2>
+  <ul><li>Memory-mapped control/status integration with software-visible register maps.</li></ul>
+  <h2>Block Diagram</h2>
+  <div class="diagram"><svg width="582" height="470" viewBox="0 0 582 470" xmlns="http://www.w3.org/2000/svg" role="img">
+<style>text{font-family:Inter,Arial,sans-serif;font-size:13px;fill:#111827}.pin{stroke:#106b62;stroke-width:2;fill:none}.interface-pin{stroke:#7b8794;stroke-width:2;fill:#e5e7eb}.box{fill:#f7f9fc;stroke:#26323f;stroke-width:2}.bubble{fill:#fff;stroke:#106b62;stroke-width:2}.clock{fill:none;stroke:#106b62;stroke-width:2}</style>
+<rect class="box" x="72" y="50" width="420" height="380" rx="4"/>
+<text x="282.0" y="84" text-anchor="middle" font-weight="700">radif_i2c_slave_to_reg</text>
+<text x="282.0" y="106" text-anchor="middle">radhdl entity</text>
+<line class="pin" x1="36" y1="130" x2="72" y2="130"/>
+<text x="100" y="134">clk</text>
+<path class="clock" d="M 74 123 L 87 130 L 74 137"/>
+<line class="pin" x1="36" y1="158" x2="72" y2="158"/>
+<text x="100" y="162">rstn</text>
+<circle class="bubble" cx="84" cy="158" r="5"/>
+<line class="pin" x1="36" y1="186" x2="72" y2="186"/>
+<text x="100" y="190">i2c_scl_i</text>
+<line class="pin" x1="36" y1="214" x2="72" y2="214"/>
+<text x="100" y="218">i2c_sda_i</text>
+<line class="pin" x1="36" y1="242" x2="72" y2="242"/>
+<text x="100" y="246">reg_data_out</text>
+<line class="pin" x1="36" y1="270" x2="72" y2="270"/>
+<text x="100" y="274">reg_wr_rdy</text>
+<line class="pin" x1="36" y1="298" x2="72" y2="298"/>
+<text x="100" y="302">reg_rd_rdy</text>
+<line class="pin" x1="36" y1="326" x2="72" y2="326"/>
+<text x="100" y="330">reg_wr_valid</text>
+<line class="pin" x1="36" y1="354" x2="72" y2="354"/>
+<text x="100" y="358">reg_rd_valid</text>
+<line class="pin" x1="36" y1="382" x2="72" y2="382"/>
+<text x="100" y="386">reg_error</text>
+<line class="pin" x1="492" y1="130" x2="528" y2="130"/>
+<text x="464" y="134" text-anchor="end">i2c_sda_oen</text>
+<line class="pin" x1="492" y1="158" x2="528" y2="158"/>
+<text x="464" y="162" text-anchor="end">reg_wr_addr</text>
+<line class="pin" x1="492" y1="186" x2="528" y2="186"/>
+<text x="464" y="190" text-anchor="end">reg_rd_addr</text>
+<line class="pin" x1="492" y1="214" x2="528" y2="214"/>
+<text x="464" y="218" text-anchor="end">reg_wr_en</text>
+<line class="pin" x1="492" y1="242" x2="528" y2="242"/>
+<text x="464" y="246" text-anchor="end">reg_rd_en</text>
+<line class="pin" x1="492" y1="270" x2="528" y2="270"/>
+<text x="464" y="274" text-anchor="end">reg_data_in</text>
+</svg></div>
+  <details class="doc-section"><summary>VHDL Include And Instantiation Template</summary><div class="doc-section-body"><h3>File Header</h3><pre><code>library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+
+library radhdl;
+-- Direct entity instantiation below does not require importing the entity name.
+use radhdl.interfaces.all;
+-- Narrower alternative: use radhdl.interfaces_i2c.all;</code></pre><h3>Component Declaration</h3><pre><code>component radif_i2c_slave_to_reg is
+  generic (
+    DATA_WIDTH : integer := 32;
+    ADDR_WIDTH : integer := 16;
+    I2C_ADDR : std_logic_vector(6 downto 0) := &quot;0101010&quot;;
+    ENABLE_CRC16 : boolean := false;
+    VENDOR_TAG : string := &quot;XILINX&quot;;
+    PRODUCT_SERIES_TAG : string := &quot;GENERIC&quot;
+  );
+  port (
+    clk : in std_logic;
+    rstn : in std_logic;
+    i2c_scl_i : in std_logic;
+    i2c_sda_i : in std_logic;
+    i2c_sda_oen : out std_logic;
+    reg_wr_addr : out std_logic_vector(ADDR_WIDTH - 1 downto 0);
+    reg_rd_addr : out std_logic_vector(ADDR_WIDTH - 1 downto 0);
+    reg_wr_en : out std_logic;
+    reg_rd_en : out std_logic;
+    reg_data_in : out std_logic_vector(DATA_WIDTH - 1 downto 0);
+    reg_data_out : in std_logic_vector(DATA_WIDTH - 1 downto 0);
+    reg_wr_rdy : in std_logic;
+    reg_rd_rdy : in std_logic;
+    reg_wr_valid : in std_logic;
+    reg_rd_valid : in std_logic;
+    reg_error : in std_logic
+  );
+end component;</code></pre><h3>Direct Entity Instantiation</h3><pre><code>u_radif_i2c_slave_to_reg : entity radhdl.radif_i2c_slave_to_reg
+  generic map (
+    DATA_WIDTH         =&gt; 32,
+    ADDR_WIDTH         =&gt; 16,
+    I2C_ADDR           =&gt; &quot;0101010&quot;,
+    ENABLE_CRC16       =&gt; false,
+    VENDOR_TAG         =&gt; &quot;XILINX&quot;,
+    PRODUCT_SERIES_TAG =&gt; &quot;GENERIC&quot;
+  )
+  port map (
+    clk          =&gt; &lt;clk_signal&gt;,
+    rstn         =&gt; &lt;rstn_signal&gt;,
+    i2c_scl_i    =&gt; &lt;i2c_scl_i_signal&gt;,
+    i2c_sda_i    =&gt; &lt;i2c_sda_i_signal&gt;,
+    i2c_sda_oen  =&gt; &lt;i2c_sda_oen_signal&gt;,
+    reg_wr_addr  =&gt; &lt;reg_wr_addr_signal&gt;,
+    reg_rd_addr  =&gt; &lt;reg_rd_addr_signal&gt;,
+    reg_wr_en    =&gt; &lt;reg_wr_en_signal&gt;,
+    reg_rd_en    =&gt; &lt;reg_rd_en_signal&gt;,
+    reg_data_in  =&gt; &lt;reg_data_in_signal&gt;,
+    reg_data_out =&gt; &lt;reg_data_out_signal&gt;,
+    reg_wr_rdy   =&gt; &lt;reg_wr_rdy_signal&gt;,
+    reg_rd_rdy   =&gt; &lt;reg_rd_rdy_signal&gt;,
+    reg_wr_valid =&gt; &lt;reg_wr_valid_signal&gt;,
+    reg_rd_valid =&gt; &lt;reg_rd_valid_signal&gt;,
+    reg_error    =&gt; &lt;reg_error_signal&gt;
+  );</code></pre></div></details>
+  <h2>Generics</h2><table><thead><tr><th>Name</th><th>Type</th><th>Default</th><th>Description</th></tr></thead><tbody><tr><td>DATA_WIDTH</td><td>integer</td><td>32</td><td>Sets the bit width for DATA WIDTH values carried by this module.</td></tr><tr><td>ADDR_WIDTH</td><td>integer</td><td>16</td><td>Sets the bit width for ADDR WIDTH values carried by this module.</td></tr><tr><td>I2C_ADDR</td><td>std_logic_vector(6 downto 0)</td><td>&quot;0101010&quot;</td><td>Configures I2C ADDR for this instance.</td></tr><tr><td>ENABLE_CRC16</td><td>boolean</td><td>false</td><td>Configures ENABLE CRC16 for this instance.</td></tr><tr><td>VENDOR_TAG</td><td>string</td><td>&quot;XILINX&quot;</td><td>Selects the vendor-specific implementation path, usually XILINX for DSP48/XPM-backed builds or generic for portable RTL.</td></tr><tr><td>PRODUCT_SERIES_TAG</td><td>string</td><td>&quot;GENERIC&quot;</td><td>Identifies the target FPGA family so wrappers can choose the correct primitive or conservative portable behavior.</td></tr></tbody></table>
+  <h2>Ports</h2><table><thead><tr><th>Name</th><th>Direction</th><th>Type</th><th>Description</th></tr></thead><tbody><tr><td>clk</td><td>in</td><td>std_logic</td><td>Clock for the associated synchronous logic and handshake domain.</td></tr><tr><td>rstn</td><td>in</td><td>std_logic</td><td>Active-low reset for this clock domain.</td></tr><tr><td>i2c_scl_i</td><td>in</td><td>std_logic</td><td>Input i2c scl i signal for this module.</td></tr><tr><td>i2c_sda_i</td><td>in</td><td>std_logic</td><td>Input i2c sda i signal for this module.</td></tr><tr><td>i2c_sda_oen</td><td>out</td><td>std_logic</td><td>I2c sda oen interface signal.</td></tr><tr><td>reg_wr_addr</td><td>out</td><td>std_logic_vector(ADDR_WIDTH - 1 downto 0)</td><td>Register write address issued to the internal RadIF register target.</td></tr><tr><td>reg_rd_addr</td><td>out</td><td>std_logic_vector(ADDR_WIDTH - 1 downto 0)</td><td>Register read address issued to the internal RadIF register target.</td></tr><tr><td>reg_wr_en</td><td>out</td><td>std_logic</td><td>One-cycle write request pulse for the internal register target.</td></tr><tr><td>reg_rd_en</td><td>out</td><td>std_logic</td><td>One-cycle read request pulse for the internal register target.</td></tr><tr><td>reg_data_in</td><td>out</td><td>std_logic_vector(DATA_WIDTH - 1 downto 0)</td><td>Write data presented to the internal register target.</td></tr><tr><td>reg_data_out</td><td>in</td><td>std_logic_vector(DATA_WIDTH - 1 downto 0)</td><td>Read data returned by the internal register target.</td></tr><tr><td>reg_wr_rdy</td><td>in</td><td>std_logic</td><td>Write-side ready indication from the internal register target.</td></tr><tr><td>reg_rd_rdy</td><td>in</td><td>std_logic</td><td>Read-side ready indication from the internal register target.</td></tr><tr><td>reg_wr_valid</td><td>in</td><td>std_logic</td><td>Write response valid indication from the internal register target.</td></tr><tr><td>reg_rd_valid</td><td>in</td><td>std_logic</td><td>Read response valid indication from the internal register target.</td></tr><tr><td>reg_error</td><td>in</td><td>std_logic</td><td>Register target error flag converted into the external bus error response.</td></tr></tbody></table>
+
+  <h2 id="register-interfaces">Register Interfaces</h2><p>No fixed register map was found; this section documents the exposed register/control interface ports.</p><table><thead><tr><th>Interface</th><th>Directions</th><th>Signals</th><th>Representative ports</th></tr></thead><tbody><tr><td>Register control/status</td><td>in, out</td><td>11</td><td>reg_wr_addr, reg_rd_addr, reg_wr_en, reg_rd_en, reg_data_in, reg_data_out, reg_wr_rdy, reg_rd_rdy, +3 more</td></tr></tbody></table>
+
+  <h2 id="testbenches">Testbenches</h2><details class="testbench-section"><summary>tb_radif_interfaces_smoke <span class="meta">captured waveform</span></summary><div class="testbench-body"><p class="meta">Source: interfaces/hdl/radif/testbenches/tb_radif_interfaces_smoke.vhd</p><p>Interface elaboration and idle-state smoke testbench.
+This bench instantiates the RADIF SPI, QSPI, I2C, DMA, and SPI-to-AXI blocks
+together to catch compile/elaboration issues and verify reset-idle behavior
+for shared interface wrappers. It intentionally does not drive complete bus
+transactions; it checks that inactive SPI/QSPI pins remain tri-stated after
+reset. Use the module-specific testbenches for transaction waveforms.</p><p class="meta">Artifacts: <a href="../../simulations/tb_radif_interfaces_smoke/simulation_status.json">status</a>, <a href="../../simulations/tb_radif_interfaces_smoke/tb_radif_interfaces_smoke.vcd">vcd</a></p><div class="wave"><h4>Captured GHDL Waveform</h4><p class="meta">Source: interfaces/hdl/radif/testbenches/tb_radif_interfaces_smoke.vhd</p><div class="wave-controls"><label>Horizontal <input class="wave-zoom-x" type="range" min="60" max="3000" value="100"></label><label>Vertical <input class="wave-zoom-y" type="range" min="70" max="260" value="100"></label></div><div class="wave-viewport"><div class="wave-stage" style="height:3326px"><div class="wave-label-pane" style="height:3326px"><div class="wave-label-row" style="top:39px;height:32px;line-height:32px">clk</div><div class="wave-label-row" style="top:73px;height:32px;line-height:32px">rstn</div><div class="wave-label-row" style="top:107px;height:32px;line-height:32px">dma_reg_wr_addr[15:0]</div><div class="wave-label-row" style="top:141px;height:32px;line-height:32px">dma_reg_rd_addr[15:0]</div><div class="wave-label-row" style="top:175px;height:32px;line-height:32px">dma_reg_wr_en</div><div class="wave-label-row" style="top:209px;height:32px;line-height:32px">dma_reg_rd_en</div><div class="wave-label-row" style="top:243px;height:32px;line-height:32px">dma_reg_din[31:0]</div><div class="wave-label-row" style="top:277px;height:32px;line-height:32px">dma_reg_dout[31:0]</div><div class="wave-label-row" style="top:311px;height:32px;line-height:32px">dma_wr_rdy</div><div class="wave-label-row" style="top:345px;height:32px;line-height:32px">dma_rd_rdy</div><div class="wave-label-row" style="top:379px;height:32px;line-height:32px">dma_wr_valid</div><div class="wave-label-row" style="top:413px;height:32px;line-height:32px">dma_rd_valid</div><div class="wave-label-row" style="top:447px;height:32px;line-height:32px">dma_error</div><div class="wave-label-row" style="top:481px;height:32px;line-height:32px">irq</div><div class="wave-label-row" style="top:515px;height:32px;line-height:32px">awaddr[31:0]</div><div class="wave-label-row" style="top:549px;height:32px;line-height:32px">awlen[7:0]</div><div class="wave-label-row" style="top:583px;height:32px;line-height:32px">awsize[2:0]</div><div class="wave-label-row" style="top:617px;height:32px;line-height:32px">awburst[1:0]</div><div class="wave-label-row" style="top:651px;height:32px;line-height:32px">awvalid</div><div class="wave-label-row" style="top:685px;height:32px;line-height:32px">wdata[31:0]</div><div class="wave-label-row" style="top:719px;height:32px;line-height:32px">wstrb[3:0]</div><div class="wave-label-row" style="top:753px;height:32px;line-height:32px">wlast</div><div class="wave-label-row" style="top:787px;height:32px;line-height:32px">wvalid</div><div class="wave-label-row" style="top:821px;height:32px;line-height:32px">araddr[31:0]</div><div class="wave-label-row" style="top:855px;height:32px;line-height:32px">arlen[7:0]</div><div class="wave-label-row" style="top:889px;height:32px;line-height:32px">arsize[2:0]</div><div class="wave-label-row" style="top:923px;height:32px;line-height:32px">arburst[1:0]</div><div class="wave-label-row" style="top:957px;height:32px;line-height:32px">arvalid</div><div class="wave-label-row" style="top:991px;height:32px;line-height:32px">rready</div><div class="wave-label-row" style="top:1025px;height:32px;line-height:32px">bready</div><div class="wave-label-row" style="top:1059px;height:32px;line-height:32px">m_tdata[31:0]</div><div class="wave-label-row" style="top:1093px;height:32px;line-height:32px">m_tvalid</div><div class="wave-label-row" style="top:1127px;height:32px;line-height:32px">m_tlast</div><div class="wave-label-row" style="top:1161px;height:32px;line-height:32px">s_tready</div><div class="wave-label-row" style="top:1195px;height:32px;line-height:32px">sa_awaddr[31:0]</div><div class="wave-label-row" style="top:1229px;height:32px;line-height:32px">sa_awlen[7:0]</div><div class="wave-label-row" style="top:1263px;height:32px;line-height:32px">sa_awsize[2:0]</div><div class="wave-label-row" style="top:1297px;height:32px;line-height:32px">sa_awburst[1:0]</div><div class="wave-label-row" style="top:1331px;height:32px;line-height:32px">sa_awvalid</div><div class="wave-label-row" style="top:1365px;height:32px;line-height:32px">sa_wdata[31:0]</div><div class="wave-label-row" style="top:1399px;height:32px;line-height:32px">sa_wstrb[3:0]</div><div class="wave-label-row" style="top:1433px;height:32px;line-height:32px">sa_wlast</div><div class="wave-label-row" style="top:1467px;height:32px;line-height:32px">sa_wvalid</div><div class="wave-label-row" style="top:1501px;height:32px;line-height:32px">sa_bready</div><div class="wave-label-row" style="top:1535px;height:32px;line-height:32px">sa_araddr[31:0]</div><div class="wave-label-row" style="top:1569px;height:32px;line-height:32px">sa_arlen[7:0]</div><div class="wave-label-row" style="top:1603px;height:32px;line-height:32px">sa_arsize[2:0]</div><div class="wave-label-row" style="top:1637px;height:32px;line-height:32px">sa_arburst[1:0]</div><div class="wave-label-row" style="top:1671px;height:32px;line-height:32px">sa_arvalid</div><div class="wave-label-row" style="top:1705px;height:32px;line-height:32px">sa_rready</div><div class="wave-label-row" style="top:1739px;height:32px;line-height:32px">reg_wr_addr[15:0]</div><div class="wave-label-row" style="top:1773px;height:32px;line-height:32px">reg_rd_addr[15:0]</div><div class="wave-label-row" style="top:1807px;height:32px;line-height:32px">reg_wr_en</div><div class="wave-label-row" style="top:1841px;height:32px;line-height:32px">reg_rd_en</div><div class="wave-label-row" style="top:1875px;height:32px;line-height:32px">reg_data_in[31:0]</div><div class="wave-label-row" style="top:1909px;height:32px;line-height:32px">reg_data_out[31:0]</div><div class="wave-label-row" style="top:1943px;height:32px;line-height:32px">reg_wr_rdy</div><div class="wave-label-row" style="top:1977px;height:32px;line-height:32px">reg_rd_rdy</div><div class="wave-label-row" style="top:2011px;height:32px;line-height:32px">reg_wr_valid</div><div class="wave-label-row" style="top:2045px;height:32px;line-height:32px">reg_rd_valid</div><div class="wave-label-row" style="top:2079px;height:32px;line-height:32px">reg_error</div><div class="wave-label-row" style="top:2113px;height:32px;line-height:32px">sclk_meta</div><div class="wave-label-row" style="top:2147px;height:32px;line-height:32px">sclk_sync</div><div class="wave-label-row" style="top:2181px;height:32px;line-height:32px">sclk_prev</div><div class="wave-label-row" style="top:2215px;height:32px;line-height:32px">cs_meta</div><div class="wave-label-row" style="top:2249px;height:32px;line-height:32px">cs_sync</div><div class="wave-label-row" style="top:2283px;height:32px;line-height:32px">mosi_meta</div><div class="wave-label-row" style="top:2317px;height:32px;line-height:32px">mosi_sync</div><div class="wave-label-row" style="top:2351px;height:32px;line-height:32px">rx_shift[7:0]</div><div class="wave-label-row" style="top:2385px;height:32px;line-height:32px">tx_shift[7:0]</div><div class="wave-label-row" style="top:2419px;height:32px;line-height:32px">bit_count[2:0]</div><div class="wave-label-row" style="top:2453px;height:32px;line-height:32px">op_r[7:0]</div><div class="wave-label-row" style="top:2487px;height:32px;line-height:32px">addr_r[15:0]</div><div class="wave-label-row" style="top:2521px;height:32px;line-height:32px">wr_data_r[31:0]</div><div class="wave-label-row" style="top:2555px;height:32px;line-height:32px">wr_addr_r[15:0]</div><div class="wave-label-row" style="top:2589px;height:32px;line-height:32px">rd_addr_r[15:0]</div><div class="wave-label-row" style="top:2623px;height:32px;line-height:32px">wr_en_r</div><div class="wave-label-row" style="top:2657px;height:32px;line-height:32px">rd_en_r</div><div class="wave-label-row" style="top:2691px;height:32px;line-height:32px">data_index</div><div class="wave-label-row" style="top:2725px;height:32px;line-height:32px">tx_word[31:0]</div><div class="wave-label-row" style="top:2759px;height:32px;line-height:32px">tx_index</div><div class="wave-label-row" style="top:2793px;height:32px;line-height:32px">status_r[7:0]</div><div class="wave-label-row" style="top:2827px;height:32px;line-height:32px">io_meta[3:0]</div><div class="wave-label-row" style="top:2861px;height:32px;line-height:32px">io_sync[3:0]</div><div class="wave-label-row" style="top:2895px;height:32px;line-height:32px">nibble_high</div><div class="wave-label-row" style="top:2929px;height:32px;line-height:32px">tx_active</div><div class="wave-label-row" style="top:2963px;height:32px;line-height:32px">scl_meta</div><div class="wave-label-row" style="top:2997px;height:32px;line-height:32px">scl_sync</div><div class="wave-label-row" style="top:3031px;height:32px;line-height:32px">scl_prev</div><div class="wave-label-row" style="top:3065px;height:32px;line-height:32px">sda_meta</div><div class="wave-label-row" style="top:3099px;height:32px;line-height:32px">sda_sync</div><div class="wave-label-row" style="top:3133px;height:32px;line-height:32px">sda_prev</div><div class="wave-label-row" style="top:3167px;height:32px;line-height:32px">sda_oen_r</div><div class="wave-label-row" style="top:3201px;height:32px;line-height:32px">byte_index</div><div class="wave-label-row" style="top:3235px;height:32px;line-height:32px">selected</div><div class="wave-label-row" style="top:3269px;height:32px;line-height:32px">irq_o</div></div><div class="wave-plot-pane" style="width:894px;min-width:894px;height:3326px"><canvas class="waveform-canvas" width="894" height="3326" aria-label="Captured GHDL Waveform"></canvas></div><span class="wave-hover-readout" hidden></span><script type="application/json" class="wave-data">{"title":"Captured GHDL Waveform","endTime":145000000,"basePlotWidth":894,"labelWidth":190,"top":34,"rowHeight":34,"traceHeight":16,"ticks":[{"time":5000000,"clock":true,"cycle":0,"tickLabel":"C0","label":"cycle 0"},{"time":15000000,"clock":true,"cycle":1,"tickLabel":"C1","label":"cycle 1"},{"time":25000000,"clock":true,"cycle":2,"tickLabel":"C2","label":"cycle 2"},{"time":35000000,"clock":true,"cycle":3,"tickLabel":"C3","label":"cycle 3"},{"time":45000000,"clock":true,"cycle":4,"tickLabel":"C4","label":"cycle 4"},{"time":55000000,"clock":true,"cycle":5,"tickLabel":"C5","label":"cycle 5"},{"time":65000000,"clock":true,"cycle":6,"tickLabel":"C6","label":"cycle 6"},{"time":75000000,"clock":true,"cycle":7,"tickLabel":"C7","label":"cycle 7"},{"time":85000000,"clock":true,"cycle":8,"tickLabel":"C8","label":"cycle 8"},{"time":95000000,"clock":true,"cycle":9,"tickLabel":"C9","label":"cycle 9"},{"time":105000000,"clock":true,"cycle":10,"tickLabel":"C10","label":"cycle 10"},{"time":115000000,"clock":true,"cycle":11,"tickLabel":"C11","label":"cycle 11"},{"time":125000000,"clock":true,"cycle":12,"tickLabel":"C12","label":"cycle 12"},{"time":135000000,"clock":true,"cycle":13,"tickLabel":"C13","label":"cycle 13"},{"time":145000000,"clock":true,"cycle":14,"tickLabel":"C14","label":"cycle 14"}],"signals":[{"name":"clk","kind":"signal","count":0,"scalar":true,"samples":[[0,"0"],[5000000,"1"],[10000000,"0"],[15000000,"1"],[20000000,"0"],[25000000,"1"],[30000000,"0"],[35000000,"1"],[40000000,"0"],[45000000,"1"],[50000000,"0"],[55000000,"1"],[60000000,"0"],[65000000,"1"],[70000000,"0"],[75000000,"1"],[80000000,"0"],[85000000,"1"],[90000000,"0"],[95000000,"1"],[100000000,"0"],[105000000,"1"],[110000000,"0"],[115000000,"1"],[120000000,"0"],[125000000,"1"],[130000000,"0"],[135000000,"1"],[140000000,"0"],[145000000,"1"]]},{"name":"rstn","kind":"signal","count":0,"scalar":true,"samples":[[0,"0"],[50000000,"1"]]},{"name":"dma_reg_wr_addr[15:0]","kind":"signal","count":0,"scalar":false,"samples":[[0,"0000000000000000"]]},{"name":"dma_reg_rd_addr[15:0]","kind":"signal","count":0,"scalar":false,"samples":[[0,"0000000000000000"]]},{"name":"dma_reg_wr_en","kind":"signal","count":0,"scalar":true,"samples":[[0,"0"]]},{"name":"dma_reg_rd_en","kind":"signal","count":0,"scalar":true,"samples":[[0,"0"]]},{"name":"dma_reg_din[31:0]","kind":"signal","count":0,"scalar":false,"samples":[[0,"00000000000000000000000000000000"]]},{"name":"dma_reg_dout[31:0]","kind":"signal","count":0,"scalar":false,"samples":[[0,"00000000000000000000000000000000"]]},{"name":"dma_wr_rdy","kind":"signal","count":0,"scalar":true,"samples":[[0,"1"]]},{"name":"dma_rd_rdy","kind":"signal","count":0,"scalar":true,"samples":[[0,"1"]]},{"name":"dma_wr_valid","kind":"signal","count":0,"scalar":true,"samples":[[0,"0"]]},{"name":"dma_rd_valid","kind":"signal","count":0,"scalar":true,"samples":[[0,"0"]]},{"name":"dma_error","kind":"signal","count":0,"scalar":true,"samples":[[0,"0"]]},{"name":"irq","kind":"signal","count":0,"scalar":true,"samples":[[0,"0"]]},{"name":"awaddr[31:0]","kind":"signal","count":0,"scalar":false,"samples":[[0,"00000000000000000000000000000000"]]},{"name":"awlen[7:0]","kind":"signal","count":0,"scalar":false,"samples":[[0,"00000000"]]},{"name":"awsize[2:0]","kind":"signal","count":0,"scalar":false,"samples":[[0,"010"]]},{"name":"awburst[1:0]","kind":"signal","count":0,"scalar":false,"samples":[[0,"01"]]},{"name":"awvalid","kind":"signal","count":0,"scalar":true,"samples":[[0,"0"]]},{"name":"wdata[31:0]","kind":"signal","count":0,"scalar":false,"samples":[[0,"00000000000000000000000000000000"]]},{"name":"wstrb[3:0]","kind":"signal","count":0,"scalar":false,"samples":[[0,"1111"]]},{"name":"wlast","kind":"signal","count":0,"scalar":true,"samples":[[0,"1"]]},{"name":"wvalid","kind":"signal","count":0,"scalar":true,"samples":[[0,"0"]]},{"name":"araddr[31:0]","kind":"signal","count":0,"scalar":false,"samples":[[0,"00000000000000000000000000000000"]]},{"name":"arlen[7:0]","kind":"signal","count":0,"scalar":false,"samples":[[0,"00000000"]]},{"name":"arsize[2:0]","kind":"signal","count":0,"scalar":false,"samples":[[0,"010"]]},{"name":"arburst[1:0]","kind":"signal","count":0,"scalar":false,"samples":[[0,"01"]]},{"name":"arvalid","kind":"signal","count":0,"scalar":true,"samples":[[0,"0"]]},{"name":"rready","kind":"signal","count":0,"scalar":true,"samples":[[0,"0"]]},{"name":"bready","kind":"signal","count":0,"scalar":true,"samples":[[0,"0"]]},{"name":"m_tdata[31:0]","kind":"signal","count":0,"scalar":false,"samples":[[0,"00000000000000000000000000000000"]]},{"name":"m_tvalid","kind":"signal","count":0,"scalar":true,"samples":[[0,"0"]]},{"name":"m_tlast","kind":"signal","count":0,"scalar":true,"samples":[[0,"0"]]},{"name":"s_tready","kind":"signal","count":0,"scalar":true,"samples":[[0,"0"]]},{"name":"sa_awaddr[31:0]","kind":"signal","count":0,"scalar":false,"samples":[[0,"00000000000000000000000000000000"]]},{"name":"sa_awlen[7:0]","kind":"signal","count":0,"scalar":false,"samples":[[0,"00000000"]]},{"name":"sa_awsize[2:0]","kind":"signal","count":0,"scalar":false,"samples":[[0,"010"]]},{"name":"sa_awburst[1:0]","kind":"signal","count":0,"scalar":false,"samples":[[0,"01"]]},{"name":"sa_awvalid","kind":"signal","count":0,"scalar":true,"samples":[[0,"0"]]},{"name":"sa_wdata[31:0]","kind":"signal","count":0,"scalar":false,"samples":[[0,"00000000000000000000000000000000"]]},{"name":"sa_wstrb[3:0]","kind":"signal","count":0,"scalar":false,"samples":[[0,"1111"]]},{"name":"sa_wlast","kind":"signal","count":0,"scalar":true,"samples":[[0,"1"]]},{"name":"sa_wvalid","kind":"signal","count":0,"scalar":true,"samples":[[0,"0"]]},{"name":"sa_bready","kind":"signal","count":0,"scalar":true,"samples":[[0,"0"]]},{"name":"sa_araddr[31:0]","kind":"signal","count":0,"scalar":false,"samples":[[0,"00000000000000000000000000000000"]]},{"name":"sa_arlen[7:0]","kind":"signal","count":0,"scalar":false,"samples":[[0,"00000000"]]},{"name":"sa_arsize[2:0]","kind":"signal","count":0,"scalar":false,"samples":[[0,"010"]]},{"name":"sa_arburst[1:0]","kind":"signal","count":0,"scalar":false,"samples":[[0,"01"]]},{"name":"sa_arvalid","kind":"signal","count":0,"scalar":true,"samples":[[0,"0"]]},{"name":"sa_rready","kind":"signal","count":0,"scalar":true,"samples":[[0,"0"]]},{"name":"reg_wr_addr[15:0]","kind":"signal","count":0,"scalar":false,"samples":[[0,"0000000000000000"]]},{"name":"reg_rd_addr[15:0]","kind":"signal","count":0,"scalar":false,"samples":[[0,"0000000000000000"]]},{"name":"reg_wr_en","kind":"signal","count":0,"scalar":true,"samples":[[0,"0"]]},{"name":"reg_rd_en","kind":"signal","count":0,"scalar":true,"samples":[[0,"0"]]},{"name":"reg_data_in[31:0]","kind":"signal","count":0,"scalar":false,"samples":[[0,"00000000000000000000000000000000"]]},{"name":"reg_data_out[31:0]","kind":"signal","count":0,"scalar":false,"samples":[[0,"00000001000000100000001100000100"]]},{"name":"reg_wr_rdy","kind":"signal","count":0,"scalar":true,"samples":[[0,"1"]]},{"name":"reg_rd_rdy","kind":"signal","count":0,"scalar":true,"samples":[[0,"1"]]},{"name":"reg_wr_valid","kind":"signal","count":0,"scalar":true,"samples":[[0,"0"]]},{"name":"reg_rd_valid","kind":"signal","count":0,"scalar":true,"samples":[[0,"0"]]},{"name":"reg_error","kind":"signal","count":0,"scalar":true,"samples":[[0,"0"]]},{"name":"sclk_meta","kind":"signal","count":0,"scalar":true,"samples":[[0,"0"]]},{"name":"sclk_sync","kind":"signal","count":0,"scalar":true,"samples":[[0,"0"]]},{"name":"sclk_prev","kind":"signal","count":0,"scalar":true,"samples":[[0,"0"]]},{"name":"cs_meta","kind":"signal","count":0,"scalar":true,"samples":[[0,"1"]]},{"name":"cs_sync","kind":"signal","count":0,"scalar":true,"samples":[[0,"1"]]},{"name":"mosi_meta","kind":"signal","count":0,"scalar":true,"samples":[[0,"0"]]},{"name":"mosi_sync","kind":"signal","count":0,"scalar":true,"samples":[[0,"0"]]},{"name":"rx_shift[7:0]","kind":"signal","count":0,"scalar":false,"samples":[[0,"00000000"]]},{"name":"tx_shift[7:0]","kind":"signal","count":0,"scalar":false,"samples":[[0,"00000000"]]},{"name":"bit_count[2:0]","kind":"signal","count":0,"scalar":false,"samples":[[0,"000"]]},{"name":"op_r[7:0]","kind":"signal","count":0,"scalar":false,"samples":[[0,"00000000"]]},{"name":"addr_r[15:0]","kind":"signal","count":0,"scalar":false,"samples":[[0,"0000000000000000"]]},{"name":"wr_data_r[31:0]","kind":"signal","count":0,"scalar":false,"samples":[[0,"00000000000000000000000000000000"]]},{"name":"wr_addr_r[15:0]","kind":"signal","count":0,"scalar":false,"samples":[[0,"0000000000000000"]]},{"name":"rd_addr_r[15:0]","kind":"signal","count":0,"scalar":false,"samples":[[0,"0000000000000000"]]},{"name":"wr_en_r","kind":"signal","count":0,"scalar":true,"samples":[[0,"0"]]},{"name":"rd_en_r","kind":"signal","count":0,"scalar":true,"samples":[[0,"0"]]},{"name":"data_index","kind":"signal","count":0,"scalar":true,"samples":[[0,"0"]]},{"name":"tx_word[31:0]","kind":"signal","count":0,"scalar":false,"samples":[[0,"00000000000000000000000000000000"]]},{"name":"tx_index","kind":"signal","count":0,"scalar":true,"samples":[[0,"0"]]},{"name":"status_r[7:0]","kind":"signal","count":0,"scalar":false,"samples":[[0,"00000000"]]},{"name":"io_meta[3:0]","kind":"signal","count":0,"scalar":false,"samples":[[0,"0000"]]},{"name":"io_sync[3:0]","kind":"signal","count":0,"scalar":false,"samples":[[0,"0000"]]},{"name":"nibble_high","kind":"signal","count":0,"scalar":true,"samples":[[0,"1"]]},{"name":"tx_active","kind":"signal","count":0,"scalar":true,"samples":[[0,"0"]]},{"name":"scl_meta","kind":"signal","count":0,"scalar":true,"samples":[[0,"1"]]},{"name":"scl_sync","kind":"signal","count":0,"scalar":true,"samples":[[0,"1"]]},{"name":"scl_prev","kind":"signal","count":0,"scalar":true,"samples":[[0,"1"]]},{"name":"sda_meta","kind":"signal","count":0,"scalar":true,"samples":[[0,"1"]]},{"name":"sda_sync","kind":"signal","count":0,"scalar":true,"samples":[[0,"1"]]},{"name":"sda_prev","kind":"signal","count":0,"scalar":true,"samples":[[0,"1"]]},{"name":"sda_oen_r","kind":"signal","count":0,"scalar":true,"samples":[[0,"1"]]},{"name":"byte_index","kind":"signal","count":0,"scalar":true,"samples":[[0,"0"]]},{"name":"selected","kind":"signal","count":0,"scalar":true,"samples":[[0,"0"]]},{"name":"irq_o","kind":"signal","count":0,"scalar":true,"samples":[[0,"0"]]}]}</script></div></div><script>
+(() => {
+  document.querySelectorAll(".wave").forEach((wave) => {
+    if (wave.dataset.ready === "1") return;
+    wave.dataset.ready = "1";
+    const zoomX = wave.querySelector(".wave-zoom-x");
+    const zoomY = wave.querySelector(".wave-zoom-y");
+    const viewport = wave.querySelector(".wave-viewport");
+    const stage = wave.querySelector(".wave-stage");
+    const canvas = wave.querySelector("canvas.waveform-canvas");
+    const plotPane = wave.querySelector(".wave-plot-pane");
+    const labelPane = wave.querySelector(".wave-label-pane");
+    const labelRows = Array.from(wave.querySelectorAll(".wave-label-row"));
+    const readout = wave.querySelector(".wave-hover-readout");
+    const dataNode = wave.querySelector("script.wave-data");
+    if (!viewport || !stage || !canvas || !plotPane || !labelPane || !dataNode) return;
+    let payload;
+    try {
+      payload = JSON.parse(dataNode.textContent || "{}");
+    } catch (_) {
+      return;
+    }
+    const ctx = canvas.getContext("2d");
+    if (!ctx) return;
+    const css = getComputedStyle(wave);
+    const colors = {
+      card: css.getPropertyValue("--card").trim() || "#111827",
+      line: css.getPropertyValue("--line").trim() || "#273244",
+      muted: css.getPropertyValue("--muted").trim() || "#93a4b8",
+      ink: css.getPropertyValue("--ink").trim() || "#e8eef7",
+      accent: css.getPropertyValue("--accent").trim() || "#62d6c7",
+      bus: "rgba(98, 214, 199, .14)",
+      iface: "rgba(139, 211, 255, .14)",
+      hover: "#ffd84d",
+      unknown: "#d59b35"
+    };
+    const fallbackPlotWidth = Number(payload.basePlotWidth || 894);
+    const labelWidth = Number(payload.labelWidth || 190);
+    const baseRowHeight = Number(payload.rowHeight || 34);
+    const top = Number(payload.top || 34);
+    const traceHeight = Number(payload.traceHeight || 16);
+    const endTime = Math.max(1, Number(payload.endTime || 1));
+    const signals = Array.isArray(payload.signals) ? payload.signals : [];
+    const ticks = Array.isArray(payload.ticks) ? payload.ticks : [];
+    const compactValue = (value) => {
+      const text = String(value || "").replaceAll("_", "");
+      if (!text) return "";
+      if (text.length > 8 && /^[01]+$/i.test(text)) return `0x${parseInt(text, 2).toString(16).toUpperCase()}`;
+      if (text.length > 18) return `${text.slice(0, 15)}...`;
+      return text.toUpperCase();
+    };
+    const isScalar = (signal) => signal.scalar === true;
+    const yForScalar = (value, highY, lowY) => {
+      const text = String(value || "").toLowerCase();
+      if (text === "1") return highY;
+      if (text === "0") return lowY;
+      return (highY + lowY) / 2;
+    };
+    let hoverTick = null;
+    const nearestTick = (x, plotWidth) => {
+      const snapTicks = ticks.length ? ticks : [{time: 0, label: "t=0"}, {time: endTime, label: `t=${endTime}`}];
+      let best = snapTicks[0];
+      let bestDistance = Infinity;
+      snapTicks.forEach((tick) => {
+        const tx = (Number(tick.time || 0) / endTime) * plotWidth;
+        const distance = Math.abs(tx - x);
+        if (distance < bestDistance) {
+          best = tick;
+          bestDistance = distance;
+        }
+      });
+      return best;
+    };
+    const draw = () => {
+      const valueX = zoomX ? Number(zoomX.value) / 100 : 1;
+      const valueY = zoomY ? Number(zoomY.value) / 100 : 1;
+      const visiblePlotWidth = Math.max(360, viewport.clientWidth - labelWidth);
+      const basePlotWidth = Math.max(fallbackPlotWidth, visiblePlotWidth);
+      const plotWidth = Math.max(240, basePlotWidth * valueX);
+      const rowHeight = Math.max(18, baseRowHeight * valueY);
+      const height = Math.ceil(top + (signals.length * rowHeight) + 28);
+      const dpr = window.devicePixelRatio || 1;
+      stage.style.width = `${labelWidth + plotWidth}px`;
+      stage.style.minWidth = `${labelWidth + plotWidth}px`;
+      stage.style.height = `${height}px`;
+      stage.style.gridTemplateColumns = `${labelWidth}px ${plotWidth}px`;
+      labelPane.style.width = `${labelWidth}px`;
+      labelPane.style.minWidth = `${labelWidth}px`;
+      plotPane.style.width = `${plotWidth}px`;
+      plotPane.style.minWidth = `${plotWidth}px`;
+      plotPane.style.height = `${height}px`;
+      labelPane.style.height = `${height}px`;
+      canvas.style.width = `${plotWidth}px`;
+      canvas.style.height = `${height}px`;
+      canvas.width = Math.max(1, Math.ceil(plotWidth * dpr));
+      canvas.height = Math.max(1, Math.ceil(height * dpr));
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      ctx.clearRect(0, 0, plotWidth, height);
+      ctx.fillStyle = colors.card;
+      ctx.fillRect(0, 0, plotWidth, height);
+      labelRows.forEach((row, index) => {
+        row.style.top = `${top + (index * rowHeight) + 5}px`;
+        row.style.height = `${Math.max(16, rowHeight - 2)}px`;
+        row.style.lineHeight = `${Math.max(16, rowHeight - 2)}px`;
+      });
+      ctx.font = "11px ui-monospace, SFMono-Regular, Menlo, Consolas, monospace";
+      ctx.textBaseline = "middle";
+      const minTickSpacing = valueX >= 20 ? 24 : valueX >= 12 ? 26 : valueX >= 8 ? 28 : valueX >= 4 ? 34 : valueX >= 2.8 ? 42 : valueX >= 1.7 ? 54 : 88;
+      let lastTickX = -Infinity;
+      ticks.forEach((tick, index) => {
+        const x = (Number(tick.time || 0) / endTime) * plotWidth;
+        ctx.strokeStyle = colors.line;
+        ctx.globalAlpha = tick.clock ? 0.45 : 0.62;
+        ctx.beginPath();
+        ctx.moveTo(x, 20);
+        ctx.lineTo(x, height - 18);
+        ctx.stroke();
+        ctx.globalAlpha = 1;
+        if (x - lastTickX >= minTickSpacing) {
+          ctx.fillStyle = colors.muted;
+          ctx.fillText(String(tick.tickLabel || tick.label || index), x + 3, 14);
+          lastTickX = x;
+        }
+      });
+      signals.forEach((signal, index) => {
+        const rowY = top + (index * rowHeight);
+        const traceY = rowY + Math.max(3, rowHeight * 0.12);
+        const traceH = Math.min(traceHeight, Math.max(10, rowHeight * 0.48));
+        const lowY = traceY + traceH;
+        const highY = traceY;
+        ctx.strokeStyle = colors.line;
+        ctx.globalAlpha = 1;
+        ctx.beginPath();
+        ctx.moveTo(0, lowY);
+        ctx.lineTo(plotWidth, lowY);
+        ctx.stroke();
+        const samples = Array.isArray(signal.samples) ? signal.samples : [];
+        if (signal.kind === "interface") {
+          ctx.fillStyle = colors.iface;
+          ctx.strokeStyle = "#8bd3ff";
+          ctx.lineWidth = 1.2;
+          ctx.fillRect(0, traceY - 1, plotWidth, traceH + 2);
+          ctx.strokeRect(0, traceY - 1, plotWidth, traceH + 2);
+          ctx.fillStyle = colors.ink;
+          ctx.font = "12px ui-monospace, SFMono-Regular, Menlo, Consolas, monospace";
+          ctx.fillText(`${signal.name} interface (${signal.count || 0} signals)`, 8, traceY + (traceH / 2));
+          return;
+        }
+        if (!samples.length) return;
+        if (isScalar(signal)) {
+          let unknown = false;
+          ctx.beginPath();
+          samples.forEach((sample, sampleIndex) => {
+            const x = (Number(sample[0] || 0) / endTime) * plotWidth;
+            const y = yForScalar(sample[1], highY, lowY);
+            unknown = unknown || !["0", "1"].includes(String(sample[1]).toLowerCase());
+            if (sampleIndex === 0) {
+              ctx.moveTo(x, y);
+            } else {
+              const previous = samples[sampleIndex - 1];
+              const previousY = yForScalar(previous[1], highY, lowY);
+              ctx.lineTo(x, previousY);
+              ctx.lineTo(x, y);
+            }
+          });
+          const last = samples[samples.length - 1];
+          ctx.lineTo(plotWidth, yForScalar(last[1], highY, lowY));
+          ctx.strokeStyle = unknown ? colors.unknown : colors.accent;
+          ctx.lineWidth = 2.2;
+          ctx.stroke();
+          return;
+        }
+        ctx.font = "11px ui-monospace, SFMono-Regular, Menlo, Consolas, monospace";
+        samples.forEach((sample, sampleIndex) => {
+          const next = samples[sampleIndex + 1];
+          const x1 = (Number(sample[0] || 0) / endTime) * plotWidth;
+          const x2 = next ? (Number(next[0] || 0) / endTime) * plotWidth : plotWidth;
+          const width = Math.max(3, x2 - x1);
+          ctx.fillStyle = colors.bus;
+          ctx.strokeStyle = colors.accent;
+          ctx.lineWidth = 1.1;
+          ctx.fillRect(x1, traceY, width, traceH);
+          ctx.strokeRect(x1, traceY, width, traceH);
+          if (width >= 38) {
+            ctx.fillStyle = colors.ink;
+            ctx.fillText(compactValue(sample[1]), x1 + 5, traceY + (traceH / 2));
+          }
+        });
+      });
+      if (hoverTick) {
+        const x = (Number(hoverTick.time || 0) / endTime) * plotWidth;
+        ctx.strokeStyle = colors.hover;
+        ctx.lineWidth = 2;
+        ctx.beginPath();
+        ctx.moveTo(x, 20);
+        ctx.lineTo(x, height - 18);
+        ctx.stroke();
+        if (readout) {
+          readout.hidden = false;
+          readout.textContent = hoverTick.label || `t=${hoverTick.time}`;
+        }
+      } else if (readout) {
+        readout.hidden = true;
+      }
+    };
+    draw();
+    if (zoomX) zoomX.addEventListener("input", draw);
+    if (zoomY) zoomY.addEventListener("input", draw);
+    canvas.addEventListener("mousemove", (event) => {
+      const rect = canvas.getBoundingClientRect();
+      const x = event.clientX - rect.left;
+      hoverTick = nearestTick(x, rect.width);
+      draw();
+    });
+    canvas.addEventListener("mouseleave", () => {
+      hoverTick = null;
+      draw();
+    });
+    window.addEventListener("resize", draw);
+  });
+})();
+</script></div><details class="wave-group"><summary>I2C interface signals</summary><div class="wave-group-body"><div class="wave"><h4>I2C Interface Waveform</h4><p class="meta">Source: interfaces/hdl/radif/testbenches/tb_radif_interfaces_smoke.vhd</p><div class="wave-controls"><label>Horizontal <input class="wave-zoom-x" type="range" min="60" max="3000" value="100"></label><label>Vertical <input class="wave-zoom-y" type="range" min="70" max="260" value="100"></label></div><div class="wave-viewport"><div class="wave-stage" style="height:538px"><div class="wave-label-pane" style="height:538px"><div class="wave-label-row" style="top:39px;height:32px;line-height:32px">i2c_scl</div><div class="wave-label-row" style="top:73px;height:32px;line-height:32px">i2c_sda</div><div class="wave-label-row" style="top:107px;height:32px;line-height:32px">i2c_oen</div><div class="wave-label-row" style="top:141px;height:32px;line-height:32px">i2c_wr_addr[15:0]</div><div class="wave-label-row" style="top:175px;height:32px;line-height:32px">i2c_rd_addr[15:0]</div><div class="wave-label-row" style="top:209px;height:32px;line-height:32px">i2c_wr_en</div><div class="wave-label-row" style="top:243px;height:32px;line-height:32px">i2c_rd_en</div><div class="wave-label-row" style="top:277px;height:32px;line-height:32px">i2c_din[31:0]</div><div class="wave-label-row" style="top:311px;height:32px;line-height:32px">i2c_dout[31:0]</div><div class="wave-label-row" style="top:345px;height:32px;line-height:32px">i2c_wr_valid</div><div class="wave-label-row" style="top:379px;height:32px;line-height:32px">i2c_rd_valid</div><div class="wave-label-row" style="top:413px;height:32px;line-height:32px">i2c_scl_i</div><div class="wave-label-row" style="top:447px;height:32px;line-height:32px">i2c_sda_i</div><div class="wave-label-row" style="top:481px;height:32px;line-height:32px">i2c_sda_oen</div></div><div class="wave-plot-pane" style="width:894px;min-width:894px;height:538px"><canvas class="waveform-canvas" width="894" height="538" aria-label="I2C Interface Waveform"></canvas></div><span class="wave-hover-readout" hidden></span><script type="application/json" class="wave-data">{"title":"I2C Interface Waveform","endTime":145000000,"basePlotWidth":894,"labelWidth":190,"top":34,"rowHeight":34,"traceHeight":16,"ticks":[{"time":5000000,"clock":true,"cycle":0,"tickLabel":"C0","label":"cycle 0"},{"time":15000000,"clock":true,"cycle":1,"tickLabel":"C1","label":"cycle 1"},{"time":25000000,"clock":true,"cycle":2,"tickLabel":"C2","label":"cycle 2"},{"time":35000000,"clock":true,"cycle":3,"tickLabel":"C3","label":"cycle 3"},{"time":45000000,"clock":true,"cycle":4,"tickLabel":"C4","label":"cycle 4"},{"time":55000000,"clock":true,"cycle":5,"tickLabel":"C5","label":"cycle 5"},{"time":65000000,"clock":true,"cycle":6,"tickLabel":"C6","label":"cycle 6"},{"time":75000000,"clock":true,"cycle":7,"tickLabel":"C7","label":"cycle 7"},{"time":85000000,"clock":true,"cycle":8,"tickLabel":"C8","label":"cycle 8"},{"time":95000000,"clock":true,"cycle":9,"tickLabel":"C9","label":"cycle 9"},{"time":105000000,"clock":true,"cycle":10,"tickLabel":"C10","label":"cycle 10"},{"time":115000000,"clock":true,"cycle":11,"tickLabel":"C11","label":"cycle 11"},{"time":125000000,"clock":true,"cycle":12,"tickLabel":"C12","label":"cycle 12"},{"time":135000000,"clock":true,"cycle":13,"tickLabel":"C13","label":"cycle 13"},{"time":145000000,"clock":true,"cycle":14,"tickLabel":"C14","label":"cycle 14"}],"signals":[{"name":"i2c_scl","kind":"signal","count":0,"scalar":true,"samples":[[0,"1"]]},{"name":"i2c_sda","kind":"signal","count":0,"scalar":true,"samples":[[0,"1"]]},{"name":"i2c_oen","kind":"signal","count":0,"scalar":true,"samples":[[0,"1"]]},{"name":"i2c_wr_addr[15:0]","kind":"signal","count":0,"scalar":false,"samples":[[0,"0000000000000000"]]},{"name":"i2c_rd_addr[15:0]","kind":"signal","count":0,"scalar":false,"samples":[[0,"0000000000000000"]]},{"name":"i2c_wr_en","kind":"signal","count":0,"scalar":true,"samples":[[0,"0"]]},{"name":"i2c_rd_en","kind":"signal","count":0,"scalar":true,"samples":[[0,"0"]]},{"name":"i2c_din[31:0]","kind":"signal","count":0,"scalar":false,"samples":[[0,"00000000000000000000000000000000"]]},{"name":"i2c_dout[31:0]","kind":"signal","count":0,"scalar":false,"samples":[[0,"01010101011001100111011110001000"]]},{"name":"i2c_wr_valid","kind":"signal","count":0,"scalar":true,"samples":[[0,"0"]]},{"name":"i2c_rd_valid","kind":"signal","count":0,"scalar":true,"samples":[[0,"0"]]},{"name":"i2c_scl_i","kind":"signal","count":0,"scalar":true,"samples":[[0,"1"]]},{"name":"i2c_sda_i","kind":"signal","count":0,"scalar":true,"samples":[[0,"1"]]},{"name":"i2c_sda_oen","kind":"signal","count":0,"scalar":true,"samples":[[0,"1"]]}]}</script></div></div><script>
+(() => {
+  document.querySelectorAll(".wave").forEach((wave) => {
+    if (wave.dataset.ready === "1") return;
+    wave.dataset.ready = "1";
+    const zoomX = wave.querySelector(".wave-zoom-x");
+    const zoomY = wave.querySelector(".wave-zoom-y");
+    const viewport = wave.querySelector(".wave-viewport");
+    const stage = wave.querySelector(".wave-stage");
+    const canvas = wave.querySelector("canvas.waveform-canvas");
+    const plotPane = wave.querySelector(".wave-plot-pane");
+    const labelPane = wave.querySelector(".wave-label-pane");
+    const labelRows = Array.from(wave.querySelectorAll(".wave-label-row"));
+    const readout = wave.querySelector(".wave-hover-readout");
+    const dataNode = wave.querySelector("script.wave-data");
+    if (!viewport || !stage || !canvas || !plotPane || !labelPane || !dataNode) return;
+    let payload;
+    try {
+      payload = JSON.parse(dataNode.textContent || "{}");
+    } catch (_) {
+      return;
+    }
+    const ctx = canvas.getContext("2d");
+    if (!ctx) return;
+    const css = getComputedStyle(wave);
+    const colors = {
+      card: css.getPropertyValue("--card").trim() || "#111827",
+      line: css.getPropertyValue("--line").trim() || "#273244",
+      muted: css.getPropertyValue("--muted").trim() || "#93a4b8",
+      ink: css.getPropertyValue("--ink").trim() || "#e8eef7",
+      accent: css.getPropertyValue("--accent").trim() || "#62d6c7",
+      bus: "rgba(98, 214, 199, .14)",
+      iface: "rgba(139, 211, 255, .14)",
+      hover: "#ffd84d",
+      unknown: "#d59b35"
+    };
+    const fallbackPlotWidth = Number(payload.basePlotWidth || 894);
+    const labelWidth = Number(payload.labelWidth || 190);
+    const baseRowHeight = Number(payload.rowHeight || 34);
+    const top = Number(payload.top || 34);
+    const traceHeight = Number(payload.traceHeight || 16);
+    const endTime = Math.max(1, Number(payload.endTime || 1));
+    const signals = Array.isArray(payload.signals) ? payload.signals : [];
+    const ticks = Array.isArray(payload.ticks) ? payload.ticks : [];
+    const compactValue = (value) => {
+      const text = String(value || "").replaceAll("_", "");
+      if (!text) return "";
+      if (text.length > 8 && /^[01]+$/i.test(text)) return `0x${parseInt(text, 2).toString(16).toUpperCase()}`;
+      if (text.length > 18) return `${text.slice(0, 15)}...`;
+      return text.toUpperCase();
+    };
+    const isScalar = (signal) => signal.scalar === true;
+    const yForScalar = (value, highY, lowY) => {
+      const text = String(value || "").toLowerCase();
+      if (text === "1") return highY;
+      if (text === "0") return lowY;
+      return (highY + lowY) / 2;
+    };
+    let hoverTick = null;
+    const nearestTick = (x, plotWidth) => {
+      const snapTicks = ticks.length ? ticks : [{time: 0, label: "t=0"}, {time: endTime, label: `t=${endTime}`}];
+      let best = snapTicks[0];
+      let bestDistance = Infinity;
+      snapTicks.forEach((tick) => {
+        const tx = (Number(tick.time || 0) / endTime) * plotWidth;
+        const distance = Math.abs(tx - x);
+        if (distance < bestDistance) {
+          best = tick;
+          bestDistance = distance;
+        }
+      });
+      return best;
+    };
+    const draw = () => {
+      const valueX = zoomX ? Number(zoomX.value) / 100 : 1;
+      const valueY = zoomY ? Number(zoomY.value) / 100 : 1;
+      const visiblePlotWidth = Math.max(360, viewport.clientWidth - labelWidth);
+      const basePlotWidth = Math.max(fallbackPlotWidth, visiblePlotWidth);
+      const plotWidth = Math.max(240, basePlotWidth * valueX);
+      const rowHeight = Math.max(18, baseRowHeight * valueY);
+      const height = Math.ceil(top + (signals.length * rowHeight) + 28);
+      const dpr = window.devicePixelRatio || 1;
+      stage.style.width = `${labelWidth + plotWidth}px`;
+      stage.style.minWidth = `${labelWidth + plotWidth}px`;
+      stage.style.height = `${height}px`;
+      stage.style.gridTemplateColumns = `${labelWidth}px ${plotWidth}px`;
+      labelPane.style.width = `${labelWidth}px`;
+      labelPane.style.minWidth = `${labelWidth}px`;
+      plotPane.style.width = `${plotWidth}px`;
+      plotPane.style.minWidth = `${plotWidth}px`;
+      plotPane.style.height = `${height}px`;
+      labelPane.style.height = `${height}px`;
+      canvas.style.width = `${plotWidth}px`;
+      canvas.style.height = `${height}px`;
+      canvas.width = Math.max(1, Math.ceil(plotWidth * dpr));
+      canvas.height = Math.max(1, Math.ceil(height * dpr));
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      ctx.clearRect(0, 0, plotWidth, height);
+      ctx.fillStyle = colors.card;
+      ctx.fillRect(0, 0, plotWidth, height);
+      labelRows.forEach((row, index) => {
+        row.style.top = `${top + (index * rowHeight) + 5}px`;
+        row.style.height = `${Math.max(16, rowHeight - 2)}px`;
+        row.style.lineHeight = `${Math.max(16, rowHeight - 2)}px`;
+      });
+      ctx.font = "11px ui-monospace, SFMono-Regular, Menlo, Consolas, monospace";
+      ctx.textBaseline = "middle";
+      const minTickSpacing = valueX >= 20 ? 24 : valueX >= 12 ? 26 : valueX >= 8 ? 28 : valueX >= 4 ? 34 : valueX >= 2.8 ? 42 : valueX >= 1.7 ? 54 : 88;
+      let lastTickX = -Infinity;
+      ticks.forEach((tick, index) => {
+        const x = (Number(tick.time || 0) / endTime) * plotWidth;
+        ctx.strokeStyle = colors.line;
+        ctx.globalAlpha = tick.clock ? 0.45 : 0.62;
+        ctx.beginPath();
+        ctx.moveTo(x, 20);
+        ctx.lineTo(x, height - 18);
+        ctx.stroke();
+        ctx.globalAlpha = 1;
+        if (x - lastTickX >= minTickSpacing) {
+          ctx.fillStyle = colors.muted;
+          ctx.fillText(String(tick.tickLabel || tick.label || index), x + 3, 14);
+          lastTickX = x;
+        }
+      });
+      signals.forEach((signal, index) => {
+        const rowY = top + (index * rowHeight);
+        const traceY = rowY + Math.max(3, rowHeight * 0.12);
+        const traceH = Math.min(traceHeight, Math.max(10, rowHeight * 0.48));
+        const lowY = traceY + traceH;
+        const highY = traceY;
+        ctx.strokeStyle = colors.line;
+        ctx.globalAlpha = 1;
+        ctx.beginPath();
+        ctx.moveTo(0, lowY);
+        ctx.lineTo(plotWidth, lowY);
+        ctx.stroke();
+        const samples = Array.isArray(signal.samples) ? signal.samples : [];
+        if (signal.kind === "interface") {
+          ctx.fillStyle = colors.iface;
+          ctx.strokeStyle = "#8bd3ff";
+          ctx.lineWidth = 1.2;
+          ctx.fillRect(0, traceY - 1, plotWidth, traceH + 2);
+          ctx.strokeRect(0, traceY - 1, plotWidth, traceH + 2);
+          ctx.fillStyle = colors.ink;
+          ctx.font = "12px ui-monospace, SFMono-Regular, Menlo, Consolas, monospace";
+          ctx.fillText(`${signal.name} interface (${signal.count || 0} signals)`, 8, traceY + (traceH / 2));
+          return;
+        }
+        if (!samples.length) return;
+        if (isScalar(signal)) {
+          let unknown = false;
+          ctx.beginPath();
+          samples.forEach((sample, sampleIndex) => {
+            const x = (Number(sample[0] || 0) / endTime) * plotWidth;
+            const y = yForScalar(sample[1], highY, lowY);
+            unknown = unknown || !["0", "1"].includes(String(sample[1]).toLowerCase());
+            if (sampleIndex === 0) {
+              ctx.moveTo(x, y);
+            } else {
+              const previous = samples[sampleIndex - 1];
+              const previousY = yForScalar(previous[1], highY, lowY);
+              ctx.lineTo(x, previousY);
+              ctx.lineTo(x, y);
+            }
+          });
+          const last = samples[samples.length - 1];
+          ctx.lineTo(plotWidth, yForScalar(last[1], highY, lowY));
+          ctx.strokeStyle = unknown ? colors.unknown : colors.accent;
+          ctx.lineWidth = 2.2;
+          ctx.stroke();
+          return;
+        }
+        ctx.font = "11px ui-monospace, SFMono-Regular, Menlo, Consolas, monospace";
+        samples.forEach((sample, sampleIndex) => {
+          const next = samples[sampleIndex + 1];
+          const x1 = (Number(sample[0] || 0) / endTime) * plotWidth;
+          const x2 = next ? (Number(next[0] || 0) / endTime) * plotWidth : plotWidth;
+          const width = Math.max(3, x2 - x1);
+          ctx.fillStyle = colors.bus;
+          ctx.strokeStyle = colors.accent;
+          ctx.lineWidth = 1.1;
+          ctx.fillRect(x1, traceY, width, traceH);
+          ctx.strokeRect(x1, traceY, width, traceH);
+          if (width >= 38) {
+            ctx.fillStyle = colors.ink;
+            ctx.fillText(compactValue(sample[1]), x1 + 5, traceY + (traceH / 2));
+          }
+        });
+      });
+      if (hoverTick) {
+        const x = (Number(hoverTick.time || 0) / endTime) * plotWidth;
+        ctx.strokeStyle = colors.hover;
+        ctx.lineWidth = 2;
+        ctx.beginPath();
+        ctx.moveTo(x, 20);
+        ctx.lineTo(x, height - 18);
+        ctx.stroke();
+        if (readout) {
+          readout.hidden = false;
+          readout.textContent = hoverTick.label || `t=${hoverTick.time}`;
+        }
+      } else if (readout) {
+        readout.hidden = true;
+      }
+    };
+    draw();
+    if (zoomX) zoomX.addEventListener("input", draw);
+    if (zoomY) zoomY.addEventListener("input", draw);
+    canvas.addEventListener("mousemove", (event) => {
+      const rect = canvas.getBoundingClientRect();
+      const x = event.clientX - rect.left;
+      hoverTick = nearestTick(x, rect.width);
+      draw();
+    });
+    canvas.addEventListener("mouseleave", () => {
+      hoverTick = null;
+      draw();
+    });
+    window.addEventListener("resize", draw);
+  });
+})();
+</script></div></div></details><details class="wave-group"><summary>M_AXI interface signals</summary><div class="wave-group-body"><div class="wave"><h4>M_AXI Interface Waveform</h4><p class="meta">Source: interfaces/hdl/radif/testbenches/tb_radif_interfaces_smoke.vhd</p><div class="wave-controls"><label>Horizontal <input class="wave-zoom-x" type="range" min="60" max="3000" value="100"></label><label>Vertical <input class="wave-zoom-y" type="range" min="70" max="260" value="100"></label></div><div class="wave-viewport"><div class="wave-stage" style="height:912px"><div class="wave-label-pane" style="height:912px"><div class="wave-label-row" style="top:39px;height:32px;line-height:32px">m_axi_awaddr[31:0]</div><div class="wave-label-row" style="top:73px;height:32px;line-height:32px">m_axi_awlen[7:0]</div><div class="wave-label-row" style="top:107px;height:32px;line-height:32px">m_axi_awsize[2:0]</div><div class="wave-label-row" style="top:141px;height:32px;line-height:32px">m_axi_awburst[1:0]</div><div class="wave-label-row" style="top:175px;height:32px;line-height:32px">m_axi_awvalid</div><div class="wave-label-row" style="top:209px;height:32px;line-height:32px">m_axi_awready</div><div class="wave-label-row" style="top:243px;height:32px;line-height:32px">m_axi_wdata[31:0]</div><div class="wave-label-row" style="top:277px;height:32px;line-height:32px">m_axi_wstrb[3:0]</div><div class="wave-label-row" style="top:311px;height:32px;line-height:32px">m_axi_wlast</div><div class="wave-label-row" style="top:345px;height:32px;line-height:32px">m_axi_wvalid</div><div class="wave-label-row" style="top:379px;height:32px;line-height:32px">m_axi_wready</div><div class="wave-label-row" style="top:413px;height:32px;line-height:32px">m_axi_bresp[1:0]</div><div class="wave-label-row" style="top:447px;height:32px;line-height:32px">m_axi_bvalid</div><div class="wave-label-row" style="top:481px;height:32px;line-height:32px">m_axi_bready</div><div class="wave-label-row" style="top:515px;height:32px;line-height:32px">m_axi_araddr[31:0]</div><div class="wave-label-row" style="top:549px;height:32px;line-height:32px">m_axi_arlen[7:0]</div><div class="wave-label-row" style="top:583px;height:32px;line-height:32px">m_axi_arsize[2:0]</div><div class="wave-label-row" style="top:617px;height:32px;line-height:32px">m_axi_arburst[1:0]</div><div class="wave-label-row" style="top:651px;height:32px;line-height:32px">m_axi_arvalid</div><div class="wave-label-row" style="top:685px;height:32px;line-height:32px">m_axi_arready</div><div class="wave-label-row" style="top:719px;height:32px;line-height:32px">m_axi_rdata[31:0]</div><div class="wave-label-row" style="top:753px;height:32px;line-height:32px">m_axi_rresp[1:0]</div><div class="wave-label-row" style="top:787px;height:32px;line-height:32px">m_axi_rlast</div><div class="wave-label-row" style="top:821px;height:32px;line-height:32px">m_axi_rvalid</div><div class="wave-label-row" style="top:855px;height:32px;line-height:32px">m_axi_rready</div></div><div class="wave-plot-pane" style="width:894px;min-width:894px;height:912px"><canvas class="waveform-canvas" width="894" height="912" aria-label="M_AXI Interface Waveform"></canvas></div><span class="wave-hover-readout" hidden></span><script type="application/json" class="wave-data">{"title":"M_AXI Interface Waveform","endTime":145000000,"basePlotWidth":894,"labelWidth":190,"top":34,"rowHeight":34,"traceHeight":16,"ticks":[{"time":5000000,"clock":true,"cycle":0,"tickLabel":"C0","label":"cycle 0"},{"time":15000000,"clock":true,"cycle":1,"tickLabel":"C1","label":"cycle 1"},{"time":25000000,"clock":true,"cycle":2,"tickLabel":"C2","label":"cycle 2"},{"time":35000000,"clock":true,"cycle":3,"tickLabel":"C3","label":"cycle 3"},{"time":45000000,"clock":true,"cycle":4,"tickLabel":"C4","label":"cycle 4"},{"time":55000000,"clock":true,"cycle":5,"tickLabel":"C5","label":"cycle 5"},{"time":65000000,"clock":true,"cycle":6,"tickLabel":"C6","label":"cycle 6"},{"time":75000000,"clock":true,"cycle":7,"tickLabel":"C7","label":"cycle 7"},{"time":85000000,"clock":true,"cycle":8,"tickLabel":"C8","label":"cycle 8"},{"time":95000000,"clock":true,"cycle":9,"tickLabel":"C9","label":"cycle 9"},{"time":105000000,"clock":true,"cycle":10,"tickLabel":"C10","label":"cycle 10"},{"time":115000000,"clock":true,"cycle":11,"tickLabel":"C11","label":"cycle 11"},{"time":125000000,"clock":true,"cycle":12,"tickLabel":"C12","label":"cycle 12"},{"time":135000000,"clock":true,"cycle":13,"tickLabel":"C13","label":"cycle 13"},{"time":145000000,"clock":true,"cycle":14,"tickLabel":"C14","label":"cycle 14"}],"signals":[{"name":"m_axi_awaddr[31:0]","kind":"signal","count":0,"scalar":false,"samples":[[0,"00000000000000000000000000000000"]]},{"name":"m_axi_awlen[7:0]","kind":"signal","count":0,"scalar":false,"samples":[[0,"00000000"]]},{"name":"m_axi_awsize[2:0]","kind":"signal","count":0,"scalar":false,"samples":[[0,"010"]]},{"name":"m_axi_awburst[1:0]","kind":"signal","count":0,"scalar":false,"samples":[[0,"01"]]},{"name":"m_axi_awvalid","kind":"signal","count":0,"scalar":true,"samples":[[0,"0"]]},{"name":"m_axi_awready","kind":"signal","count":0,"scalar":true,"samples":[[0,"1"]]},{"name":"m_axi_wdata[31:0]","kind":"signal","count":0,"scalar":false,"samples":[[0,"00000000000000000000000000000000"]]},{"name":"m_axi_wstrb[3:0]","kind":"signal","count":0,"scalar":false,"samples":[[0,"1111"]]},{"name":"m_axi_wlast","kind":"signal","count":0,"scalar":true,"samples":[[0,"1"]]},{"name":"m_axi_wvalid","kind":"signal","count":0,"scalar":true,"samples":[[0,"0"]]},{"name":"m_axi_wready","kind":"signal","count":0,"scalar":true,"samples":[[0,"1"]]},{"name":"m_axi_bresp[1:0]","kind":"signal","count":0,"scalar":false,"samples":[[0,"00"]]},{"name":"m_axi_bvalid","kind":"signal","count":0,"scalar":true,"samples":[[0,"0"]]},{"name":"m_axi_bready","kind":"signal","count":0,"scalar":true,"samples":[[0,"0"]]},{"name":"m_axi_araddr[31:0]","kind":"signal","count":0,"scalar":false,"samples":[[0,"00000000000000000000000000000000"]]},{"name":"m_axi_arlen[7:0]","kind":"signal","count":0,"scalar":false,"samples":[[0,"00000000"]]},{"name":"m_axi_arsize[2:0]","kind":"signal","count":0,"scalar":false,"samples":[[0,"010"]]},{"name":"m_axi_arburst[1:0]","kind":"signal","count":0,"scalar":false,"samples":[[0,"01"]]},{"name":"m_axi_arvalid","kind":"signal","count":0,"scalar":true,"samples":[[0,"0"]]},{"name":"m_axi_arready","kind":"signal","count":0,"scalar":true,"samples":[[0,"1"]]},{"name":"m_axi_rdata[31:0]","kind":"signal","count":0,"scalar":false,"samples":[[0,"00000000000000000000000000000000"]]},{"name":"m_axi_rresp[1:0]","kind":"signal","count":0,"scalar":false,"samples":[[0,"00"]]},{"name":"m_axi_rlast","kind":"signal","count":0,"scalar":true,"samples":[[0,"1"]]},{"name":"m_axi_rvalid","kind":"signal","count":0,"scalar":true,"samples":[[0,"0"]]},{"name":"m_axi_rready","kind":"signal","count":0,"scalar":true,"samples":[[0,"0"]]}]}</script></div></div><script>
+(() => {
+  document.querySelectorAll(".wave").forEach((wave) => {
+    if (wave.dataset.ready === "1") return;
+    wave.dataset.ready = "1";
+    const zoomX = wave.querySelector(".wave-zoom-x");
+    const zoomY = wave.querySelector(".wave-zoom-y");
+    const viewport = wave.querySelector(".wave-viewport");
+    const stage = wave.querySelector(".wave-stage");
+    const canvas = wave.querySelector("canvas.waveform-canvas");
+    const plotPane = wave.querySelector(".wave-plot-pane");
+    const labelPane = wave.querySelector(".wave-label-pane");
+    const labelRows = Array.from(wave.querySelectorAll(".wave-label-row"));
+    const readout = wave.querySelector(".wave-hover-readout");
+    const dataNode = wave.querySelector("script.wave-data");
+    if (!viewport || !stage || !canvas || !plotPane || !labelPane || !dataNode) return;
+    let payload;
+    try {
+      payload = JSON.parse(dataNode.textContent || "{}");
+    } catch (_) {
+      return;
+    }
+    const ctx = canvas.getContext("2d");
+    if (!ctx) return;
+    const css = getComputedStyle(wave);
+    const colors = {
+      card: css.getPropertyValue("--card").trim() || "#111827",
+      line: css.getPropertyValue("--line").trim() || "#273244",
+      muted: css.getPropertyValue("--muted").trim() || "#93a4b8",
+      ink: css.getPropertyValue("--ink").trim() || "#e8eef7",
+      accent: css.getPropertyValue("--accent").trim() || "#62d6c7",
+      bus: "rgba(98, 214, 199, .14)",
+      iface: "rgba(139, 211, 255, .14)",
+      hover: "#ffd84d",
+      unknown: "#d59b35"
+    };
+    const fallbackPlotWidth = Number(payload.basePlotWidth || 894);
+    const labelWidth = Number(payload.labelWidth || 190);
+    const baseRowHeight = Number(payload.rowHeight || 34);
+    const top = Number(payload.top || 34);
+    const traceHeight = Number(payload.traceHeight || 16);
+    const endTime = Math.max(1, Number(payload.endTime || 1));
+    const signals = Array.isArray(payload.signals) ? payload.signals : [];
+    const ticks = Array.isArray(payload.ticks) ? payload.ticks : [];
+    const compactValue = (value) => {
+      const text = String(value || "").replaceAll("_", "");
+      if (!text) return "";
+      if (text.length > 8 && /^[01]+$/i.test(text)) return `0x${parseInt(text, 2).toString(16).toUpperCase()}`;
+      if (text.length > 18) return `${text.slice(0, 15)}...`;
+      return text.toUpperCase();
+    };
+    const isScalar = (signal) => signal.scalar === true;
+    const yForScalar = (value, highY, lowY) => {
+      const text = String(value || "").toLowerCase();
+      if (text === "1") return highY;
+      if (text === "0") return lowY;
+      return (highY + lowY) / 2;
+    };
+    let hoverTick = null;
+    const nearestTick = (x, plotWidth) => {
+      const snapTicks = ticks.length ? ticks : [{time: 0, label: "t=0"}, {time: endTime, label: `t=${endTime}`}];
+      let best = snapTicks[0];
+      let bestDistance = Infinity;
+      snapTicks.forEach((tick) => {
+        const tx = (Number(tick.time || 0) / endTime) * plotWidth;
+        const distance = Math.abs(tx - x);
+        if (distance < bestDistance) {
+          best = tick;
+          bestDistance = distance;
+        }
+      });
+      return best;
+    };
+    const draw = () => {
+      const valueX = zoomX ? Number(zoomX.value) / 100 : 1;
+      const valueY = zoomY ? Number(zoomY.value) / 100 : 1;
+      const visiblePlotWidth = Math.max(360, viewport.clientWidth - labelWidth);
+      const basePlotWidth = Math.max(fallbackPlotWidth, visiblePlotWidth);
+      const plotWidth = Math.max(240, basePlotWidth * valueX);
+      const rowHeight = Math.max(18, baseRowHeight * valueY);
+      const height = Math.ceil(top + (signals.length * rowHeight) + 28);
+      const dpr = window.devicePixelRatio || 1;
+      stage.style.width = `${labelWidth + plotWidth}px`;
+      stage.style.minWidth = `${labelWidth + plotWidth}px`;
+      stage.style.height = `${height}px`;
+      stage.style.gridTemplateColumns = `${labelWidth}px ${plotWidth}px`;
+      labelPane.style.width = `${labelWidth}px`;
+      labelPane.style.minWidth = `${labelWidth}px`;
+      plotPane.style.width = `${plotWidth}px`;
+      plotPane.style.minWidth = `${plotWidth}px`;
+      plotPane.style.height = `${height}px`;
+      labelPane.style.height = `${height}px`;
+      canvas.style.width = `${plotWidth}px`;
+      canvas.style.height = `${height}px`;
+      canvas.width = Math.max(1, Math.ceil(plotWidth * dpr));
+      canvas.height = Math.max(1, Math.ceil(height * dpr));
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      ctx.clearRect(0, 0, plotWidth, height);
+      ctx.fillStyle = colors.card;
+      ctx.fillRect(0, 0, plotWidth, height);
+      labelRows.forEach((row, index) => {
+        row.style.top = `${top + (index * rowHeight) + 5}px`;
+        row.style.height = `${Math.max(16, rowHeight - 2)}px`;
+        row.style.lineHeight = `${Math.max(16, rowHeight - 2)}px`;
+      });
+      ctx.font = "11px ui-monospace, SFMono-Regular, Menlo, Consolas, monospace";
+      ctx.textBaseline = "middle";
+      const minTickSpacing = valueX >= 20 ? 24 : valueX >= 12 ? 26 : valueX >= 8 ? 28 : valueX >= 4 ? 34 : valueX >= 2.8 ? 42 : valueX >= 1.7 ? 54 : 88;
+      let lastTickX = -Infinity;
+      ticks.forEach((tick, index) => {
+        const x = (Number(tick.time || 0) / endTime) * plotWidth;
+        ctx.strokeStyle = colors.line;
+        ctx.globalAlpha = tick.clock ? 0.45 : 0.62;
+        ctx.beginPath();
+        ctx.moveTo(x, 20);
+        ctx.lineTo(x, height - 18);
+        ctx.stroke();
+        ctx.globalAlpha = 1;
+        if (x - lastTickX >= minTickSpacing) {
+          ctx.fillStyle = colors.muted;
+          ctx.fillText(String(tick.tickLabel || tick.label || index), x + 3, 14);
+          lastTickX = x;
+        }
+      });
+      signals.forEach((signal, index) => {
+        const rowY = top + (index * rowHeight);
+        const traceY = rowY + Math.max(3, rowHeight * 0.12);
+        const traceH = Math.min(traceHeight, Math.max(10, rowHeight * 0.48));
+        const lowY = traceY + traceH;
+        const highY = traceY;
+        ctx.strokeStyle = colors.line;
+        ctx.globalAlpha = 1;
+        ctx.beginPath();
+        ctx.moveTo(0, lowY);
+        ctx.lineTo(plotWidth, lowY);
+        ctx.stroke();
+        const samples = Array.isArray(signal.samples) ? signal.samples : [];
+        if (signal.kind === "interface") {
+          ctx.fillStyle = colors.iface;
+          ctx.strokeStyle = "#8bd3ff";
+          ctx.lineWidth = 1.2;
+          ctx.fillRect(0, traceY - 1, plotWidth, traceH + 2);
+          ctx.strokeRect(0, traceY - 1, plotWidth, traceH + 2);
+          ctx.fillStyle = colors.ink;
+          ctx.font = "12px ui-monospace, SFMono-Regular, Menlo, Consolas, monospace";
+          ctx.fillText(`${signal.name} interface (${signal.count || 0} signals)`, 8, traceY + (traceH / 2));
+          return;
+        }
+        if (!samples.length) return;
+        if (isScalar(signal)) {
+          let unknown = false;
+          ctx.beginPath();
+          samples.forEach((sample, sampleIndex) => {
+            const x = (Number(sample[0] || 0) / endTime) * plotWidth;
+            const y = yForScalar(sample[1], highY, lowY);
+            unknown = unknown || !["0", "1"].includes(String(sample[1]).toLowerCase());
+            if (sampleIndex === 0) {
+              ctx.moveTo(x, y);
+            } else {
+              const previous = samples[sampleIndex - 1];
+              const previousY = yForScalar(previous[1], highY, lowY);
+              ctx.lineTo(x, previousY);
+              ctx.lineTo(x, y);
+            }
+          });
+          const last = samples[samples.length - 1];
+          ctx.lineTo(plotWidth, yForScalar(last[1], highY, lowY));
+          ctx.strokeStyle = unknown ? colors.unknown : colors.accent;
+          ctx.lineWidth = 2.2;
+          ctx.stroke();
+          return;
+        }
+        ctx.font = "11px ui-monospace, SFMono-Regular, Menlo, Consolas, monospace";
+        samples.forEach((sample, sampleIndex) => {
+          const next = samples[sampleIndex + 1];
+          const x1 = (Number(sample[0] || 0) / endTime) * plotWidth;
+          const x2 = next ? (Number(next[0] || 0) / endTime) * plotWidth : plotWidth;
+          const width = Math.max(3, x2 - x1);
+          ctx.fillStyle = colors.bus;
+          ctx.strokeStyle = colors.accent;
+          ctx.lineWidth = 1.1;
+          ctx.fillRect(x1, traceY, width, traceH);
+          ctx.strokeRect(x1, traceY, width, traceH);
+          if (width >= 38) {
+            ctx.fillStyle = colors.ink;
+            ctx.fillText(compactValue(sample[1]), x1 + 5, traceY + (traceH / 2));
+          }
+        });
+      });
+      if (hoverTick) {
+        const x = (Number(hoverTick.time || 0) / endTime) * plotWidth;
+        ctx.strokeStyle = colors.hover;
+        ctx.lineWidth = 2;
+        ctx.beginPath();
+        ctx.moveTo(x, 20);
+        ctx.lineTo(x, height - 18);
+        ctx.stroke();
+        if (readout) {
+          readout.hidden = false;
+          readout.textContent = hoverTick.label || `t=${hoverTick.time}`;
+        }
+      } else if (readout) {
+        readout.hidden = true;
+      }
+    };
+    draw();
+    if (zoomX) zoomX.addEventListener("input", draw);
+    if (zoomY) zoomY.addEventListener("input", draw);
+    canvas.addEventListener("mousemove", (event) => {
+      const rect = canvas.getBoundingClientRect();
+      const x = event.clientX - rect.left;
+      hoverTick = nearestTick(x, rect.width);
+      draw();
+    });
+    canvas.addEventListener("mouseleave", () => {
+      hoverTick = null;
+      draw();
+    });
+    window.addEventListener("resize", draw);
+  });
+})();
+</script></div></div></details><details class="wave-group"><summary>M_AXIS interface signals</summary><div class="wave-group-body"><div class="wave"><h4>M_AXIS Interface Waveform</h4><p class="meta">Source: interfaces/hdl/radif/testbenches/tb_radif_interfaces_smoke.vhd</p><div class="wave-controls"><label>Horizontal <input class="wave-zoom-x" type="range" min="60" max="3000" value="100"></label><label>Vertical <input class="wave-zoom-y" type="range" min="70" max="260" value="100"></label></div><div class="wave-viewport"><div class="wave-stage" style="height:198px"><div class="wave-label-pane" style="height:198px"><div class="wave-label-row" style="top:39px;height:32px;line-height:32px">m_axis_tdata[31:0]</div><div class="wave-label-row" style="top:73px;height:32px;line-height:32px">m_axis_tvalid</div><div class="wave-label-row" style="top:107px;height:32px;line-height:32px">m_axis_tready</div><div class="wave-label-row" style="top:141px;height:32px;line-height:32px">m_axis_tlast</div></div><div class="wave-plot-pane" style="width:894px;min-width:894px;height:198px"><canvas class="waveform-canvas" width="894" height="198" aria-label="M_AXIS Interface Waveform"></canvas></div><span class="wave-hover-readout" hidden></span><script type="application/json" class="wave-data">{"title":"M_AXIS Interface Waveform","endTime":145000000,"basePlotWidth":894,"labelWidth":190,"top":34,"rowHeight":34,"traceHeight":16,"ticks":[{"time":5000000,"clock":true,"cycle":0,"tickLabel":"C0","label":"cycle 0"},{"time":15000000,"clock":true,"cycle":1,"tickLabel":"C1","label":"cycle 1"},{"time":25000000,"clock":true,"cycle":2,"tickLabel":"C2","label":"cycle 2"},{"time":35000000,"clock":true,"cycle":3,"tickLabel":"C3","label":"cycle 3"},{"time":45000000,"clock":true,"cycle":4,"tickLabel":"C4","label":"cycle 4"},{"time":55000000,"clock":true,"cycle":5,"tickLabel":"C5","label":"cycle 5"},{"time":65000000,"clock":true,"cycle":6,"tickLabel":"C6","label":"cycle 6"},{"time":75000000,"clock":true,"cycle":7,"tickLabel":"C7","label":"cycle 7"},{"time":85000000,"clock":true,"cycle":8,"tickLabel":"C8","label":"cycle 8"},{"time":95000000,"clock":true,"cycle":9,"tickLabel":"C9","label":"cycle 9"},{"time":105000000,"clock":true,"cycle":10,"tickLabel":"C10","label":"cycle 10"},{"time":115000000,"clock":true,"cycle":11,"tickLabel":"C11","label":"cycle 11"},{"time":125000000,"clock":true,"cycle":12,"tickLabel":"C12","label":"cycle 12"},{"time":135000000,"clock":true,"cycle":13,"tickLabel":"C13","label":"cycle 13"},{"time":145000000,"clock":true,"cycle":14,"tickLabel":"C14","label":"cycle 14"}],"signals":[{"name":"m_axis_tdata[31:0]","kind":"signal","count":0,"scalar":false,"samples":[[0,"00000000000000000000000000000000"]]},{"name":"m_axis_tvalid","kind":"signal","count":0,"scalar":true,"samples":[[0,"0"]]},{"name":"m_axis_tready","kind":"signal","count":0,"scalar":true,"samples":[[0,"1"]]},{"name":"m_axis_tlast","kind":"signal","count":0,"scalar":true,"samples":[[0,"0"]]}]}</script></div></div><script>
+(() => {
+  document.querySelectorAll(".wave").forEach((wave) => {
+    if (wave.dataset.ready === "1") return;
+    wave.dataset.ready = "1";
+    const zoomX = wave.querySelector(".wave-zoom-x");
+    const zoomY = wave.querySelector(".wave-zoom-y");
+    const viewport = wave.querySelector(".wave-viewport");
+    const stage = wave.querySelector(".wave-stage");
+    const canvas = wave.querySelector("canvas.waveform-canvas");
+    const plotPane = wave.querySelector(".wave-plot-pane");
+    const labelPane = wave.querySelector(".wave-label-pane");
+    const labelRows = Array.from(wave.querySelectorAll(".wave-label-row"));
+    const readout = wave.querySelector(".wave-hover-readout");
+    const dataNode = wave.querySelector("script.wave-data");
+    if (!viewport || !stage || !canvas || !plotPane || !labelPane || !dataNode) return;
+    let payload;
+    try {
+      payload = JSON.parse(dataNode.textContent || "{}");
+    } catch (_) {
+      return;
+    }
+    const ctx = canvas.getContext("2d");
+    if (!ctx) return;
+    const css = getComputedStyle(wave);
+    const colors = {
+      card: css.getPropertyValue("--card").trim() || "#111827",
+      line: css.getPropertyValue("--line").trim() || "#273244",
+      muted: css.getPropertyValue("--muted").trim() || "#93a4b8",
+      ink: css.getPropertyValue("--ink").trim() || "#e8eef7",
+      accent: css.getPropertyValue("--accent").trim() || "#62d6c7",
+      bus: "rgba(98, 214, 199, .14)",
+      iface: "rgba(139, 211, 255, .14)",
+      hover: "#ffd84d",
+      unknown: "#d59b35"
+    };
+    const fallbackPlotWidth = Number(payload.basePlotWidth || 894);
+    const labelWidth = Number(payload.labelWidth || 190);
+    const baseRowHeight = Number(payload.rowHeight || 34);
+    const top = Number(payload.top || 34);
+    const traceHeight = Number(payload.traceHeight || 16);
+    const endTime = Math.max(1, Number(payload.endTime || 1));
+    const signals = Array.isArray(payload.signals) ? payload.signals : [];
+    const ticks = Array.isArray(payload.ticks) ? payload.ticks : [];
+    const compactValue = (value) => {
+      const text = String(value || "").replaceAll("_", "");
+      if (!text) return "";
+      if (text.length > 8 && /^[01]+$/i.test(text)) return `0x${parseInt(text, 2).toString(16).toUpperCase()}`;
+      if (text.length > 18) return `${text.slice(0, 15)}...`;
+      return text.toUpperCase();
+    };
+    const isScalar = (signal) => signal.scalar === true;
+    const yForScalar = (value, highY, lowY) => {
+      const text = String(value || "").toLowerCase();
+      if (text === "1") return highY;
+      if (text === "0") return lowY;
+      return (highY + lowY) / 2;
+    };
+    let hoverTick = null;
+    const nearestTick = (x, plotWidth) => {
+      const snapTicks = ticks.length ? ticks : [{time: 0, label: "t=0"}, {time: endTime, label: `t=${endTime}`}];
+      let best = snapTicks[0];
+      let bestDistance = Infinity;
+      snapTicks.forEach((tick) => {
+        const tx = (Number(tick.time || 0) / endTime) * plotWidth;
+        const distance = Math.abs(tx - x);
+        if (distance < bestDistance) {
+          best = tick;
+          bestDistance = distance;
+        }
+      });
+      return best;
+    };
+    const draw = () => {
+      const valueX = zoomX ? Number(zoomX.value) / 100 : 1;
+      const valueY = zoomY ? Number(zoomY.value) / 100 : 1;
+      const visiblePlotWidth = Math.max(360, viewport.clientWidth - labelWidth);
+      const basePlotWidth = Math.max(fallbackPlotWidth, visiblePlotWidth);
+      const plotWidth = Math.max(240, basePlotWidth * valueX);
+      const rowHeight = Math.max(18, baseRowHeight * valueY);
+      const height = Math.ceil(top + (signals.length * rowHeight) + 28);
+      const dpr = window.devicePixelRatio || 1;
+      stage.style.width = `${labelWidth + plotWidth}px`;
+      stage.style.minWidth = `${labelWidth + plotWidth}px`;
+      stage.style.height = `${height}px`;
+      stage.style.gridTemplateColumns = `${labelWidth}px ${plotWidth}px`;
+      labelPane.style.width = `${labelWidth}px`;
+      labelPane.style.minWidth = `${labelWidth}px`;
+      plotPane.style.width = `${plotWidth}px`;
+      plotPane.style.minWidth = `${plotWidth}px`;
+      plotPane.style.height = `${height}px`;
+      labelPane.style.height = `${height}px`;
+      canvas.style.width = `${plotWidth}px`;
+      canvas.style.height = `${height}px`;
+      canvas.width = Math.max(1, Math.ceil(plotWidth * dpr));
+      canvas.height = Math.max(1, Math.ceil(height * dpr));
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      ctx.clearRect(0, 0, plotWidth, height);
+      ctx.fillStyle = colors.card;
+      ctx.fillRect(0, 0, plotWidth, height);
+      labelRows.forEach((row, index) => {
+        row.style.top = `${top + (index * rowHeight) + 5}px`;
+        row.style.height = `${Math.max(16, rowHeight - 2)}px`;
+        row.style.lineHeight = `${Math.max(16, rowHeight - 2)}px`;
+      });
+      ctx.font = "11px ui-monospace, SFMono-Regular, Menlo, Consolas, monospace";
+      ctx.textBaseline = "middle";
+      const minTickSpacing = valueX >= 20 ? 24 : valueX >= 12 ? 26 : valueX >= 8 ? 28 : valueX >= 4 ? 34 : valueX >= 2.8 ? 42 : valueX >= 1.7 ? 54 : 88;
+      let lastTickX = -Infinity;
+      ticks.forEach((tick, index) => {
+        const x = (Number(tick.time || 0) / endTime) * plotWidth;
+        ctx.strokeStyle = colors.line;
+        ctx.globalAlpha = tick.clock ? 0.45 : 0.62;
+        ctx.beginPath();
+        ctx.moveTo(x, 20);
+        ctx.lineTo(x, height - 18);
+        ctx.stroke();
+        ctx.globalAlpha = 1;
+        if (x - lastTickX >= minTickSpacing) {
+          ctx.fillStyle = colors.muted;
+          ctx.fillText(String(tick.tickLabel || tick.label || index), x + 3, 14);
+          lastTickX = x;
+        }
+      });
+      signals.forEach((signal, index) => {
+        const rowY = top + (index * rowHeight);
+        const traceY = rowY + Math.max(3, rowHeight * 0.12);
+        const traceH = Math.min(traceHeight, Math.max(10, rowHeight * 0.48));
+        const lowY = traceY + traceH;
+        const highY = traceY;
+        ctx.strokeStyle = colors.line;
+        ctx.globalAlpha = 1;
+        ctx.beginPath();
+        ctx.moveTo(0, lowY);
+        ctx.lineTo(plotWidth, lowY);
+        ctx.stroke();
+        const samples = Array.isArray(signal.samples) ? signal.samples : [];
+        if (signal.kind === "interface") {
+          ctx.fillStyle = colors.iface;
+          ctx.strokeStyle = "#8bd3ff";
+          ctx.lineWidth = 1.2;
+          ctx.fillRect(0, traceY - 1, plotWidth, traceH + 2);
+          ctx.strokeRect(0, traceY - 1, plotWidth, traceH + 2);
+          ctx.fillStyle = colors.ink;
+          ctx.font = "12px ui-monospace, SFMono-Regular, Menlo, Consolas, monospace";
+          ctx.fillText(`${signal.name} interface (${signal.count || 0} signals)`, 8, traceY + (traceH / 2));
+          return;
+        }
+        if (!samples.length) return;
+        if (isScalar(signal)) {
+          let unknown = false;
+          ctx.beginPath();
+          samples.forEach((sample, sampleIndex) => {
+            const x = (Number(sample[0] || 0) / endTime) * plotWidth;
+            const y = yForScalar(sample[1], highY, lowY);
+            unknown = unknown || !["0", "1"].includes(String(sample[1]).toLowerCase());
+            if (sampleIndex === 0) {
+              ctx.moveTo(x, y);
+            } else {
+              const previous = samples[sampleIndex - 1];
+              const previousY = yForScalar(previous[1], highY, lowY);
+              ctx.lineTo(x, previousY);
+              ctx.lineTo(x, y);
+            }
+          });
+          const last = samples[samples.length - 1];
+          ctx.lineTo(plotWidth, yForScalar(last[1], highY, lowY));
+          ctx.strokeStyle = unknown ? colors.unknown : colors.accent;
+          ctx.lineWidth = 2.2;
+          ctx.stroke();
+          return;
+        }
+        ctx.font = "11px ui-monospace, SFMono-Regular, Menlo, Consolas, monospace";
+        samples.forEach((sample, sampleIndex) => {
+          const next = samples[sampleIndex + 1];
+          const x1 = (Number(sample[0] || 0) / endTime) * plotWidth;
+          const x2 = next ? (Number(next[0] || 0) / endTime) * plotWidth : plotWidth;
+          const width = Math.max(3, x2 - x1);
+          ctx.fillStyle = colors.bus;
+          ctx.strokeStyle = colors.accent;
+          ctx.lineWidth = 1.1;
+          ctx.fillRect(x1, traceY, width, traceH);
+          ctx.strokeRect(x1, traceY, width, traceH);
+          if (width >= 38) {
+            ctx.fillStyle = colors.ink;
+            ctx.fillText(compactValue(sample[1]), x1 + 5, traceY + (traceH / 2));
+          }
+        });
+      });
+      if (hoverTick) {
+        const x = (Number(hoverTick.time || 0) / endTime) * plotWidth;
+        ctx.strokeStyle = colors.hover;
+        ctx.lineWidth = 2;
+        ctx.beginPath();
+        ctx.moveTo(x, 20);
+        ctx.lineTo(x, height - 18);
+        ctx.stroke();
+        if (readout) {
+          readout.hidden = false;
+          readout.textContent = hoverTick.label || `t=${hoverTick.time}`;
+        }
+      } else if (readout) {
+        readout.hidden = true;
+      }
+    };
+    draw();
+    if (zoomX) zoomX.addEventListener("input", draw);
+    if (zoomY) zoomY.addEventListener("input", draw);
+    canvas.addEventListener("mousemove", (event) => {
+      const rect = canvas.getBoundingClientRect();
+      const x = event.clientX - rect.left;
+      hoverTick = nearestTick(x, rect.width);
+      draw();
+    });
+    canvas.addEventListener("mouseleave", () => {
+      hoverTick = null;
+      draw();
+    });
+    window.addEventListener("resize", draw);
+  });
+})();
+</script></div></div></details><details class="wave-group"><summary>QSPI interface signals</summary><div class="wave-group-body"><div class="wave"><h4>QSPI Interface Waveform</h4><p class="meta">Source: interfaces/hdl/radif/testbenches/tb_radif_interfaces_smoke.vhd</p><div class="wave-controls"><label>Horizontal <input class="wave-zoom-x" type="range" min="60" max="3000" value="100"></label><label>Vertical <input class="wave-zoom-y" type="range" min="70" max="260" value="100"></label></div><div class="wave-viewport"><div class="wave-stage" style="height:606px"><div class="wave-label-pane" style="height:606px"><div class="wave-label-row" style="top:39px;height:32px;line-height:32px">qspi_sclk</div><div class="wave-label-row" style="top:73px;height:32px;line-height:32px">qspi_cs_n</div><div class="wave-label-row" style="top:107px;height:32px;line-height:32px">qspi_io_i[3:0]</div><div class="wave-label-row" style="top:141px;height:32px;line-height:32px">qspi_io_o[3:0]</div><div class="wave-label-row" style="top:175px;height:32px;line-height:32px">qspi_oen[3:0]</div><div class="wave-label-row" style="top:209px;height:32px;line-height:32px">qspi_wr_addr[15:0]</div><div class="wave-label-row" style="top:243px;height:32px;line-height:32px">qspi_rd_addr[15:0]</div><div class="wave-label-row" style="top:277px;height:32px;line-height:32px">qspi_wr_en</div><div class="wave-label-row" style="top:311px;height:32px;line-height:32px">qspi_rd_en</div><div class="wave-label-row" style="top:345px;height:32px;line-height:32px">qspi_din[31:0]</div><div class="wave-label-row" style="top:379px;height:32px;line-height:32px">qspi_dout[31:0]</div><div class="wave-label-row" style="top:413px;height:32px;line-height:32px">qspi_wr_valid</div><div class="wave-label-row" style="top:447px;height:32px;line-height:32px">qspi_rd_valid</div><div class="wave-label-row" style="top:481px;height:32px;line-height:32px">qspi_sclk_i</div><div class="wave-label-row" style="top:515px;height:32px;line-height:32px">qspi_cs_n_i</div><div class="wave-label-row" style="top:549px;height:32px;line-height:32px">qspi_io_oen[3:0]</div></div><div class="wave-plot-pane" style="width:894px;min-width:894px;height:606px"><canvas class="waveform-canvas" width="894" height="606" aria-label="QSPI Interface Waveform"></canvas></div><span class="wave-hover-readout" hidden></span><script type="application/json" class="wave-data">{"title":"QSPI Interface Waveform","endTime":145000000,"basePlotWidth":894,"labelWidth":190,"top":34,"rowHeight":34,"traceHeight":16,"ticks":[{"time":5000000,"clock":true,"cycle":0,"tickLabel":"C0","label":"cycle 0"},{"time":15000000,"clock":true,"cycle":1,"tickLabel":"C1","label":"cycle 1"},{"time":25000000,"clock":true,"cycle":2,"tickLabel":"C2","label":"cycle 2"},{"time":35000000,"clock":true,"cycle":3,"tickLabel":"C3","label":"cycle 3"},{"time":45000000,"clock":true,"cycle":4,"tickLabel":"C4","label":"cycle 4"},{"time":55000000,"clock":true,"cycle":5,"tickLabel":"C5","label":"cycle 5"},{"time":65000000,"clock":true,"cycle":6,"tickLabel":"C6","label":"cycle 6"},{"time":75000000,"clock":true,"cycle":7,"tickLabel":"C7","label":"cycle 7"},{"time":85000000,"clock":true,"cycle":8,"tickLabel":"C8","label":"cycle 8"},{"time":95000000,"clock":true,"cycle":9,"tickLabel":"C9","label":"cycle 9"},{"time":105000000,"clock":true,"cycle":10,"tickLabel":"C10","label":"cycle 10"},{"time":115000000,"clock":true,"cycle":11,"tickLabel":"C11","label":"cycle 11"},{"time":125000000,"clock":true,"cycle":12,"tickLabel":"C12","label":"cycle 12"},{"time":135000000,"clock":true,"cycle":13,"tickLabel":"C13","label":"cycle 13"},{"time":145000000,"clock":true,"cycle":14,"tickLabel":"C14","label":"cycle 14"}],"signals":[{"name":"qspi_sclk","kind":"signal","count":0,"scalar":true,"samples":[[0,"0"]]},{"name":"qspi_cs_n","kind":"signal","count":0,"scalar":true,"samples":[[0,"1"]]},{"name":"qspi_io_i[3:0]","kind":"signal","count":0,"scalar":false,"samples":[[0,"0000"]]},{"name":"qspi_io_o[3:0]","kind":"signal","count":0,"scalar":false,"samples":[[0,"0000"]]},{"name":"qspi_oen[3:0]","kind":"signal","count":0,"scalar":false,"samples":[[0,"1111"]]},{"name":"qspi_wr_addr[15:0]","kind":"signal","count":0,"scalar":false,"samples":[[0,"0000000000000000"]]},{"name":"qspi_rd_addr[15:0]","kind":"signal","count":0,"scalar":false,"samples":[[0,"0000000000000000"]]},{"name":"qspi_wr_en","kind":"signal","count":0,"scalar":true,"samples":[[0,"0"]]},{"name":"qspi_rd_en","kind":"signal","count":0,"scalar":true,"samples":[[0,"0"]]},{"name":"qspi_din[31:0]","kind":"signal","count":0,"scalar":false,"samples":[[0,"00000000000000000000000000000000"]]},{"name":"qspi_dout[31:0]","kind":"signal","count":0,"scalar":false,"samples":[[0,"00010001001000100011001101000100"]]},{"name":"qspi_wr_valid","kind":"signal","count":0,"scalar":true,"samples":[[0,"0"]]},{"name":"qspi_rd_valid","kind":"signal","count":0,"scalar":true,"samples":[[0,"0"]]},{"name":"qspi_sclk_i","kind":"signal","count":0,"scalar":true,"samples":[[0,"0"]]},{"name":"qspi_cs_n_i","kind":"signal","count":0,"scalar":true,"samples":[[0,"1"]]},{"name":"qspi_io_oen[3:0]","kind":"signal","count":0,"scalar":false,"samples":[[0,"1111"]]}]}</script></div></div><script>
+(() => {
+  document.querySelectorAll(".wave").forEach((wave) => {
+    if (wave.dataset.ready === "1") return;
+    wave.dataset.ready = "1";
+    const zoomX = wave.querySelector(".wave-zoom-x");
+    const zoomY = wave.querySelector(".wave-zoom-y");
+    const viewport = wave.querySelector(".wave-viewport");
+    const stage = wave.querySelector(".wave-stage");
+    const canvas = wave.querySelector("canvas.waveform-canvas");
+    const plotPane = wave.querySelector(".wave-plot-pane");
+    const labelPane = wave.querySelector(".wave-label-pane");
+    const labelRows = Array.from(wave.querySelectorAll(".wave-label-row"));
+    const readout = wave.querySelector(".wave-hover-readout");
+    const dataNode = wave.querySelector("script.wave-data");
+    if (!viewport || !stage || !canvas || !plotPane || !labelPane || !dataNode) return;
+    let payload;
+    try {
+      payload = JSON.parse(dataNode.textContent || "{}");
+    } catch (_) {
+      return;
+    }
+    const ctx = canvas.getContext("2d");
+    if (!ctx) return;
+    const css = getComputedStyle(wave);
+    const colors = {
+      card: css.getPropertyValue("--card").trim() || "#111827",
+      line: css.getPropertyValue("--line").trim() || "#273244",
+      muted: css.getPropertyValue("--muted").trim() || "#93a4b8",
+      ink: css.getPropertyValue("--ink").trim() || "#e8eef7",
+      accent: css.getPropertyValue("--accent").trim() || "#62d6c7",
+      bus: "rgba(98, 214, 199, .14)",
+      iface: "rgba(139, 211, 255, .14)",
+      hover: "#ffd84d",
+      unknown: "#d59b35"
+    };
+    const fallbackPlotWidth = Number(payload.basePlotWidth || 894);
+    const labelWidth = Number(payload.labelWidth || 190);
+    const baseRowHeight = Number(payload.rowHeight || 34);
+    const top = Number(payload.top || 34);
+    const traceHeight = Number(payload.traceHeight || 16);
+    const endTime = Math.max(1, Number(payload.endTime || 1));
+    const signals = Array.isArray(payload.signals) ? payload.signals : [];
+    const ticks = Array.isArray(payload.ticks) ? payload.ticks : [];
+    const compactValue = (value) => {
+      const text = String(value || "").replaceAll("_", "");
+      if (!text) return "";
+      if (text.length > 8 && /^[01]+$/i.test(text)) return `0x${parseInt(text, 2).toString(16).toUpperCase()}`;
+      if (text.length > 18) return `${text.slice(0, 15)}...`;
+      return text.toUpperCase();
+    };
+    const isScalar = (signal) => signal.scalar === true;
+    const yForScalar = (value, highY, lowY) => {
+      const text = String(value || "").toLowerCase();
+      if (text === "1") return highY;
+      if (text === "0") return lowY;
+      return (highY + lowY) / 2;
+    };
+    let hoverTick = null;
+    const nearestTick = (x, plotWidth) => {
+      const snapTicks = ticks.length ? ticks : [{time: 0, label: "t=0"}, {time: endTime, label: `t=${endTime}`}];
+      let best = snapTicks[0];
+      let bestDistance = Infinity;
+      snapTicks.forEach((tick) => {
+        const tx = (Number(tick.time || 0) / endTime) * plotWidth;
+        const distance = Math.abs(tx - x);
+        if (distance < bestDistance) {
+          best = tick;
+          bestDistance = distance;
+        }
+      });
+      return best;
+    };
+    const draw = () => {
+      const valueX = zoomX ? Number(zoomX.value) / 100 : 1;
+      const valueY = zoomY ? Number(zoomY.value) / 100 : 1;
+      const visiblePlotWidth = Math.max(360, viewport.clientWidth - labelWidth);
+      const basePlotWidth = Math.max(fallbackPlotWidth, visiblePlotWidth);
+      const plotWidth = Math.max(240, basePlotWidth * valueX);
+      const rowHeight = Math.max(18, baseRowHeight * valueY);
+      const height = Math.ceil(top + (signals.length * rowHeight) + 28);
+      const dpr = window.devicePixelRatio || 1;
+      stage.style.width = `${labelWidth + plotWidth}px`;
+      stage.style.minWidth = `${labelWidth + plotWidth}px`;
+      stage.style.height = `${height}px`;
+      stage.style.gridTemplateColumns = `${labelWidth}px ${plotWidth}px`;
+      labelPane.style.width = `${labelWidth}px`;
+      labelPane.style.minWidth = `${labelWidth}px`;
+      plotPane.style.width = `${plotWidth}px`;
+      plotPane.style.minWidth = `${plotWidth}px`;
+      plotPane.style.height = `${height}px`;
+      labelPane.style.height = `${height}px`;
+      canvas.style.width = `${plotWidth}px`;
+      canvas.style.height = `${height}px`;
+      canvas.width = Math.max(1, Math.ceil(plotWidth * dpr));
+      canvas.height = Math.max(1, Math.ceil(height * dpr));
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      ctx.clearRect(0, 0, plotWidth, height);
+      ctx.fillStyle = colors.card;
+      ctx.fillRect(0, 0, plotWidth, height);
+      labelRows.forEach((row, index) => {
+        row.style.top = `${top + (index * rowHeight) + 5}px`;
+        row.style.height = `${Math.max(16, rowHeight - 2)}px`;
+        row.style.lineHeight = `${Math.max(16, rowHeight - 2)}px`;
+      });
+      ctx.font = "11px ui-monospace, SFMono-Regular, Menlo, Consolas, monospace";
+      ctx.textBaseline = "middle";
+      const minTickSpacing = valueX >= 20 ? 24 : valueX >= 12 ? 26 : valueX >= 8 ? 28 : valueX >= 4 ? 34 : valueX >= 2.8 ? 42 : valueX >= 1.7 ? 54 : 88;
+      let lastTickX = -Infinity;
+      ticks.forEach((tick, index) => {
+        const x = (Number(tick.time || 0) / endTime) * plotWidth;
+        ctx.strokeStyle = colors.line;
+        ctx.globalAlpha = tick.clock ? 0.45 : 0.62;
+        ctx.beginPath();
+        ctx.moveTo(x, 20);
+        ctx.lineTo(x, height - 18);
+        ctx.stroke();
+        ctx.globalAlpha = 1;
+        if (x - lastTickX >= minTickSpacing) {
+          ctx.fillStyle = colors.muted;
+          ctx.fillText(String(tick.tickLabel || tick.label || index), x + 3, 14);
+          lastTickX = x;
+        }
+      });
+      signals.forEach((signal, index) => {
+        const rowY = top + (index * rowHeight);
+        const traceY = rowY + Math.max(3, rowHeight * 0.12);
+        const traceH = Math.min(traceHeight, Math.max(10, rowHeight * 0.48));
+        const lowY = traceY + traceH;
+        const highY = traceY;
+        ctx.strokeStyle = colors.line;
+        ctx.globalAlpha = 1;
+        ctx.beginPath();
+        ctx.moveTo(0, lowY);
+        ctx.lineTo(plotWidth, lowY);
+        ctx.stroke();
+        const samples = Array.isArray(signal.samples) ? signal.samples : [];
+        if (signal.kind === "interface") {
+          ctx.fillStyle = colors.iface;
+          ctx.strokeStyle = "#8bd3ff";
+          ctx.lineWidth = 1.2;
+          ctx.fillRect(0, traceY - 1, plotWidth, traceH + 2);
+          ctx.strokeRect(0, traceY - 1, plotWidth, traceH + 2);
+          ctx.fillStyle = colors.ink;
+          ctx.font = "12px ui-monospace, SFMono-Regular, Menlo, Consolas, monospace";
+          ctx.fillText(`${signal.name} interface (${signal.count || 0} signals)`, 8, traceY + (traceH / 2));
+          return;
+        }
+        if (!samples.length) return;
+        if (isScalar(signal)) {
+          let unknown = false;
+          ctx.beginPath();
+          samples.forEach((sample, sampleIndex) => {
+            const x = (Number(sample[0] || 0) / endTime) * plotWidth;
+            const y = yForScalar(sample[1], highY, lowY);
+            unknown = unknown || !["0", "1"].includes(String(sample[1]).toLowerCase());
+            if (sampleIndex === 0) {
+              ctx.moveTo(x, y);
+            } else {
+              const previous = samples[sampleIndex - 1];
+              const previousY = yForScalar(previous[1], highY, lowY);
+              ctx.lineTo(x, previousY);
+              ctx.lineTo(x, y);
+            }
+          });
+          const last = samples[samples.length - 1];
+          ctx.lineTo(plotWidth, yForScalar(last[1], highY, lowY));
+          ctx.strokeStyle = unknown ? colors.unknown : colors.accent;
+          ctx.lineWidth = 2.2;
+          ctx.stroke();
+          return;
+        }
+        ctx.font = "11px ui-monospace, SFMono-Regular, Menlo, Consolas, monospace";
+        samples.forEach((sample, sampleIndex) => {
+          const next = samples[sampleIndex + 1];
+          const x1 = (Number(sample[0] || 0) / endTime) * plotWidth;
+          const x2 = next ? (Number(next[0] || 0) / endTime) * plotWidth : plotWidth;
+          const width = Math.max(3, x2 - x1);
+          ctx.fillStyle = colors.bus;
+          ctx.strokeStyle = colors.accent;
+          ctx.lineWidth = 1.1;
+          ctx.fillRect(x1, traceY, width, traceH);
+          ctx.strokeRect(x1, traceY, width, traceH);
+          if (width >= 38) {
+            ctx.fillStyle = colors.ink;
+            ctx.fillText(compactValue(sample[1]), x1 + 5, traceY + (traceH / 2));
+          }
+        });
+      });
+      if (hoverTick) {
+        const x = (Number(hoverTick.time || 0) / endTime) * plotWidth;
+        ctx.strokeStyle = colors.hover;
+        ctx.lineWidth = 2;
+        ctx.beginPath();
+        ctx.moveTo(x, 20);
+        ctx.lineTo(x, height - 18);
+        ctx.stroke();
+        if (readout) {
+          readout.hidden = false;
+          readout.textContent = hoverTick.label || `t=${hoverTick.time}`;
+        }
+      } else if (readout) {
+        readout.hidden = true;
+      }
+    };
+    draw();
+    if (zoomX) zoomX.addEventListener("input", draw);
+    if (zoomY) zoomY.addEventListener("input", draw);
+    canvas.addEventListener("mousemove", (event) => {
+      const rect = canvas.getBoundingClientRect();
+      const x = event.clientX - rect.left;
+      hoverTick = nearestTick(x, rect.width);
+      draw();
+    });
+    canvas.addEventListener("mouseleave", () => {
+      hoverTick = null;
+      draw();
+    });
+    window.addEventListener("resize", draw);
+  });
+})();
+</script></div></div></details><details class="wave-group"><summary>SPI interface signals</summary><div class="wave-group-body"><div class="wave"><h4>SPI Interface Waveform</h4><p class="meta">Source: interfaces/hdl/radif/testbenches/tb_radif_interfaces_smoke.vhd</p><div class="wave-controls"><label>Horizontal <input class="wave-zoom-x" type="range" min="60" max="3000" value="100"></label><label>Vertical <input class="wave-zoom-y" type="range" min="70" max="260" value="100"></label></div><div class="wave-viewport"><div class="wave-stage" style="height:674px"><div class="wave-label-pane" style="height:674px"><div class="wave-label-row" style="top:39px;height:32px;line-height:32px">spi_sclk</div><div class="wave-label-row" style="top:73px;height:32px;line-height:32px">spi_cs_n</div><div class="wave-label-row" style="top:107px;height:32px;line-height:32px">spi_mosi</div><div class="wave-label-row" style="top:141px;height:32px;line-height:32px">spi_miso</div><div class="wave-label-row" style="top:175px;height:32px;line-height:32px">spi_oen</div><div class="wave-label-row" style="top:209px;height:32px;line-height:32px">spi_wr_addr[15:0]</div><div class="wave-label-row" style="top:243px;height:32px;line-height:32px">spi_rd_addr[15:0]</div><div class="wave-label-row" style="top:277px;height:32px;line-height:32px">spi_wr_en</div><div class="wave-label-row" style="top:311px;height:32px;line-height:32px">spi_rd_en</div><div class="wave-label-row" style="top:345px;height:32px;line-height:32px">spi_din[31:0]</div><div class="wave-label-row" style="top:379px;height:32px;line-height:32px">spi_dout[31:0]</div><div class="wave-label-row" style="top:413px;height:32px;line-height:32px">spi_wr_valid</div><div class="wave-label-row" style="top:447px;height:32px;line-height:32px">spi_rd_valid</div><div class="wave-label-row" style="top:481px;height:32px;line-height:32px">spi_sclk_i</div><div class="wave-label-row" style="top:515px;height:32px;line-height:32px">spi_cs_n_i</div><div class="wave-label-row" style="top:549px;height:32px;line-height:32px">spi_mosi_i</div><div class="wave-label-row" style="top:583px;height:32px;line-height:32px">spi_miso_o</div><div class="wave-label-row" style="top:617px;height:32px;line-height:32px">spi_miso_oen</div></div><div class="wave-plot-pane" style="width:894px;min-width:894px;height:674px"><canvas class="waveform-canvas" width="894" height="674" aria-label="SPI Interface Waveform"></canvas></div><span class="wave-hover-readout" hidden></span><script type="application/json" class="wave-data">{"title":"SPI Interface Waveform","endTime":145000000,"basePlotWidth":894,"labelWidth":190,"top":34,"rowHeight":34,"traceHeight":16,"ticks":[{"time":5000000,"clock":true,"cycle":0,"tickLabel":"C0","label":"cycle 0"},{"time":15000000,"clock":true,"cycle":1,"tickLabel":"C1","label":"cycle 1"},{"time":25000000,"clock":true,"cycle":2,"tickLabel":"C2","label":"cycle 2"},{"time":35000000,"clock":true,"cycle":3,"tickLabel":"C3","label":"cycle 3"},{"time":45000000,"clock":true,"cycle":4,"tickLabel":"C4","label":"cycle 4"},{"time":55000000,"clock":true,"cycle":5,"tickLabel":"C5","label":"cycle 5"},{"time":65000000,"clock":true,"cycle":6,"tickLabel":"C6","label":"cycle 6"},{"time":75000000,"clock":true,"cycle":7,"tickLabel":"C7","label":"cycle 7"},{"time":85000000,"clock":true,"cycle":8,"tickLabel":"C8","label":"cycle 8"},{"time":95000000,"clock":true,"cycle":9,"tickLabel":"C9","label":"cycle 9"},{"time":105000000,"clock":true,"cycle":10,"tickLabel":"C10","label":"cycle 10"},{"time":115000000,"clock":true,"cycle":11,"tickLabel":"C11","label":"cycle 11"},{"time":125000000,"clock":true,"cycle":12,"tickLabel":"C12","label":"cycle 12"},{"time":135000000,"clock":true,"cycle":13,"tickLabel":"C13","label":"cycle 13"},{"time":145000000,"clock":true,"cycle":14,"tickLabel":"C14","label":"cycle 14"}],"signals":[{"name":"spi_sclk","kind":"signal","count":0,"scalar":true,"samples":[[0,"0"]]},{"name":"spi_cs_n","kind":"signal","count":0,"scalar":true,"samples":[[0,"1"]]},{"name":"spi_mosi","kind":"signal","count":0,"scalar":true,"samples":[[0,"0"]]},{"name":"spi_miso","kind":"signal","count":0,"scalar":true,"samples":[[0,"0"]]},{"name":"spi_oen","kind":"signal","count":0,"scalar":true,"samples":[[0,"1"]]},{"name":"spi_wr_addr[15:0]","kind":"signal","count":0,"scalar":false,"samples":[[0,"0000000000000000"]]},{"name":"spi_rd_addr[15:0]","kind":"signal","count":0,"scalar":false,"samples":[[0,"0000000000000000"]]},{"name":"spi_wr_en","kind":"signal","count":0,"scalar":true,"samples":[[0,"0"]]},{"name":"spi_rd_en","kind":"signal","count":0,"scalar":true,"samples":[[0,"0"]]},{"name":"spi_din[31:0]","kind":"signal","count":0,"scalar":false,"samples":[[0,"00000000000000000000000000000000"]]},{"name":"spi_dout[31:0]","kind":"signal","count":0,"scalar":false,"samples":[[0,"00000001000000100000001100000100"]]},{"name":"spi_wr_valid","kind":"signal","count":0,"scalar":true,"samples":[[0,"0"]]},{"name":"spi_rd_valid","kind":"signal","count":0,"scalar":true,"samples":[[0,"0"]]},{"name":"spi_sclk_i","kind":"signal","count":0,"scalar":true,"samples":[[0,"0"]]},{"name":"spi_cs_n_i","kind":"signal","count":0,"scalar":true,"samples":[[0,"1"]]},{"name":"spi_mosi_i","kind":"signal","count":0,"scalar":true,"samples":[[0,"0"]]},{"name":"spi_miso_o","kind":"signal","count":0,"scalar":true,"samples":[[0,"0"]]},{"name":"spi_miso_oen","kind":"signal","count":0,"scalar":true,"samples":[[0,"1"]]}]}</script></div></div><script>
+(() => {
+  document.querySelectorAll(".wave").forEach((wave) => {
+    if (wave.dataset.ready === "1") return;
+    wave.dataset.ready = "1";
+    const zoomX = wave.querySelector(".wave-zoom-x");
+    const zoomY = wave.querySelector(".wave-zoom-y");
+    const viewport = wave.querySelector(".wave-viewport");
+    const stage = wave.querySelector(".wave-stage");
+    const canvas = wave.querySelector("canvas.waveform-canvas");
+    const plotPane = wave.querySelector(".wave-plot-pane");
+    const labelPane = wave.querySelector(".wave-label-pane");
+    const labelRows = Array.from(wave.querySelectorAll(".wave-label-row"));
+    const readout = wave.querySelector(".wave-hover-readout");
+    const dataNode = wave.querySelector("script.wave-data");
+    if (!viewport || !stage || !canvas || !plotPane || !labelPane || !dataNode) return;
+    let payload;
+    try {
+      payload = JSON.parse(dataNode.textContent || "{}");
+    } catch (_) {
+      return;
+    }
+    const ctx = canvas.getContext("2d");
+    if (!ctx) return;
+    const css = getComputedStyle(wave);
+    const colors = {
+      card: css.getPropertyValue("--card").trim() || "#111827",
+      line: css.getPropertyValue("--line").trim() || "#273244",
+      muted: css.getPropertyValue("--muted").trim() || "#93a4b8",
+      ink: css.getPropertyValue("--ink").trim() || "#e8eef7",
+      accent: css.getPropertyValue("--accent").trim() || "#62d6c7",
+      bus: "rgba(98, 214, 199, .14)",
+      iface: "rgba(139, 211, 255, .14)",
+      hover: "#ffd84d",
+      unknown: "#d59b35"
+    };
+    const fallbackPlotWidth = Number(payload.basePlotWidth || 894);
+    const labelWidth = Number(payload.labelWidth || 190);
+    const baseRowHeight = Number(payload.rowHeight || 34);
+    const top = Number(payload.top || 34);
+    const traceHeight = Number(payload.traceHeight || 16);
+    const endTime = Math.max(1, Number(payload.endTime || 1));
+    const signals = Array.isArray(payload.signals) ? payload.signals : [];
+    const ticks = Array.isArray(payload.ticks) ? payload.ticks : [];
+    const compactValue = (value) => {
+      const text = String(value || "").replaceAll("_", "");
+      if (!text) return "";
+      if (text.length > 8 && /^[01]+$/i.test(text)) return `0x${parseInt(text, 2).toString(16).toUpperCase()}`;
+      if (text.length > 18) return `${text.slice(0, 15)}...`;
+      return text.toUpperCase();
+    };
+    const isScalar = (signal) => signal.scalar === true;
+    const yForScalar = (value, highY, lowY) => {
+      const text = String(value || "").toLowerCase();
+      if (text === "1") return highY;
+      if (text === "0") return lowY;
+      return (highY + lowY) / 2;
+    };
+    let hoverTick = null;
+    const nearestTick = (x, plotWidth) => {
+      const snapTicks = ticks.length ? ticks : [{time: 0, label: "t=0"}, {time: endTime, label: `t=${endTime}`}];
+      let best = snapTicks[0];
+      let bestDistance = Infinity;
+      snapTicks.forEach((tick) => {
+        const tx = (Number(tick.time || 0) / endTime) * plotWidth;
+        const distance = Math.abs(tx - x);
+        if (distance < bestDistance) {
+          best = tick;
+          bestDistance = distance;
+        }
+      });
+      return best;
+    };
+    const draw = () => {
+      const valueX = zoomX ? Number(zoomX.value) / 100 : 1;
+      const valueY = zoomY ? Number(zoomY.value) / 100 : 1;
+      const visiblePlotWidth = Math.max(360, viewport.clientWidth - labelWidth);
+      const basePlotWidth = Math.max(fallbackPlotWidth, visiblePlotWidth);
+      const plotWidth = Math.max(240, basePlotWidth * valueX);
+      const rowHeight = Math.max(18, baseRowHeight * valueY);
+      const height = Math.ceil(top + (signals.length * rowHeight) + 28);
+      const dpr = window.devicePixelRatio || 1;
+      stage.style.width = `${labelWidth + plotWidth}px`;
+      stage.style.minWidth = `${labelWidth + plotWidth}px`;
+      stage.style.height = `${height}px`;
+      stage.style.gridTemplateColumns = `${labelWidth}px ${plotWidth}px`;
+      labelPane.style.width = `${labelWidth}px`;
+      labelPane.style.minWidth = `${labelWidth}px`;
+      plotPane.style.width = `${plotWidth}px`;
+      plotPane.style.minWidth = `${plotWidth}px`;
+      plotPane.style.height = `${height}px`;
+      labelPane.style.height = `${height}px`;
+      canvas.style.width = `${plotWidth}px`;
+      canvas.style.height = `${height}px`;
+      canvas.width = Math.max(1, Math.ceil(plotWidth * dpr));
+      canvas.height = Math.max(1, Math.ceil(height * dpr));
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      ctx.clearRect(0, 0, plotWidth, height);
+      ctx.fillStyle = colors.card;
+      ctx.fillRect(0, 0, plotWidth, height);
+      labelRows.forEach((row, index) => {
+        row.style.top = `${top + (index * rowHeight) + 5}px`;
+        row.style.height = `${Math.max(16, rowHeight - 2)}px`;
+        row.style.lineHeight = `${Math.max(16, rowHeight - 2)}px`;
+      });
+      ctx.font = "11px ui-monospace, SFMono-Regular, Menlo, Consolas, monospace";
+      ctx.textBaseline = "middle";
+      const minTickSpacing = valueX >= 20 ? 24 : valueX >= 12 ? 26 : valueX >= 8 ? 28 : valueX >= 4 ? 34 : valueX >= 2.8 ? 42 : valueX >= 1.7 ? 54 : 88;
+      let lastTickX = -Infinity;
+      ticks.forEach((tick, index) => {
+        const x = (Number(tick.time || 0) / endTime) * plotWidth;
+        ctx.strokeStyle = colors.line;
+        ctx.globalAlpha = tick.clock ? 0.45 : 0.62;
+        ctx.beginPath();
+        ctx.moveTo(x, 20);
+        ctx.lineTo(x, height - 18);
+        ctx.stroke();
+        ctx.globalAlpha = 1;
+        if (x - lastTickX >= minTickSpacing) {
+          ctx.fillStyle = colors.muted;
+          ctx.fillText(String(tick.tickLabel || tick.label || index), x + 3, 14);
+          lastTickX = x;
+        }
+      });
+      signals.forEach((signal, index) => {
+        const rowY = top + (index * rowHeight);
+        const traceY = rowY + Math.max(3, rowHeight * 0.12);
+        const traceH = Math.min(traceHeight, Math.max(10, rowHeight * 0.48));
+        const lowY = traceY + traceH;
+        const highY = traceY;
+        ctx.strokeStyle = colors.line;
+        ctx.globalAlpha = 1;
+        ctx.beginPath();
+        ctx.moveTo(0, lowY);
+        ctx.lineTo(plotWidth, lowY);
+        ctx.stroke();
+        const samples = Array.isArray(signal.samples) ? signal.samples : [];
+        if (signal.kind === "interface") {
+          ctx.fillStyle = colors.iface;
+          ctx.strokeStyle = "#8bd3ff";
+          ctx.lineWidth = 1.2;
+          ctx.fillRect(0, traceY - 1, plotWidth, traceH + 2);
+          ctx.strokeRect(0, traceY - 1, plotWidth, traceH + 2);
+          ctx.fillStyle = colors.ink;
+          ctx.font = "12px ui-monospace, SFMono-Regular, Menlo, Consolas, monospace";
+          ctx.fillText(`${signal.name} interface (${signal.count || 0} signals)`, 8, traceY + (traceH / 2));
+          return;
+        }
+        if (!samples.length) return;
+        if (isScalar(signal)) {
+          let unknown = false;
+          ctx.beginPath();
+          samples.forEach((sample, sampleIndex) => {
+            const x = (Number(sample[0] || 0) / endTime) * plotWidth;
+            const y = yForScalar(sample[1], highY, lowY);
+            unknown = unknown || !["0", "1"].includes(String(sample[1]).toLowerCase());
+            if (sampleIndex === 0) {
+              ctx.moveTo(x, y);
+            } else {
+              const previous = samples[sampleIndex - 1];
+              const previousY = yForScalar(previous[1], highY, lowY);
+              ctx.lineTo(x, previousY);
+              ctx.lineTo(x, y);
+            }
+          });
+          const last = samples[samples.length - 1];
+          ctx.lineTo(plotWidth, yForScalar(last[1], highY, lowY));
+          ctx.strokeStyle = unknown ? colors.unknown : colors.accent;
+          ctx.lineWidth = 2.2;
+          ctx.stroke();
+          return;
+        }
+        ctx.font = "11px ui-monospace, SFMono-Regular, Menlo, Consolas, monospace";
+        samples.forEach((sample, sampleIndex) => {
+          const next = samples[sampleIndex + 1];
+          const x1 = (Number(sample[0] || 0) / endTime) * plotWidth;
+          const x2 = next ? (Number(next[0] || 0) / endTime) * plotWidth : plotWidth;
+          const width = Math.max(3, x2 - x1);
+          ctx.fillStyle = colors.bus;
+          ctx.strokeStyle = colors.accent;
+          ctx.lineWidth = 1.1;
+          ctx.fillRect(x1, traceY, width, traceH);
+          ctx.strokeRect(x1, traceY, width, traceH);
+          if (width >= 38) {
+            ctx.fillStyle = colors.ink;
+            ctx.fillText(compactValue(sample[1]), x1 + 5, traceY + (traceH / 2));
+          }
+        });
+      });
+      if (hoverTick) {
+        const x = (Number(hoverTick.time || 0) / endTime) * plotWidth;
+        ctx.strokeStyle = colors.hover;
+        ctx.lineWidth = 2;
+        ctx.beginPath();
+        ctx.moveTo(x, 20);
+        ctx.lineTo(x, height - 18);
+        ctx.stroke();
+        if (readout) {
+          readout.hidden = false;
+          readout.textContent = hoverTick.label || `t=${hoverTick.time}`;
+        }
+      } else if (readout) {
+        readout.hidden = true;
+      }
+    };
+    draw();
+    if (zoomX) zoomX.addEventListener("input", draw);
+    if (zoomY) zoomY.addEventListener("input", draw);
+    canvas.addEventListener("mousemove", (event) => {
+      const rect = canvas.getBoundingClientRect();
+      const x = event.clientX - rect.left;
+      hoverTick = nearestTick(x, rect.width);
+      draw();
+    });
+    canvas.addEventListener("mouseleave", () => {
+      hoverTick = null;
+      draw();
+    });
+    window.addEventListener("resize", draw);
+  });
+})();
+</script></div></div></details><details class="wave-group"><summary>S_AXIS interface signals</summary><div class="wave-group-body"><div class="wave"><h4>S_AXIS Interface Waveform</h4><p class="meta">Source: interfaces/hdl/radif/testbenches/tb_radif_interfaces_smoke.vhd</p><div class="wave-controls"><label>Horizontal <input class="wave-zoom-x" type="range" min="60" max="3000" value="100"></label><label>Vertical <input class="wave-zoom-y" type="range" min="70" max="260" value="100"></label></div><div class="wave-viewport"><div class="wave-stage" style="height:198px"><div class="wave-label-pane" style="height:198px"><div class="wave-label-row" style="top:39px;height:32px;line-height:32px">s_axis_tdata[31:0]</div><div class="wave-label-row" style="top:73px;height:32px;line-height:32px">s_axis_tvalid</div><div class="wave-label-row" style="top:107px;height:32px;line-height:32px">s_axis_tready</div><div class="wave-label-row" style="top:141px;height:32px;line-height:32px">s_axis_tlast</div></div><div class="wave-plot-pane" style="width:894px;min-width:894px;height:198px"><canvas class="waveform-canvas" width="894" height="198" aria-label="S_AXIS Interface Waveform"></canvas></div><span class="wave-hover-readout" hidden></span><script type="application/json" class="wave-data">{"title":"S_AXIS Interface Waveform","endTime":145000000,"basePlotWidth":894,"labelWidth":190,"top":34,"rowHeight":34,"traceHeight":16,"ticks":[{"time":5000000,"clock":true,"cycle":0,"tickLabel":"C0","label":"cycle 0"},{"time":15000000,"clock":true,"cycle":1,"tickLabel":"C1","label":"cycle 1"},{"time":25000000,"clock":true,"cycle":2,"tickLabel":"C2","label":"cycle 2"},{"time":35000000,"clock":true,"cycle":3,"tickLabel":"C3","label":"cycle 3"},{"time":45000000,"clock":true,"cycle":4,"tickLabel":"C4","label":"cycle 4"},{"time":55000000,"clock":true,"cycle":5,"tickLabel":"C5","label":"cycle 5"},{"time":65000000,"clock":true,"cycle":6,"tickLabel":"C6","label":"cycle 6"},{"time":75000000,"clock":true,"cycle":7,"tickLabel":"C7","label":"cycle 7"},{"time":85000000,"clock":true,"cycle":8,"tickLabel":"C8","label":"cycle 8"},{"time":95000000,"clock":true,"cycle":9,"tickLabel":"C9","label":"cycle 9"},{"time":105000000,"clock":true,"cycle":10,"tickLabel":"C10","label":"cycle 10"},{"time":115000000,"clock":true,"cycle":11,"tickLabel":"C11","label":"cycle 11"},{"time":125000000,"clock":true,"cycle":12,"tickLabel":"C12","label":"cycle 12"},{"time":135000000,"clock":true,"cycle":13,"tickLabel":"C13","label":"cycle 13"},{"time":145000000,"clock":true,"cycle":14,"tickLabel":"C14","label":"cycle 14"}],"signals":[{"name":"s_axis_tdata[31:0]","kind":"signal","count":0,"scalar":false,"samples":[[0,"00000000000000000000000000000000"]]},{"name":"s_axis_tvalid","kind":"signal","count":0,"scalar":true,"samples":[[0,"0"]]},{"name":"s_axis_tready","kind":"signal","count":0,"scalar":true,"samples":[[0,"0"]]},{"name":"s_axis_tlast","kind":"signal","count":0,"scalar":true,"samples":[[0,"0"]]}]}</script></div></div><script>
+(() => {
+  document.querySelectorAll(".wave").forEach((wave) => {
+    if (wave.dataset.ready === "1") return;
+    wave.dataset.ready = "1";
+    const zoomX = wave.querySelector(".wave-zoom-x");
+    const zoomY = wave.querySelector(".wave-zoom-y");
+    const viewport = wave.querySelector(".wave-viewport");
+    const stage = wave.querySelector(".wave-stage");
+    const canvas = wave.querySelector("canvas.waveform-canvas");
+    const plotPane = wave.querySelector(".wave-plot-pane");
+    const labelPane = wave.querySelector(".wave-label-pane");
+    const labelRows = Array.from(wave.querySelectorAll(".wave-label-row"));
+    const readout = wave.querySelector(".wave-hover-readout");
+    const dataNode = wave.querySelector("script.wave-data");
+    if (!viewport || !stage || !canvas || !plotPane || !labelPane || !dataNode) return;
+    let payload;
+    try {
+      payload = JSON.parse(dataNode.textContent || "{}");
+    } catch (_) {
+      return;
+    }
+    const ctx = canvas.getContext("2d");
+    if (!ctx) return;
+    const css = getComputedStyle(wave);
+    const colors = {
+      card: css.getPropertyValue("--card").trim() || "#111827",
+      line: css.getPropertyValue("--line").trim() || "#273244",
+      muted: css.getPropertyValue("--muted").trim() || "#93a4b8",
+      ink: css.getPropertyValue("--ink").trim() || "#e8eef7",
+      accent: css.getPropertyValue("--accent").trim() || "#62d6c7",
+      bus: "rgba(98, 214, 199, .14)",
+      iface: "rgba(139, 211, 255, .14)",
+      hover: "#ffd84d",
+      unknown: "#d59b35"
+    };
+    const fallbackPlotWidth = Number(payload.basePlotWidth || 894);
+    const labelWidth = Number(payload.labelWidth || 190);
+    const baseRowHeight = Number(payload.rowHeight || 34);
+    const top = Number(payload.top || 34);
+    const traceHeight = Number(payload.traceHeight || 16);
+    const endTime = Math.max(1, Number(payload.endTime || 1));
+    const signals = Array.isArray(payload.signals) ? payload.signals : [];
+    const ticks = Array.isArray(payload.ticks) ? payload.ticks : [];
+    const compactValue = (value) => {
+      const text = String(value || "").replaceAll("_", "");
+      if (!text) return "";
+      if (text.length > 8 && /^[01]+$/i.test(text)) return `0x${parseInt(text, 2).toString(16).toUpperCase()}`;
+      if (text.length > 18) return `${text.slice(0, 15)}...`;
+      return text.toUpperCase();
+    };
+    const isScalar = (signal) => signal.scalar === true;
+    const yForScalar = (value, highY, lowY) => {
+      const text = String(value || "").toLowerCase();
+      if (text === "1") return highY;
+      if (text === "0") return lowY;
+      return (highY + lowY) / 2;
+    };
+    let hoverTick = null;
+    const nearestTick = (x, plotWidth) => {
+      const snapTicks = ticks.length ? ticks : [{time: 0, label: "t=0"}, {time: endTime, label: `t=${endTime}`}];
+      let best = snapTicks[0];
+      let bestDistance = Infinity;
+      snapTicks.forEach((tick) => {
+        const tx = (Number(tick.time || 0) / endTime) * plotWidth;
+        const distance = Math.abs(tx - x);
+        if (distance < bestDistance) {
+          best = tick;
+          bestDistance = distance;
+        }
+      });
+      return best;
+    };
+    const draw = () => {
+      const valueX = zoomX ? Number(zoomX.value) / 100 : 1;
+      const valueY = zoomY ? Number(zoomY.value) / 100 : 1;
+      const visiblePlotWidth = Math.max(360, viewport.clientWidth - labelWidth);
+      const basePlotWidth = Math.max(fallbackPlotWidth, visiblePlotWidth);
+      const plotWidth = Math.max(240, basePlotWidth * valueX);
+      const rowHeight = Math.max(18, baseRowHeight * valueY);
+      const height = Math.ceil(top + (signals.length * rowHeight) + 28);
+      const dpr = window.devicePixelRatio || 1;
+      stage.style.width = `${labelWidth + plotWidth}px`;
+      stage.style.minWidth = `${labelWidth + plotWidth}px`;
+      stage.style.height = `${height}px`;
+      stage.style.gridTemplateColumns = `${labelWidth}px ${plotWidth}px`;
+      labelPane.style.width = `${labelWidth}px`;
+      labelPane.style.minWidth = `${labelWidth}px`;
+      plotPane.style.width = `${plotWidth}px`;
+      plotPane.style.minWidth = `${plotWidth}px`;
+      plotPane.style.height = `${height}px`;
+      labelPane.style.height = `${height}px`;
+      canvas.style.width = `${plotWidth}px`;
+      canvas.style.height = `${height}px`;
+      canvas.width = Math.max(1, Math.ceil(plotWidth * dpr));
+      canvas.height = Math.max(1, Math.ceil(height * dpr));
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      ctx.clearRect(0, 0, plotWidth, height);
+      ctx.fillStyle = colors.card;
+      ctx.fillRect(0, 0, plotWidth, height);
+      labelRows.forEach((row, index) => {
+        row.style.top = `${top + (index * rowHeight) + 5}px`;
+        row.style.height = `${Math.max(16, rowHeight - 2)}px`;
+        row.style.lineHeight = `${Math.max(16, rowHeight - 2)}px`;
+      });
+      ctx.font = "11px ui-monospace, SFMono-Regular, Menlo, Consolas, monospace";
+      ctx.textBaseline = "middle";
+      const minTickSpacing = valueX >= 20 ? 24 : valueX >= 12 ? 26 : valueX >= 8 ? 28 : valueX >= 4 ? 34 : valueX >= 2.8 ? 42 : valueX >= 1.7 ? 54 : 88;
+      let lastTickX = -Infinity;
+      ticks.forEach((tick, index) => {
+        const x = (Number(tick.time || 0) / endTime) * plotWidth;
+        ctx.strokeStyle = colors.line;
+        ctx.globalAlpha = tick.clock ? 0.45 : 0.62;
+        ctx.beginPath();
+        ctx.moveTo(x, 20);
+        ctx.lineTo(x, height - 18);
+        ctx.stroke();
+        ctx.globalAlpha = 1;
+        if (x - lastTickX >= minTickSpacing) {
+          ctx.fillStyle = colors.muted;
+          ctx.fillText(String(tick.tickLabel || tick.label || index), x + 3, 14);
+          lastTickX = x;
+        }
+      });
+      signals.forEach((signal, index) => {
+        const rowY = top + (index * rowHeight);
+        const traceY = rowY + Math.max(3, rowHeight * 0.12);
+        const traceH = Math.min(traceHeight, Math.max(10, rowHeight * 0.48));
+        const lowY = traceY + traceH;
+        const highY = traceY;
+        ctx.strokeStyle = colors.line;
+        ctx.globalAlpha = 1;
+        ctx.beginPath();
+        ctx.moveTo(0, lowY);
+        ctx.lineTo(plotWidth, lowY);
+        ctx.stroke();
+        const samples = Array.isArray(signal.samples) ? signal.samples : [];
+        if (signal.kind === "interface") {
+          ctx.fillStyle = colors.iface;
+          ctx.strokeStyle = "#8bd3ff";
+          ctx.lineWidth = 1.2;
+          ctx.fillRect(0, traceY - 1, plotWidth, traceH + 2);
+          ctx.strokeRect(0, traceY - 1, plotWidth, traceH + 2);
+          ctx.fillStyle = colors.ink;
+          ctx.font = "12px ui-monospace, SFMono-Regular, Menlo, Consolas, monospace";
+          ctx.fillText(`${signal.name} interface (${signal.count || 0} signals)`, 8, traceY + (traceH / 2));
+          return;
+        }
+        if (!samples.length) return;
+        if (isScalar(signal)) {
+          let unknown = false;
+          ctx.beginPath();
+          samples.forEach((sample, sampleIndex) => {
+            const x = (Number(sample[0] || 0) / endTime) * plotWidth;
+            const y = yForScalar(sample[1], highY, lowY);
+            unknown = unknown || !["0", "1"].includes(String(sample[1]).toLowerCase());
+            if (sampleIndex === 0) {
+              ctx.moveTo(x, y);
+            } else {
+              const previous = samples[sampleIndex - 1];
+              const previousY = yForScalar(previous[1], highY, lowY);
+              ctx.lineTo(x, previousY);
+              ctx.lineTo(x, y);
+            }
+          });
+          const last = samples[samples.length - 1];
+          ctx.lineTo(plotWidth, yForScalar(last[1], highY, lowY));
+          ctx.strokeStyle = unknown ? colors.unknown : colors.accent;
+          ctx.lineWidth = 2.2;
+          ctx.stroke();
+          return;
+        }
+        ctx.font = "11px ui-monospace, SFMono-Regular, Menlo, Consolas, monospace";
+        samples.forEach((sample, sampleIndex) => {
+          const next = samples[sampleIndex + 1];
+          const x1 = (Number(sample[0] || 0) / endTime) * plotWidth;
+          const x2 = next ? (Number(next[0] || 0) / endTime) * plotWidth : plotWidth;
+          const width = Math.max(3, x2 - x1);
+          ctx.fillStyle = colors.bus;
+          ctx.strokeStyle = colors.accent;
+          ctx.lineWidth = 1.1;
+          ctx.fillRect(x1, traceY, width, traceH);
+          ctx.strokeRect(x1, traceY, width, traceH);
+          if (width >= 38) {
+            ctx.fillStyle = colors.ink;
+            ctx.fillText(compactValue(sample[1]), x1 + 5, traceY + (traceH / 2));
+          }
+        });
+      });
+      if (hoverTick) {
+        const x = (Number(hoverTick.time || 0) / endTime) * plotWidth;
+        ctx.strokeStyle = colors.hover;
+        ctx.lineWidth = 2;
+        ctx.beginPath();
+        ctx.moveTo(x, 20);
+        ctx.lineTo(x, height - 18);
+        ctx.stroke();
+        if (readout) {
+          readout.hidden = false;
+          readout.textContent = hoverTick.label || `t=${hoverTick.time}`;
+        }
+      } else if (readout) {
+        readout.hidden = true;
+      }
+    };
+    draw();
+    if (zoomX) zoomX.addEventListener("input", draw);
+    if (zoomY) zoomY.addEventListener("input", draw);
+    canvas.addEventListener("mousemove", (event) => {
+      const rect = canvas.getBoundingClientRect();
+      const x = event.clientX - rect.left;
+      hoverTick = nearestTick(x, rect.width);
+      draw();
+    });
+    canvas.addEventListener("mouseleave", () => {
+      hoverTick = null;
+      draw();
+    });
+    window.addEventListener("resize", draw);
+  });
+})();
+</script></div></div></details></div></details>
+  <h2>Sources</h2>
+  <ul><li>interfaces/hdl/radif/src/radif_i2c_slave_to_reg.vhd</li></ul>
+</main>
+<footer><div class="wrap">RadHDL documentation version 0.2.2 / Generated by radhdl-docgen 0.1.0</div></footer>
+
+</body>
+</html>

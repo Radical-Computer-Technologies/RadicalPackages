@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>RadHDL 0.2.2 Change Notes</title>
+  <link rel="stylesheet" href="assets/radhdl-docgen.css">
+</head>
+<body>
+<div class="sitebar"><div class="wrap">
+  <a class="brand-mark" href="index.html"><img class="brand-logo" src="assets/rad-logo.png" alt="" onerror="this.style.display='none'"><span>Radical Computer Technologies</span></a>
+</div></div>
+
+<header><div class="wrap">
+  <div class="kicker">RadHDL Documentation</div>
+  <h1>Version Change Notes</h1>
+  <div class="meta">RadHDL 0.2.2-beta.1 / Experimental Crimson release</div>
+  <p class="summary">This release starts the vendor-portability push for RadHDL while keeping generated API datasheets available for existing RadIF, RadDSP, and RadILA modules.</p>
+</div></header>
+
+<main class="wrap">
+  <nav class="breadcrumb"><a href="index.html">RadHDL 0.2.2</a> / Version Change Notes</nav>
+
+  <h2>Highlights</h2>
+  <div class="grid">
+    <div class="card"><strong>RadPrimitive Package Direction</strong><span class="meta">Introduces a documented primitive boundary for RAM, FIFO, CDC, and DSP resources.</span></div>
+    <div class="card"><strong>Vendor Wrapper Coverage</strong><span class="meta">Documents Xilinx XPM/DSP48, Lattice ECP5 RAM/DSP direction, Gowin FIFO/DSP direction, and generic behavioral fallbacks.</span></div>
+    <div class="card"><strong>Simulation Matrix</strong><span class="meta">Formalizes GHDL as the default open simulator and Vivado xsim as the XPM-backed simulator path.</span></div>
+    <div class="card"><strong>Workflow Documentation</strong><span class="meta">Adds Getting Started, package structure, RadBuild integration, standalone toolchain notes, and the first design guide.</span></div>
+  </div>
+
+  <h2>Validation Markers</h2>
+  <p>The RadHDL 0.2.2 branch was prepared with primitive portability smoke coverage for open and vendor simulator paths. The expected evidence markers include:</p>
+  <pre><code>RADHDL_RAM_LATTICE_GHDL_OK
+RADHDL_FIFO_SYNC_LATTICE_GHDL_OK
+RADHDL_RAM_XILINX_XPM_XSIM_OK
+RADHDL_FIFO_SYNC_XILINX_XPM_XSIM_OK</code></pre>
+
+  <h2>Known Gaps</h2>
+  <table><tbody>
+    <tr><th>Area</th><th>Status</th></tr>
+    <tr><td>Generated datasheet catalog</td><td>The searchable datasheet catalog remains based on the generated RadHDL 0.2.1 module set with the 0.2.2 documentation wrapper added around it. The next docgen pass should include RadPrimitive pages directly.</td></tr>
+    <tr><td>XPM portability</td><td>Vivado xsim remains the authoritative path for XPM SystemVerilog simulation bodies. GHDL is used for portable VHDL behavior and non-XPM primitive models.</td></tr>
+    <tr><td>Board guides</td><td>Colorlight i9 ECP5, Gowin GW5A, and expanded Xilinx board guides are planned follow-ups.</td></tr>
+  </tbody></table>
+
+  <h2>Related Pages</h2>
+  <div class="quick-links">
+    <a class="pill" href="getting-started.html">Getting Started</a>
+    <a class="pill" href="guides/">Guides</a>
+    <a class="pill" href="index.html">RadHDL 0.2.2 Home</a>
+  </div>
+</main>
+<footer><div class="wrap">RadHDL documentation version 0.2.2 / Experimental</div></footer>
+</body>
+</html>

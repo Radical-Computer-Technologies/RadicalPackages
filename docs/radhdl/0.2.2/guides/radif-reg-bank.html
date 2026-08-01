@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Designing With radif_reg_bank</title>
+  <link rel="stylesheet" href="../assets/radhdl-docgen.css">
+</head>
+<body>
+<div class="sitebar"><div class="wrap">
+  <a class="brand-mark" href="../index.html"><img class="brand-logo" src="../assets/rad-logo.png" alt="" onerror="this.style.display='none'"><span>Radical Computer Technologies</span></a>
+</div></div>
+
+<header><div class="wrap">
+  <div class="kicker">RadHDL Guide</div>
+  <h1>Designing With radif_reg_bank</h1>
+  <div class="meta">RadHDL 0.2.2-beta.1</div>
+  <p class="summary">Use <code>radif_reg_bank</code> when a design needs a small control/status register block that can be driven by AXI-Lite, SPI, UART, SMI, or another RadIF host bridge.</p>
+</div></header>
+
+<main class="wrap">
+  <nav class="breadcrumb"><a href="../index.html">RadHDL 0.2.2</a> / <a href="./">Guides</a> / Designing With radif_reg_bank</nav>
+
+  <h2>Where It Fits</h2>
+  <p><code>radif_reg_bank</code> provides synchronous read/write storage for software-visible registers. Read-write registers are stored internally and exported to your logic. Read-only registers are supplied by your logic and appear after the read-write range in the same byte-addressed register space.</p>
+  <div class="diagram">
+<pre><code>Host bridge
+  AXI-Lite, SPI, UART, SMI, or I2C
+        |
+        v
+RadIF register transaction signals
+        |
+        v
+radif_reg_bank
+        |
+        +-- read_write_regs_o: control values into your logic
+        +-- read_only_regs_i:  status values from your logic</code></pre>
+  </div>
+
+  <h2>Minimal Instance</h2>
+  <p>The current entity exposes simple address, read, write, data, ready, valid, and error signals. Addresses are byte addresses; for a 32-bit register bank, offsets advance by four bytes.</p>
+  <pre><code class="language-vhdl">library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+use work.radif_pkg.all;
+
+signal ro_regs : radif_reg_array_t(0 to 1)(31 downto 0);
+signal rw_regs : radif_reg_array_t(0 to 7)(31 downto 0);
+
+u_regs : entity work.radif_reg_bank
+  generic map (
+    DATA_WIDTH           => 32,
+    ADDR_WIDTH           => 16,
+    READ_ONLY_REG_COUNT  => 2,
+    READ_WRITE_REG_COUNT => 8,
+    VENDOR_TAG           => "GENERIC",
+    PRODUCT_SERIES_TAG   => "GENERIC"
+  )
+  port map (
+    clk               => clk,
+    rstn              => rstn,
+    wr_addr           => reg_wr_addr,
+    rd_addr           => reg_rd_addr,
+    wr_en             => reg_wr_en,
+    rd_en             => reg_rd_en,
+    data_in           => reg_wdata,
+    data_out          => reg_rdata,
+    read_only_regs_i  => ro_regs,
+    read_write_regs_o => rw_regs,
+    wr_rdy            => reg_wr_rdy,
+    rd_rdy            => reg_rd_rdy,
+    wr_valid          => reg_wr_valid,
+    rd_valid          => reg_rd_valid,
+    error             => reg_error
+  );</code></pre>
+
+  <h2>Register Layout</h2>
+  <table><tbody>
+    <tr><th>Offset</th><th>Access</th><th>Source</th></tr>
+    <tr><td><code>0x0000</code></td><td>RW</td><td><code>read_write_regs_o(0)</code></td></tr>
+    <tr><td><code>0x0004</code></td><td>RW</td><td><code>read_write_regs_o(1)</code></td></tr>
+    <tr><td><code>0x001c</code></td><td>RW</td><td><code>read_write_regs_o(7)</code></td></tr>
+    <tr><td><code>0x0020</code></td><td>RO</td><td><code>read_only_regs_i(0)</code></td></tr>
+    <tr><td><code>0x0024</code></td><td>RO</td><td><code>read_only_regs_i(1)</code></td></tr>
+  </tbody></table>
+
+  <h2>Design Checklist</h2>
+  <ul>
+    <li>Compile <code>radif_pkg</code> before compiling <code>radif_reg_bank</code>.</li>
+    <li>Keep <code>READ_ONLY_REG_COUNT</code> and <code>READ_WRITE_REG_COUNT</code> greater than zero.</li>
+    <li>Define a register map in source control so firmware and host software use stable offsets.</li>
+    <li>Use <code>radif_reg_interconnect</code> when one host bridge must route to multiple register blocks.</li>
+    <li>Use vendor tags consistently so future primitive-backed variants can be selected without changing application-level VHDL.</li>
+  </ul>
+
+  <h2>Next Steps</h2>
+  <p>After the bank is working in simulation, connect it to a host bridge such as <code>radif_axi_lite_to_reg</code>, <code>radif_uart_to_reg</code>, or <code>radif_reg_to_spi_master</code>. For larger designs, split control/status into multiple banks and route them with <code>radif_reg_interconnect</code>.</p>
+  <div class="quick-links">
+    <a class="pill" href="../modules/radif__radif__radif_reg_bank/index.html">radif_reg_bank datasheet</a>
+    <a class="pill" href="../modules/radif__radif__radif_reg_interconnect/index.html">radif_reg_interconnect datasheet</a>
+    <a class="pill" href="../getting-started.html">Getting Started</a>
+  </div>
+</main>
+<footer><div class="wrap">RadHDL documentation version 0.2.2 / Experimental</div></footer>
+</body>
+</html>

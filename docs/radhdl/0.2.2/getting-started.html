@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>RadHDL 0.2.2 Getting Started</title>
+  <link rel="stylesheet" href="assets/radhdl-docgen.css">
+</head>
+<body>
+<div class="sitebar"><div class="wrap">
+  <a class="brand-mark" href="index.html"><img class="brand-logo" src="assets/rad-logo.png" alt="" onerror="this.style.display='none'"><span>Radical Computer Technologies</span></a>
+</div></div>
+
+<header><div class="wrap">
+  <div class="kicker">RadHDL Documentation</div>
+  <h1>Getting Started With RadHDL 0.2.2</h1>
+  <div class="meta">Experimental Crimson documentation / RadHDL 0.2.2-beta.1</div>
+  <p class="summary">This page explains what RadHDL is, how to install and consume it, how the repository is structured, and where to go next when building FPGA designs with RadBuild or vendor tools.</p>
+</div></header>
+
+<main class="wrap">
+  <nav class="breadcrumb"><a href="index.html">RadHDL 0.2.2</a> / Getting Started</nav>
+
+  <h2>RadHDL Overview</h2>
+  <p>RadHDL is the Radical Computer Technologies VHDL library for reusable FPGA building blocks. The library is organized around bus-neutral interfaces, DSP blocks, debug cores, and low-level primitive wrappers that make the same source tree usable across Xilinx, Lattice ECP5, Gowin, and generic simulator flows.</p>
+  <p>The 0.2.2 pass focuses on portability. Public cores should select behavior through generics such as <code>VENDOR_TAG</code> and <code>PRODUCT_SERIES_TAG</code>, while device-specific RAM, FIFO, CDC, and DSP details live below the RadPrimitive boundary. That keeps application-level cores and register interfaces portable without hiding the fact that FPGA primitives are vendor-specific.</p>
+  <div class="grid">
+    <div class="card"><strong>RadIF</strong><span class="meta">Register banks, interconnect, AXI, SPI, I2C, I2S, SMI, UART, and DMA-facing interface blocks.</span></div>
+    <div class="card"><strong>RadDSP</strong><span class="meta">Streaming DSP, FFT, matrix, filter, modulation, detection, and numeric conversion cores.</span></div>
+    <div class="card"><strong>RadILA</strong><span class="meta">Integrated logic-analyzer capture and debug hub blocks for instrumented FPGA builds.</span></div>
+    <div class="card"><strong>RadPrimitive</strong><span class="meta">Vendor-aware RAM, FIFO, CDC, and DSP wrappers used by portable higher-level cores.</span></div>
+  </div>
+
+  <h2>Install And Use With RadBuild</h2>
+  <p>RadBuild is the preferred flow when you want reproducible project setup, package selection, toolchain registration, and board-specific build recipes. For RadHDL designs, RadBuild should either consume the installed RadHDL package or point directly at a checked-out RadHDL repository.</p>
+  <pre><code class="language-sh">sudo apt update
+sudo apt install radbuild radbuild-radhdl
+radbuild menu
+</code></pre>
+  <p>Inside a RadBuild FPGA project, select the target vendor and board family, register the vendor toolchain root if it was not auto-detected, and enable the RadHDL package or packagegroup. For the open-source ECP5 path, point RadBuild at the oss-cad-suite installation. For Xilinx flows, point it at the installed Vivado root and version. For Gowin flows, point it at the Gowin EDA root.</p>
+  <table><tbody>
+    <tr><th>Setting</th><th>Purpose</th></tr>
+    <tr><td><code>radhdl.root</code></td><td>Checked-out RadHDL repository path or installed package path.</td></tr>
+    <tr><td><code>fpga.vendor</code></td><td>Vendor selector such as <code>xilinx</code>, <code>lattice</code>, or <code>gowin</code>.</td></tr>
+    <tr><td><code>fpga.family</code></td><td>Family selector such as <code>7series</code>, <code>ultrascale_plus</code>, <code>ecp5</code>, or <code>gw5a</code>.</td></tr>
+    <tr><td><code>toolchains.*.root</code></td><td>Local toolchain installation root used by RadBuild project scripts.</td></tr>
+  </tbody></table>
+
+  <h2>Use With Vendor Toolchains Directly</h2>
+  <p>RadHDL can also be used without RadBuild. The expected direct-toolchain pattern is to clone the RadHDL repository, add the required VHDL packages and cores to the vendor project, and set the VHDL library names consistently.</p>
+  <pre><code class="language-sh">git clone https://github.com/radical-computer-technologies/RadHDL.git
+cd RadHDL
+git checkout radhdl-0.2.2-beta.1
+</code></pre>
+  <div class="grid">
+    <div class="card"><strong>Vivado</strong><span class="meta">Use the RadHDL Tcl manifests or add VHDL files in dependency order. Use xsim for XPM-backed primitive validation where Vivado provides the authoritative simulation body.</span></div>
+    <div class="card"><strong>GHDL</strong><span class="meta">Use GHDL for portable RadHDL models and non-Xilinx primitive smoke tests. The simulation matrix is the reference for supported GHDL cases.</span></div>
+    <div class="card"><strong>Lattice ECP5</strong><span class="meta">Use the Lattice primitive wrappers and oss-cad-suite for Yosys/nextpnr flows. FIFO behavior is implemented through RadHDL logic plus explicit RAM and CDC primitive boundaries.</span></div>
+    <div class="card"><strong>Gowin</strong><span class="meta">Use the Gowin wrappers and Gowin EDA installation for vendor primitive synthesis and simulation work.</span></div>
+  </div>
+
+  <h2>Package Structure</h2>
+  <table><tbody>
+    <tr><th>Area</th><th>Role</th></tr>
+    <tr><td><code>common/</code></td><td>Shared VHDL helpers and base packages used across the library.</td></tr>
+    <tr><td><code>interfaces/hdl/radif/</code></td><td>Register, stream, peripheral, and bridge interfaces.</td></tr>
+    <tr><td><code>dsp/hdl/raddsp/</code></td><td>DSP cores and streaming math blocks.</td></tr>
+    <tr><td><code>debug/radila/</code></td><td>Debug hub and logic-analyzer capture blocks.</td></tr>
+    <tr><td><code>primitive/</code></td><td>RadPrimitive wrappers for RAM, FIFO, CDC, and DSP resources.</td></tr>
+    <tr><td><code>projects/</code></td><td>Board and toolchain projects used for smoke tests and integration examples.</td></tr>
+  </tbody></table>
+  <p>Higher-level packages should depend on RadPrimitive instead of directly instantiating vendor-specific primitives. Vendor wrappers remain visible and testable, but the public design-facing interface should stay stable.</p>
+
+  <h2>Guides And References</h2>
+  <div class="grid">
+    <a class="card" href="guides/radif-reg-bank.html"><strong>Designing With radif_reg_bank</strong><span class="meta">Build a small software-visible register block and connect it to a RadIF host bridge.</span></a>
+    <a class="card" href="changes.html"><strong>Version Change Notes</strong><span class="meta">Read the 0.2.2 highlights and known gaps.</span></a>
+    <a class="card" href="types/index.html"><strong>Type Reference</strong><span class="meta">Review shared package types and constants.</span></a>
+    <a class="card" href="index.html#datasheets"><strong>Datasheet Browser</strong><span class="meta">Search generated module datasheets, ports, generics, register maps, and testbench evidence.</span></a>
+  </div>
+</main>
+<footer><div class="wrap">RadHDL documentation version 0.2.2 / Experimental</div></footer>
+</body>
+</html>
