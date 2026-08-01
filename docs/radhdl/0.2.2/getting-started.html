@@ -62,11 +62,12 @@ git checkout radhdl-0.2.2-beta.1
   <h2>Package Structure</h2>
   <table><tbody>
     <tr><th>Area</th><th>Role</th></tr>
-    <tr><td><code>common/</code></td><td>Shared VHDL helpers and base packages used across the library.</td></tr>
+    <tr><td><code>common/hdl/src/</code></td><td>Shared protocol packages plus current RadPrimitive RAM, FIFO, CDC, and vendor wrapper entry points.</td></tr>
+    <tr><td><code>common/hdl/ecp5/</code></td><td>Explicit ECP5 primitive wrapper sources used by the Lattice path.</td></tr>
+    <tr><td><code>hdl/radhdl/src/</code></td><td>Generated top-level RadHDL package declarations such as <code>RadPrimitive</code> and <code>RadCDC</code>.</td></tr>
     <tr><td><code>interfaces/hdl/radif/</code></td><td>Register, stream, peripheral, and bridge interfaces.</td></tr>
     <tr><td><code>dsp/hdl/raddsp/</code></td><td>DSP cores and streaming math blocks.</td></tr>
     <tr><td><code>debug/radila/</code></td><td>Debug hub and logic-analyzer capture blocks.</td></tr>
-    <tr><td><code>primitive/</code></td><td>RadPrimitive wrappers for RAM, FIFO, CDC, and DSP resources.</td></tr>
     <tr><td><code>projects/</code></td><td>Board and toolchain projects used for smoke tests and integration examples.</td></tr>
   </tbody></table>
   <p>Higher-level packages should depend on RadPrimitive instead of directly instantiating vendor-specific primitives. Vendor wrappers remain visible and testable, but the public design-facing interface should stay stable.</p>

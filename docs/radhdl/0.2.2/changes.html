@@ -24,10 +24,14 @@
   <h2>Highlights</h2>
   <div class="grid">
     <div class="card"><strong>RadPrimitive Package Direction</strong><span class="meta">Introduces a documented primitive boundary for RAM, FIFO, CDC, and DSP resources.</span></div>
+    <div class="card"><strong>Updated Datasheet Catalog</strong><span class="meta">Regenerates 0.2.2 datasheets from current RadHDL source instead of reusing the 0.2.1 generated catalog.</span></div>
     <div class="card"><strong>Vendor Wrapper Coverage</strong><span class="meta">Documents Xilinx XPM/DSP48, Lattice ECP5 RAM/DSP direction, Gowin FIFO/DSP direction, and generic behavioral fallbacks.</span></div>
     <div class="card"><strong>Simulation Matrix</strong><span class="meta">Formalizes GHDL as the default open simulator and Vivado xsim as the XPM-backed simulator path.</span></div>
     <div class="card"><strong>Workflow Documentation</strong><span class="meta">Adds Getting Started, package structure, RadBuild integration, standalone toolchain notes, and the first design guide.</span></div>
   </div>
+
+  <h2>Documentation Correction</h2>
+  <p>The first 0.2.2 web documentation pass added the Getting Started and guide pages but copied the 0.2.1 generated datasheet catalog. This follow-up fixes the generator input and grouping rules so <code>common/hdl/src</code>, <code>common/hdl/ecp5</code>, RadPrimitive RAM/FIFO/CDC wrappers, and vendor primitive wrappers appear directly in the searchable datasheet browser.</p>
 
   <h2>Validation Markers</h2>
   <p>The RadHDL 0.2.2 branch was prepared with primitive portability smoke coverage for open and vendor simulator paths. The expected evidence markers include:</p>
@@ -39,7 +43,7 @@ RADHDL_FIFO_SYNC_XILINX_XPM_XSIM_OK</code></pre>
   <h2>Known Gaps</h2>
   <table><tbody>
     <tr><th>Area</th><th>Status</th></tr>
-    <tr><td>Generated datasheet catalog</td><td>The searchable datasheet catalog remains based on the generated RadHDL 0.2.1 module set with the 0.2.2 documentation wrapper added around it. The next docgen pass should include RadPrimitive pages directly.</td></tr>
+    <tr><td>Generated datasheet catalog</td><td>The searchable catalog has been regenerated for 0.2.2 and now includes RadPrimitive datasheets. Simulation waveforms were not rerun during this web-doc refresh; validation evidence is tracked by the RadHDL simulation matrix.</td></tr>
     <tr><td>XPM portability</td><td>Vivado xsim remains the authoritative path for XPM SystemVerilog simulation bodies. GHDL is used for portable VHDL behavior and non-XPM primitive models.</td></tr>
     <tr><td>Board guides</td><td>Colorlight i9 ECP5, Gowin GW5A, and expanded Xilinx board guides are planned follow-ups.</td></tr>
   </tbody></table>
