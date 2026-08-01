@@ -20,7 +20,7 @@
     </p>
     <div class="status-row">
       <span class="pill"><strong>Stable:</strong> RADLib 0.1.0</span>
-      <span class="pill"><strong>Experimental:</strong> RADBard beta, RadBuild 0.2.1, RADPx-OS Crimson 0.1.4</span>
+      <span class="pill"><strong>Experimental:</strong> RADBard beta, RadBuild 0.2.1, RADPx-OS Crimson 0.1.5</span>
       <span class="pill"><strong>Architectures:</strong> amd64, arm64, all</span>
     </div>
   </section>
@@ -84,7 +84,7 @@ curl -fsSL https://radical-computer-technologies.github.io/RadicalPackages/keys/
           <a class="link-card" href="radbuild.html"><strong>RadBuild Packages</strong><span>Graph build framework, server, VSCode support, RADPx-OS provider, RadHDL package, and docs.</span></a>
         </div>
       </details>
-      <details class="doc-release" data-search-item data-search-text="radpx os experimental crimson 0.1.3 kernel vm image x86 slint posix radbuild vim tiny ncurses">
+      <details class="doc-release" data-search-item data-search-text="radpx os experimental crimson 0.1.5 kernel vm image x86 slint compositor desktop window manager userland process posix radbuild vim tiny ncurses">
         <summary>RADPx-OS 0 - Crimson</summary>
         <div class="links">
           <a class="link-card" href="radpx-os.html"><strong>RADPx OS</strong><span>Experimental POSIX-inspired kernel, VM image path, API documentation, and RADPx package hub.</span></a>

@@ -1,0 +1,146 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="radcompositor_8md" kind="file" language="Markdown">
+    <compoundname>radcompositor.md</compoundname>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline><highlight class="normal">#<sp/>RADCompositor<sp/>{#radcompositor}</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">RADCompositor<sp/>is<sp/>the<sp/>Crimson<sp/>0.1.4<sp/>Slint-backed<sp/>desktop<sp/>service<sp/>for<sp/>RADPx-OS.<sp/>It</highlight></codeline>
+<codeline><highlight class="normal">is<sp/>intentionally<sp/>RADPx-OS-owned:<sp/>Slint<sp/>renders<sp/>each<sp/>UI<sp/>surface,<sp/>but<sp/>RADPx-OS<sp/>owns</highlight></codeline>
+<codeline><highlight class="normal">the<sp/>screen,<sp/>window<sp/>placement,<sp/>z-order,<sp/>focus,<sp/>input<sp/>routing,<sp/>and<sp/>the<sp/>final</highlight></codeline>
+<codeline><highlight class="normal">framebuffer<sp/>writes.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">As<sp/>of<sp/>0.1.4-beta.2<sp/>the<sp/>x86<sp/>VM<sp/>target<sp/>boots<sp/>a<sp/>real<sp/>**multi-window<sp/>desktop<sp/>shell**</highlight></codeline>
+<codeline><highlight class="normal">with<sp/>a<sp/>dock,<sp/>an<sp/>app<sp/>launcher,<sp/>and<sp/>three<sp/>kernel-rendered<sp/>application<sp/>windows<sp/>—</highlight></codeline>
+<codeline><highlight class="normal">Terminal,<sp/>File<sp/>Explorer,<sp/>and<sp/>Text<sp/>Editor<sp/>—<sp/>each<sp/>a<sp/>live<sp/>Slint<sp/>surface.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>Architecture</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Each<sp/>window-like<sp/>UI<sp/>surface<sp/>renders<sp/>into<sp/>its<sp/>own<sp/>off-screen<sp/>pixel<sp/>buffer.<sp/>The</highlight></codeline>
+<codeline><highlight class="normal">compositor<sp/>(`RADCompositorCore`)<sp/>tracks<sp/>damaged<sp/>rectangles,<sp/>copies<sp/>the<sp/>current</highlight></codeline>
+<codeline><highlight class="normal">front<sp/>buffer<sp/>forward<sp/>into<sp/>a<sp/>software<sp/>back<sp/>buffer,<sp/>redraws<sp/>the<sp/>intersecting</highlight></codeline>
+<codeline><highlight class="normal">surfaces<sp/>by<sp/>z-order,<sp/>and<sp/>presents<sp/>the<sp/>touched<sp/>rectangles<sp/>to<sp/>the<sp/>framebuffer</highlight></codeline>
+<codeline><highlight class="normal">backend<sp/>through<sp/>a<sp/>double-buffered<sp/>(front/back)<sp/>present<sp/>path.<sp/>Surfaces<sp/>may<sp/>use</highlight></codeline>
+<codeline><highlight class="normal">opaque<sp/>XRGB<sp/>pixels<sp/>or<sp/>ARGB<sp/>pixels<sp/>with<sp/>source-over<sp/>alpha<sp/>blending.<sp/>The</highlight></codeline>
+<codeline><highlight class="normal">compositor<sp/>holds<sp/>up<sp/>to<sp/>16<sp/>surfaces<sp/>with<sp/>a<sp/>64-entry<sp/>damage<sp/>ring.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">The<sp/>kernel-side<sp/>runtime<sp/>model<sp/>(`EmbeddedDesktopShellModel`<sp/>in<sp/>`SlintShell.cpp`)</highlight></codeline>
+<codeline><highlight class="normal">drives<sp/>the<sp/>shell:<sp/>it<sp/>owns<sp/>each<sp/>window<sp/>record<sp/>(bounds,<sp/>z-order,<sp/>focus,<sp/>open</highlight></codeline>
+<codeline><highlight class="normal">order),<sp/>exclusive<sp/>focus,<sp/>and<sp/>the<sp/>dock/launcher<sp/>state,<sp/>and<sp/>it<sp/>maps<sp/>the<sp/>RADPx-OS</highlight></codeline>
+<codeline><highlight class="normal">input<sp/>queue<sp/>onto<sp/>the<sp/>correct<sp/>surface.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">The<sp/>x86<sp/>VM<sp/>target<sp/>starts<sp/>these<sp/>Slint<sp/>surfaces:</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">-<sp/>`RadDesktopSurface`<sp/>—<sp/>desktop<sp/>background,<sp/>top<sp/>bar,<sp/>and<sp/>the<sp/>gradient<sp/>left<sp/>dock</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>(app<sp/>launcher<sp/>+<sp/>open-app<sp/>icons<sp/>in<sp/>open<sp/>order,<sp/>with<sp/>a<sp/>right-click<sp/>&quot;Close&quot;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>dropdown<sp/>per<sp/>icon).</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>`RadTerminalSurface`<sp/>—<sp/>a<sp/>terminal<sp/>window<sp/>backed<sp/>by<sp/>a<sp/>RADPx-OS<sp/>PTY<sp/>running<sp/>the</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>interactive<sp/>shell.</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>`RadFileExplorerSurface`<sp/>—<sp/>a<sp/>real<sp/>directory<sp/>browser<sp/>over<sp/>the<sp/>in-kernel<sp/>VFS.</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>`RadTextEditorSurface`<sp/>—<sp/>a<sp/>text<sp/>editor<sp/>that<sp/>opens<sp/>and<sp/>saves<sp/>files<sp/>through<sp/>the</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>VFS.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>Dynamic<sp/>Slint<sp/>in<sp/>the<sp/>freestanding<sp/>kernel</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">The<sp/>shell<sp/>UI<sp/>is<sp/>**fully<sp/>dynamic<sp/>Slint**,<sp/>not<sp/>fixed-slot<sp/>immediate<sp/>mode.<sp/>Slint</highlight></codeline>
+<codeline><highlight class="normal">`for`<sp/>repeaters<sp/>over<sp/>`[struct]`<sp/>models<sp/>and<sp/>the<sp/>`std-widgets`<sp/>set<sp/>(`Button`,</highlight></codeline>
+<codeline><highlight class="normal">`LineEdit`,<sp/>`TextEdit`,<sp/>`ScrollView`)<sp/>link<sp/>and<sp/>run<sp/>in<sp/>the<sp/>freestanding</highlight></codeline>
+<codeline><highlight class="normal">(`-nostdlib`,<sp/>`-fno-exceptions`)<sp/>kernel.<sp/>This<sp/>is<sp/>enabled<sp/>by<sp/>a<sp/>small<sp/>set<sp/>of</highlight></codeline>
+<codeline><highlight class="normal">libstdc++<sp/>support<sp/>symbols<sp/>implemented<sp/>in</highlight></codeline>
+<codeline><highlight class="normal">`RADKernel/runtime/freestanding_runtime.cpp`<sp/>(the<sp/>`std::__throw_*`<sp/>container</highlight></codeline>
+<codeline><highlight class="normal">error<sp/>handlers<sp/>as<sp/>diagnostic<sp/>kernel<sp/>panics,<sp/>`std::_Sp_make_shared_tag::_S_eq`,</highlight></codeline>
+<codeline><highlight class="normal">and<sp/>`__libc_single_threaded<sp/>=<sp/>1`<sp/>for<sp/>single-threaded<sp/>shared_ptr<sp/>refcounts).<sp/>With</highlight></codeline>
+<codeline><highlight class="normal">those,<sp/>`std::make_shared&lt;slint::VectorModel&lt;T&gt;&gt;`<sp/>works<sp/>in<sp/>the<sp/>kernel<sp/>exactly<sp/>as</highlight></codeline>
+<codeline><highlight class="normal">on<sp/>the<sp/>host.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Concretely:</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">-<sp/>The<sp/>File<sp/>Explorer<sp/>builds<sp/>a<sp/>`[RadFileEntry]`<sp/>model<sp/>from<sp/>`rad_vfs_opendir`<sp/>/</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>`rad_vfs_readdir`,<sp/>renders<sp/>it<sp/>with<sp/>a<sp/>repeater<sp/>(folder/file<sp/>icons,<sp/>hover,<sp/>a</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>path<sp/>breadcrumb),<sp/>and<sp/>descends<sp/>directories<sp/>via<sp/>a<sp/>`navigate(index)`<sp/>callback.</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>The<sp/>Text<sp/>Editor<sp/>uses<sp/>a<sp/>`std-widgets`<sp/>`TextEdit`<sp/>for<sp/>the<sp/>document<sp/>plus<sp/>a</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>`LineEdit`<sp/>path<sp/>field<sp/>and<sp/>Open/Save<sp/>buttons,<sp/>reading<sp/>and<sp/>writing<sp/>through<sp/>the</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>VFS.</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>The<sp/>dock<sp/>renders<sp/>open-app<sp/>icons<sp/>from<sp/>a<sp/>`[RadDockIcon]`<sp/>model<sp/>in<sp/>open<sp/>order.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>Focus<sp/>and<sp/>input<sp/>routing</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Input<sp/>events<sp/>enter<sp/>through<sp/>the<sp/>RADPx-OS<sp/>input<sp/>queue.<sp/>Pointer<sp/>coordinates<sp/>are</highlight></codeline>
+<codeline><highlight class="normal">tested<sp/>against<sp/>surface<sp/>bounds<sp/>in<sp/>global<sp/>screen<sp/>space,<sp/>translated<sp/>into<sp/>local</highlight></codeline>
+<codeline><highlight class="normal">surface<sp/>coordinates,<sp/>and<sp/>dispatched<sp/>to<sp/>the<sp/>matching<sp/>Slint<sp/>window<sp/>adapter;<sp/>a</highlight></codeline>
+<codeline><highlight class="normal">press<sp/>on<sp/>a<sp/>window<sp/>raises<sp/>it<sp/>and<sp/>gives<sp/>it<sp/>exclusive<sp/>focus.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Keyboard<sp/>events<sp/>route<sp/>to<sp/>the<sp/>**focused**<sp/>window&apos;s<sp/>adapter.<sp/>The<sp/>Terminal<sp/>role</highlight></codeline>
+<codeline><highlight class="normal">translates<sp/>keys<sp/>to<sp/>bytes<sp/>and<sp/>writes<sp/>them<sp/>to<sp/>its<sp/>PTY<sp/>(so<sp/>the<sp/>interactive<sp/>shell,</highlight></codeline>
+<codeline><highlight class="normal">and<sp/>escape<sp/>sequences,<sp/>reach<sp/>the<sp/>program);<sp/>the<sp/>other<sp/>roles<sp/>dispatch<sp/>the<sp/>key<sp/>to</highlight></codeline>
+<codeline><highlight class="normal">Slint<sp/>so<sp/>the<sp/>Text<sp/>Editor&apos;s<sp/>`TextEdit`<sp/>receives<sp/>input.<sp/>Escape<sp/>no<sp/>longer<sp/>closes<sp/>a</highlight></codeline>
+<codeline><highlight class="normal">window<sp/>—<sp/>it<sp/>dismisses<sp/>any<sp/>open<sp/>menu/dropdown<sp/>and<sp/>otherwise<sp/>forwards<sp/>to<sp/>the<sp/>PTY.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>Client/server<sp/>surfaces<sp/>(userland<sp/>apps)</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">RADCompositor<sp/>also<sp/>runs<sp/>a<sp/>Wayland-style<sp/>client/server<sp/>path<sp/>in<sp/>which<sp/>an</highlight></codeline>
+<codeline><highlight class="normal">application<sp/>is<sp/>a<sp/>**separate<sp/>userland<sp/>process**<sp/>that<sp/>renders<sp/>into<sp/>a<sp/>shared-memory</highlight></codeline>
+<codeline><highlight class="normal">buffer<sp/>the<sp/>kernel<sp/>composites<sp/>—<sp/>the<sp/>direction<sp/>the<sp/>shell<sp/>is<sp/>moving<sp/>in<sp/>for<sp/>the</highlight></codeline>
+<codeline><highlight class="normal">0.1.5<sp/>line.<sp/>The<sp/>protocol<sp/>lives<sp/>on<sp/>the<sp/>`/dev/compositor0`<sp/>device:</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">-<sp/>A<sp/>client<sp/>allocates<sp/>a<sp/>named<sp/>shm<sp/>object<sp/>sized<sp/>to<sp/>its<sp/>window,<sp/>`mmap`s<sp/>it,<sp/>and</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>writes<sp/>XRGB8888<sp/>pixels<sp/>into<sp/>that<sp/>mapping.<sp/>shm<sp/>objects<sp/>are<sp/>backed<sp/>by<sp/>a</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>physically-contiguous<sp/>block<sp/>so<sp/>the<sp/>compositor<sp/>can<sp/>treat<sp/>the<sp/>mapping<sp/>as<sp/>one</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>linear,<sp/>strided<sp/>surface<sp/>buffer<sp/>(a<sp/>full<sp/>window<sp/>spans<sp/>many<sp/>pages).</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>`RAD_DEVICE_IOCTL_COMPOSITOR_CREATE_SURFACE`<sp/>registers<sp/>the<sp/>shm<sp/>buffer<sp/>as<sp/>a</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>compositor<sp/>surface;<sp/>`QUEUE_DAMAGE`<sp/>commits<sp/>changed<sp/>rectangles;<sp/>`SET_BOUNDS`</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>moves/resizes<sp/>it;<sp/>`FOCUS`<sp/>raises<sp/>it<sp/>and<sp/>requests<sp/>keyboard<sp/>focus;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>`DESTROY_SURFACE`<sp/>tears<sp/>it<sp/>down.</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>The<sp/>kernel<sp/>records<sp/>the<sp/>owning<sp/>pid<sp/>per<sp/>surface<sp/>and<sp/>reaps<sp/>a<sp/>client&apos;s<sp/>surfaces</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>when<sp/>that<sp/>process<sp/>exits<sp/>(queuing<sp/>exposed<sp/>damage<sp/>so<sp/>the<sp/>vacated<sp/>area<sp/>repaints).</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>Input<sp/>that<sp/>hit-tests<sp/>or<sp/>focuses<sp/>onto<sp/>a<sp/>client<sp/>surface<sp/>is<sp/>queued<sp/>to<sp/>a</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>per-surface<sp/>ring<sp/>(with<sp/>surface-local<sp/>pointer<sp/>coordinates)<sp/>and<sp/>the<sp/>client</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>dequeues<sp/>it<sp/>with<sp/>`POLL_INPUT`<sp/>—<sp/>the<sp/>compositor<sp/>never<sp/>dispatches<sp/>it<sp/>into<sp/>an</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>in-kernel<sp/>adapter.</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>**The<sp/>compositor<sp/>owns<sp/>the<sp/>window<sp/>frame<sp/>(server-side<sp/>decorations).**<sp/>For<sp/>each</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>client<sp/>surface<sp/>it<sp/>creates<sp/>a<sp/>WM-owned<sp/>decoration<sp/>surface<sp/>just<sp/>behind<sp/>the</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>content<sp/>and<sp/>draws<sp/>the<sp/>title/drag<sp/>bar,<sp/>border,<sp/>and<sp/>a<sp/>close<sp/>(X)<sp/>button.<sp/>The</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>client<sp/>renders<sp/>only<sp/>its<sp/>content.<sp/>Dragging<sp/>the<sp/>title<sp/>bar<sp/>moves<sp/>the<sp/>whole</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>window<sp/>(frame<sp/>+<sp/>content);<sp/>clicking<sp/>the<sp/>close<sp/>button<sp/>sends<sp/>the<sp/>client<sp/>a</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>`RAD_WC_EVENT_CLOSE`<sp/>event<sp/>through<sp/>its<sp/>input<sp/>queue<sp/>so<sp/>it<sp/>can<sp/>shut<sp/>down</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>gracefully,<sp/>after<sp/>which<sp/>the<sp/>WM<sp/>reaps<sp/>both<sp/>surfaces.<sp/>Apps<sp/>therefore<sp/>get</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>consistent,<sp/>WM-controlled<sp/>decorations<sp/>without<sp/>drawing<sp/>any<sp/>chrome<sp/>themselves.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">`userland/lib/radcompositor`<sp/>is<sp/>a<sp/>small<sp/>freestanding<sp/>C<sp/>client<sp/>library<sp/>over<sp/>this</highlight></codeline>
+<codeline><highlight class="normal">protocol<sp/>(open<sp/>surface,<sp/>commit,<sp/>set<sp/>position,<sp/>focus,<sp/>poll<sp/>input,<sp/>destroy).</highlight></codeline>
+<codeline><highlight class="normal">`/bin/radwc-demo`<sp/>is<sp/>the<sp/>reference<sp/>client:<sp/>a<sp/>separate<sp/>process<sp/>that<sp/>opens<sp/>a</highlight></codeline>
+<codeline><highlight class="normal">window<sp/>surface,<sp/>draws<sp/>a<sp/>live-animated<sp/>title-barred<sp/>window,<sp/>moves<sp/>on<sp/>title-bar</highlight></codeline>
+<codeline><highlight class="normal">drag,<sp/>and<sp/>cycles<sp/>color<sp/>on<sp/>keypress.<sp/>The<sp/>shell<sp/>auto-launches<sp/>it<sp/>on<sp/>the<sp/>x86<sp/>WM</highlight></codeline>
+<codeline><highlight class="normal">target<sp/>(`RAD_WC_DEMO_LAUNCH_OK`<sp/>/<sp/>`RAD_COMPOSITOR_IPC_SURFACE_OK`).</highlight></codeline>
+<codeline><highlight class="normal">`/bin/radgfx-smoke`<sp/>is<sp/>a<sp/>minimal<sp/>one-page<sp/>raw-pixel<sp/>producer<sp/>over<sp/>the<sp/>same<sp/>path.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">The<sp/>three<sp/>built-in<sp/>app<sp/>windows<sp/>(Terminal,<sp/>File<sp/>Explorer,<sp/>Text<sp/>Editor)<sp/>are<sp/>still</highlight></codeline>
+<codeline><highlight class="normal">trusted<sp/>in-process<sp/>Slint<sp/>surfaces;<sp/>porting<sp/>them<sp/>to<sp/>userland<sp/>clients<sp/>over<sp/>this</highlight></codeline>
+<codeline><highlight class="normal">protocol<sp/>(and<sp/>building<sp/>a<sp/>userland<sp/>Slint<sp/>target)<sp/>is<sp/>the<sp/>remaining<sp/>0.1.5<sp/>work.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>Current<sp/>limits</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">The<sp/>x86<sp/>GRUB<sp/>framebuffer<sp/>still<sp/>uses<sp/>software<sp/>shadow<sp/>buffers<sp/>rather<sp/>than<sp/>a</highlight></codeline>
+<codeline><highlight class="normal">hardware<sp/>page<sp/>flip,<sp/>and<sp/>surface<sp/>buffers<sp/>are<sp/>currently<sp/>allocated<sp/>at<sp/>full<sp/>screen</highlight></codeline>
+<codeline><highlight class="normal">resolution.<sp/>Damage<sp/>extraction<sp/>is<sp/>at<sp/>the<sp/>surface-rectangle<sp/>granularity<sp/>rather</highlight></codeline>
+<codeline><highlight class="normal">than<sp/>from<sp/>Slint&apos;s<sp/>internal<sp/>dirty<sp/>regions.<sp/>The<sp/>Pi<sp/>(aarch64)<sp/>target<sp/>has<sp/>parity</highlight></codeline>
+<codeline><highlight class="normal">markers<sp/>but<sp/>does<sp/>not<sp/>yet<sp/>link<sp/>the<sp/>Slint<sp/>renderer;<sp/>the<sp/>ZuBoard<sp/>is<sp/>headless.</highlight></codeline>
+<codeline><highlight class="normal">Future<sp/>passes<sp/>generalize<sp/>shm-backed<sp/>Slint<sp/>applications<sp/>(the<sp/>client/server</highlight></codeline>
+<codeline><highlight class="normal">model),<sp/>size<sp/>surface<sp/>buffers<sp/>per<sp/>window<sp/>rather<sp/>than<sp/>per<sp/>screen,<sp/>add<sp/>SIMD</highlight></codeline>
+<codeline><highlight class="normal">copy/blend<sp/>backends,<sp/>and<sp/>make<sp/>the<sp/>cursor<sp/>a<sp/>compositor-managed<sp/>surface.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>Verification</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">The<sp/>hosted<sp/>Slint<sp/>self-test<sp/>and<sp/>the<sp/>x86<sp/>VM<sp/>smoke<sp/>gate<sp/>the<sp/>compositor<sp/>path<sp/>with</highlight></codeline>
+<codeline><highlight class="normal">markers<sp/>for<sp/>surface<sp/>creation,<sp/>off-screen<sp/>rendering,<sp/>dirty-queue<sp/>submission,</highlight></codeline>
+<codeline><highlight class="normal">copy-forward,<sp/>dirty-framebuffer<sp/>present,<sp/>z-order,<sp/>alpha<sp/>blending,<sp/>hit<sp/>testing,</highlight></codeline>
+<codeline><highlight class="normal">input<sp/>coordinate<sp/>translation,<sp/>multi-window<sp/>open/focus/close,<sp/>and<sp/>shared-memory</highlight></codeline>
+<codeline><highlight class="normal">process<sp/>IPC.</highlight></codeline>
+    </programlisting>
+    <location file="/media/jvincent/Kingspec512/repos/RADPx-OS/docs/public/radcompositor.md"/>
+  </compounddef>
+</doxygen>

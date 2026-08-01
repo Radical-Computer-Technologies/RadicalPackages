@@ -1,0 +1,97 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="zuboard-1cg-handoff_8md" kind="file" language="Markdown">
+    <compoundname>zuboard-1cg-handoff.md</compoundname>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline><highlight class="normal">#<sp/>ZuBoard<sp/>1CG<sp/>A53<sp/>Handoff<sp/>Status</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">This<sp/>note<sp/>captures<sp/>the<sp/>current<sp/>handoff<sp/>point<sp/>for<sp/>the<sp/>RADPx-OS<sp/>ZuBoard/ZynqMP<sp/>A53</highlight></codeline>
+<codeline><highlight class="normal">bring-up.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>What<sp/>Works</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">-<sp/>`tools/embedded/rad_zuboard_1cg/boot.S`<sp/>masks<sp/>interrupts,<sp/>selects<sp/>core<sp/>0,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>parks<sp/>nonzero<sp/>MPIDR<sp/>cores<sp/>in<sp/>`wfe`,<sp/>clears<sp/>BSS,<sp/>installs<sp/>a<sp/>clean<sp/>stack,<sp/>and</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>enters<sp/>the<sp/>C++<sp/>kernel.</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>QEMU<sp/>smoke<sp/>works<sp/>against<sp/>`qemu-system-aarch64<sp/>-M<sp/>xlnx-zcu102`<sp/>with</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>single-threaded<sp/>TCG.<sp/>The<sp/>local<sp/>helper<sp/>is:</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">```bash</highlight></codeline>
+<codeline><highlight class="normal">RAD_QEMU_BUILD=0<sp/>RAD_QEMU_TIMEOUT=40<sp/>\</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>tools/embedded/rad_zuboard_1cg/run-qemu.sh</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">-<sp/>The<sp/>QEMU<sp/>profile<sp/>uses<sp/>`RAD_ZYNQMP_SDHCI_BASE=0xff160000u`;<sp/>hardware<sp/>keeps</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>the<sp/>ZuBoard<sp/>default<sp/>`0xff170000u`.</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>The<sp/>ZynqMP<sp/>HAL<sp/>initializes<sp/>the<sp/>Cadence<sp/>PS<sp/>UART,<sp/>registers<sp/>`/dev/console`,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>creates<sp/>serial-backed<sp/>`/dev/tty0`,<sp/>initializes<sp/>SDHCI,<sp/>registers</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>`/dev/mmcblk0`,<sp/>reads<sp/>the<sp/>MBR,<sp/>and<sp/>registers<sp/>`/dev/mmcblk0p1`<sp/>and</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>`/dev/mmcblk0p2`.</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>The<sp/>A53<sp/>MMU<sp/>now<sp/>identity-maps<sp/>the<sp/>full<sp/>32-bit<sp/>physical<sp/>address<sp/>window<sp/>and</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>treats<sp/>the<sp/>high<sp/>ZynqMP<sp/>MMIO<sp/>range<sp/>as<sp/>device<sp/>memory.</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>The<sp/>kernel<sp/>mounts<sp/>ext4<sp/>from<sp/>`/dev/mmcblk0p2`,<sp/>finds<sp/>`/bin/init`,<sp/>creates<sp/>the</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>user<sp/>process,<sp/>binds<sp/>stdio<sp/>to<sp/>`/dev/tty0`,<sp/>and<sp/>reaches<sp/>the<sp/>serial<sp/>login-ready</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>handoff<sp/>point.</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>RadBuild<sp/>has<sp/>a<sp/>`rad-zuboard-1cg-qemu`<sp/>system<sp/>profile<sp/>and<sp/>emits</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>`artifacts/rad/zuboard-1cg-qemu/rad-zuboard-1cg-qemu.img`<sp/>as<sp/>a<sp/>padded</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>512<sp/>MiB<sp/>QEMU<sp/>SD<sp/>image.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>Verified<sp/>Marker<sp/>Path</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">The<sp/>current<sp/>QEMU<sp/>smoke<sp/>reaches:</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">```text</highlight></codeline>
+<codeline><highlight class="normal">RAD_ZUBOARD_SD_OK</highlight></codeline>
+<codeline><highlight class="normal">RAD_ZUBOARD_MMCBLK0_OK</highlight></codeline>
+<codeline><highlight class="normal">RAD_ZUBOARD_PARTITION_BOOT_OK</highlight></codeline>
+<codeline><highlight class="normal">RAD_ZUBOARD_PARTITION_ROOT_OK</highlight></codeline>
+<codeline><highlight class="normal">RAD_AARCH64_MMU_ON_OK</highlight></codeline>
+<codeline><highlight class="normal">RAD_AARCH64_EXCEPTION_VECTORS_OK</highlight></codeline>
+<codeline><highlight class="normal">RAD_EXT4_MOUNT_OK</highlight></codeline>
+<codeline><highlight class="normal">RAD_ZUBOARD_EXT4_ROOT_OK</highlight></codeline>
+<codeline><highlight class="normal">RAD_ROOTFS_INIT_FOUND</highlight></codeline>
+<codeline><highlight class="normal">RAD_AARCH64_USER_PROCESS_SPAWN_OK</highlight></codeline>
+<codeline><highlight class="normal">RAD_LOGIN_SPAWN_OK</highlight></codeline>
+<codeline><highlight class="normal">RAD_ZUBOARD_SERIAL_LOGIN_READY</highlight></codeline>
+<codeline><highlight class="normal">RAD_ZUBOARD_SERIAL_READY</highlight></codeline>
+<codeline><highlight class="normal">RAD_AARCH64_USERMODE_ENTER_OK</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>Current<sp/>Blocker</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">The<sp/>first<sp/>ext4-rootfs<sp/>user<sp/>process<sp/>enters<sp/>EL0<sp/>and<sp/>immediately<sp/>traps<sp/>back<sp/>to<sp/>EL1</highlight></codeline>
+<codeline><highlight class="normal">at<sp/>the<sp/>first<sp/>instruction<sp/>of<sp/>`/bin/init`:</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">```text</highlight></codeline>
+<codeline><highlight class="normal">[ERR]<sp/>RAD_AARCH64_USER_EXCEPTION<sp/>el=1<sp/>esr=0x2000000<sp/>far=0x0<sp/>elr=0x80000000</highlight></codeline>
+<codeline><highlight class="normal">RAD_AARCH64_USER_EXCEPTION_EXIT_OK</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">`0x80000000`<sp/>is<sp/>the<sp/>`_start`<sp/>address<sp/>of<sp/>the<sp/>generated<sp/>AArch64<sp/>user<sp/>ELF.<sp/>The</highlight></codeline>
+<codeline><highlight class="normal">first<sp/>instruction<sp/>is<sp/>valid<sp/>(`ldr<sp/>x0,<sp/>[sp]`),<sp/>so<sp/>the<sp/>next<sp/>pass<sp/>should<sp/>focus<sp/>on</highlight></codeline>
+<codeline><highlight class="normal">the<sp/>EL0<sp/>exception-return<sp/>and<sp/>user<sp/>translation<sp/>state<sp/>rather<sp/>than<sp/>SD,<sp/>ext4,<sp/>or</highlight></codeline>
+<codeline><highlight class="normal">process<sp/>spawning.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>Recommended<sp/>Next<sp/>Steps</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">1.<sp/>Split<sp/>the<sp/>AArch64<sp/>vector<sp/>entries<sp/>so<sp/>the<sp/>trap<sp/>log<sp/>records<sp/>the<sp/>exact<sp/>vector</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/>slot:<sp/>current/lower<sp/>EL,<sp/>AArch64/AArch32,<sp/>SP0/SPx,<sp/>sync/IRQ/FIQ/SError.</highlight></codeline>
+<codeline><highlight class="normal">2.<sp/>Dump<sp/>`SCTLR_EL1`,<sp/>`TCR_EL1`,<sp/>`MAIR_EL1`,<sp/>`TTBR0_EL1`,<sp/>`TTBR1_EL1`,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/>`CPACR_EL1`,<sp/>and<sp/>the<sp/>user<sp/>leaf<sp/>PTE<sp/>for<sp/>`0x80000000`<sp/>before<sp/>`eret`.</highlight></codeline>
+<codeline><highlight class="normal">3.<sp/>Add<sp/>a<sp/>minimal<sp/>one-instruction<sp/>user<sp/>smoke<sp/>ELF<sp/>that<sp/>only<sp/>performs<sp/>`svc<sp/>exit`.</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/>If<sp/>that<sp/>also<sp/>traps<sp/>at<sp/>`0x80000000`,<sp/>the<sp/>fault<sp/>is<sp/>the<sp/>EL0<sp/>return<sp/>or<sp/>execute</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/>permission<sp/>state.<sp/>If<sp/>it<sp/>runs,<sp/>the<sp/>issue<sp/>is<sp/>in<sp/>the<sp/>generated<sp/>init<sp/>stack<sp/>or</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/>`libradc`<sp/>entry<sp/>path.</highlight></codeline>
+<codeline><highlight class="normal">4.<sp/>Change<sp/>ELF<sp/>segment<sp/>mapping<sp/>to<sp/>honor<sp/>permissions:<sp/>executable<sp/>text<sp/>should<sp/>be</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/>user-readable/executable<sp/>and<sp/>not<sp/>writable;<sp/>data<sp/>should<sp/>be<sp/>writable<sp/>and<sp/>UXN.</highlight></codeline>
+<codeline><highlight class="normal">5.<sp/>After<sp/>EL0<sp/>executes<sp/>reliably,<sp/>verify<sp/>`/dev/tty0`<sp/>login<sp/>input<sp/>over<sp/>QEMU<sp/>serial</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/>and<sp/>then<sp/>repeat<sp/>on<sp/>hardware<sp/>through<sp/>U-Boot<sp/>`bootelf`.</highlight></codeline>
+<codeline></codeline>
+    </programlisting>
+    <location file="/media/jvincent/Kingspec512/repos/RADPx-OS/docs/public/zuboard-1cg-handoff.md"/>
+  </compounddef>
+</doxygen>

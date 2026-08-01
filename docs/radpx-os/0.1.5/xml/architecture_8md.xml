@@ -1,0 +1,74 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="architecture_8md" kind="file" language="Markdown">
+    <compoundname>architecture.md</compoundname>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline><highlight class="normal">#<sp/>Architecture<sp/>&amp;<sp/>Layout<sp/>{#architecture}</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">RADPx-OS<sp/>keeps<sp/>one<sp/>portable<sp/>kernel<sp/>core<sp/>(RADKernel)<sp/>shared<sp/>across<sp/>every<sp/>target</highlight></codeline>
+<codeline><highlight class="normal">and<sp/>pushes<sp/>hardware-specific<sp/>code<sp/>to<sp/>the<sp/>edges.<sp/>This<sp/>page<sp/>maps<sp/>the<sp/>source<sp/>tree</highlight></codeline>
+<codeline><highlight class="normal">so<sp/>you<sp/>know<sp/>where<sp/>a<sp/>given<sp/>concern<sp/>lives<sp/>before<sp/>you<sp/>change<sp/>it.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>Design<sp/>shape</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">-<sp/>**One<sp/>core,<sp/>many<sp/>backends.**<sp/>The<sp/>portable<sp/>kernel<sp/>logic<sp/>is<sp/>arch-neutral.<sp/>Each</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>target<sp/>supplies<sp/>a<sp/>thin<sp/>platform/board<sp/>layer<sp/>and<sp/>a<sp/>HAL;<sp/>the<sp/>core<sp/>does<sp/>not</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>change<sp/>per<sp/>target.</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>**Stable<sp/>C<sp/>ABI.**<sp/>Everything<sp/>the<sp/>kernel<sp/>exposes<sp/>goes<sp/>through<sp/>`radkernel.h`</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>(see<sp/>@ref<sp/>api_structure).<sp/>Subsystem<sp/>headers<sp/>under</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>`RADKernel/headers/radkernel/`<sp/>(`rad_vfs.h`,<sp/>`rad_net.h`,<sp/>`rad_spi.h`,<sp/>…)<sp/>each</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>include<sp/>that<sp/>ABI<sp/>so<sp/>a<sp/>driver<sp/>or<sp/>app<sp/>pulls<sp/>in<sp/>only<sp/>what<sp/>it<sp/>uses.</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>**Shared<sp/>services,<sp/>not<sp/>copies.**<sp/>Filesystems,<sp/>drivers,<sp/>and<sp/>the<sp/>freestanding</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>runtime<sp/>are<sp/>written<sp/>once<sp/>under<sp/>shared<sp/>trees<sp/>and<sp/>linked<sp/>by<sp/>every<sp/>target<sp/>that</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>needs<sp/>them,<sp/>rather<sp/>than<sp/>being<sp/>duplicated<sp/>per<sp/>platform.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>The<sp/>`RADKernel/`<sp/>tree</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">|<sp/>Directory<sp/>|<sp/>Role<sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|-----------|------|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>`core/`<sp/>|<sp/>The<sp/>portable<sp/>kernel<sp/>core.<sp/>`RADKernel.cpp`<sp/>is<sp/>the<sp/>host-simulator<sp/>backend;<sp/>`RADKernel_runtime.cpp`<sp/>is<sp/>the<sp/>embedded/freestanding<sp/>backend.<sp/>Selected<sp/>by<sp/>`RAD_KERNEL_BACKEND`.<sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>`headers/radkernel/`<sp/>|<sp/>The<sp/>public<sp/>C<sp/>ABI:<sp/>`radkernel.h`<sp/>plus<sp/>the<sp/>per-subsystem<sp/>headers<sp/>(`rad_vfs.h`,<sp/>`rad_task.h`,<sp/>`rad_net.h`,<sp/>`rad_tty.h`,<sp/>`rad_spi.h`,<sp/>`rad_irq.h`,<sp/>…).<sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>`boot/`<sp/>|<sp/>`radboot`<sp/>—<sp/>the<sp/>`rad_boot_info_t`<sp/>hand-off<sp/>that<sp/>platform<sp/>code<sp/>fills<sp/>before<sp/>`rad_kernel_init()`.<sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>`fs/`<sp/>|<sp/>Portable,<sp/>block-device<sp/>filesystems<sp/>shared<sp/>by<sp/>all<sp/>targets:<sp/>`ext4`,<sp/>`ext2`,<sp/>`fat`.<sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>`drivers/`<sp/>|<sp/>Portable<sp/>device<sp/>drivers.<sp/>`drivers/net/gem_cadence.cpp`<sp/>is<sp/>the<sp/>Cadence<sp/>GEM<sp/>NIC<sp/>used<sp/>on<sp/>ZynqMP.<sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>`platforms/`<sp/>|<sp/>Arch-<sp/>and<sp/>SoC-specific<sp/>code.<sp/>`x86_64/`<sp/>(CPU,<sp/>VM,<sp/>user,<sp/>storage,<sp/>boot).<sp/>`a53/`<sp/>for<sp/>Cortex-A53,<sp/>with<sp/>the<sp/>`zynqmp/`<sp/>(ZuBoard/ZynqMP)<sp/>and<sp/>`bcm283x/`<sp/>(Pi)<sp/>SoC<sp/>HALs<sp/>beneath<sp/>it.<sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>`boards/`<sp/>|<sp/>Per-board<sp/>kernel<sp/>entry<sp/>sources.<sp/>`boards/zuboard_1cg/`<sp/>holds<sp/>that<sp/>board&apos;s<sp/>`kernel.cpp`,<sp/>`boot.S`,<sp/>and<sp/>`linker.ld`.<sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>`runtime/`<sp/>|<sp/>The<sp/>freestanding<sp/>kernel<sp/>runtime<sp/>(`freestanding_runtime.cpp`)<sp/>—<sp/>heap,<sp/>`malloc`/`free`,<sp/>formatting,<sp/>mem/string<sp/>—<sp/>for<sp/>targets<sp/>built<sp/>`-nostdlib`.<sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>`hal/`<sp/>|<sp/>Toolchain/SDK<sp/>glue<sp/>kept<sp/>out<sp/>of<sp/>the<sp/>core:<sp/>`hal/circle/`<sp/>(Circle<sp/>SDK<sp/>+<sp/>newlib<sp/>runtime<sp/>glue)<sp/>and<sp/>`hal/rp235x_pico/`.<sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>`subsystems/`<sp/>|<sp/>Cross-cutting<sp/>runtime<sp/>subsystems.<sp/>`RADOverlayRuntime.cpp`<sp/>binds<sp/>the<sp/>device-tree/overlay<sp/>description<sp/>to<sp/>buses,<sp/>devices,<sp/>framebuffers,<sp/>and<sp/>interrupt<sp/>domains.<sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>`modules/`<sp/>|<sp/>Reserved<sp/>for<sp/>loadable-module<sp/>content.<sp/>|</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>Everything<sp/>else</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">-<sp/>`tools/embedded/`<sp/>—<sp/>the<sp/>buildable<sp/>target<sp/>glue<sp/>and<sp/>smoke<sp/>scripts<sp/>(Makefiles,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>CMake,<sp/>QEMU<sp/>runners).<sp/>The<sp/>x86_64<sp/>GRUB<sp/>terminal/WM<sp/>profiles<sp/>and<sp/>the</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>`rad_zuboard_1cg/`<sp/>ZuBoard<sp/>target<sp/>live<sp/>here;<sp/>the<sp/>board<sp/>*source*<sp/>is<sp/>under</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>`RADKernel/boards/`,<sp/>while<sp/>the<sp/>*build<sp/>glue*<sp/>stays<sp/>here.</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>`userland/`<sp/>—<sp/>RADPx-OS<sp/>userspace<sp/>program<sp/>source<sp/>(init,<sp/>the<sp/>`rash`<sp/>shell,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>login,<sp/>coreutils<sp/>shims).</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>`libs/`<sp/>—<sp/>userspace<sp/>libraries:<sp/>`libradc`<sp/>(the<sp/>RADPx-OS<sp/>C<sp/>library)<sp/>and<sp/>the</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>ncurses<sp/>port.</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>`services/`<sp/>—<sp/>the<sp/>daemon/service<sp/>set<sp/>(`RADServiceManager`/radinit<sp/>and<sp/>friends).</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>`tests/`<sp/>—<sp/>host-side<sp/>kernel<sp/>unit<sp/>tests<sp/>(`RADKernelTests`).</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>`docs/`<sp/>—<sp/>this<sp/>documentation<sp/>set<sp/>(`docs/public/`)<sp/>and<sp/>the<sp/>Doxygen<sp/>config.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>How<sp/>a<sp/>target<sp/>is<sp/>assembled</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">A<sp/>target<sp/>build<sp/>links<sp/>the<sp/>**core**<sp/>(`RADKernel_runtime.cpp`)<sp/>+<sp/>the<sp/>**shared</highlight></codeline>
+<codeline><highlight class="normal">services**<sp/>it<sp/>needs<sp/>(`fs/`,<sp/>`drivers/`,<sp/>`runtime/`<sp/>or<sp/>a<sp/>HAL)<sp/>+<sp/>its<sp/>**platform**</highlight></codeline>
+<codeline><highlight class="normal">(`platforms/&lt;arch&gt;/`)<sp/>+<sp/>its<sp/>**board<sp/>entry**<sp/>(`boards/&lt;board&gt;/`).<sp/>For<sp/>example,</highlight></codeline>
+<codeline><highlight class="normal">the<sp/>ZuBoard-1CG<sp/>image<sp/>links<sp/>the<sp/>A53<sp/>platform,<sp/>the<sp/>ZynqMP<sp/>SoC<sp/>HAL,<sp/>the<sp/>ext4</highlight></codeline>
+<codeline><highlight class="normal">filesystem,<sp/>the<sp/>Cadence<sp/>GEM<sp/>driver,<sp/>and<sp/>the<sp/>`zuboard_1cg`<sp/>board<sp/>entry.<sp/>Because</highlight></codeline>
+<codeline><highlight class="normal">the<sp/>core<sp/>and<sp/>shared<sp/>services<sp/>are<sp/>identical<sp/>across<sp/>targets,<sp/>parity<sp/>work<sp/>on<sp/>one</highlight></codeline>
+<codeline><highlight class="normal">target<sp/>(a<sp/>filesystem<sp/>fix,<sp/>a<sp/>syscall)<sp/>benefits<sp/>the<sp/>others<sp/>without<sp/>a<sp/>port.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">See<sp/>@ref<sp/>getting_started<sp/>to<sp/>build<sp/>and<sp/>boot<sp/>a<sp/>target,<sp/>and<sp/>the</highlight></codeline>
+<codeline><highlight class="normal">[ZuBoard-1CG](zuboard-1cg.md)<sp/>notes<sp/>for<sp/>the<sp/>A53<sp/>bring-up<sp/>specifics.</highlight></codeline>
+    </programlisting>
+    <location file="/media/jvincent/Kingspec512/repos/RADPx-OS/docs/public/architecture.md"/>
+  </compounddef>
+</doxygen>

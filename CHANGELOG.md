@@ -9,6 +9,14 @@ and this project aims to adhere to [Semantic Versioning](https://semver.org/spec
 
 ### Changed
 
+- 2026-08-01: Published **RADPx-OS 0.1.5-beta.1** x86 release documentation and
+  regenerated the Doxygen API reference. The Crimson 0.1.5 line moves the desktop
+  shell's Terminal, File Explorer, and Text Editor out of the kernel into separate
+  userland processes (`/bin/radterm`, `/bin/radfiles`, `/bin/radedit`) driven over
+  the compositor client path — the Terminal runs `radsh` over a real pty — and
+  hardens the SMP scheduler so the multi-window desktop is crash-free under `-smp 4`.
+  Bumped the portal version labels (`0.1.4` -> `0.1.5`) and repointed the current
+  x86 release-bundle links to `radpx-os-0.1.5-beta.1`.
 - 2026-07-22: Refreshed the RADPx-OS narrative docs and regenerated the Doxygen
   API reference so the published pages describe the shipped multi-window desktop
   shell (compositor, status, mainpage, getting-started) instead of the older

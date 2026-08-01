@@ -1,0 +1,103 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="zuboard-1cg_8md" kind="file" language="Markdown">
+    <compoundname>zuboard-1cg.md</compoundname>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline><highlight class="normal">#<sp/>ZuBoard<sp/>1CG<sp/>Serial<sp/>Bring-Up</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">RADPx-OS<sp/>includes<sp/>an<sp/>experimental<sp/>serial-only<sp/>target<sp/>for<sp/>the<sp/>Avnet/Tria<sp/>ZuBoard</highlight></codeline>
+<codeline><highlight class="normal">1CG.<sp/>This<sp/>is<sp/>the<sp/>first<sp/>Zynq<sp/>UltraScale+<sp/>MPSoC<sp/>platform<sp/>target<sp/>and<sp/>is<sp/>intended</highlight></codeline>
+<codeline><highlight class="normal">to<sp/>prove<sp/>A53<sp/>boot<sp/>handoff<sp/>before<sp/>SD,<sp/>USB,<sp/>Ethernet,<sp/>framebuffer,<sp/>PL<sp/>runtime,<sp/>or</highlight></codeline>
+<codeline><highlight class="normal">R5<sp/>AMP<sp/>scheduling<sp/>work.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Current<sp/>bring-up<sp/>state<sp/>and<sp/>next<sp/>debugging<sp/>steps<sp/>are<sp/>tracked<sp/>in</highlight></codeline>
+<codeline><highlight class="normal">[`zuboard-1cg-handoff.md`](zuboard-1cg-handoff.md).</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>Boot<sp/>Model</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">The<sp/>first<sp/>pass<sp/>uses<sp/>the<sp/>standard<sp/>ZynqMP<sp/>boot<sp/>chain:</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">1.<sp/>FSBL<sp/>initializes<sp/>the<sp/>processing<sp/>system<sp/>and<sp/>DDR<sp/>from<sp/>an<sp/>XSA.</highlight></codeline>
+<codeline><highlight class="normal">2.<sp/>PMU<sp/>firmware<sp/>and<sp/>optional<sp/>TF-A/BL31<sp/>establish<sp/>the<sp/>firmware<sp/>handoff<sp/>state.</highlight></codeline>
+<codeline><highlight class="normal">3.<sp/>U-Boot<sp/>loads<sp/>`rad-zuboard.elf`<sp/>from<sp/>the<sp/>ext4<sp/>root<sp/>partition.</highlight></codeline>
+<codeline><highlight class="normal">4.<sp/>U-Boot<sp/>enters<sp/>RADPx-OS<sp/>with<sp/>`bootelf`.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">RadBuild<sp/>owns<sp/>the<sp/>repeatable<sp/>flow<sp/>around<sp/>this<sp/>chain.<sp/>It<sp/>can<sp/>stage<sp/>the<sp/>local</highlight></codeline>
+<codeline><highlight class="normal">`../ZUBoard-1CG_RT`<sp/>reference<sp/>XSA<sp/>for<sp/>quick<sp/>bring-up,<sp/>generate<sp/>a<sp/>PS-only<sp/>XSA</highlight></codeline>
+<codeline><highlight class="normal">when<sp/>Avnet<sp/>board<sp/>files<sp/>are<sp/>available,<sp/>write<sp/>XSCT<sp/>firmware<sp/>scripts,<sp/>write<sp/>a</highlight></codeline>
+<codeline><highlight class="normal">Bootgen<sp/>BIF,<sp/>and<sp/>stage<sp/>SD-card<sp/>boot<sp/>files.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>Current<sp/>Kernel<sp/>Scope</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">The<sp/>`zynqmp_zuboard_1cg`<sp/>backend<sp/>currently<sp/>provides:</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">-<sp/>A53<sp/>core-0<sp/>boot<sp/>entry<sp/>with<sp/>all<sp/>nonzero<sp/>MPIDR<sp/>cores<sp/>parked<sp/>in<sp/>`wfe`.</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>Secondary<sp/>A53<sp/>parking<sp/>markers<sp/>for<sp/>the<sp/>dual-core<sp/>ZuBoard<sp/>target.</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>Cadence<sp/>PS<sp/>UART<sp/>console<sp/>at<sp/>115200<sp/>8N1.</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>ZynqMP<sp/>SDHCI<sp/>block<sp/>registration<sp/>as<sp/>`/dev/mmcblk0`<sp/>with<sp/>MBR<sp/>partitions.</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>ext4<sp/>rootfs<sp/>mount<sp/>from<sp/>`/dev/mmcblk0p2`.</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>ARM<sp/>generic<sp/>timer<sp/>delays.</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>AArch64<sp/>exception<sp/>vector<sp/>install,<sp/>EL1<sp/>MMU<sp/>enable,<sp/>4<sp/>GiB<sp/>identity<sp/>kernel</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>mapping,<sp/>and<sp/>high<sp/>ZynqMP<sp/>MMIO<sp/>mapped<sp/>as<sp/>device<sp/>memory.</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>A53<sp/>process<sp/>scale<sp/>aligned<sp/>with<sp/>the<sp/>x86<sp/>early<sp/>target:<sp/>128<sp/>kernel<sp/>tasks,<sp/>128</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>architecture-tracked<sp/>user<sp/>processes,<sp/>and<sp/>512<sp/>KiB<sp/>kernel<sp/>task<sp/>stacks.</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>`/bin/init`,<sp/>`/bin/login`,<sp/>`/bin/rash`,<sp/>`/bin/sh`,<sp/>and<sp/>`libradc.rso`<sp/>in<sp/>the</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>ext4<sp/>rootfs.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Expected<sp/>serial<sp/>markers<sp/>include<sp/>`RAD_ZUBOARD_UART_OK`<sp/>and</highlight></codeline>
+<codeline><highlight class="normal">`RAD_ZUBOARD_SERIAL_LOGIN_READY`.<sp/>The<sp/>QEMU<sp/>smoke<sp/>should<sp/>also<sp/>emit</highlight></codeline>
+<codeline><highlight class="normal">`RAD_AARCH64_MMU_ON_OK`,<sp/>`RAD_EXT4_MOUNT_OK`,</highlight></codeline>
+<codeline><highlight class="normal">`RAD_ZUBOARD_EXT4_ROOT_OK`,<sp/>`RAD_AARCH64_USERLAND_OK`,<sp/>and</highlight></codeline>
+<codeline><highlight class="normal">`RAD_LOGIN_SPAWN_OK`.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>Build</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">```bash</highlight></codeline>
+<codeline><highlight class="normal">make<sp/>-C<sp/>tools/embedded/rad_zuboard_1cg</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Or<sp/>create<sp/>a<sp/>RadBuild<sp/>project:</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">```bash</highlight></codeline>
+<codeline><highlight class="normal">radbuild<sp/>project<sp/>create<sp/>\</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>--non-interactive<sp/>\</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>--template<sp/>radpx-os-zuboard-serial<sp/>\</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>--project-name<sp/>rad_zuboard<sp/>\</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>--workspace<sp/>/path/to/workspace</highlight></codeline>
+<codeline><highlight class="normal">radbuild<sp/>build<sp/>os<sp/>--settings<sp/>/path/to/workspace/rad_zuboard/settings.json</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">The<sp/>generated<sp/>artifact<sp/>directory<sp/>contains<sp/>the<sp/>RADPx-OS<sp/>ELF/image,<sp/>reference<sp/>or</highlight></codeline>
+<codeline><highlight class="normal">generated<sp/>XSA<sp/>files,<sp/>boot<sp/>scripts,<sp/>and<sp/>staging<sp/>files<sp/>for<sp/>the<sp/>SD<sp/>FAT<sp/>partition.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>QEMU<sp/>Smoke</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">The<sp/>local<sp/>QEMU<sp/>smoke<sp/>uses<sp/>QEMU&apos;s<sp/>`xlnx-zcu102`<sp/>machine<sp/>model<sp/>as<sp/>a<sp/>close<sp/>ZynqMP</highlight></codeline>
+<codeline><highlight class="normal">A53/SDHCI/UART<sp/>proxy.<sp/>QEMU<sp/>exposes<sp/>SDHCI<sp/>at<sp/>a<sp/>different<sp/>base<sp/>address<sp/>than<sp/>the</highlight></codeline>
+<codeline><highlight class="normal">hardware<sp/>ZuBoard<sp/>path,<sp/>so<sp/>the<sp/>QEMU<sp/>profile<sp/>rebuilds<sp/>the<sp/>kernel<sp/>with</highlight></codeline>
+<codeline><highlight class="normal">`RAD_ZYNQMP_SDHCI_BASE=0xff160000u`<sp/>and<sp/>pads<sp/>the<sp/>SD<sp/>image<sp/>to<sp/>512<sp/>MiB<sp/>because</highlight></codeline>
+<codeline><highlight class="normal">QEMU&apos;s<sp/>SD<sp/>backend<sp/>requires<sp/>a<sp/>power-of-two<sp/>card<sp/>size.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">```bash</highlight></codeline>
+<codeline><highlight class="normal">radbuild<sp/>build<sp/>os<sp/>--system<sp/>rad-zuboard-1cg-qemu</highlight></codeline>
+<codeline><highlight class="normal">tools/embedded/rad_zuboard_1cg/run-qemu.sh</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">For<sp/>automated<sp/>marker<sp/>checks:</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">```bash</highlight></codeline>
+<codeline><highlight class="normal">RAD_QEMU_BUILD=0<sp/>RAD_QEMU_TIMEOUT=45<sp/>\</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>tools/embedded/rad_zuboard_1cg/run-qemu.sh</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Use<sp/>`RAD_QEMU_SMP=1`<sp/>for<sp/>the<sp/>first<sp/>smoke.<sp/>The<sp/>boot<sp/>assembly<sp/>parks<sp/>all<sp/>cores</highlight></codeline>
+<codeline><highlight class="normal">except<sp/>core<sp/>0;<sp/>once<sp/>GIC<sp/>and<sp/>per-core<sp/>scheduling<sp/>are<sp/>brought<sp/>up<sp/>for<sp/>ZynqMP,<sp/>the</highlight></codeline>
+<codeline><highlight class="normal">QEMU<sp/>profile<sp/>can<sp/>be<sp/>expanded<sp/>to<sp/>validate<sp/>secondary<sp/>A53<sp/>startup.</highlight></codeline>
+    </programlisting>
+    <location file="/media/jvincent/Kingspec512/repos/RADPx-OS/docs/public/zuboard-1cg.md"/>
+  </compounddef>
+</doxygen>

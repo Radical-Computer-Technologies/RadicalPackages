@@ -1,0 +1,114 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="rad__debug_8h" kind="file" language="C++">
+    <compoundname>rad_debug.h</compoundname>
+      <sectiondef kind="define">
+      <memberdef kind="define" id="rad__debug_8h_1a9a490767a121539f68cc23fa249d6636" prot="public" static="no">
+        <name>RAD_DEBUG_SCHED_TRACE</name>
+        <initializer>0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADPx-OS/RADKernel/headers/radkernel/rad_debug.h" line="27" column="9" bodyfile="/media/jvincent/Kingspec512/repos/RADPx-OS/RADKernel/headers/radkernel/rad_debug.h" bodystart="27" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="rad__debug_8h_1a74283411b2878c8dbf9e28b14f46bd68" prot="public" static="no">
+        <name>RAD_DEBUG_WATCHPOINT</name>
+        <initializer>0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADPx-OS/RADKernel/headers/radkernel/rad_debug.h" line="30" column="9" bodyfile="/media/jvincent/Kingspec512/repos/RADPx-OS/RADKernel/headers/radkernel/rad_debug.h" bodystart="30" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="rad__debug_8h_1a2319243161aaaeeb6014c833fcb380bf" prot="public" static="no">
+        <name>RAD_DEBUG_VM_TRACE</name>
+        <initializer>0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADPx-OS/RADKernel/headers/radkernel/rad_debug.h" line="33" column="9" bodyfile="/media/jvincent/Kingspec512/repos/RADPx-OS/RADKernel/headers/radkernel/rad_debug.h" bodystart="33" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="rad__debug_8h_1a6ff2619ebfd77c598859d39e64c1594d" prot="public" static="no">
+        <name>RAD_DEBUG_AUTORUN</name>
+        <initializer>0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADPx-OS/RADKernel/headers/radkernel/rad_debug.h" line="36" column="9" bodyfile="/media/jvincent/Kingspec512/repos/RADPx-OS/RADKernel/headers/radkernel/rad_debug.h" bodystart="36" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="rad__debug_8h_1ae19311507473fc080934b3de4898ee34" prot="public" static="no">
+        <name>RAD_DEBUG_ANY</name>
+        <initializer>(RAD_DEBUG_SCHED_TRACE || RAD_DEBUG_WATCHPOINT || RAD_DEBUG_VM_TRACE)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADPx-OS/RADKernel/headers/radkernel/rad_debug.h" line="42" column="9" bodyfile="/media/jvincent/Kingspec512/repos/RADPx-OS/RADKernel/headers/radkernel/rad_debug.h" bodystart="42" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#ifndef<sp/>RAD_DEBUG_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>RAD_DEBUG_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Debug-scaffolding<sp/>categories.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="comment">//</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Each<sp/>macro<sp/>gates<sp/>a<sp/>self-contained<sp/>set<sp/>of<sp/>diagnostics<sp/>that<sp/>were<sp/>used<sp/>to<sp/>root-cause<sp/>the<sp/>SMP</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="comment">//<sp/>scheduler<sp/>&quot;ghost<sp/>double-execution&quot;<sp/>bug<sp/>(a<sp/>task&apos;s<sp/>user<sp/>frame<sp/>iret&apos;d<sp/>on<sp/>a<sp/>second<sp/>core<sp/>while<sp/>it</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="comment">//<sp/>was<sp/>legitimately<sp/>scheduled<sp/>on<sp/>another,<sp/>sharing<sp/>one<sp/>tss_rsp0<sp/>-&gt;<sp/>kernel-stack<sp/>corruption).<sp/>They</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="comment">//<sp/>are<sp/>all<sp/>compiled<sp/>out<sp/>by<sp/>default;<sp/>enable<sp/>a<sp/>category<sp/>at<sp/>CMake<sp/>configure<sp/>time<sp/>to<sp/>compile<sp/>it<sp/>back</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="comment">//<sp/>in,<sp/>e.g.<sp/>`cmake<sp/>...<sp/>-DRAD_DEBUG_SCHED_TRACE=ON`:</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="comment">//</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/>RAD_DEBUG_SCHED_TRACE<sp/><sp/>scheduler/ghost<sp/>diagnostics<sp/>+<sp/>task-identity<sp/>fault<sp/>dumps</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(RAD_USER_NO_TASK,<sp/>GHOST<sp/>snapshot,<sp/>RAD_RESUME_NO_TID,<sp/>rad_dbg_*</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>helpers,<sp/>RAD_TSS_MISMATCH,<sp/>RAD_STACK_ALIAS,<sp/>RAD_RT_ENTER,<sp/>the</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>faulting-process<sp/>identity<sp/>block<sp/>in<sp/>the<sp/>exception<sp/>reporters)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/>RAD_DEBUG_WATCHPOINT<sp/><sp/><sp/>hardware<sp/>DR/#DB<sp/>watchpoint<sp/>infrastructure<sp/>(x86_debug_entry<sp/>on<sp/>IST[0],</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>x86_cpu_arm_frame_watch,<sp/>x86_debug_dispatch,<sp/>RAD_WATCH_CORRUPT)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/>RAD_DEBUG_VM_TRACE<sp/><sp/><sp/><sp/><sp/>VM/page-ownership<sp/>diagnostics<sp/>(RAD_PAGE_STOLEN,<sp/>RAD_PREMATURE_FREE,</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>RAD_PF_ON_RADTERM_STK,<sp/>g_page_owner_pid)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/>RAD_DEBUG_AUTORUN<sp/><sp/><sp/><sp/><sp/><sp/>auto-launch<sp/>radterm<sp/>+<sp/>feed<sp/>shell<sp/>commands<sp/>(userland/service<sp/>test</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>harness;<sp/>defined<sp/>on<sp/>the<sp/>radterm<sp/>app<sp/>and<sp/>the<sp/>compositor<sp/>service)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight><highlight class="comment">//</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight><highlight class="comment">//<sp/>The<sp/>CMake<sp/>build<sp/>only<sp/>defines<sp/>the<sp/>enabled<sp/>categories<sp/>(as<sp/>1);<sp/>the<sp/>fallbacks<sp/>below<sp/>keep<sp/>every</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight><highlight class="comment">//<sp/>`#if<sp/>RAD_DEBUG_*`<sp/>well-defined<sp/>in<sp/>a<sp/>plain<sp/>default<sp/>build.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>RAD_DEBUG_SCHED_TRACE</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>RAD_DEBUG_SCHED_TRACE<sp/>0</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>RAD_DEBUG_WATCHPOINT</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>RAD_DEBUG_WATCHPOINT<sp/>0</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="32"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>RAD_DEBUG_VM_TRACE</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>RAD_DEBUG_VM_TRACE<sp/>0</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>RAD_DEBUG_AUTORUN</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="36"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>RAD_DEBUG_AUTORUN<sp/>0</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="38"><highlight class="normal"></highlight></codeline>
+<codeline lineno="39"><highlight class="normal"></highlight><highlight class="comment">//<sp/>True<sp/>when<sp/>any<sp/>kernel-side<sp/>category<sp/>is<sp/>on.<sp/>Shared<sp/>debug<sp/>globals/helpers<sp/>that<sp/>more<sp/>than<sp/>one</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="40"><highlight class="normal"></highlight><highlight class="comment">//<sp/>category<sp/>references<sp/>(e.g.<sp/>the<sp/>process-identity<sp/>lookups,<sp/>g_dbg_radterm_krsp)<sp/>are<sp/>gated<sp/>on<sp/>this</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="41"><highlight class="normal"></highlight><highlight class="comment">//<sp/>so<sp/>a<sp/>single<sp/>enabled<sp/>category<sp/>still<sp/>links.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="42"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>RAD_DEBUG_ANY<sp/>(RAD_DEBUG_SCHED_TRACE<sp/>||<sp/>RAD_DEBUG_WATCHPOINT<sp/>||<sp/>RAD_DEBUG_VM_TRACE)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="43"><highlight class="normal"></highlight></codeline>
+<codeline lineno="44"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">//<sp/>RAD_DEBUG_H</highlight><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="/media/jvincent/Kingspec512/repos/RADPx-OS/RADKernel/headers/radkernel/rad_debug.h"/>
+  </compounddef>
+</doxygen>

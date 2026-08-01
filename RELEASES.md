@@ -98,4 +98,21 @@ tar --sparse -czf radpx-os-crimson_0.1.3-beta.1_x86_64-grub-terminal-interactive
   SHA256SUMS
 ```
 
-Upload these bundles and any `.radpm` archives with `scripts/publish_github_release_assets.py` to the matching immutable release, such as `radpx-os-0.1.4-beta.2`.
+Upload these bundles and any `.radpm` archives with `scripts/publish_github_release_assets.py` to the matching immutable release, such as `radpx-os-0.1.5-beta.1`.
+
+The repeatable way to build, bundle, collect the unchanged `.radpm` metadata, sign, and
+(optionally) publish an OS release is `scripts/cut_radpx_os_release.py`. It stages by default
+and only creates the GitHub Release when `--publish` is passed:
+
+```bash
+# stage locally (build all three x86 profiles, bundle, collect prior .radpm, GPG-sign)
+scripts/cut_radpx_os_release.py --version 0.1.5-beta.1 \
+  --radpm-from-release radpx-os-0.1.4-beta.1
+
+# then, after eyeballing the staged assets, publish:
+scripts/cut_radpx_os_release.py --version 0.1.5-beta.1 \
+  --radpm-from-release radpx-os-0.1.4-beta.1 --skip-build --publish
+```
+
+Signing uses the passphrase-protected package key, so unlock it in your local GPG agent
+before staging (an unattended agent will time out on the detached-signature step).

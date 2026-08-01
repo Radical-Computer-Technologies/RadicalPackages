@@ -15,13 +15,13 @@
     <div class="eyebrow">Experimental Operating System</div>
     <h1>RADPx OS</h1>
     <p class="lead">
-      RADPx OS is the Crimson 0.1.4 experimental package line for the POSIX-inspired kernel, the x86 VM image track (framebuffer terminal plus a Slint multi-window desktop shell with Terminal, File Explorer, and Text Editor windows), embedded board ports, future SoC targets, and RADPx <code>.radpm</code> package metadata.
+      RADPx OS is the Crimson 0.1.5 experimental package line for the POSIX-inspired kernel, the x86 VM image track (framebuffer terminal plus a Slint multi-window desktop shell whose Terminal, File Explorer, and Text Editor windows now run as separate userland processes over the compositor), embedded board ports, future SoC targets, and RADPx <code>.radpm</code> package metadata.
     </p>
     <div class="status-row">
-      <span class="pill"><strong>Version:</strong> Crimson 0.1.4</span>
+      <span class="pill"><strong>Version:</strong> Crimson 0.1.5</span>
       <span class="pill"><strong>Suite:</strong> experimental</span>
       <span class="pill"><strong>Build:</strong> RadBuild os.radpx</span>
-      <span class="pill"><strong>Current x86:</strong> 0.1.4 beta 2</span>
+      <span class="pill"><strong>Current x86:</strong> 0.1.5 beta 1</span>
     </div>
   </section>
 
@@ -29,10 +29,10 @@
     <h2>Current Crimson x86 Release</h2>
     <p>The current x86_64 GRUB release bundles include the bootable ISO, ext4 root filesystem image, FAT image, checksums, and helper scripts where available.</p>
     <div class="links">
-      <a class="link-card" href="https://github.com/Radical-Computer-Technologies/RadicalPackages/releases/tag/radpx-os-0.1.4-beta.2"><strong>RADPx OS 0.1.4 beta 2</strong><span>Versioned GitHub Release for Crimson x86 terminal, smoke-test, RADCompositor images, and RADpm packages.</span></a>
-      <a class="link-card" href="https://github.com/Radical-Computer-Technologies/RadicalPackages/releases/download/radpx-os-0.1.4-beta.2/radpx-os-crimson_0.1.4-beta.2_x86_64-grub-terminal-interactive.tar.gz"><strong>x86_64 Interactive Terminal Bundle</strong><span>Framebuffer login shell profile with Vim tiny, ncurses metadata, ISO, ext4, and FAT images.</span></a>
-      <a class="link-card" href="https://github.com/Radical-Computer-Technologies/RadicalPackages/releases/download/radpx-os-0.1.4-beta.2/radpx-os-crimson_0.1.4-beta.2_x86_64-grub-terminal-smoke.tar.gz"><strong>x86_64 Smoke Terminal Bundle</strong><span>Autologin/autotest terminal profile for scripted VM checks.</span></a>
-      <a class="link-card" href="https://github.com/Radical-Computer-Technologies/RadicalPackages/releases/download/radpx-os-0.1.4-beta.2/radpx-os-crimson_0.1.4-beta.2_x86_64-grub-wm.tar.gz"><strong>x86_64 RADCompositor Bundle</strong><span>Slint multi-window desktop shell (Terminal, File Explorer, Text Editor) with Vim tiny, ISO, ext4, and FAT images.</span></a>
+      <a class="link-card" href="https://github.com/Radical-Computer-Technologies/RadicalPackages/releases/tag/radpx-os-0.1.5-beta.1"><strong>RADPx OS 0.1.5 beta 1</strong><span>Versioned GitHub Release for Crimson x86 terminal, smoke-test, RADCompositor images, and RADpm packages.</span></a>
+      <a class="link-card" href="https://github.com/Radical-Computer-Technologies/RadicalPackages/releases/download/radpx-os-0.1.5-beta.1/radpx-os-crimson_0.1.5-beta.1_x86_64-grub-terminal-interactive.tar.gz"><strong>x86_64 Interactive Terminal Bundle</strong><span>Framebuffer login shell profile with Vim tiny, ncurses metadata, ISO, ext4, and FAT images.</span></a>
+      <a class="link-card" href="https://github.com/Radical-Computer-Technologies/RadicalPackages/releases/download/radpx-os-0.1.5-beta.1/radpx-os-crimson_0.1.5-beta.1_x86_64-grub-terminal-smoke.tar.gz"><strong>x86_64 Smoke Terminal Bundle</strong><span>Autologin/autotest terminal profile for scripted VM checks.</span></a>
+      <a class="link-card" href="https://github.com/Radical-Computer-Technologies/RadicalPackages/releases/download/radpx-os-0.1.5-beta.1/radpx-os-crimson_0.1.5-beta.1_x86_64-grub-wm.tar.gz"><strong>x86_64 RADCompositor Bundle</strong><span>Slint multi-window desktop shell (Terminal, File Explorer, Text Editor) with Vim tiny, ISO, ext4, and FAT images.</span></a>
     </div>
   </section>
 
@@ -41,7 +41,7 @@
       <h2>API Documentation</h2>
       <p>The public Crimson kernel API docs are generated from the RADPx-OS repository with Doxygen.</p>
       <div class="links">
-      <a class="link-card" href="docs/radpx-os/0.1.4/api/"><strong>RADPx-OS API</strong><span>Kernel API, device tree, networking, compositor, and Pi Zero 2 W notes.</span></a>
+      <a class="link-card" href="docs/radpx-os/0.1.5/api/"><strong>RADPx-OS API</strong><span>Kernel API, device tree, networking, compositor, and Pi Zero 2 W notes.</span></a>
       </div>
     </article>
 
@@ -92,7 +92,7 @@ radbuild build os --settings settings.wm.json --json-events</code></div>
     <div class="links">
       <a class="link-card" href="radpm/dists/experimental/main/packages.json"><strong>Experimental .radpm Index</strong><span>Machine-readable package records for RadBuild.</span></a>
       <a class="link-card" href="radpm/dists/experimental/main/packagegroups.json"><strong>Experimental Packagegroups</strong><span>Machine-readable terminal, desktop, networking, and SDK group records.</span></a>
-      <a class="link-card" href="https://github.com/Radical-Computer-Technologies/RadicalPackages/releases/tag/radpx-os-0.1.4-beta.2"><strong>RADPx Release Assets</strong><span>Current <code>.radpm</code> archives and x86 image bundles.</span></a>
+      <a class="link-card" href="https://github.com/Radical-Computer-Technologies/RadicalPackages/releases/tag/radpx-os-0.1.5-beta.1"><strong>RADPx Release Assets</strong><span>Current <code>.radpm</code> archives and x86 image bundles.</span></a>
       <a class="link-card" href="packages.html"><strong>Package Catalog</strong><span>Debian and RADPx package listings.</span></a>
     </div>
   </section>

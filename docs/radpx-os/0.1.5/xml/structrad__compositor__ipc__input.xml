@@ -1,0 +1,106 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="structrad__compositor__ipc__input" kind="struct" language="C++" prot="public">
+    <compoundname>rad_compositor_ipc_input</compoundname>
+    <includes refid="radkernel_8h" local="no">radkernel.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structrad__compositor__ipc__input_1ae87a463a2870d5617f37b37be51e456a" prot="public" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t rad_compositor_ipc_input::size</definition>
+        <argsstring></argsstring>
+        <name>size</name>
+        <briefdescription>
+<para>Public structure field. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADPx-OS/RADKernel/headers/radkernel/radkernel.h" line="1035" column="14" bodyfile="/media/jvincent/Kingspec512/repos/RADPx-OS/RADKernel/headers/radkernel/radkernel.h" bodystart="1035" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structrad__compositor__ipc__input_1aafdaf9673b4ef40ef18698716681b41e" prot="public" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t rad_compositor_ipc_input::surface_id</definition>
+        <argsstring></argsstring>
+        <name>surface_id</name>
+        <briefdescription>
+<para>Public structure field. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADPx-OS/RADKernel/headers/radkernel/radkernel.h" line="1036" column="14" bodyfile="/media/jvincent/Kingspec512/repos/RADPx-OS/RADKernel/headers/radkernel/radkernel.h" bodystart="1036" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structrad__compositor__ipc__input_1ab88f1a09e50c173c11079cfe000fb92a" prot="public" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t rad_compositor_ipc_input::has_event</definition>
+        <argsstring></argsstring>
+        <name>has_event</name>
+        <briefdescription>
+<para>Public structure field (out): 1 when <computeroutput>event</computeroutput> is valid. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADPx-OS/RADKernel/headers/radkernel/radkernel.h" line="1037" column="14" bodyfile="/media/jvincent/Kingspec512/repos/RADPx-OS/RADKernel/headers/radkernel/radkernel.h" bodystart="1037" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structrad__compositor__ipc__input_1ae5ac2dcdab23cacc2c49ef511221ba1e" prot="public" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t rad_compositor_ipc_input::reserved</definition>
+        <argsstring></argsstring>
+        <name>reserved</name>
+        <briefdescription>
+<para>Public structure field. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADPx-OS/RADKernel/headers/radkernel/radkernel.h" line="1038" column="14" bodyfile="/media/jvincent/Kingspec512/repos/RADPx-OS/RADKernel/headers/radkernel/radkernel.h" bodystart="1038" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structrad__compositor__ipc__input_1adead5b97edc3799a1b8e44c62aed1ca9" prot="public" static="no" mutable="no">
+        <type><ref refid="radkernel_8h_1a2df38b4a67102717237159b2a6928353" kindref="member">rad_input_event_t</ref></type>
+        <definition>rad_input_event_t rad_compositor_ipc_input::event</definition>
+        <argsstring></argsstring>
+        <name>event</name>
+        <briefdescription>
+<para>Public structure field (out): dequeued event, surface-local. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADPx-OS/RADKernel/headers/radkernel/radkernel.h" line="1039" column="23" bodyfile="/media/jvincent/Kingspec512/repos/RADPx-OS/RADKernel/headers/radkernel/radkernel.h" bodystart="1039" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Client input poll: dequeue one routed event for a surface. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>A client fills <computeroutput>size</computeroutput> and <computeroutput>surface_id</computeroutput> and issues <computeroutput>RAD_DEVICE_IOCTL_COMPOSITOR_POLL_INPUT</computeroutput>. The compositor sets <computeroutput>has_event</computeroutput> to 1 and populates <computeroutput>event</computeroutput> when an event was waiting, or 0 when the per-surface input queue is empty. Pointer coordinates in <computeroutput>event</computeroutput> are surface-local. </para>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="2">
+        <label>rad_input_event</label>
+        <link refid="structrad__input__event"/>
+      </node>
+      <node id="1">
+        <label>rad_compositor_ipc_input</label>
+        <link refid="structrad__compositor__ipc__input"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>event</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="/media/jvincent/Kingspec512/repos/RADPx-OS/RADKernel/headers/radkernel/radkernel.h" line="1034" column="1" bodyfile="/media/jvincent/Kingspec512/repos/RADPx-OS/RADKernel/headers/radkernel/radkernel.h" bodystart="1034" bodyend="1040"/>
+    <listofallmembers>
+      <member refid="structrad__compositor__ipc__input_1adead5b97edc3799a1b8e44c62aed1ca9" prot="public" virt="non-virtual"><scope>rad_compositor_ipc_input</scope><name>event</name></member>
+      <member refid="structrad__compositor__ipc__input_1ab88f1a09e50c173c11079cfe000fb92a" prot="public" virt="non-virtual"><scope>rad_compositor_ipc_input</scope><name>has_event</name></member>
+      <member refid="structrad__compositor__ipc__input_1ae5ac2dcdab23cacc2c49ef511221ba1e" prot="public" virt="non-virtual"><scope>rad_compositor_ipc_input</scope><name>reserved</name></member>
+      <member refid="structrad__compositor__ipc__input_1ae87a463a2870d5617f37b37be51e456a" prot="public" virt="non-virtual"><scope>rad_compositor_ipc_input</scope><name>size</name></member>
+      <member refid="structrad__compositor__ipc__input_1aafdaf9673b4ef40ef18698716681b41e" prot="public" virt="non-virtual"><scope>rad_compositor_ipc_input</scope><name>surface_id</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,65 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="radcompositor" kind="page">
+    <compoundname>radcompositor</compoundname>
+    <title>RADCompositor</title>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para><anchor id="radcompositor_1md__media_jvincent_Kingspec512_repos_RADPx_OS_docs_public_radcompositor"/> RADCompositor is the Crimson 0.1.4 Slint-backed desktop service for RADPx-OS. It is intentionally RADPx-OS-owned: Slint renders each UI surface, but RADPx-OS owns the screen, window placement, z-order, focus, input routing, and the final framebuffer writes.</para>
+<para>As of 0.1.4-beta.2 the x86 VM target boots a real <bold>multi-window desktop shell</bold> with a dock, an app launcher, and three kernel-rendered application windows — Terminal, File Explorer, and Text Editor — each a live Slint surface.</para>
+<sect1 id="radcompositor_1autotoc_md58">
+<title>Architecture</title>
+<para>Each window-like UI surface renders into its own off-screen pixel buffer. The compositor (<computeroutput>RADCompositorCore</computeroutput>) tracks damaged rectangles, copies the current front buffer forward into a software back buffer, redraws the intersecting surfaces by z-order, and presents the touched rectangles to the framebuffer backend through a double-buffered (front/back) present path. Surfaces may use opaque XRGB pixels or ARGB pixels with source-over alpha blending. The compositor holds up to 16 surfaces with a 64-entry damage ring.</para>
+<para>The kernel-side runtime model (<computeroutput>EmbeddedDesktopShellModel</computeroutput> in <computeroutput>SlintShell.cpp</computeroutput>) drives the shell: it owns each window record (bounds, z-order, focus, open order), exclusive focus, and the dock/launcher state, and it maps the RADPx-OS input queue onto the correct surface.</para>
+<para>The x86 VM target starts these Slint surfaces:</para>
+<para><itemizedlist>
+<listitem><para><computeroutput>RadDesktopSurface</computeroutput> — desktop background, top bar, and the gradient left dock (app launcher + open-app icons in open order, with a right-click &quot;Close&quot; dropdown per icon).</para>
+</listitem><listitem><para><computeroutput>RadTerminalSurface</computeroutput> — a terminal window backed by a RADPx-OS PTY running the interactive shell.</para>
+</listitem><listitem><para><computeroutput>RadFileExplorerSurface</computeroutput> — a real directory browser over the in-kernel VFS.</para>
+</listitem><listitem><para><computeroutput>RadTextEditorSurface</computeroutput> — a text editor that opens and saves files through the VFS.</para>
+</listitem></itemizedlist>
+</para>
+</sect1>
+<sect1 id="radcompositor_1autotoc_md59">
+<title>Dynamic Slint in the freestanding kernel</title>
+<para>The shell UI is <bold>fully dynamic Slint</bold>, not fixed-slot immediate mode. Slint <computeroutput>for</computeroutput> repeaters over <computeroutput>[struct]</computeroutput> models and the <computeroutput>std-widgets</computeroutput> set (<computeroutput>Button</computeroutput>, <computeroutput>LineEdit</computeroutput>, <computeroutput>TextEdit</computeroutput>, <computeroutput>ScrollView</computeroutput>) link and run in the freestanding (<computeroutput>-nostdlib</computeroutput>, <computeroutput>-fno-exceptions</computeroutput>) kernel. This is enabled by a small set of libstdc++ support symbols implemented in <computeroutput>RADKernel/runtime/freestanding_runtime.cpp</computeroutput> (the <computeroutput>std::__throw_*</computeroutput> container error handlers as diagnostic kernel panics, <computeroutput>std::_Sp_make_shared_tag::_S_eq</computeroutput>, and <computeroutput>__libc_single_threaded = 1</computeroutput> for single-threaded shared_ptr refcounts). With those, <computeroutput>std::make_shared&lt;slint::VectorModel&lt;T&gt;&gt;</computeroutput> works in the kernel exactly as on the host.</para>
+<para>Concretely:</para>
+<para><itemizedlist>
+<listitem><para>The File Explorer builds a <computeroutput>[RadFileEntry]</computeroutput> model from <computeroutput>rad_vfs_opendir</computeroutput> / <computeroutput>rad_vfs_readdir</computeroutput>, renders it with a repeater (folder/file icons, hover, a path breadcrumb), and descends directories via a <computeroutput>navigate(index)</computeroutput> callback.</para>
+</listitem><listitem><para>The Text Editor uses a <computeroutput>std-widgets</computeroutput> <computeroutput>TextEdit</computeroutput> for the document plus a <computeroutput>LineEdit</computeroutput> path field and Open/Save buttons, reading and writing through the VFS.</para>
+</listitem><listitem><para>The dock renders open-app icons from a <computeroutput>[RadDockIcon]</computeroutput> model in open order.</para>
+</listitem></itemizedlist>
+</para>
+</sect1>
+<sect1 id="radcompositor_1autotoc_md60">
+<title>Focus and input routing</title>
+<para>Input events enter through the RADPx-OS input queue. Pointer coordinates are tested against surface bounds in global screen space, translated into local surface coordinates, and dispatched to the matching Slint window adapter; a press on a window raises it and gives it exclusive focus.</para>
+<para>Keyboard events route to the <bold>focused</bold> window&apos;s adapter. The Terminal role translates keys to bytes and writes them to its PTY (so the interactive shell, and escape sequences, reach the program); the other roles dispatch the key to Slint so the Text Editor&apos;s <computeroutput>TextEdit</computeroutput> receives input. Escape no longer closes a window — it dismisses any open menu/dropdown and otherwise forwards to the PTY.</para>
+</sect1>
+<sect1 id="radcompositor_1autotoc_md61">
+<title>Client/server surfaces (userland apps)</title>
+<para>RADCompositor also runs a Wayland-style client/server path in which an application is a <bold>separate userland process</bold> that renders into a shared-memory buffer the kernel composites — the direction the shell is moving in for the 0.1.5 line. The protocol lives on the <computeroutput>/dev/compositor0</computeroutput> device:</para>
+<para><itemizedlist>
+<listitem><para>A client allocates a named shm object sized to its window, <computeroutput>mmap</computeroutput>s it, and writes XRGB8888 pixels into that mapping. shm objects are backed by a physically-contiguous block so the compositor can treat the mapping as one linear, strided surface buffer (a full window spans many pages).</para>
+</listitem><listitem><para><computeroutput>RAD_DEVICE_IOCTL_COMPOSITOR_CREATE_SURFACE</computeroutput> registers the shm buffer as a compositor surface; <computeroutput>QUEUE_DAMAGE</computeroutput> commits changed rectangles; <computeroutput>SET_BOUNDS</computeroutput> moves/resizes it; <computeroutput>FOCUS</computeroutput> raises it and requests keyboard focus; <computeroutput>DESTROY_SURFACE</computeroutput> tears it down.</para>
+</listitem><listitem><para>The kernel records the owning pid per surface and reaps a client&apos;s surfaces when that process exits (queuing exposed damage so the vacated area repaints).</para>
+</listitem><listitem><para>Input that hit-tests or focuses onto a client surface is queued to a per-surface ring (with surface-local pointer coordinates) and the client dequeues it with <computeroutput>POLL_INPUT</computeroutput> — the compositor never dispatches it into an in-kernel adapter.</para>
+</listitem><listitem><para><bold>The compositor owns the window frame (server-side decorations).</bold> For each client surface it creates a WM-owned decoration surface just behind the content and draws the title/drag bar, border, and a close (X) button. The client renders only its content. Dragging the title bar moves the whole window (frame + content); clicking the close button sends the client a <computeroutput>RAD_WC_EVENT_CLOSE</computeroutput> event through its input queue so it can shut down gracefully, after which the WM reaps both surfaces. Apps therefore get consistent, WM-controlled decorations without drawing any chrome themselves.</para>
+</listitem></itemizedlist>
+</para>
+<para><computeroutput>userland/lib/radcompositor</computeroutput> is a small freestanding C client library over this protocol (open surface, commit, set position, focus, poll input, destroy). <computeroutput>/bin/radwc-demo</computeroutput> is the reference client: a separate process that opens a window surface, draws a live-animated title-barred window, moves on title-bar drag, and cycles color on keypress. The shell auto-launches it on the x86 WM target (<computeroutput>RAD_WC_DEMO_LAUNCH_OK</computeroutput> / <computeroutput>RAD_COMPOSITOR_IPC_SURFACE_OK</computeroutput>). <computeroutput>/bin/radgfx-smoke</computeroutput> is a minimal one-page raw-pixel producer over the same path.</para>
+<para>The three built-in app windows (Terminal, File Explorer, Text Editor) are still trusted in-process Slint surfaces; porting them to userland clients over this protocol (and building a userland Slint target) is the remaining 0.1.5 work.</para>
+</sect1>
+<sect1 id="radcompositor_1autotoc_md62">
+<title>Current limits</title>
+<para>The x86 GRUB framebuffer still uses software shadow buffers rather than a hardware page flip, and surface buffers are currently allocated at full screen resolution. Damage extraction is at the surface-rectangle granularity rather than from Slint&apos;s internal dirty regions. The Pi (aarch64) target has parity markers but does not yet link the Slint renderer; the ZuBoard is headless. Future passes generalize shm-backed Slint applications (the client/server model), size surface buffers per window rather than per screen, add SIMD copy/blend backends, and make the cursor a compositor-managed surface.</para>
+</sect1>
+<sect1 id="radcompositor_1autotoc_md63">
+<title>Verification</title>
+<para>The hosted Slint self-test and the x86 VM smoke gate the compositor path with markers for surface creation, off-screen rendering, dirty-queue submission, copy-forward, dirty-framebuffer present, z-order, alpha blending, hit testing, input coordinate translation, multi-window open/focus/close, and shared-memory process IPC. </para>
+</sect1>
+    </detaileddescription>
+    <location file="/media/jvincent/Kingspec512/repos/RADPx-OS/docs/public/radcompositor.md"/>
+  </compounddef>
+</doxygen>

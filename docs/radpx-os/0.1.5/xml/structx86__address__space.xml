@@ -1,0 +1,62 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="structx86__address__space" kind="struct" language="C++" prot="public">
+    <compoundname>x86_address_space</compoundname>
+    <includes refid="x86__vm_8h" local="no">x86_vm.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structx86__address__space_1a83e5d2f758ee19817040831260b38766" prot="public" static="no" mutable="no">
+        <type>uint64_t</type>
+        <definition>uint64_t x86_address_space::pml4</definition>
+        <argsstring></argsstring>
+        <name>pml4</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Physical address of the top-level PML4 table. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADPx-OS/RADKernel/platforms/x86_64/x86_vm.h" line="32" column="14" bodyfile="/media/jvincent/Kingspec512/repos/RADPx-OS/RADKernel/platforms/x86_64/x86_vm.h" bodystart="32" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structx86__address__space_1a55db914293f2325fab4f1ed25b470d9e" prot="public" static="no" mutable="no">
+        <type>uint64_t</type>
+        <definition>uint64_t x86_address_space::owned_pages[16384]</definition>
+        <argsstring>[16384]</argsstring>
+        <name>owned_pages</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Physical pages owned by this address space and released at teardown. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADPx-OS/RADKernel/platforms/x86_64/x86_vm.h" line="34" column="14" bodyfile="/media/jvincent/Kingspec512/repos/RADPx-OS/RADKernel/platforms/x86_64/x86_vm.h" bodystart="34" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structx86__address__space_1acb0c01b24438979a84810615575f4cb9" prot="public" static="no" mutable="no">
+        <type>size_t</type>
+        <definition>size_t x86_address_space::owned_page_count</definition>
+        <argsstring></argsstring>
+        <name>owned_page_count</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Number of valid entries in owned_pages. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADPx-OS/RADKernel/platforms/x86_64/x86_vm.h" line="36" column="12" bodyfile="/media/jvincent/Kingspec512/repos/RADPx-OS/RADKernel/platforms/x86_64/x86_vm.h" bodystart="36" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>x86_64 process address space descriptor owned by the RADPx-OS process layer. </para>
+    </detaileddescription>
+    <location file="/media/jvincent/Kingspec512/repos/RADPx-OS/RADKernel/platforms/x86_64/x86_vm.h" line="30" column="1" bodyfile="/media/jvincent/Kingspec512/repos/RADPx-OS/RADKernel/platforms/x86_64/x86_vm.h" bodystart="30" bodyend="37"/>
+    <listofallmembers>
+      <member refid="structx86__address__space_1acb0c01b24438979a84810615575f4cb9" prot="public" virt="non-virtual"><scope>x86_address_space</scope><name>owned_page_count</name></member>
+      <member refid="structx86__address__space_1a55db914293f2325fab4f1ed25b470d9e" prot="public" virt="non-virtual"><scope>x86_address_space</scope><name>owned_pages</name></member>
+      <member refid="structx86__address__space_1a83e5d2f758ee19817040831260b38766" prot="public" virt="non-virtual"><scope>x86_address_space</scope><name>pml4</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

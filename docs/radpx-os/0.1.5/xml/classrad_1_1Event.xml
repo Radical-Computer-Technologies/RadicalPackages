@@ -1,0 +1,182 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="classrad_1_1Event" kind="class" language="C++" prot="public">
+    <compoundname>rad::Event</compoundname>
+    <includes refid="rad__cpp_8h" local="no">rad_cpp.h</includes>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classrad_1_1Event_1a15cbec60fc54d92e1ae08a676877d179" prot="private" static="no" mutable="no">
+        <type><ref refid="radkernel_8h_1ae54047a162f2ddab4e4a334836f5aa11" kindref="member">rad_event_t</ref></type>
+        <definition>rad_event_t rad::Event::handle_</definition>
+        <argsstring></argsstring>
+        <name>handle_</name>
+        <initializer>= nullptr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADPx-OS/RADKernel/headers/radkernel/rad_cpp.h" line="145" column="17" bodyfile="/media/jvincent/Kingspec512/repos/RADPx-OS/RADKernel/headers/radkernel/rad_cpp.h" bodystart="145" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classrad_1_1Event_1a60728dc0882f7d06dae716ad50840da4" prot="private" static="no" mutable="no">
+        <type><ref refid="radkernel_8h_1aeb7c981d4b5f029daa65d3b928bab127" kindref="member">rad_status_t</ref></type>
+        <definition>rad_status_t rad::Event::status_</definition>
+        <argsstring></argsstring>
+        <name>status_</name>
+        <initializer>= <ref refid="radkernel_8h_1aa694fb66cb1a6852963a4d4acd69ea0aa04729699be9d6bcbe0ab4c605d149c83" kindref="member">RAD_STATUS_NOT_INITIALIZED</ref></initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADPx-OS/RADKernel/headers/radkernel/rad_cpp.h" line="146" column="18" bodyfile="/media/jvincent/Kingspec512/repos/RADPx-OS/RADKernel/headers/radkernel/rad_cpp.h" bodystart="146" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classrad_1_1Event_1a057cd54153ac7fd38e69fa9b80ded52e" prot="public" static="no" const="no" explicit="yes" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>rad::Event::Event</definition>
+        <argsstring>(bool signaled=false)</argsstring>
+        <name>Event</name>
+        <param>
+          <type>bool</type>
+          <declname>signaled</declname>
+          <defval>false</defval>
+        </param>
+        <briefdescription>
+<para>Create a kernel event with an optional initial signal state. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADPx-OS/RADKernel/headers/radkernel/rad_cpp.h" line="131" column="14" bodyfile="/media/jvincent/Kingspec512/repos/RADPx-OS/RADKernel/headers/radkernel/rad_cpp.h" bodystart="131" bodyend="131"/>
+      </memberdef>
+      <memberdef kind="function" id="classrad_1_1Event_1a977bbedf821bed54f96c6724a4caa29b" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>rad::Event::~Event</definition>
+        <argsstring>()</argsstring>
+        <name>~Event</name>
+        <briefdescription>
+<para>Destroy the event when it was created successfully. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADPx-OS/RADKernel/headers/radkernel/rad_cpp.h" line="133" column="5" bodyfile="/media/jvincent/Kingspec512/repos/RADPx-OS/RADKernel/headers/radkernel/rad_cpp.h" bodystart="133" bodyend="133"/>
+      </memberdef>
+      <memberdef kind="function" id="classrad_1_1Event_1adf65320f1c2d2c843c4fce0de09e0b2e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>rad::Event::Event</definition>
+        <argsstring>(const Event &amp;)=delete</argsstring>
+        <name>Event</name>
+        <param>
+          <type>const <ref refid="classrad_1_1Event" kindref="compound">Event</ref> &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADPx-OS/RADKernel/headers/radkernel/rad_cpp.h" line="134" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classrad_1_1Event_1ade622a23ddfd4cf8a58ee97634471939" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classrad_1_1Event" kindref="compound">Event</ref> &amp;</type>
+        <definition>Event&amp; rad::Event::operator=</definition>
+        <argsstring>(const Event &amp;)=delete</argsstring>
+        <name>operator=</name>
+        <param>
+          <type>const <ref refid="classrad_1_1Event" kindref="compound">Event</ref> &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADPx-OS/RADKernel/headers/radkernel/rad_cpp.h" line="135" column="11"/>
+      </memberdef>
+      <memberdef kind="function" id="classrad_1_1Event_1a0e8ec0529670f040618fbc64e5250db5" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="radkernel_8h_1aeb7c981d4b5f029daa65d3b928bab127" kindref="member">rad_status_t</ref></type>
+        <definition>rad_status_t rad::Event::status</definition>
+        <argsstring>() const</argsstring>
+        <name>status</name>
+        <briefdescription>
+<para>Return construction status. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADPx-OS/RADKernel/headers/radkernel/rad_cpp.h" line="137" column="18" bodyfile="/media/jvincent/Kingspec512/repos/RADPx-OS/RADKernel/headers/radkernel/rad_cpp.h" bodystart="137" bodyend="137"/>
+      </memberdef>
+      <memberdef kind="function" id="classrad_1_1Event_1af567db8af14156cfb3e41747fb29c83b" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="radkernel_8h_1aeb7c981d4b5f029daa65d3b928bab127" kindref="member">rad_status_t</ref></type>
+        <definition>rad_status_t rad::Event::wait</definition>
+        <argsstring>(uint32_t timeout_ms)</argsstring>
+        <name>wait</name>
+        <param>
+          <type>uint32_t</type>
+          <declname>timeout_ms</declname>
+        </param>
+        <briefdescription>
+<para>Wait for the event or timeout. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADPx-OS/RADKernel/headers/radkernel/rad_cpp.h" line="139" column="18" bodyfile="/media/jvincent/Kingspec512/repos/RADPx-OS/RADKernel/headers/radkernel/rad_cpp.h" bodystart="139" bodyend="139"/>
+      </memberdef>
+      <memberdef kind="function" id="classrad_1_1Event_1abd446dff3bcc01ad603d9eaeca25de20" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="radkernel_8h_1aeb7c981d4b5f029daa65d3b928bab127" kindref="member">rad_status_t</ref></type>
+        <definition>rad_status_t rad::Event::signal</definition>
+        <argsstring>()</argsstring>
+        <name>signal</name>
+        <briefdescription>
+<para>Signal the event. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADPx-OS/RADKernel/headers/radkernel/rad_cpp.h" line="141" column="18" bodyfile="/media/jvincent/Kingspec512/repos/RADPx-OS/RADKernel/headers/radkernel/rad_cpp.h" bodystart="141" bodyend="141"/>
+      </memberdef>
+      <memberdef kind="function" id="classrad_1_1Event_1a91d13aa619c87bc2bea14ed84ff4dace" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="radkernel_8h_1aeb7c981d4b5f029daa65d3b928bab127" kindref="member">rad_status_t</ref></type>
+        <definition>rad_status_t rad::Event::reset</definition>
+        <argsstring>()</argsstring>
+        <name>reset</name>
+        <briefdescription>
+<para>Reset the event to unsignaled. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADPx-OS/RADKernel/headers/radkernel/rad_cpp.h" line="143" column="18" bodyfile="/media/jvincent/Kingspec512/repos/RADPx-OS/RADKernel/headers/radkernel/rad_cpp.h" bodystart="143" bodyend="143"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>RAII wrapper for rad_event_t. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/media/jvincent/Kingspec512/repos/RADPx-OS/RADKernel/headers/radkernel/rad_cpp.h" line="128" column="1" bodyfile="/media/jvincent/Kingspec512/repos/RADPx-OS/RADKernel/headers/radkernel/rad_cpp.h" bodystart="128" bodyend="147"/>
+    <listofallmembers>
+      <member refid="classrad_1_1Event_1a057cd54153ac7fd38e69fa9b80ded52e" prot="public" virt="non-virtual"><scope>rad::Event</scope><name>Event</name></member>
+      <member refid="classrad_1_1Event_1adf65320f1c2d2c843c4fce0de09e0b2e" prot="public" virt="non-virtual"><scope>rad::Event</scope><name>Event</name></member>
+      <member refid="classrad_1_1Event_1a15cbec60fc54d92e1ae08a676877d179" prot="private" virt="non-virtual"><scope>rad::Event</scope><name>handle_</name></member>
+      <member refid="classrad_1_1Event_1ade622a23ddfd4cf8a58ee97634471939" prot="public" virt="non-virtual"><scope>rad::Event</scope><name>operator=</name></member>
+      <member refid="classrad_1_1Event_1a91d13aa619c87bc2bea14ed84ff4dace" prot="public" virt="non-virtual"><scope>rad::Event</scope><name>reset</name></member>
+      <member refid="classrad_1_1Event_1abd446dff3bcc01ad603d9eaeca25de20" prot="public" virt="non-virtual"><scope>rad::Event</scope><name>signal</name></member>
+      <member refid="classrad_1_1Event_1a0e8ec0529670f040618fbc64e5250db5" prot="public" virt="non-virtual"><scope>rad::Event</scope><name>status</name></member>
+      <member refid="classrad_1_1Event_1a60728dc0882f7d06dae716ad50840da4" prot="private" virt="non-virtual"><scope>rad::Event</scope><name>status_</name></member>
+      <member refid="classrad_1_1Event_1af567db8af14156cfb3e41747fb29c83b" prot="public" virt="non-virtual"><scope>rad::Event</scope><name>wait</name></member>
+      <member refid="classrad_1_1Event_1a977bbedf821bed54f96c6724a4caa29b" prot="public" virt="non-virtual"><scope>rad::Event</scope><name>~Event</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>
