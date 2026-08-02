@@ -1,0 +1,196 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="classRADCore_1_1RADJsonDocument" kind="class" language="C++" prot="public">
+    <compoundname>RADCore::RADJsonDocument</compoundname>
+    <includes refid="RADCore_8h" local="no">RADCore.h</includes>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classRADCore_1_1RADJsonDocument_1ae2d7a2b7a7a37702b97e2087a62249b6" prot="private" static="no" mutable="no">
+        <type><ref refid="classRADCore_1_1RADJsonValue" kindref="compound">RADJsonValue</ref></type>
+        <definition>RADJsonValue RADCore::RADJsonDocument::root_</definition>
+        <argsstring></argsstring>
+        <name>root_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADCore/headers/RADCore.h" line="670" column="22" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADCore/headers/RADCore.h" bodystart="670" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classRADCore_1_1RADJsonDocument_1a29dcab64e62cac38be95e280a56413ee" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>RADCore::RADJsonDocument::RADJsonDocument</definition>
+        <argsstring>()</argsstring>
+        <name>RADJsonDocument</name>
+        <briefdescription>
+<para>Creates a document with null root. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADCore/headers/RADCore.h" line="651" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADCore_1_1RADJsonDocument_1a3579c620bc2dcd3931bf3073437e8151" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>RADCore::RADJsonDocument::RADJsonDocument</definition>
+        <argsstring>(RADJsonValue root)</argsstring>
+        <name>RADJsonDocument</name>
+        <param>
+          <type><ref refid="classRADCore_1_1RADJsonValue" kindref="compound">RADJsonValue</ref></type>
+          <declname>root</declname>
+        </param>
+        <briefdescription>
+<para>Creates a document from root. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADCore/headers/RADCore.h" line="653" column="18"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADCore_1_1RADJsonDocument_1a28dbaefb0b19cc878a2cc0ca3b7b0a8c" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>const <ref refid="classRADCore_1_1RADJsonValue" kindref="compound">RADJsonValue</ref> &amp;</type>
+        <definition>const RADJsonValue&amp; RADCore::RADJsonDocument::root</definition>
+        <argsstring>() const</argsstring>
+        <name>root</name>
+        <briefdescription>
+<para>Returns const root value. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADCore/headers/RADCore.h" line="661" column="28"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADCore_1_1RADJsonDocument_1a1b35b807b52718c63a112e05fb706ef6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classRADCore_1_1RADJsonValue" kindref="compound">RADJsonValue</ref> &amp;</type>
+        <definition>RADJsonValue&amp; RADCore::RADJsonDocument::root</definition>
+        <argsstring>()</argsstring>
+        <name>root</name>
+        <briefdescription>
+<para>Returns mutable root value. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADCore/headers/RADCore.h" line="663" column="22"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADCore_1_1RADJsonDocument_1a54e87d08ae8aadc9a8883808768f75ef" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>std::string</type>
+        <definition>std::string RADCore::RADJsonDocument::toJson</definition>
+        <argsstring>(bool pretty=false) const</argsstring>
+        <name>toJson</name>
+        <param>
+          <type>bool</type>
+          <declname>pretty</declname>
+          <defval>false</defval>
+        </param>
+        <briefdescription>
+<para>Serializes root to JSON. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADCore/headers/RADCore.h" line="665" column="21"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADCore_1_1RADJsonDocument_1a87ff58e39667b9dbc647ebdf635503fc" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool RADCore::RADJsonDocument::toFile</definition>
+        <argsstring>(const std::string &amp;path, bool pretty=true, std::string *error=nullptr) const</argsstring>
+        <name>toFile</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>path</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>pretty</declname>
+          <defval>true</defval>
+        </param>
+        <param>
+          <type>std::string *</type>
+          <declname>error</declname>
+          <defval>nullptr</defval>
+        </param>
+        <briefdescription>
+<para>Writes JSON to path. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADCore/headers/RADCore.h" line="667" column="14"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="classRADCore_1_1RADJsonDocument_1a87332eff24cd5977124634d4d079d2b6" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::optional&lt; <ref refid="classRADCore_1_1RADJsonDocument" kindref="compound">RADJsonDocument</ref> &gt;</type>
+        <definition>static std::optional&lt;RADJsonDocument&gt; RADCore::RADJsonDocument::fromJson</definition>
+        <argsstring>(const std::string &amp;json, std::string *error=nullptr)</argsstring>
+        <name>fromJson</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>json</declname>
+        </param>
+        <param>
+          <type>std::string *</type>
+          <declname>error</declname>
+          <defval>nullptr</defval>
+        </param>
+        <briefdescription>
+<para>Parses JSON text. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADCore/headers/RADCore.h" line="656" column="30"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADCore_1_1RADJsonDocument_1a36a40b7b38a2f73215d8474556b0c166" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::optional&lt; <ref refid="classRADCore_1_1RADJsonDocument" kindref="compound">RADJsonDocument</ref> &gt;</type>
+        <definition>static std::optional&lt;RADJsonDocument&gt; RADCore::RADJsonDocument::fromFile</definition>
+        <argsstring>(const std::string &amp;path, std::string *error=nullptr)</argsstring>
+        <name>fromFile</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>path</declname>
+        </param>
+        <param>
+          <type>std::string *</type>
+          <declname>error</declname>
+          <defval>nullptr</defval>
+        </param>
+        <briefdescription>
+<para>Loads and parses JSON from path. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADCore/headers/RADCore.h" line="658" column="30"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>JSON document wrapper around a root <ref refid="classRADCore_1_1RADJsonValue" kindref="compound">RADJsonValue</ref>. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/media/jvincent/Kingspec512/repos/RADLib/RADCore/headers/RADCore.h" line="648" column="5" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADCore/headers/RADCore.h" bodystart="648" bodyend="671"/>
+    <listofallmembers>
+      <member refid="classRADCore_1_1RADJsonDocument_1a36a40b7b38a2f73215d8474556b0c166" prot="public" virt="non-virtual"><scope>RADCore::RADJsonDocument</scope><name>fromFile</name></member>
+      <member refid="classRADCore_1_1RADJsonDocument_1a87332eff24cd5977124634d4d079d2b6" prot="public" virt="non-virtual"><scope>RADCore::RADJsonDocument</scope><name>fromJson</name></member>
+      <member refid="classRADCore_1_1RADJsonDocument_1a29dcab64e62cac38be95e280a56413ee" prot="public" virt="non-virtual"><scope>RADCore::RADJsonDocument</scope><name>RADJsonDocument</name></member>
+      <member refid="classRADCore_1_1RADJsonDocument_1a3579c620bc2dcd3931bf3073437e8151" prot="public" virt="non-virtual"><scope>RADCore::RADJsonDocument</scope><name>RADJsonDocument</name></member>
+      <member refid="classRADCore_1_1RADJsonDocument_1a28dbaefb0b19cc878a2cc0ca3b7b0a8c" prot="public" virt="non-virtual"><scope>RADCore::RADJsonDocument</scope><name>root</name></member>
+      <member refid="classRADCore_1_1RADJsonDocument_1a1b35b807b52718c63a112e05fb706ef6" prot="public" virt="non-virtual"><scope>RADCore::RADJsonDocument</scope><name>root</name></member>
+      <member refid="classRADCore_1_1RADJsonDocument_1ae2d7a2b7a7a37702b97e2087a62249b6" prot="private" virt="non-virtual"><scope>RADCore::RADJsonDocument</scope><name>root_</name></member>
+      <member refid="classRADCore_1_1RADJsonDocument_1a87ff58e39667b9dbc647ebdf635503fc" prot="public" virt="non-virtual"><scope>RADCore::RADJsonDocument</scope><name>toFile</name></member>
+      <member refid="classRADCore_1_1RADJsonDocument_1a54e87d08ae8aadc9a8883808768f75ef" prot="public" virt="non-virtual"><scope>RADCore::RADJsonDocument</scope><name>toJson</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

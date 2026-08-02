@@ -1,0 +1,289 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="classRADUi_1_1MessageBoxModel" kind="class" language="C++" prot="public">
+    <compoundname>RADUi::MessageBoxModel</compoundname>
+    <basecompoundref refid="classRADCore_1_1RADObject" prot="public" virt="non-virtual">RADCore::RADObject</basecompoundref>
+    <includes refid="RADWidgets_8h" local="no">RADWidgets.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="classRADUi_1_1MessageBoxModel_1a581c170a0249277f1dce0cc22d5b505a" prot="public" static="no" mutable="no">
+        <type><ref refid="classRADCore_1_1Event" kindref="compound">RADCore::Event</ref>&lt; void() &gt;</type>
+        <definition>RADCore::Event&lt;void () &gt; RADUi::MessageBoxModel::changed</definition>
+        <argsstring></argsstring>
+        <name>changed</name>
+        <briefdescription>
+<para>Raised when message box configuration or open state changes. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADWidgets.h" line="525" column="30" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADWidgets.h" bodystart="525" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classRADUi_1_1MessageBoxModel_1a8ac39be1d8a05f942baa193a0990895a" prot="public" static="no" mutable="no">
+        <type><ref refid="classRADCore_1_1Event" kindref="compound">RADCore::Event</ref>&lt; void(<ref refid="namespaceRADUi_1ac2ed3c825c04475f622fe4c9f912817c" kindref="member">RADUi::DialogResult</ref>) &gt;</type>
+        <definition>RADCore::Event&lt;void (RADUi::DialogResult) &gt; RADUi::MessageBoxModel::finished</definition>
+        <argsstring></argsstring>
+        <name>finished</name>
+        <briefdescription>
+<para>Raised when the message box accepts or rejects. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADWidgets.h" line="527" column="30" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADWidgets.h" bodystart="527" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classRADUi_1_1MessageBoxModel_1aba22d14ea1742f83608bd11613f5e1c6" prot="private" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string RADUi::MessageBoxModel::title_</definition>
+        <argsstring></argsstring>
+        <name>title_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADWidgets.h" line="547" column="21" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADWidgets.h" bodystart="547" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classRADUi_1_1MessageBoxModel_1afa50140e6c9b937f30b036d1eb077f17" prot="private" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string RADUi::MessageBoxModel::text_</definition>
+        <argsstring></argsstring>
+        <name>text_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADWidgets.h" line="548" column="21" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADWidgets.h" bodystart="548" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classRADUi_1_1MessageBoxModel_1a43948af3b465b93be45482ed6368470e" prot="private" static="no" mutable="no">
+        <type><ref refid="namespaceRADUi_1acd3d9c7f758356deeac8c2bd1d2f9c60" kindref="member">MessageBoxIcon</ref></type>
+        <definition>MessageBoxIcon RADUi::MessageBoxModel::icon_</definition>
+        <argsstring></argsstring>
+        <name>icon_</name>
+        <initializer>= <ref refid="namespaceRADUi_1acd3d9c7f758356deeac8c2bd1d2f9c60aa82be0f551b8708bc08eb33cd9ded0cf" kindref="member">MessageBoxIcon::Information</ref></initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADWidgets.h" line="549" column="24" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADWidgets.h" bodystart="549" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classRADUi_1_1MessageBoxModel_1afaf4e4d4cfac1d3bc1dbddcba81d4b6b" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool RADUi::MessageBoxModel::open_</definition>
+        <argsstring></argsstring>
+        <name>open_</name>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADWidgets.h" line="550" column="14" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADWidgets.h" bodystart="550" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classRADUi_1_1MessageBoxModel_1a8f4bb8ec5e3aca99ce0b0c361372abc7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void RADUi::MessageBoxModel::configure</definition>
+        <argsstring>(std::string title, std::string text, MessageBoxIcon icon=MessageBoxIcon::Information)</argsstring>
+        <name>configure</name>
+        <param>
+          <type>std::string</type>
+          <declname>title</declname>
+        </param>
+        <param>
+          <type>std::string</type>
+          <declname>text</declname>
+        </param>
+        <param>
+          <type><ref refid="namespaceRADUi_1acd3d9c7f758356deeac8c2bd1d2f9c60" kindref="member">MessageBoxIcon</ref></type>
+          <declname>icon</declname>
+          <defval><ref refid="namespaceRADUi_1acd3d9c7f758356deeac8c2bd1d2f9c60aa82be0f551b8708bc08eb33cd9ded0cf" kindref="member">MessageBoxIcon::Information</ref></defval>
+        </param>
+        <briefdescription>
+<para>Sets title, text, and icon in one update. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADWidgets.h" line="530" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADUi_1_1MessageBoxModel_1ab638d63b4a63df469dcbbc3091529090" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>const std::string &amp;</type>
+        <definition>const std::string&amp; RADUi::MessageBoxModel::title</definition>
+        <argsstring>() const</argsstring>
+        <name>title</name>
+        <briefdescription>
+<para>Returns message box title. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADWidgets.h" line="532" column="27"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADUi_1_1MessageBoxModel_1a9b45bbb3969a3bef220adc331d7c103c" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>const std::string &amp;</type>
+        <definition>const std::string&amp; RADUi::MessageBoxModel::text</definition>
+        <argsstring>() const</argsstring>
+        <name>text</name>
+        <briefdescription>
+<para>Returns message body text. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADWidgets.h" line="534" column="27"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADUi_1_1MessageBoxModel_1a095a875c0bd46795c5c12861f78709be" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="namespaceRADUi_1acd3d9c7f758356deeac8c2bd1d2f9c60" kindref="member">MessageBoxIcon</ref></type>
+        <definition>MessageBoxIcon RADUi::MessageBoxModel::icon</definition>
+        <argsstring>() const</argsstring>
+        <name>icon</name>
+        <briefdescription>
+<para>Returns message icon category. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADWidgets.h" line="536" column="24"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADUi_1_1MessageBoxModel_1af70738b9d62b4494eb83acf208b7e008" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool RADUi::MessageBoxModel::isOpen</definition>
+        <argsstring>() const</argsstring>
+        <name>isOpen</name>
+        <briefdescription>
+<para>Returns true when the message box should be visible. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADWidgets.h" line="538" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADUi_1_1MessageBoxModel_1a557bd8282f7cf906f2577d27cca83c4b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void RADUi::MessageBoxModel::open</definition>
+        <argsstring>()</argsstring>
+        <name>open</name>
+        <briefdescription>
+<para>Opens the message box. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADWidgets.h" line="540" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADUi_1_1MessageBoxModel_1ae00f2e4d558e6eee286656321f4881b3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void RADUi::MessageBoxModel::accept</definition>
+        <argsstring>()</argsstring>
+        <name>accept</name>
+        <briefdescription>
+<para>Accepts and closes the message box. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADWidgets.h" line="542" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADUi_1_1MessageBoxModel_1a459b12b98a23ab0ddb073e065d3c8862" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void RADUi::MessageBoxModel::reject</definition>
+        <argsstring>()</argsstring>
+        <name>reject</name>
+        <briefdescription>
+<para>Rejects and closes the message box. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADWidgets.h" line="544" column="14"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Message box state model. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>RADCore::RADObject</label>
+        <link refid="classRADCore_1_1RADObject"/>
+      </node>
+      <node id="1">
+        <label>RADUi::MessageBoxModel</label>
+        <link refid="classRADUi_1_1MessageBoxModel"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="3">
+        <label>RADCore::Event&lt; void(RADUi::DialogResult) &gt;</label>
+        <link refid="classRADCore_1_1Event"/>
+      </node>
+      <node id="2">
+        <label>RADCore::RADObject</label>
+        <link refid="classRADCore_1_1RADObject"/>
+      </node>
+      <node id="4">
+        <label>RADCore::Event&lt; void() &gt;</label>
+        <link refid="classRADCore_1_1Event"/>
+      </node>
+      <node id="1">
+        <label>RADUi::MessageBoxModel</label>
+        <link refid="classRADUi_1_1MessageBoxModel"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="3" relation="usage">
+          <edgelabel>finished</edgelabel>
+        </childnode>
+        <childnode refid="4" relation="usage">
+          <edgelabel>changed</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADWidgets.h" line="521" column="5" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADWidgets.h" bodystart="521" bodyend="551"/>
+    <listofallmembers>
+      <member refid="classRADUi_1_1MessageBoxModel_1ae00f2e4d558e6eee286656321f4881b3" prot="public" virt="non-virtual"><scope>RADUi::MessageBoxModel</scope><name>accept</name></member>
+      <member refid="classRADCore_1_1RADObject_1a06cdf252ffb5e2f88332ebda12a62080" prot="public" virt="non-virtual"><scope>RADUi::MessageBoxModel</scope><name>associatedEventLoop</name></member>
+      <member refid="classRADUi_1_1MessageBoxModel_1a581c170a0249277f1dce0cc22d5b505a" prot="public" virt="non-virtual"><scope>RADUi::MessageBoxModel</scope><name>changed</name></member>
+      <member refid="classRADUi_1_1MessageBoxModel_1a8f4bb8ec5e3aca99ce0b0c361372abc7" prot="public" virt="non-virtual"><scope>RADUi::MessageBoxModel</scope><name>configure</name></member>
+      <member refid="classRADUi_1_1MessageBoxModel_1a8ac39be1d8a05f942baa193a0990895a" prot="public" virt="non-virtual"><scope>RADUi::MessageBoxModel</scope><name>finished</name></member>
+      <member refid="classRADUi_1_1MessageBoxModel_1a095a875c0bd46795c5c12861f78709be" prot="public" virt="non-virtual"><scope>RADUi::MessageBoxModel</scope><name>icon</name></member>
+      <member refid="classRADUi_1_1MessageBoxModel_1a43948af3b465b93be45482ed6368470e" prot="private" virt="non-virtual"><scope>RADUi::MessageBoxModel</scope><name>icon_</name></member>
+      <member refid="classRADUi_1_1MessageBoxModel_1af70738b9d62b4494eb83acf208b7e008" prot="public" virt="non-virtual"><scope>RADUi::MessageBoxModel</scope><name>isOpen</name></member>
+      <member refid="classRADCore_1_1RADObject_1ad2ddfd066d14be9adc2f96bfca417fc6" prot="public" virt="non-virtual"><scope>RADUi::MessageBoxModel</scope><name>lifetimeToken</name></member>
+      <member refid="classRADCore_1_1RADObject_1a1f7f7f2fb40211e28455cd74a029339a" prot="public" virt="non-virtual"><scope>RADUi::MessageBoxModel</scope><name>moveToThread</name></member>
+      <member refid="classRADUi_1_1MessageBoxModel_1a557bd8282f7cf906f2577d27cca83c4b" prot="public" virt="non-virtual"><scope>RADUi::MessageBoxModel</scope><name>open</name></member>
+      <member refid="classRADUi_1_1MessageBoxModel_1afaf4e4d4cfac1d3bc1dbddcba81d4b6b" prot="private" virt="non-virtual"><scope>RADUi::MessageBoxModel</scope><name>open_</name></member>
+      <member refid="classRADCore_1_1RADObject_1a9bc3fed915f7c71232e68c2628d34708" prot="public" virt="non-virtual"><scope>RADUi::MessageBoxModel</scope><name>RADObject</name></member>
+      <member refid="classRADCore_1_1RADObject_1af3e26b970c8080418f0d6b80cad986a2" prot="public" virt="non-virtual"><scope>RADUi::MessageBoxModel</scope><name>registerLink</name></member>
+      <member refid="classRADUi_1_1MessageBoxModel_1a459b12b98a23ab0ddb073e065d3c8862" prot="public" virt="non-virtual"><scope>RADUi::MessageBoxModel</scope><name>reject</name></member>
+      <member refid="classRADUi_1_1MessageBoxModel_1a9b45bbb3969a3bef220adc331d7c103c" prot="public" virt="non-virtual"><scope>RADUi::MessageBoxModel</scope><name>text</name></member>
+      <member refid="classRADUi_1_1MessageBoxModel_1afa50140e6c9b937f30b036d1eb077f17" prot="private" virt="non-virtual"><scope>RADUi::MessageBoxModel</scope><name>text_</name></member>
+      <member refid="classRADCore_1_1RADObject_1a8b11df0b951d0db1ba99cfb851e34f31" prot="public" virt="non-virtual"><scope>RADUi::MessageBoxModel</scope><name>threadAffinity</name></member>
+      <member refid="classRADCore_1_1RADObject_1ac7ca67b41523794ae5a6b3634d6ce3b6" prot="public" virt="non-virtual"><scope>RADUi::MessageBoxModel</scope><name>threadId</name></member>
+      <member refid="classRADUi_1_1MessageBoxModel_1ab638d63b4a63df469dcbbc3091529090" prot="public" virt="non-virtual"><scope>RADUi::MessageBoxModel</scope><name>title</name></member>
+      <member refid="classRADUi_1_1MessageBoxModel_1aba22d14ea1742f83608bd11613f5e1c6" prot="private" virt="non-virtual"><scope>RADUi::MessageBoxModel</scope><name>title_</name></member>
+      <member refid="classRADCore_1_1RADObject_1a7369e27a46c163ee89c63227db650ce5" prot="public" virt="virtual"><scope>RADUi::MessageBoxModel</scope><name>~RADObject</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

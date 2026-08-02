@@ -1,0 +1,25 @@
+var classRADUi_1_1DesktopShellModel =
+[
+    [ "DesktopShellModel", "classRADUi_1_1DesktopShellModel.html#a499f3c1c5b9b7a25297cdc92ee4c8974", null ],
+    [ "applicationsMenuOpen", "classRADUi_1_1DesktopShellModel.html#aae09da8ba6af0e59c25f1f43ef06825a", null ],
+    [ "apps", "classRADUi_1_1DesktopShellModel.html#ab434e08e8d249ba14c3c38180d23aa17", null ],
+    [ "beginTerminalLaunch", "classRADUi_1_1DesktopShellModel.html#ae7dd9417f8d182303a373a64ad8ef8e8", null ],
+    [ "closeWindow", "classRADUi_1_1DesktopShellModel.html#a560dd003ab7abec62c642fe653d7c412", null ],
+    [ "focusedWindow", "classRADUi_1_1DesktopShellModel.html#a45454995daa659266e5cc8725ed95425", null ],
+    [ "focusWindow", "classRADUi_1_1DesktopShellModel.html#aa6df7f0ae6c25e10f07d70325752b83c", null ],
+    [ "handleEscape", "classRADUi_1_1DesktopShellModel.html#a2ab57ccf43ff176d00fde3bbfb65b33a", null ],
+    [ "launchApp", "classRADUi_1_1DesktopShellModel.html#a2b9c5b321e843aa8329e702173876e4d", null ],
+    [ "launchTerminal", "classRADUi_1_1DesktopShellModel.html#af4cf2eac5a2a04f6577e0ad3c195863e", null ],
+    [ "moveWindow", "classRADUi_1_1DesktopShellModel.html#abb26fdc914507f4283de242be2a7ce9d", null ],
+    [ "registerApp", "classRADUi_1_1DesktopShellModel.html#a7bb0199c8a1efbb75ad6368be47cb9e2", null ],
+    [ "resizeWindow", "classRADUi_1_1DesktopShellModel.html#ac4b93b2d2a01090c037bf3e64cd01435", null ],
+    [ "setWindowState", "classRADUi_1_1DesktopShellModel.html#acb685907ee3d2fc813f818b395c42ce4", null ],
+    [ "statusText", "classRADUi_1_1DesktopShellModel.html#a4ce900bb20e96e2137068959152ac749", null ],
+    [ "terminalLaunching", "classRADUi_1_1DesktopShellModel.html#a299772d29a4460b332afb6e25ad25f27", null ],
+    [ "terminalOpen", "classRADUi_1_1DesktopShellModel.html#a7cff8bc02ac76070de54ed04f84a4fe2", null ],
+    [ "terminalReady", "classRADUi_1_1DesktopShellModel.html#aef1c47d5e336076d6499562513d426f4", null ],
+    [ "terminalState", "classRADUi_1_1DesktopShellModel.html#a65081565e51abd7ac9369bdde33895f6", null ],
+    [ "terminalWindow", "classRADUi_1_1DesktopShellModel.html#a715adc529589b9b72a0834d6c883169e", null ],
+    [ "toggleApplicationsMenu", "classRADUi_1_1DesktopShellModel.html#a4af083e796de6b3d4efd824533885f57", null ],
+    [ "windows", "classRADUi_1_1DesktopShellModel.html#a902b58988cd9a3e7787ef8c8330f2498", null ]
+];

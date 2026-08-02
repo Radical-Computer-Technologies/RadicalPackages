@@ -1,0 +1,181 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="namespaceRADLogging" kind="namespace" language="C++">
+    <compoundname>RADLogging</compoundname>
+    <innerclass refid="classRADLogging_1_1Sink" prot="public">RADLogging::Sink</innerclass>
+    <innerclass refid="classRADLogging_1_1Logger" prot="public">RADLogging::Logger</innerclass>
+    <innerclass refid="classRADLogging_1_1LogStream" prot="public">RADLogging::LogStream</innerclass>
+      <sectiondef kind="enum">
+      <memberdef kind="enum" id="namespaceRADLogging_1a8317de65c6fc04ea0c80520b60f81949" prot="public" static="no" strong="yes">
+        <type></type>
+        <name>Level</name>
+        <enumvalue id="namespaceRADLogging_1a8317de65c6fc04ea0c80520b60f81949add4ec0ac4e58f7c32a01244ae91150b1" prot="public">
+          <name>Trace</name>
+          <initializer>= 0</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespaceRADLogging_1a8317de65c6fc04ea0c80520b60f81949aa603905470e2a5b8c13e96b579ef0dba" prot="public">
+          <name>Debug</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespaceRADLogging_1a8317de65c6fc04ea0c80520b60f81949a4059b0251f66a18cb56f544728796875" prot="public">
+          <name>Info</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespaceRADLogging_1a8317de65c6fc04ea0c80520b60f81949a0eaadb4fcb48a0a0ed7bc9868be9fbaa" prot="public">
+          <name>Warning</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespaceRADLogging_1a8317de65c6fc04ea0c80520b60f81949a902b0d55fddef6f8d651fe1035b7d4bd" prot="public">
+          <name>Error</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespaceRADLogging_1a8317de65c6fc04ea0c80520b60f81949a278d01e5af56273bae1bb99a98b370cd" prot="public">
+          <name>Critical</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespaceRADLogging_1a8317de65c6fc04ea0c80520b60f81949ad15305d7a4e34e02489c74a5ef542f36" prot="public">
+          <name>Off</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>Log severity. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADLogging/headers/RADLogging.h" line="21" column="5" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADLogging/headers/RADLogging.h" bodystart="21" bodyend="29"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="namespaceRADLogging_1a7b1efd6887917cbb12a0aeed746e69f8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::shared_ptr&lt; <ref refid="classRADLogging_1_1Sink" kindref="compound">Sink</ref> &gt;</type>
+        <definition>std::shared_ptr&lt;Sink&gt; RADLogging::consoleSink</definition>
+        <argsstring>(bool stderrForWarnings=true)</argsstring>
+        <name>consoleSink</name>
+        <param>
+          <type>bool</type>
+          <declname>stderrForWarnings</declname>
+          <defval>true</defval>
+        </param>
+        <briefdescription>
+<para>Creates a console sink. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADLogging/headers/RADLogging.h" line="95" column="21" declfile="/media/jvincent/Kingspec512/repos/RADLib/RADLogging/headers/RADLogging.h" declline="95" declcolumn="21"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceRADLogging_1acb1a1928470f11f9f17aa1c707f48b39" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::shared_ptr&lt; <ref refid="classRADLogging_1_1Sink" kindref="compound">Sink</ref> &gt;</type>
+        <definition>std::shared_ptr&lt;Sink&gt; RADLogging::fileSink</definition>
+        <argsstring>(const std::string &amp;path)</argsstring>
+        <name>fileSink</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>path</declname>
+        </param>
+        <briefdescription>
+<para>Creates a file sink. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADLogging/headers/RADLogging.h" line="97" column="21" declfile="/media/jvincent/Kingspec512/repos/RADLib/RADLogging/headers/RADLogging.h" declline="97" declcolumn="21"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceRADLogging_1a9e4f35016775cc63ee16d7321744d4ae" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::shared_ptr&lt; <ref refid="classRADLogging_1_1Sink" kindref="compound">Sink</ref> &gt;</type>
+        <definition>std::shared_ptr&lt;Sink&gt; RADLogging::rotatingFileSink</definition>
+        <argsstring>(const std::string &amp;path, size_t maxBytes, size_t maxFiles=3)</argsstring>
+        <name>rotatingFileSink</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>path</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>maxBytes</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>maxFiles</declname>
+          <defval>3</defval>
+        </param>
+        <briefdescription>
+<para>Creates a rotating file sink. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADLogging/headers/RADLogging.h" line="99" column="21" declfile="/media/jvincent/Kingspec512/repos/RADLib/RADLogging/headers/RADLogging.h" declline="99" declcolumn="21"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceRADLogging_1a98a7850711add8537adcfcfc7f66d4ac" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::shared_ptr&lt; <ref refid="classRADLogging_1_1Sink" kindref="compound">Sink</ref> &gt;</type>
+        <definition>std::shared_ptr&lt;Sink&gt; RADLogging::syslogSink</definition>
+        <argsstring>(std::string ident=&quot;RADLib&quot;)</argsstring>
+        <name>syslogSink</name>
+        <param>
+          <type>std::string</type>
+          <declname>ident</declname>
+          <defval>&quot;RADLib&quot;</defval>
+        </param>
+        <briefdescription>
+<para>Creates a syslog sink. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADLogging/headers/RADLogging.h" line="101" column="21" declfile="/media/jvincent/Kingspec512/repos/RADLib/RADLogging/headers/RADLogging.h" declline="101" declcolumn="21"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceRADLogging_1a917bc044cf4ed6df70315ac34d06486b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::string</type>
+        <definition>std::string RADLogging::levelName</definition>
+        <argsstring>(Level level)</argsstring>
+        <name>levelName</name>
+        <param>
+          <type><ref refid="namespaceRADLogging_1a8317de65c6fc04ea0c80520b60f81949" kindref="member">Level</ref></type>
+          <declname>level</declname>
+        </param>
+        <briefdescription>
+<para>Formats a level as text. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADLogging/headers/RADLogging.h" line="103" column="17" declfile="/media/jvincent/Kingspec512/repos/RADLib/RADLogging/headers/RADLogging.h" declline="103" declcolumn="17"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/media/jvincent/Kingspec512/repos/RADLib/RADLogging/headers/RADLogging.h" line="18" column="1"/>
+  </compounddef>
+</doxygen>

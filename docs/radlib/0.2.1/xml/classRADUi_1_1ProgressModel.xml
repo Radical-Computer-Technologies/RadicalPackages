@@ -1,0 +1,272 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="classRADUi_1_1ProgressModel" kind="class" language="C++" prot="public">
+    <compoundname>RADUi::ProgressModel</compoundname>
+    <basecompoundref refid="classRADCore_1_1RADObject" prot="public" virt="non-virtual">RADCore::RADObject</basecompoundref>
+    <includes refid="RADAppKit_8h" local="no">RADAppKit.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="classRADUi_1_1ProgressModel_1a6ae298a246dd547e55d7e80b19e0e231" prot="public" static="no" mutable="no">
+        <type><ref refid="classRADCore_1_1Event" kindref="compound">RADCore::Event</ref>&lt; void() &gt;</type>
+        <definition>RADCore::Event&lt;void () &gt; RADUi::ProgressModel::changed</definition>
+        <argsstring></argsstring>
+        <name>changed</name>
+        <briefdescription>
+<para>Raised when progress changes. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADAppKit.h" line="405" column="30" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADAppKit.h" bodystart="405" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classRADUi_1_1ProgressModel_1a543fcdca46a4da5b65f6f82909fe816b" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double RADUi::ProgressModel::minimum_</definition>
+        <argsstring></argsstring>
+        <name>minimum_</name>
+        <initializer>= 0.0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADAppKit.h" line="425" column="16" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADAppKit.h" bodystart="425" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classRADUi_1_1ProgressModel_1acaf5697ef1fcb4e5533e41f2dfba8d5f" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double RADUi::ProgressModel::maximum_</definition>
+        <argsstring></argsstring>
+        <name>maximum_</name>
+        <initializer>= 1.0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADAppKit.h" line="426" column="16" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADAppKit.h" bodystart="426" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classRADUi_1_1ProgressModel_1a1b7bc2524484678ea73d7ba06859a17d" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double RADUi::ProgressModel::value_</definition>
+        <argsstring></argsstring>
+        <name>value_</name>
+        <initializer>= 0.0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADAppKit.h" line="427" column="16" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADAppKit.h" bodystart="427" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classRADUi_1_1ProgressModel_1abe145296a1c09e89bfc4a223323f22ae" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool RADUi::ProgressModel::busy_</definition>
+        <argsstring></argsstring>
+        <name>busy_</name>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADAppKit.h" line="428" column="14" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADAppKit.h" bodystart="428" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classRADUi_1_1ProgressModel_1a24b813eec460f99031d8c16da196b5f4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void RADUi::ProgressModel::setRange</definition>
+        <argsstring>(double minimum, double maximum)</argsstring>
+        <name>setRange</name>
+        <param>
+          <type>double</type>
+          <declname>minimum</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>maximum</declname>
+        </param>
+        <briefdescription>
+<para>Sets range. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADAppKit.h" line="408" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADUi_1_1ProgressModel_1a6da9283c519de88bd5e3b674125e84ed" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void RADUi::ProgressModel::setValue</definition>
+        <argsstring>(double value)</argsstring>
+        <name>setValue</name>
+        <param>
+          <type>double</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+<para>Sets current value. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADAppKit.h" line="410" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADUi_1_1ProgressModel_1a58f44ebd462906d279122493f26f2a39" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void RADUi::ProgressModel::setBusy</definition>
+        <argsstring>(bool busy)</argsstring>
+        <name>setBusy</name>
+        <param>
+          <type>bool</type>
+          <declname>busy</declname>
+        </param>
+        <briefdescription>
+<para>Sets busy/indeterminate state. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADAppKit.h" line="412" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADUi_1_1ProgressModel_1aacc51415a4214de3913f59848fa4f61c" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>double RADUi::ProgressModel::minimum</definition>
+        <argsstring>() const</argsstring>
+        <name>minimum</name>
+        <briefdescription>
+<para>Returns minimum. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADAppKit.h" line="414" column="16"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADUi_1_1ProgressModel_1adf6e11d117d8592ea825f20974f7e832" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>double RADUi::ProgressModel::maximum</definition>
+        <argsstring>() const</argsstring>
+        <name>maximum</name>
+        <briefdescription>
+<para>Returns maximum. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADAppKit.h" line="416" column="16"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADUi_1_1ProgressModel_1acb5b6d89f2e6d560f92502eb778af701" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>double RADUi::ProgressModel::value</definition>
+        <argsstring>() const</argsstring>
+        <name>value</name>
+        <briefdescription>
+<para>Returns value. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADAppKit.h" line="418" column="16"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADUi_1_1ProgressModel_1a2b16814047f2146bcca13928bba9b1ba" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool RADUi::ProgressModel::busy</definition>
+        <argsstring>() const</argsstring>
+        <name>busy</name>
+        <briefdescription>
+<para>Returns true when busy. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADAppKit.h" line="420" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADUi_1_1ProgressModel_1ab3dcfd2af40fd0a7af962c2a6d2dff79" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>double RADUi::ProgressModel::normalized</definition>
+        <argsstring>() const</argsstring>
+        <name>normalized</name>
+        <briefdescription>
+<para>Returns normalized 0..1 progress. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADAppKit.h" line="422" column="16"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Progress state model. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>RADCore::RADObject</label>
+        <link refid="classRADCore_1_1RADObject"/>
+      </node>
+      <node id="1">
+        <label>RADUi::ProgressModel</label>
+        <link refid="classRADUi_1_1ProgressModel"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>RADCore::RADObject</label>
+        <link refid="classRADCore_1_1RADObject"/>
+      </node>
+      <node id="3">
+        <label>RADCore::Event&lt; void() &gt;</label>
+        <link refid="classRADCore_1_1Event"/>
+      </node>
+      <node id="1">
+        <label>RADUi::ProgressModel</label>
+        <link refid="classRADUi_1_1ProgressModel"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="3" relation="usage">
+          <edgelabel>changed</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADAppKit.h" line="401" column="5" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADAppKit.h" bodystart="401" bodyend="429"/>
+    <listofallmembers>
+      <member refid="classRADCore_1_1RADObject_1a06cdf252ffb5e2f88332ebda12a62080" prot="public" virt="non-virtual"><scope>RADUi::ProgressModel</scope><name>associatedEventLoop</name></member>
+      <member refid="classRADUi_1_1ProgressModel_1a2b16814047f2146bcca13928bba9b1ba" prot="public" virt="non-virtual"><scope>RADUi::ProgressModel</scope><name>busy</name></member>
+      <member refid="classRADUi_1_1ProgressModel_1abe145296a1c09e89bfc4a223323f22ae" prot="private" virt="non-virtual"><scope>RADUi::ProgressModel</scope><name>busy_</name></member>
+      <member refid="classRADUi_1_1ProgressModel_1a6ae298a246dd547e55d7e80b19e0e231" prot="public" virt="non-virtual"><scope>RADUi::ProgressModel</scope><name>changed</name></member>
+      <member refid="classRADCore_1_1RADObject_1ad2ddfd066d14be9adc2f96bfca417fc6" prot="public" virt="non-virtual"><scope>RADUi::ProgressModel</scope><name>lifetimeToken</name></member>
+      <member refid="classRADUi_1_1ProgressModel_1adf6e11d117d8592ea825f20974f7e832" prot="public" virt="non-virtual"><scope>RADUi::ProgressModel</scope><name>maximum</name></member>
+      <member refid="classRADUi_1_1ProgressModel_1acaf5697ef1fcb4e5533e41f2dfba8d5f" prot="private" virt="non-virtual"><scope>RADUi::ProgressModel</scope><name>maximum_</name></member>
+      <member refid="classRADUi_1_1ProgressModel_1aacc51415a4214de3913f59848fa4f61c" prot="public" virt="non-virtual"><scope>RADUi::ProgressModel</scope><name>minimum</name></member>
+      <member refid="classRADUi_1_1ProgressModel_1a543fcdca46a4da5b65f6f82909fe816b" prot="private" virt="non-virtual"><scope>RADUi::ProgressModel</scope><name>minimum_</name></member>
+      <member refid="classRADCore_1_1RADObject_1a1f7f7f2fb40211e28455cd74a029339a" prot="public" virt="non-virtual"><scope>RADUi::ProgressModel</scope><name>moveToThread</name></member>
+      <member refid="classRADUi_1_1ProgressModel_1ab3dcfd2af40fd0a7af962c2a6d2dff79" prot="public" virt="non-virtual"><scope>RADUi::ProgressModel</scope><name>normalized</name></member>
+      <member refid="classRADCore_1_1RADObject_1a9bc3fed915f7c71232e68c2628d34708" prot="public" virt="non-virtual"><scope>RADUi::ProgressModel</scope><name>RADObject</name></member>
+      <member refid="classRADCore_1_1RADObject_1af3e26b970c8080418f0d6b80cad986a2" prot="public" virt="non-virtual"><scope>RADUi::ProgressModel</scope><name>registerLink</name></member>
+      <member refid="classRADUi_1_1ProgressModel_1a58f44ebd462906d279122493f26f2a39" prot="public" virt="non-virtual"><scope>RADUi::ProgressModel</scope><name>setBusy</name></member>
+      <member refid="classRADUi_1_1ProgressModel_1a24b813eec460f99031d8c16da196b5f4" prot="public" virt="non-virtual"><scope>RADUi::ProgressModel</scope><name>setRange</name></member>
+      <member refid="classRADUi_1_1ProgressModel_1a6da9283c519de88bd5e3b674125e84ed" prot="public" virt="non-virtual"><scope>RADUi::ProgressModel</scope><name>setValue</name></member>
+      <member refid="classRADCore_1_1RADObject_1a8b11df0b951d0db1ba99cfb851e34f31" prot="public" virt="non-virtual"><scope>RADUi::ProgressModel</scope><name>threadAffinity</name></member>
+      <member refid="classRADCore_1_1RADObject_1ac7ca67b41523794ae5a6b3634d6ce3b6" prot="public" virt="non-virtual"><scope>RADUi::ProgressModel</scope><name>threadId</name></member>
+      <member refid="classRADUi_1_1ProgressModel_1acb5b6d89f2e6d560f92502eb778af701" prot="public" virt="non-virtual"><scope>RADUi::ProgressModel</scope><name>value</name></member>
+      <member refid="classRADUi_1_1ProgressModel_1a1b7bc2524484678ea73d7ba06859a17d" prot="private" virt="non-virtual"><scope>RADUi::ProgressModel</scope><name>value_</name></member>
+      <member refid="classRADCore_1_1RADObject_1a7369e27a46c163ee89c63227db650ce5" prot="public" virt="virtual"><scope>RADUi::ProgressModel</scope><name>~RADObject</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

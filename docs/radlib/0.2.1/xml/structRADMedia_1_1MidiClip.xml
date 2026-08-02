@@ -1,0 +1,143 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="structRADMedia_1_1MidiClip" kind="struct" language="C++" prot="public">
+    <compoundname>RADMedia::MidiClip</compoundname>
+    <includes refid="RADMedia_8h" local="no">RADMedia.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structRADMedia_1_1MidiClip_1a96dc8ac8605ab37633c378b7a834a7b4" prot="public" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t RADMedia::MidiClip::sampleRate</definition>
+        <argsstring></argsstring>
+        <name>sampleRate</name>
+        <initializer>= 48000</initializer>
+        <briefdescription>
+<para>Output sample rate. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADMedia/headers/RADMedia.h" line="281" column="18" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADMedia/headers/RADMedia.h" bodystart="281" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structRADMedia_1_1MidiClip_1a854dbb91adab48ed60f21092f37acd50" prot="public" static="no" mutable="no">
+        <type>uint16_t</type>
+        <definition>uint16_t RADMedia::MidiClip::channels</definition>
+        <argsstring></argsstring>
+        <name>channels</name>
+        <initializer>= 2</initializer>
+        <briefdescription>
+<para>Output channel count. <ref refid="namespaceRADMedia" kindref="compound">RADMedia</ref> currently renders mono or stereo. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADMedia/headers/RADMedia.h" line="283" column="18" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADMedia/headers/RADMedia.h" bodystart="283" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structRADMedia_1_1MidiClip_1a661ce3800d77823d2806db6bb3e9eeb2" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double RADMedia::MidiClip::durationSeconds</definition>
+        <argsstring></argsstring>
+        <name>durationSeconds</name>
+        <initializer>= 0.0</initializer>
+        <briefdescription>
+<para>Explicit render duration. Zero derives duration from scheduled events. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADMedia/headers/RADMedia.h" line="285" column="16" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADMedia/headers/RADMedia.h" bodystart="285" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structRADMedia_1_1MidiClip_1a30480194f6c451dbb037c061b4d0e5f7" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double RADMedia::MidiClip::tailSeconds</definition>
+        <argsstring></argsstring>
+        <name>tailSeconds</name>
+        <initializer>= 0.25</initializer>
+        <briefdescription>
+<para>Extra decay/release time appended when durationSeconds is derived. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADMedia/headers/RADMedia.h" line="287" column="16" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADMedia/headers/RADMedia.h" bodystart="287" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structRADMedia_1_1MidiClip_1a3922e1ad088e58c84c2a96693408339d" prot="public" static="no" mutable="no">
+        <type>std::vector&lt; <ref refid="structRADMedia_1_1MidiNoteEvent" kindref="compound">MidiNoteEvent</ref> &gt;</type>
+        <definition>std::vector&lt;MidiNoteEvent&gt; RADMedia::MidiClip::notes</definition>
+        <argsstring></argsstring>
+        <name>notes</name>
+        <briefdescription>
+<para>Scheduled notes. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADMedia/headers/RADMedia.h" line="289" column="21" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADMedia/headers/RADMedia.h" bodystart="289" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structRADMedia_1_1MidiClip_1a1a2a3be49127c97c21761041295446da" prot="public" static="no" mutable="no">
+        <type>std::vector&lt; <ref refid="structRADMedia_1_1MidiProgramChange" kindref="compound">MidiProgramChange</ref> &gt;</type>
+        <definition>std::vector&lt;MidiProgramChange&gt; RADMedia::MidiClip::programs</definition>
+        <argsstring></argsstring>
+        <name>programs</name>
+        <briefdescription>
+<para>Scheduled program changes. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADMedia/headers/RADMedia.h" line="291" column="21" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADMedia/headers/RADMedia.h" bodystart="291" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structRADMedia_1_1MidiClip_1a073125b415c6bacd657b2877c15e0594" prot="public" static="no" mutable="no">
+        <type>std::vector&lt; <ref refid="structRADMedia_1_1MidiPitchBend" kindref="compound">MidiPitchBend</ref> &gt;</type>
+        <definition>std::vector&lt;MidiPitchBend&gt; RADMedia::MidiClip::pitchBends</definition>
+        <argsstring></argsstring>
+        <name>pitchBends</name>
+        <briefdescription>
+<para>Scheduled pitch-bend changes. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADMedia/headers/RADMedia.h" line="293" column="21" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADMedia/headers/RADMedia.h" bodystart="293" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structRADMedia_1_1MidiClip_1ad882ea63facd8224a63866553e11e29e" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>double RADMedia::MidiClip::resolvedDurationSeconds</definition>
+        <argsstring>() const</argsstring>
+        <name>resolvedDurationSeconds</name>
+        <briefdescription>
+<para>Returns explicit duration if set, otherwise derives from notes and tailSeconds. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADMedia/headers/RADMedia.h" line="296" column="16"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Lightweight MIDI clip for preview rendering and RADBard score/piano-roll playback. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/media/jvincent/Kingspec512/repos/RADLib/RADMedia/headers/RADMedia.h" line="279" column="5" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADMedia/headers/RADMedia.h" bodystart="279" bodyend="297"/>
+    <listofallmembers>
+      <member refid="structRADMedia_1_1MidiClip_1a854dbb91adab48ed60f21092f37acd50" prot="public" virt="non-virtual"><scope>RADMedia::MidiClip</scope><name>channels</name></member>
+      <member refid="structRADMedia_1_1MidiClip_1a661ce3800d77823d2806db6bb3e9eeb2" prot="public" virt="non-virtual"><scope>RADMedia::MidiClip</scope><name>durationSeconds</name></member>
+      <member refid="structRADMedia_1_1MidiClip_1a3922e1ad088e58c84c2a96693408339d" prot="public" virt="non-virtual"><scope>RADMedia::MidiClip</scope><name>notes</name></member>
+      <member refid="structRADMedia_1_1MidiClip_1a073125b415c6bacd657b2877c15e0594" prot="public" virt="non-virtual"><scope>RADMedia::MidiClip</scope><name>pitchBends</name></member>
+      <member refid="structRADMedia_1_1MidiClip_1a1a2a3be49127c97c21761041295446da" prot="public" virt="non-virtual"><scope>RADMedia::MidiClip</scope><name>programs</name></member>
+      <member refid="structRADMedia_1_1MidiClip_1ad882ea63facd8224a63866553e11e29e" prot="public" virt="non-virtual"><scope>RADMedia::MidiClip</scope><name>resolvedDurationSeconds</name></member>
+      <member refid="structRADMedia_1_1MidiClip_1a96dc8ac8605ab37633c378b7a834a7b4" prot="public" virt="non-virtual"><scope>RADMedia::MidiClip</scope><name>sampleRate</name></member>
+      <member refid="structRADMedia_1_1MidiClip_1a30480194f6c451dbb037c061b4d0e5f7" prot="public" virt="non-virtual"><scope>RADMedia::MidiClip</scope><name>tailSeconds</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

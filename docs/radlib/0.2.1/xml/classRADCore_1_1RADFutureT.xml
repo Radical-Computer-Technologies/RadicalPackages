@@ -1,0 +1,179 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="classRADCore_1_1RADFutureT" kind="class" language="C++" prot="public">
+    <compoundname>RADCore::RADFutureT</compoundname>
+    <includes refid="RADCore_8h" local="no">RADCore.h</includes>
+    <templateparamlist>
+      <param>
+        <type>typename T</type>
+      </param>
+    </templateparamlist>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classRADCore_1_1RADFutureT_1aea551d3c95fbdd20ff4312beef75611f" prot="private" static="no" mutable="no">
+        <type>std::shared_ptr&lt; std::shared_future&lt; T &gt; &gt;</type>
+        <definition>std::shared_ptr&lt;std::shared_future&lt;T&gt; &gt; RADCore::RADFutureT&lt; T &gt;::future_</definition>
+        <argsstring></argsstring>
+        <name>future_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADCore/headers/RADCore.h" line="1589" column="25" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADCore/headers/RADCore.h" bodystart="1589" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classRADCore_1_1RADFutureT_1a63a3f37fac5227f0afde1415f7456bf4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>RADCore::RADFutureT&lt; T &gt;::RADFutureT</definition>
+        <argsstring>()=default</argsstring>
+        <name>RADFutureT</name>
+        <briefdescription>
+<para>Creates an invalid future. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADCore/headers/RADCore.h" line="1550" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADCore_1_1RADFutureT_1af010f81ef61e404c3acd154980952e63" prot="public" static="no" const="no" explicit="yes" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>RADCore::RADFutureT&lt; T &gt;::RADFutureT</definition>
+        <argsstring>(std::shared_ptr&lt; std::shared_future&lt; T &gt;&gt; future)</argsstring>
+        <name>RADFutureT</name>
+        <param>
+          <type>std::shared_ptr&lt; std::shared_future&lt; T &gt;&gt;</type>
+          <declname>future</declname>
+        </param>
+        <briefdescription>
+<para>Wraps an existing shared future. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADCore/headers/RADCore.h" line="1552" column="18" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADCore/headers/RADCore.h" bodystart="1552" bodyend="1553"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADCore_1_1RADFutureT_1acd82622ecb77cbbbf0f023dbc2b79bbc" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool RADCore::RADFutureT&lt; T &gt;::isValid</definition>
+        <argsstring>() const</argsstring>
+        <name>isValid</name>
+        <briefdescription>
+<para>Returns true when a future is present. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADCore/headers/RADCore.h" line="1556" column="14" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADCore/headers/RADCore.h" bodystart="1556" bodyend="1556"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADCore_1_1RADFutureT_1a3252a36888b9ec7c8a31d869131c583f" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool RADCore::RADFutureT&lt; T &gt;::isFinished</definition>
+        <argsstring>() const</argsstring>
+        <name>isFinished</name>
+        <briefdescription>
+<para>Returns true when the result is ready. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADCore/headers/RADCore.h" line="1558" column="14" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADCore/headers/RADCore.h" bodystart="1558" bodyend="1560"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADCore_1_1RADFutureT_1a7044faa81e4e15cf5951fca863a0801c" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void RADCore::RADFutureT&lt; T &gt;::wait</definition>
+        <argsstring>() const</argsstring>
+        <name>wait</name>
+        <briefdescription>
+<para>Blocks until the result is ready. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADCore/headers/RADCore.h" line="1562" column="14" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADCore/headers/RADCore.h" bodystart="1562" bodyend="1562"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADCore_1_1RADFutureT_1aba19137b4dd8fec199da22d6ecbcbfa4" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>T</type>
+        <definition>T RADCore::RADFutureT&lt; T &gt;::result</definition>
+        <argsstring>() const</argsstring>
+        <name>result</name>
+        <briefdescription>
+<para>Returns the result, rethrowing any task exception. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADCore/headers/RADCore.h" line="1564" column="11" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADCore/headers/RADCore.h" bodystart="1564" bodyend="1564"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADCore_1_1RADFutureT_1a6ae548fc7428cb42db4622b489094fa4" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>T</type>
+        <definition>T RADCore::RADFutureT&lt; T &gt;::resultOr</definition>
+        <argsstring>(T defaultValue) const</argsstring>
+        <name>resultOr</name>
+        <param>
+          <type>T</type>
+          <declname>defaultValue</declname>
+        </param>
+        <briefdescription>
+<para>Returns result or defaultValue if not ready or failed. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADCore/headers/RADCore.h" line="1566" column="11" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADCore/headers/RADCore.h" bodystart="1566" bodyend="1569"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADCore_1_1RADFutureT_1aab29a1220b87843edfc954b0f359e073" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename F</type>
+          </param>
+        </templateparamlist>
+        <type>void</type>
+        <definition>void RADCore::RADFutureT&lt; T &gt;::then</definition>
+        <argsstring>(EventLoop &amp;loop, F &amp;&amp;continuation) const</argsstring>
+        <name>then</name>
+        <param>
+          <type><ref refid="classRADCore_1_1EventLoop" kindref="compound">EventLoop</ref> &amp;</type>
+          <declname>loop</declname>
+        </param>
+        <param>
+          <type>F &amp;&amp;</type>
+          <declname>continuation</declname>
+        </param>
+        <briefdescription>
+<para>Posts continuation to loop after this future completes. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADCore/headers/RADCore.h" line="1573" column="14" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADCore/headers/RADCore.h" bodystart="1573" bodyend="1586"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Typed shared future with optional continuation support. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/media/jvincent/Kingspec512/repos/RADLib/RADCore/headers/RADCore.h" line="1547" column="5" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADCore/headers/RADCore.h" bodystart="1547" bodyend="1590"/>
+    <listofallmembers>
+      <member refid="classRADCore_1_1RADFutureT_1aea551d3c95fbdd20ff4312beef75611f" prot="private" virt="non-virtual"><scope>RADCore::RADFutureT</scope><name>future_</name></member>
+      <member refid="classRADCore_1_1RADFutureT_1a3252a36888b9ec7c8a31d869131c583f" prot="public" virt="non-virtual"><scope>RADCore::RADFutureT</scope><name>isFinished</name></member>
+      <member refid="classRADCore_1_1RADFutureT_1acd82622ecb77cbbbf0f023dbc2b79bbc" prot="public" virt="non-virtual"><scope>RADCore::RADFutureT</scope><name>isValid</name></member>
+      <member refid="classRADCore_1_1RADFutureT_1a63a3f37fac5227f0afde1415f7456bf4" prot="public" virt="non-virtual"><scope>RADCore::RADFutureT</scope><name>RADFutureT</name></member>
+      <member refid="classRADCore_1_1RADFutureT_1af010f81ef61e404c3acd154980952e63" prot="public" virt="non-virtual"><scope>RADCore::RADFutureT</scope><name>RADFutureT</name></member>
+      <member refid="classRADCore_1_1RADFutureT_1aba19137b4dd8fec199da22d6ecbcbfa4" prot="public" virt="non-virtual"><scope>RADCore::RADFutureT</scope><name>result</name></member>
+      <member refid="classRADCore_1_1RADFutureT_1a6ae548fc7428cb42db4622b489094fa4" prot="public" virt="non-virtual"><scope>RADCore::RADFutureT</scope><name>resultOr</name></member>
+      <member refid="classRADCore_1_1RADFutureT_1aab29a1220b87843edfc954b0f359e073" prot="public" virt="non-virtual"><scope>RADCore::RADFutureT</scope><name>then</name></member>
+      <member refid="classRADCore_1_1RADFutureT_1a7044faa81e4e15cf5951fca863a0801c" prot="public" virt="non-virtual"><scope>RADCore::RADFutureT</scope><name>wait</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

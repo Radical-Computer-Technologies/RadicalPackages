@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>RadBuild ECP5 OSS CAD Suite Flow</title>
+  <link rel="stylesheet" href="../../../assets/site.css">
+</head>
+<body>
+<main class="page">
+  <nav class="nav">
+    <a class="brand" href="../../../"><img src="../../../assets/rad-logo.png" alt="">Radical Packages</a>
+    <div class="nav-links">
+      <a href="../../../">Home</a>
+      <a href="../../../packages.html">Packages</a>
+      <a href="../../../radpx-os.html">RADPx-OS</a>
+      <a href="../../../docs/">Docs</a>
+      <a href="../../../contribute.html">Contribute</a>
+    </div>
+  </nav>
+  <section class="hero compact-hero">
+    <div class="eyebrow">RadBuild 0.2.2-beta.2</div>
+    <h1>RadBuild ECP5 OSS CAD Suite Flow</h1>
+  </section>
+  <article class="card doc-content">
+<h1>RadBuild ECP5 OSS CAD Suite Flow</h1>
+<p>RadBuild supports a first open-source FPGA provider for Lattice ECP5 targets through OSS CAD Suite. The initial board target is the Colorlight i9 v7.2 with an LFE5U-45F-6BG381C device.</p>
+<h2>Tool Setup</h2>
+<p>Install or unpack OSS CAD Suite and point RadBuild at its root. On the development machine used for this port, the suite is installed at:</p>
+<pre><code>/home/jvincent/oss-cad-suite/oss-cad-suite</code></pre>
+<p>RadBuild sources the suite <code>environment</code> file before running tools. Running binaries directly from <code>libexec</code> is not supported on this host because the suite expects its own environment.</p>
+<h2>Project Creation</h2>
+<pre><code>radbuild project create --template fpga-ecp5-colorlight-i9 --project-name colorlight-i9-smoke ~/radprojects
+cd ~/radprojects/colorlight-i9-smoke
+radbuild project validate
+radbuild build fpga --system colorlight-i9-ecp5</code></pre>
+<p>The provider runs GHDL simulations listed in the project settings, imports VHDL through the Yosys GHDL plugin, runs <code>synth_ecp5</code>, places/routes with <code>nextpnr-ecp5</code>, and packs a <code>.bit</code> plus <code>.svf</code> with <code>ecppack</code>.</p>
+<h2>Main Settings Fields</h2>
+<ul>
+<li><code>type</code>: <code>fpga.ecp5</code></li>
+<li><code>provider</code>: <code>oss-cad-suite</code></li>
+<li><code>toolchain.suite_root</code>: OSS CAD Suite root; defaults to <code>/home/jvincent/oss-cad-suite/oss-cad-suite</code>.</li>
+<li><code>config.device</code>: nextpnr ECP5 size, such as <code>45k</code>.</li>
+<li><code>config.package</code>: package, such as <code>CABGA381</code>.</li>
+<li><code>config.source_root</code>: base directory for HDL and constraints.</li>
+<li><code>config.sources</code>: VHDL source list in compile order.</li>
+<li><code>config.constraints_lpf</code>: LPF pin/timing constraints.</li>
+<li><code>config.testbenches</code>: optional GHDL simulations to run before synthesis.</li>
+</ul>
+<h2>Current Limits</h2>
+<p>The first pass verifies simulation and bitstream generation. Programming support is described in metadata through <code>programmer_board: colorlight-i9</code>, but hardware flashing is not part of the required acceptance path yet.</p>
+  </article>
+</main>
+</body>
+</html>

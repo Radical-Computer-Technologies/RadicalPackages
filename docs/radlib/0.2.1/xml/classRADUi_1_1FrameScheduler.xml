@@ -1,0 +1,123 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="classRADUi_1_1FrameScheduler" kind="class" language="C++" prot="public">
+    <compoundname>RADUi::FrameScheduler</compoundname>
+    <includes refid="RADUi_8h" local="no">RADUi.h</includes>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classRADUi_1_1FrameScheduler_1a83830816f6c6b8a7b7252a78b07cf03f" prot="private" static="no" mutable="no">
+        <type>std::shared_ptr&lt; Impl &gt;</type>
+        <definition>std::shared_ptr&lt;Impl&gt; RADUi::FrameScheduler::pImpl_</definition>
+        <argsstring></argsstring>
+        <name>pImpl_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADUi.h" line="96" column="25" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADUi.h" bodystart="95" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classRADUi_1_1FrameScheduler_1a23c27cf9f2a3ead927b3b5a7029bc474" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>RADUi::FrameScheduler::FrameScheduler</definition>
+        <argsstring>(double framesPerSecond=60.0)</argsstring>
+        <name>FrameScheduler</name>
+        <param>
+          <type>double</type>
+          <declname>framesPerSecond</declname>
+          <defval>60.0</defval>
+        </param>
+        <briefdescription>
+<para>Creates a scheduler capped at framesPerSecond. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADUi.h" line="82" column="18"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADUi_1_1FrameScheduler_1a2d353e3350daba2867c8c9ac0c8d6021" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>RADUi::FrameScheduler::~FrameScheduler</definition>
+        <argsstring>()</argsstring>
+        <name>~FrameScheduler</name>
+        <briefdescription>
+<para>Stops the scheduler worker. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADUi.h" line="84" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADUi_1_1FrameScheduler_1aa02f294952447b64916be71b9fb4b006" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>RADUi::FrameScheduler::FrameScheduler</definition>
+        <argsstring>(const FrameScheduler &amp;)=delete</argsstring>
+        <name>FrameScheduler</name>
+        <param>
+          <type>const <ref refid="classRADUi_1_1FrameScheduler" kindref="compound">FrameScheduler</ref> &amp;</type>
+        </param>
+        <briefdescription>
+<para>Schedulers are owned by one bridge/model and are not copied. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADUi.h" line="87" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADUi_1_1FrameScheduler_1a212d12ef20a2866e1e2ba7f835902dd7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classRADUi_1_1FrameScheduler" kindref="compound">FrameScheduler</ref> &amp;</type>
+        <definition>FrameScheduler&amp; RADUi::FrameScheduler::operator=</definition>
+        <argsstring>(const FrameScheduler &amp;)=delete</argsstring>
+        <name>operator=</name>
+        <param>
+          <type>const <ref refid="classRADUi_1_1FrameScheduler" kindref="compound">FrameScheduler</ref> &amp;</type>
+        </param>
+        <briefdescription>
+<para>Schedulers are owned by one bridge/model and are not copied. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADUi.h" line="89" column="24"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADUi_1_1FrameScheduler_1a9f2fdac1ef523fca75319ba15d6259ea" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void RADUi::FrameScheduler::requestUpdate</definition>
+        <argsstring>(std::function&lt; void()&gt; task)</argsstring>
+        <name>requestUpdate</name>
+        <param>
+          <type>std::function&lt; void()&gt;</type>
+          <declname>task</declname>
+        </param>
+        <briefdescription>
+<para>Requests that task run on the UI thread at the next scheduled frame. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADUi.h" line="92" column="14"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Coalesces UI updates so expensive redraws occur at a target frame rate. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADUi.h" line="79" column="5" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADUi.h" bodystart="79" bodyend="97"/>
+    <listofallmembers>
+      <member refid="classRADUi_1_1FrameScheduler_1a23c27cf9f2a3ead927b3b5a7029bc474" prot="public" virt="non-virtual"><scope>RADUi::FrameScheduler</scope><name>FrameScheduler</name></member>
+      <member refid="classRADUi_1_1FrameScheduler_1aa02f294952447b64916be71b9fb4b006" prot="public" virt="non-virtual"><scope>RADUi::FrameScheduler</scope><name>FrameScheduler</name></member>
+      <member refid="classRADUi_1_1FrameScheduler_1a212d12ef20a2866e1e2ba7f835902dd7" prot="public" virt="non-virtual"><scope>RADUi::FrameScheduler</scope><name>operator=</name></member>
+      <member refid="classRADUi_1_1FrameScheduler_1a83830816f6c6b8a7b7252a78b07cf03f" prot="private" virt="non-virtual"><scope>RADUi::FrameScheduler</scope><name>pImpl_</name></member>
+      <member refid="classRADUi_1_1FrameScheduler_1a9f2fdac1ef523fca75319ba15d6259ea" prot="public" virt="non-virtual"><scope>RADUi::FrameScheduler</scope><name>requestUpdate</name></member>
+      <member refid="classRADUi_1_1FrameScheduler_1a2d353e3350daba2867c8c9ac0c8d6021" prot="public" virt="non-virtual"><scope>RADUi::FrameScheduler</scope><name>~FrameScheduler</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

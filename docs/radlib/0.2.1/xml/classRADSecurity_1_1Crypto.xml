@@ -1,0 +1,293 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="classRADSecurity_1_1Crypto" kind="class" language="C++" prot="public">
+    <compoundname>RADSecurity::Crypto</compoundname>
+    <includes refid="RADSecurity_8h" local="no">RADSecurity.h</includes>
+      <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="classRADSecurity_1_1Crypto_1a353dece8adf1fdf76791edc5f1f5881b" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::vector&lt; uint8_t &gt;</type>
+        <definition>static std::vector&lt;uint8_t&gt; RADSecurity::Crypto::sha256</definition>
+        <argsstring>(const std::vector&lt; uint8_t &gt; &amp;bytes)</argsstring>
+        <name>sha256</name>
+        <param>
+          <type>const std::vector&lt; uint8_t &gt; &amp;</type>
+          <declname>bytes</declname>
+        </param>
+        <briefdescription>
+<para>Computes SHA-256 over bytes. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADSecurity/headers/RADSecurity.h" line="52" column="28"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADSecurity_1_1Crypto_1adb9e8dd38f710fbb00e810e4048cc16f" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::vector&lt; uint8_t &gt;</type>
+        <definition>static std::vector&lt;uint8_t&gt; RADSecurity::Crypto::sha256</definition>
+        <argsstring>(const std::string &amp;text)</argsstring>
+        <name>sha256</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>text</declname>
+        </param>
+        <briefdescription>
+<para>Computes SHA-256 over text bytes. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADSecurity/headers/RADSecurity.h" line="54" column="28"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADSecurity_1_1Crypto_1a9b84758c7963ba0e86da99be35977d1e" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classRADCore_1_1RADResult" kindref="compound">RADCore::RADResult</ref>&lt; std::vector&lt; uint8_t &gt; &gt;</type>
+        <definition>static RADCore::RADResult&lt;std::vector&lt;uint8_t&gt; &gt; RADSecurity::Crypto::sha256File</definition>
+        <argsstring>(const std::string &amp;path)</argsstring>
+        <name>sha256File</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>path</declname>
+        </param>
+        <briefdescription>
+<para>Computes SHA-256 over file contents. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADSecurity/headers/RADSecurity.h" line="56" column="35"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADSecurity_1_1Crypto_1a2bd717a2aa8f55530fce57a8f7fc094c" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::string</type>
+        <definition>static std::string RADSecurity::Crypto::toHex</definition>
+        <argsstring>(const std::vector&lt; uint8_t &gt; &amp;bytes)</argsstring>
+        <name>toHex</name>
+        <param>
+          <type>const std::vector&lt; uint8_t &gt; &amp;</type>
+          <declname>bytes</declname>
+        </param>
+        <briefdescription>
+<para>Returns lowercase hexadecimal text for bytes. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADSecurity/headers/RADSecurity.h" line="58" column="28"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADSecurity_1_1Crypto_1ab5353155ebf930315c9be3e4ac326814" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classRADCore_1_1RADResult" kindref="compound">RADCore::RADResult</ref>&lt; std::vector&lt; uint8_t &gt; &gt;</type>
+        <definition>static RADCore::RADResult&lt;std::vector&lt;uint8_t&gt; &gt; RADSecurity::Crypto::fromHex</definition>
+        <argsstring>(const std::string &amp;hex)</argsstring>
+        <name>fromHex</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>hex</declname>
+        </param>
+        <briefdescription>
+<para>Parses lowercase or uppercase hexadecimal text. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADSecurity/headers/RADSecurity.h" line="60" column="35"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADSecurity_1_1Crypto_1af2855ec4d65ef235ab6afbf3e57b2c77" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classRADCore_1_1RADResult" kindref="compound">RADCore::RADResult</ref>&lt; std::vector&lt; uint8_t &gt; &gt;</type>
+        <definition>static RADCore::RADResult&lt;std::vector&lt;uint8_t&gt; &gt; RADSecurity::Crypto::randomBytes</definition>
+        <argsstring>(size_t count)</argsstring>
+        <name>randomBytes</name>
+        <param>
+          <type>size_t</type>
+          <declname>count</declname>
+        </param>
+        <briefdescription>
+<para>Generates cryptographically secure random bytes. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADSecurity/headers/RADSecurity.h" line="62" column="35"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADSecurity_1_1Crypto_1abd41b68b876df7851ee451ba37393e02" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classRADCore_1_1RADResult" kindref="compound">RADCore::RADResult</ref>&lt; std::string &gt;</type>
+        <definition>static RADCore::RADResult&lt;std::string&gt; RADSecurity::Crypto::generateRsaPrivateKeyPem</definition>
+        <argsstring>(int bits=2048)</argsstring>
+        <name>generateRsaPrivateKeyPem</name>
+        <param>
+          <type>int</type>
+          <declname>bits</declname>
+          <defval>2048</defval>
+        </param>
+        <briefdescription>
+<para>Generates an RSA private key in PEM format. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADSecurity/headers/RADSecurity.h" line="64" column="35"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADSecurity_1_1Crypto_1a1abc8260ff0a5381e6365e15c5b47fb2" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classRADCore_1_1RADResult" kindref="compound">RADCore::RADResult</ref>&lt; std::string &gt;</type>
+        <definition>static RADCore::RADResult&lt;std::string&gt; RADSecurity::Crypto::publicKeyFromPrivateKeyPem</definition>
+        <argsstring>(const std::string &amp;privateKeyPem)</argsstring>
+        <name>publicKeyFromPrivateKeyPem</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>privateKeyPem</declname>
+        </param>
+        <briefdescription>
+<para>Extracts the public key PEM from a private key PEM. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADSecurity/headers/RADSecurity.h" line="66" column="35"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADSecurity_1_1Crypto_1a5992c93ec3a51c070d722e290e5da8e7" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classRADCore_1_1RADResult" kindref="compound">RADCore::RADResult</ref>&lt; std::vector&lt; uint8_t &gt; &gt;</type>
+        <definition>static RADCore::RADResult&lt;std::vector&lt;uint8_t&gt; &gt; RADSecurity::Crypto::signSha256</definition>
+        <argsstring>(const std::vector&lt; uint8_t &gt; &amp;bytes, const std::string &amp;privateKeyPem)</argsstring>
+        <name>signSha256</name>
+        <param>
+          <type>const std::vector&lt; uint8_t &gt; &amp;</type>
+          <declname>bytes</declname>
+        </param>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>privateKeyPem</declname>
+        </param>
+        <briefdescription>
+<para>Signs bytes using RSA-SHA256 and a private key PEM. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADSecurity/headers/RADSecurity.h" line="68" column="35"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADSecurity_1_1Crypto_1ac2f69ef757dcac5b130c2e06b6128a2e" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>static bool RADSecurity::Crypto::verifySha256</definition>
+        <argsstring>(const std::vector&lt; uint8_t &gt; &amp;bytes, const std::vector&lt; uint8_t &gt; &amp;signature, const std::string &amp;publicKeyPem)</argsstring>
+        <name>verifySha256</name>
+        <param>
+          <type>const std::vector&lt; uint8_t &gt; &amp;</type>
+          <declname>bytes</declname>
+        </param>
+        <param>
+          <type>const std::vector&lt; uint8_t &gt; &amp;</type>
+          <declname>signature</declname>
+        </param>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>publicKeyPem</declname>
+        </param>
+        <briefdescription>
+<para>Verifies an RSA-SHA256 signature over bytes. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADSecurity/headers/RADSecurity.h" line="71" column="21"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADSecurity_1_1Crypto_1ab935cfcebd1b21b7d44620ed8377d279" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classRADCore_1_1RADResult" kindref="compound">RADCore::RADResult</ref>&lt; void &gt;</type>
+        <definition>static RADCore::RADResult&lt;void&gt; RADSecurity::Crypto::signFileSha256</definition>
+        <argsstring>(const std::string &amp;filePath, const std::string &amp;signaturePath, const std::string &amp;privateKeyPem)</argsstring>
+        <name>signFileSha256</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>filePath</declname>
+        </param>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>signaturePath</declname>
+        </param>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>privateKeyPem</declname>
+        </param>
+        <briefdescription>
+<para>Signs a file using RSA-SHA256 and writes the signature bytes. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADSecurity/headers/RADSecurity.h" line="74" column="35"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADSecurity_1_1Crypto_1a4403af509fe8eb1d3633a5fc0157280a" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>static bool RADSecurity::Crypto::verifyFileSha256</definition>
+        <argsstring>(const std::string &amp;filePath, const std::string &amp;signaturePath, const std::string &amp;publicKeyPem)</argsstring>
+        <name>verifyFileSha256</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>filePath</declname>
+        </param>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>signaturePath</declname>
+        </param>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>publicKeyPem</declname>
+        </param>
+        <briefdescription>
+<para>Verifies a file signature generated by <ref refid="classRADSecurity_1_1Crypto_1ab935cfcebd1b21b7d44620ed8377d279" kindref="member">signFileSha256()</ref>. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADSecurity/headers/RADSecurity.h" line="77" column="21"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADSecurity_1_1Crypto_1a1135464c62f0209998b840fb461265d9" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classRADCore_1_1RADResult" kindref="compound">RADCore::RADResult</ref>&lt; std::string &gt;</type>
+        <definition>static RADCore::RADResult&lt;std::string&gt; RADSecurity::Crypto::fileFingerprintSha256</definition>
+        <argsstring>(const std::string &amp;path)</argsstring>
+        <name>fileFingerprintSha256</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>path</declname>
+        </param>
+        <briefdescription>
+<para>Returns a SHA-256 fingerprint for a certificate/key file. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADSecurity/headers/RADSecurity.h" line="80" column="35"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Digest and signing primitives backed by OpenSSL. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/media/jvincent/Kingspec512/repos/RADLib/RADSecurity/headers/RADSecurity.h" line="49" column="5" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADSecurity/headers/RADSecurity.h" bodystart="49" bodyend="81"/>
+    <listofallmembers>
+      <member refid="classRADSecurity_1_1Crypto_1a1135464c62f0209998b840fb461265d9" prot="public" virt="non-virtual"><scope>RADSecurity::Crypto</scope><name>fileFingerprintSha256</name></member>
+      <member refid="classRADSecurity_1_1Crypto_1ab5353155ebf930315c9be3e4ac326814" prot="public" virt="non-virtual"><scope>RADSecurity::Crypto</scope><name>fromHex</name></member>
+      <member refid="classRADSecurity_1_1Crypto_1abd41b68b876df7851ee451ba37393e02" prot="public" virt="non-virtual"><scope>RADSecurity::Crypto</scope><name>generateRsaPrivateKeyPem</name></member>
+      <member refid="classRADSecurity_1_1Crypto_1a1abc8260ff0a5381e6365e15c5b47fb2" prot="public" virt="non-virtual"><scope>RADSecurity::Crypto</scope><name>publicKeyFromPrivateKeyPem</name></member>
+      <member refid="classRADSecurity_1_1Crypto_1af2855ec4d65ef235ab6afbf3e57b2c77" prot="public" virt="non-virtual"><scope>RADSecurity::Crypto</scope><name>randomBytes</name></member>
+      <member refid="classRADSecurity_1_1Crypto_1a353dece8adf1fdf76791edc5f1f5881b" prot="public" virt="non-virtual"><scope>RADSecurity::Crypto</scope><name>sha256</name></member>
+      <member refid="classRADSecurity_1_1Crypto_1adb9e8dd38f710fbb00e810e4048cc16f" prot="public" virt="non-virtual"><scope>RADSecurity::Crypto</scope><name>sha256</name></member>
+      <member refid="classRADSecurity_1_1Crypto_1a9b84758c7963ba0e86da99be35977d1e" prot="public" virt="non-virtual"><scope>RADSecurity::Crypto</scope><name>sha256File</name></member>
+      <member refid="classRADSecurity_1_1Crypto_1ab935cfcebd1b21b7d44620ed8377d279" prot="public" virt="non-virtual"><scope>RADSecurity::Crypto</scope><name>signFileSha256</name></member>
+      <member refid="classRADSecurity_1_1Crypto_1a5992c93ec3a51c070d722e290e5da8e7" prot="public" virt="non-virtual"><scope>RADSecurity::Crypto</scope><name>signSha256</name></member>
+      <member refid="classRADSecurity_1_1Crypto_1a2bd717a2aa8f55530fce57a8f7fc094c" prot="public" virt="non-virtual"><scope>RADSecurity::Crypto</scope><name>toHex</name></member>
+      <member refid="classRADSecurity_1_1Crypto_1a4403af509fe8eb1d3633a5fc0157280a" prot="public" virt="non-virtual"><scope>RADSecurity::Crypto</scope><name>verifyFileSha256</name></member>
+      <member refid="classRADSecurity_1_1Crypto_1ac2f69ef757dcac5b130c2e06b6128a2e" prot="public" virt="non-virtual"><scope>RADSecurity::Crypto</scope><name>verifySha256</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

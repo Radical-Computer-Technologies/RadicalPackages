@@ -1,0 +1,139 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="classRADUi_1_1SelectionModel" kind="class" language="C++" prot="public">
+    <compoundname>RADUi::SelectionModel</compoundname>
+    <basecompoundref refid="classRADCore_1_1RADObject" prot="public" virt="non-virtual">RADCore::RADObject</basecompoundref>
+    <includes refid="RADWidgets_8h" local="no">RADWidgets.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="classRADUi_1_1SelectionModel_1a72b998df6de5702595f7b8caf8e246f3" prot="public" static="no" mutable="no">
+        <type><ref refid="classRADCore_1_1Event" kindref="compound">RADCore::Event</ref>&lt; void() &gt;</type>
+        <definition>RADCore::Event&lt;void () &gt; RADUi::SelectionModel::changed</definition>
+        <argsstring></argsstring>
+        <name>changed</name>
+        <briefdescription>
+<para>Raised when current index changes. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADWidgets.h" line="356" column="30" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADWidgets.h" bodystart="356" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classRADUi_1_1SelectionModel_1ab1dc80052a32cdc1f7c9fb39ac121dd2" prot="private" static="no" mutable="no">
+        <type>std::optional&lt; size_t &gt;</type>
+        <definition>std::optional&lt;size_t&gt; RADUi::SelectionModel::currentIndex_</definition>
+        <argsstring></argsstring>
+        <name>currentIndex_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADWidgets.h" line="366" column="23" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADWidgets.h" bodystart="366" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classRADUi_1_1SelectionModel_1a737fa2b42e59d7c67f72e73811367f2e" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>std::optional&lt; size_t &gt;</type>
+        <definition>std::optional&lt;size_t&gt; RADUi::SelectionModel::currentIndex</definition>
+        <argsstring>() const</argsstring>
+        <name>currentIndex</name>
+        <briefdescription>
+<para>Returns selected index, if any. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADWidgets.h" line="359" column="23"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADUi_1_1SelectionModel_1a3c0afec5995a31d9948a1f811b729a15" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void RADUi::SelectionModel::setCurrentIndex</definition>
+        <argsstring>(std::optional&lt; size_t &gt; index)</argsstring>
+        <name>setCurrentIndex</name>
+        <param>
+          <type>std::optional&lt; size_t &gt;</type>
+          <declname>index</declname>
+        </param>
+        <briefdescription>
+<para>Sets selected index or clears selection with nullopt. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADWidgets.h" line="361" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADUi_1_1SelectionModel_1ae722867a58a6f66b4a5f50344dbac4d2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void RADUi::SelectionModel::clear</definition>
+        <argsstring>()</argsstring>
+        <name>clear</name>
+        <briefdescription>
+<para>Clears selection. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADWidgets.h" line="363" column="14"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Current-selection model for list/table/tree style views. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>RADCore::RADObject</label>
+        <link refid="classRADCore_1_1RADObject"/>
+      </node>
+      <node id="1">
+        <label>RADUi::SelectionModel</label>
+        <link refid="classRADUi_1_1SelectionModel"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>RADCore::RADObject</label>
+        <link refid="classRADCore_1_1RADObject"/>
+      </node>
+      <node id="3">
+        <label>RADCore::Event&lt; void() &gt;</label>
+        <link refid="classRADCore_1_1Event"/>
+      </node>
+      <node id="1">
+        <label>RADUi::SelectionModel</label>
+        <link refid="classRADUi_1_1SelectionModel"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="3" relation="usage">
+          <edgelabel>changed</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADWidgets.h" line="352" column="5" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADWidgets.h" bodystart="352" bodyend="367"/>
+    <listofallmembers>
+      <member refid="classRADCore_1_1RADObject_1a06cdf252ffb5e2f88332ebda12a62080" prot="public" virt="non-virtual"><scope>RADUi::SelectionModel</scope><name>associatedEventLoop</name></member>
+      <member refid="classRADUi_1_1SelectionModel_1a72b998df6de5702595f7b8caf8e246f3" prot="public" virt="non-virtual"><scope>RADUi::SelectionModel</scope><name>changed</name></member>
+      <member refid="classRADUi_1_1SelectionModel_1ae722867a58a6f66b4a5f50344dbac4d2" prot="public" virt="non-virtual"><scope>RADUi::SelectionModel</scope><name>clear</name></member>
+      <member refid="classRADUi_1_1SelectionModel_1a737fa2b42e59d7c67f72e73811367f2e" prot="public" virt="non-virtual"><scope>RADUi::SelectionModel</scope><name>currentIndex</name></member>
+      <member refid="classRADUi_1_1SelectionModel_1ab1dc80052a32cdc1f7c9fb39ac121dd2" prot="private" virt="non-virtual"><scope>RADUi::SelectionModel</scope><name>currentIndex_</name></member>
+      <member refid="classRADCore_1_1RADObject_1ad2ddfd066d14be9adc2f96bfca417fc6" prot="public" virt="non-virtual"><scope>RADUi::SelectionModel</scope><name>lifetimeToken</name></member>
+      <member refid="classRADCore_1_1RADObject_1a1f7f7f2fb40211e28455cd74a029339a" prot="public" virt="non-virtual"><scope>RADUi::SelectionModel</scope><name>moveToThread</name></member>
+      <member refid="classRADCore_1_1RADObject_1a9bc3fed915f7c71232e68c2628d34708" prot="public" virt="non-virtual"><scope>RADUi::SelectionModel</scope><name>RADObject</name></member>
+      <member refid="classRADCore_1_1RADObject_1af3e26b970c8080418f0d6b80cad986a2" prot="public" virt="non-virtual"><scope>RADUi::SelectionModel</scope><name>registerLink</name></member>
+      <member refid="classRADUi_1_1SelectionModel_1a3c0afec5995a31d9948a1f811b729a15" prot="public" virt="non-virtual"><scope>RADUi::SelectionModel</scope><name>setCurrentIndex</name></member>
+      <member refid="classRADCore_1_1RADObject_1a8b11df0b951d0db1ba99cfb851e34f31" prot="public" virt="non-virtual"><scope>RADUi::SelectionModel</scope><name>threadAffinity</name></member>
+      <member refid="classRADCore_1_1RADObject_1ac7ca67b41523794ae5a6b3634d6ce3b6" prot="public" virt="non-virtual"><scope>RADUi::SelectionModel</scope><name>threadId</name></member>
+      <member refid="classRADCore_1_1RADObject_1a7369e27a46c163ee89c63227db650ce5" prot="public" virt="virtual"><scope>RADUi::SelectionModel</scope><name>~RADObject</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

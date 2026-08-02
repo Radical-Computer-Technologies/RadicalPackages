@@ -1,0 +1,228 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="classRADUi_1_1CommandPaletteModel" kind="class" language="C++" prot="public">
+    <compoundname>RADUi::CommandPaletteModel</compoundname>
+    <basecompoundref refid="classRADCore_1_1RADObject" prot="public" virt="non-virtual">RADCore::RADObject</basecompoundref>
+    <includes refid="RADAppKit_8h" local="no">RADAppKit.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="classRADUi_1_1CommandPaletteModel_1acbe4662bd793f4757bca15423ad9ec40" prot="public" static="no" mutable="no">
+        <type><ref refid="classRADCore_1_1Event" kindref="compound">RADCore::Event</ref>&lt; void() &gt;</type>
+        <definition>RADCore::Event&lt;void () &gt; RADUi::CommandPaletteModel::changed</definition>
+        <argsstring></argsstring>
+        <name>changed</name>
+        <briefdescription>
+<para>Raised when commands or filter text changes. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADAppKit.h" line="144" column="30" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADAppKit.h" bodystart="144" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classRADUi_1_1CommandPaletteModel_1a3586158f10608f549065119bce814fee" prot="public" static="no" mutable="no">
+        <type><ref refid="classRADCore_1_1Event" kindref="compound">RADCore::Event</ref>&lt; void(std::string) &gt;</type>
+        <definition>RADCore::Event&lt;void (std::string) &gt; RADUi::CommandPaletteModel::triggered</definition>
+        <argsstring></argsstring>
+        <name>triggered</name>
+        <briefdescription>
+<para>Raised when a command is triggered. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADAppKit.h" line="146" column="30" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADAppKit.h" bodystart="146" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classRADUi_1_1CommandPaletteModel_1ac37fdb98bb9092f17fdf581fa2d26318" prot="private" static="no" mutable="no">
+        <type>std::vector&lt; <ref refid="structRADUi_1_1Command" kindref="compound">Command</ref> &gt;</type>
+        <definition>std::vector&lt;Command&gt; RADUi::CommandPaletteModel::commands_</definition>
+        <argsstring></argsstring>
+        <name>commands_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADAppKit.h" line="162" column="21" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADAppKit.h" bodystart="162" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classRADUi_1_1CommandPaletteModel_1a3a7f8178e47439358b614e05c69bf79e" prot="private" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string RADUi::CommandPaletteModel::filter_</definition>
+        <argsstring></argsstring>
+        <name>filter_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADAppKit.h" line="163" column="21" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADAppKit.h" bodystart="163" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classRADUi_1_1CommandPaletteModel_1acf11f9a8bc5e42a45447bd8986077860" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>const std::vector&lt; <ref refid="structRADUi_1_1Command" kindref="compound">Command</ref> &gt; &amp;</type>
+        <definition>const std::vector&lt;Command&gt;&amp; RADUi::CommandPaletteModel::commands</definition>
+        <argsstring>() const</argsstring>
+        <name>commands</name>
+        <briefdescription>
+<para>Returns all commands. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADAppKit.h" line="149" column="27"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADUi_1_1CommandPaletteModel_1a48ba6b52f5f08ca7dfb61636d317eefc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void RADUi::CommandPaletteModel::setCommands</definition>
+        <argsstring>(std::vector&lt; Command &gt; commands)</argsstring>
+        <name>setCommands</name>
+        <param>
+          <type>std::vector&lt; <ref refid="structRADUi_1_1Command" kindref="compound">Command</ref> &gt;</type>
+          <declname>commands</declname>
+        </param>
+        <briefdescription>
+<para>Replaces commands. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADAppKit.h" line="151" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADUi_1_1CommandPaletteModel_1a6acc6cf9bf97fdf8e4f5165569c9cecb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void RADUi::CommandPaletteModel::setFilter</definition>
+        <argsstring>(std::string filter)</argsstring>
+        <name>setFilter</name>
+        <param>
+          <type>std::string</type>
+          <declname>filter</declname>
+        </param>
+        <briefdescription>
+<para>Sets filter text. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADAppKit.h" line="153" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADUi_1_1CommandPaletteModel_1a269fd95a173a7cc100366e46dd568755" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>const std::string &amp;</type>
+        <definition>const std::string&amp; RADUi::CommandPaletteModel::filter</definition>
+        <argsstring>() const</argsstring>
+        <name>filter</name>
+        <briefdescription>
+<para>Returns filter text. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADAppKit.h" line="155" column="27"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADUi_1_1CommandPaletteModel_1a22aa96523d051cd8c16a6bc013033991" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>std::vector&lt; <ref refid="structRADUi_1_1Command" kindref="compound">Command</ref> &gt;</type>
+        <definition>std::vector&lt;Command&gt; RADUi::CommandPaletteModel::filteredCommands</definition>
+        <argsstring>() const</argsstring>
+        <name>filteredCommands</name>
+        <briefdescription>
+<para>Returns filtered commands. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADAppKit.h" line="157" column="21"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADUi_1_1CommandPaletteModel_1ad437ebd0a7397eaf9cbfb02137008bc8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool RADUi::CommandPaletteModel::trigger</definition>
+        <argsstring>(const std::string &amp;id)</argsstring>
+        <name>trigger</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>id</declname>
+        </param>
+        <briefdescription>
+<para>Triggers an enabled command by id. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADAppKit.h" line="159" column="14"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Searchable command palette model. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>RADUi::CommandPaletteModel</label>
+        <link refid="classRADUi_1_1CommandPaletteModel"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>RADCore::RADObject</label>
+        <link refid="classRADCore_1_1RADObject"/>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>RADUi::CommandPaletteModel</label>
+        <link refid="classRADUi_1_1CommandPaletteModel"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="3" relation="usage">
+          <edgelabel>changed</edgelabel>
+        </childnode>
+        <childnode refid="4" relation="usage">
+          <edgelabel>triggered</edgelabel>
+        </childnode>
+      </node>
+      <node id="2">
+        <label>RADCore::RADObject</label>
+        <link refid="classRADCore_1_1RADObject"/>
+      </node>
+      <node id="4">
+        <label>RADCore::Event&lt; void(std::string) &gt;</label>
+        <link refid="classRADCore_1_1Event"/>
+      </node>
+      <node id="3">
+        <label>RADCore::Event&lt; void() &gt;</label>
+        <link refid="classRADCore_1_1Event"/>
+      </node>
+    </collaborationgraph>
+    <location file="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADAppKit.h" line="140" column="5" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADAppKit.h" bodystart="140" bodyend="164"/>
+    <listofallmembers>
+      <member refid="classRADCore_1_1RADObject_1a06cdf252ffb5e2f88332ebda12a62080" prot="public" virt="non-virtual"><scope>RADUi::CommandPaletteModel</scope><name>associatedEventLoop</name></member>
+      <member refid="classRADUi_1_1CommandPaletteModel_1acbe4662bd793f4757bca15423ad9ec40" prot="public" virt="non-virtual"><scope>RADUi::CommandPaletteModel</scope><name>changed</name></member>
+      <member refid="classRADUi_1_1CommandPaletteModel_1acf11f9a8bc5e42a45447bd8986077860" prot="public" virt="non-virtual"><scope>RADUi::CommandPaletteModel</scope><name>commands</name></member>
+      <member refid="classRADUi_1_1CommandPaletteModel_1ac37fdb98bb9092f17fdf581fa2d26318" prot="private" virt="non-virtual"><scope>RADUi::CommandPaletteModel</scope><name>commands_</name></member>
+      <member refid="classRADUi_1_1CommandPaletteModel_1a269fd95a173a7cc100366e46dd568755" prot="public" virt="non-virtual"><scope>RADUi::CommandPaletteModel</scope><name>filter</name></member>
+      <member refid="classRADUi_1_1CommandPaletteModel_1a3a7f8178e47439358b614e05c69bf79e" prot="private" virt="non-virtual"><scope>RADUi::CommandPaletteModel</scope><name>filter_</name></member>
+      <member refid="classRADUi_1_1CommandPaletteModel_1a22aa96523d051cd8c16a6bc013033991" prot="public" virt="non-virtual"><scope>RADUi::CommandPaletteModel</scope><name>filteredCommands</name></member>
+      <member refid="classRADCore_1_1RADObject_1ad2ddfd066d14be9adc2f96bfca417fc6" prot="public" virt="non-virtual"><scope>RADUi::CommandPaletteModel</scope><name>lifetimeToken</name></member>
+      <member refid="classRADCore_1_1RADObject_1a1f7f7f2fb40211e28455cd74a029339a" prot="public" virt="non-virtual"><scope>RADUi::CommandPaletteModel</scope><name>moveToThread</name></member>
+      <member refid="classRADCore_1_1RADObject_1a9bc3fed915f7c71232e68c2628d34708" prot="public" virt="non-virtual"><scope>RADUi::CommandPaletteModel</scope><name>RADObject</name></member>
+      <member refid="classRADCore_1_1RADObject_1af3e26b970c8080418f0d6b80cad986a2" prot="public" virt="non-virtual"><scope>RADUi::CommandPaletteModel</scope><name>registerLink</name></member>
+      <member refid="classRADUi_1_1CommandPaletteModel_1a48ba6b52f5f08ca7dfb61636d317eefc" prot="public" virt="non-virtual"><scope>RADUi::CommandPaletteModel</scope><name>setCommands</name></member>
+      <member refid="classRADUi_1_1CommandPaletteModel_1a6acc6cf9bf97fdf8e4f5165569c9cecb" prot="public" virt="non-virtual"><scope>RADUi::CommandPaletteModel</scope><name>setFilter</name></member>
+      <member refid="classRADCore_1_1RADObject_1a8b11df0b951d0db1ba99cfb851e34f31" prot="public" virt="non-virtual"><scope>RADUi::CommandPaletteModel</scope><name>threadAffinity</name></member>
+      <member refid="classRADCore_1_1RADObject_1ac7ca67b41523794ae5a6b3634d6ce3b6" prot="public" virt="non-virtual"><scope>RADUi::CommandPaletteModel</scope><name>threadId</name></member>
+      <member refid="classRADUi_1_1CommandPaletteModel_1ad437ebd0a7397eaf9cbfb02137008bc8" prot="public" virt="non-virtual"><scope>RADUi::CommandPaletteModel</scope><name>trigger</name></member>
+      <member refid="classRADUi_1_1CommandPaletteModel_1a3586158f10608f549065119bce814fee" prot="public" virt="non-virtual"><scope>RADUi::CommandPaletteModel</scope><name>triggered</name></member>
+      <member refid="classRADCore_1_1RADObject_1a7369e27a46c163ee89c63227db650ce5" prot="public" virt="virtual"><scope>RADUi::CommandPaletteModel</scope><name>~RADObject</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

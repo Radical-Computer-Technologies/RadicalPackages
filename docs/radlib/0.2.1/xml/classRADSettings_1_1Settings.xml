@@ -1,0 +1,568 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="classRADSettings_1_1Settings" kind="class" language="C++" prot="public">
+    <compoundname>RADSettings::Settings</compoundname>
+    <includes refid="RADSettings_8h" local="no">RADSettings.h</includes>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classRADSettings_1_1Settings_1a2405f1f0d8087a7134370aad5ecec1f3" prot="private" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string RADSettings::Settings::fileName_</definition>
+        <argsstring></argsstring>
+        <name>fileName_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADSettings/headers/RADSettings.h" line="87" column="21" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADSettings/headers/RADSettings.h" bodystart="87" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classRADSettings_1_1Settings_1aba86e9feb14d7d8203645e9256bac04b" prot="private" static="no" mutable="no">
+        <type><ref refid="namespaceRADSettings_1adee08119aa62eaee465299f6ee2df817" kindref="member">Format</ref></type>
+        <definition>Format RADSettings::Settings::format_</definition>
+        <argsstring></argsstring>
+        <name>format_</name>
+        <initializer>= <ref refid="namespaceRADSettings_1adee08119aa62eaee465299f6ee2df817aeed8d85b888a6c015834240885ee6333" kindref="member">Format::Json</ref></initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADSettings/headers/RADSettings.h" line="88" column="16" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADSettings/headers/RADSettings.h" bodystart="88" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classRADSettings_1_1Settings_1afa8c1e00cc0cb398bc1e4786a002a194" prot="private" static="no" mutable="no">
+        <type>std::map&lt; std::string, <ref refid="classRADCore_1_1RADJsonValue" kindref="compound">RADCore::RADJsonValue</ref> &gt;</type>
+        <definition>std::map&lt;std::string, RADCore::RADJsonValue&gt; RADSettings::Settings::values_</definition>
+        <argsstring></argsstring>
+        <name>values_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADSettings/headers/RADSettings.h" line="89" column="18" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADSettings/headers/RADSettings.h" bodystart="89" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classRADSettings_1_1Settings_1a93dfeb5e882d5c38a313879b1cc9cab6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>RADSettings::Settings::Settings</definition>
+        <argsstring>(std::string fileName, Format format=Format::Json)</argsstring>
+        <name>Settings</name>
+        <param>
+          <type>std::string</type>
+          <declname>fileName</declname>
+        </param>
+        <param>
+          <type><ref refid="namespaceRADSettings_1adee08119aa62eaee465299f6ee2df817" kindref="member">Format</ref></type>
+          <declname>format</declname>
+          <defval><ref refid="namespaceRADSettings_1adee08119aa62eaee465299f6ee2df817aeed8d85b888a6c015834240885ee6333" kindref="member">Format::Json</ref></defval>
+        </param>
+        <briefdescription>
+<para>Creates settings at fileName using format. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADSettings/headers/RADSettings.h" line="38" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADSettings_1_1Settings_1a0235bccf32e9ad8b9f9fe848273c0edf" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>RADSettings::Settings::Settings</definition>
+        <argsstring>(AppIdentity identity, Format format=Format::Json)</argsstring>
+        <name>Settings</name>
+        <param>
+          <type><ref refid="structRADSettings_1_1AppIdentity" kindref="compound">AppIdentity</ref></type>
+          <declname>identity</declname>
+        </param>
+        <param>
+          <type><ref refid="namespaceRADSettings_1adee08119aa62eaee465299f6ee2df817" kindref="member">Format</ref></type>
+          <declname>format</declname>
+          <defval><ref refid="namespaceRADSettings_1adee08119aa62eaee465299f6ee2df817aeed8d85b888a6c015834240885ee6333" kindref="member">Format::Json</ref></defval>
+        </param>
+        <briefdescription>
+<para>Creates settings under the platform config path from identity. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADSettings/headers/RADSettings.h" line="40" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADSettings_1_1Settings_1a0bcef248d0c3a7cb77d4640c7b8e280d" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>const std::string &amp;</type>
+        <definition>const std::string&amp; RADSettings::Settings::fileName</definition>
+        <argsstring>() const</argsstring>
+        <name>fileName</name>
+        <briefdescription>
+<para>Returns backing file path. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADSettings/headers/RADSettings.h" line="43" column="27"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADSettings_1_1Settings_1a3ed8406e6a74350976c5d8dfbc949cf4" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="namespaceRADSettings_1adee08119aa62eaee465299f6ee2df817" kindref="member">Format</ref></type>
+        <definition>Format RADSettings::Settings::format</definition>
+        <argsstring>() const</argsstring>
+        <name>format</name>
+        <briefdescription>
+<para>Returns file format. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADSettings/headers/RADSettings.h" line="45" column="16"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADSettings_1_1Settings_1ae6c87b230bc434446135f430f78e45e2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool RADSettings::Settings::load</definition>
+        <argsstring>(std::string *error=nullptr)</argsstring>
+        <name>load</name>
+        <param>
+          <type>std::string *</type>
+          <declname>error</declname>
+          <defval>nullptr</defval>
+        </param>
+        <briefdescription>
+<para>Loads settings; missing files are treated as empty settings. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADSettings/headers/RADSettings.h" line="47" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADSettings_1_1Settings_1a80ea00d7b1c47a17509b2daa5970967d" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool RADSettings::Settings::save</definition>
+        <argsstring>(std::string *error=nullptr) const</argsstring>
+        <name>save</name>
+        <param>
+          <type>std::string *</type>
+          <declname>error</declname>
+          <defval>nullptr</defval>
+        </param>
+        <briefdescription>
+<para>Saves settings, creating parent directories when needed. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADSettings/headers/RADSettings.h" line="49" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADSettings_1_1Settings_1a04953f44d9a771821f025fee212e1afe" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool RADSettings::Settings::contains</definition>
+        <argsstring>(const std::string &amp;key) const</argsstring>
+        <name>contains</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>key</declname>
+        </param>
+        <briefdescription>
+<para>Returns true when key exists. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADSettings/headers/RADSettings.h" line="51" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADSettings_1_1Settings_1a74291b1c5ecf4f0b9985eade7e76cb57" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void RADSettings::Settings::remove</definition>
+        <argsstring>(const std::string &amp;key)</argsstring>
+        <name>remove</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>key</declname>
+        </param>
+        <briefdescription>
+<para>Removes a key. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADSettings/headers/RADSettings.h" line="53" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADSettings_1_1Settings_1a44d5a8095aaef8a25f3a024bd92e77aa" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void RADSettings::Settings::clear</definition>
+        <argsstring>()</argsstring>
+        <name>clear</name>
+        <briefdescription>
+<para>Clears all keys. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADSettings/headers/RADSettings.h" line="55" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADSettings_1_1Settings_1a68652178492fb46c469911dd02ed276f" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classRADCore_1_1RADJsonValue" kindref="compound">RADCore::RADJsonValue</ref></type>
+        <definition>RADCore::RADJsonValue RADSettings::Settings::value</definition>
+        <argsstring>(const std::string &amp;key, RADCore::RADJsonValue defaultValue={}) const</argsstring>
+        <name>value</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>key</declname>
+        </param>
+        <param>
+          <type><ref refid="classRADCore_1_1RADJsonValue" kindref="compound">RADCore::RADJsonValue</ref></type>
+          <declname>defaultValue</declname>
+          <defval>{}</defval>
+        </param>
+        <briefdescription>
+<para>Returns a JSON value. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADSettings/headers/RADSettings.h" line="58" column="31"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADSettings_1_1Settings_1a927af9292ac6e38477db70f1fd941868" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void RADSettings::Settings::setValue</definition>
+        <argsstring>(const std::string &amp;key, RADCore::RADJsonValue value)</argsstring>
+        <name>setValue</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>key</declname>
+        </param>
+        <param>
+          <type><ref refid="classRADCore_1_1RADJsonValue" kindref="compound">RADCore::RADJsonValue</ref></type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+<para>Sets a JSON value. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADSettings/headers/RADSettings.h" line="60" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADSettings_1_1Settings_1a16ce4a8b3157f14eae274a0474d167f7" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool RADSettings::Settings::boolValue</definition>
+        <argsstring>(const std::string &amp;key, bool defaultValue=false) const</argsstring>
+        <name>boolValue</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>key</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>defaultValue</declname>
+          <defval>false</defval>
+        </param>
+        <briefdescription>
+<para>Returns a bool. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADSettings/headers/RADSettings.h" line="62" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADSettings_1_1Settings_1a351ab282841b6cc32ba96b7559226242" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>int64_t</type>
+        <definition>int64_t RADSettings::Settings::intValue</definition>
+        <argsstring>(const std::string &amp;key, int64_t defaultValue=0) const</argsstring>
+        <name>intValue</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>key</declname>
+        </param>
+        <param>
+          <type>int64_t</type>
+          <declname>defaultValue</declname>
+          <defval>0</defval>
+        </param>
+        <briefdescription>
+<para>Returns an integer. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADSettings/headers/RADSettings.h" line="64" column="17"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADSettings_1_1Settings_1a8d8901e1d2ccbf02d2b58675ed702afc" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>double RADSettings::Settings::doubleValue</definition>
+        <argsstring>(const std::string &amp;key, double defaultValue=0.0) const</argsstring>
+        <name>doubleValue</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>key</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>defaultValue</declname>
+          <defval>0.0</defval>
+        </param>
+        <briefdescription>
+<para>Returns a double. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADSettings/headers/RADSettings.h" line="66" column="16"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADSettings_1_1Settings_1a9cec7284c9c2dc7e5374672be0cca87c" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>std::string</type>
+        <definition>std::string RADSettings::Settings::stringValue</definition>
+        <argsstring>(const std::string &amp;key, const std::string &amp;defaultValue={}) const</argsstring>
+        <name>stringValue</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>key</declname>
+        </param>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>defaultValue</declname>
+          <defval>{}</defval>
+        </param>
+        <briefdescription>
+<para>Returns a string. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADSettings/headers/RADSettings.h" line="68" column="21"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADSettings_1_1Settings_1a166048febb74d395de0445df0e965ca5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void RADSettings::Settings::setBool</definition>
+        <argsstring>(const std::string &amp;key, bool value)</argsstring>
+        <name>setBool</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>key</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+<para>Sets a bool. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADSettings/headers/RADSettings.h" line="70" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADSettings_1_1Settings_1ae93f9ae4c329877d84a54d83998ec74b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void RADSettings::Settings::setInt</definition>
+        <argsstring>(const std::string &amp;key, int64_t value)</argsstring>
+        <name>setInt</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>key</declname>
+        </param>
+        <param>
+          <type>int64_t</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+<para>Sets an integer. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADSettings/headers/RADSettings.h" line="72" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADSettings_1_1Settings_1a4ded3342ce8a7ed91aa71bf88980e036" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void RADSettings::Settings::setDouble</definition>
+        <argsstring>(const std::string &amp;key, double value)</argsstring>
+        <name>setDouble</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>key</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+<para>Sets a double. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADSettings/headers/RADSettings.h" line="74" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADSettings_1_1Settings_1a19276b682e52cb282675b44089a3763d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void RADSettings::Settings::setString</definition>
+        <argsstring>(const std::string &amp;key, std::string value)</argsstring>
+        <name>setString</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>key</declname>
+        </param>
+        <param>
+          <type>std::string</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+<para>Sets a string. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADSettings/headers/RADSettings.h" line="76" column="14"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="classRADSettings_1_1Settings_1af1d7f09db570f7a2f01049c55f5f8e73" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::string</type>
+        <definition>static std::string RADSettings::Settings::defaultFileName</definition>
+        <argsstring>(const AppIdentity &amp;identity, Format format=Format::Json)</argsstring>
+        <name>defaultFileName</name>
+        <param>
+          <type>const <ref refid="structRADSettings_1_1AppIdentity" kindref="compound">AppIdentity</ref> &amp;</type>
+          <declname>identity</declname>
+        </param>
+        <param>
+          <type><ref refid="namespaceRADSettings_1adee08119aa62eaee465299f6ee2df817" kindref="member">Format</ref></type>
+          <declname>format</declname>
+          <defval><ref refid="namespaceRADSettings_1adee08119aa62eaee465299f6ee2df817aeed8d85b888a6c015834240885ee6333" kindref="member">Format::Json</ref></defval>
+        </param>
+        <briefdescription>
+<para>Returns a config file path for identity. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADSettings/headers/RADSettings.h" line="79" column="28"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="classRADSettings_1_1Settings_1a0efbca60152f0988bd867be5346d1d73" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool RADSettings::Settings::loadJson</definition>
+        <argsstring>(std::string *error)</argsstring>
+        <name>loadJson</name>
+        <param>
+          <type>std::string *</type>
+          <declname>error</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADSettings/headers/RADSettings.h" line="82" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADSettings_1_1Settings_1a48992be697dd9c6467e907dd99811f6e" prot="private" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool RADSettings::Settings::saveJson</definition>
+        <argsstring>(std::string *error) const</argsstring>
+        <name>saveJson</name>
+        <param>
+          <type>std::string *</type>
+          <declname>error</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADSettings/headers/RADSettings.h" line="83" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADSettings_1_1Settings_1a2a255a4ca94ebd1e43244775b1fd82e9" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool RADSettings::Settings::loadIni</definition>
+        <argsstring>(std::string *error)</argsstring>
+        <name>loadIni</name>
+        <param>
+          <type>std::string *</type>
+          <declname>error</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADSettings/headers/RADSettings.h" line="84" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADSettings_1_1Settings_1ac6ac9b9608a399f11878ec9d8b0a7dde" prot="private" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool RADSettings::Settings::saveIni</definition>
+        <argsstring>(std::string *error) const</argsstring>
+        <name>saveIni</name>
+        <param>
+          <type>std::string *</type>
+          <declname>error</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADSettings/headers/RADSettings.h" line="85" column="14"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Typed application settings store. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/media/jvincent/Kingspec512/repos/RADLib/RADSettings/headers/RADSettings.h" line="35" column="5" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADSettings/headers/RADSettings.h" bodystart="35" bodyend="90"/>
+    <listofallmembers>
+      <member refid="classRADSettings_1_1Settings_1a16ce4a8b3157f14eae274a0474d167f7" prot="public" virt="non-virtual"><scope>RADSettings::Settings</scope><name>boolValue</name></member>
+      <member refid="classRADSettings_1_1Settings_1a44d5a8095aaef8a25f3a024bd92e77aa" prot="public" virt="non-virtual"><scope>RADSettings::Settings</scope><name>clear</name></member>
+      <member refid="classRADSettings_1_1Settings_1a04953f44d9a771821f025fee212e1afe" prot="public" virt="non-virtual"><scope>RADSettings::Settings</scope><name>contains</name></member>
+      <member refid="classRADSettings_1_1Settings_1af1d7f09db570f7a2f01049c55f5f8e73" prot="public" virt="non-virtual"><scope>RADSettings::Settings</scope><name>defaultFileName</name></member>
+      <member refid="classRADSettings_1_1Settings_1a8d8901e1d2ccbf02d2b58675ed702afc" prot="public" virt="non-virtual"><scope>RADSettings::Settings</scope><name>doubleValue</name></member>
+      <member refid="classRADSettings_1_1Settings_1a0bcef248d0c3a7cb77d4640c7b8e280d" prot="public" virt="non-virtual"><scope>RADSettings::Settings</scope><name>fileName</name></member>
+      <member refid="classRADSettings_1_1Settings_1a2405f1f0d8087a7134370aad5ecec1f3" prot="private" virt="non-virtual"><scope>RADSettings::Settings</scope><name>fileName_</name></member>
+      <member refid="classRADSettings_1_1Settings_1a3ed8406e6a74350976c5d8dfbc949cf4" prot="public" virt="non-virtual"><scope>RADSettings::Settings</scope><name>format</name></member>
+      <member refid="classRADSettings_1_1Settings_1aba86e9feb14d7d8203645e9256bac04b" prot="private" virt="non-virtual"><scope>RADSettings::Settings</scope><name>format_</name></member>
+      <member refid="classRADSettings_1_1Settings_1a351ab282841b6cc32ba96b7559226242" prot="public" virt="non-virtual"><scope>RADSettings::Settings</scope><name>intValue</name></member>
+      <member refid="classRADSettings_1_1Settings_1ae6c87b230bc434446135f430f78e45e2" prot="public" virt="non-virtual"><scope>RADSettings::Settings</scope><name>load</name></member>
+      <member refid="classRADSettings_1_1Settings_1a2a255a4ca94ebd1e43244775b1fd82e9" prot="private" virt="non-virtual"><scope>RADSettings::Settings</scope><name>loadIni</name></member>
+      <member refid="classRADSettings_1_1Settings_1a0efbca60152f0988bd867be5346d1d73" prot="private" virt="non-virtual"><scope>RADSettings::Settings</scope><name>loadJson</name></member>
+      <member refid="classRADSettings_1_1Settings_1a74291b1c5ecf4f0b9985eade7e76cb57" prot="public" virt="non-virtual"><scope>RADSettings::Settings</scope><name>remove</name></member>
+      <member refid="classRADSettings_1_1Settings_1a80ea00d7b1c47a17509b2daa5970967d" prot="public" virt="non-virtual"><scope>RADSettings::Settings</scope><name>save</name></member>
+      <member refid="classRADSettings_1_1Settings_1ac6ac9b9608a399f11878ec9d8b0a7dde" prot="private" virt="non-virtual"><scope>RADSettings::Settings</scope><name>saveIni</name></member>
+      <member refid="classRADSettings_1_1Settings_1a48992be697dd9c6467e907dd99811f6e" prot="private" virt="non-virtual"><scope>RADSettings::Settings</scope><name>saveJson</name></member>
+      <member refid="classRADSettings_1_1Settings_1a166048febb74d395de0445df0e965ca5" prot="public" virt="non-virtual"><scope>RADSettings::Settings</scope><name>setBool</name></member>
+      <member refid="classRADSettings_1_1Settings_1a4ded3342ce8a7ed91aa71bf88980e036" prot="public" virt="non-virtual"><scope>RADSettings::Settings</scope><name>setDouble</name></member>
+      <member refid="classRADSettings_1_1Settings_1ae93f9ae4c329877d84a54d83998ec74b" prot="public" virt="non-virtual"><scope>RADSettings::Settings</scope><name>setInt</name></member>
+      <member refid="classRADSettings_1_1Settings_1a19276b682e52cb282675b44089a3763d" prot="public" virt="non-virtual"><scope>RADSettings::Settings</scope><name>setString</name></member>
+      <member refid="classRADSettings_1_1Settings_1a93dfeb5e882d5c38a313879b1cc9cab6" prot="public" virt="non-virtual"><scope>RADSettings::Settings</scope><name>Settings</name></member>
+      <member refid="classRADSettings_1_1Settings_1a0235bccf32e9ad8b9f9fe848273c0edf" prot="public" virt="non-virtual"><scope>RADSettings::Settings</scope><name>Settings</name></member>
+      <member refid="classRADSettings_1_1Settings_1a927af9292ac6e38477db70f1fd941868" prot="public" virt="non-virtual"><scope>RADSettings::Settings</scope><name>setValue</name></member>
+      <member refid="classRADSettings_1_1Settings_1a9cec7284c9c2dc7e5374672be0cca87c" prot="public" virt="non-virtual"><scope>RADSettings::Settings</scope><name>stringValue</name></member>
+      <member refid="classRADSettings_1_1Settings_1a68652178492fb46c469911dd02ed276f" prot="public" virt="non-virtual"><scope>RADSettings::Settings</scope><name>value</name></member>
+      <member refid="classRADSettings_1_1Settings_1afa8c1e00cc0cb398bc1e4786a002a194" prot="private" virt="non-virtual"><scope>RADSettings::Settings</scope><name>values_</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

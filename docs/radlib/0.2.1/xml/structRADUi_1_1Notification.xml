@@ -1,0 +1,110 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="structRADUi_1_1Notification" kind="struct" language="C++" prot="public">
+    <compoundname>RADUi::Notification</compoundname>
+    <includes refid="RADAppKit_8h" local="no">RADAppKit.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structRADUi_1_1Notification_1af6b4f0968667fe3567eb36b41a053123" prot="public" static="no" mutable="no">
+        <type>uint64_t</type>
+        <definition>uint64_t RADUi::Notification::id</definition>
+        <argsstring></argsstring>
+        <name>id</name>
+        <initializer>= 0</initializer>
+        <briefdescription>
+<para>Stable id. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADAppKit.h" line="181" column="18" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADAppKit.h" bodystart="181" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structRADUi_1_1Notification_1a93baa04bafe88b3887670c83c3c5ddd6" prot="public" static="no" mutable="no">
+        <type><ref refid="namespaceRADUi_1ae7b5a5a0885602b570fd388c706efc0b" kindref="member">NotificationSeverity</ref></type>
+        <definition>NotificationSeverity RADUi::Notification::severity</definition>
+        <argsstring></argsstring>
+        <name>severity</name>
+        <initializer>= <ref refid="namespaceRADUi_1ae7b5a5a0885602b570fd388c706efc0ba4059b0251f66a18cb56f544728796875" kindref="member">NotificationSeverity::Info</ref></initializer>
+        <briefdescription>
+<para>Severity. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADAppKit.h" line="183" column="30" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADAppKit.h" bodystart="183" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structRADUi_1_1Notification_1a9691ea34e046b70c00ed98eb35c1b820" prot="public" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string RADUi::Notification::title</definition>
+        <argsstring></argsstring>
+        <name>title</name>
+        <briefdescription>
+<para>Title text. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADAppKit.h" line="185" column="21" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADAppKit.h" bodystart="185" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structRADUi_1_1Notification_1a200cbed16a92fdebd58cb78fa5fdb359" prot="public" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string RADUi::Notification::message</definition>
+        <argsstring></argsstring>
+        <name>message</name>
+        <briefdescription>
+<para>Body text. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADAppKit.h" line="187" column="21" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADAppKit.h" bodystart="187" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structRADUi_1_1Notification_1af47b1724c971bd8b2d01bdb42f33153f" prot="public" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string RADUi::Notification::actionId</definition>
+        <argsstring></argsstring>
+        <name>actionId</name>
+        <briefdescription>
+<para>Optional action id. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADAppKit.h" line="189" column="21" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADAppKit.h" bodystart="189" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structRADUi_1_1Notification_1a41dfb8b897706196dbbe3d30f83509e4" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int RADUi::Notification::timeoutMs</definition>
+        <argsstring></argsstring>
+        <name>timeoutMs</name>
+        <initializer>= 4000</initializer>
+        <briefdescription>
+<para>Timeout in milliseconds; 0 means persistent. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADAppKit.h" line="191" column="13" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADAppKit.h" bodystart="191" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Toast/status notification. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADAppKit.h" line="179" column="5" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADAppKit.h" bodystart="179" bodyend="192"/>
+    <listofallmembers>
+      <member refid="structRADUi_1_1Notification_1af47b1724c971bd8b2d01bdb42f33153f" prot="public" virt="non-virtual"><scope>RADUi::Notification</scope><name>actionId</name></member>
+      <member refid="structRADUi_1_1Notification_1af6b4f0968667fe3567eb36b41a053123" prot="public" virt="non-virtual"><scope>RADUi::Notification</scope><name>id</name></member>
+      <member refid="structRADUi_1_1Notification_1a200cbed16a92fdebd58cb78fa5fdb359" prot="public" virt="non-virtual"><scope>RADUi::Notification</scope><name>message</name></member>
+      <member refid="structRADUi_1_1Notification_1a93baa04bafe88b3887670c83c3c5ddd6" prot="public" virt="non-virtual"><scope>RADUi::Notification</scope><name>severity</name></member>
+      <member refid="structRADUi_1_1Notification_1a41dfb8b897706196dbbe3d30f83509e4" prot="public" virt="non-virtual"><scope>RADUi::Notification</scope><name>timeoutMs</name></member>
+      <member refid="structRADUi_1_1Notification_1a9691ea34e046b70c00ed98eb35c1b820" prot="public" virt="non-virtual"><scope>RADUi::Notification</scope><name>title</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

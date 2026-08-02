@@ -83,6 +83,33 @@ scripts/publish_github_release_assets.py \
   release-staging/apt-experimental
 ```
 
+## RadBuild Windows MSI Assets
+
+RadBuild Windows installers are immutable release assets, not APT repository
+members. Build them on a Windows host or CI runner, then upload the MSI to the
+matching RadBuild prerelease tag:
+
+```powershell
+python build_release.py --version 0.2.2-beta.2 `
+  --tool-profile radbuild `
+  --release-dir $env:RUNNER_TEMP\radbuild-release-windows `
+  --no-local-package --no-radtools-publish
+
+python scripts\build_windows_msi.py --version 0.2.2-beta.2 `
+  --release-dir $env:RUNNER_TEMP\radbuild-release-windows `
+  --out-dir dist\windows
+```
+
+Publish with:
+
+```bash
+scripts/publish_github_release_assets.py \
+  --tag radbuild-0.2.2-beta.2 \
+  --title "RadBuild 0.2.2-beta.2" \
+  --prerelease \
+  dist/windows/radbuild-0.2.2-beta.2-windows-x86_64.msi
+```
+
 ## RADPx OS Images
 
 RADPx OS images should be uploaded as compressed release bundles, not committed:

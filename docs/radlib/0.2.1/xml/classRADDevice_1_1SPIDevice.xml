@@ -1,0 +1,228 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="classRADDevice_1_1SPIDevice" kind="class" language="C++" prot="public">
+    <compoundname>RADDevice::SPIDevice</compoundname>
+    <includes refid="RADDevice_8h" local="no">RADDevice.h</includes>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classRADDevice_1_1SPIDevice_1a514e32f15ee76d358d51668433ead1bf" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int RADDevice::SPIDevice::fd_</definition>
+        <argsstring></argsstring>
+        <name>fd_</name>
+        <initializer>= -1</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDevice/headers/RADDevice.h" line="98" column="13" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADDevice/headers/RADDevice.h" bodystart="98" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classRADDevice_1_1SPIDevice_1af62b3b8424235f7ecd7315d309951dd1" prot="private" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t RADDevice::SPIDevice::speedHz_</definition>
+        <argsstring></argsstring>
+        <name>speedHz_</name>
+        <initializer>= 1000000</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDevice/headers/RADDevice.h" line="99" column="18" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADDevice/headers/RADDevice.h" bodystart="99" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classRADDevice_1_1SPIDevice_1a8c09cfb72191d74e0577363d6f9c318b" prot="private" static="no" mutable="no">
+        <type>uint8_t</type>
+        <definition>uint8_t RADDevice::SPIDevice::bitsPerWord_</definition>
+        <argsstring></argsstring>
+        <name>bitsPerWord_</name>
+        <initializer>= 8</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDevice/headers/RADDevice.h" line="100" column="17" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADDevice/headers/RADDevice.h" bodystart="100" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classRADDevice_1_1SPIDevice_1a0fff370e6abf5596c079b2e5aeedb716" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>RADDevice::SPIDevice::SPIDevice</definition>
+        <argsstring>()</argsstring>
+        <name>SPIDevice</name>
+        <briefdescription>
+<para>Creates a closed SPI device wrapper. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDevice/headers/RADDevice.h" line="81" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADDevice_1_1SPIDevice_1ad3cfe0542ea1ed0afd23091d3f4060e3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>RADDevice::SPIDevice::~SPIDevice</definition>
+        <argsstring>()</argsstring>
+        <name>~SPIDevice</name>
+        <briefdescription>
+<para>Closes the device. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDevice/headers/RADDevice.h" line="83" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADDevice_1_1SPIDevice_1a30be5141d6311c2de342f1f6ad7908d1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool RADDevice::SPIDevice::open</definition>
+        <argsstring>(int bus, int chipSelect, const DevicePaths &amp;paths={}, std::string *error=nullptr)</argsstring>
+        <name>open</name>
+        <param>
+          <type>int</type>
+          <declname>bus</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>chipSelect</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structRADDevice_1_1DevicePaths" kindref="compound">DevicePaths</ref> &amp;</type>
+          <declname>paths</declname>
+          <defval>{}</defval>
+        </param>
+        <param>
+          <type>std::string *</type>
+          <declname>error</declname>
+          <defval>nullptr</defval>
+        </param>
+        <briefdescription>
+<para>Opens a SPI bus/chip-select device. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDevice/headers/RADDevice.h" line="85" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADDevice_1_1SPIDevice_1a9a25eae2fdc7cfa3d6696315f08549b1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void RADDevice::SPIDevice::close</definition>
+        <argsstring>()</argsstring>
+        <name>close</name>
+        <briefdescription>
+<para>Closes the descriptor. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDevice/headers/RADDevice.h" line="87" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADDevice_1_1SPIDevice_1a43c1bdbdeb5c3edc35b72a9526f70df5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool RADDevice::SPIDevice::configure</definition>
+        <argsstring>(uint8_t mode, uint8_t bitsPerWord, uint32_t speedHz, std::string *error=nullptr)</argsstring>
+        <name>configure</name>
+        <param>
+          <type>uint8_t</type>
+          <declname>mode</declname>
+        </param>
+        <param>
+          <type>uint8_t</type>
+          <declname>bitsPerWord</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>speedHz</declname>
+        </param>
+        <param>
+          <type>std::string *</type>
+          <declname>error</declname>
+          <defval>nullptr</defval>
+        </param>
+        <briefdescription>
+<para>Configures mode, bits, and max speed through ioctl. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDevice/headers/RADDevice.h" line="89" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADDevice_1_1SPIDevice_1a24274664a55644db57351ef6cbef485d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::vector&lt; uint8_t &gt;</type>
+        <definition>std::vector&lt;uint8_t&gt; RADDevice::SPIDevice::transfer</definition>
+        <argsstring>(const std::vector&lt; uint8_t &gt; &amp;tx, std::string *error=nullptr)</argsstring>
+        <name>transfer</name>
+        <param>
+          <type>const std::vector&lt; uint8_t &gt; &amp;</type>
+          <declname>tx</declname>
+        </param>
+        <param>
+          <type>std::string *</type>
+          <declname>error</declname>
+          <defval>nullptr</defval>
+        </param>
+        <briefdescription>
+<para>Full-duplex transfer. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDevice/headers/RADDevice.h" line="91" column="21"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADDevice_1_1SPIDevice_1a1c3da6340959d1742930452429041c03" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool RADDevice::SPIDevice::isOpen</definition>
+        <argsstring>() const</argsstring>
+        <name>isOpen</name>
+        <briefdescription>
+<para>Returns true when open. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDevice/headers/RADDevice.h" line="93" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADDevice_1_1SPIDevice_1ad22c7c5b70d1ea95490404c07391e3dc" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int RADDevice::SPIDevice::fd</definition>
+        <argsstring>() const</argsstring>
+        <name>fd</name>
+        <briefdescription>
+<para>Returns owned file descriptor. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDevice/headers/RADDevice.h" line="95" column="13"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>SPI device wrapper using /dev/spidev* and SPI_IOC_MESSAGE. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDevice/headers/RADDevice.h" line="78" column="5" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADDevice/headers/RADDevice.h" bodystart="78" bodyend="101"/>
+    <listofallmembers>
+      <member refid="classRADDevice_1_1SPIDevice_1a8c09cfb72191d74e0577363d6f9c318b" prot="private" virt="non-virtual"><scope>RADDevice::SPIDevice</scope><name>bitsPerWord_</name></member>
+      <member refid="classRADDevice_1_1SPIDevice_1a9a25eae2fdc7cfa3d6696315f08549b1" prot="public" virt="non-virtual"><scope>RADDevice::SPIDevice</scope><name>close</name></member>
+      <member refid="classRADDevice_1_1SPIDevice_1a43c1bdbdeb5c3edc35b72a9526f70df5" prot="public" virt="non-virtual"><scope>RADDevice::SPIDevice</scope><name>configure</name></member>
+      <member refid="classRADDevice_1_1SPIDevice_1ad22c7c5b70d1ea95490404c07391e3dc" prot="public" virt="non-virtual"><scope>RADDevice::SPIDevice</scope><name>fd</name></member>
+      <member refid="classRADDevice_1_1SPIDevice_1a514e32f15ee76d358d51668433ead1bf" prot="private" virt="non-virtual"><scope>RADDevice::SPIDevice</scope><name>fd_</name></member>
+      <member refid="classRADDevice_1_1SPIDevice_1a1c3da6340959d1742930452429041c03" prot="public" virt="non-virtual"><scope>RADDevice::SPIDevice</scope><name>isOpen</name></member>
+      <member refid="classRADDevice_1_1SPIDevice_1a30be5141d6311c2de342f1f6ad7908d1" prot="public" virt="non-virtual"><scope>RADDevice::SPIDevice</scope><name>open</name></member>
+      <member refid="classRADDevice_1_1SPIDevice_1af62b3b8424235f7ecd7315d309951dd1" prot="private" virt="non-virtual"><scope>RADDevice::SPIDevice</scope><name>speedHz_</name></member>
+      <member refid="classRADDevice_1_1SPIDevice_1a0fff370e6abf5596c079b2e5aeedb716" prot="public" virt="non-virtual"><scope>RADDevice::SPIDevice</scope><name>SPIDevice</name></member>
+      <member refid="classRADDevice_1_1SPIDevice_1a24274664a55644db57351ef6cbef485d" prot="public" virt="non-virtual"><scope>RADDevice::SPIDevice</scope><name>transfer</name></member>
+      <member refid="classRADDevice_1_1SPIDevice_1ad3cfe0542ea1ed0afd23091d3f4060e3" prot="public" virt="non-virtual"><scope>RADDevice::SPIDevice</scope><name>~SPIDevice</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

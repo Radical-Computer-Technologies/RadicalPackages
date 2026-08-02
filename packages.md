@@ -20,8 +20,8 @@
       Product package pages contain install commands, package tables, and repository metadata links.
     </p>
     <div class="status-row">
-      <span class="pill"><strong>Stable:</strong> RADLib 0.1.0</span>
-      <span class="pill"><strong>Experimental:</strong> RadBuild 0.2.2-beta.1, RADPx-OS Crimson 0.1.5, RADBard 0.1.0 beta</span>
+      <span class="pill"><strong>Stable:</strong> RADLib 0.2.1</span>
+      <span class="pill"><strong>Experimental:</strong> RadBuild 0.2.2-beta.2, RADPx-OS Crimson 0.1.5, RADBard 0.1.0 beta</span>
       <span class="pill"><strong>Architectures:</strong> amd64, arm64, all</span>
       <span class="pill"><strong>Hosting:</strong> GitHub Releases</span>
     </div>
@@ -44,7 +44,7 @@
 
     <details class="doc-group package-search-group" data-search-group>
       <summary>Stable</summary>
-      <details class="doc-release" data-search-item data-search-text="radlib stable 0.1.0 crimson runtime development dev modules docs examples tools core ui dsp media fpga web net database serial security installer update cli logging settings input display device power service data structures amd64 arm64">
+      <details class="doc-release" data-search-item data-search-text="radlib stable 0.2.1 crimson runtime development dev modules docs examples tools core ui dsp media fpga web net database serial security installer update cli logging settings input display device power service embedded kernel data structures amd64 arm64">
         <summary>RADLib 0 - Crimson</summary>
         <div class="package-list">
           <a class="package package-link" href="radlib.html"><code>radlib</code><span>Aggregate runtime, development, docs, examples, and tools package.</span></a>
@@ -61,7 +61,7 @@
 
     <details class="doc-group package-search-group" data-search-group>
       <summary>Experimental</summary>
-      <details class="doc-release" data-search-item data-search-text="radbuild experimental 0.2.2-beta.1 crimson cli server vscode support radhdl docs graph build framework project fpga linux firmware software packages deploy all radpx os image">
+      <details class="doc-release" data-search-item data-search-text="radbuild experimental 0.2.2-beta.2 crimson cli server vscode support radhdl docs graph build framework project fpga linux firmware software packages deploy all radpx os image windows msi vivado vitis gowin oss cad suite">
         <summary>RadBuild 0 - Crimson</summary>
         <div class="package-list">
           <a class="package package-link" href="radbuild.html"><code>radbuild</code><span>Frozen CLI and graph build helper executables.</span></a>
@@ -69,6 +69,7 @@
           <a class="package package-link" href="radbuild.html"><code>radbuild-server</code><span>Optional web server, review DB, client, workers, and LLM helpers.</span></a>
           <a class="package package-link" href="radbuild.html"><code>radbuild-vscode-support</code><span>VSCode extension support package.</span></a>
           <a class="package package-link" href="radbuild.html"><code>radbuild-doc</code><span>RadBuild documentation package.</span></a>
+          <a class="package package-link" href="https://github.com/Radical-Computer-Technologies/RadicalPackages/releases/download/radbuild-0.2.2-beta.2/radbuild-0.2.2-beta.2-windows-x86_64.msi"><code>radbuild Windows MSI</code><span>Experimental Windows installer for native FPGA provider workflows.</span></a>
         </div>
       </details>
       <details class="doc-release" data-search-item data-search-text="radpx os experimental crimson 0.1.5 kernel vm image x86 slint compositor desktop window manager userland process posix radbuild docs radpm package repository vim tiny ncurses">
@@ -85,8 +86,8 @@
           <a class="package package-link" href="radbard.html"><code>radbard</code><span>Experimental music and audio composition suite beta.</span></a>
         </div>
       </details>
-      <details class="doc-release" data-search-item data-search-text="radlib radical radpx os experimental 0.1.1 crimson kernel radekernel bare metal hal simulator circle rtos vfs device terminal tasks memory">
-        <summary>RADLib 0 - Crimson Experimental</summary>
+      <details class="doc-release" data-search-item data-search-text="radlib radical radpx os archived experimental 0.1.1 crimson kernel radekernel bare metal hal simulator circle rtos vfs device terminal tasks memory">
+        <summary>RADLib 0 - Crimson Archived Experimental</summary>
         <div class="package-list">
           <a class="package package-link" href="radlib.html"><code>radlib-embedded-kernel</code><span>RADPx-OS kernel service layer for simulator and bare-metal HAL backends.</span></a>
           <a class="package package-link" href="radlib.html"><code>radlib-embedded-kernel-0-1</code><span>ABI-pinned RADPx-OS kernel runtime for RADLib 0.1.</span></a>

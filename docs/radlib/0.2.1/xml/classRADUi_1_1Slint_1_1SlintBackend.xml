@@ -1,0 +1,142 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="classRADUi_1_1Slint_1_1SlintBackend" kind="class" language="C++" prot="public">
+    <compoundname>RADUi::Slint::SlintBackend</compoundname>
+    <basecompoundref refid="classRADUi_1_1Backend" prot="public" virt="non-virtual">RADUi::Backend</basecompoundref>
+    <includes refid="RADSlintBackend_8h" local="no">RADSlintBackend.h</includes>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classRADUi_1_1Slint_1_1SlintBackend_1a14b955aa057685c4ca0e7a09cfe90596" prot="private" static="no" mutable="no">
+        <type>std::thread::id</type>
+        <definition>std::thread::id RADUi::Slint::SlintBackend::uiThreadId_</definition>
+        <argsstring></argsstring>
+        <name>uiThreadId_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADSlintBackend.h" line="38" column="25" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADSlintBackend.h" bodystart="38" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classRADUi_1_1Slint_1_1SlintBackend_1a24445ce5418dca99c18ac5f290d926f7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>RADUi::Slint::SlintBackend::SlintBackend</definition>
+        <argsstring>()</argsstring>
+        <name>SlintBackend</name>
+        <briefdescription>
+<para>Captures the creating thread as the UI thread. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADSlintBackend.h" line="26" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADUi_1_1Slint_1_1SlintBackend_1a89f5d783a439ddac4de9f5538dff9a1c" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void RADUi::Slint::SlintBackend::run</definition>
+        <argsstring>() override</argsstring>
+        <name>run</name>
+        <reimplements refid="classRADUi_1_1Backend_1a3c98ff3d2a952c5b0a8e2c3ea3ebc22b">run</reimplements>
+        <briefdescription>
+<para>Runs <ref refid="namespaceRADUi_1_1Slint" kindref="compound">Slint</ref>&apos;s main event loop. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADSlintBackend.h" line="29" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADUi_1_1Slint_1_1SlintBackend_1ac9eeed38d484b4b4bb01217edef1f07c" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void RADUi::Slint::SlintBackend::quit</definition>
+        <argsstring>() override</argsstring>
+        <name>quit</name>
+        <reimplements refid="classRADUi_1_1Backend_1a6551efb1c8fc75417eab4c6fd6ce1bc3">quit</reimplements>
+        <briefdescription>
+<para>Requests <ref refid="namespaceRADUi_1_1Slint" kindref="compound">Slint</ref>&apos;s event loop to quit. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADSlintBackend.h" line="31" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADUi_1_1Slint_1_1SlintBackend_1a700231db1c591b6db7f0b4bcdb12709f" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void RADUi::Slint::SlintBackend::postToUi</definition>
+        <argsstring>(std::function&lt; void()&gt; task) override</argsstring>
+        <name>postToUi</name>
+        <reimplements refid="classRADUi_1_1Backend_1a4bfd39fe0784c1008998611f14b7c73b">postToUi</reimplements>
+        <param>
+          <type>std::function&lt; void()&gt;</type>
+          <declname>task</declname>
+        </param>
+        <briefdescription>
+<para>Posts task to <ref refid="namespaceRADUi_1_1Slint" kindref="compound">Slint</ref>&apos;s UI queue. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADSlintBackend.h" line="33" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADUi_1_1Slint_1_1SlintBackend_1a7c9902f89813d902b2b7481b829cba9c" prot="public" static="no" const="yes" explicit="no" inline="no" virt="virtual">
+        <type>bool</type>
+        <definition>bool RADUi::Slint::SlintBackend::isUiThread</definition>
+        <argsstring>() const override</argsstring>
+        <name>isUiThread</name>
+        <reimplements refid="classRADUi_1_1Backend_1a718f73be161192205a4316eae1d65b37">isUiThread</reimplements>
+        <briefdescription>
+<para>Returns true when called from the captured UI thread. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADSlintBackend.h" line="35" column="14"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para><ref refid="namespaceRADUi" kindref="compound">RADUi</ref> backend implementation that uses <ref refid="namespaceRADUi_1_1Slint" kindref="compound">Slint</ref>&apos;s event loop. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>RADUi::Backend</label>
+        <link refid="classRADUi_1_1Backend"/>
+      </node>
+      <node id="1">
+        <label>RADUi::Slint::SlintBackend</label>
+        <link refid="classRADUi_1_1Slint_1_1SlintBackend"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>RADUi::Backend</label>
+        <link refid="classRADUi_1_1Backend"/>
+      </node>
+      <node id="1">
+        <label>RADUi::Slint::SlintBackend</label>
+        <link refid="classRADUi_1_1Slint_1_1SlintBackend"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADSlintBackend.h" line="23" column="5" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADSlintBackend.h" bodystart="23" bodyend="39"/>
+    <listofallmembers>
+      <member refid="classRADUi_1_1Slint_1_1SlintBackend_1a7c9902f89813d902b2b7481b829cba9c" prot="public" virt="virtual"><scope>RADUi::Slint::SlintBackend</scope><name>isUiThread</name></member>
+      <member refid="classRADUi_1_1Slint_1_1SlintBackend_1a700231db1c591b6db7f0b4bcdb12709f" prot="public" virt="virtual"><scope>RADUi::Slint::SlintBackend</scope><name>postToUi</name></member>
+      <member refid="classRADUi_1_1Slint_1_1SlintBackend_1ac9eeed38d484b4b4bb01217edef1f07c" prot="public" virt="virtual"><scope>RADUi::Slint::SlintBackend</scope><name>quit</name></member>
+      <member refid="classRADUi_1_1Slint_1_1SlintBackend_1a89f5d783a439ddac4de9f5538dff9a1c" prot="public" virt="virtual"><scope>RADUi::Slint::SlintBackend</scope><name>run</name></member>
+      <member refid="classRADUi_1_1Slint_1_1SlintBackend_1a24445ce5418dca99c18ac5f290d926f7" prot="public" virt="non-virtual"><scope>RADUi::Slint::SlintBackend</scope><name>SlintBackend</name></member>
+      <member refid="classRADUi_1_1Slint_1_1SlintBackend_1a14b955aa057685c4ca0e7a09cfe90596" prot="private" virt="non-virtual"><scope>RADUi::Slint::SlintBackend</scope><name>uiThreadId_</name></member>
+      <member refid="classRADUi_1_1Backend_1a3f4fffe03e98314456cfce1e87450c69" prot="public" virt="virtual"><scope>RADUi::Slint::SlintBackend</scope><name>~Backend</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

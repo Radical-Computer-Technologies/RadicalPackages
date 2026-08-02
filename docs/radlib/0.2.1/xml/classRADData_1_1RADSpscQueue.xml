@@ -1,0 +1,280 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="classRADData_1_1RADSpscQueue" kind="class" language="C++" prot="public">
+    <compoundname>RADData::RADSpscQueue</compoundname>
+    <includes refid="RADDataStructures_8h" local="no">RADDataStructures.h</includes>
+    <innerclass refid="structRADData_1_1RADSpscQueue_1_1Slot" prot="private">RADData::RADSpscQueue::Slot</innerclass>
+    <templateparamlist>
+      <param>
+        <type>typename T</type>
+      </param>
+    </templateparamlist>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classRADData_1_1RADSpscQueue_1a5837a47f34512b8777ccdaf2c005dfa3" prot="private" static="no" mutable="no">
+        <type>const size_t</type>
+        <definition>const size_t RADData::RADSpscQueue&lt; T &gt;::capacity_</definition>
+        <argsstring></argsstring>
+        <name>capacity_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" line="1089" column="22" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" bodystart="1089" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classRADData_1_1RADSpscQueue_1aafafc0227bc65185b698030aff51c253" prot="private" static="no" mutable="no">
+        <type>const size_t</type>
+        <definition>const size_t RADData::RADSpscQueue&lt; T &gt;::mask_</definition>
+        <argsstring></argsstring>
+        <name>mask_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" line="1090" column="22" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" bodystart="1090" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classRADData_1_1RADSpscQueue_1a1d839845fb742e5fea7b7794149e3246" prot="private" static="no" mutable="no">
+        <type>std::unique_ptr&lt; Slot[]&gt;</type>
+        <definition>std::unique_ptr&lt;Slot[]&gt; RADData::RADSpscQueue&lt; T &gt;::storage_</definition>
+        <argsstring></argsstring>
+        <name>storage_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" line="1091" column="25" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" bodystart="1091" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classRADData_1_1RADSpscQueue_1a302617fab22a7eeb8a60310750f4bce9" prot="private" static="no" mutable="no">
+        <type>std::atomic&lt; size_t &gt;</type>
+        <definition>std::atomic&lt;size_t&gt; RADData::RADSpscQueue&lt; T &gt;::head_</definition>
+        <argsstring></argsstring>
+        <name>head_</name>
+        <initializer>{0}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" line="1092" column="21" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" bodystart="1092" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classRADData_1_1RADSpscQueue_1a5b6fee8a1f006addb6a5739c6fc7d70e" prot="private" static="no" mutable="no">
+        <type>std::atomic&lt; size_t &gt;</type>
+        <definition>std::atomic&lt;size_t&gt; RADData::RADSpscQueue&lt; T &gt;::tail_</definition>
+        <argsstring></argsstring>
+        <name>tail_</name>
+        <initializer>{0}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" line="1093" column="21" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" bodystart="1093" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classRADData_1_1RADSpscQueue_1a23ce8090b8745cb7f1495904f3b5fe70" prot="public" static="no" const="no" explicit="yes" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>RADData::RADSpscQueue&lt; T &gt;::RADSpscQueue</definition>
+        <argsstring>(size_t capacity)</argsstring>
+        <name>RADSpscQueue</name>
+        <param>
+          <type>size_t</type>
+          <declname>capacity</declname>
+        </param>
+        <briefdescription>
+<para>Creates a queue with usable capacity rounded to a power of two. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" line="1024" column="18" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" bodystart="1024" bodyend="1027"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADData_1_1RADSpscQueue_1a7e89499181a62ca63069ac5cbecc1af1" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>RADData::RADSpscQueue&lt; T &gt;::~RADSpscQueue</definition>
+        <argsstring>()</argsstring>
+        <name>~RADSpscQueue</name>
+        <briefdescription>
+<para>Destroys any elements still queued. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" line="1030" column="9" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" bodystart="1030" bodyend="1036"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADData_1_1RADSpscQueue_1a2b0328f032f3a5566ec3707ea4c58c71" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>RADData::RADSpscQueue&lt; T &gt;::RADSpscQueue</definition>
+        <argsstring>(const RADSpscQueue &amp;)=delete</argsstring>
+        <name>RADSpscQueue</name>
+        <param>
+          <type>const <ref refid="classRADData_1_1RADSpscQueue" kindref="compound">RADSpscQueue</ref> &amp;</type>
+        </param>
+        <briefdescription>
+<para>SPSC queues own atomic storage and cannot be copied. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" line="1039" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADData_1_1RADSpscQueue_1a74d12ad18c0b4a982033455e3b69fb4f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classRADData_1_1RADSpscQueue" kindref="compound">RADSpscQueue</ref> &amp;</type>
+        <definition>RADSpscQueue&amp; RADData::RADSpscQueue&lt; T &gt;::operator=</definition>
+        <argsstring>(const RADSpscQueue &amp;)=delete</argsstring>
+        <name>operator=</name>
+        <param>
+          <type>const <ref refid="classRADData_1_1RADSpscQueue" kindref="compound">RADSpscQueue</ref> &amp;</type>
+        </param>
+        <briefdescription>
+<para>SPSC queues own atomic storage and cannot be copied. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" line="1041" column="22"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADData_1_1RADSpscQueue_1a4045a9619faed1dff039f4feab2d7fc2" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool RADData::RADSpscQueue&lt; T &gt;::empty</definition>
+        <argsstring>() const noexcept</argsstring>
+        <name>empty</name>
+        <briefdescription>
+<para>Returns true when no item is available. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" line="1044" column="14" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" bodystart="1044" bodyend="1046"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADData_1_1RADSpscQueue_1a00750b8c34810851563405f2f3bf6597" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type>size_t</type>
+        <definition>size_t RADData::RADSpscQueue&lt; T &gt;::capacity</definition>
+        <argsstring>() const noexcept</argsstring>
+        <name>capacity</name>
+        <briefdescription>
+<para>Returns usable queue capacity. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" line="1049" column="16" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" bodystart="1049" bodyend="1049"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADData_1_1RADSpscQueue_1ae0fdc6cd755cd13f7ed65d53586694c2" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool RADData::RADSpscQueue&lt; T &gt;::try_push</definition>
+        <argsstring>(const T &amp;value)</argsstring>
+        <name>try_push</name>
+        <param>
+          <type>const T &amp;</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+<para>Attempts to push a copy; returns false when full. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" line="1052" column="14" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" bodystart="1052" bodyend="1054"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADData_1_1RADSpscQueue_1ae85169bb8838972fc37602b7b868e144" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool RADData::RADSpscQueue&lt; T &gt;::try_push</definition>
+        <argsstring>(T &amp;&amp;value)</argsstring>
+        <name>try_push</name>
+        <param>
+          <type>T &amp;&amp;</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+<para>Attempts to push a moved value; returns false when full. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" line="1057" column="14" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" bodystart="1057" bodyend="1059"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADData_1_1RADSpscQueue_1a3d0d276e6ddbfcbe75814d04268bd82d" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename...</type>
+            <declname>Args</declname>
+            <defname>Args</defname>
+          </param>
+        </templateparamlist>
+        <type>bool</type>
+        <definition>bool RADData::RADSpscQueue&lt; T &gt;::emplace</definition>
+        <argsstring>(Args &amp;&amp;... args)</argsstring>
+        <name>emplace</name>
+        <param>
+          <type>Args &amp;&amp;...</type>
+          <declname>args</declname>
+        </param>
+        <briefdescription>
+<para>Attempts to construct an item in-place; returns false when full. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" line="1063" column="14" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" bodystart="1063" bodyend="1070"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADData_1_1RADSpscQueue_1a206802b0c0a82ecb3240d89438e8c69b" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool RADData::RADSpscQueue&lt; T &gt;::try_pop</definition>
+        <argsstring>(T &amp;out)</argsstring>
+        <name>try_pop</name>
+        <param>
+          <type>T &amp;</type>
+          <declname>out</declname>
+        </param>
+        <briefdescription>
+<para>Attempts to pop into out; returns false when empty. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" line="1073" column="14" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" bodystart="1073" bodyend="1081"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Lock-free single-producer/single-consumer bounded queue. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" line="1021" column="5" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" bodystart="1021" bodyend="1094"/>
+    <listofallmembers>
+      <member refid="classRADData_1_1RADSpscQueue_1a00750b8c34810851563405f2f3bf6597" prot="public" virt="non-virtual"><scope>RADData::RADSpscQueue</scope><name>capacity</name></member>
+      <member refid="classRADData_1_1RADSpscQueue_1a5837a47f34512b8777ccdaf2c005dfa3" prot="private" virt="non-virtual"><scope>RADData::RADSpscQueue</scope><name>capacity_</name></member>
+      <member refid="classRADData_1_1RADSpscQueue_1a3d0d276e6ddbfcbe75814d04268bd82d" prot="public" virt="non-virtual"><scope>RADData::RADSpscQueue</scope><name>emplace</name></member>
+      <member refid="classRADData_1_1RADSpscQueue_1a4045a9619faed1dff039f4feab2d7fc2" prot="public" virt="non-virtual"><scope>RADData::RADSpscQueue</scope><name>empty</name></member>
+      <member refid="classRADData_1_1RADSpscQueue_1a302617fab22a7eeb8a60310750f4bce9" prot="private" virt="non-virtual"><scope>RADData::RADSpscQueue</scope><name>head_</name></member>
+      <member refid="classRADData_1_1RADSpscQueue_1aafafc0227bc65185b698030aff51c253" prot="private" virt="non-virtual"><scope>RADData::RADSpscQueue</scope><name>mask_</name></member>
+      <member refid="classRADData_1_1RADSpscQueue_1a74d12ad18c0b4a982033455e3b69fb4f" prot="public" virt="non-virtual"><scope>RADData::RADSpscQueue</scope><name>operator=</name></member>
+      <member refid="classRADData_1_1RADSpscQueue_1a23ce8090b8745cb7f1495904f3b5fe70" prot="public" virt="non-virtual"><scope>RADData::RADSpscQueue</scope><name>RADSpscQueue</name></member>
+      <member refid="classRADData_1_1RADSpscQueue_1a2b0328f032f3a5566ec3707ea4c58c71" prot="public" virt="non-virtual"><scope>RADData::RADSpscQueue</scope><name>RADSpscQueue</name></member>
+      <member refid="classRADData_1_1RADSpscQueue_1a1d839845fb742e5fea7b7794149e3246" prot="private" virt="non-virtual"><scope>RADData::RADSpscQueue</scope><name>storage_</name></member>
+      <member refid="classRADData_1_1RADSpscQueue_1a5b6fee8a1f006addb6a5739c6fc7d70e" prot="private" virt="non-virtual"><scope>RADData::RADSpscQueue</scope><name>tail_</name></member>
+      <member refid="classRADData_1_1RADSpscQueue_1a206802b0c0a82ecb3240d89438e8c69b" prot="public" virt="non-virtual"><scope>RADData::RADSpscQueue</scope><name>try_pop</name></member>
+      <member refid="classRADData_1_1RADSpscQueue_1ae0fdc6cd755cd13f7ed65d53586694c2" prot="public" virt="non-virtual"><scope>RADData::RADSpscQueue</scope><name>try_push</name></member>
+      <member refid="classRADData_1_1RADSpscQueue_1ae85169bb8838972fc37602b7b868e144" prot="public" virt="non-virtual"><scope>RADData::RADSpscQueue</scope><name>try_push</name></member>
+      <member refid="classRADData_1_1RADSpscQueue_1a7e89499181a62ca63069ac5cbecc1af1" prot="public" virt="non-virtual"><scope>RADData::RADSpscQueue</scope><name>~RADSpscQueue</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

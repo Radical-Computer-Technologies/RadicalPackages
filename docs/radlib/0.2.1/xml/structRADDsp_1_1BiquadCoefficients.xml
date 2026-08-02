@@ -1,0 +1,97 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="structRADDsp_1_1BiquadCoefficients" kind="struct" language="C++" prot="public">
+    <compoundname>RADDsp::BiquadCoefficients</compoundname>
+    <includes refid="RADDsp_8h" local="no">RADDsp.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structRADDsp_1_1BiquadCoefficients_1ae13dd9d18c99eb4adb5714516fcc89c4" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float RADDsp::BiquadCoefficients::b0</definition>
+        <argsstring></argsstring>
+        <name>b0</name>
+        <initializer>= 1.0f</initializer>
+        <briefdescription>
+<para>Feed-forward coefficient for x[n]. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDsp/headers/RADDsp.h" line="118" column="15" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADDsp/headers/RADDsp.h" bodystart="118" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structRADDsp_1_1BiquadCoefficients_1a362719a6e7dc03c27e606782c17ffa51" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float RADDsp::BiquadCoefficients::b1</definition>
+        <argsstring></argsstring>
+        <name>b1</name>
+        <initializer>= 0.0f</initializer>
+        <briefdescription>
+<para>Feed-forward coefficient for x[n-1]. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDsp/headers/RADDsp.h" line="120" column="15" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADDsp/headers/RADDsp.h" bodystart="120" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structRADDsp_1_1BiquadCoefficients_1abcb0ccc4019aeb67d457ea66b11102bb" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float RADDsp::BiquadCoefficients::b2</definition>
+        <argsstring></argsstring>
+        <name>b2</name>
+        <initializer>= 0.0f</initializer>
+        <briefdescription>
+<para>Feed-forward coefficient for x[n-2]. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDsp/headers/RADDsp.h" line="122" column="15" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADDsp/headers/RADDsp.h" bodystart="122" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structRADDsp_1_1BiquadCoefficients_1a938eeda185b62a1738f3d69f2cc7807a" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float RADDsp::BiquadCoefficients::a1</definition>
+        <argsstring></argsstring>
+        <name>a1</name>
+        <initializer>= 0.0f</initializer>
+        <briefdescription>
+<para>Feedback coefficient for y[n-1], assuming y = b*x - a*y. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDsp/headers/RADDsp.h" line="124" column="15" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADDsp/headers/RADDsp.h" bodystart="124" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structRADDsp_1_1BiquadCoefficients_1a3e861e79c88c58ee5ea9f73187039288" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float RADDsp::BiquadCoefficients::a2</definition>
+        <argsstring></argsstring>
+        <name>a2</name>
+        <initializer>= 0.0f</initializer>
+        <briefdescription>
+<para>Feedback coefficient for y[n-2], assuming y = b*x - a*y. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDsp/headers/RADDsp.h" line="126" column="15" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADDsp/headers/RADDsp.h" bodystart="126" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Normalized direct-form biquad coefficients with a0 folded into all terms. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDsp/headers/RADDsp.h" line="116" column="5" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADDsp/headers/RADDsp.h" bodystart="116" bodyend="127"/>
+    <listofallmembers>
+      <member refid="structRADDsp_1_1BiquadCoefficients_1a938eeda185b62a1738f3d69f2cc7807a" prot="public" virt="non-virtual"><scope>RADDsp::BiquadCoefficients</scope><name>a1</name></member>
+      <member refid="structRADDsp_1_1BiquadCoefficients_1a3e861e79c88c58ee5ea9f73187039288" prot="public" virt="non-virtual"><scope>RADDsp::BiquadCoefficients</scope><name>a2</name></member>
+      <member refid="structRADDsp_1_1BiquadCoefficients_1ae13dd9d18c99eb4adb5714516fcc89c4" prot="public" virt="non-virtual"><scope>RADDsp::BiquadCoefficients</scope><name>b0</name></member>
+      <member refid="structRADDsp_1_1BiquadCoefficients_1a362719a6e7dc03c27e606782c17ffa51" prot="public" virt="non-virtual"><scope>RADDsp::BiquadCoefficients</scope><name>b1</name></member>
+      <member refid="structRADDsp_1_1BiquadCoefficients_1abcb0ccc4019aeb67d457ea66b11102bb" prot="public" virt="non-virtual"><scope>RADDsp::BiquadCoefficients</scope><name>b2</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

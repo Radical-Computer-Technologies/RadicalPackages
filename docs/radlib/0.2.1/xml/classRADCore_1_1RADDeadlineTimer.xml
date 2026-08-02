@@ -1,0 +1,128 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="classRADCore_1_1RADDeadlineTimer" kind="class" language="C++" prot="public">
+    <compoundname>RADCore::RADDeadlineTimer</compoundname>
+    <includes refid="RADCore_8h" local="no">RADCore.h</includes>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classRADCore_1_1RADDeadlineTimer_1ab28490af16d2f99896ef1a26b2cef6c1" prot="private" static="no" mutable="no">
+        <type>std::chrono::steady_clock::time_point</type>
+        <definition>std::chrono::steady_clock::time_point RADCore::RADDeadlineTimer::deadline_</definition>
+        <argsstring></argsstring>
+        <name>deadline_</name>
+        <initializer>{}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADCore/headers/RADCore.h" line="287" column="47" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADCore/headers/RADCore.h" bodystart="287" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classRADCore_1_1RADDeadlineTimer_1a7541b8888994c36e0abc73d720247d63" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool RADCore::RADDeadlineTimer::valid_</definition>
+        <argsstring></argsstring>
+        <name>valid_</name>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADCore/headers/RADCore.h" line="288" column="14" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADCore/headers/RADCore.h" bodystart="288" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classRADCore_1_1RADDeadlineTimer_1a8e609a50d630f45a3e0b1e778a3cb689" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>RADCore::RADDeadlineTimer::RADDeadlineTimer</definition>
+        <argsstring>()=default</argsstring>
+        <name>RADDeadlineTimer</name>
+        <briefdescription>
+<para>Creates an expired deadline. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADCore/headers/RADCore.h" line="269" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADCore_1_1RADDeadlineTimer_1a1a71d22f41a7427b88ef0d55d1cc3068" prot="public" static="no" const="no" explicit="yes" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>RADCore::RADDeadlineTimer::RADDeadlineTimer</definition>
+        <argsstring>(int64_t intervalMs)</argsstring>
+        <name>RADDeadlineTimer</name>
+        <param>
+          <type>int64_t</type>
+          <declname>intervalMs</declname>
+        </param>
+        <briefdescription>
+<para>Creates a deadline intervalMs in the future. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADCore/headers/RADCore.h" line="271" column="18" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADCore/headers/RADCore.h" bodystart="271" bodyend="273"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADCore_1_1RADDeadlineTimer_1a2380a66f33e49be71832dcb10b0b8eed" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool RADCore::RADDeadlineTimer::isValid</definition>
+        <argsstring>() const</argsstring>
+        <name>isValid</name>
+        <briefdescription>
+<para>Returns true when this deadline has been configured. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADCore/headers/RADCore.h" line="275" column="14" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADCore/headers/RADCore.h" bodystart="275" bodyend="275"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADCore_1_1RADDeadlineTimer_1a37003b92cd2a700c92647a31bd9d5b89" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool RADCore::RADDeadlineTimer::hasExpired</definition>
+        <argsstring>() const</argsstring>
+        <name>hasExpired</name>
+        <briefdescription>
+<para>Returns true when the deadline has passed. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADCore/headers/RADCore.h" line="277" column="14" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADCore/headers/RADCore.h" bodystart="277" bodyend="277"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADCore_1_1RADDeadlineTimer_1a7c52fd50de5d12ada424b99921191ab0" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>int64_t</type>
+        <definition>int64_t RADCore::RADDeadlineTimer::remainingMilliseconds</definition>
+        <argsstring>() const</argsstring>
+        <name>remainingMilliseconds</name>
+        <briefdescription>
+<para>Returns milliseconds remaining, or 0 when expired/invalid. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADCore/headers/RADCore.h" line="279" column="17" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADCore/headers/RADCore.h" bodystart="279" bodyend="284"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Deadline helper for timeout loops and cancellation-aware waits. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/media/jvincent/Kingspec512/repos/RADLib/RADCore/headers/RADCore.h" line="266" column="5" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADCore/headers/RADCore.h" bodystart="266" bodyend="289"/>
+    <listofallmembers>
+      <member refid="classRADCore_1_1RADDeadlineTimer_1ab28490af16d2f99896ef1a26b2cef6c1" prot="private" virt="non-virtual"><scope>RADCore::RADDeadlineTimer</scope><name>deadline_</name></member>
+      <member refid="classRADCore_1_1RADDeadlineTimer_1a37003b92cd2a700c92647a31bd9d5b89" prot="public" virt="non-virtual"><scope>RADCore::RADDeadlineTimer</scope><name>hasExpired</name></member>
+      <member refid="classRADCore_1_1RADDeadlineTimer_1a2380a66f33e49be71832dcb10b0b8eed" prot="public" virt="non-virtual"><scope>RADCore::RADDeadlineTimer</scope><name>isValid</name></member>
+      <member refid="classRADCore_1_1RADDeadlineTimer_1a8e609a50d630f45a3e0b1e778a3cb689" prot="public" virt="non-virtual"><scope>RADCore::RADDeadlineTimer</scope><name>RADDeadlineTimer</name></member>
+      <member refid="classRADCore_1_1RADDeadlineTimer_1a1a71d22f41a7427b88ef0d55d1cc3068" prot="public" virt="non-virtual"><scope>RADCore::RADDeadlineTimer</scope><name>RADDeadlineTimer</name></member>
+      <member refid="classRADCore_1_1RADDeadlineTimer_1a7c52fd50de5d12ada424b99921191ab0" prot="public" virt="non-virtual"><scope>RADCore::RADDeadlineTimer</scope><name>remainingMilliseconds</name></member>
+      <member refid="classRADCore_1_1RADDeadlineTimer_1a7541b8888994c36e0abc73d720247d63" prot="private" virt="non-virtual"><scope>RADCore::RADDeadlineTimer</scope><name>valid_</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

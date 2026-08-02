@@ -1,0 +1,196 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="classRADDevice_1_1PwmChannel" kind="class" language="C++" prot="public">
+    <compoundname>RADDevice::PwmChannel</compoundname>
+    <includes refid="RADDevice_8h" local="no">RADDevice.h</includes>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classRADDevice_1_1PwmChannel_1ae92a6efdb980c96464375cdc9beb6eae" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int RADDevice::PwmChannel::chip_</definition>
+        <argsstring></argsstring>
+        <name>chip_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDevice/headers/RADDevice.h" line="145" column="13" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADDevice/headers/RADDevice.h" bodystart="145" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classRADDevice_1_1PwmChannel_1a4e83d55cd02fc1816f9c22c4ffccf956" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int RADDevice::PwmChannel::channel_</definition>
+        <argsstring></argsstring>
+        <name>channel_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDevice/headers/RADDevice.h" line="146" column="13" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADDevice/headers/RADDevice.h" bodystart="146" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classRADDevice_1_1PwmChannel_1a715ab4750e08c468f778219d7b0fd981" prot="private" static="no" mutable="no">
+        <type><ref refid="structRADDevice_1_1DevicePaths" kindref="compound">DevicePaths</ref></type>
+        <definition>DevicePaths RADDevice::PwmChannel::paths_</definition>
+        <argsstring></argsstring>
+        <name>paths_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDevice/headers/RADDevice.h" line="147" column="21" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADDevice/headers/RADDevice.h" bodystart="147" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classRADDevice_1_1PwmChannel_1aa076e7764e09fc51a1198ce1b68c1cfa" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>RADDevice::PwmChannel::PwmChannel</definition>
+        <argsstring>(int chip, int channel, DevicePaths paths={})</argsstring>
+        <name>PwmChannel</name>
+        <param>
+          <type>int</type>
+          <declname>chip</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>channel</declname>
+        </param>
+        <param>
+          <type><ref refid="structRADDevice_1_1DevicePaths" kindref="compound">DevicePaths</ref></type>
+          <declname>paths</declname>
+          <defval>{}</defval>
+        </param>
+        <briefdescription>
+<para>Creates a PWM channel wrapper. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDevice/headers/RADDevice.h" line="132" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADDevice_1_1PwmChannel_1a1303fbd0f68c383aeccbaf29687e7dce" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool RADDevice::PwmChannel::exportChannel</definition>
+        <argsstring>(std::string *error=nullptr) const</argsstring>
+        <name>exportChannel</name>
+        <param>
+          <type>std::string *</type>
+          <declname>error</declname>
+          <defval>nullptr</defval>
+        </param>
+        <briefdescription>
+<para>Exports the PWM channel. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDevice/headers/RADDevice.h" line="134" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADDevice_1_1PwmChannel_1a2cfa05fd7ef60f2eb7498b404ae8a380" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool RADDevice::PwmChannel::setEnabled</definition>
+        <argsstring>(bool enabled, std::string *error=nullptr) const</argsstring>
+        <name>setEnabled</name>
+        <param>
+          <type>bool</type>
+          <declname>enabled</declname>
+        </param>
+        <param>
+          <type>std::string *</type>
+          <declname>error</declname>
+          <defval>nullptr</defval>
+        </param>
+        <briefdescription>
+<para>Enables or disables output. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDevice/headers/RADDevice.h" line="136" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADDevice_1_1PwmChannel_1a2ac405c4d9ee6bf353d22b5fe812c37c" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool RADDevice::PwmChannel::setPeriodNs</definition>
+        <argsstring>(uint64_t periodNs, std::string *error=nullptr) const</argsstring>
+        <name>setPeriodNs</name>
+        <param>
+          <type>uint64_t</type>
+          <declname>periodNs</declname>
+        </param>
+        <param>
+          <type>std::string *</type>
+          <declname>error</declname>
+          <defval>nullptr</defval>
+        </param>
+        <briefdescription>
+<para>Sets period in nanoseconds. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDevice/headers/RADDevice.h" line="138" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADDevice_1_1PwmChannel_1a1611d8e4b34af2c9e1c3af90294c8f3d" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool RADDevice::PwmChannel::setDutyCycleNs</definition>
+        <argsstring>(uint64_t dutyNs, std::string *error=nullptr) const</argsstring>
+        <name>setDutyCycleNs</name>
+        <param>
+          <type>uint64_t</type>
+          <declname>dutyNs</declname>
+        </param>
+        <param>
+          <type>std::string *</type>
+          <declname>error</declname>
+          <defval>nullptr</defval>
+        </param>
+        <briefdescription>
+<para>Sets duty cycle in nanoseconds. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDevice/headers/RADDevice.h" line="140" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADDevice_1_1PwmChannel_1a0adcc7fd6729232e9b363e6febf8ffbb" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>std::string</type>
+        <definition>std::string RADDevice::PwmChannel::channelPath</definition>
+        <argsstring>() const</argsstring>
+        <name>channelPath</name>
+        <briefdescription>
+<para>Returns sysfs PWM path. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDevice/headers/RADDevice.h" line="142" column="21"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>PWM sysfs channel helper. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDevice/headers/RADDevice.h" line="129" column="5" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADDevice/headers/RADDevice.h" bodystart="129" bodyend="148"/>
+    <listofallmembers>
+      <member refid="classRADDevice_1_1PwmChannel_1a4e83d55cd02fc1816f9c22c4ffccf956" prot="private" virt="non-virtual"><scope>RADDevice::PwmChannel</scope><name>channel_</name></member>
+      <member refid="classRADDevice_1_1PwmChannel_1a0adcc7fd6729232e9b363e6febf8ffbb" prot="public" virt="non-virtual"><scope>RADDevice::PwmChannel</scope><name>channelPath</name></member>
+      <member refid="classRADDevice_1_1PwmChannel_1ae92a6efdb980c96464375cdc9beb6eae" prot="private" virt="non-virtual"><scope>RADDevice::PwmChannel</scope><name>chip_</name></member>
+      <member refid="classRADDevice_1_1PwmChannel_1a1303fbd0f68c383aeccbaf29687e7dce" prot="public" virt="non-virtual"><scope>RADDevice::PwmChannel</scope><name>exportChannel</name></member>
+      <member refid="classRADDevice_1_1PwmChannel_1a715ab4750e08c468f778219d7b0fd981" prot="private" virt="non-virtual"><scope>RADDevice::PwmChannel</scope><name>paths_</name></member>
+      <member refid="classRADDevice_1_1PwmChannel_1aa076e7764e09fc51a1198ce1b68c1cfa" prot="public" virt="non-virtual"><scope>RADDevice::PwmChannel</scope><name>PwmChannel</name></member>
+      <member refid="classRADDevice_1_1PwmChannel_1a1611d8e4b34af2c9e1c3af90294c8f3d" prot="public" virt="non-virtual"><scope>RADDevice::PwmChannel</scope><name>setDutyCycleNs</name></member>
+      <member refid="classRADDevice_1_1PwmChannel_1a2cfa05fd7ef60f2eb7498b404ae8a380" prot="public" virt="non-virtual"><scope>RADDevice::PwmChannel</scope><name>setEnabled</name></member>
+      <member refid="classRADDevice_1_1PwmChannel_1a2ac405c4d9ee6bf353d22b5fe812c37c" prot="public" virt="non-virtual"><scope>RADDevice::PwmChannel</scope><name>setPeriodNs</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

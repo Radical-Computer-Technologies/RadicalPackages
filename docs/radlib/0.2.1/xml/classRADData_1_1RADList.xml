@@ -1,0 +1,543 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="classRADData_1_1RADList" kind="class" language="C++" prot="public">
+    <compoundname>RADData::RADList</compoundname>
+    <includes refid="RADDataStructures_8h" local="no">RADDataStructures.h</includes>
+    <innerclass refid="classRADData_1_1RADList_1_1const__iterator" prot="public">RADData::RADList::const_iterator</innerclass>
+    <innerclass refid="classRADData_1_1RADList_1_1iterator" prot="public">RADData::RADList::iterator</innerclass>
+    <innerclass refid="structRADData_1_1RADList_1_1Node" prot="private">RADData::RADList::Node</innerclass>
+    <templateparamlist>
+      <param>
+        <type>typename T</type>
+      </param>
+      <param>
+        <type>typename Alloc</type>
+        <defval>std::allocator&lt;T&gt;</defval>
+      </param>
+    </templateparamlist>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classRADData_1_1RADList_1ab554248fa8b66d1b28b253c32d55f063" prot="private" static="no" mutable="no">
+        <type>Node *</type>
+        <definition>Node* RADData::RADList&lt; T, Alloc &gt;::head_</definition>
+        <argsstring></argsstring>
+        <name>head_</name>
+        <initializer>= nullptr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" line="1615" column="14" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" bodystart="1615" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classRADData_1_1RADList_1a813fc46365154004de4e5509e5d74fa9" prot="private" static="no" mutable="no">
+        <type>Node *</type>
+        <definition>Node* RADData::RADList&lt; T, Alloc &gt;::tail_</definition>
+        <argsstring></argsstring>
+        <name>tail_</name>
+        <initializer>= nullptr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" line="1616" column="14" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" bodystart="1616" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classRADData_1_1RADList_1a662a7f876f5f3f8490ce033258a7a199" prot="private" static="no" mutable="no">
+        <type>size_t</type>
+        <definition>size_t RADData::RADList&lt; T, Alloc &gt;::size_</definition>
+        <argsstring></argsstring>
+        <name>size_</name>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" line="1617" column="16" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" bodystart="1617" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classRADData_1_1RADList_1a11cf45665a218f6ad5e698e76b92bff1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>RADData::RADList&lt; T, Alloc &gt;::RADList</definition>
+        <argsstring>()=default</argsstring>
+        <name>RADList</name>
+        <briefdescription>
+<para>Creates an empty list. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" line="1416" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADData_1_1RADList_1ac8f2e05bcc0e826c7772c3c975dca62f" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>RADData::RADList&lt; T, Alloc &gt;::RADList</definition>
+        <argsstring>(std::initializer_list&lt; T &gt; values)</argsstring>
+        <name>RADList</name>
+        <param>
+          <type>std::initializer_list&lt; T &gt;</type>
+          <declname>values</declname>
+        </param>
+        <briefdescription>
+<para>Creates a list from initializer-list values. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" line="1419" column="9" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" bodystart="1419" bodyend="1421"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADData_1_1RADList_1a8924ab6dce524dcb0f65659d9e8902e5" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>RADData::RADList&lt; T, Alloc &gt;::RADList</definition>
+        <argsstring>(const RADList &amp;other)</argsstring>
+        <name>RADList</name>
+        <param>
+          <type>const <ref refid="classRADData_1_1RADList" kindref="compound">RADList</ref> &amp;</type>
+          <declname>other</declname>
+        </param>
+        <briefdescription>
+<para>Copies another list. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" line="1424" column="9" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" bodystart="1424" bodyend="1426"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADData_1_1RADList_1a321415e74a26b06a5cd55c088f3f8614" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classRADData_1_1RADList" kindref="compound">RADList</ref> &amp;</type>
+        <definition>RADList&amp; RADData::RADList&lt; T, Alloc &gt;::operator=</definition>
+        <argsstring>(const RADList &amp;other)</argsstring>
+        <name>operator=</name>
+        <param>
+          <type>const <ref refid="classRADData_1_1RADList" kindref="compound">RADList</ref> &amp;</type>
+          <declname>other</declname>
+        </param>
+        <briefdescription>
+<para>Replaces this list with a copy of other. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" line="1429" column="17" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" bodystart="1429" bodyend="1434"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADData_1_1RADList_1ac61ba3de5f561fb9bc30b4919e7a9b77" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type></type>
+        <definition>RADData::RADList&lt; T, Alloc &gt;::RADList</definition>
+        <argsstring>(RADList &amp;&amp;other) noexcept</argsstring>
+        <name>RADList</name>
+        <param>
+          <type><ref refid="classRADData_1_1RADList" kindref="compound">RADList</ref> &amp;&amp;</type>
+          <declname>other</declname>
+        </param>
+        <briefdescription>
+<para>Moves another list by taking its node chain. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" line="1437" column="9" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" bodystart="1437" bodyend="1442"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADData_1_1RADList_1a870d44d48d9963c99898de889f23e16f" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type><ref refid="classRADData_1_1RADList" kindref="compound">RADList</ref> &amp;</type>
+        <definition>RADList&amp; RADData::RADList&lt; T, Alloc &gt;::operator=</definition>
+        <argsstring>(RADList &amp;&amp;other) noexcept</argsstring>
+        <name>operator=</name>
+        <param>
+          <type><ref refid="classRADData_1_1RADList" kindref="compound">RADList</ref> &amp;&amp;</type>
+          <declname>other</declname>
+        </param>
+        <briefdescription>
+<para>Replaces this list by taking other&apos;s node chain. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" line="1445" column="17" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" bodystart="1445" bodyend="1455"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADData_1_1RADList_1afc51ce9c4164f21897db4b0ab3cfa929" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>RADData::RADList&lt; T, Alloc &gt;::~RADList</definition>
+        <argsstring>()</argsstring>
+        <name>~RADList</name>
+        <briefdescription>
+<para>Destroys all nodes. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" line="1458" column="9" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" bodystart="1458" bodyend="1460"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADData_1_1RADList_1a9dfa965c50b0d11c8071322493becfae" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type><ref refid="classRADData_1_1RADList_1_1iterator" kindref="compound">iterator</ref></type>
+        <definition>iterator RADData::RADList&lt; T, Alloc &gt;::begin</definition>
+        <argsstring>() noexcept</argsstring>
+        <name>begin</name>
+        <briefdescription>
+<para>Returns iterator to first node. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" line="1504" column="18" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" bodystart="1504" bodyend="1504"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADData_1_1RADList_1a380e99bd59cb980be8daf9499177c18c" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type><ref refid="classRADData_1_1RADList_1_1iterator" kindref="compound">iterator</ref></type>
+        <definition>iterator RADData::RADList&lt; T, Alloc &gt;::end</definition>
+        <argsstring>() noexcept</argsstring>
+        <name>end</name>
+        <briefdescription>
+<para>Returns end iterator. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" line="1506" column="18" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" bodystart="1506" bodyend="1506"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADData_1_1RADList_1a8c6ef8398d37cc3a75fb7e698845d024" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type><ref refid="classRADData_1_1RADList_1_1const__iterator" kindref="compound">const_iterator</ref></type>
+        <definition>const_iterator RADData::RADList&lt; T, Alloc &gt;::begin</definition>
+        <argsstring>() const noexcept</argsstring>
+        <name>begin</name>
+        <briefdescription>
+<para>Returns const iterator to first node. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" line="1508" column="24" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" bodystart="1508" bodyend="1508"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADData_1_1RADList_1a2fcbbd4aeb04fef63315a5253e02e465" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type><ref refid="classRADData_1_1RADList_1_1const__iterator" kindref="compound">const_iterator</ref></type>
+        <definition>const_iterator RADData::RADList&lt; T, Alloc &gt;::end</definition>
+        <argsstring>() const noexcept</argsstring>
+        <name>end</name>
+        <briefdescription>
+<para>Returns const end iterator. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" line="1510" column="24" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" bodystart="1510" bodyend="1510"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADData_1_1RADList_1ae54e4bc467d81c854c5cf2de1cff3358" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool RADData::RADList&lt; T, Alloc &gt;::empty</definition>
+        <argsstring>() const noexcept</argsstring>
+        <name>empty</name>
+        <briefdescription>
+<para>Returns true when no nodes are present. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" line="1512" column="14" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" bodystart="1512" bodyend="1512"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADData_1_1RADList_1aba875409e1582b1701e6fe67f78efa9f" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type>size_t</type>
+        <definition>size_t RADData::RADList&lt; T, Alloc &gt;::size</definition>
+        <argsstring>() const noexcept</argsstring>
+        <name>size</name>
+        <briefdescription>
+<para>Returns number of nodes. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" line="1514" column="16" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" bodystart="1514" bodyend="1514"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADData_1_1RADList_1ade15f9c6fd7d2d189daaaa973e2df101" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type>T &amp;</type>
+        <definition>T&amp; RADData::RADList&lt; T, Alloc &gt;::front</definition>
+        <argsstring>() noexcept</argsstring>
+        <name>front</name>
+        <briefdescription>
+<para>Returns first element. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" line="1516" column="11" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" bodystart="1516" bodyend="1516"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADData_1_1RADList_1a68a25600974139610f7b777989514df2" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type>const T &amp;</type>
+        <definition>const T&amp; RADData::RADList&lt; T, Alloc &gt;::front</definition>
+        <argsstring>() const noexcept</argsstring>
+        <name>front</name>
+        <briefdescription>
+<para>Returns first element. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" line="1518" column="17" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" bodystart="1518" bodyend="1518"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADData_1_1RADList_1a011341590b7e6a26eb2abbeb3d7919b4" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type>T &amp;</type>
+        <definition>T&amp; RADData::RADList&lt; T, Alloc &gt;::back</definition>
+        <argsstring>() noexcept</argsstring>
+        <name>back</name>
+        <briefdescription>
+<para>Returns last element. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" line="1520" column="11" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" bodystart="1520" bodyend="1520"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADData_1_1RADList_1a2b283e43beb9821b9e2d9e727d764527" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type>const T &amp;</type>
+        <definition>const T&amp; RADData::RADList&lt; T, Alloc &gt;::back</definition>
+        <argsstring>() const noexcept</argsstring>
+        <name>back</name>
+        <briefdescription>
+<para>Returns last element. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" line="1522" column="17" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" bodystart="1522" bodyend="1522"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADData_1_1RADList_1a9879687316cafbce4f0014d0953255a6" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename...</type>
+            <declname>Args</declname>
+            <defname>Args</defname>
+          </param>
+        </templateparamlist>
+        <type>T &amp;</type>
+        <definition>T&amp; RADData::RADList&lt; T, Alloc &gt;::emplace_back</definition>
+        <argsstring>(Args &amp;&amp;... args)</argsstring>
+        <name>emplace_back</name>
+        <param>
+          <type>Args &amp;&amp;...</type>
+          <declname>args</declname>
+        </param>
+        <briefdescription>
+<para>Constructs an element at the back and returns it. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" line="1526" column="11" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" bodystart="1526" bodyend="1534"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADData_1_1RADList_1a4bf7e046d4a52496d63c32f665d77fbb" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename...</type>
+            <declname>Args</declname>
+            <defname>Args</defname>
+          </param>
+        </templateparamlist>
+        <type>T &amp;</type>
+        <definition>T&amp; RADData::RADList&lt; T, Alloc &gt;::emplace_front</definition>
+        <argsstring>(Args &amp;&amp;... args)</argsstring>
+        <name>emplace_front</name>
+        <param>
+          <type>Args &amp;&amp;...</type>
+          <declname>args</declname>
+        </param>
+        <briefdescription>
+<para>Constructs an element at the front and returns it. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" line="1538" column="11" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" bodystart="1538" bodyend="1546"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADData_1_1RADList_1a07625c2a5e02e0f92c80cc5c244fc836" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void RADData::RADList&lt; T, Alloc &gt;::push_back</definition>
+        <argsstring>(const T &amp;value)</argsstring>
+        <name>push_back</name>
+        <param>
+          <type>const T &amp;</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+<para>Appends a copy at the back. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" line="1549" column="14" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" bodystart="1549" bodyend="1549"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADData_1_1RADList_1abe269aa8dac4b25cf19e473574759433" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void RADData::RADList&lt; T, Alloc &gt;::push_back</definition>
+        <argsstring>(T &amp;&amp;value)</argsstring>
+        <name>push_back</name>
+        <param>
+          <type>T &amp;&amp;</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+<para>Appends a moved value at the back. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" line="1551" column="14" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" bodystart="1551" bodyend="1551"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADData_1_1RADList_1aafaed17c714a257092c8f793b9b4001b" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void RADData::RADList&lt; T, Alloc &gt;::push_front</definition>
+        <argsstring>(const T &amp;value)</argsstring>
+        <name>push_front</name>
+        <param>
+          <type>const T &amp;</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+<para>Prepends a copy at the front. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" line="1553" column="14" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" bodystart="1553" bodyend="1553"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADData_1_1RADList_1ac49fd5ed986788f182344c8b4652fab6" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void RADData::RADList&lt; T, Alloc &gt;::push_front</definition>
+        <argsstring>(T &amp;&amp;value)</argsstring>
+        <name>push_front</name>
+        <param>
+          <type>T &amp;&amp;</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+<para>Prepends a moved value at the front. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" line="1555" column="14" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" bodystart="1555" bodyend="1555"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADData_1_1RADList_1af07ac519cbd7585d394d59e599843c69" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void RADData::RADList&lt; T, Alloc &gt;::pop_front</definition>
+        <argsstring>()</argsstring>
+        <name>pop_front</name>
+        <briefdescription>
+<para>Removes the first node. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" line="1558" column="14" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" bodystart="1558" bodyend="1566"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADData_1_1RADList_1a475c4d1de84f761ab1fd6ba1d603a7e1" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void RADData::RADList&lt; T, Alloc &gt;::pop_back</definition>
+        <argsstring>()</argsstring>
+        <name>pop_back</name>
+        <briefdescription>
+<para>Removes the last node. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" line="1569" column="14" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" bodystart="1569" bodyend="1577"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADData_1_1RADList_1af9c70acbf5b46d2643958c0f222b2ae8" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classRADData_1_1RADList_1_1iterator" kindref="compound">iterator</ref></type>
+        <definition>iterator RADData::RADList&lt; T, Alloc &gt;::erase</definition>
+        <argsstring>(iterator it)</argsstring>
+        <name>erase</name>
+        <param>
+          <type><ref refid="classRADData_1_1RADList_1_1iterator" kindref="compound">iterator</ref></type>
+          <declname>it</declname>
+        </param>
+        <briefdescription>
+<para>Erases the node at it and returns the following iterator. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" line="1580" column="18" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" bodystart="1580" bodyend="1591"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADData_1_1RADList_1a4a84999443455ad1ee5ae8b2140baea1" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void RADData::RADList&lt; T, Alloc &gt;::clear</definition>
+        <argsstring>() noexcept</argsstring>
+        <name>clear</name>
+        <briefdescription>
+<para>Removes all nodes. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" line="1594" column="14" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" bodystart="1594" bodyend="1604"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Stable-node doubly linked list for cases where node stability matters. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" line="1411" column="5" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" bodystart="1411" bodyend="1618"/>
+    <listofallmembers>
+      <member refid="classRADData_1_1RADList_1a011341590b7e6a26eb2abbeb3d7919b4" prot="public" virt="non-virtual"><scope>RADData::RADList</scope><name>back</name></member>
+      <member refid="classRADData_1_1RADList_1a2b283e43beb9821b9e2d9e727d764527" prot="public" virt="non-virtual"><scope>RADData::RADList</scope><name>back</name></member>
+      <member refid="classRADData_1_1RADList_1a9dfa965c50b0d11c8071322493becfae" prot="public" virt="non-virtual"><scope>RADData::RADList</scope><name>begin</name></member>
+      <member refid="classRADData_1_1RADList_1a8c6ef8398d37cc3a75fb7e698845d024" prot="public" virt="non-virtual"><scope>RADData::RADList</scope><name>begin</name></member>
+      <member refid="classRADData_1_1RADList_1a4a84999443455ad1ee5ae8b2140baea1" prot="public" virt="non-virtual"><scope>RADData::RADList</scope><name>clear</name></member>
+      <member refid="classRADData_1_1RADList_1a9879687316cafbce4f0014d0953255a6" prot="public" virt="non-virtual"><scope>RADData::RADList</scope><name>emplace_back</name></member>
+      <member refid="classRADData_1_1RADList_1a4bf7e046d4a52496d63c32f665d77fbb" prot="public" virt="non-virtual"><scope>RADData::RADList</scope><name>emplace_front</name></member>
+      <member refid="classRADData_1_1RADList_1ae54e4bc467d81c854c5cf2de1cff3358" prot="public" virt="non-virtual"><scope>RADData::RADList</scope><name>empty</name></member>
+      <member refid="classRADData_1_1RADList_1a380e99bd59cb980be8daf9499177c18c" prot="public" virt="non-virtual"><scope>RADData::RADList</scope><name>end</name></member>
+      <member refid="classRADData_1_1RADList_1a2fcbbd4aeb04fef63315a5253e02e465" prot="public" virt="non-virtual"><scope>RADData::RADList</scope><name>end</name></member>
+      <member refid="classRADData_1_1RADList_1af9c70acbf5b46d2643958c0f222b2ae8" prot="public" virt="non-virtual"><scope>RADData::RADList</scope><name>erase</name></member>
+      <member refid="classRADData_1_1RADList_1ade15f9c6fd7d2d189daaaa973e2df101" prot="public" virt="non-virtual"><scope>RADData::RADList</scope><name>front</name></member>
+      <member refid="classRADData_1_1RADList_1a68a25600974139610f7b777989514df2" prot="public" virt="non-virtual"><scope>RADData::RADList</scope><name>front</name></member>
+      <member refid="classRADData_1_1RADList_1ab554248fa8b66d1b28b253c32d55f063" prot="private" virt="non-virtual"><scope>RADData::RADList</scope><name>head_</name></member>
+      <member refid="classRADData_1_1RADList_1a321415e74a26b06a5cd55c088f3f8614" prot="public" virt="non-virtual"><scope>RADData::RADList</scope><name>operator=</name></member>
+      <member refid="classRADData_1_1RADList_1a870d44d48d9963c99898de889f23e16f" prot="public" virt="non-virtual"><scope>RADData::RADList</scope><name>operator=</name></member>
+      <member refid="classRADData_1_1RADList_1a475c4d1de84f761ab1fd6ba1d603a7e1" prot="public" virt="non-virtual"><scope>RADData::RADList</scope><name>pop_back</name></member>
+      <member refid="classRADData_1_1RADList_1af07ac519cbd7585d394d59e599843c69" prot="public" virt="non-virtual"><scope>RADData::RADList</scope><name>pop_front</name></member>
+      <member refid="classRADData_1_1RADList_1a07625c2a5e02e0f92c80cc5c244fc836" prot="public" virt="non-virtual"><scope>RADData::RADList</scope><name>push_back</name></member>
+      <member refid="classRADData_1_1RADList_1abe269aa8dac4b25cf19e473574759433" prot="public" virt="non-virtual"><scope>RADData::RADList</scope><name>push_back</name></member>
+      <member refid="classRADData_1_1RADList_1aafaed17c714a257092c8f793b9b4001b" prot="public" virt="non-virtual"><scope>RADData::RADList</scope><name>push_front</name></member>
+      <member refid="classRADData_1_1RADList_1ac49fd5ed986788f182344c8b4652fab6" prot="public" virt="non-virtual"><scope>RADData::RADList</scope><name>push_front</name></member>
+      <member refid="classRADData_1_1RADList_1a11cf45665a218f6ad5e698e76b92bff1" prot="public" virt="non-virtual"><scope>RADData::RADList</scope><name>RADList</name></member>
+      <member refid="classRADData_1_1RADList_1ac8f2e05bcc0e826c7772c3c975dca62f" prot="public" virt="non-virtual"><scope>RADData::RADList</scope><name>RADList</name></member>
+      <member refid="classRADData_1_1RADList_1a8924ab6dce524dcb0f65659d9e8902e5" prot="public" virt="non-virtual"><scope>RADData::RADList</scope><name>RADList</name></member>
+      <member refid="classRADData_1_1RADList_1ac61ba3de5f561fb9bc30b4919e7a9b77" prot="public" virt="non-virtual"><scope>RADData::RADList</scope><name>RADList</name></member>
+      <member refid="classRADData_1_1RADList_1aba875409e1582b1701e6fe67f78efa9f" prot="public" virt="non-virtual"><scope>RADData::RADList</scope><name>size</name></member>
+      <member refid="classRADData_1_1RADList_1a662a7f876f5f3f8490ce033258a7a199" prot="private" virt="non-virtual"><scope>RADData::RADList</scope><name>size_</name></member>
+      <member refid="classRADData_1_1RADList_1a813fc46365154004de4e5509e5d74fa9" prot="private" virt="non-virtual"><scope>RADData::RADList</scope><name>tail_</name></member>
+      <member refid="classRADData_1_1RADList_1afc51ce9c4164f21897db4b0ab3cfa929" prot="public" virt="non-virtual"><scope>RADData::RADList</scope><name>~RADList</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

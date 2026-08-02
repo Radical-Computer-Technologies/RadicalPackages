@@ -1,0 +1,143 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="classRADUi_1_1Slint_1_1Detail_1_1PlotComponentBridge" kind="class" language="C++" prot="public">
+    <compoundname>RADUi::Slint::Detail::PlotComponentBridge</compoundname>
+    <basecompoundref refid="classRADCore_1_1RADObject" prot="public" virt="non-virtual">RADCore::RADObject</basecompoundref>
+    <includes refid="RADSlintPlot_8h" local="no">RADSlintPlot.h</includes>
+    <innerclass refid="structRADUi_1_1Slint_1_1Detail_1_1PlotComponentBridge_1_1State" prot="private">RADUi::Slint::Detail::PlotComponentBridge::State</innerclass>
+    <templateparamlist>
+      <param>
+        <type>typename Component</type>
+      </param>
+      <param>
+        <type>typename Setter</type>
+      </param>
+    </templateparamlist>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classRADUi_1_1Slint_1_1Detail_1_1PlotComponentBridge_1a59698771792f538ab8c6e1212cd2750e" prot="private" static="no" mutable="no">
+        <type>std::shared_ptr&lt; State &gt;</type>
+        <definition>std::shared_ptr&lt;State&gt; RADUi::Slint::Detail::PlotComponentBridge&lt; Component, Setter &gt;::state_</definition>
+        <argsstring></argsstring>
+        <name>state_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADSlintPlot.h" line="103" column="29" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADSlintPlot.h" bodystart="103" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classRADUi_1_1Slint_1_1Detail_1_1PlotComponentBridge_1a36c6d3d04b5f233842b7c957c40a9f10" prot="private" static="no" mutable="no">
+        <type><ref refid="classRADCore_1_1Connection" kindref="compound">RADCore::Connection</ref></type>
+        <definition>RADCore::Connection RADUi::Slint::Detail::PlotComponentBridge&lt; Component, Setter &gt;::connection_</definition>
+        <argsstring></argsstring>
+        <name>connection_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADSlintPlot.h" line="104" column="33" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADSlintPlot.h" bodystart="104" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classRADUi_1_1Slint_1_1Detail_1_1PlotComponentBridge_1a97000cc6449c31b27baf2b72537a47f5" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>RADUi::Slint::Detail::PlotComponentBridge&lt; Component, Setter &gt;::PlotComponentBridge</definition>
+        <argsstring>(RADUi::PlotModel &amp;model, const slint::ComponentHandle&lt; Component &gt; &amp;component, Setter setter, RADUi::PlotViewport viewport, double framesPerSecond, RADUi::PlotRenderMode renderMode)</argsstring>
+        <name>PlotComponentBridge</name>
+        <param>
+          <type><ref refid="classRADUi_1_1PlotModel" kindref="compound">RADUi::PlotModel</ref> &amp;</type>
+          <declname>model</declname>
+        </param>
+        <param>
+          <type>const slint::ComponentHandle&lt; Component &gt; &amp;</type>
+          <declname>component</declname>
+        </param>
+        <param>
+          <type>Setter</type>
+          <declname>setter</declname>
+        </param>
+        <param>
+          <type><ref refid="structRADUi_1_1PlotViewport" kindref="compound">RADUi::PlotViewport</ref></type>
+          <declname>viewport</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>framesPerSecond</declname>
+        </param>
+        <param>
+          <type><ref refid="namespaceRADUi_1aae1cf4ed7a7c53a1a58507d311d90da1" kindref="member">RADUi::PlotRenderMode</ref></type>
+          <declname>renderMode</declname>
+        </param>
+        <briefdescription>
+<para>Connects to model changes and configures rendering. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADSlintPlot.h" line="48" column="13" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADSlintPlot.h" bodystart="48" bodyend="64"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADUi_1_1Slint_1_1Detail_1_1PlotComponentBridge_1a91c6ab6981ba665bcdd34ae2b4c48c1c" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void RADUi::Slint::Detail::PlotComponentBridge&lt; Component, Setter &gt;::handleDataChanged</definition>
+        <argsstring>()</argsstring>
+        <name>handleDataChanged</name>
+        <briefdescription>
+<para>Schedules a rate-limited render after model data changes. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADSlintPlot.h" line="67" column="18" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADSlintPlot.h" bodystart="67" bodyend="77"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Bridge object that renders a <ref refid="classRADUi_1_1PlotModel" kindref="compound">PlotModel</ref> into a <ref refid="namespaceRADUi_1_1Slint" kindref="compound">Slint</ref> image property. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>RADCore::RADObject</label>
+        <link refid="classRADCore_1_1RADObject"/>
+      </node>
+      <node id="1">
+        <label>RADUi::Slint::Detail::PlotComponentBridge&lt; Component, Setter &gt;</label>
+        <link refid="classRADUi_1_1Slint_1_1Detail_1_1PlotComponentBridge"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>RADCore::RADObject</label>
+        <link refid="classRADCore_1_1RADObject"/>
+      </node>
+      <node id="1">
+        <label>RADUi::Slint::Detail::PlotComponentBridge&lt; Component, Setter &gt;</label>
+        <link refid="classRADUi_1_1Slint_1_1Detail_1_1PlotComponentBridge"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADSlintPlot.h" line="45" column="9" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADSlintPlot.h" bodystart="45" bodyend="105"/>
+    <listofallmembers>
+      <member refid="classRADCore_1_1RADObject_1a06cdf252ffb5e2f88332ebda12a62080" prot="public" virt="non-virtual"><scope>RADUi::Slint::Detail::PlotComponentBridge</scope><name>associatedEventLoop</name></member>
+      <member refid="classRADUi_1_1Slint_1_1Detail_1_1PlotComponentBridge_1a36c6d3d04b5f233842b7c957c40a9f10" prot="private" virt="non-virtual"><scope>RADUi::Slint::Detail::PlotComponentBridge</scope><name>connection_</name></member>
+      <member refid="classRADUi_1_1Slint_1_1Detail_1_1PlotComponentBridge_1a91c6ab6981ba665bcdd34ae2b4c48c1c" prot="public" virt="non-virtual"><scope>RADUi::Slint::Detail::PlotComponentBridge</scope><name>handleDataChanged</name></member>
+      <member refid="classRADCore_1_1RADObject_1ad2ddfd066d14be9adc2f96bfca417fc6" prot="public" virt="non-virtual"><scope>RADUi::Slint::Detail::PlotComponentBridge</scope><name>lifetimeToken</name></member>
+      <member refid="classRADCore_1_1RADObject_1a1f7f7f2fb40211e28455cd74a029339a" prot="public" virt="non-virtual"><scope>RADUi::Slint::Detail::PlotComponentBridge</scope><name>moveToThread</name></member>
+      <member refid="classRADUi_1_1Slint_1_1Detail_1_1PlotComponentBridge_1a97000cc6449c31b27baf2b72537a47f5" prot="public" virt="non-virtual"><scope>RADUi::Slint::Detail::PlotComponentBridge</scope><name>PlotComponentBridge</name></member>
+      <member refid="classRADCore_1_1RADObject_1a9bc3fed915f7c71232e68c2628d34708" prot="public" virt="non-virtual"><scope>RADUi::Slint::Detail::PlotComponentBridge</scope><name>RADObject</name></member>
+      <member refid="classRADCore_1_1RADObject_1af3e26b970c8080418f0d6b80cad986a2" prot="public" virt="non-virtual"><scope>RADUi::Slint::Detail::PlotComponentBridge</scope><name>registerLink</name></member>
+      <member refid="classRADUi_1_1Slint_1_1Detail_1_1PlotComponentBridge_1a59698771792f538ab8c6e1212cd2750e" prot="private" virt="non-virtual"><scope>RADUi::Slint::Detail::PlotComponentBridge</scope><name>state_</name></member>
+      <member refid="classRADCore_1_1RADObject_1a8b11df0b951d0db1ba99cfb851e34f31" prot="public" virt="non-virtual"><scope>RADUi::Slint::Detail::PlotComponentBridge</scope><name>threadAffinity</name></member>
+      <member refid="classRADCore_1_1RADObject_1ac7ca67b41523794ae5a6b3634d6ce3b6" prot="public" virt="non-virtual"><scope>RADUi::Slint::Detail::PlotComponentBridge</scope><name>threadId</name></member>
+      <member refid="classRADCore_1_1RADObject_1a7369e27a46c163ee89c63227db650ce5" prot="public" virt="virtual"><scope>RADUi::Slint::Detail::PlotComponentBridge</scope><name>~RADObject</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

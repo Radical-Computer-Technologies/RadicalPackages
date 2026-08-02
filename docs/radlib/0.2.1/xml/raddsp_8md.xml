@@ -1,0 +1,46 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="raddsp_8md" kind="file" language="Markdown">
+    <compoundname>raddsp.md</compoundname>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline><highlight class="normal">#<sp/>RADDsp</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">RADDsp<sp/>is<sp/>a<sp/>standalone<sp/>DSP<sp/>module<sp/>for<sp/>audio,<sp/>SDR/IQ,<sp/>plotting,<sp/>and<sp/>analysis</highlight></codeline>
+<codeline><highlight class="normal">tools.<sp/>It<sp/>intentionally<sp/>has<sp/>no<sp/>dependency<sp/>on<sp/>RADMedia<sp/>so<sp/>it<sp/>can<sp/>be<sp/>reused<sp/>across</highlight></codeline>
+<codeline><highlight class="normal">different<sp/>data<sp/>sources.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Current<sp/>primitives<sp/>include<sp/>gain,<sp/>mixing,<sp/>peak/RMS,<sp/>normalization,<sp/>sine/noise</highlight></codeline>
+<codeline><highlight class="normal">generation,<sp/>interleave/deinterleave,<sp/>linear<sp/>resampling,<sp/>windows,<sp/>FIR<sp/>filtering,</highlight></codeline>
+<codeline><highlight class="normal">one-pole<sp/>low-pass<sp/>filtering,<sp/>clean<sp/>digital<sp/>delay,<sp/>analog-style<sp/>modulated<sp/>delay,</highlight></codeline>
+<codeline><highlight class="normal">and<sp/>complex/IQ<sp/>magnitude,<sp/>phase,<sp/>gain,<sp/>and<sp/>frequency<sp/>shifting.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>Real-time<sp/>audio<sp/>effects</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">`RADDsp::DigitalDelay`<sp/>is<sp/>a<sp/>clean<sp/>stereo<sp/>delay<sp/>line<sp/>for<sp/>predictable<sp/>tempo<sp/>or</highlight></codeline>
+<codeline><highlight class="normal">millisecond<sp/>delays.<sp/>It<sp/>supports<sp/>fractional<sp/>delay<sp/>reads,<sp/>bounded<sp/>same-channel</highlight></codeline>
+<codeline><highlight class="normal">feedback,<sp/>bounded<sp/>cross-feedback<sp/>for<sp/>ping-pong<sp/>style<sp/>routing,<sp/>and<sp/>dry/wet<sp/>gain</highlight></codeline>
+<codeline><highlight class="normal">controls.<sp/>The<sp/>class<sp/>can<sp/>process<sp/>one<sp/>`StereoFrame`<sp/>at<sp/>a<sp/>time<sp/>or<sp/>an<sp/>interleaved</highlight></codeline>
+<codeline><highlight class="normal">stereo<sp/>block,<sp/>which<sp/>keeps<sp/>it<sp/>usable<sp/>from<sp/>ALSA<sp/>callbacks,<sp/>RADMedia<sp/>pipelines,<sp/>and</highlight></codeline>
+<codeline><highlight class="normal">FPiGA<sp/>control<sp/>applications.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">`RADDsp::AnalogModDelay`<sp/>builds<sp/>on<sp/>the<sp/>same<sp/>delay-line<sp/>model<sp/>but<sp/>adds<sp/>LFO<sp/>delay</highlight></codeline>
+<codeline><highlight class="normal">modulation,<sp/>feedback<sp/>tone<sp/>smoothing,<sp/>stereo<sp/>LFO<sp/>phase<sp/>offset,<sp/>and<sp/>soft</highlight></codeline>
+<codeline><highlight class="normal">saturation.<sp/>This<sp/>is<sp/>intended<sp/>for<sp/>tape/analog-flavored<sp/>delay,<sp/>chorus-like<sp/>short</highlight></codeline>
+<codeline><highlight class="normal">delays,<sp/>and<sp/>FPiGA<sp/>software<sp/>effects<sp/>where<sp/>the<sp/>FPGA<sp/>synth<sp/>remains<sp/>low-latency<sp/>and</highlight></codeline>
+<codeline><highlight class="normal">the<sp/>Pi<sp/>path<sp/>adds<sp/>character<sp/>effects.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">The<sp/>reverb<sp/>path<sp/>should<sp/>start<sp/>with<sp/>a<sp/>Dattorro/Schroeder-Moorer/FDN-style</highlight></codeline>
+<codeline><highlight class="normal">algorithmic<sp/>implementation<sp/>for<sp/>Pi<sp/>Zero<sp/>2<sp/>W<sp/>class<sp/>hardware.<sp/>That<sp/>family<sp/>gives<sp/>a</highlight></codeline>
+<codeline><highlight class="normal">lush<sp/>musical<sp/>tail<sp/>with<sp/>fixed<sp/>memory<sp/>and<sp/>predictable<sp/>CPU.<sp/>Convolution<sp/>remains</highlight></codeline>
+<codeline><highlight class="normal">valuable<sp/>for<sp/>realistic<sp/>spaces,<sp/>but<sp/>long<sp/>impulse<sp/>responses<sp/>should<sp/>be<sp/>treated<sp/>as<sp/>a</highlight></codeline>
+<codeline><highlight class="normal">later<sp/>partitioned-FFT<sp/>option<sp/>or<sp/>a<sp/>Pi<sp/>4<sp/>class<sp/>profile<sp/>because<sp/>latency,<sp/>memory,<sp/>and</highlight></codeline>
+<codeline><highlight class="normal">CPU<sp/>pressure<sp/>are<sp/>more<sp/>expensive<sp/>than<sp/>delay-network<sp/>reverb<sp/>in<sp/>the<sp/>embedded<sp/>synth</highlight></codeline>
+<codeline><highlight class="normal">use<sp/>case.</highlight></codeline>
+    </programlisting>
+    <location file="/media/jvincent/Kingspec512/repos/RADLib/docs/public/raddsp.md"/>
+  </compounddef>
+</doxygen>

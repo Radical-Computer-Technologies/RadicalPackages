@@ -1,0 +1,178 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="classRADCore_1_1RADLockFile" kind="class" language="C++" prot="public">
+    <compoundname>RADCore::RADLockFile</compoundname>
+    <includes refid="RADCore_8h" local="no">RADCore.h</includes>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classRADCore_1_1RADLockFile_1a1b182dd5012281b509024adcc71dcaae" prot="private" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string RADCore::RADLockFile::fileName_</definition>
+        <argsstring></argsstring>
+        <name>fileName_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADCore/headers/RADCore.h" line="881" column="21" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADCore/headers/RADCore.h" bodystart="881" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classRADCore_1_1RADLockFile_1a38740cace3604e5b2e5a59c369ae6486" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int RADCore::RADLockFile::fd_</definition>
+        <argsstring></argsstring>
+        <name>fd_</name>
+        <initializer>= -1</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADCore/headers/RADCore.h" line="882" column="13" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADCore/headers/RADCore.h" bodystart="882" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classRADCore_1_1RADLockFile_1a309ee1176c9b59629869612490d98283" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>RADCore::RADLockFile::RADLockFile</definition>
+        <argsstring>(std::string fileName)</argsstring>
+        <name>RADLockFile</name>
+        <param>
+          <type>std::string</type>
+          <declname>fileName</declname>
+        </param>
+        <briefdescription>
+<para>Creates a lock file object for fileName. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADCore/headers/RADCore.h" line="862" column="18"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADCore_1_1RADLockFile_1aebe3d33f5a097a49f365ae56e21a93fd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>RADCore::RADLockFile::~RADLockFile</definition>
+        <argsstring>()</argsstring>
+        <name>~RADLockFile</name>
+        <briefdescription>
+<para>Unlocks on destruction when needed. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADCore/headers/RADCore.h" line="864" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADCore_1_1RADLockFile_1a9b7c7e0843492ce4b8ee7d7065366675" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>RADCore::RADLockFile::RADLockFile</definition>
+        <argsstring>(const RADLockFile &amp;)=delete</argsstring>
+        <name>RADLockFile</name>
+        <param>
+          <type>const <ref refid="classRADCore_1_1RADLockFile" kindref="compound">RADLockFile</ref> &amp;</type>
+        </param>
+        <briefdescription>
+<para>Lock files cannot be copied. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADCore/headers/RADCore.h" line="867" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADCore_1_1RADLockFile_1af0069d80f2ad291e6c417171f62f3e9b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classRADCore_1_1RADLockFile" kindref="compound">RADLockFile</ref> &amp;</type>
+        <definition>RADLockFile&amp; RADCore::RADLockFile::operator=</definition>
+        <argsstring>(const RADLockFile &amp;)=delete</argsstring>
+        <name>operator=</name>
+        <param>
+          <type>const <ref refid="classRADCore_1_1RADLockFile" kindref="compound">RADLockFile</ref> &amp;</type>
+        </param>
+        <briefdescription>
+<para>Lock files cannot be copied. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADCore/headers/RADCore.h" line="869" column="21"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADCore_1_1RADLockFile_1a739ff0cc31d5e4fda053f5fca7cbcea3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool RADCore::RADLockFile::tryLock</definition>
+        <argsstring>()</argsstring>
+        <name>tryLock</name>
+        <briefdescription>
+<para>Attempts to acquire the lock. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADCore/headers/RADCore.h" line="872" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADCore_1_1RADLockFile_1a0b7b5173b2508ea7bbe237cc77e8ff6b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void RADCore::RADLockFile::unlock</definition>
+        <argsstring>()</argsstring>
+        <name>unlock</name>
+        <briefdescription>
+<para>Releases the lock if held. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADCore/headers/RADCore.h" line="874" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADCore_1_1RADLockFile_1a8d0b998453496e0405c28d50f296aa75" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool RADCore::RADLockFile::isLocked</definition>
+        <argsstring>() const</argsstring>
+        <name>isLocked</name>
+        <briefdescription>
+<para>Returns true when this object holds the lock. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADCore/headers/RADCore.h" line="876" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADCore_1_1RADLockFile_1a8988ca38dde78f5f15cd4202bd311836" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>const std::string &amp;</type>
+        <definition>const std::string&amp; RADCore::RADLockFile::fileName</definition>
+        <argsstring>() const</argsstring>
+        <name>fileName</name>
+        <briefdescription>
+<para>Returns the lock file path. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADCore/headers/RADCore.h" line="878" column="27"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Advisory filesystem lock file. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/media/jvincent/Kingspec512/repos/RADLib/RADCore/headers/RADCore.h" line="859" column="5" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADCore/headers/RADCore.h" bodystart="859" bodyend="883"/>
+    <listofallmembers>
+      <member refid="classRADCore_1_1RADLockFile_1a38740cace3604e5b2e5a59c369ae6486" prot="private" virt="non-virtual"><scope>RADCore::RADLockFile</scope><name>fd_</name></member>
+      <member refid="classRADCore_1_1RADLockFile_1a8988ca38dde78f5f15cd4202bd311836" prot="public" virt="non-virtual"><scope>RADCore::RADLockFile</scope><name>fileName</name></member>
+      <member refid="classRADCore_1_1RADLockFile_1a1b182dd5012281b509024adcc71dcaae" prot="private" virt="non-virtual"><scope>RADCore::RADLockFile</scope><name>fileName_</name></member>
+      <member refid="classRADCore_1_1RADLockFile_1a8d0b998453496e0405c28d50f296aa75" prot="public" virt="non-virtual"><scope>RADCore::RADLockFile</scope><name>isLocked</name></member>
+      <member refid="classRADCore_1_1RADLockFile_1af0069d80f2ad291e6c417171f62f3e9b" prot="public" virt="non-virtual"><scope>RADCore::RADLockFile</scope><name>operator=</name></member>
+      <member refid="classRADCore_1_1RADLockFile_1a309ee1176c9b59629869612490d98283" prot="public" virt="non-virtual"><scope>RADCore::RADLockFile</scope><name>RADLockFile</name></member>
+      <member refid="classRADCore_1_1RADLockFile_1a9b7c7e0843492ce4b8ee7d7065366675" prot="public" virt="non-virtual"><scope>RADCore::RADLockFile</scope><name>RADLockFile</name></member>
+      <member refid="classRADCore_1_1RADLockFile_1a739ff0cc31d5e4fda053f5fca7cbcea3" prot="public" virt="non-virtual"><scope>RADCore::RADLockFile</scope><name>tryLock</name></member>
+      <member refid="classRADCore_1_1RADLockFile_1a0b7b5173b2508ea7bbe237cc77e8ff6b" prot="public" virt="non-virtual"><scope>RADCore::RADLockFile</scope><name>unlock</name></member>
+      <member refid="classRADCore_1_1RADLockFile_1aebe3d33f5a097a49f365ae56e21a93fd" prot="public" virt="non-virtual"><scope>RADCore::RADLockFile</scope><name>~RADLockFile</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

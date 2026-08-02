@@ -1,0 +1,246 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="classRADDsp_1_1DigitalDelay" kind="class" language="C++" prot="public">
+    <compoundname>RADDsp::DigitalDelay</compoundname>
+    <includes refid="RADDsp_8h" local="no">RADDsp.h</includes>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classRADDsp_1_1DigitalDelay_1a6da289d335b80665959f6638602e57b6" prot="private" static="no" mutable="no">
+        <type><ref refid="structRADDsp_1_1DelaySettings" kindref="compound">DelaySettings</ref></type>
+        <definition>DelaySettings RADDsp::DigitalDelay::settings_</definition>
+        <argsstring></argsstring>
+        <name>settings_</name>
+        <initializer>{}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDsp/headers/RADDsp.h" line="257" column="23" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADDsp/headers/RADDsp.h" bodystart="257" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classRADDsp_1_1DigitalDelay_1aa92c3c0bd95bbef34e1ab0c27b6004f3" prot="private" static="no" mutable="no">
+        <type>std::vector&lt; float &gt;</type>
+        <definition>std::vector&lt;float&gt; RADDsp::DigitalDelay::bufferL_</definition>
+        <argsstring></argsstring>
+        <name>bufferL_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDsp/headers/RADDsp.h" line="258" column="21" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADDsp/headers/RADDsp.h" bodystart="258" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classRADDsp_1_1DigitalDelay_1a67fe7fae990e4e7e73d8fa6f43877f93" prot="private" static="no" mutable="no">
+        <type>std::vector&lt; float &gt;</type>
+        <definition>std::vector&lt;float&gt; RADDsp::DigitalDelay::bufferR_</definition>
+        <argsstring></argsstring>
+        <name>bufferR_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDsp/headers/RADDsp.h" line="259" column="21" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADDsp/headers/RADDsp.h" bodystart="259" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classRADDsp_1_1DigitalDelay_1a8008591663f9efe6d887dff4e70efb43" prot="private" static="no" mutable="no">
+        <type>size_t</type>
+        <definition>size_t RADDsp::DigitalDelay::writeIndex_</definition>
+        <argsstring></argsstring>
+        <name>writeIndex_</name>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDsp/headers/RADDsp.h" line="260" column="16" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADDsp/headers/RADDsp.h" bodystart="260" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classRADDsp_1_1DigitalDelay_1abd955d68ea781a994b823f6a59f330c9" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>RADDsp::DigitalDelay::DigitalDelay</definition>
+        <argsstring>(uint32_t sampleRate=48000, float maxDelayMs=2000.0f)</argsstring>
+        <name>DigitalDelay</name>
+        <param>
+          <type>uint32_t</type>
+          <declname>sampleRate</declname>
+          <defval>48000</defval>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>maxDelayMs</declname>
+          <defval>2000.0f</defval>
+        </param>
+        <briefdescription>
+<para>Creates a delay with sampleRate and maxDelayMs backing storage. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDsp/headers/RADDsp.h" line="239" column="18"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADDsp_1_1DigitalDelay_1a1900bd48e48d01c5215c27dc32d9ebbd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void RADDsp::DigitalDelay::configure</definition>
+        <argsstring>(const DelaySettings &amp;settings)</argsstring>
+        <name>configure</name>
+        <param>
+          <type>const <ref refid="structRADDsp_1_1DelaySettings" kindref="compound">DelaySettings</ref> &amp;</type>
+          <declname>settings</declname>
+        </param>
+        <briefdescription>
+<para>Applies sanitized settings and resizes backing storage when needed. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDsp/headers/RADDsp.h" line="241" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADDsp_1_1DigitalDelay_1aade0592cd208eed33b26bcf3c15d52ad" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>const <ref refid="structRADDsp_1_1DelaySettings" kindref="compound">DelaySettings</ref> &amp;</type>
+        <definition>const DelaySettings&amp; RADDsp::DigitalDelay::settings</definition>
+        <argsstring>() const</argsstring>
+        <name>settings</name>
+        <briefdescription>
+<para>Returns the active sanitized settings. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDsp/headers/RADDsp.h" line="243" column="29"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADDsp_1_1DigitalDelay_1a39afab21c204cf7c3dc9eaacc017ea74" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void RADDsp::DigitalDelay::setSampleRate</definition>
+        <argsstring>(uint32_t sampleRate)</argsstring>
+        <name>setSampleRate</name>
+        <param>
+          <type>uint32_t</type>
+          <declname>sampleRate</declname>
+        </param>
+        <briefdescription>
+<para>Updates sample rate while preserving timing settings. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDsp/headers/RADDsp.h" line="245" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADDsp_1_1DigitalDelay_1ad2a16e331f228a8624d45db5502b78ee" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void RADDsp::DigitalDelay::reset</definition>
+        <argsstring>()</argsstring>
+        <name>reset</name>
+        <briefdescription>
+<para>Clears delay memory and feedback history. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDsp/headers/RADDsp.h" line="247" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADDsp_1_1DigitalDelay_1ac20575baad653c832f7583be7f44c4f8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structRADDsp_1_1StereoFrame" kindref="compound">StereoFrame</ref></type>
+        <definition>StereoFrame RADDsp::DigitalDelay::processSample</definition>
+        <argsstring>(StereoFrame input)</argsstring>
+        <name>processSample</name>
+        <param>
+          <type><ref refid="structRADDsp_1_1StereoFrame" kindref="compound">StereoFrame</ref></type>
+          <declname>input</declname>
+        </param>
+        <briefdescription>
+<para>Processes one stereo frame. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDsp/headers/RADDsp.h" line="249" column="21"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADDsp_1_1DigitalDelay_1af55524d2aa806a4d0cf6949b92b4c99a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::vector&lt; float &gt;</type>
+        <definition>std::vector&lt;float&gt; RADDsp::DigitalDelay::processInterleavedStereo</definition>
+        <argsstring>(const std::vector&lt; float &gt; &amp;interleaved)</argsstring>
+        <name>processInterleavedStereo</name>
+        <param>
+          <type>const std::vector&lt; float &gt; &amp;</type>
+          <declname>interleaved</declname>
+        </param>
+        <briefdescription>
+<para>Processes interleaved stereo samples. Odd trailing samples are ignored. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDsp/headers/RADDsp.h" line="251" column="21"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="classRADDsp_1_1DigitalDelay_1a6b5ee4175efe5cd29e29746f32188fba" prot="private" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>float</type>
+        <definition>float RADDsp::DigitalDelay::readDelay</definition>
+        <argsstring>(const std::vector&lt; float &gt; &amp;buffer, float delaySamples) const</argsstring>
+        <name>readDelay</name>
+        <param>
+          <type>const std::vector&lt; float &gt; &amp;</type>
+          <declname>buffer</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>delaySamples</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDsp/headers/RADDsp.h" line="254" column="15"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADDsp_1_1DigitalDelay_1aac785eb7350161face3287faf139063a" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void RADDsp::DigitalDelay::resizeBuffer</definition>
+        <argsstring>()</argsstring>
+        <name>resizeBuffer</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDsp/headers/RADDsp.h" line="255" column="14"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Clean stereo delay with fractional delay reads and optional cross-feedback. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDsp/headers/RADDsp.h" line="236" column="5" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADDsp/headers/RADDsp.h" bodystart="236" bodyend="261"/>
+    <listofallmembers>
+      <member refid="classRADDsp_1_1DigitalDelay_1aa92c3c0bd95bbef34e1ab0c27b6004f3" prot="private" virt="non-virtual"><scope>RADDsp::DigitalDelay</scope><name>bufferL_</name></member>
+      <member refid="classRADDsp_1_1DigitalDelay_1a67fe7fae990e4e7e73d8fa6f43877f93" prot="private" virt="non-virtual"><scope>RADDsp::DigitalDelay</scope><name>bufferR_</name></member>
+      <member refid="classRADDsp_1_1DigitalDelay_1a1900bd48e48d01c5215c27dc32d9ebbd" prot="public" virt="non-virtual"><scope>RADDsp::DigitalDelay</scope><name>configure</name></member>
+      <member refid="classRADDsp_1_1DigitalDelay_1abd955d68ea781a994b823f6a59f330c9" prot="public" virt="non-virtual"><scope>RADDsp::DigitalDelay</scope><name>DigitalDelay</name></member>
+      <member refid="classRADDsp_1_1DigitalDelay_1af55524d2aa806a4d0cf6949b92b4c99a" prot="public" virt="non-virtual"><scope>RADDsp::DigitalDelay</scope><name>processInterleavedStereo</name></member>
+      <member refid="classRADDsp_1_1DigitalDelay_1ac20575baad653c832f7583be7f44c4f8" prot="public" virt="non-virtual"><scope>RADDsp::DigitalDelay</scope><name>processSample</name></member>
+      <member refid="classRADDsp_1_1DigitalDelay_1a6b5ee4175efe5cd29e29746f32188fba" prot="private" virt="non-virtual"><scope>RADDsp::DigitalDelay</scope><name>readDelay</name></member>
+      <member refid="classRADDsp_1_1DigitalDelay_1ad2a16e331f228a8624d45db5502b78ee" prot="public" virt="non-virtual"><scope>RADDsp::DigitalDelay</scope><name>reset</name></member>
+      <member refid="classRADDsp_1_1DigitalDelay_1aac785eb7350161face3287faf139063a" prot="private" virt="non-virtual"><scope>RADDsp::DigitalDelay</scope><name>resizeBuffer</name></member>
+      <member refid="classRADDsp_1_1DigitalDelay_1a39afab21c204cf7c3dc9eaacc017ea74" prot="public" virt="non-virtual"><scope>RADDsp::DigitalDelay</scope><name>setSampleRate</name></member>
+      <member refid="classRADDsp_1_1DigitalDelay_1aade0592cd208eed33b26bcf3c15d52ad" prot="public" virt="non-virtual"><scope>RADDsp::DigitalDelay</scope><name>settings</name></member>
+      <member refid="classRADDsp_1_1DigitalDelay_1a6da289d335b80665959f6638602e57b6" prot="private" virt="non-virtual"><scope>RADDsp::DigitalDelay</scope><name>settings_</name></member>
+      <member refid="classRADDsp_1_1DigitalDelay_1a8008591663f9efe6d887dff4e70efb43" prot="private" virt="non-virtual"><scope>RADDsp::DigitalDelay</scope><name>writeIndex_</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

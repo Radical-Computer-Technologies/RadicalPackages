@@ -1,0 +1,309 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="classRADData_1_1RADByteArray" kind="class" language="C++" prot="public">
+    <compoundname>RADData::RADByteArray</compoundname>
+    <includes refid="RADDataStructures_8h" local="no">RADDataStructures.h</includes>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classRADData_1_1RADByteArray_1a4f22d356de563382cfdb13d54c00f921" prot="private" static="no" mutable="no">
+        <type>std::vector&lt; uint8_t &gt;</type>
+        <definition>std::vector&lt;uint8_t&gt; RADData::RADByteArray::bytes_</definition>
+        <argsstring></argsstring>
+        <name>bytes_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" line="120" column="21" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" bodystart="120" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classRADData_1_1RADByteArray_1af8f8f871eb7f304bc946af8c2f3b9906" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>RADData::RADByteArray::RADByteArray</definition>
+        <argsstring>()=default</argsstring>
+        <name>RADByteArray</name>
+        <briefdescription>
+<para>Creates an empty byte array. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" line="82" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADData_1_1RADByteArray_1a16b64259d650ed05c2c411c191cf415c" prot="public" static="no" const="no" explicit="yes" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>RADData::RADByteArray::RADByteArray</definition>
+        <argsstring>(size_t count)</argsstring>
+        <name>RADByteArray</name>
+        <param>
+          <type>size_t</type>
+          <declname>count</declname>
+        </param>
+        <briefdescription>
+<para>Creates count zero-initialized bytes. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" line="84" column="18" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" bodystart="84" bodyend="84"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADData_1_1RADByteArray_1a7a4c372968884cd6aa7a1d05e8d165f6" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>RADData::RADByteArray::RADByteArray</definition>
+        <argsstring>(const void *data, size_t size)</argsstring>
+        <name>RADByteArray</name>
+        <param>
+          <type>const void *</type>
+          <declname>data</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>size</declname>
+        </param>
+        <briefdescription>
+<para>Creates bytes from raw memory. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" line="86" column="9" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" bodystart="86" bodyend="86"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADData_1_1RADByteArray_1aa3b41379113fe3bc5d6c7fdbaad7a375" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>size_t</type>
+        <definition>size_t RADData::RADByteArray::size</definition>
+        <argsstring>() const</argsstring>
+        <name>size</name>
+        <briefdescription>
+<para>Returns number of bytes. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" line="89" column="16" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" bodystart="89" bodyend="89"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADData_1_1RADByteArray_1a444fb2d120235eca37af3ef632f4f21a" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool RADData::RADByteArray::empty</definition>
+        <argsstring>() const</argsstring>
+        <name>empty</name>
+        <briefdescription>
+<para>Returns true when no bytes are stored. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" line="91" column="14" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" bodystart="91" bodyend="91"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADData_1_1RADByteArray_1af7eb29c917bbba6a7da095b9acb68c70" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>uint8_t *</type>
+        <definition>uint8_t* RADData::RADByteArray::data</definition>
+        <argsstring>()</argsstring>
+        <name>data</name>
+        <briefdescription>
+<para>Returns mutable byte pointer. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" line="93" column="17" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" bodystart="93" bodyend="93"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADData_1_1RADByteArray_1a881d6941f044b432f0c9df75d3f81f06" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>const uint8_t *</type>
+        <definition>const uint8_t* RADData::RADByteArray::data</definition>
+        <argsstring>() const</argsstring>
+        <name>data</name>
+        <briefdescription>
+<para>Returns const byte pointer. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" line="95" column="23" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" bodystart="95" bodyend="95"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADData_1_1RADByteArray_1a335cfd727f488b06febce7093dbc0ba3" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>uint8_t &amp;</type>
+        <definition>uint8_t&amp; RADData::RADByteArray::operator[]</definition>
+        <argsstring>(size_t index)</argsstring>
+        <name>operator[]</name>
+        <param>
+          <type>size_t</type>
+          <declname>index</declname>
+        </param>
+        <briefdescription>
+<para>Returns mutable byte at index. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" line="97" column="17" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" bodystart="97" bodyend="97"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADData_1_1RADByteArray_1aae4fd5f3622af453d5ffecf51530878a" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>const uint8_t &amp;</type>
+        <definition>const uint8_t&amp; RADData::RADByteArray::operator[]</definition>
+        <argsstring>(size_t index) const</argsstring>
+        <name>operator[]</name>
+        <param>
+          <type>size_t</type>
+          <declname>index</declname>
+        </param>
+        <briefdescription>
+<para>Returns const byte at index. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" line="99" column="23" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" bodystart="99" bodyend="99"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADData_1_1RADByteArray_1aa444d06b094e1f83087fb704966d3f1c" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void RADData::RADByteArray::clear</definition>
+        <argsstring>()</argsstring>
+        <name>clear</name>
+        <briefdescription>
+<para>Clears all bytes. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" line="101" column="14" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" bodystart="101" bodyend="101"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADData_1_1RADByteArray_1a25157c766d5f67723aaf2617de2342c4" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void RADData::RADByteArray::reserve</definition>
+        <argsstring>(size_t capacity)</argsstring>
+        <name>reserve</name>
+        <param>
+          <type>size_t</type>
+          <declname>capacity</declname>
+        </param>
+        <briefdescription>
+<para>Reserves byte capacity. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" line="103" column="14" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" bodystart="103" bodyend="103"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADData_1_1RADByteArray_1a3a9b4b760df0589936e2f8d01b65fddf" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void RADData::RADByteArray::append</definition>
+        <argsstring>(uint8_t byte)</argsstring>
+        <name>append</name>
+        <param>
+          <type>uint8_t</type>
+          <declname>byte</declname>
+        </param>
+        <briefdescription>
+<para>Appends one byte. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" line="105" column="14" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" bodystart="105" bodyend="105"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADData_1_1RADByteArray_1aa525c804a4a633205b23f00f927806b9" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void RADData::RADByteArray::append</definition>
+        <argsstring>(const void *data, size_t size)</argsstring>
+        <name>append</name>
+        <param>
+          <type>const void *</type>
+          <declname>data</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>size</declname>
+        </param>
+        <briefdescription>
+<para>Appends raw memory bytes. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" line="107" column="14" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" bodystart="107" bodyend="111"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADData_1_1RADByteArray_1a6bc39805801655f5336a574cec0ff175" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="namespaceRADData_1a602f473a44eb4658b52928bdff3134be" kindref="member">RADByteArrayView</ref></type>
+        <definition>RADByteArrayView RADData::RADByteArray::view</definition>
+        <argsstring>()</argsstring>
+        <name>view</name>
+        <briefdescription>
+<para>Returns mutable view. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" line="113" column="26" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" bodystart="113" bodyend="113"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADData_1_1RADByteArray_1a22e6132b092eb01fa7cc6fe079800147" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="namespaceRADData_1a813862dc49499b42ea9cbcb99988a2b4" kindref="member">RADConstByteArrayView</ref></type>
+        <definition>RADConstByteArrayView RADData::RADByteArray::view</definition>
+        <argsstring>() const</argsstring>
+        <name>view</name>
+        <briefdescription>
+<para>Returns const view. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" line="115" column="31" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" bodystart="115" bodyend="115"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADData_1_1RADByteArray_1a0c074023cf59d41644ee063104fb07c0" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>const std::vector&lt; uint8_t &gt; &amp;</type>
+        <definition>const std::vector&lt;uint8_t&gt;&amp; RADData::RADByteArray::vector</definition>
+        <argsstring>() const</argsstring>
+        <name>vector</name>
+        <briefdescription>
+<para>Returns std::vector-compatible storage. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" line="117" column="27" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" bodystart="117" bodyend="117"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Owning byte array with lightweight append/view helpers. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" line="79" column="5" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" bodystart="79" bodyend="121"/>
+    <listofallmembers>
+      <member refid="classRADData_1_1RADByteArray_1a3a9b4b760df0589936e2f8d01b65fddf" prot="public" virt="non-virtual"><scope>RADData::RADByteArray</scope><name>append</name></member>
+      <member refid="classRADData_1_1RADByteArray_1aa525c804a4a633205b23f00f927806b9" prot="public" virt="non-virtual"><scope>RADData::RADByteArray</scope><name>append</name></member>
+      <member refid="classRADData_1_1RADByteArray_1a4f22d356de563382cfdb13d54c00f921" prot="private" virt="non-virtual"><scope>RADData::RADByteArray</scope><name>bytes_</name></member>
+      <member refid="classRADData_1_1RADByteArray_1aa444d06b094e1f83087fb704966d3f1c" prot="public" virt="non-virtual"><scope>RADData::RADByteArray</scope><name>clear</name></member>
+      <member refid="classRADData_1_1RADByteArray_1af7eb29c917bbba6a7da095b9acb68c70" prot="public" virt="non-virtual"><scope>RADData::RADByteArray</scope><name>data</name></member>
+      <member refid="classRADData_1_1RADByteArray_1a881d6941f044b432f0c9df75d3f81f06" prot="public" virt="non-virtual"><scope>RADData::RADByteArray</scope><name>data</name></member>
+      <member refid="classRADData_1_1RADByteArray_1a444fb2d120235eca37af3ef632f4f21a" prot="public" virt="non-virtual"><scope>RADData::RADByteArray</scope><name>empty</name></member>
+      <member refid="classRADData_1_1RADByteArray_1a335cfd727f488b06febce7093dbc0ba3" prot="public" virt="non-virtual"><scope>RADData::RADByteArray</scope><name>operator[]</name></member>
+      <member refid="classRADData_1_1RADByteArray_1aae4fd5f3622af453d5ffecf51530878a" prot="public" virt="non-virtual"><scope>RADData::RADByteArray</scope><name>operator[]</name></member>
+      <member refid="classRADData_1_1RADByteArray_1af8f8f871eb7f304bc946af8c2f3b9906" prot="public" virt="non-virtual"><scope>RADData::RADByteArray</scope><name>RADByteArray</name></member>
+      <member refid="classRADData_1_1RADByteArray_1a16b64259d650ed05c2c411c191cf415c" prot="public" virt="non-virtual"><scope>RADData::RADByteArray</scope><name>RADByteArray</name></member>
+      <member refid="classRADData_1_1RADByteArray_1a7a4c372968884cd6aa7a1d05e8d165f6" prot="public" virt="non-virtual"><scope>RADData::RADByteArray</scope><name>RADByteArray</name></member>
+      <member refid="classRADData_1_1RADByteArray_1a25157c766d5f67723aaf2617de2342c4" prot="public" virt="non-virtual"><scope>RADData::RADByteArray</scope><name>reserve</name></member>
+      <member refid="classRADData_1_1RADByteArray_1aa3b41379113fe3bc5d6c7fdbaad7a375" prot="public" virt="non-virtual"><scope>RADData::RADByteArray</scope><name>size</name></member>
+      <member refid="classRADData_1_1RADByteArray_1a0c074023cf59d41644ee063104fb07c0" prot="public" virt="non-virtual"><scope>RADData::RADByteArray</scope><name>vector</name></member>
+      <member refid="classRADData_1_1RADByteArray_1a6bc39805801655f5336a574cec0ff175" prot="public" virt="non-virtual"><scope>RADData::RADByteArray</scope><name>view</name></member>
+      <member refid="classRADData_1_1RADByteArray_1a22e6132b092eb01fa7cc6fe079800147" prot="public" virt="non-virtual"><scope>RADData::RADByteArray</scope><name>view</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

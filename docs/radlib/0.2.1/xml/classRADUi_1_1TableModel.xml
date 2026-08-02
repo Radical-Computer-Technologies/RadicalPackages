@@ -1,0 +1,238 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="classRADUi_1_1TableModel" kind="class" language="C++" prot="public">
+    <compoundname>RADUi::TableModel</compoundname>
+    <basecompoundref refid="classRADCore_1_1RADObject" prot="public" virt="non-virtual">RADCore::RADObject</basecompoundref>
+    <includes refid="RADWidgets_8h" local="no">RADWidgets.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="classRADUi_1_1TableModel_1aba44856adc9bda0f692a32ebe4466c06" prot="public" static="no" mutable="no">
+        <type><ref refid="classRADCore_1_1Event" kindref="compound">RADCore::Event</ref>&lt; void() &gt;</type>
+        <definition>RADCore::Event&lt;void () &gt; RADUi::TableModel::changed</definition>
+        <argsstring></argsstring>
+        <name>changed</name>
+        <briefdescription>
+<para>Raised when row, column, or cell data changes. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADWidgets.h" line="374" column="30" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADWidgets.h" bodystart="374" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classRADUi_1_1TableModel_1aa1895458543c1cff7a5d3473ab78ad79" prot="private" static="no" mutable="no">
+        <type>size_t</type>
+        <definition>size_t RADUi::TableModel::columns_</definition>
+        <argsstring></argsstring>
+        <name>columns_</name>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADWidgets.h" line="392" column="16" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADWidgets.h" bodystart="392" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classRADUi_1_1TableModel_1a19a8728d8d637f59ff56c179a7c5dc68" prot="private" static="no" mutable="no">
+        <type>std::vector&lt; std::vector&lt; std::string &gt; &gt;</type>
+        <definition>std::vector&lt;std::vector&lt;std::string&gt; &gt; RADUi::TableModel::rows_</definition>
+        <argsstring></argsstring>
+        <name>rows_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADWidgets.h" line="393" column="21" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADWidgets.h" bodystart="393" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classRADUi_1_1TableModel_1acebebc9a8746e3683879fd6748475820" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>size_t</type>
+        <definition>size_t RADUi::TableModel::rowCount</definition>
+        <argsstring>() const</argsstring>
+        <name>rowCount</name>
+        <briefdescription>
+<para>Returns number of rows. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADWidgets.h" line="377" column="16"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADUi_1_1TableModel_1a1f9e1e9481b1c1f27ea98cf758d8279c" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>size_t</type>
+        <definition>size_t RADUi::TableModel::columnCount</definition>
+        <argsstring>() const</argsstring>
+        <name>columnCount</name>
+        <briefdescription>
+<para>Returns number of columns. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADWidgets.h" line="379" column="16"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADUi_1_1TableModel_1a683e2fc541f7cbac307f8866870e31ef" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>std::string</type>
+        <definition>std::string RADUi::TableModel::value</definition>
+        <argsstring>(size_t row, size_t column) const</argsstring>
+        <name>value</name>
+        <param>
+          <type>size_t</type>
+          <declname>row</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>column</declname>
+        </param>
+        <briefdescription>
+<para>Returns a cell value or empty string when out of range. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADWidgets.h" line="381" column="21"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADUi_1_1TableModel_1ac1524b0538461df98510e58f4ea46425" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void RADUi::TableModel::setColumnCount</definition>
+        <argsstring>(size_t columns)</argsstring>
+        <name>setColumnCount</name>
+        <param>
+          <type>size_t</type>
+          <declname>columns</declname>
+        </param>
+        <briefdescription>
+<para>Sets the table column count. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADWidgets.h" line="383" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADUi_1_1TableModel_1a4939f421517363cc66e719d592f4da88" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void RADUi::TableModel::appendRow</definition>
+        <argsstring>(std::vector&lt; std::string &gt; row)</argsstring>
+        <name>appendRow</name>
+        <param>
+          <type>std::vector&lt; std::string &gt;</type>
+          <declname>row</declname>
+        </param>
+        <briefdescription>
+<para>Appends a row, padding/truncating to column count as needed. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADWidgets.h" line="385" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADUi_1_1TableModel_1a216ba1677281e0c7e0ba56ff7fd73bf6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void RADUi::TableModel::setValue</definition>
+        <argsstring>(size_t row, size_t column, std::string value)</argsstring>
+        <name>setValue</name>
+        <param>
+          <type>size_t</type>
+          <declname>row</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>column</declname>
+        </param>
+        <param>
+          <type>std::string</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+<para>Sets one cell value. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADWidgets.h" line="387" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADUi_1_1TableModel_1a85851568d48ef774b446c031cd4d0203" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void RADUi::TableModel::clear</definition>
+        <argsstring>()</argsstring>
+        <name>clear</name>
+        <briefdescription>
+<para>Removes all rows and columns. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADWidgets.h" line="389" column="14"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Simple string table model for grid/table UI components. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>RADCore::RADObject</label>
+        <link refid="classRADCore_1_1RADObject"/>
+      </node>
+      <node id="1">
+        <label>RADUi::TableModel</label>
+        <link refid="classRADUi_1_1TableModel"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>RADCore::RADObject</label>
+        <link refid="classRADCore_1_1RADObject"/>
+      </node>
+      <node id="3">
+        <label>RADCore::Event&lt; void() &gt;</label>
+        <link refid="classRADCore_1_1Event"/>
+      </node>
+      <node id="1">
+        <label>RADUi::TableModel</label>
+        <link refid="classRADUi_1_1TableModel"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="3" relation="usage">
+          <edgelabel>changed</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADWidgets.h" line="370" column="5" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADWidgets.h" bodystart="370" bodyend="394"/>
+    <listofallmembers>
+      <member refid="classRADUi_1_1TableModel_1a4939f421517363cc66e719d592f4da88" prot="public" virt="non-virtual"><scope>RADUi::TableModel</scope><name>appendRow</name></member>
+      <member refid="classRADCore_1_1RADObject_1a06cdf252ffb5e2f88332ebda12a62080" prot="public" virt="non-virtual"><scope>RADUi::TableModel</scope><name>associatedEventLoop</name></member>
+      <member refid="classRADUi_1_1TableModel_1aba44856adc9bda0f692a32ebe4466c06" prot="public" virt="non-virtual"><scope>RADUi::TableModel</scope><name>changed</name></member>
+      <member refid="classRADUi_1_1TableModel_1a85851568d48ef774b446c031cd4d0203" prot="public" virt="non-virtual"><scope>RADUi::TableModel</scope><name>clear</name></member>
+      <member refid="classRADUi_1_1TableModel_1a1f9e1e9481b1c1f27ea98cf758d8279c" prot="public" virt="non-virtual"><scope>RADUi::TableModel</scope><name>columnCount</name></member>
+      <member refid="classRADUi_1_1TableModel_1aa1895458543c1cff7a5d3473ab78ad79" prot="private" virt="non-virtual"><scope>RADUi::TableModel</scope><name>columns_</name></member>
+      <member refid="classRADCore_1_1RADObject_1ad2ddfd066d14be9adc2f96bfca417fc6" prot="public" virt="non-virtual"><scope>RADUi::TableModel</scope><name>lifetimeToken</name></member>
+      <member refid="classRADCore_1_1RADObject_1a1f7f7f2fb40211e28455cd74a029339a" prot="public" virt="non-virtual"><scope>RADUi::TableModel</scope><name>moveToThread</name></member>
+      <member refid="classRADCore_1_1RADObject_1a9bc3fed915f7c71232e68c2628d34708" prot="public" virt="non-virtual"><scope>RADUi::TableModel</scope><name>RADObject</name></member>
+      <member refid="classRADCore_1_1RADObject_1af3e26b970c8080418f0d6b80cad986a2" prot="public" virt="non-virtual"><scope>RADUi::TableModel</scope><name>registerLink</name></member>
+      <member refid="classRADUi_1_1TableModel_1acebebc9a8746e3683879fd6748475820" prot="public" virt="non-virtual"><scope>RADUi::TableModel</scope><name>rowCount</name></member>
+      <member refid="classRADUi_1_1TableModel_1a19a8728d8d637f59ff56c179a7c5dc68" prot="private" virt="non-virtual"><scope>RADUi::TableModel</scope><name>rows_</name></member>
+      <member refid="classRADUi_1_1TableModel_1ac1524b0538461df98510e58f4ea46425" prot="public" virt="non-virtual"><scope>RADUi::TableModel</scope><name>setColumnCount</name></member>
+      <member refid="classRADUi_1_1TableModel_1a216ba1677281e0c7e0ba56ff7fd73bf6" prot="public" virt="non-virtual"><scope>RADUi::TableModel</scope><name>setValue</name></member>
+      <member refid="classRADCore_1_1RADObject_1a8b11df0b951d0db1ba99cfb851e34f31" prot="public" virt="non-virtual"><scope>RADUi::TableModel</scope><name>threadAffinity</name></member>
+      <member refid="classRADCore_1_1RADObject_1ac7ca67b41523794ae5a6b3634d6ce3b6" prot="public" virt="non-virtual"><scope>RADUi::TableModel</scope><name>threadId</name></member>
+      <member refid="classRADUi_1_1TableModel_1a683e2fc541f7cbac307f8866870e31ef" prot="public" virt="non-virtual"><scope>RADUi::TableModel</scope><name>value</name></member>
+      <member refid="classRADCore_1_1RADObject_1a7369e27a46c163ee89c63227db650ce5" prot="public" virt="virtual"><scope>RADUi::TableModel</scope><name>~RADObject</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,217 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="RADUi_8h" kind="file" language="C++">
+    <compoundname>RADUi.h</compoundname>
+    <includes local="no">RADCore/RADCore.h</includes>
+    <includes local="no">chrono</includes>
+    <includes local="no">filesystem</includes>
+    <includes local="no">functional</includes>
+    <includes local="no">memory</includes>
+    <includes local="no">mutex</includes>
+    <includes local="no">set</includes>
+    <includes local="no">stdexcept</includes>
+    <includes local="no">string</includes>
+    <includes local="no">thread</includes>
+    <includes local="no">vector</includes>
+    <includes local="no">RADUi/RADDesktopShell.h</includes>
+    <incdepgraph>
+      <node id="5">
+        <label>functional</label>
+      </node>
+      <node id="1">
+        <label>/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADUi.h</label>
+        <link refid="RADUi_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>filesystem</label>
+      </node>
+      <node id="2">
+        <label>RADCore/RADCore.h</label>
+      </node>
+      <node id="9">
+        <label>stdexcept</label>
+      </node>
+      <node id="13">
+        <label>RADUi/RADDesktopShell.h</label>
+      </node>
+      <node id="10">
+        <label>string</label>
+      </node>
+      <node id="12">
+        <label>vector</label>
+      </node>
+      <node id="7">
+        <label>mutex</label>
+      </node>
+      <node id="3">
+        <label>chrono</label>
+      </node>
+      <node id="11">
+        <label>thread</label>
+      </node>
+      <node id="8">
+        <label>set</label>
+      </node>
+      <node id="6">
+        <label>memory</label>
+      </node>
+    </incdepgraph>
+    <innerclass refid="classRADUi_1_1Binding" prot="public">RADUi::Binding</innerclass>
+    <innerclass refid="classRADUi_1_1Backend" prot="public">RADUi::Backend</innerclass>
+    <innerclass refid="classRADUi_1_1FrameScheduler" prot="public">RADUi::FrameScheduler</innerclass>
+    <innerclass refid="structRADUi_1_1DirectoryBrowserEntry" prot="public">RADUi::DirectoryBrowserEntry</innerclass>
+    <innerclass refid="structRADUi_1_1DirectoryBrowserOptions" prot="public">RADUi::DirectoryBrowserOptions</innerclass>
+    <innerclass refid="classRADUi_1_1DirectoryBrowserModel" prot="public">RADUi::DirectoryBrowserModel</innerclass>
+    <innernamespace refid="namespaceRADUi">RADUi</innernamespace>
+    <briefdescription>
+<para>Backend-neutral UI dispatch, frame scheduling, and RADCore-to-UI binding helpers. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#ifndef<sp/>RADUI_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>RADUI_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="preprocessor">#pragma<sp/>once</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;RADCore/RADCore.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;chrono&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;filesystem&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;functional&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;memory&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;mutex&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;set&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;stdexcept&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;string&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;thread&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;vector&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;RADUi/RADDesktopShell.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal"><ref refid="namespaceRADUi" kindref="compound">RADUi</ref><sp/>{</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight></codeline>
+<codeline lineno="30" refid="classRADUi_1_1Binding" refkind="compound"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classRADUi_1_1Binding" kindref="compound">Binding</ref><sp/>{</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="33" refid="classRADUi_1_1Binding_1ad3e4785003ad95568ddb6f163f0ff372" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classRADUi_1_1Binding_1ad3e4785003ad95568ddb6f163f0ff372" kindref="member">Binding</ref>()<sp/>=<sp/></highlight><highlight class="keywordflow">default</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="35" refid="classRADUi_1_1Binding_1af4a29bf884b75856af2b9ac460457a2e" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">explicit</highlight><highlight class="normal"><sp/><ref refid="classRADUi_1_1Binding_1af4a29bf884b75856af2b9ac460457a2e" kindref="member">Binding</ref>(std::shared_ptr&lt;RADCore::RADObject&gt;<sp/>owner);</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"></highlight></codeline>
+<codeline lineno="38" refid="classRADUi_1_1Binding_1aa87036a0d9ee224b277f9c20bc8b40aa" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classRADUi_1_1Binding_1aa87036a0d9ee224b277f9c20bc8b40aa" kindref="member">disconnect</ref>();</highlight></codeline>
+<codeline lineno="40" refid="classRADUi_1_1Binding_1a19cd95fc143ba10d09c999c0d5df44c7" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classRADUi_1_1Binding_1a19cd95fc143ba10d09c999c0d5df44c7" kindref="member">isConnected</ref>()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"></highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::shared_ptr&lt;RADCore::RADObject&gt;<sp/>owner_;</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/>};</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"></highlight></codeline>
+<codeline lineno="47" refid="classRADUi_1_1Backend" refkind="compound"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classRADUi_1_1Backend" kindref="compound">Backend</ref><sp/>{</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="50" refid="classRADUi_1_1Backend_1a3f4fffe03e98314456cfce1e87450c69" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/><ref refid="classRADUi_1_1Backend_1a3f4fffe03e98314456cfce1e87450c69" kindref="member">~Backend</ref>()<sp/>=<sp/></highlight><highlight class="keywordflow">default</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"></highlight></codeline>
+<codeline lineno="53" refid="classRADUi_1_1Backend_1a3c98ff3d2a952c5b0a8e2c3ea3ebc22b" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classRADUi_1_1Backend_1a3c98ff3d2a952c5b0a8e2c3ea3ebc22b" kindref="member">run</ref>()<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="55" refid="classRADUi_1_1Backend_1a6551efb1c8fc75417eab4c6fd6ce1bc3" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classRADUi_1_1Backend_1a6551efb1c8fc75417eab4c6fd6ce1bc3" kindref="member">quit</ref>()<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="57" refid="classRADUi_1_1Backend_1a4bfd39fe0784c1008998611f14b7c73b" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classRADUi_1_1Backend_1a4bfd39fe0784c1008998611f14b7c73b" kindref="member">postToUi</ref>(std::function&lt;</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">()&gt;<sp/>task)<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="59" refid="classRADUi_1_1Backend_1a718f73be161192205a4316eae1d65b37" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classRADUi_1_1Backend_1a718f73be161192205a4316eae1d65b37" kindref="member">isUiThread</ref>()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/>};</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"></highlight></codeline>
+<codeline lineno="63" refid="namespaceRADUi_1a214ebf377d196c5a31317444a2227ed8" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="namespaceRADUi_1a214ebf377d196c5a31317444a2227ed8" kindref="member">setBackend</ref>(std::shared_ptr&lt;Backend&gt;<sp/><ref refid="namespaceRADUi_1a775ff59d5a0176422573219cd6c330fb" kindref="member">backend</ref>);</highlight></codeline>
+<codeline lineno="65" refid="namespaceRADUi_1a0e9edc4463e89d248543ce6009cbe9fe" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="namespaceRADUi_1a0e9edc4463e89d248543ce6009cbe9fe" kindref="member">hasBackend</ref>();</highlight></codeline>
+<codeline lineno="67" refid="namespaceRADUi_1a775ff59d5a0176422573219cd6c330fb" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classRADUi_1_1Backend" kindref="compound">Backend</ref>&amp;<sp/><ref refid="namespaceRADUi_1a775ff59d5a0176422573219cd6c330fb" kindref="member">backend</ref>();</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"></highlight></codeline>
+<codeline lineno="70" refid="namespaceRADUi_1a9f2f42c53d766024b0bfc37ba4dd6fcc" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="namespaceRADUi_1a9f2f42c53d766024b0bfc37ba4dd6fcc" kindref="member">run</ref>();</highlight></codeline>
+<codeline lineno="72" refid="namespaceRADUi_1ae14f432fc7f4403737def2488fb7485c" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="namespaceRADUi_1ae14f432fc7f4403737def2488fb7485c" kindref="member">quit</ref>();</highlight></codeline>
+<codeline lineno="74" refid="namespaceRADUi_1a010f3506c521024b59d77544b720ec0d" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="namespaceRADUi_1a010f3506c521024b59d77544b720ec0d" kindref="member">postToUi</ref>(std::function&lt;</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">()&gt;<sp/>task);</highlight></codeline>
+<codeline lineno="76" refid="namespaceRADUi_1a27e4f8c8195078124fcb94bbdbf17e2f" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="namespaceRADUi_1a27e4f8c8195078124fcb94bbdbf17e2f" kindref="member">isUiThread</ref>();</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"></highlight></codeline>
+<codeline lineno="79" refid="classRADUi_1_1FrameScheduler" refkind="compound"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classRADUi_1_1FrameScheduler" kindref="compound">FrameScheduler</ref><sp/>{</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="82" refid="classRADUi_1_1FrameScheduler_1a23c27cf9f2a3ead927b3b5a7029bc474" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">explicit</highlight><highlight class="normal"><sp/><ref refid="classRADUi_1_1FrameScheduler_1a23c27cf9f2a3ead927b3b5a7029bc474" kindref="member">FrameScheduler</ref>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>framesPerSecond<sp/>=<sp/>60.0);</highlight></codeline>
+<codeline lineno="84" refid="classRADUi_1_1FrameScheduler_1a2d353e3350daba2867c8c9ac0c8d6021" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classRADUi_1_1FrameScheduler_1a2d353e3350daba2867c8c9ac0c8d6021" kindref="member">~FrameScheduler</ref>();</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"></highlight></codeline>
+<codeline lineno="87" refid="classRADUi_1_1FrameScheduler_1aa02f294952447b64916be71b9fb4b006" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classRADUi_1_1FrameScheduler_1aa02f294952447b64916be71b9fb4b006" kindref="member">FrameScheduler</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classRADUi_1_1FrameScheduler" kindref="compound">FrameScheduler</ref>&amp;)<sp/>=<sp/></highlight><highlight class="keyword">delete</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="89" refid="classRADUi_1_1FrameScheduler_1a212d12ef20a2866e1e2ba7f835902dd7" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classRADUi_1_1FrameScheduler" kindref="compound">FrameScheduler</ref>&amp;<sp/><ref refid="classRADUi_1_1FrameScheduler_1a212d12ef20a2866e1e2ba7f835902dd7" kindref="member">operator=</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classRADUi_1_1FrameScheduler" kindref="compound">FrameScheduler</ref>&amp;)<sp/>=<sp/></highlight><highlight class="keyword">delete</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"></highlight></codeline>
+<codeline lineno="92" refid="classRADUi_1_1FrameScheduler_1a9f2fdac1ef523fca75319ba15d6259ea" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classRADUi_1_1FrameScheduler_1a9f2fdac1ef523fca75319ba15d6259ea" kindref="member">requestUpdate</ref>(std::function&lt;</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">()&gt;<sp/>task);</highlight></codeline>
+<codeline lineno="93"><highlight class="normal"></highlight></codeline>
+<codeline lineno="94"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">Impl;</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::shared_ptr&lt;Impl&gt;<sp/>pImpl_;</highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/><sp/><sp/>};</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"></highlight></codeline>
+<codeline lineno="100" refid="namespaceRADUi_1aa10adbef68ce037efe6d110ee03f5694" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">enum<sp/>class</highlight><highlight class="normal"><sp/><ref refid="namespaceRADUi_1aa10adbef68ce037efe6d110ee03f5694" kindref="member">DirectoryBrowserEntryKind</ref><sp/>{</highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespaceRADUi_1aa10adbef68ce037efe6d110ee03f5694a30269022e9d8f51beaabb52e5d0de2b7" kindref="member">Parent</ref>,</highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespaceRADUi_1aa10adbef68ce037efe6d110ee03f5694ab0f2b97dc5d2b76b26e040408bb1d8af" kindref="member">Folder</ref>,</highlight></codeline>
+<codeline lineno="106"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespaceRADUi_1aa10adbef68ce037efe6d110ee03f5694a9e727fdd3aec8274f46685441900280d" kindref="member">Project</ref>,</highlight></codeline>
+<codeline lineno="108"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespaceRADUi_1aa10adbef68ce037efe6d110ee03f5694a3fec520e33032983ea108fcaba30a74d" kindref="member">Midi</ref>,</highlight></codeline>
+<codeline lineno="110"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespaceRADUi_1aa10adbef68ce037efe6d110ee03f5694ab22f0418e8ac915eb66f829d262d14a2" kindref="member">Audio</ref>,</highlight></codeline>
+<codeline lineno="112"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespaceRADUi_1aa10adbef68ce037efe6d110ee03f5694ae498749f3c42246d50b15c81c101d988" kindref="member">Application</ref>,</highlight></codeline>
+<codeline lineno="114"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespaceRADUi_1aa10adbef68ce037efe6d110ee03f5694a0b27918290ff5323bea1e3b78a9cf04e" kindref="member">File</ref></highlight></codeline>
+<codeline lineno="115"><highlight class="normal"><sp/><sp/><sp/><sp/>};</highlight></codeline>
+<codeline lineno="116"><highlight class="normal"></highlight></codeline>
+<codeline lineno="118" refid="structRADUi_1_1DirectoryBrowserEntry" refkind="compound"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structRADUi_1_1DirectoryBrowserEntry" kindref="compound">DirectoryBrowserEntry</ref><sp/>{</highlight></codeline>
+<codeline lineno="120" refid="structRADUi_1_1DirectoryBrowserEntry_1a34c52e91d62d871330c71050f41bd358" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::filesystem::path<sp/><ref refid="structRADUi_1_1DirectoryBrowserEntry_1a34c52e91d62d871330c71050f41bd358" kindref="member">path</ref>;</highlight></codeline>
+<codeline lineno="122" refid="structRADUi_1_1DirectoryBrowserEntry_1a977dbb0427bc46785b69ad36debed272" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::string<sp/><ref refid="structRADUi_1_1DirectoryBrowserEntry_1a977dbb0427bc46785b69ad36debed272" kindref="member">name</ref>;</highlight></codeline>
+<codeline lineno="124" refid="structRADUi_1_1DirectoryBrowserEntry_1a367a6859a21693d1b943b6ac4f6a6be7" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::string<sp/><ref refid="structRADUi_1_1DirectoryBrowserEntry_1a367a6859a21693d1b943b6ac4f6a6be7" kindref="member">subtitle</ref>;</highlight></codeline>
+<codeline lineno="126" refid="structRADUi_1_1DirectoryBrowserEntry_1ac2659f2a1012a3052dc293592d0c4a30" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::string<sp/><ref refid="structRADUi_1_1DirectoryBrowserEntry_1ac2659f2a1012a3052dc293592d0c4a30" kindref="member">icon</ref>;</highlight></codeline>
+<codeline lineno="128" refid="structRADUi_1_1DirectoryBrowserEntry_1a19601bdc0e39c611ff6f15a00b3085ae" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="structRADUi_1_1DirectoryBrowserEntry_1a19601bdc0e39c611ff6f15a00b3085ae" kindref="member">depth</ref><sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="130" refid="structRADUi_1_1DirectoryBrowserEntry_1a285c9ba02ea5aae081158f287a08dfaa" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="structRADUi_1_1DirectoryBrowserEntry_1a285c9ba02ea5aae081158f287a08dfaa" kindref="member">isDirectory</ref><sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="132" refid="structRADUi_1_1DirectoryBrowserEntry_1ace4ba9f0b583b39649d02fb1aa2e877b" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="structRADUi_1_1DirectoryBrowserEntry_1ace4ba9f0b583b39649d02fb1aa2e877b" kindref="member">expandable</ref><sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="134" refid="structRADUi_1_1DirectoryBrowserEntry_1a8eef31b2d2a8cc69e00c8fa9c32cecd5" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="structRADUi_1_1DirectoryBrowserEntry_1a8eef31b2d2a8cc69e00c8fa9c32cecd5" kindref="member">expanded</ref><sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="136" refid="structRADUi_1_1DirectoryBrowserEntry_1abc821a8985e99dd7302c5f21ccfa6a7a" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="structRADUi_1_1DirectoryBrowserEntry_1abc821a8985e99dd7302c5f21ccfa6a7a" kindref="member">isApplication</ref><sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="138" refid="structRADUi_1_1DirectoryBrowserEntry_1ad5ded1c02400d693771d8370f9c03845" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespaceRADUi_1aa10adbef68ce037efe6d110ee03f5694" kindref="member">DirectoryBrowserEntryKind</ref><sp/><ref refid="structRADUi_1_1DirectoryBrowserEntry_1ad5ded1c02400d693771d8370f9c03845" kindref="member">kind</ref><sp/>=<sp/><ref refid="namespaceRADUi_1aa10adbef68ce037efe6d110ee03f5694a0b27918290ff5323bea1e3b78a9cf04e" kindref="member">DirectoryBrowserEntryKind::File</ref>;</highlight></codeline>
+<codeline lineno="139"><highlight class="normal"><sp/><sp/><sp/><sp/>};</highlight></codeline>
+<codeline lineno="140"><highlight class="normal"></highlight></codeline>
+<codeline lineno="142" refid="structRADUi_1_1DirectoryBrowserOptions" refkind="compound"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structRADUi_1_1DirectoryBrowserOptions" kindref="compound">DirectoryBrowserOptions</ref><sp/>{</highlight></codeline>
+<codeline lineno="144" refid="structRADUi_1_1DirectoryBrowserOptions_1a9d0dca146f2281dbd647892b5f3f6227" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="structRADUi_1_1DirectoryBrowserOptions_1a9d0dca146f2281dbd647892b5f3f6227" kindref="member">includeFiles</ref><sp/>=<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="146" refid="structRADUi_1_1DirectoryBrowserOptions_1ac32e49d449b5e105f437b805bcf78864" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="structRADUi_1_1DirectoryBrowserOptions_1ac32e49d449b5e105f437b805bcf78864" kindref="member">includeHidden</ref><sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="148" refid="structRADUi_1_1DirectoryBrowserOptions_1af1527eb963acd1098947b056caad23c0" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="structRADUi_1_1DirectoryBrowserOptions_1af1527eb963acd1098947b056caad23c0" kindref="member">includeParentEntry</ref><sp/>=<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="150" refid="structRADUi_1_1DirectoryBrowserOptions_1acde20a4dd1b753d96d5ef4a62e6f760d" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="structRADUi_1_1DirectoryBrowserOptions_1acde20a4dd1b753d96d5ef4a62e6f760d" kindref="member">maxDepth</ref><sp/>=<sp/>8;</highlight></codeline>
+<codeline lineno="152" refid="structRADUi_1_1DirectoryBrowserOptions_1a8fd8e7ab66ab990b70143583d4effe0b" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::vector&lt;std::string&gt;<sp/><ref refid="structRADUi_1_1DirectoryBrowserOptions_1a8fd8e7ab66ab990b70143583d4effe0b" kindref="member">allowedExtensions</ref>;</highlight></codeline>
+<codeline lineno="153"><highlight class="normal"><sp/><sp/><sp/><sp/>};</highlight></codeline>
+<codeline lineno="154"><highlight class="normal"></highlight></codeline>
+<codeline lineno="156" refid="classRADUi_1_1DirectoryBrowserModel" refkind="compound"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classRADUi_1_1DirectoryBrowserModel" kindref="compound">DirectoryBrowserModel</ref><sp/>{</highlight></codeline>
+<codeline lineno="157"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="159" refid="classRADUi_1_1DirectoryBrowserModel_1a7bd68c5caabba1b3ebeee429e24058f2" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/>std::filesystem::path<sp/><ref refid="classRADUi_1_1DirectoryBrowserModel_1a7bd68c5caabba1b3ebeee429e24058f2" kindref="member">stablePath</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::filesystem::path&amp;<sp/>path);</highlight></codeline>
+<codeline lineno="161" refid="classRADUi_1_1DirectoryBrowserModel_1abd6ccc0bd6774b5e41be16eee0cb84e3" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classRADUi_1_1DirectoryBrowserModel_1abd6ccc0bd6774b5e41be16eee0cb84e3" kindref="member">extensionAllowed</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::filesystem::path&amp;<sp/>path,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structRADUi_1_1DirectoryBrowserOptions" kindref="compound">DirectoryBrowserOptions</ref>&amp;<sp/>options);</highlight></codeline>
+<codeline lineno="163" refid="classRADUi_1_1DirectoryBrowserModel_1aea0495aa30f91703de6f341c1e873ae9" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/><ref refid="namespaceRADUi_1aa10adbef68ce037efe6d110ee03f5694" kindref="member">DirectoryBrowserEntryKind</ref><sp/><ref refid="classRADUi_1_1DirectoryBrowserModel_1aea0495aa30f91703de6f341c1e873ae9" kindref="member">classify</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::filesystem::directory_entry&amp;<sp/>entry);</highlight></codeline>
+<codeline lineno="165" refid="classRADUi_1_1DirectoryBrowserModel_1a11dcd119d019d5a684f7f99ae91eeef2" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/>std::string<sp/><ref refid="classRADUi_1_1DirectoryBrowserModel_1a11dcd119d019d5a684f7f99ae91eeef2" kindref="member">iconForKind</ref>(<ref refid="namespaceRADUi_1aa10adbef68ce037efe6d110ee03f5694" kindref="member">DirectoryBrowserEntryKind</ref><sp/>kind);</highlight></codeline>
+<codeline lineno="167" refid="classRADUi_1_1DirectoryBrowserModel_1aaefd9ffa855a93f0c4f880fbc92b3396" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/>std::vector&lt;DirectoryBrowserEntry&gt;<sp/><ref refid="classRADUi_1_1DirectoryBrowserModel_1aaefd9ffa855a93f0c4f880fbc92b3396" kindref="member">snapshot</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::filesystem::path&amp;<sp/>root,</highlight></codeline>
+<codeline lineno="168"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::set&lt;std::filesystem::path&gt;&amp;<sp/>expandedDirectories,</highlight></codeline>
+<codeline lineno="169"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structRADUi_1_1DirectoryBrowserOptions" kindref="compound">DirectoryBrowserOptions</ref>&amp;<sp/>options<sp/>=<sp/>{});</highlight></codeline>
+<codeline lineno="170"><highlight class="normal"><sp/><sp/><sp/><sp/>};</highlight></codeline>
+<codeline lineno="171"><highlight class="normal"></highlight></codeline>
+<codeline lineno="173"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">template</highlight><highlight class="normal">&lt;</highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>F&gt;</highlight></codeline>
+<codeline lineno="174" refid="namespaceRADUi_1a69adddfa6a8e25685e159dcf7d63c1a8" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="namespaceRADUi_1a69adddfa6a8e25685e159dcf7d63c1a8" kindref="member">postToRad</ref>(<ref refid="classRADCore_1_1EventLoop" kindref="compound">RADCore::EventLoop</ref>&amp;<sp/>loop,<sp/>F&amp;&amp;<sp/>task)<sp/>{</highlight></codeline>
+<codeline lineno="175"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>loop.<ref refid="classRADCore_1_1EventLoop_1a281cb825b629c79fe5e1968afb099574" kindref="member">post</ref>(std::forward&lt;F&gt;(task));</highlight></codeline>
+<codeline lineno="176"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="177"><highlight class="normal"></highlight></codeline>
+<codeline lineno="178"><highlight class="normal">}<sp/></highlight><highlight class="comment">//<sp/>namespace<sp/>RADUi</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="179"><highlight class="normal"></highlight></codeline>
+<codeline lineno="180"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+    </programlisting>
+    <location file="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADUi.h"/>
+  </compounddef>
+</doxygen>

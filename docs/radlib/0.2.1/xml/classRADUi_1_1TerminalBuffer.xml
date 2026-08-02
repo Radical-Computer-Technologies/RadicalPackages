@@ -1,0 +1,1059 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="classRADUi_1_1TerminalBuffer" kind="class" language="C++" prot="public">
+    <compoundname>RADUi::TerminalBuffer</compoundname>
+    <includes refid="RADTerminal_8h" local="no">RADTerminal.h</includes>
+      <sectiondef kind="private-type">
+      <memberdef kind="enum" id="classRADUi_1_1TerminalBuffer_1aecc0627c86277dd269203401f35e565b" prot="private" static="no" strong="yes">
+        <type></type>
+        <name>State</name>
+        <enumvalue id="classRADUi_1_1TerminalBuffer_1aecc0627c86277dd269203401f35e565ba960b44c579bc2f6818d2daaf9e4c16f0" prot="private">
+          <name>Normal</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classRADUi_1_1TerminalBuffer_1aecc0627c86277dd269203401f35e565ba013ec032d3460d4be4431c6ab1f8f224" prot="private">
+          <name>Escape</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classRADUi_1_1TerminalBuffer_1aecc0627c86277dd269203401f35e565baf594c0052b0886932fe51eedb83fb2c3" prot="private">
+          <name>Charset</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classRADUi_1_1TerminalBuffer_1aecc0627c86277dd269203401f35e565ba3ec9592fe2f648faa3ef18455c62810a" prot="private">
+          <name>Csi</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classRADUi_1_1TerminalBuffer_1aecc0627c86277dd269203401f35e565baf31a0c196326fafa860c2f4526bfeeac" prot="private">
+          <name>Osc</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADTerminal.h" line="80" column="9" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADTerminal.h" bodystart="80" bodyend="86"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classRADUi_1_1TerminalBuffer_1a38756ebbe22dbab77de52430732a3d09" prot="private" static="no" mutable="yes">
+        <type>std::mutex</type>
+        <definition>std::mutex RADUi::TerminalBuffer::mutex_</definition>
+        <argsstring></argsstring>
+        <name>mutex_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADTerminal.h" line="122" column="28" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADTerminal.h" bodystart="122" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classRADUi_1_1TerminalBuffer_1a1a6c1c5cd80c3c0ff3c5fce65a5078eb" prot="private" static="no" mutable="no">
+        <type>std::vector&lt; <ref refid="structRADUi_1_1TerminalLine" kindref="compound">TerminalLine</ref> &gt;</type>
+        <definition>std::vector&lt;TerminalLine&gt; RADUi::TerminalBuffer::lines_</definition>
+        <argsstring></argsstring>
+        <name>lines_</name>
+        <initializer>{<ref refid="structRADUi_1_1TerminalLine" kindref="compound">TerminalLine</ref>{}}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADTerminal.h" line="123" column="21" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADTerminal.h" bodystart="123" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classRADUi_1_1TerminalBuffer_1a38ed6b73651c4c28ee4ca3034e64be53" prot="private" static="no" mutable="no">
+        <type>std::vector&lt; <ref refid="structRADUi_1_1TerminalLine" kindref="compound">TerminalLine</ref> &gt;</type>
+        <definition>std::vector&lt;TerminalLine&gt; RADUi::TerminalBuffer::savedLines_</definition>
+        <argsstring></argsstring>
+        <name>savedLines_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADTerminal.h" line="124" column="21" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADTerminal.h" bodystart="124" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classRADUi_1_1TerminalBuffer_1adfcb6f88cd0a07b8d6c7e7488ddf30fb" prot="private" static="no" mutable="no">
+        <type><ref refid="structRADUi_1_1TerminalColor" kindref="compound">TerminalColor</ref></type>
+        <definition>TerminalColor RADUi::TerminalBuffer::currentForeground_</definition>
+        <argsstring></argsstring>
+        <name>currentForeground_</name>
+        <initializer>{230, 237, 242}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADTerminal.h" line="125" column="23" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADTerminal.h" bodystart="125" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classRADUi_1_1TerminalBuffer_1ad0a6ff34511e354506df19ad000128b9" prot="private" static="no" mutable="no">
+        <type><ref refid="structRADUi_1_1TerminalColor" kindref="compound">TerminalColor</ref></type>
+        <definition>TerminalColor RADUi::TerminalBuffer::currentBackground_</definition>
+        <argsstring></argsstring>
+        <name>currentBackground_</name>
+        <initializer>{16, 20, 24}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADTerminal.h" line="126" column="23" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADTerminal.h" bodystart="126" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classRADUi_1_1TerminalBuffer_1afcf5553016f3964201fadae2f43a3387" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool RADUi::TerminalBuffer::bold_</definition>
+        <argsstring></argsstring>
+        <name>bold_</name>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADTerminal.h" line="127" column="14" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADTerminal.h" bodystart="127" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classRADUi_1_1TerminalBuffer_1a3dbfe5b25f5905831651f268388fbe9a" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool RADUi::TerminalBuffer::reverse_</definition>
+        <argsstring></argsstring>
+        <name>reverse_</name>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADTerminal.h" line="128" column="14" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADTerminal.h" bodystart="128" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classRADUi_1_1TerminalBuffer_1a78f9d38f780fcb7b1e1da00c312beedb" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool RADUi::TerminalBuffer::alternateScreen_</definition>
+        <argsstring></argsstring>
+        <name>alternateScreen_</name>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADTerminal.h" line="129" column="14" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADTerminal.h" bodystart="129" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classRADUi_1_1TerminalBuffer_1a9ebf468e0fdd96e8614a5b2dcdc80b41" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool RADUi::TerminalBuffer::cursorVisible_</definition>
+        <argsstring></argsstring>
+        <name>cursorVisible_</name>
+        <initializer>= true</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADTerminal.h" line="130" column="14" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADTerminal.h" bodystart="130" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classRADUi_1_1TerminalBuffer_1aa97d81d82ace675e249b7975d1d3c41c" prot="private" static="no" mutable="no">
+        <type>size_t</type>
+        <definition>size_t RADUi::TerminalBuffer::cursorColumn_</definition>
+        <argsstring></argsstring>
+        <name>cursorColumn_</name>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADTerminal.h" line="131" column="16" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADTerminal.h" bodystart="131" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classRADUi_1_1TerminalBuffer_1a4400fc9e9f789658bdc6d2aff76c4ad2" prot="private" static="no" mutable="no">
+        <type>size_t</type>
+        <definition>size_t RADUi::TerminalBuffer::cursorRow_</definition>
+        <argsstring></argsstring>
+        <name>cursorRow_</name>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADTerminal.h" line="132" column="16" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADTerminal.h" bodystart="132" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classRADUi_1_1TerminalBuffer_1a8fc761b7b0cc19292ef1b6baf18aa7bd" prot="private" static="no" mutable="no">
+        <type>size_t</type>
+        <definition>size_t RADUi::TerminalBuffer::savedCursorColumn_</definition>
+        <argsstring></argsstring>
+        <name>savedCursorColumn_</name>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADTerminal.h" line="133" column="16" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADTerminal.h" bodystart="133" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classRADUi_1_1TerminalBuffer_1a7525438f3db3979eec47f7e58b75aeee" prot="private" static="no" mutable="no">
+        <type>size_t</type>
+        <definition>size_t RADUi::TerminalBuffer::savedCursorRow_</definition>
+        <argsstring></argsstring>
+        <name>savedCursorRow_</name>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADTerminal.h" line="134" column="16" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADTerminal.h" bodystart="134" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classRADUi_1_1TerminalBuffer_1ab09c39b0be2426c6bc2272d9cdbff28d" prot="private" static="no" mutable="no">
+        <type>size_t</type>
+        <definition>size_t RADUi::TerminalBuffer::screenRows_</definition>
+        <argsstring></argsstring>
+        <name>screenRows_</name>
+        <initializer>= 30</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADTerminal.h" line="135" column="16" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADTerminal.h" bodystart="135" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classRADUi_1_1TerminalBuffer_1a696791792b76048b1d559c4979424cc4" prot="private" static="no" mutable="no">
+        <type>size_t</type>
+        <definition>size_t RADUi::TerminalBuffer::screenColumns_</definition>
+        <argsstring></argsstring>
+        <name>screenColumns_</name>
+        <initializer>= 120</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADTerminal.h" line="136" column="16" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADTerminal.h" bodystart="136" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classRADUi_1_1TerminalBuffer_1a37e5bd9178559604e38b45b153d22671" prot="private" static="no" mutable="no">
+        <type>size_t</type>
+        <definition>size_t RADUi::TerminalBuffer::scrollTop_</definition>
+        <argsstring></argsstring>
+        <name>scrollTop_</name>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADTerminal.h" line="137" column="16" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADTerminal.h" bodystart="137" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classRADUi_1_1TerminalBuffer_1ad715062575b5f2672731d78c737c2abb" prot="private" static="no" mutable="no">
+        <type>size_t</type>
+        <definition>size_t RADUi::TerminalBuffer::scrollBottom_</definition>
+        <argsstring></argsstring>
+        <name>scrollBottom_</name>
+        <initializer>= 29</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADTerminal.h" line="138" column="16" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADTerminal.h" bodystart="138" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classRADUi_1_1TerminalBuffer_1a6fc931377fd0e7df781c4f620530106e" prot="private" static="no" mutable="no">
+        <type>State</type>
+        <definition>State RADUi::TerminalBuffer::state_</definition>
+        <argsstring></argsstring>
+        <name>state_</name>
+        <initializer>= State::Normal</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADTerminal.h" line="139" column="15" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADTerminal.h" bodystart="139" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classRADUi_1_1TerminalBuffer_1aeb5f7523152ed10aade5ca6d85dacd3a" prot="private" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string RADUi::TerminalBuffer::csi_</definition>
+        <argsstring></argsstring>
+        <name>csi_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADTerminal.h" line="140" column="21" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADTerminal.h" bodystart="140" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classRADUi_1_1TerminalBuffer_1a47fa2f8e4ca9e1083fa81c262ea8165e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void RADUi::TerminalBuffer::append</definition>
+        <argsstring>(std::string_view bytes)</argsstring>
+        <name>append</name>
+        <param>
+          <type>std::string_view</type>
+          <declname>bytes</declname>
+        </param>
+        <briefdescription>
+<para>Appends raw terminal output bytes and updates screen state. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADTerminal.h" line="65" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADUi_1_1TerminalBuffer_1af86e94f6e738f601763f46044eb5aeda" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>std::vector&lt; <ref refid="structRADUi_1_1TerminalLine" kindref="compound">TerminalLine</ref> &gt;</type>
+        <definition>std::vector&lt;TerminalLine&gt; RADUi::TerminalBuffer::snapshot</definition>
+        <argsstring>() const</argsstring>
+        <name>snapshot</name>
+        <briefdescription>
+<para>Returns a copy of visible terminal lines. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADTerminal.h" line="67" column="21"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADUi_1_1TerminalBuffer_1a1ae858b5cfafd89b6b8b4ce33e2aab17" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>std::string</type>
+        <definition>std::string RADUi::TerminalBuffer::plainText</definition>
+        <argsstring>() const</argsstring>
+        <name>plainText</name>
+        <briefdescription>
+<para>Returns visible terminal text without color metadata. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADTerminal.h" line="69" column="21"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADUi_1_1TerminalBuffer_1ab70cd921b0284f8749059a86d430a219" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool RADUi::TerminalBuffer::isAlternateScreen</definition>
+        <argsstring>() const</argsstring>
+        <name>isAlternateScreen</name>
+        <briefdescription>
+<para>Returns true when the alternate screen buffer is active. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADTerminal.h" line="71" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADUi_1_1TerminalBuffer_1a203ae85141b74bf88aaf1bfe8bf7fbea" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structRADUi_1_1TerminalCursor" kindref="compound">TerminalCursor</ref></type>
+        <definition>TerminalCursor RADUi::TerminalBuffer::cursor</definition>
+        <argsstring>() const</argsstring>
+        <name>cursor</name>
+        <briefdescription>
+<para>Returns current cursor state. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADTerminal.h" line="73" column="24"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADUi_1_1TerminalBuffer_1a418a8fa3307bf8e546f548b0c0c756a5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void RADUi::TerminalBuffer::setScreenSize</definition>
+        <argsstring>(size_t rows, size_t columns)</argsstring>
+        <name>setScreenSize</name>
+        <param>
+          <type>size_t</type>
+          <declname>rows</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>columns</declname>
+        </param>
+        <briefdescription>
+<para>Sets visible terminal dimensions. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADTerminal.h" line="75" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADUi_1_1TerminalBuffer_1a54199351cf6277da9ee047047eb6859f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void RADUi::TerminalBuffer::clear</definition>
+        <argsstring>()</argsstring>
+        <name>clear</name>
+        <briefdescription>
+<para>Clears terminal contents and parser state. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADTerminal.h" line="77" column="14"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="classRADUi_1_1TerminalBuffer_1ad1bbd9f446a3dae692b938ae013b88bc" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void RADUi::TerminalBuffer::consume</definition>
+        <argsstring>(unsigned char byte)</argsstring>
+        <name>consume</name>
+        <param>
+          <type>unsigned char</type>
+          <declname>byte</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADTerminal.h" line="88" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADUi_1_1TerminalBuffer_1a1932b6247c83719006f5c5bf025fbe88" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void RADUi::TerminalBuffer::consumeNormal</definition>
+        <argsstring>(unsigned char byte)</argsstring>
+        <name>consumeNormal</name>
+        <param>
+          <type>unsigned char</type>
+          <declname>byte</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADTerminal.h" line="89" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADUi_1_1TerminalBuffer_1a891410b6b9eac45ac4507f173ba173b0" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void RADUi::TerminalBuffer::consumeEscape</definition>
+        <argsstring>(unsigned char byte)</argsstring>
+        <name>consumeEscape</name>
+        <param>
+          <type>unsigned char</type>
+          <declname>byte</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADTerminal.h" line="90" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADUi_1_1TerminalBuffer_1a2d9545b0f079382156b4c11a7fe2ae16" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void RADUi::TerminalBuffer::consumeCsi</definition>
+        <argsstring>(unsigned char byte)</argsstring>
+        <name>consumeCsi</name>
+        <param>
+          <type>unsigned char</type>
+          <declname>byte</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADTerminal.h" line="91" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADUi_1_1TerminalBuffer_1aa06ac742acaab873ac6880b76441532a" prot="private" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>std::vector&lt; int &gt;</type>
+        <definition>std::vector&lt;int&gt; RADUi::TerminalBuffer::csiParams</definition>
+        <argsstring>(int defaultValue=0) const</argsstring>
+        <name>csiParams</name>
+        <param>
+          <type>int</type>
+          <declname>defaultValue</declname>
+          <defval>0</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADTerminal.h" line="92" column="21"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADUi_1_1TerminalBuffer_1a5d90eaabd924588a9f81568ae070bd42" prot="private" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool RADUi::TerminalBuffer::csiPrivateMode</definition>
+        <argsstring>() const</argsstring>
+        <name>csiPrivateMode</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADTerminal.h" line="93" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADUi_1_1TerminalBuffer_1af0958547fb80296d54066234f81d2e0b" prot="private" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int RADUi::TerminalBuffer::csiParam</definition>
+        <argsstring>(size_t index, int defaultValue=0) const</argsstring>
+        <name>csiParam</name>
+        <param>
+          <type>size_t</type>
+          <declname>index</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>defaultValue</declname>
+          <defval>0</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADTerminal.h" line="94" column="13"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADUi_1_1TerminalBuffer_1ad7708982d57675108b6a56f3cb869e39" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void RADUi::TerminalBuffer::applySgr</definition>
+        <argsstring>()</argsstring>
+        <name>applySgr</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADTerminal.h" line="95" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADUi_1_1TerminalBuffer_1a8874a4fba11dfb861a588df9464426b3" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void RADUi::TerminalBuffer::putChar</definition>
+        <argsstring>(char ch)</argsstring>
+        <name>putChar</name>
+        <param>
+          <type>char</type>
+          <declname>ch</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADTerminal.h" line="96" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADUi_1_1TerminalBuffer_1a94181849392afd4e223a1672d492a2cc" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void RADUi::TerminalBuffer::newline</definition>
+        <argsstring>()</argsstring>
+        <name>newline</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADTerminal.h" line="97" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADUi_1_1TerminalBuffer_1a94ac6d9ceb8b0c1116f682be6cc9d20b" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void RADUi::TerminalBuffer::carriageReturn</definition>
+        <argsstring>()</argsstring>
+        <name>carriageReturn</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADTerminal.h" line="98" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADUi_1_1TerminalBuffer_1a3f20f1f38f87648d3bc6e200bec7b575" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void RADUi::TerminalBuffer::backspace</definition>
+        <argsstring>()</argsstring>
+        <name>backspace</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADTerminal.h" line="99" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADUi_1_1TerminalBuffer_1a7f8566373145e43008570324fc3b0c0a" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void RADUi::TerminalBuffer::cursorUp</definition>
+        <argsstring>(size_t count)</argsstring>
+        <name>cursorUp</name>
+        <param>
+          <type>size_t</type>
+          <declname>count</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADTerminal.h" line="100" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADUi_1_1TerminalBuffer_1a0d0b01b393990e0a2f2ac49811361208" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void RADUi::TerminalBuffer::cursorDown</definition>
+        <argsstring>(size_t count)</argsstring>
+        <name>cursorDown</name>
+        <param>
+          <type>size_t</type>
+          <declname>count</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADTerminal.h" line="101" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADUi_1_1TerminalBuffer_1afc0600e0a5c816598e001984f6d853a0" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void RADUi::TerminalBuffer::cursorForward</definition>
+        <argsstring>(size_t count)</argsstring>
+        <name>cursorForward</name>
+        <param>
+          <type>size_t</type>
+          <declname>count</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADTerminal.h" line="102" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADUi_1_1TerminalBuffer_1ae17d813793993b903648dc1a2dc5ea2f" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void RADUi::TerminalBuffer::cursorBack</definition>
+        <argsstring>(size_t count)</argsstring>
+        <name>cursorBack</name>
+        <param>
+          <type>size_t</type>
+          <declname>count</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADTerminal.h" line="103" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADUi_1_1TerminalBuffer_1a33de78a40c20330773b879ff63978ca6" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void RADUi::TerminalBuffer::setCursor</definition>
+        <argsstring>(size_t row, size_t column)</argsstring>
+        <name>setCursor</name>
+        <param>
+          <type>size_t</type>
+          <declname>row</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>column</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADTerminal.h" line="104" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADUi_1_1TerminalBuffer_1a57872dab431b9c5c862d3156c5605ed0" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void RADUi::TerminalBuffer::eraseInDisplay</definition>
+        <argsstring>(int mode)</argsstring>
+        <name>eraseInDisplay</name>
+        <param>
+          <type>int</type>
+          <declname>mode</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADTerminal.h" line="105" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADUi_1_1TerminalBuffer_1a8583627074ac9bac9296190ab7690c65" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void RADUi::TerminalBuffer::eraseInLine</definition>
+        <argsstring>(int mode)</argsstring>
+        <name>eraseInLine</name>
+        <param>
+          <type>int</type>
+          <declname>mode</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADTerminal.h" line="106" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADUi_1_1TerminalBuffer_1aefcd1168e872fc9e217a59624e9efe58" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void RADUi::TerminalBuffer::setScrollRegion</definition>
+        <argsstring>(size_t top, size_t bottom)</argsstring>
+        <name>setScrollRegion</name>
+        <param>
+          <type>size_t</type>
+          <declname>top</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>bottom</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADTerminal.h" line="107" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADUi_1_1TerminalBuffer_1aa4829a1fcf30ac1929cc5b3f3bb81093" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void RADUi::TerminalBuffer::resetScrollRegion</definition>
+        <argsstring>()</argsstring>
+        <name>resetScrollRegion</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADTerminal.h" line="108" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADUi_1_1TerminalBuffer_1ad49ebe0bb656458d4c334158cf5ad4e4" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void RADUi::TerminalBuffer::scrollRegionUp</definition>
+        <argsstring>(size_t top, size_t bottom, size_t count=1)</argsstring>
+        <name>scrollRegionUp</name>
+        <param>
+          <type>size_t</type>
+          <declname>top</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>bottom</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>count</declname>
+          <defval>1</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADTerminal.h" line="109" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADUi_1_1TerminalBuffer_1ac3e18ea034cf73b8dd9b85a96c431333" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void RADUi::TerminalBuffer::scrollRegionDown</definition>
+        <argsstring>(size_t top, size_t bottom, size_t count=1)</argsstring>
+        <name>scrollRegionDown</name>
+        <param>
+          <type>size_t</type>
+          <declname>top</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>bottom</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>count</declname>
+          <defval>1</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADTerminal.h" line="110" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADUi_1_1TerminalBuffer_1ad1d8051c61439d87562cd424a69d4505" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void RADUi::TerminalBuffer::insertLines</definition>
+        <argsstring>(size_t count)</argsstring>
+        <name>insertLines</name>
+        <param>
+          <type>size_t</type>
+          <declname>count</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADTerminal.h" line="111" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADUi_1_1TerminalBuffer_1a2d0dd135fa28f11596c9f3d1ad397c44" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void RADUi::TerminalBuffer::deleteLines</definition>
+        <argsstring>(size_t count)</argsstring>
+        <name>deleteLines</name>
+        <param>
+          <type>size_t</type>
+          <declname>count</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADTerminal.h" line="112" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADUi_1_1TerminalBuffer_1a111ca1e96936792fba3224fd621d837b" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void RADUi::TerminalBuffer::insertChars</definition>
+        <argsstring>(size_t count)</argsstring>
+        <name>insertChars</name>
+        <param>
+          <type>size_t</type>
+          <declname>count</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADTerminal.h" line="113" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADUi_1_1TerminalBuffer_1adcb16840bd5e55acc6c14facdeb87f8e" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void RADUi::TerminalBuffer::deleteChars</definition>
+        <argsstring>(size_t count)</argsstring>
+        <name>deleteChars</name>
+        <param>
+          <type>size_t</type>
+          <declname>count</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADTerminal.h" line="114" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADUi_1_1TerminalBuffer_1a45f37c2b63c2b348a92154a893cf896c" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void RADUi::TerminalBuffer::eraseChars</definition>
+        <argsstring>(size_t count)</argsstring>
+        <name>eraseChars</name>
+        <param>
+          <type>size_t</type>
+          <declname>count</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADTerminal.h" line="115" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADUi_1_1TerminalBuffer_1a178dfba17bc5972b021f81b5a002e95d" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void RADUi::TerminalBuffer::setPrivateMode</definition>
+        <argsstring>(int mode, bool enabled)</argsstring>
+        <name>setPrivateMode</name>
+        <param>
+          <type>int</type>
+          <declname>mode</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>enabled</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADTerminal.h" line="116" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADUi_1_1TerminalBuffer_1ae72e2cdd87aa20efe04a5da1e0ca87f9" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void RADUi::TerminalBuffer::enterAlternateScreen</definition>
+        <argsstring>()</argsstring>
+        <name>enterAlternateScreen</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADTerminal.h" line="117" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADUi_1_1TerminalBuffer_1aa71dbd2d18c1e76273704bb02ef89365" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void RADUi::TerminalBuffer::leaveAlternateScreen</definition>
+        <argsstring>()</argsstring>
+        <name>leaveAlternateScreen</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADTerminal.h" line="118" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADUi_1_1TerminalBuffer_1aec99c25ab7cc7a645ed0b29cabb5eee8" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void RADUi::TerminalBuffer::ensureCursorLine</definition>
+        <argsstring>()</argsstring>
+        <name>ensureCursorLine</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADTerminal.h" line="119" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADUi_1_1TerminalBuffer_1a10a215eaf52f4eabea0c40084eefceae" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void RADUi::TerminalBuffer::trim</definition>
+        <argsstring>()</argsstring>
+        <name>trim</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADTerminal.h" line="120" column="14"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>ANSI/VT-style terminal screen buffer and parser. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADTerminal.h" line="62" column="5" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADTerminal.h" bodystart="62" bodyend="141"/>
+    <listofallmembers>
+      <member refid="classRADUi_1_1TerminalBuffer_1a78f9d38f780fcb7b1e1da00c312beedb" prot="private" virt="non-virtual"><scope>RADUi::TerminalBuffer</scope><name>alternateScreen_</name></member>
+      <member refid="classRADUi_1_1TerminalBuffer_1a47fa2f8e4ca9e1083fa81c262ea8165e" prot="public" virt="non-virtual"><scope>RADUi::TerminalBuffer</scope><name>append</name></member>
+      <member refid="classRADUi_1_1TerminalBuffer_1ad7708982d57675108b6a56f3cb869e39" prot="private" virt="non-virtual"><scope>RADUi::TerminalBuffer</scope><name>applySgr</name></member>
+      <member refid="classRADUi_1_1TerminalBuffer_1a3f20f1f38f87648d3bc6e200bec7b575" prot="private" virt="non-virtual"><scope>RADUi::TerminalBuffer</scope><name>backspace</name></member>
+      <member refid="classRADUi_1_1TerminalBuffer_1afcf5553016f3964201fadae2f43a3387" prot="private" virt="non-virtual"><scope>RADUi::TerminalBuffer</scope><name>bold_</name></member>
+      <member refid="classRADUi_1_1TerminalBuffer_1a94ac6d9ceb8b0c1116f682be6cc9d20b" prot="private" virt="non-virtual"><scope>RADUi::TerminalBuffer</scope><name>carriageReturn</name></member>
+      <member refid="classRADUi_1_1TerminalBuffer_1a54199351cf6277da9ee047047eb6859f" prot="public" virt="non-virtual"><scope>RADUi::TerminalBuffer</scope><name>clear</name></member>
+      <member refid="classRADUi_1_1TerminalBuffer_1ad1bbd9f446a3dae692b938ae013b88bc" prot="private" virt="non-virtual"><scope>RADUi::TerminalBuffer</scope><name>consume</name></member>
+      <member refid="classRADUi_1_1TerminalBuffer_1a2d9545b0f079382156b4c11a7fe2ae16" prot="private" virt="non-virtual"><scope>RADUi::TerminalBuffer</scope><name>consumeCsi</name></member>
+      <member refid="classRADUi_1_1TerminalBuffer_1a891410b6b9eac45ac4507f173ba173b0" prot="private" virt="non-virtual"><scope>RADUi::TerminalBuffer</scope><name>consumeEscape</name></member>
+      <member refid="classRADUi_1_1TerminalBuffer_1a1932b6247c83719006f5c5bf025fbe88" prot="private" virt="non-virtual"><scope>RADUi::TerminalBuffer</scope><name>consumeNormal</name></member>
+      <member refid="classRADUi_1_1TerminalBuffer_1aeb5f7523152ed10aade5ca6d85dacd3a" prot="private" virt="non-virtual"><scope>RADUi::TerminalBuffer</scope><name>csi_</name></member>
+      <member refid="classRADUi_1_1TerminalBuffer_1af0958547fb80296d54066234f81d2e0b" prot="private" virt="non-virtual"><scope>RADUi::TerminalBuffer</scope><name>csiParam</name></member>
+      <member refid="classRADUi_1_1TerminalBuffer_1aa06ac742acaab873ac6880b76441532a" prot="private" virt="non-virtual"><scope>RADUi::TerminalBuffer</scope><name>csiParams</name></member>
+      <member refid="classRADUi_1_1TerminalBuffer_1a5d90eaabd924588a9f81568ae070bd42" prot="private" virt="non-virtual"><scope>RADUi::TerminalBuffer</scope><name>csiPrivateMode</name></member>
+      <member refid="classRADUi_1_1TerminalBuffer_1ad0a6ff34511e354506df19ad000128b9" prot="private" virt="non-virtual"><scope>RADUi::TerminalBuffer</scope><name>currentBackground_</name></member>
+      <member refid="classRADUi_1_1TerminalBuffer_1adfcb6f88cd0a07b8d6c7e7488ddf30fb" prot="private" virt="non-virtual"><scope>RADUi::TerminalBuffer</scope><name>currentForeground_</name></member>
+      <member refid="classRADUi_1_1TerminalBuffer_1a203ae85141b74bf88aaf1bfe8bf7fbea" prot="public" virt="non-virtual"><scope>RADUi::TerminalBuffer</scope><name>cursor</name></member>
+      <member refid="classRADUi_1_1TerminalBuffer_1ae17d813793993b903648dc1a2dc5ea2f" prot="private" virt="non-virtual"><scope>RADUi::TerminalBuffer</scope><name>cursorBack</name></member>
+      <member refid="classRADUi_1_1TerminalBuffer_1aa97d81d82ace675e249b7975d1d3c41c" prot="private" virt="non-virtual"><scope>RADUi::TerminalBuffer</scope><name>cursorColumn_</name></member>
+      <member refid="classRADUi_1_1TerminalBuffer_1a0d0b01b393990e0a2f2ac49811361208" prot="private" virt="non-virtual"><scope>RADUi::TerminalBuffer</scope><name>cursorDown</name></member>
+      <member refid="classRADUi_1_1TerminalBuffer_1afc0600e0a5c816598e001984f6d853a0" prot="private" virt="non-virtual"><scope>RADUi::TerminalBuffer</scope><name>cursorForward</name></member>
+      <member refid="classRADUi_1_1TerminalBuffer_1a4400fc9e9f789658bdc6d2aff76c4ad2" prot="private" virt="non-virtual"><scope>RADUi::TerminalBuffer</scope><name>cursorRow_</name></member>
+      <member refid="classRADUi_1_1TerminalBuffer_1a7f8566373145e43008570324fc3b0c0a" prot="private" virt="non-virtual"><scope>RADUi::TerminalBuffer</scope><name>cursorUp</name></member>
+      <member refid="classRADUi_1_1TerminalBuffer_1a9ebf468e0fdd96e8614a5b2dcdc80b41" prot="private" virt="non-virtual"><scope>RADUi::TerminalBuffer</scope><name>cursorVisible_</name></member>
+      <member refid="classRADUi_1_1TerminalBuffer_1adcb16840bd5e55acc6c14facdeb87f8e" prot="private" virt="non-virtual"><scope>RADUi::TerminalBuffer</scope><name>deleteChars</name></member>
+      <member refid="classRADUi_1_1TerminalBuffer_1a2d0dd135fa28f11596c9f3d1ad397c44" prot="private" virt="non-virtual"><scope>RADUi::TerminalBuffer</scope><name>deleteLines</name></member>
+      <member refid="classRADUi_1_1TerminalBuffer_1aec99c25ab7cc7a645ed0b29cabb5eee8" prot="private" virt="non-virtual"><scope>RADUi::TerminalBuffer</scope><name>ensureCursorLine</name></member>
+      <member refid="classRADUi_1_1TerminalBuffer_1ae72e2cdd87aa20efe04a5da1e0ca87f9" prot="private" virt="non-virtual"><scope>RADUi::TerminalBuffer</scope><name>enterAlternateScreen</name></member>
+      <member refid="classRADUi_1_1TerminalBuffer_1a45f37c2b63c2b348a92154a893cf896c" prot="private" virt="non-virtual"><scope>RADUi::TerminalBuffer</scope><name>eraseChars</name></member>
+      <member refid="classRADUi_1_1TerminalBuffer_1a57872dab431b9c5c862d3156c5605ed0" prot="private" virt="non-virtual"><scope>RADUi::TerminalBuffer</scope><name>eraseInDisplay</name></member>
+      <member refid="classRADUi_1_1TerminalBuffer_1a8583627074ac9bac9296190ab7690c65" prot="private" virt="non-virtual"><scope>RADUi::TerminalBuffer</scope><name>eraseInLine</name></member>
+      <member refid="classRADUi_1_1TerminalBuffer_1a111ca1e96936792fba3224fd621d837b" prot="private" virt="non-virtual"><scope>RADUi::TerminalBuffer</scope><name>insertChars</name></member>
+      <member refid="classRADUi_1_1TerminalBuffer_1ad1d8051c61439d87562cd424a69d4505" prot="private" virt="non-virtual"><scope>RADUi::TerminalBuffer</scope><name>insertLines</name></member>
+      <member refid="classRADUi_1_1TerminalBuffer_1ab70cd921b0284f8749059a86d430a219" prot="public" virt="non-virtual"><scope>RADUi::TerminalBuffer</scope><name>isAlternateScreen</name></member>
+      <member refid="classRADUi_1_1TerminalBuffer_1aa71dbd2d18c1e76273704bb02ef89365" prot="private" virt="non-virtual"><scope>RADUi::TerminalBuffer</scope><name>leaveAlternateScreen</name></member>
+      <member refid="classRADUi_1_1TerminalBuffer_1a1a6c1c5cd80c3c0ff3c5fce65a5078eb" prot="private" virt="non-virtual"><scope>RADUi::TerminalBuffer</scope><name>lines_</name></member>
+      <member refid="classRADUi_1_1TerminalBuffer_1a38756ebbe22dbab77de52430732a3d09" prot="private" virt="non-virtual"><scope>RADUi::TerminalBuffer</scope><name>mutex_</name></member>
+      <member refid="classRADUi_1_1TerminalBuffer_1a94181849392afd4e223a1672d492a2cc" prot="private" virt="non-virtual"><scope>RADUi::TerminalBuffer</scope><name>newline</name></member>
+      <member refid="classRADUi_1_1TerminalBuffer_1a1ae858b5cfafd89b6b8b4ce33e2aab17" prot="public" virt="non-virtual"><scope>RADUi::TerminalBuffer</scope><name>plainText</name></member>
+      <member refid="classRADUi_1_1TerminalBuffer_1a8874a4fba11dfb861a588df9464426b3" prot="private" virt="non-virtual"><scope>RADUi::TerminalBuffer</scope><name>putChar</name></member>
+      <member refid="classRADUi_1_1TerminalBuffer_1aa4829a1fcf30ac1929cc5b3f3bb81093" prot="private" virt="non-virtual"><scope>RADUi::TerminalBuffer</scope><name>resetScrollRegion</name></member>
+      <member refid="classRADUi_1_1TerminalBuffer_1a3dbfe5b25f5905831651f268388fbe9a" prot="private" virt="non-virtual"><scope>RADUi::TerminalBuffer</scope><name>reverse_</name></member>
+      <member refid="classRADUi_1_1TerminalBuffer_1a8fc761b7b0cc19292ef1b6baf18aa7bd" prot="private" virt="non-virtual"><scope>RADUi::TerminalBuffer</scope><name>savedCursorColumn_</name></member>
+      <member refid="classRADUi_1_1TerminalBuffer_1a7525438f3db3979eec47f7e58b75aeee" prot="private" virt="non-virtual"><scope>RADUi::TerminalBuffer</scope><name>savedCursorRow_</name></member>
+      <member refid="classRADUi_1_1TerminalBuffer_1a38ed6b73651c4c28ee4ca3034e64be53" prot="private" virt="non-virtual"><scope>RADUi::TerminalBuffer</scope><name>savedLines_</name></member>
+      <member refid="classRADUi_1_1TerminalBuffer_1a696791792b76048b1d559c4979424cc4" prot="private" virt="non-virtual"><scope>RADUi::TerminalBuffer</scope><name>screenColumns_</name></member>
+      <member refid="classRADUi_1_1TerminalBuffer_1ab09c39b0be2426c6bc2272d9cdbff28d" prot="private" virt="non-virtual"><scope>RADUi::TerminalBuffer</scope><name>screenRows_</name></member>
+      <member refid="classRADUi_1_1TerminalBuffer_1ad715062575b5f2672731d78c737c2abb" prot="private" virt="non-virtual"><scope>RADUi::TerminalBuffer</scope><name>scrollBottom_</name></member>
+      <member refid="classRADUi_1_1TerminalBuffer_1ac3e18ea034cf73b8dd9b85a96c431333" prot="private" virt="non-virtual"><scope>RADUi::TerminalBuffer</scope><name>scrollRegionDown</name></member>
+      <member refid="classRADUi_1_1TerminalBuffer_1ad49ebe0bb656458d4c334158cf5ad4e4" prot="private" virt="non-virtual"><scope>RADUi::TerminalBuffer</scope><name>scrollRegionUp</name></member>
+      <member refid="classRADUi_1_1TerminalBuffer_1a37e5bd9178559604e38b45b153d22671" prot="private" virt="non-virtual"><scope>RADUi::TerminalBuffer</scope><name>scrollTop_</name></member>
+      <member refid="classRADUi_1_1TerminalBuffer_1a33de78a40c20330773b879ff63978ca6" prot="private" virt="non-virtual"><scope>RADUi::TerminalBuffer</scope><name>setCursor</name></member>
+      <member refid="classRADUi_1_1TerminalBuffer_1a178dfba17bc5972b021f81b5a002e95d" prot="private" virt="non-virtual"><scope>RADUi::TerminalBuffer</scope><name>setPrivateMode</name></member>
+      <member refid="classRADUi_1_1TerminalBuffer_1a418a8fa3307bf8e546f548b0c0c756a5" prot="public" virt="non-virtual"><scope>RADUi::TerminalBuffer</scope><name>setScreenSize</name></member>
+      <member refid="classRADUi_1_1TerminalBuffer_1aefcd1168e872fc9e217a59624e9efe58" prot="private" virt="non-virtual"><scope>RADUi::TerminalBuffer</scope><name>setScrollRegion</name></member>
+      <member refid="classRADUi_1_1TerminalBuffer_1af86e94f6e738f601763f46044eb5aeda" prot="public" virt="non-virtual"><scope>RADUi::TerminalBuffer</scope><name>snapshot</name></member>
+      <member refid="classRADUi_1_1TerminalBuffer_1aecc0627c86277dd269203401f35e565b" prot="private" virt="non-virtual"><scope>RADUi::TerminalBuffer</scope><name>State</name></member>
+      <member refid="classRADUi_1_1TerminalBuffer_1a6fc931377fd0e7df781c4f620530106e" prot="private" virt="non-virtual"><scope>RADUi::TerminalBuffer</scope><name>state_</name></member>
+      <member refid="classRADUi_1_1TerminalBuffer_1a10a215eaf52f4eabea0c40084eefceae" prot="private" virt="non-virtual"><scope>RADUi::TerminalBuffer</scope><name>trim</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

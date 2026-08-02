@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>RadBuild 0.2.2-beta.2</title>
+  <link rel="stylesheet" href="../../../assets/site.css">
+</head>
+<body>
+<main class="page">
+  <nav class="nav">
+    <a class="brand" href="../../../"><img src="../../../assets/rad-logo.png" alt="">Radical Packages</a>
+    <div class="nav-links">
+      <a href="../../../">Home</a>
+      <a href="../../../packages.html">Packages</a>
+      <a href="../../../radpx-os.html">RADPx-OS</a>
+      <a href="../../../docs/">Docs</a>
+      <a href="../../../contribute.html">Contribute</a>
+    </div>
+  </nav>
+  <section class="hero compact-hero">
+    <div class="eyebrow">RadBuild 0.2.2-beta.2</div>
+    <h1>RadBuild 0.2.2-beta.2</h1>
+  </section>
+  <article class="card doc-content">
+<h1>RadBuild 0.2.2-beta.2</h1>
+<p>RadBuild 0.2.2-beta.2 is the Crimson experimental build framework for Radical Computer Technologies projects. It uses schema v2 JSON project files to build FPGA designs, Linux/embedded software graphs, RADPx OS images, package metadata, and deployment artifacts through one CLI.</p>
+<h2>Release Channels</h2>
+<ul>
+<li>Suite: experimental</li>
+<li>Schema: 2.0</li>
+<li>Package format: frozen release executables for RadBuild runtime packages</li>
+<li>Primary CLI: <code>radbuild</code></li>
+<li>New provider: <code>fpga.ecp5</code> through OSS CAD Suite for Lattice ECP5 targets</li>
+<li>Windows package path: experimental MSI built on Windows with native FPGA</li>
+<p>provider plumbing for Vivado/Vitis, Gowin, and OSS CAD Suite</p>
+<li>IDE integration: line-delimited JSON events for VSCode and other frontends</li>
+</ul>
+<h2>Documentation Sections</h2>
+<ul>
+<li><a href="install.html">Install</a></li>
+<li><a href="fpga-builds.html">FPGA Builds</a></li>
+<li><a href="ecp5-oss-cad-suite.html">ECP5 OSS CAD Suite Flow</a></li>
+<li><a href="os-builds.html">OS Builds</a></li>
+<li><a href="packaging.html">Packaging</a></li>
+<li><a href="examples/index.html">Examples</a></li>
+<li><a href="settings-fields.html">Settings Fields</a></li>
+<li><a href="reference.html">Reference</a></li>
+<li><a href="compatibility.html">Compatibility Appendix</a></li>
+</ul>
+<h2>Quick Start</h2>
+<pre><code>sudo apt install ./radbuild_0.2.2-beta.2_amd64.deb
+radbuild project create --list-templates
+radbuild project create ./workspace --non-interactive --template fpga-mpsoc-buildroot --project-name demo
+radbuild project register ./workspace/demo
+radbuild project list --json
+radbuild project validate --settings ./workspace/demo/settings.json
+radbuild host inspect --json
+radbuild generate --settings ./workspace/demo/settings.json
+radbuild build all --settings ./workspace/demo/settings.json --dry-run --json-events</code></pre>
+<p>Expected dry-run output begins with JSON events:</p>
+<pre><code>{&quot;event&quot;:&quot;build_started&quot;,&quot;systems&quot;:2}
+{&quot;event&quot;:&quot;system_planned&quot;,&quot;system&quot;:&quot;vivado&quot;,&quot;type&quot;:&quot;fpga.vivado&quot;}
+{&quot;event&quot;:&quot;system_planned&quot;,&quot;system&quot;:&quot;petalinux&quot;,&quot;type&quot;:&quot;linux.petalinux&quot;}
+{&quot;event&quot;:&quot;build_finished&quot;,&quot;status&quot;:&quot;dry-run&quot;}</code></pre>
+<h2>VSCode Front-End</h2>
+<p>The <code>radbuild-vscode-support</code> package includes a VSCode extension with a RadBuild activity-bar view. The first view lists registered projects with a single <code>Open</code> action. Opening a project switches VSCode to that source root and changes the side panel into a project detail view with baseline settings, system dependency graph, dry-run build plan, artifact status, RadHDL catalog access, build actions, and a form-based project settings editor. The Projects pane keeps project rows simple while exposing <code>Toolchain Setup</code>, <code>Register Directory</code>, and <code>Create Project</code> in the pane toolbar. A directory is accepted as a RadBuild project only when it contains a schema v2 <code>settings.json</code>.</p>
+<p>The create-project UI is template-aware: changing templates resets fields to that template&#x27;s defaults and disables fields that do not apply. Toolchain setup rescans on extension activation and when opened. Vivado roots are normalized to the folder containing version subdirectories such as <code>2024.1</code>, and versions are accepted only when they contain <code>settings64.sh</code> plus <code>bin/vivado</code>. PetaLinux roots are handled the same way, using <code>settings.sh</code> plus a valid <code>petalinux-build</code> path. OSS CAD Suite, Gowin, GHDL, Yosys, nextpnr, QEMU, Buildroot, RadHDL, RadicalPackages, and cross compiler paths are tracked as explicit toolchain overrides.</p>
+  </article>
+</main>
+</body>
+</html>

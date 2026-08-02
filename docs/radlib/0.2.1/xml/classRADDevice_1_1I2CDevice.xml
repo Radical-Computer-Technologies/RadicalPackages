@@ -1,0 +1,180 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="classRADDevice_1_1I2CDevice" kind="class" language="C++" prot="public">
+    <compoundname>RADDevice::I2CDevice</compoundname>
+    <includes refid="RADDevice_8h" local="no">RADDevice.h</includes>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classRADDevice_1_1I2CDevice_1ada10e4548daf85f76db56af0d5718f02" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int RADDevice::I2CDevice::fd_</definition>
+        <argsstring></argsstring>
+        <name>fd_</name>
+        <initializer>= -1</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDevice/headers/RADDevice.h" line="74" column="13" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADDevice/headers/RADDevice.h" bodystart="74" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classRADDevice_1_1I2CDevice_1ade10b35b0efa52bdf7a7b1bd9eb208e9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>RADDevice::I2CDevice::I2CDevice</definition>
+        <argsstring>()</argsstring>
+        <name>I2CDevice</name>
+        <briefdescription>
+<para>Creates a closed I2C device wrapper. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDevice/headers/RADDevice.h" line="57" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADDevice_1_1I2CDevice_1a71361b83302a0a097cf078a1f27551c5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>RADDevice::I2CDevice::~I2CDevice</definition>
+        <argsstring>()</argsstring>
+        <name>~I2CDevice</name>
+        <briefdescription>
+<para>Closes the device. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDevice/headers/RADDevice.h" line="59" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADDevice_1_1I2CDevice_1a0eb47cc26f64e05c18d62ca9e9e8c761" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool RADDevice::I2CDevice::open</definition>
+        <argsstring>(int bus, int address, const DevicePaths &amp;paths={}, std::string *error=nullptr)</argsstring>
+        <name>open</name>
+        <param>
+          <type>int</type>
+          <declname>bus</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>address</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structRADDevice_1_1DevicePaths" kindref="compound">DevicePaths</ref> &amp;</type>
+          <declname>paths</declname>
+          <defval>{}</defval>
+        </param>
+        <param>
+          <type>std::string *</type>
+          <declname>error</declname>
+          <defval>nullptr</defval>
+        </param>
+        <briefdescription>
+<para>Opens bus number and selects 7-bit address. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDevice/headers/RADDevice.h" line="61" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADDevice_1_1I2CDevice_1a355a3b25b521550751b7217ddded9a0e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void RADDevice::I2CDevice::close</definition>
+        <argsstring>()</argsstring>
+        <name>close</name>
+        <briefdescription>
+<para>Closes the descriptor. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDevice/headers/RADDevice.h" line="63" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADDevice_1_1I2CDevice_1a886dc0c83e3095a7b5276630ae4a055a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>ssize_t</type>
+        <definition>ssize_t RADDevice::I2CDevice::write</definition>
+        <argsstring>(const std::vector&lt; uint8_t &gt; &amp;bytes)</argsstring>
+        <name>write</name>
+        <param>
+          <type>const std::vector&lt; uint8_t &gt; &amp;</type>
+          <declname>bytes</declname>
+        </param>
+        <briefdescription>
+<para>Writes bytes to the selected device. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDevice/headers/RADDevice.h" line="65" column="17"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADDevice_1_1I2CDevice_1aa9570ba6773a764e6c2c09159e5c14ef" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::vector&lt; uint8_t &gt;</type>
+        <definition>std::vector&lt;uint8_t&gt; RADDevice::I2CDevice::read</definition>
+        <argsstring>(size_t count)</argsstring>
+        <name>read</name>
+        <param>
+          <type>size_t</type>
+          <declname>count</declname>
+        </param>
+        <briefdescription>
+<para>Reads bytes from the selected device. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDevice/headers/RADDevice.h" line="67" column="21"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADDevice_1_1I2CDevice_1aac37c769c38cecb4fa8cbc021d3cde10" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool RADDevice::I2CDevice::isOpen</definition>
+        <argsstring>() const</argsstring>
+        <name>isOpen</name>
+        <briefdescription>
+<para>Returns true when open. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDevice/headers/RADDevice.h" line="69" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADDevice_1_1I2CDevice_1afaed04a6b29733d9bbe6925511de0754" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int RADDevice::I2CDevice::fd</definition>
+        <argsstring>() const</argsstring>
+        <name>fd</name>
+        <briefdescription>
+<para>Returns owned file descriptor. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDevice/headers/RADDevice.h" line="71" column="13"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Parity-free I2C device wrapper using /dev/i2c-* and I2C_SLAVE ioctl. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDevice/headers/RADDevice.h" line="54" column="5" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADDevice/headers/RADDevice.h" bodystart="54" bodyend="75"/>
+    <listofallmembers>
+      <member refid="classRADDevice_1_1I2CDevice_1a355a3b25b521550751b7217ddded9a0e" prot="public" virt="non-virtual"><scope>RADDevice::I2CDevice</scope><name>close</name></member>
+      <member refid="classRADDevice_1_1I2CDevice_1afaed04a6b29733d9bbe6925511de0754" prot="public" virt="non-virtual"><scope>RADDevice::I2CDevice</scope><name>fd</name></member>
+      <member refid="classRADDevice_1_1I2CDevice_1ada10e4548daf85f76db56af0d5718f02" prot="private" virt="non-virtual"><scope>RADDevice::I2CDevice</scope><name>fd_</name></member>
+      <member refid="classRADDevice_1_1I2CDevice_1ade10b35b0efa52bdf7a7b1bd9eb208e9" prot="public" virt="non-virtual"><scope>RADDevice::I2CDevice</scope><name>I2CDevice</name></member>
+      <member refid="classRADDevice_1_1I2CDevice_1aac37c769c38cecb4fa8cbc021d3cde10" prot="public" virt="non-virtual"><scope>RADDevice::I2CDevice</scope><name>isOpen</name></member>
+      <member refid="classRADDevice_1_1I2CDevice_1a0eb47cc26f64e05c18d62ca9e9e8c761" prot="public" virt="non-virtual"><scope>RADDevice::I2CDevice</scope><name>open</name></member>
+      <member refid="classRADDevice_1_1I2CDevice_1aa9570ba6773a764e6c2c09159e5c14ef" prot="public" virt="non-virtual"><scope>RADDevice::I2CDevice</scope><name>read</name></member>
+      <member refid="classRADDevice_1_1I2CDevice_1a886dc0c83e3095a7b5276630ae4a055a" prot="public" virt="non-virtual"><scope>RADDevice::I2CDevice</scope><name>write</name></member>
+      <member refid="classRADDevice_1_1I2CDevice_1a71361b83302a0a097cf078a1f27551c5" prot="public" virt="non-virtual"><scope>RADDevice::I2CDevice</scope><name>~I2CDevice</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

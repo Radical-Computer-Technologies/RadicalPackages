@@ -1,0 +1,183 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="classRADCore_1_1RADDateTime" kind="class" language="C++" prot="public">
+    <compoundname>RADCore::RADDateTime</compoundname>
+    <includes refid="RADCore_8h" local="no">RADCore.h</includes>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classRADCore_1_1RADDateTime_1a42a251b98c05401615e08584e346f2b9" prot="private" static="no" mutable="no">
+        <type>int64_t</type>
+        <definition>int64_t RADCore::RADDateTime::unixMilliseconds_</definition>
+        <argsstring></argsstring>
+        <name>unixMilliseconds_</name>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADCore/headers/RADCore.h" line="458" column="17" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADCore/headers/RADCore.h" bodystart="458" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classRADCore_1_1RADDateTime_1a327d8f05f82acacfa6e4476271428fe1" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool RADCore::RADDateTime::valid_</definition>
+        <argsstring></argsstring>
+        <name>valid_</name>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADCore/headers/RADCore.h" line="459" column="14" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADCore/headers/RADCore.h" bodystart="459" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classRADCore_1_1RADDateTime_1a99120d3616c49fc3d3d2af1ee7384507" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>RADCore::RADDateTime::RADDateTime</definition>
+        <argsstring>()</argsstring>
+        <name>RADDateTime</name>
+        <briefdescription>
+<para>Creates an invalid date-time. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADCore/headers/RADCore.h" line="439" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADCore_1_1RADDateTime_1a56fc834cc5c9708862b682d891778a4b" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>RADCore::RADDateTime::RADDateTime</definition>
+        <argsstring>(int64_t unixMilliseconds)</argsstring>
+        <name>RADDateTime</name>
+        <param>
+          <type>int64_t</type>
+          <declname>unixMilliseconds</declname>
+        </param>
+        <briefdescription>
+<para>Creates a valid UTC date-time from Unix milliseconds. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADCore/headers/RADCore.h" line="441" column="18"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADCore_1_1RADDateTime_1a1701f62c8320a7f4e7f08f2d26939196" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>int64_t</type>
+        <definition>int64_t RADCore::RADDateTime::toUnixMilliseconds</definition>
+        <argsstring>() const</argsstring>
+        <name>toUnixMilliseconds</name>
+        <briefdescription>
+<para>Returns Unix milliseconds. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADCore/headers/RADCore.h" line="451" column="17"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADCore_1_1RADDateTime_1ae66e56ee9cd92d874a5f1c942aeae324" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>std::string</type>
+        <definition>std::string RADCore::RADDateTime::toIsoString</definition>
+        <argsstring>() const</argsstring>
+        <name>toIsoString</name>
+        <briefdescription>
+<para>Formats as an ISO-like UTC string. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADCore/headers/RADCore.h" line="453" column="21"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADCore_1_1RADDateTime_1a2ac4463884738822572ae23724a9e97b" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool RADCore::RADDateTime::isValid</definition>
+        <argsstring>() const</argsstring>
+        <name>isValid</name>
+        <briefdescription>
+<para>Returns true when this object contains a valid timestamp. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADCore/headers/RADCore.h" line="455" column="14"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="classRADCore_1_1RADDateTime_1ad50d8c164d2ad921bb09af8189ae48b1" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classRADCore_1_1RADDateTime" kindref="compound">RADDateTime</ref></type>
+        <definition>static RADDateTime RADCore::RADDateTime::nowUtc</definition>
+        <argsstring>()</argsstring>
+        <name>nowUtc</name>
+        <briefdescription>
+<para>Returns current UTC time. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADCore/headers/RADCore.h" line="444" column="28"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADCore_1_1RADDateTime_1ac2f10acb24f44a5a0083d702f0688e6a" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classRADCore_1_1RADDateTime" kindref="compound">RADDateTime</ref></type>
+        <definition>static RADDateTime RADCore::RADDateTime::fromUnixMilliseconds</definition>
+        <argsstring>(int64_t unixMilliseconds)</argsstring>
+        <name>fromUnixMilliseconds</name>
+        <param>
+          <type>int64_t</type>
+          <declname>unixMilliseconds</declname>
+        </param>
+        <briefdescription>
+<para>Creates a date-time from Unix milliseconds. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADCore/headers/RADCore.h" line="446" column="28"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADCore_1_1RADDateTime_1a1040240028a6ad35cb1c1abd2541d777" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::optional&lt; <ref refid="classRADCore_1_1RADDateTime" kindref="compound">RADDateTime</ref> &gt;</type>
+        <definition>static std::optional&lt;RADDateTime&gt; RADCore::RADDateTime::fromIsoString</definition>
+        <argsstring>(const std::string &amp;isoString)</argsstring>
+        <name>fromIsoString</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>isoString</declname>
+        </param>
+        <briefdescription>
+<para>Parses an ISO-like UTC string. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADCore/headers/RADCore.h" line="448" column="30"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>UTC millisecond timestamp helper. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/media/jvincent/Kingspec512/repos/RADLib/RADCore/headers/RADCore.h" line="436" column="5" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADCore/headers/RADCore.h" bodystart="436" bodyend="460"/>
+    <listofallmembers>
+      <member refid="classRADCore_1_1RADDateTime_1a1040240028a6ad35cb1c1abd2541d777" prot="public" virt="non-virtual"><scope>RADCore::RADDateTime</scope><name>fromIsoString</name></member>
+      <member refid="classRADCore_1_1RADDateTime_1ac2f10acb24f44a5a0083d702f0688e6a" prot="public" virt="non-virtual"><scope>RADCore::RADDateTime</scope><name>fromUnixMilliseconds</name></member>
+      <member refid="classRADCore_1_1RADDateTime_1a2ac4463884738822572ae23724a9e97b" prot="public" virt="non-virtual"><scope>RADCore::RADDateTime</scope><name>isValid</name></member>
+      <member refid="classRADCore_1_1RADDateTime_1ad50d8c164d2ad921bb09af8189ae48b1" prot="public" virt="non-virtual"><scope>RADCore::RADDateTime</scope><name>nowUtc</name></member>
+      <member refid="classRADCore_1_1RADDateTime_1a99120d3616c49fc3d3d2af1ee7384507" prot="public" virt="non-virtual"><scope>RADCore::RADDateTime</scope><name>RADDateTime</name></member>
+      <member refid="classRADCore_1_1RADDateTime_1a56fc834cc5c9708862b682d891778a4b" prot="public" virt="non-virtual"><scope>RADCore::RADDateTime</scope><name>RADDateTime</name></member>
+      <member refid="classRADCore_1_1RADDateTime_1ae66e56ee9cd92d874a5f1c942aeae324" prot="public" virt="non-virtual"><scope>RADCore::RADDateTime</scope><name>toIsoString</name></member>
+      <member refid="classRADCore_1_1RADDateTime_1a1701f62c8320a7f4e7f08f2d26939196" prot="public" virt="non-virtual"><scope>RADCore::RADDateTime</scope><name>toUnixMilliseconds</name></member>
+      <member refid="classRADCore_1_1RADDateTime_1a42a251b98c05401615e08584e346f2b9" prot="private" virt="non-virtual"><scope>RADCore::RADDateTime</scope><name>unixMilliseconds_</name></member>
+      <member refid="classRADCore_1_1RADDateTime_1a327d8f05f82acacfa6e4476271428fe1" prot="private" virt="non-virtual"><scope>RADCore::RADDateTime</scope><name>valid_</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

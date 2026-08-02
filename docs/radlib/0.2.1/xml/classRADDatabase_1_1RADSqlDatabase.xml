@@ -1,0 +1,436 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="classRADDatabase_1_1RADSqlDatabase" kind="class" language="C++" prot="public">
+    <compoundname>RADDatabase::RADSqlDatabase</compoundname>
+    <basecompoundref refid="classRADCore_1_1RADObject" prot="public" virt="non-virtual">RADCore::RADObject</basecompoundref>
+    <includes refid="RADDatabase_8h" local="no">RADDatabase.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="classRADDatabase_1_1RADSqlDatabase_1a9a9b00875ad404ca92f3edc45ad575fe" prot="public" static="no" mutable="no">
+        <type><ref refid="classRADCore_1_1Event" kindref="compound">RADCore::Event</ref>&lt; void(std::string) &gt;</type>
+        <definition>RADCore::Event&lt;void (std::string) &gt; RADDatabase::RADSqlDatabase::errorOccurred</definition>
+        <argsstring></argsstring>
+        <name>errorOccurred</name>
+        <briefdescription>
+<para>Raised when SQLite open, execute, query, or transaction handling fails. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDatabase/headers/RADDatabase.h" line="51" column="30" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADDatabase/headers/RADDatabase.h" bodystart="51" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="friend">
+      <memberdef kind="friend" id="classRADDatabase_1_1RADSqlDatabase_1a1b361493b47f1ef75e593c4d9a904430" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>class</type>
+        <definition>friend class RADSqlStatement</definition>
+        <argsstring></argsstring>
+        <name>RADSqlStatement</name>
+        <param>
+          <type><ref refid="classRADDatabase_1_1RADSqlStatement" kindref="compound">RADSqlStatement</ref></type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDatabase/headers/RADDatabase.h" line="98" column="9" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADDatabase/headers/RADDatabase.h" bodystart="98" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="friend" id="classRADDatabase_1_1RADSqlDatabase_1aa4becf0d1b9e99195a23830fdfbf0880" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>class</type>
+        <definition>friend class RADSqlTransaction</definition>
+        <argsstring></argsstring>
+        <name>RADSqlTransaction</name>
+        <param>
+          <type><ref refid="classRADDatabase_1_1RADSqlTransaction" kindref="compound">RADSqlTransaction</ref></type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDatabase/headers/RADDatabase.h" line="99" column="9" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADDatabase/headers/RADDatabase.h" bodystart="99" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classRADDatabase_1_1RADSqlDatabase_1a0f71910e13cfcede9bbc8251888575b8" prot="private" static="no" mutable="no">
+        <type>std::shared_ptr&lt; Impl &gt;</type>
+        <definition>std::shared_ptr&lt;Impl&gt; RADDatabase::RADSqlDatabase::pImpl_</definition>
+        <argsstring></argsstring>
+        <name>pImpl_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDatabase/headers/RADDatabase.h" line="101" column="25" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADDatabase/headers/RADDatabase.h" bodystart="100" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classRADDatabase_1_1RADSqlDatabase_1a086b218a8241ceacc4c61417ecb28118" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>RADDatabase::RADSqlDatabase::RADSqlDatabase</definition>
+        <argsstring>()</argsstring>
+        <name>RADSqlDatabase</name>
+        <briefdescription>
+<para>Creates a database object with no file assigned yet. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDatabase/headers/RADDatabase.h" line="54" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADDatabase_1_1RADSqlDatabase_1ada214614c2145026ee94d6e66f2fad6d" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>RADDatabase::RADSqlDatabase::RADSqlDatabase</definition>
+        <argsstring>(std::string fileName)</argsstring>
+        <name>RADSqlDatabase</name>
+        <param>
+          <type>std::string</type>
+          <declname>fileName</declname>
+        </param>
+        <briefdescription>
+<para>Creates a database object targeting fileName. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDatabase/headers/RADDatabase.h" line="56" column="18"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADDatabase_1_1RADSqlDatabase_1ad4d51291744387e676d44798c93d2889" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>RADDatabase::RADSqlDatabase::~RADSqlDatabase</definition>
+        <argsstring>() override</argsstring>
+        <name>~RADSqlDatabase</name>
+        <briefdescription>
+<para>Closes the SQLite handle if still open. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDatabase/headers/RADDatabase.h" line="58" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADDatabase_1_1RADSqlDatabase_1a8ee3b95aac93ca1f16759915f28ed2a4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void RADDatabase::RADSqlDatabase::setFileName</definition>
+        <argsstring>(std::string fileName)</argsstring>
+        <name>setFileName</name>
+        <param>
+          <type>std::string</type>
+          <declname>fileName</declname>
+        </param>
+        <briefdescription>
+<para>Sets the SQLite database file path used by <ref refid="classRADDatabase_1_1RADSqlDatabase_1af34d9fe0dd3bb6273c3b7a8e4dbd8a9b" kindref="member">open()</ref>. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDatabase/headers/RADDatabase.h" line="61" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADDatabase_1_1RADSqlDatabase_1a72152f9346ec04a138732691540e0326" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>const std::string &amp;</type>
+        <definition>const std::string&amp; RADDatabase::RADSqlDatabase::fileName</definition>
+        <argsstring>() const</argsstring>
+        <name>fileName</name>
+        <briefdescription>
+<para>Returns the configured SQLite database file path. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDatabase/headers/RADDatabase.h" line="63" column="27"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADDatabase_1_1RADSqlDatabase_1af34d9fe0dd3bb6273c3b7a8e4dbd8a9b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool RADDatabase::RADSqlDatabase::open</definition>
+        <argsstring>()</argsstring>
+        <name>open</name>
+        <briefdescription>
+<para>Opens the configured SQLite database file. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDatabase/headers/RADDatabase.h" line="66" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADDatabase_1_1RADSqlDatabase_1a118b1afb625153910056233c44f1d296" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void RADDatabase::RADSqlDatabase::close</definition>
+        <argsstring>()</argsstring>
+        <name>close</name>
+        <briefdescription>
+<para>Closes the SQLite connection. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDatabase/headers/RADDatabase.h" line="68" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADDatabase_1_1RADSqlDatabase_1ac790279f76fdd12cba286a45f6b48995" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool RADDatabase::RADSqlDatabase::isOpen</definition>
+        <argsstring>() const</argsstring>
+        <name>isOpen</name>
+        <briefdescription>
+<para>Returns true when a SQLite connection is open. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDatabase/headers/RADDatabase.h" line="70" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADDatabase_1_1RADSqlDatabase_1a8b188b170986027f8e1d777263e0497f" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>std::string</type>
+        <definition>std::string RADDatabase::RADSqlDatabase::lastError</definition>
+        <argsstring>() const</argsstring>
+        <name>lastError</name>
+        <briefdescription>
+<para>Returns the most recent SQLite error message. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDatabase/headers/RADDatabase.h" line="72" column="21"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADDatabase_1_1RADSqlDatabase_1ab6a3aa0e5ecc31552948f8563252e771" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool RADDatabase::RADSqlDatabase::execute</definition>
+        <argsstring>(const std::string &amp;sql)</argsstring>
+        <name>execute</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>sql</declname>
+        </param>
+        <briefdescription>
+<para>Executes SQL that does not need row results. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDatabase/headers/RADDatabase.h" line="75" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADDatabase_1_1RADSqlDatabase_1abbd0ee1842330423c0bb93ccf1fce8f0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classRADDatabase_1_1RADSqlResult" kindref="compound">RADSqlResult</ref></type>
+        <definition>RADSqlResult RADDatabase::RADSqlDatabase::query</definition>
+        <argsstring>(const std::string &amp;sql)</argsstring>
+        <name>query</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>sql</declname>
+        </param>
+        <briefdescription>
+<para>Executes SQL and returns collected result rows. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDatabase/headers/RADDatabase.h" line="77" column="22"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADDatabase_1_1RADSqlDatabase_1af6784397597a35054d4aa7027fa0a539" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classRADDatabase_1_1RADSqlStatement" kindref="compound">RADSqlStatement</ref></type>
+        <definition>RADSqlStatement RADDatabase::RADSqlDatabase::prepare</definition>
+        <argsstring>(const std::string &amp;sql)</argsstring>
+        <name>prepare</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>sql</declname>
+        </param>
+        <briefdescription>
+<para>Prepares a reusable SQL statement. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDatabase/headers/RADDatabase.h" line="79" column="25"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADDatabase_1_1RADSqlDatabase_1ab8610bf35dd55f10c8e30b8b68a4b57c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classRADCore_1_1RADFutureT" kindref="compound">RADCore::RADFutureT</ref>&lt; <ref refid="classRADDatabase_1_1RADSqlResult" kindref="compound">RADSqlResult</ref> &gt;</type>
+        <definition>RADCore::RADFutureT&lt;RADSqlResult&gt; RADDatabase::RADSqlDatabase::queryAsync</definition>
+        <argsstring>(RADCore::RADThreadPool &amp;pool, RADCore::EventLoop &amp;completionLoop, const std::string &amp;sql)</argsstring>
+        <name>queryAsync</name>
+        <param>
+          <type><ref refid="classRADCore_1_1RADThreadPool" kindref="compound">RADCore::RADThreadPool</ref> &amp;</type>
+          <declname>pool</declname>
+        </param>
+        <param>
+          <type><ref refid="classRADCore_1_1EventLoop" kindref="compound">RADCore::EventLoop</ref> &amp;</type>
+          <declname>completionLoop</declname>
+        </param>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>sql</declname>
+        </param>
+        <briefdescription>
+<para>Runs query asynchronously on pool and posts completion to completionLoop. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDatabase/headers/RADDatabase.h" line="81" column="29"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADDatabase_1_1RADSqlDatabase_1aea324b09a7b2db493c9aa9e87b54757d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool RADDatabase::RADSqlDatabase::beginTransaction</definition>
+        <argsstring>()</argsstring>
+        <name>beginTransaction</name>
+        <briefdescription>
+<para>Starts a SQLite transaction. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDatabase/headers/RADDatabase.h" line="87" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADDatabase_1_1RADSqlDatabase_1ad01f397fe8bb57f836e6e66cfbf6a802" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool RADDatabase::RADSqlDatabase::commit</definition>
+        <argsstring>()</argsstring>
+        <name>commit</name>
+        <briefdescription>
+<para>Commits the active transaction. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDatabase/headers/RADDatabase.h" line="89" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADDatabase_1_1RADSqlDatabase_1ac567f6283e0eb217419ac73a8925a6dd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool RADDatabase::RADSqlDatabase::rollback</definition>
+        <argsstring>()</argsstring>
+        <name>rollback</name>
+        <briefdescription>
+<para>Rolls back the active transaction. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDatabase/headers/RADDatabase.h" line="91" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADDatabase_1_1RADSqlDatabase_1a5bd199b63c29bd781f45a47223ebc18f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int RADDatabase::RADSqlDatabase::schemaVersion</definition>
+        <argsstring>()</argsstring>
+        <name>schemaVersion</name>
+        <briefdescription>
+<para>Returns current schema version from the rad_schema_version table. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDatabase/headers/RADDatabase.h" line="93" column="13"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADDatabase_1_1RADSqlDatabase_1ae600c964d12988763a8d03622b6c690e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool RADDatabase::RADSqlDatabase::migrateTo</definition>
+        <argsstring>(int targetVersion, const std::vector&lt; std::pair&lt; int, std::string &gt;&gt; &amp;migrations)</argsstring>
+        <name>migrateTo</name>
+        <param>
+          <type>int</type>
+          <declname>targetVersion</declname>
+        </param>
+        <param>
+          <type>const std::vector&lt; std::pair&lt; int, std::string &gt;&gt; &amp;</type>
+          <declname>migrations</declname>
+        </param>
+        <briefdescription>
+<para>Applies ordered migrations until targetVersion is reached. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDatabase/headers/RADDatabase.h" line="95" column="14"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>SQLite connection wrapper with <ref refid="namespaceRADCore" kindref="compound">RADCore</ref> event reporting. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>RADCore::RADObject</label>
+        <link refid="classRADCore_1_1RADObject"/>
+      </node>
+      <node id="1">
+        <label>RADDatabase::RADSqlDatabase</label>
+        <link refid="classRADDatabase_1_1RADSqlDatabase"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>RADCore::RADObject</label>
+        <link refid="classRADCore_1_1RADObject"/>
+      </node>
+      <node id="1">
+        <label>RADDatabase::RADSqlDatabase</label>
+        <link refid="classRADDatabase_1_1RADSqlDatabase"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="3" relation="usage">
+          <edgelabel>errorOccurred</edgelabel>
+        </childnode>
+      </node>
+      <node id="3">
+        <label>RADCore::Event&lt; void(std::string) &gt;</label>
+        <link refid="classRADCore_1_1Event"/>
+      </node>
+    </collaborationgraph>
+    <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDatabase/headers/RADDatabase.h" line="47" column="5" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADDatabase/headers/RADDatabase.h" bodystart="47" bodyend="102"/>
+    <listofallmembers>
+      <member refid="classRADCore_1_1RADObject_1a06cdf252ffb5e2f88332ebda12a62080" prot="public" virt="non-virtual"><scope>RADDatabase::RADSqlDatabase</scope><name>associatedEventLoop</name></member>
+      <member refid="classRADDatabase_1_1RADSqlDatabase_1aea324b09a7b2db493c9aa9e87b54757d" prot="public" virt="non-virtual"><scope>RADDatabase::RADSqlDatabase</scope><name>beginTransaction</name></member>
+      <member refid="classRADDatabase_1_1RADSqlDatabase_1a118b1afb625153910056233c44f1d296" prot="public" virt="non-virtual"><scope>RADDatabase::RADSqlDatabase</scope><name>close</name></member>
+      <member refid="classRADDatabase_1_1RADSqlDatabase_1ad01f397fe8bb57f836e6e66cfbf6a802" prot="public" virt="non-virtual"><scope>RADDatabase::RADSqlDatabase</scope><name>commit</name></member>
+      <member refid="classRADDatabase_1_1RADSqlDatabase_1a9a9b00875ad404ca92f3edc45ad575fe" prot="public" virt="non-virtual"><scope>RADDatabase::RADSqlDatabase</scope><name>errorOccurred</name></member>
+      <member refid="classRADDatabase_1_1RADSqlDatabase_1ab6a3aa0e5ecc31552948f8563252e771" prot="public" virt="non-virtual"><scope>RADDatabase::RADSqlDatabase</scope><name>execute</name></member>
+      <member refid="classRADDatabase_1_1RADSqlDatabase_1a72152f9346ec04a138732691540e0326" prot="public" virt="non-virtual"><scope>RADDatabase::RADSqlDatabase</scope><name>fileName</name></member>
+      <member refid="classRADDatabase_1_1RADSqlDatabase_1ac790279f76fdd12cba286a45f6b48995" prot="public" virt="non-virtual"><scope>RADDatabase::RADSqlDatabase</scope><name>isOpen</name></member>
+      <member refid="classRADDatabase_1_1RADSqlDatabase_1a8b188b170986027f8e1d777263e0497f" prot="public" virt="non-virtual"><scope>RADDatabase::RADSqlDatabase</scope><name>lastError</name></member>
+      <member refid="classRADCore_1_1RADObject_1ad2ddfd066d14be9adc2f96bfca417fc6" prot="public" virt="non-virtual"><scope>RADDatabase::RADSqlDatabase</scope><name>lifetimeToken</name></member>
+      <member refid="classRADDatabase_1_1RADSqlDatabase_1ae600c964d12988763a8d03622b6c690e" prot="public" virt="non-virtual"><scope>RADDatabase::RADSqlDatabase</scope><name>migrateTo</name></member>
+      <member refid="classRADCore_1_1RADObject_1a1f7f7f2fb40211e28455cd74a029339a" prot="public" virt="non-virtual"><scope>RADDatabase::RADSqlDatabase</scope><name>moveToThread</name></member>
+      <member refid="classRADDatabase_1_1RADSqlDatabase_1af34d9fe0dd3bb6273c3b7a8e4dbd8a9b" prot="public" virt="non-virtual"><scope>RADDatabase::RADSqlDatabase</scope><name>open</name></member>
+      <member refid="classRADDatabase_1_1RADSqlDatabase_1a0f71910e13cfcede9bbc8251888575b8" prot="private" virt="non-virtual"><scope>RADDatabase::RADSqlDatabase</scope><name>pImpl_</name></member>
+      <member refid="classRADDatabase_1_1RADSqlDatabase_1af6784397597a35054d4aa7027fa0a539" prot="public" virt="non-virtual"><scope>RADDatabase::RADSqlDatabase</scope><name>prepare</name></member>
+      <member refid="classRADDatabase_1_1RADSqlDatabase_1abbd0ee1842330423c0bb93ccf1fce8f0" prot="public" virt="non-virtual"><scope>RADDatabase::RADSqlDatabase</scope><name>query</name></member>
+      <member refid="classRADDatabase_1_1RADSqlDatabase_1ab8610bf35dd55f10c8e30b8b68a4b57c" prot="public" virt="non-virtual"><scope>RADDatabase::RADSqlDatabase</scope><name>queryAsync</name></member>
+      <member refid="classRADCore_1_1RADObject_1a9bc3fed915f7c71232e68c2628d34708" prot="public" virt="non-virtual"><scope>RADDatabase::RADSqlDatabase</scope><name>RADObject</name></member>
+      <member refid="classRADDatabase_1_1RADSqlDatabase_1a086b218a8241ceacc4c61417ecb28118" prot="public" virt="non-virtual"><scope>RADDatabase::RADSqlDatabase</scope><name>RADSqlDatabase</name></member>
+      <member refid="classRADDatabase_1_1RADSqlDatabase_1ada214614c2145026ee94d6e66f2fad6d" prot="public" virt="non-virtual"><scope>RADDatabase::RADSqlDatabase</scope><name>RADSqlDatabase</name></member>
+      <member refid="classRADDatabase_1_1RADSqlDatabase_1a1b361493b47f1ef75e593c4d9a904430" prot="private" virt="non-virtual"><scope>RADDatabase::RADSqlDatabase</scope><name>RADSqlStatement</name></member>
+      <member refid="classRADDatabase_1_1RADSqlDatabase_1aa4becf0d1b9e99195a23830fdfbf0880" prot="private" virt="non-virtual"><scope>RADDatabase::RADSqlDatabase</scope><name>RADSqlTransaction</name></member>
+      <member refid="classRADCore_1_1RADObject_1af3e26b970c8080418f0d6b80cad986a2" prot="public" virt="non-virtual"><scope>RADDatabase::RADSqlDatabase</scope><name>registerLink</name></member>
+      <member refid="classRADDatabase_1_1RADSqlDatabase_1ac567f6283e0eb217419ac73a8925a6dd" prot="public" virt="non-virtual"><scope>RADDatabase::RADSqlDatabase</scope><name>rollback</name></member>
+      <member refid="classRADDatabase_1_1RADSqlDatabase_1a5bd199b63c29bd781f45a47223ebc18f" prot="public" virt="non-virtual"><scope>RADDatabase::RADSqlDatabase</scope><name>schemaVersion</name></member>
+      <member refid="classRADDatabase_1_1RADSqlDatabase_1a8ee3b95aac93ca1f16759915f28ed2a4" prot="public" virt="non-virtual"><scope>RADDatabase::RADSqlDatabase</scope><name>setFileName</name></member>
+      <member refid="classRADCore_1_1RADObject_1a8b11df0b951d0db1ba99cfb851e34f31" prot="public" virt="non-virtual"><scope>RADDatabase::RADSqlDatabase</scope><name>threadAffinity</name></member>
+      <member refid="classRADCore_1_1RADObject_1ac7ca67b41523794ae5a6b3634d6ce3b6" prot="public" virt="non-virtual"><scope>RADDatabase::RADSqlDatabase</scope><name>threadId</name></member>
+      <member refid="classRADCore_1_1RADObject_1a7369e27a46c163ee89c63227db650ce5" prot="public" virt="virtual"><scope>RADDatabase::RADSqlDatabase</scope><name>~RADObject</name></member>
+      <member refid="classRADDatabase_1_1RADSqlDatabase_1ad4d51291744387e676d44798c93d2889" prot="public" virt="non-virtual"><scope>RADDatabase::RADSqlDatabase</scope><name>~RADSqlDatabase</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

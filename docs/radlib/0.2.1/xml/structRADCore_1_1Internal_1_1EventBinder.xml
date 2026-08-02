@@ -1,0 +1,88 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="structRADCore_1_1Internal_1_1EventBinder" kind="struct" language="C++" prot="public">
+    <compoundname>RADCore::Internal::EventBinder</compoundname>
+    <includes refid="RADCore_8h" local="no">RADCore.h</includes>
+    <templateparamlist>
+      <param>
+        <type>typename...</type>
+        <declname>Args</declname>
+        <defname>Args</defname>
+      </param>
+    </templateparamlist>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structRADCore_1_1Internal_1_1EventBinder_1a8ca07ab6c923078936b87c080d15bf2f" prot="public" static="no" mutable="no">
+        <type><ref refid="classRADCore_1_1Event" kindref="compound">Event</ref>&lt; void(Args...)&gt; &amp;</type>
+        <definition>Event&lt;void(Args...)&gt;&amp; RADCore::Internal::EventBinder&lt; Args &gt;::targetEvent</definition>
+        <argsstring></argsstring>
+        <name>targetEvent</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADCore/headers/RADCore.h" line="1941" column="32" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADCore/headers/RADCore.h" bodystart="1941" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structRADCore_1_1Internal_1_1EventBinder_1a46abaa1015dfcaca1745363b2d0845c2" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>RADCore::Internal::EventBinder&lt; Args &gt;::EventBinder</definition>
+        <argsstring>(Event&lt; void(Args...)&gt; &amp;ev)</argsstring>
+        <name>EventBinder</name>
+        <param>
+          <type><ref refid="classRADCore_1_1Event" kindref="compound">Event</ref>&lt; void(Args...)&gt; &amp;</type>
+          <declname>ev</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADCore/headers/RADCore.h" line="1942" column="13" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADCore/headers/RADCore.h" bodystart="1942" bodyend="1942"/>
+      </memberdef>
+      <memberdef kind="function" id="structRADCore_1_1Internal_1_1EventBinder_1a34c98a6353b83c4ec70f11553928c9f2" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void RADCore::Internal::EventBinder&lt; Args &gt;::operator()</definition>
+        <argsstring>(Args... args)</argsstring>
+        <name>operator()</name>
+        <param>
+          <type>Args...</type>
+          <declname>args</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADCore/headers/RADCore.h" line="1943" column="18" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADCore/headers/RADCore.h" bodystart="1943" bodyend="1945"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="1">
+        <label>RADCore::Internal::EventBinder&lt; Args &gt;</label>
+        <link refid="structRADCore_1_1Internal_1_1EventBinder"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>targetEvent</edgelabel>
+        </childnode>
+      </node>
+      <node id="2">
+        <label>RADCore::Event&lt; void(Args...)&gt;</label>
+        <link refid="classRADCore_1_1Event_3_01void_07Args_8_8_8_08_4"/>
+      </node>
+    </collaborationgraph>
+    <location file="/media/jvincent/Kingspec512/repos/RADLib/RADCore/headers/RADCore.h" line="1941" column="9" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADCore/headers/RADCore.h" bodystart="1941" bodyend="1946"/>
+    <listofallmembers>
+      <member refid="structRADCore_1_1Internal_1_1EventBinder_1a46abaa1015dfcaca1745363b2d0845c2" prot="public" virt="non-virtual"><scope>RADCore::Internal::EventBinder</scope><name>EventBinder</name></member>
+      <member refid="structRADCore_1_1Internal_1_1EventBinder_1a34c98a6353b83c4ec70f11553928c9f2" prot="public" virt="non-virtual"><scope>RADCore::Internal::EventBinder</scope><name>operator()</name></member>
+      <member refid="structRADCore_1_1Internal_1_1EventBinder_1a8ca07ab6c923078936b87c080d15bf2f" prot="public" virt="non-virtual"><scope>RADCore::Internal::EventBinder</scope><name>targetEvent</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

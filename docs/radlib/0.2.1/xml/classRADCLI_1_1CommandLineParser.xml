@@ -1,0 +1,214 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="classRADCLI_1_1CommandLineParser" kind="class" language="C++" prot="public">
+    <compoundname>RADCLI::CommandLineParser</compoundname>
+    <includes refid="RADCLI_8h" local="no">RADCLI.h</includes>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classRADCLI_1_1CommandLineParser_1a4bc2ce7859daa87c6e895c7bc74bb1a4" prot="private" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string RADCLI::CommandLineParser::applicationName_</definition>
+        <argsstring></argsstring>
+        <name>applicationName_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADCLI/headers/RADCLI.h" line="79" column="21" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADCLI/headers/RADCLI.h" bodystart="79" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classRADCLI_1_1CommandLineParser_1ab1b8c4195d61652fa731603362634cff" prot="private" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string RADCLI::CommandLineParser::description_</definition>
+        <argsstring></argsstring>
+        <name>description_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADCLI/headers/RADCLI.h" line="80" column="21" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADCLI/headers/RADCLI.h" bodystart="80" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classRADCLI_1_1CommandLineParser_1a708f6c7e040b424d9647415bfbd85e33" prot="private" static="no" mutable="no">
+        <type>std::vector&lt; <ref refid="structRADCLI_1_1Option" kindref="compound">Option</ref> &gt;</type>
+        <definition>std::vector&lt;Option&gt; RADCLI::CommandLineParser::options_</definition>
+        <argsstring></argsstring>
+        <name>options_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADCLI/headers/RADCLI.h" line="81" column="21" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADCLI/headers/RADCLI.h" bodystart="81" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classRADCLI_1_1CommandLineParser_1aac4da97e2f7dedb9caa85ae58d6ce1aa" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>RADCLI::CommandLineParser::CommandLineParser</definition>
+        <argsstring>(std::string applicationName={})</argsstring>
+        <name>CommandLineParser</name>
+        <param>
+          <type>std::string</type>
+          <declname>applicationName</declname>
+          <defval>{}</defval>
+        </param>
+        <briefdescription>
+<para>Creates a parser for applicationName. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADCLI/headers/RADCLI.h" line="63" column="18"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADCLI_1_1CommandLineParser_1a73e48b3e7efb9ef0a2ca904f46d74a12" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void RADCLI::CommandLineParser::setDescription</definition>
+        <argsstring>(std::string description)</argsstring>
+        <name>setDescription</name>
+        <param>
+          <type>std::string</type>
+          <declname>description</declname>
+        </param>
+        <briefdescription>
+<para>Sets a short application description. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADCLI/headers/RADCLI.h" line="65" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADCLI_1_1CommandLineParser_1a1418b40655cf217b889ab8a7a56cb9a4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void RADCLI::CommandLineParser::addOption</definition>
+        <argsstring>(Option option)</argsstring>
+        <name>addOption</name>
+        <param>
+          <type><ref refid="structRADCLI_1_1Option" kindref="compound">Option</ref></type>
+          <declname>option</declname>
+        </param>
+        <briefdescription>
+<para>Adds an option. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADCLI/headers/RADCLI.h" line="67" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADCLI_1_1CommandLineParser_1a5fcb8a9890f144c7bd049ebb0dcd3264" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classRADCLI_1_1ParseResult" kindref="compound">ParseResult</ref></type>
+        <definition>ParseResult RADCLI::CommandLineParser::parse</definition>
+        <argsstring>(int argc, char **argv) const</argsstring>
+        <name>parse</name>
+        <param>
+          <type>int</type>
+          <declname>argc</declname>
+        </param>
+        <param>
+          <type>char **</type>
+          <declname>argv</declname>
+        </param>
+        <briefdescription>
+<para>Parses argc/argv. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADCLI/headers/RADCLI.h" line="69" column="21"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADCLI_1_1CommandLineParser_1af18e6b14a5ffa055b76c82c83e5c0229" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classRADCLI_1_1ParseResult" kindref="compound">ParseResult</ref></type>
+        <definition>ParseResult RADCLI::CommandLineParser::parse</definition>
+        <argsstring>(const std::vector&lt; std::string &gt; &amp;args) const</argsstring>
+        <name>parse</name>
+        <param>
+          <type>const std::vector&lt; std::string &gt; &amp;</type>
+          <declname>args</declname>
+        </param>
+        <briefdescription>
+<para>Parses vector arguments where args[0] is the program name. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADCLI/headers/RADCLI.h" line="71" column="21"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADCLI_1_1CommandLineParser_1a68788797e12346a25bcf15d3e49b32f3" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>std::string</type>
+        <definition>std::string RADCLI::CommandLineParser::helpText</definition>
+        <argsstring>() const</argsstring>
+        <name>helpText</name>
+        <briefdescription>
+<para>Builds help text. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADCLI/headers/RADCLI.h" line="73" column="21"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="classRADCLI_1_1CommandLineParser_1a1ba1731b16a6a57091a9b02b7905aea0" prot="private" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>const <ref refid="structRADCLI_1_1Option" kindref="compound">Option</ref> *</type>
+        <definition>const Option* RADCLI::CommandLineParser::findLong</definition>
+        <argsstring>(const std::string &amp;name) const</argsstring>
+        <name>findLong</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>name</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADCLI/headers/RADCLI.h" line="76" column="22"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADCLI_1_1CommandLineParser_1a635f5967e641659b6a9b15ac1086e852" prot="private" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>const <ref refid="structRADCLI_1_1Option" kindref="compound">Option</ref> *</type>
+        <definition>const Option* RADCLI::CommandLineParser::findShort</definition>
+        <argsstring>(char shortName) const</argsstring>
+        <name>findShort</name>
+        <param>
+          <type>char</type>
+          <declname>shortName</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADCLI/headers/RADCLI.h" line="77" column="22"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Small command-line parser for RADLib tools and examples. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/media/jvincent/Kingspec512/repos/RADLib/RADCLI/headers/RADCLI.h" line="60" column="5" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADCLI/headers/RADCLI.h" bodystart="60" bodyend="82"/>
+    <listofallmembers>
+      <member refid="classRADCLI_1_1CommandLineParser_1a1418b40655cf217b889ab8a7a56cb9a4" prot="public" virt="non-virtual"><scope>RADCLI::CommandLineParser</scope><name>addOption</name></member>
+      <member refid="classRADCLI_1_1CommandLineParser_1a4bc2ce7859daa87c6e895c7bc74bb1a4" prot="private" virt="non-virtual"><scope>RADCLI::CommandLineParser</scope><name>applicationName_</name></member>
+      <member refid="classRADCLI_1_1CommandLineParser_1aac4da97e2f7dedb9caa85ae58d6ce1aa" prot="public" virt="non-virtual"><scope>RADCLI::CommandLineParser</scope><name>CommandLineParser</name></member>
+      <member refid="classRADCLI_1_1CommandLineParser_1ab1b8c4195d61652fa731603362634cff" prot="private" virt="non-virtual"><scope>RADCLI::CommandLineParser</scope><name>description_</name></member>
+      <member refid="classRADCLI_1_1CommandLineParser_1a1ba1731b16a6a57091a9b02b7905aea0" prot="private" virt="non-virtual"><scope>RADCLI::CommandLineParser</scope><name>findLong</name></member>
+      <member refid="classRADCLI_1_1CommandLineParser_1a635f5967e641659b6a9b15ac1086e852" prot="private" virt="non-virtual"><scope>RADCLI::CommandLineParser</scope><name>findShort</name></member>
+      <member refid="classRADCLI_1_1CommandLineParser_1a68788797e12346a25bcf15d3e49b32f3" prot="public" virt="non-virtual"><scope>RADCLI::CommandLineParser</scope><name>helpText</name></member>
+      <member refid="classRADCLI_1_1CommandLineParser_1a708f6c7e040b424d9647415bfbd85e33" prot="private" virt="non-virtual"><scope>RADCLI::CommandLineParser</scope><name>options_</name></member>
+      <member refid="classRADCLI_1_1CommandLineParser_1a5fcb8a9890f144c7bd049ebb0dcd3264" prot="public" virt="non-virtual"><scope>RADCLI::CommandLineParser</scope><name>parse</name></member>
+      <member refid="classRADCLI_1_1CommandLineParser_1af18e6b14a5ffa055b76c82c83e5c0229" prot="public" virt="non-virtual"><scope>RADCLI::CommandLineParser</scope><name>parse</name></member>
+      <member refid="classRADCLI_1_1CommandLineParser_1a73e48b3e7efb9ef0a2ca904f46d74a12" prot="public" virt="non-virtual"><scope>RADCLI::CommandLineParser</scope><name>setDescription</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

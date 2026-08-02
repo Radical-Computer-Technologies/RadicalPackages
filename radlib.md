@@ -17,12 +17,11 @@
     <h1>RADLib Packages</h1>
     <p class="lead">
       RADLib packages are split into ABI-pinned runtime modules, unversioned convenience packages, development headers, documentation, examples, RADpm tooling, and RADPx package metadata.
-      Stable currently tracks RADLib 0.1.0. Experimental tracks RADLib 0.2.0 development packages for RADPx OS package and service integration.
+      Stable currently tracks RADLib 0.2.1. Older 0.1.0 and 0.2.0 documentation remains archived for existing consumers.
     </p>
     <div class="status-row">
-      <span class="pill"><strong>Version:</strong> 0.1.0</span>
-      <span class="pill"><strong>Experimental:</strong> 0.2.0</span>
-      <span class="pill"><strong>ABI line:</strong> 0.1</span>
+      <span class="pill"><strong>Version:</strong> 0.2.1</span>
+      <span class="pill"><strong>ABI line:</strong> 0.2</span>
       <span class="pill"><strong>Architectures:</strong> amd64, arm64</span>
     </div>
   </section>
@@ -44,10 +43,10 @@ sudo apt install radlib-media radlib-fpga radlib-web</code></div>
 
   <section class="card">
     <h2>RADPx <code>.radpm</code> Metadata</h2>
-    <p>RADLib is also listed in the experimental RADPx package index for RadBuild-managed rootfs staging. The 0.2.0 RADPx package records match the RADLib 0.2.0 source/package line.</p>
+    <p>RADLib is also listed in RADPx package indexes for RadBuild-managed rootfs staging. The stable 0.2.1 host packages and RADPx-facing metadata share the same source release line.</p>
     <div class="links">
       <a class="link-card" href="radpm/dists/experimental/main/packages.json"><strong>RADLib .radpm Records</strong><span><code>radlib</code>, <code>radlib-runtime</code>, and <code>radlib-ui</code> metadata.</span></a>
-      <a class="link-card" href="docs/radlib/0.2.0/api/"><strong>RADLib 0.2.0 API Docs</strong><span>Generated beta API documentation, including RADpm and embedded runtime notes.</span></a>
+      <a class="link-card" href="docs/radlib/0.2.1/api/"><strong>RADLib 0.2.1 API Docs</strong><span>Generated stable SDK API documentation, including RADpm and embedded runtime notes.</span></a>
       <a class="link-card" href="radpx-os.html"><strong>RADPx OS Hub</strong><span>RADPx package repository and OS build notes.</span></a>
     </div>
   </section>
@@ -66,9 +65,9 @@ radpm resolve --packagegroup radpx-terminal-base --packagegroup radpx-networking
       <tbody>
         <tr><td><code>radlib</code></td><td>Aggregate RADLib package.</td><td><code>sudo apt install radlib</code></td></tr>
         <tr><td><code>radlib-runtime</code></td><td>Latest runtime meta-package.</td><td><code>sudo apt install radlib-runtime</code></td></tr>
-        <tr><td><code>radlib-runtime-0-1</code></td><td>ABI-pinned RADLib 0.1 runtime meta-package.</td><td><code>sudo apt install radlib-runtime-0-1</code></td></tr>
+        <tr><td><code>radlib-runtime-0-2</code></td><td>ABI-pinned RADLib 0.2 runtime meta-package.</td><td><code>sudo apt install radlib-runtime-0-2</code></td></tr>
         <tr><td><code>radlib-dev</code></td><td>Latest public headers and CMake package files.</td><td><code>sudo apt install radlib-dev</code></td></tr>
-        <tr><td><code>radlib-dev-0-1</code></td><td>ABI-pinned RADLib 0.1 public headers and CMake package files.</td><td><code>sudo apt install radlib-dev-0-1</code></td></tr>
+        <tr><td><code>radlib-dev-0-2</code></td><td>ABI-pinned RADLib 0.2 public headers and CMake package files.</td><td><code>sudo apt install radlib-dev-0-2</code></td></tr>
         <tr><td><code>radlib-doc</code></td><td>Generated API documentation package.</td><td><code>sudo apt install radlib-doc</code></td></tr>
         <tr><td><code>radlib-examples</code></td><td>Example applications and sample projects.</td><td><code>sudo apt install radlib-examples</code></td></tr>
         <tr><td><code>radlib-tools</code></td><td>SDK tools and protocol generator.</td><td><code>sudo apt install radlib-tools</code></td></tr>
@@ -78,7 +77,7 @@ radpm resolve --packagegroup radpx-terminal-base --packagegroup radpx-networking
 
   <section class="card">
     <h2>Runtime Modules</h2>
-    <p>Use unversioned module packages for the current line, or the matching <code>-0-1</code> package when an application should pin the RADLib 0.1 ABI runtime line.</p>
+    <p>Use unversioned module packages for the current line, or the matching <code>-0-2</code> package when an application should pin the RADLib 0.2 ABI runtime line.</p>
     <div class="package-list">
       <div class="package"><code>radlib-core</code><br><span>Core event loop, system, JSON, and threading primitives.</span></div>
       <div class="package"><code>radlib-ui</code><br><span>RADUi and Slint-backed UI primitives.</span></div>

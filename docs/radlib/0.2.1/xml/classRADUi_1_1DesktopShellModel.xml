@@ -1,0 +1,557 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="classRADUi_1_1DesktopShellModel" kind="class" language="C++" prot="public">
+    <compoundname>RADUi::DesktopShellModel</compoundname>
+    <includes refid="RADDesktopShell_8h" local="no">RADDesktopShell.h</includes>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classRADUi_1_1DesktopShellModel_1a91db5258b0387aed9438d660350bd1dc" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool RADUi::DesktopShellModel::applicationsMenuOpen_</definition>
+        <argsstring></argsstring>
+        <name>applicationsMenuOpen_</name>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADDesktopShell.h" line="88" column="14" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADDesktopShell.h" bodystart="88" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classRADUi_1_1DesktopShellModel_1a5d26703fd656d2d90249f44f28a9c86c" prot="private" static="no" mutable="no">
+        <type>std::vector&lt; <ref refid="structRADUi_1_1DesktopAppDescriptor" kindref="compound">DesktopAppDescriptor</ref> &gt;</type>
+        <definition>std::vector&lt;DesktopAppDescriptor&gt; RADUi::DesktopShellModel::apps_</definition>
+        <argsstring></argsstring>
+        <name>apps_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADDesktopShell.h" line="89" column="21" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADDesktopShell.h" bodystart="89" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classRADUi_1_1DesktopShellModel_1ac313f4784c82dfc9f9b81b23f928d3f7" prot="private" static="no" mutable="no">
+        <type>std::vector&lt; <ref refid="structRADUi_1_1DesktopWindow" kindref="compound">DesktopWindow</ref> &gt;</type>
+        <definition>std::vector&lt;DesktopWindow&gt; RADUi::DesktopShellModel::windows_</definition>
+        <argsstring></argsstring>
+        <name>windows_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADDesktopShell.h" line="90" column="21" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADDesktopShell.h" bodystart="90" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classRADUi_1_1DesktopShellModel_1a33b95856bdad5145f5088f0d592688dd" prot="private" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t RADUi::DesktopShellModel::nextWindowId_</definition>
+        <argsstring></argsstring>
+        <name>nextWindowId_</name>
+        <initializer>= 1</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADDesktopShell.h" line="91" column="18" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADDesktopShell.h" bodystart="91" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classRADUi_1_1DesktopShellModel_1a72af349a988af285f7cd6da746aa0162" prot="private" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t RADUi::DesktopShellModel::nextZ_</definition>
+        <argsstring></argsstring>
+        <name>nextZ_</name>
+        <initializer>= 1</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADDesktopShell.h" line="92" column="18" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADDesktopShell.h" bodystart="92" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classRADUi_1_1DesktopShellModel_1a499f3c1c5b9b7a25297cdc92ee4c8974" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>RADUi::DesktopShellModel::DesktopShellModel</definition>
+        <argsstring>()</argsstring>
+        <name>DesktopShellModel</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADDesktopShell.h" line="53" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADUi_1_1DesktopShellModel_1aae09da8ba6af0e59c25f1f43ef06825a" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool RADUi::DesktopShellModel::applicationsMenuOpen</definition>
+        <argsstring>() const</argsstring>
+        <name>applicationsMenuOpen</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADDesktopShell.h" line="55" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADUi_1_1DesktopShellModel_1a7cff8bc02ac76070de54ed04f84a4fe2" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool RADUi::DesktopShellModel::terminalOpen</definition>
+        <argsstring>() const</argsstring>
+        <name>terminalOpen</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADDesktopShell.h" line="56" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADUi_1_1DesktopShellModel_1a299772d29a4460b332afb6e25ad25f27" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool RADUi::DesktopShellModel::terminalLaunching</definition>
+        <argsstring>() const</argsstring>
+        <name>terminalLaunching</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADDesktopShell.h" line="57" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADUi_1_1DesktopShellModel_1a65081565e51abd7ac9369bdde33895f6" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="namespaceRADUi_1ac70f8b568dcf89d3d6d95e471e4ad739" kindref="member">TerminalAppState</ref></type>
+        <definition>TerminalAppState RADUi::DesktopShellModel::terminalState</definition>
+        <argsstring>() const</argsstring>
+        <name>terminalState</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADDesktopShell.h" line="58" column="26"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADUi_1_1DesktopShellModel_1a4ce900bb20e96e2137068959152ac749" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>std::string</type>
+        <definition>std::string RADUi::DesktopShellModel::statusText</definition>
+        <argsstring>() const</argsstring>
+        <name>statusText</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADDesktopShell.h" line="59" column="21"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADUi_1_1DesktopShellModel_1ab434e08e8d249ba14c3c38180d23aa17" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>const std::vector&lt; <ref refid="structRADUi_1_1DesktopAppDescriptor" kindref="compound">DesktopAppDescriptor</ref> &gt; &amp;</type>
+        <definition>const std::vector&lt;DesktopAppDescriptor&gt;&amp; RADUi::DesktopShellModel::apps</definition>
+        <argsstring>() const</argsstring>
+        <name>apps</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADDesktopShell.h" line="61" column="27"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADUi_1_1DesktopShellModel_1a902b58988cd9a3e7787ef8c8330f2498" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>const std::vector&lt; <ref refid="structRADUi_1_1DesktopWindow" kindref="compound">DesktopWindow</ref> &gt; &amp;</type>
+        <definition>const std::vector&lt;DesktopWindow&gt;&amp; RADUi::DesktopShellModel::windows</definition>
+        <argsstring>() const</argsstring>
+        <name>windows</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADDesktopShell.h" line="62" column="27"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADUi_1_1DesktopShellModel_1a45454995daa659266e5cc8725ed95425" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>const <ref refid="structRADUi_1_1DesktopWindow" kindref="compound">DesktopWindow</ref> *</type>
+        <definition>const DesktopWindow* RADUi::DesktopShellModel::focusedWindow</definition>
+        <argsstring>() const</argsstring>
+        <name>focusedWindow</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADDesktopShell.h" line="63" column="29"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADUi_1_1DesktopShellModel_1a715adc529589b9b72a0834d6c883169e" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>const <ref refid="structRADUi_1_1DesktopWindow" kindref="compound">DesktopWindow</ref> *</type>
+        <definition>const DesktopWindow* RADUi::DesktopShellModel::terminalWindow</definition>
+        <argsstring>() const</argsstring>
+        <name>terminalWindow</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADDesktopShell.h" line="64" column="29"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADUi_1_1DesktopShellModel_1a7bb0199c8a1efbb75ad6368be47cb9e2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>uint32_t</type>
+        <definition>uint32_t RADUi::DesktopShellModel::registerApp</definition>
+        <argsstring>(const DesktopAppDescriptor &amp;app)</argsstring>
+        <name>registerApp</name>
+        <param>
+          <type>const <ref refid="structRADUi_1_1DesktopAppDescriptor" kindref="compound">DesktopAppDescriptor</ref> &amp;</type>
+          <declname>app</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADDesktopShell.h" line="66" column="18"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADUi_1_1DesktopShellModel_1a2b9c5b321e843aa8329e702173876e4d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>uint32_t</type>
+        <definition>uint32_t RADUi::DesktopShellModel::launchApp</definition>
+        <argsstring>(const std::string &amp;appId)</argsstring>
+        <name>launchApp</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>appId</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADDesktopShell.h" line="67" column="18"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADUi_1_1DesktopShellModel_1aa6df7f0ae6c25e10f07d70325752b83c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool RADUi::DesktopShellModel::focusWindow</definition>
+        <argsstring>(uint32_t windowId)</argsstring>
+        <name>focusWindow</name>
+        <param>
+          <type>uint32_t</type>
+          <declname>windowId</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADDesktopShell.h" line="68" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADUi_1_1DesktopShellModel_1a560dd003ab7abec62c642fe653d7c412" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool RADUi::DesktopShellModel::closeWindow</definition>
+        <argsstring>(uint32_t windowId)</argsstring>
+        <name>closeWindow</name>
+        <param>
+          <type>uint32_t</type>
+          <declname>windowId</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADDesktopShell.h" line="69" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADUi_1_1DesktopShellModel_1abb26fdc914507f4283de242be2a7ce9d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool RADUi::DesktopShellModel::moveWindow</definition>
+        <argsstring>(uint32_t windowId, int32_t dx, int32_t dy)</argsstring>
+        <name>moveWindow</name>
+        <param>
+          <type>uint32_t</type>
+          <declname>windowId</declname>
+        </param>
+        <param>
+          <type>int32_t</type>
+          <declname>dx</declname>
+        </param>
+        <param>
+          <type>int32_t</type>
+          <declname>dy</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADDesktopShell.h" line="70" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADUi_1_1DesktopShellModel_1ac4b93b2d2a01090c037bf3e64cd01435" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool RADUi::DesktopShellModel::resizeWindow</definition>
+        <argsstring>(uint32_t windowId, int32_t dx, int32_t dy)</argsstring>
+        <name>resizeWindow</name>
+        <param>
+          <type>uint32_t</type>
+          <declname>windowId</declname>
+        </param>
+        <param>
+          <type>int32_t</type>
+          <declname>dx</declname>
+        </param>
+        <param>
+          <type>int32_t</type>
+          <declname>dy</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADDesktopShell.h" line="71" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADUi_1_1DesktopShellModel_1acb685907ee3d2fc813f818b395c42ce4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool RADUi::DesktopShellModel::setWindowState</definition>
+        <argsstring>(uint32_t windowId, DesktopWindowState state)</argsstring>
+        <name>setWindowState</name>
+        <param>
+          <type>uint32_t</type>
+          <declname>windowId</declname>
+        </param>
+        <param>
+          <type><ref refid="namespaceRADUi_1a73807b533370d3a838cbc1651c5a2967" kindref="member">DesktopWindowState</ref></type>
+          <declname>state</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADDesktopShell.h" line="72" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADUi_1_1DesktopShellModel_1a4af083e796de6b3d4efd824533885f57" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void RADUi::DesktopShellModel::toggleApplicationsMenu</definition>
+        <argsstring>()</argsstring>
+        <name>toggleApplicationsMenu</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADDesktopShell.h" line="74" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADUi_1_1DesktopShellModel_1ae7dd9417f8d182303a373a64ad8ef8e8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void RADUi::DesktopShellModel::beginTerminalLaunch</definition>
+        <argsstring>()</argsstring>
+        <name>beginTerminalLaunch</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADDesktopShell.h" line="75" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADUi_1_1DesktopShellModel_1aef1c47d5e336076d6499562513d426f4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void RADUi::DesktopShellModel::terminalReady</definition>
+        <argsstring>()</argsstring>
+        <name>terminalReady</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADDesktopShell.h" line="76" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADUi_1_1DesktopShellModel_1af4cf2eac5a2a04f6577e0ad3c195863e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void RADUi::DesktopShellModel::launchTerminal</definition>
+        <argsstring>()</argsstring>
+        <name>launchTerminal</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADDesktopShell.h" line="77" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADUi_1_1DesktopShellModel_1a2ab57ccf43ff176d00fde3bbfb65b33a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool RADUi::DesktopShellModel::handleEscape</definition>
+        <argsstring>()</argsstring>
+        <name>handleEscape</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADDesktopShell.h" line="78" column="14"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="classRADUi_1_1DesktopShellModel_1a442b9eb514f95ef618f0fed8143406aa" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structRADUi_1_1DesktopWindow" kindref="compound">DesktopWindow</ref> *</type>
+        <definition>DesktopWindow* RADUi::DesktopShellModel::findWindow</definition>
+        <argsstring>(uint32_t windowId)</argsstring>
+        <name>findWindow</name>
+        <param>
+          <type>uint32_t</type>
+          <declname>windowId</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADDesktopShell.h" line="81" column="23"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADUi_1_1DesktopShellModel_1a6f4a7b6e270518a88aa9d22c25394d94" prot="private" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>const <ref refid="structRADUi_1_1DesktopWindow" kindref="compound">DesktopWindow</ref> *</type>
+        <definition>const DesktopWindow* RADUi::DesktopShellModel::findWindow</definition>
+        <argsstring>(uint32_t windowId) const</argsstring>
+        <name>findWindow</name>
+        <param>
+          <type>uint32_t</type>
+          <declname>windowId</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADDesktopShell.h" line="82" column="29"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADUi_1_1DesktopShellModel_1abbc81eb8642f8174841fe8c5a2fc0d16" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structRADUi_1_1DesktopWindow" kindref="compound">DesktopWindow</ref> *</type>
+        <definition>DesktopWindow* RADUi::DesktopShellModel::findWindowByApp</definition>
+        <argsstring>(const std::string &amp;appId)</argsstring>
+        <name>findWindowByApp</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>appId</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADDesktopShell.h" line="83" column="23"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADUi_1_1DesktopShellModel_1a401e317bc616a255756a1875b6852cfe" prot="private" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>const <ref refid="structRADUi_1_1DesktopWindow" kindref="compound">DesktopWindow</ref> *</type>
+        <definition>const DesktopWindow* RADUi::DesktopShellModel::findWindowByApp</definition>
+        <argsstring>(const std::string &amp;appId) const</argsstring>
+        <name>findWindowByApp</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>appId</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADDesktopShell.h" line="84" column="29"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADUi_1_1DesktopShellModel_1ab37aa40dad1a6dfbcab6227d422d7f36" prot="private" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>const <ref refid="structRADUi_1_1DesktopAppDescriptor" kindref="compound">DesktopAppDescriptor</ref> *</type>
+        <definition>const DesktopAppDescriptor* RADUi::DesktopShellModel::findApp</definition>
+        <argsstring>(const std::string &amp;appId) const</argsstring>
+        <name>findApp</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>appId</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADDesktopShell.h" line="85" column="36"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADUi_1_1DesktopShellModel_1ac49fe2be83e8f76012028e6e8118bd75" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void RADUi::DesktopShellModel::focusWindowRecord</definition>
+        <argsstring>(DesktopWindow &amp;window)</argsstring>
+        <name>focusWindowRecord</name>
+        <param>
+          <type><ref refid="structRADUi_1_1DesktopWindow" kindref="compound">DesktopWindow</ref> &amp;</type>
+          <declname>window</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADDesktopShell.h" line="86" column="14"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADDesktopShell.h" line="51" column="5" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADDesktopShell.h" bodystart="51" bodyend="93"/>
+    <listofallmembers>
+      <member refid="classRADUi_1_1DesktopShellModel_1aae09da8ba6af0e59c25f1f43ef06825a" prot="public" virt="non-virtual"><scope>RADUi::DesktopShellModel</scope><name>applicationsMenuOpen</name></member>
+      <member refid="classRADUi_1_1DesktopShellModel_1a91db5258b0387aed9438d660350bd1dc" prot="private" virt="non-virtual"><scope>RADUi::DesktopShellModel</scope><name>applicationsMenuOpen_</name></member>
+      <member refid="classRADUi_1_1DesktopShellModel_1ab434e08e8d249ba14c3c38180d23aa17" prot="public" virt="non-virtual"><scope>RADUi::DesktopShellModel</scope><name>apps</name></member>
+      <member refid="classRADUi_1_1DesktopShellModel_1a5d26703fd656d2d90249f44f28a9c86c" prot="private" virt="non-virtual"><scope>RADUi::DesktopShellModel</scope><name>apps_</name></member>
+      <member refid="classRADUi_1_1DesktopShellModel_1ae7dd9417f8d182303a373a64ad8ef8e8" prot="public" virt="non-virtual"><scope>RADUi::DesktopShellModel</scope><name>beginTerminalLaunch</name></member>
+      <member refid="classRADUi_1_1DesktopShellModel_1a560dd003ab7abec62c642fe653d7c412" prot="public" virt="non-virtual"><scope>RADUi::DesktopShellModel</scope><name>closeWindow</name></member>
+      <member refid="classRADUi_1_1DesktopShellModel_1a499f3c1c5b9b7a25297cdc92ee4c8974" prot="public" virt="non-virtual"><scope>RADUi::DesktopShellModel</scope><name>DesktopShellModel</name></member>
+      <member refid="classRADUi_1_1DesktopShellModel_1ab37aa40dad1a6dfbcab6227d422d7f36" prot="private" virt="non-virtual"><scope>RADUi::DesktopShellModel</scope><name>findApp</name></member>
+      <member refid="classRADUi_1_1DesktopShellModel_1a442b9eb514f95ef618f0fed8143406aa" prot="private" virt="non-virtual"><scope>RADUi::DesktopShellModel</scope><name>findWindow</name></member>
+      <member refid="classRADUi_1_1DesktopShellModel_1a6f4a7b6e270518a88aa9d22c25394d94" prot="private" virt="non-virtual"><scope>RADUi::DesktopShellModel</scope><name>findWindow</name></member>
+      <member refid="classRADUi_1_1DesktopShellModel_1abbc81eb8642f8174841fe8c5a2fc0d16" prot="private" virt="non-virtual"><scope>RADUi::DesktopShellModel</scope><name>findWindowByApp</name></member>
+      <member refid="classRADUi_1_1DesktopShellModel_1a401e317bc616a255756a1875b6852cfe" prot="private" virt="non-virtual"><scope>RADUi::DesktopShellModel</scope><name>findWindowByApp</name></member>
+      <member refid="classRADUi_1_1DesktopShellModel_1a45454995daa659266e5cc8725ed95425" prot="public" virt="non-virtual"><scope>RADUi::DesktopShellModel</scope><name>focusedWindow</name></member>
+      <member refid="classRADUi_1_1DesktopShellModel_1aa6df7f0ae6c25e10f07d70325752b83c" prot="public" virt="non-virtual"><scope>RADUi::DesktopShellModel</scope><name>focusWindow</name></member>
+      <member refid="classRADUi_1_1DesktopShellModel_1ac49fe2be83e8f76012028e6e8118bd75" prot="private" virt="non-virtual"><scope>RADUi::DesktopShellModel</scope><name>focusWindowRecord</name></member>
+      <member refid="classRADUi_1_1DesktopShellModel_1a2ab57ccf43ff176d00fde3bbfb65b33a" prot="public" virt="non-virtual"><scope>RADUi::DesktopShellModel</scope><name>handleEscape</name></member>
+      <member refid="classRADUi_1_1DesktopShellModel_1a2b9c5b321e843aa8329e702173876e4d" prot="public" virt="non-virtual"><scope>RADUi::DesktopShellModel</scope><name>launchApp</name></member>
+      <member refid="classRADUi_1_1DesktopShellModel_1af4cf2eac5a2a04f6577e0ad3c195863e" prot="public" virt="non-virtual"><scope>RADUi::DesktopShellModel</scope><name>launchTerminal</name></member>
+      <member refid="classRADUi_1_1DesktopShellModel_1abb26fdc914507f4283de242be2a7ce9d" prot="public" virt="non-virtual"><scope>RADUi::DesktopShellModel</scope><name>moveWindow</name></member>
+      <member refid="classRADUi_1_1DesktopShellModel_1a33b95856bdad5145f5088f0d592688dd" prot="private" virt="non-virtual"><scope>RADUi::DesktopShellModel</scope><name>nextWindowId_</name></member>
+      <member refid="classRADUi_1_1DesktopShellModel_1a72af349a988af285f7cd6da746aa0162" prot="private" virt="non-virtual"><scope>RADUi::DesktopShellModel</scope><name>nextZ_</name></member>
+      <member refid="classRADUi_1_1DesktopShellModel_1a7bb0199c8a1efbb75ad6368be47cb9e2" prot="public" virt="non-virtual"><scope>RADUi::DesktopShellModel</scope><name>registerApp</name></member>
+      <member refid="classRADUi_1_1DesktopShellModel_1ac4b93b2d2a01090c037bf3e64cd01435" prot="public" virt="non-virtual"><scope>RADUi::DesktopShellModel</scope><name>resizeWindow</name></member>
+      <member refid="classRADUi_1_1DesktopShellModel_1acb685907ee3d2fc813f818b395c42ce4" prot="public" virt="non-virtual"><scope>RADUi::DesktopShellModel</scope><name>setWindowState</name></member>
+      <member refid="classRADUi_1_1DesktopShellModel_1a4ce900bb20e96e2137068959152ac749" prot="public" virt="non-virtual"><scope>RADUi::DesktopShellModel</scope><name>statusText</name></member>
+      <member refid="classRADUi_1_1DesktopShellModel_1a299772d29a4460b332afb6e25ad25f27" prot="public" virt="non-virtual"><scope>RADUi::DesktopShellModel</scope><name>terminalLaunching</name></member>
+      <member refid="classRADUi_1_1DesktopShellModel_1a7cff8bc02ac76070de54ed04f84a4fe2" prot="public" virt="non-virtual"><scope>RADUi::DesktopShellModel</scope><name>terminalOpen</name></member>
+      <member refid="classRADUi_1_1DesktopShellModel_1aef1c47d5e336076d6499562513d426f4" prot="public" virt="non-virtual"><scope>RADUi::DesktopShellModel</scope><name>terminalReady</name></member>
+      <member refid="classRADUi_1_1DesktopShellModel_1a65081565e51abd7ac9369bdde33895f6" prot="public" virt="non-virtual"><scope>RADUi::DesktopShellModel</scope><name>terminalState</name></member>
+      <member refid="classRADUi_1_1DesktopShellModel_1a715adc529589b9b72a0834d6c883169e" prot="public" virt="non-virtual"><scope>RADUi::DesktopShellModel</scope><name>terminalWindow</name></member>
+      <member refid="classRADUi_1_1DesktopShellModel_1a4af083e796de6b3d4efd824533885f57" prot="public" virt="non-virtual"><scope>RADUi::DesktopShellModel</scope><name>toggleApplicationsMenu</name></member>
+      <member refid="classRADUi_1_1DesktopShellModel_1a902b58988cd9a3e7787ef8c8330f2498" prot="public" virt="non-virtual"><scope>RADUi::DesktopShellModel</scope><name>windows</name></member>
+      <member refid="classRADUi_1_1DesktopShellModel_1ac313f4784c82dfc9f9b81b23f928d3f7" prot="private" virt="non-virtual"><scope>RADUi::DesktopShellModel</scope><name>windows_</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

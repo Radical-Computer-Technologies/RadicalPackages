@@ -1,0 +1,129 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="structRADDsp_1_1AnalogDelaySettings" kind="struct" language="C++" prot="public">
+    <compoundname>RADDsp::AnalogDelaySettings</compoundname>
+    <basecompoundref refid="structRADDsp_1_1DelaySettings" prot="public" virt="non-virtual">RADDsp::DelaySettings</basecompoundref>
+    <includes refid="RADDsp_8h" local="no">RADDsp.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structRADDsp_1_1AnalogDelaySettings_1acc96ecd4a1a6fc0520473992c0b33884" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float RADDsp::AnalogDelaySettings::modulationRateHz</definition>
+        <argsstring></argsstring>
+        <name>modulationRateHz</name>
+        <initializer>= 0.35f</initializer>
+        <briefdescription>
+<para>LFO frequency in hertz for delay-time modulation. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDsp/headers/RADDsp.h" line="266" column="15" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADDsp/headers/RADDsp.h" bodystart="266" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structRADDsp_1_1AnalogDelaySettings_1a14f7c16749a515c14c0d9dcd7054146e" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float RADDsp::AnalogDelaySettings::modulationDepthMs</definition>
+        <argsstring></argsstring>
+        <name>modulationDepthMs</name>
+        <initializer>= 3.0f</initializer>
+        <briefdescription>
+<para>Peak delay-time modulation depth in milliseconds. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDsp/headers/RADDsp.h" line="268" column="15" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADDsp/headers/RADDsp.h" bodystart="268" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structRADDsp_1_1AnalogDelaySettings_1a08926f74cc93e63744c7f072d56fe00a" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float RADDsp::AnalogDelaySettings::tone</definition>
+        <argsstring></argsstring>
+        <name>tone</name>
+        <initializer>= 0.35f</initializer>
+        <briefdescription>
+<para>Feedback tone smoothing amount. Lower values are darker. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDsp/headers/RADDsp.h" line="270" column="15" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADDsp/headers/RADDsp.h" bodystart="270" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structRADDsp_1_1AnalogDelaySettings_1ac148b5c1de5df6265e497c4705cd4d80" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float RADDsp::AnalogDelaySettings::drive</definition>
+        <argsstring></argsstring>
+        <name>drive</name>
+        <initializer>= 0.15f</initializer>
+        <briefdescription>
+<para>Soft saturation amount applied in the feedback path. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDsp/headers/RADDsp.h" line="272" column="15" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADDsp/headers/RADDsp.h" bodystart="272" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structRADDsp_1_1AnalogDelaySettings_1a85a4ad0fc003c6b4aa4522d4e8487b69" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float RADDsp::AnalogDelaySettings::stereoPhase</definition>
+        <argsstring></argsstring>
+        <name>stereoPhase</name>
+        <initializer>= 0.25f</initializer>
+        <briefdescription>
+<para>Right-channel LFO phase offset in cycles for stereo width. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDsp/headers/RADDsp.h" line="274" column="15" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADDsp/headers/RADDsp.h" bodystart="274" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Extra controls for tape/analog-style modulated stereo delay. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>RADDsp::AnalogDelaySettings</label>
+        <link refid="structRADDsp_1_1AnalogDelaySettings"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>RADDsp::DelaySettings</label>
+        <link refid="structRADDsp_1_1DelaySettings"/>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>RADDsp::AnalogDelaySettings</label>
+        <link refid="structRADDsp_1_1AnalogDelaySettings"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>RADDsp::DelaySettings</label>
+        <link refid="structRADDsp_1_1DelaySettings"/>
+      </node>
+    </collaborationgraph>
+    <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDsp/headers/RADDsp.h" line="264" column="5" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADDsp/headers/RADDsp.h" bodystart="264" bodyend="275"/>
+    <listofallmembers>
+      <member refid="structRADDsp_1_1DelaySettings_1a183eefbe9d98a87230df54707254eb7b" prot="public" virt="non-virtual"><scope>RADDsp::AnalogDelaySettings</scope><name>crossFeedback</name></member>
+      <member refid="structRADDsp_1_1DelaySettings_1ab40bf780569dac5f5dcdeb0d0385788e" prot="public" virt="non-virtual"><scope>RADDsp::AnalogDelaySettings</scope><name>delayMs</name></member>
+      <member refid="structRADDsp_1_1AnalogDelaySettings_1ac148b5c1de5df6265e497c4705cd4d80" prot="public" virt="non-virtual"><scope>RADDsp::AnalogDelaySettings</scope><name>drive</name></member>
+      <member refid="structRADDsp_1_1DelaySettings_1a68742d42547dbd1cb31573937efeb6ed" prot="public" virt="non-virtual"><scope>RADDsp::AnalogDelaySettings</scope><name>dry</name></member>
+      <member refid="structRADDsp_1_1DelaySettings_1afa4affeb51043ef6646cb2c23e903389" prot="public" virt="non-virtual"><scope>RADDsp::AnalogDelaySettings</scope><name>feedback</name></member>
+      <member refid="structRADDsp_1_1DelaySettings_1ad68324d53d2953382ae89449e849c318" prot="public" virt="non-virtual"><scope>RADDsp::AnalogDelaySettings</scope><name>maxDelayMs</name></member>
+      <member refid="structRADDsp_1_1AnalogDelaySettings_1a14f7c16749a515c14c0d9dcd7054146e" prot="public" virt="non-virtual"><scope>RADDsp::AnalogDelaySettings</scope><name>modulationDepthMs</name></member>
+      <member refid="structRADDsp_1_1AnalogDelaySettings_1acc96ecd4a1a6fc0520473992c0b33884" prot="public" virt="non-virtual"><scope>RADDsp::AnalogDelaySettings</scope><name>modulationRateHz</name></member>
+      <member refid="structRADDsp_1_1DelaySettings_1a92527d2853dd5fa5bcc7d9fb69072b7e" prot="public" virt="non-virtual"><scope>RADDsp::AnalogDelaySettings</scope><name>sampleRate</name></member>
+      <member refid="structRADDsp_1_1AnalogDelaySettings_1a85a4ad0fc003c6b4aa4522d4e8487b69" prot="public" virt="non-virtual"><scope>RADDsp::AnalogDelaySettings</scope><name>stereoPhase</name></member>
+      <member refid="structRADDsp_1_1AnalogDelaySettings_1a08926f74cc93e63744c7f072d56fe00a" prot="public" virt="non-virtual"><scope>RADDsp::AnalogDelaySettings</scope><name>tone</name></member>
+      <member refid="structRADDsp_1_1DelaySettings_1af700ce316ee7961e08d33b8e710ad4a3" prot="public" virt="non-virtual"><scope>RADDsp::AnalogDelaySettings</scope><name>wet</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

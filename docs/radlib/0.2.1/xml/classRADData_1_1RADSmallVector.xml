@@ -1,0 +1,685 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="classRADData_1_1RADSmallVector" kind="class" language="C++" prot="public">
+    <compoundname>RADData::RADSmallVector</compoundname>
+    <includes refid="RADDataStructures_8h" local="no">RADDataStructures.h</includes>
+    <templateparamlist>
+      <param>
+        <type>typename T</type>
+      </param>
+      <param>
+        <type>size_t</type>
+        <declname>InlineN</declname>
+        <defname>InlineN</defname>
+        <defval>8</defval>
+      </param>
+      <param>
+        <type>typename Alloc</type>
+        <defval>std::allocator&lt;T&gt;</defval>
+      </param>
+    </templateparamlist>
+      <sectiondef kind="public-type">
+      <memberdef kind="typedef" id="classRADData_1_1RADSmallVector_1ac11415bfed6963eaa56d836d5a9c130c" prot="public" static="no">
+        <type>T *</type>
+        <definition>using RADData::RADSmallVector&lt; T, InlineN, Alloc &gt;::iterator =  T*</definition>
+        <argsstring></argsstring>
+        <name>iterator</name>
+        <briefdescription>
+<para>Mutable contiguous iterator. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" line="544" column="9" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" bodystart="544" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="classRADData_1_1RADSmallVector_1ac3892cf039b9a8ce2bc155bf9f524c29" prot="public" static="no">
+        <type>const T *</type>
+        <definition>using RADData::RADSmallVector&lt; T, InlineN, Alloc &gt;::const_iterator =  const T*</definition>
+        <argsstring></argsstring>
+        <name>const_iterator</name>
+        <briefdescription>
+<para>Const contiguous iterator. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" line="546" column="9" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" bodystart="546" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-type">
+      <memberdef kind="typedef" id="classRADData_1_1RADSmallVector_1a7da321b12a02036e76d3eabd16fe313a" prot="private" static="no">
+        <type>std::aligned_storage_t&lt; sizeof(T), alignof(T)&gt;</type>
+        <definition>using RADData::RADSmallVector&lt; T, InlineN, Alloc &gt;::Storage =  std::aligned_storage_t&lt;sizeof(T), alignof(T)&gt;</definition>
+        <argsstring></argsstring>
+        <name>Storage</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" line="680" column="9" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" bodystart="680" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classRADData_1_1RADSmallVector_1ab041bf40e6c3f85c43adcc34d59137d1" prot="private" static="no" mutable="no">
+        <type>Storage</type>
+        <definition>Storage RADData::RADSmallVector&lt; T, InlineN, Alloc &gt;::inlineStorage_[InlineN==0 ? 1 :InlineN]</definition>
+        <argsstring>[InlineN==0 ? 1 :InlineN]</argsstring>
+        <name>inlineStorage_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" line="724" column="17" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" bodystart="724" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classRADData_1_1RADSmallVector_1a653474e89780ac652ab25a45d8ee5ffc" prot="private" static="no" mutable="no">
+        <type>T *</type>
+        <definition>T* RADData::RADSmallVector&lt; T, InlineN, Alloc &gt;::data_</definition>
+        <argsstring></argsstring>
+        <name>data_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" line="725" column="11" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" bodystart="725" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classRADData_1_1RADSmallVector_1ada909190ee3b2524ecdc33425ed24683" prot="private" static="no" mutable="no">
+        <type>size_t</type>
+        <definition>size_t RADData::RADSmallVector&lt; T, InlineN, Alloc &gt;::size_</definition>
+        <argsstring></argsstring>
+        <name>size_</name>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" line="726" column="16" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" bodystart="726" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classRADData_1_1RADSmallVector_1a7e69a6109436ac83988c3cddba9765f1" prot="private" static="no" mutable="no">
+        <type>size_t</type>
+        <definition>size_t RADData::RADSmallVector&lt; T, InlineN, Alloc &gt;::capacity_</definition>
+        <argsstring></argsstring>
+        <name>capacity_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" line="727" column="16" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" bodystart="727" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classRADData_1_1RADSmallVector_1aa8256704e8c0061bb5bfa7065fc2c3f8" prot="private" static="no" mutable="no">
+        <type>Alloc</type>
+        <definition>Alloc RADData::RADSmallVector&lt; T, InlineN, Alloc &gt;::allocator_</definition>
+        <argsstring></argsstring>
+        <name>allocator_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" line="728" column="15" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" bodystart="728" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classRADData_1_1RADSmallVector_1a099ab6ac93d75cc4f45b628d85f07a4e" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>RADData::RADSmallVector&lt; T, InlineN, Alloc &gt;::RADSmallVector</definition>
+        <argsstring>()</argsstring>
+        <name>RADSmallVector</name>
+        <briefdescription>
+<para>Creates an empty small vector using inline storage. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" line="549" column="9" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" bodystart="549" bodyend="550"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADData_1_1RADSmallVector_1a7e0b7c9da108bff113f798950012fba7" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>RADData::RADSmallVector&lt; T, InlineN, Alloc &gt;::RADSmallVector</definition>
+        <argsstring>(std::initializer_list&lt; T &gt; values)</argsstring>
+        <name>RADSmallVector</name>
+        <param>
+          <type>std::initializer_list&lt; T &gt;</type>
+          <declname>values</declname>
+        </param>
+        <briefdescription>
+<para>Creates a small vector from initializer-list values. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" line="553" column="9" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" bodystart="553" bodyend="557"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADData_1_1RADSmallVector_1a5225b68774525016422ea7a800738fd7" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>RADData::RADSmallVector&lt; T, InlineN, Alloc &gt;::RADSmallVector</definition>
+        <argsstring>(const RADSmallVector &amp;other)</argsstring>
+        <name>RADSmallVector</name>
+        <param>
+          <type>const <ref refid="classRADData_1_1RADSmallVector" kindref="compound">RADSmallVector</ref> &amp;</type>
+          <declname>other</declname>
+        </param>
+        <briefdescription>
+<para>Copies another small vector. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" line="560" column="9" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" bodystart="560" bodyend="564"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADData_1_1RADSmallVector_1af5acf5b426a2d6dbb3ab62bcab0740fd" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type></type>
+        <definition>RADData::RADSmallVector&lt; T, InlineN, Alloc &gt;::RADSmallVector</definition>
+        <argsstring>(RADSmallVector &amp;&amp;other) noexcept</argsstring>
+        <name>RADSmallVector</name>
+        <param>
+          <type><ref refid="classRADData_1_1RADSmallVector" kindref="compound">RADSmallVector</ref> &amp;&amp;</type>
+          <declname>other</declname>
+        </param>
+        <briefdescription>
+<para>Moves another small vector. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" line="567" column="9" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" bodystart="567" bodyend="580"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADData_1_1RADSmallVector_1a8cc0f3a749388dcf980aa0f94a4aa438" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classRADData_1_1RADSmallVector" kindref="compound">RADSmallVector</ref> &amp;</type>
+        <definition>RADSmallVector&amp; RADData::RADSmallVector&lt; T, InlineN, Alloc &gt;::operator=</definition>
+        <argsstring>(const RADSmallVector &amp;other)</argsstring>
+        <name>operator=</name>
+        <param>
+          <type>const <ref refid="classRADData_1_1RADSmallVector" kindref="compound">RADSmallVector</ref> &amp;</type>
+          <declname>other</declname>
+        </param>
+        <briefdescription>
+<para>Replaces this vector with a copy of other. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" line="583" column="24" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" bodystart="583" bodyend="589"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADData_1_1RADSmallVector_1a839e6903a130ff0d5c99697bb324af62" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type><ref refid="classRADData_1_1RADSmallVector" kindref="compound">RADSmallVector</ref> &amp;</type>
+        <definition>RADSmallVector&amp; RADData::RADSmallVector&lt; T, InlineN, Alloc &gt;::operator=</definition>
+        <argsstring>(RADSmallVector &amp;&amp;other) noexcept</argsstring>
+        <name>operator=</name>
+        <param>
+          <type><ref refid="classRADData_1_1RADSmallVector" kindref="compound">RADSmallVector</ref> &amp;&amp;</type>
+          <declname>other</declname>
+        </param>
+        <briefdescription>
+<para>Replaces this vector by moving from other. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" line="592" column="24" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" bodystart="592" bodyend="610"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADData_1_1RADSmallVector_1ad8d474815fe805b9fce6a53501937b94" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>RADData::RADSmallVector&lt; T, InlineN, Alloc &gt;::~RADSmallVector</definition>
+        <argsstring>()</argsstring>
+        <name>~RADSmallVector</name>
+        <briefdescription>
+<para>Destroys elements and heap storage, if allocated. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" line="613" column="9" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" bodystart="613" bodyend="615"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADData_1_1RADSmallVector_1affa66046514a0e9042bc9b1d5089111b" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type><ref refid="classRADData_1_1RADSmallVector_1ac11415bfed6963eaa56d836d5a9c130c" kindref="member">iterator</ref></type>
+        <definition>iterator RADData::RADSmallVector&lt; T, InlineN, Alloc &gt;::begin</definition>
+        <argsstring>() noexcept</argsstring>
+        <name>begin</name>
+        <briefdescription>
+<para>Returns iterator to first element. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" line="618" column="18" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" bodystart="618" bodyend="618"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADData_1_1RADSmallVector_1ae756878a10e6b789053eaec60dfc966c" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type><ref refid="classRADData_1_1RADSmallVector_1ac3892cf039b9a8ce2bc155bf9f524c29" kindref="member">const_iterator</ref></type>
+        <definition>const_iterator RADData::RADSmallVector&lt; T, InlineN, Alloc &gt;::begin</definition>
+        <argsstring>() const noexcept</argsstring>
+        <name>begin</name>
+        <briefdescription>
+<para>Returns const iterator to first element. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" line="620" column="24" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" bodystart="620" bodyend="620"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADData_1_1RADSmallVector_1a6c5855b495e0f9ad9b1cad4a48f02f3c" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type><ref refid="classRADData_1_1RADSmallVector_1ac11415bfed6963eaa56d836d5a9c130c" kindref="member">iterator</ref></type>
+        <definition>iterator RADData::RADSmallVector&lt; T, InlineN, Alloc &gt;::end</definition>
+        <argsstring>() noexcept</argsstring>
+        <name>end</name>
+        <briefdescription>
+<para>Returns iterator one past the last element. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" line="622" column="18" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" bodystart="622" bodyend="622"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADData_1_1RADSmallVector_1ab29a1b41e81067f4e71b28c29077ccb3" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type><ref refid="classRADData_1_1RADSmallVector_1ac3892cf039b9a8ce2bc155bf9f524c29" kindref="member">const_iterator</ref></type>
+        <definition>const_iterator RADData::RADSmallVector&lt; T, InlineN, Alloc &gt;::end</definition>
+        <argsstring>() const noexcept</argsstring>
+        <name>end</name>
+        <briefdescription>
+<para>Returns const iterator one past the last element. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" line="624" column="24" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" bodystart="624" bodyend="624"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADData_1_1RADSmallVector_1addd161a3e9fd09e26f5938fe358955f2" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool RADData::RADSmallVector&lt; T, InlineN, Alloc &gt;::empty</definition>
+        <argsstring>() const noexcept</argsstring>
+        <name>empty</name>
+        <briefdescription>
+<para>Returns true when no elements are stored. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" line="626" column="14" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" bodystart="626" bodyend="626"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADData_1_1RADSmallVector_1a6375e1006152fd2276f363f623938216" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type>size_t</type>
+        <definition>size_t RADData::RADSmallVector&lt; T, InlineN, Alloc &gt;::size</definition>
+        <argsstring>() const noexcept</argsstring>
+        <name>size</name>
+        <briefdescription>
+<para>Returns number of elements. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" line="628" column="16" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" bodystart="628" bodyend="628"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADData_1_1RADSmallVector_1a708e78ebfbd3694ebb68ffdae05f021b" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type>size_t</type>
+        <definition>size_t RADData::RADSmallVector&lt; T, InlineN, Alloc &gt;::capacity</definition>
+        <argsstring>() const noexcept</argsstring>
+        <name>capacity</name>
+        <briefdescription>
+<para>Returns current capacity, including inline capacity. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" line="630" column="16" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" bodystart="630" bodyend="630"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADData_1_1RADSmallVector_1a7c864bdbab233537dda1c2ac691efa07" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool RADData::RADSmallVector&lt; T, InlineN, Alloc &gt;::usingInlineStorage</definition>
+        <argsstring>() const noexcept</argsstring>
+        <name>usingInlineStorage</name>
+        <briefdescription>
+<para>Returns true while storage is still inline. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" line="632" column="14" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" bodystart="632" bodyend="632"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADData_1_1RADSmallVector_1adb58c2b5780b69f94d32f2164060a05b" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type>T *</type>
+        <definition>T* RADData::RADSmallVector&lt; T, InlineN, Alloc &gt;::data</definition>
+        <argsstring>() noexcept</argsstring>
+        <name>data</name>
+        <briefdescription>
+<para>Returns mutable contiguous storage pointer. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" line="634" column="11" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" bodystart="634" bodyend="634"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADData_1_1RADSmallVector_1a07c47f445980aa901212325b66ddf562" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type>const T *</type>
+        <definition>const T* RADData::RADSmallVector&lt; T, InlineN, Alloc &gt;::data</definition>
+        <argsstring>() const noexcept</argsstring>
+        <name>data</name>
+        <briefdescription>
+<para>Returns const contiguous storage pointer. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" line="636" column="17" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" bodystart="636" bodyend="636"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADData_1_1RADSmallVector_1a9e0bd3b8b3a3c50de25c49b891bb43c0" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type>T &amp;</type>
+        <definition>T&amp; RADData::RADSmallVector&lt; T, InlineN, Alloc &gt;::operator[]</definition>
+        <argsstring>(size_t index) noexcept</argsstring>
+        <name>operator[]</name>
+        <param>
+          <type>size_t</type>
+          <declname>index</declname>
+        </param>
+        <briefdescription>
+<para>Returns element at index without bounds checking. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" line="638" column="11" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" bodystart="638" bodyend="638"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADData_1_1RADSmallVector_1a72335d849b69c0e23d31bdff5b423fda" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type>const T &amp;</type>
+        <definition>const T&amp; RADData::RADSmallVector&lt; T, InlineN, Alloc &gt;::operator[]</definition>
+        <argsstring>(size_t index) const noexcept</argsstring>
+        <name>operator[]</name>
+        <param>
+          <type>size_t</type>
+          <declname>index</declname>
+        </param>
+        <briefdescription>
+<para>Returns const element at index without bounds checking. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" line="640" column="17" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" bodystart="640" bodyend="640"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADData_1_1RADSmallVector_1ae47fa571dcc357e6e6c6c6489a3d0929" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type>T &amp;</type>
+        <definition>T&amp; RADData::RADSmallVector&lt; T, InlineN, Alloc &gt;::back</definition>
+        <argsstring>() noexcept</argsstring>
+        <name>back</name>
+        <briefdescription>
+<para>Returns last element; vector must not be empty. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" line="642" column="11" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" bodystart="642" bodyend="642"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADData_1_1RADSmallVector_1ae5be7b342b8a472ec372e07ffdf1172b" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type>const T &amp;</type>
+        <definition>const T&amp; RADData::RADSmallVector&lt; T, InlineN, Alloc &gt;::back</definition>
+        <argsstring>() const noexcept</argsstring>
+        <name>back</name>
+        <briefdescription>
+<para>Returns last element; vector must not be empty. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" line="644" column="17" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" bodystart="644" bodyend="644"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADData_1_1RADSmallVector_1af1c6231572668074d61c5bf8f22d2f3e" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void RADData::RADSmallVector&lt; T, InlineN, Alloc &gt;::reserve</definition>
+        <argsstring>(size_t newCapacity)</argsstring>
+        <name>reserve</name>
+        <param>
+          <type>size_t</type>
+          <declname>newCapacity</declname>
+        </param>
+        <briefdescription>
+<para>Ensures capacity is at least newCapacity. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" line="647" column="14" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" bodystart="647" bodyend="650"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADData_1_1RADSmallVector_1a994e05f1a8bd3eabfc8996c15c49031a" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename...</type>
+            <declname>Args</declname>
+            <defname>Args</defname>
+          </param>
+        </templateparamlist>
+        <type>T &amp;</type>
+        <definition>T&amp; RADData::RADSmallVector&lt; T, InlineN, Alloc &gt;::emplace_back</definition>
+        <argsstring>(Args &amp;&amp;... args)</argsstring>
+        <name>emplace_back</name>
+        <param>
+          <type>Args &amp;&amp;...</type>
+          <declname>args</declname>
+        </param>
+        <briefdescription>
+<para>Constructs an element at the end and returns it. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" line="654" column="11" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" bodystart="654" bodyend="660"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADData_1_1RADSmallVector_1a77a59016bfe5d1f6ced13540d92d3ec0" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void RADData::RADSmallVector&lt; T, InlineN, Alloc &gt;::push_back</definition>
+        <argsstring>(const T &amp;value)</argsstring>
+        <name>push_back</name>
+        <param>
+          <type>const T &amp;</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+<para>Appends a copy of value. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" line="663" column="14" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" bodystart="663" bodyend="663"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADData_1_1RADSmallVector_1a021856f0663186b16213479b5746c28f" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void RADData::RADSmallVector&lt; T, InlineN, Alloc &gt;::push_back</definition>
+        <argsstring>(T &amp;&amp;value)</argsstring>
+        <name>push_back</name>
+        <param>
+          <type>T &amp;&amp;</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+<para>Appends value by move. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" line="665" column="14" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" bodystart="665" bodyend="665"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADData_1_1RADSmallVector_1a6e8e5343b4c00ad7c460e85216b16529" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void RADData::RADSmallVector&lt; T, InlineN, Alloc &gt;::pop_back</definition>
+        <argsstring>()</argsstring>
+        <name>pop_back</name>
+        <briefdescription>
+<para>Removes the last element when present. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" line="668" column="14" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" bodystart="668" bodyend="671"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADData_1_1RADSmallVector_1aa40a2a86252b8d71301d1c5d90787814" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void RADData::RADSmallVector&lt; T, InlineN, Alloc &gt;::clear</definition>
+        <argsstring>() noexcept</argsstring>
+        <name>clear</name>
+        <briefdescription>
+<para>Destroys all elements while keeping current storage. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" line="674" column="14" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" bodystart="674" bodyend="677"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="classRADData_1_1RADSmallVector_1ac5b46d2f4aa0c603a2e5641c8aab5c43" prot="private" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type>T *</type>
+        <definition>T* RADData::RADSmallVector&lt; T, InlineN, Alloc &gt;::inlineData</definition>
+        <argsstring>() noexcept</argsstring>
+        <name>inlineData</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" line="682" column="11" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" bodystart="682" bodyend="684"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADData_1_1RADSmallVector_1a0ba30f78e805db080a437fd89fa23de2" prot="private" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type>const T *</type>
+        <definition>const T* RADData::RADSmallVector&lt; T, InlineN, Alloc &gt;::inlineData</definition>
+        <argsstring>() const noexcept</argsstring>
+        <name>inlineData</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" line="686" column="17" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" bodystart="686" bodyend="688"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADData_1_1RADSmallVector_1adc45c02210af64659b5987560e5e7236" prot="private" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool RADData::RADSmallVector&lt; T, InlineN, Alloc &gt;::usingInline</definition>
+        <argsstring>() const noexcept</argsstring>
+        <name>usingInline</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" line="690" column="14" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" bodystart="690" bodyend="692"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADData_1_1RADSmallVector_1aa00c5b82c999022fa161a28f45def52e" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void RADData::RADSmallVector&lt; T, InlineN, Alloc &gt;::reallocate</definition>
+        <argsstring>(size_t newCapacity)</argsstring>
+        <name>reallocate</name>
+        <param>
+          <type>size_t</type>
+          <declname>newCapacity</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" line="694" column="14" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" bodystart="694" bodyend="713"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADData_1_1RADSmallVector_1a7e66d6b50d1595c5f922bf6d44b64f9c" prot="private" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void RADData::RADSmallVector&lt; T, InlineN, Alloc &gt;::destroyHeapStorage</definition>
+        <argsstring>() noexcept</argsstring>
+        <name>destroyHeapStorage</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" line="715" column="14" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" bodystart="715" bodyend="722"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Vector with InlineN elements of inline storage before heap allocation. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" line="541" column="5" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" bodystart="541" bodyend="729"/>
+    <listofallmembers>
+      <member refid="classRADData_1_1RADSmallVector_1aa8256704e8c0061bb5bfa7065fc2c3f8" prot="private" virt="non-virtual"><scope>RADData::RADSmallVector</scope><name>allocator_</name></member>
+      <member refid="classRADData_1_1RADSmallVector_1ae47fa571dcc357e6e6c6c6489a3d0929" prot="public" virt="non-virtual"><scope>RADData::RADSmallVector</scope><name>back</name></member>
+      <member refid="classRADData_1_1RADSmallVector_1ae5be7b342b8a472ec372e07ffdf1172b" prot="public" virt="non-virtual"><scope>RADData::RADSmallVector</scope><name>back</name></member>
+      <member refid="classRADData_1_1RADSmallVector_1affa66046514a0e9042bc9b1d5089111b" prot="public" virt="non-virtual"><scope>RADData::RADSmallVector</scope><name>begin</name></member>
+      <member refid="classRADData_1_1RADSmallVector_1ae756878a10e6b789053eaec60dfc966c" prot="public" virt="non-virtual"><scope>RADData::RADSmallVector</scope><name>begin</name></member>
+      <member refid="classRADData_1_1RADSmallVector_1a708e78ebfbd3694ebb68ffdae05f021b" prot="public" virt="non-virtual"><scope>RADData::RADSmallVector</scope><name>capacity</name></member>
+      <member refid="classRADData_1_1RADSmallVector_1a7e69a6109436ac83988c3cddba9765f1" prot="private" virt="non-virtual"><scope>RADData::RADSmallVector</scope><name>capacity_</name></member>
+      <member refid="classRADData_1_1RADSmallVector_1aa40a2a86252b8d71301d1c5d90787814" prot="public" virt="non-virtual"><scope>RADData::RADSmallVector</scope><name>clear</name></member>
+      <member refid="classRADData_1_1RADSmallVector_1ac3892cf039b9a8ce2bc155bf9f524c29" prot="public" virt="non-virtual"><scope>RADData::RADSmallVector</scope><name>const_iterator</name></member>
+      <member refid="classRADData_1_1RADSmallVector_1adb58c2b5780b69f94d32f2164060a05b" prot="public" virt="non-virtual"><scope>RADData::RADSmallVector</scope><name>data</name></member>
+      <member refid="classRADData_1_1RADSmallVector_1a07c47f445980aa901212325b66ddf562" prot="public" virt="non-virtual"><scope>RADData::RADSmallVector</scope><name>data</name></member>
+      <member refid="classRADData_1_1RADSmallVector_1a653474e89780ac652ab25a45d8ee5ffc" prot="private" virt="non-virtual"><scope>RADData::RADSmallVector</scope><name>data_</name></member>
+      <member refid="classRADData_1_1RADSmallVector_1a7e66d6b50d1595c5f922bf6d44b64f9c" prot="private" virt="non-virtual"><scope>RADData::RADSmallVector</scope><name>destroyHeapStorage</name></member>
+      <member refid="classRADData_1_1RADSmallVector_1a994e05f1a8bd3eabfc8996c15c49031a" prot="public" virt="non-virtual"><scope>RADData::RADSmallVector</scope><name>emplace_back</name></member>
+      <member refid="classRADData_1_1RADSmallVector_1addd161a3e9fd09e26f5938fe358955f2" prot="public" virt="non-virtual"><scope>RADData::RADSmallVector</scope><name>empty</name></member>
+      <member refid="classRADData_1_1RADSmallVector_1a6c5855b495e0f9ad9b1cad4a48f02f3c" prot="public" virt="non-virtual"><scope>RADData::RADSmallVector</scope><name>end</name></member>
+      <member refid="classRADData_1_1RADSmallVector_1ab29a1b41e81067f4e71b28c29077ccb3" prot="public" virt="non-virtual"><scope>RADData::RADSmallVector</scope><name>end</name></member>
+      <member refid="classRADData_1_1RADSmallVector_1ac5b46d2f4aa0c603a2e5641c8aab5c43" prot="private" virt="non-virtual"><scope>RADData::RADSmallVector</scope><name>inlineData</name></member>
+      <member refid="classRADData_1_1RADSmallVector_1a0ba30f78e805db080a437fd89fa23de2" prot="private" virt="non-virtual"><scope>RADData::RADSmallVector</scope><name>inlineData</name></member>
+      <member refid="classRADData_1_1RADSmallVector_1ab041bf40e6c3f85c43adcc34d59137d1" prot="private" virt="non-virtual"><scope>RADData::RADSmallVector</scope><name>inlineStorage_</name></member>
+      <member refid="classRADData_1_1RADSmallVector_1ac11415bfed6963eaa56d836d5a9c130c" prot="public" virt="non-virtual"><scope>RADData::RADSmallVector</scope><name>iterator</name></member>
+      <member refid="classRADData_1_1RADSmallVector_1a8cc0f3a749388dcf980aa0f94a4aa438" prot="public" virt="non-virtual"><scope>RADData::RADSmallVector</scope><name>operator=</name></member>
+      <member refid="classRADData_1_1RADSmallVector_1a839e6903a130ff0d5c99697bb324af62" prot="public" virt="non-virtual"><scope>RADData::RADSmallVector</scope><name>operator=</name></member>
+      <member refid="classRADData_1_1RADSmallVector_1a9e0bd3b8b3a3c50de25c49b891bb43c0" prot="public" virt="non-virtual"><scope>RADData::RADSmallVector</scope><name>operator[]</name></member>
+      <member refid="classRADData_1_1RADSmallVector_1a72335d849b69c0e23d31bdff5b423fda" prot="public" virt="non-virtual"><scope>RADData::RADSmallVector</scope><name>operator[]</name></member>
+      <member refid="classRADData_1_1RADSmallVector_1a6e8e5343b4c00ad7c460e85216b16529" prot="public" virt="non-virtual"><scope>RADData::RADSmallVector</scope><name>pop_back</name></member>
+      <member refid="classRADData_1_1RADSmallVector_1a77a59016bfe5d1f6ced13540d92d3ec0" prot="public" virt="non-virtual"><scope>RADData::RADSmallVector</scope><name>push_back</name></member>
+      <member refid="classRADData_1_1RADSmallVector_1a021856f0663186b16213479b5746c28f" prot="public" virt="non-virtual"><scope>RADData::RADSmallVector</scope><name>push_back</name></member>
+      <member refid="classRADData_1_1RADSmallVector_1a099ab6ac93d75cc4f45b628d85f07a4e" prot="public" virt="non-virtual"><scope>RADData::RADSmallVector</scope><name>RADSmallVector</name></member>
+      <member refid="classRADData_1_1RADSmallVector_1a7e0b7c9da108bff113f798950012fba7" prot="public" virt="non-virtual"><scope>RADData::RADSmallVector</scope><name>RADSmallVector</name></member>
+      <member refid="classRADData_1_1RADSmallVector_1a5225b68774525016422ea7a800738fd7" prot="public" virt="non-virtual"><scope>RADData::RADSmallVector</scope><name>RADSmallVector</name></member>
+      <member refid="classRADData_1_1RADSmallVector_1af5acf5b426a2d6dbb3ab62bcab0740fd" prot="public" virt="non-virtual"><scope>RADData::RADSmallVector</scope><name>RADSmallVector</name></member>
+      <member refid="classRADData_1_1RADSmallVector_1aa00c5b82c999022fa161a28f45def52e" prot="private" virt="non-virtual"><scope>RADData::RADSmallVector</scope><name>reallocate</name></member>
+      <member refid="classRADData_1_1RADSmallVector_1af1c6231572668074d61c5bf8f22d2f3e" prot="public" virt="non-virtual"><scope>RADData::RADSmallVector</scope><name>reserve</name></member>
+      <member refid="classRADData_1_1RADSmallVector_1a6375e1006152fd2276f363f623938216" prot="public" virt="non-virtual"><scope>RADData::RADSmallVector</scope><name>size</name></member>
+      <member refid="classRADData_1_1RADSmallVector_1ada909190ee3b2524ecdc33425ed24683" prot="private" virt="non-virtual"><scope>RADData::RADSmallVector</scope><name>size_</name></member>
+      <member refid="classRADData_1_1RADSmallVector_1a7da321b12a02036e76d3eabd16fe313a" prot="private" virt="non-virtual"><scope>RADData::RADSmallVector</scope><name>Storage</name></member>
+      <member refid="classRADData_1_1RADSmallVector_1adc45c02210af64659b5987560e5e7236" prot="private" virt="non-virtual"><scope>RADData::RADSmallVector</scope><name>usingInline</name></member>
+      <member refid="classRADData_1_1RADSmallVector_1a7c864bdbab233537dda1c2ac691efa07" prot="public" virt="non-virtual"><scope>RADData::RADSmallVector</scope><name>usingInlineStorage</name></member>
+      <member refid="classRADData_1_1RADSmallVector_1ad8d474815fe805b9fce6a53501937b94" prot="public" virt="non-virtual"><scope>RADData::RADSmallVector</scope><name>~RADSmallVector</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

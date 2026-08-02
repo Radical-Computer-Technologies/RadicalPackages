@@ -1,0 +1,125 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="classRADUi_1_1DirectoryBrowserModel" kind="class" language="C++" prot="public">
+    <compoundname>RADUi::DirectoryBrowserModel</compoundname>
+    <includes refid="RADUi_8h" local="no">RADUi.h</includes>
+      <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="classRADUi_1_1DirectoryBrowserModel_1a7bd68c5caabba1b3ebeee429e24058f2" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::filesystem::path</type>
+        <definition>static std::filesystem::path RADUi::DirectoryBrowserModel::stablePath</definition>
+        <argsstring>(const std::filesystem::path &amp;path)</argsstring>
+        <name>stablePath</name>
+        <param>
+          <type>const std::filesystem::path &amp;</type>
+          <declname>path</declname>
+        </param>
+        <briefdescription>
+<para>Returns a stable absolute path when possible. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADUi.h" line="159" column="38"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADUi_1_1DirectoryBrowserModel_1abd6ccc0bd6774b5e41be16eee0cb84e3" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>static bool RADUi::DirectoryBrowserModel::extensionAllowed</definition>
+        <argsstring>(const std::filesystem::path &amp;path, const DirectoryBrowserOptions &amp;options)</argsstring>
+        <name>extensionAllowed</name>
+        <param>
+          <type>const std::filesystem::path &amp;</type>
+          <declname>path</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structRADUi_1_1DirectoryBrowserOptions" kindref="compound">DirectoryBrowserOptions</ref> &amp;</type>
+          <declname>options</declname>
+        </param>
+        <briefdescription>
+<para>Returns true when extension matches options.allowedExtensions, or the list is empty. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADUi.h" line="161" column="21"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADUi_1_1DirectoryBrowserModel_1aea0495aa30f91703de6f341c1e873ae9" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="namespaceRADUi_1aa10adbef68ce037efe6d110ee03f5694" kindref="member">DirectoryBrowserEntryKind</ref></type>
+        <definition>static DirectoryBrowserEntryKind RADUi::DirectoryBrowserModel::classify</definition>
+        <argsstring>(const std::filesystem::directory_entry &amp;entry)</argsstring>
+        <name>classify</name>
+        <param>
+          <type>const std::filesystem::directory_entry &amp;</type>
+          <declname>entry</declname>
+        </param>
+        <briefdescription>
+<para>Classifies a filesystem entry for display and behavior. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADUi.h" line="163" column="42"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADUi_1_1DirectoryBrowserModel_1a11dcd119d019d5a684f7f99ae91eeef2" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::string</type>
+        <definition>static std::string RADUi::DirectoryBrowserModel::iconForKind</definition>
+        <argsstring>(DirectoryBrowserEntryKind kind)</argsstring>
+        <name>iconForKind</name>
+        <param>
+          <type><ref refid="namespaceRADUi_1aa10adbef68ce037efe6d110ee03f5694" kindref="member">DirectoryBrowserEntryKind</ref></type>
+          <declname>kind</declname>
+        </param>
+        <briefdescription>
+<para>Returns the toolkit-neutral icon key for kind. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADUi.h" line="165" column="28"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADUi_1_1DirectoryBrowserModel_1aaefd9ffa855a93f0c4f880fbc92b3396" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::vector&lt; <ref refid="structRADUi_1_1DirectoryBrowserEntry" kindref="compound">DirectoryBrowserEntry</ref> &gt;</type>
+        <definition>static std::vector&lt;DirectoryBrowserEntry&gt; RADUi::DirectoryBrowserModel::snapshot</definition>
+        <argsstring>(const std::filesystem::path &amp;root, const std::set&lt; std::filesystem::path &gt; &amp;expandedDirectories, const DirectoryBrowserOptions &amp;options={})</argsstring>
+        <name>snapshot</name>
+        <param>
+          <type>const std::filesystem::path &amp;</type>
+          <declname>root</declname>
+        </param>
+        <param>
+          <type>const std::set&lt; std::filesystem::path &gt; &amp;</type>
+          <declname>expandedDirectories</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structRADUi_1_1DirectoryBrowserOptions" kindref="compound">DirectoryBrowserOptions</ref> &amp;</type>
+          <declname>options</declname>
+          <defval>{}</defval>
+        </param>
+        <briefdescription>
+<para>Builds a flattened tree snapshot from root and expanded directory paths. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADUi.h" line="167" column="28"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Backend-neutral expandable directory browser model. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADUi.h" line="156" column="5" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADUi.h" bodystart="156" bodyend="170"/>
+    <listofallmembers>
+      <member refid="classRADUi_1_1DirectoryBrowserModel_1aea0495aa30f91703de6f341c1e873ae9" prot="public" virt="non-virtual"><scope>RADUi::DirectoryBrowserModel</scope><name>classify</name></member>
+      <member refid="classRADUi_1_1DirectoryBrowserModel_1abd6ccc0bd6774b5e41be16eee0cb84e3" prot="public" virt="non-virtual"><scope>RADUi::DirectoryBrowserModel</scope><name>extensionAllowed</name></member>
+      <member refid="classRADUi_1_1DirectoryBrowserModel_1a11dcd119d019d5a684f7f99ae91eeef2" prot="public" virt="non-virtual"><scope>RADUi::DirectoryBrowserModel</scope><name>iconForKind</name></member>
+      <member refid="classRADUi_1_1DirectoryBrowserModel_1aaefd9ffa855a93f0c4f880fbc92b3396" prot="public" virt="non-virtual"><scope>RADUi::DirectoryBrowserModel</scope><name>snapshot</name></member>
+      <member refid="classRADUi_1_1DirectoryBrowserModel_1a7bd68c5caabba1b3ebeee429e24058f2" prot="public" virt="non-virtual"><scope>RADUi::DirectoryBrowserModel</scope><name>stablePath</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

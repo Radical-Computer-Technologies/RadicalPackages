@@ -60,20 +60,20 @@ The public signing key is tracked at `keys/radical-packages-archive-key.asc`. Th
 
 ## Stable Packages
 
-Stable RADLib packages currently track the `0.1.0` release line. ABI-pinned packages use the `-0-1` suffix so applications can depend on a known RADLib ABI line.
+Stable RADLib packages currently track the `0.2.1` release line. ABI-pinned packages use the `-0-2` suffix so applications can depend on a known RADLib ABI line.
 
 | Package | Description | Install |
 | --- | --- | --- |
 | `radlib` | Aggregate RADLib package that installs runtime, development files, docs, examples, and tools. | `sudo apt install radlib` |
 | `radlib-runtime` | Latest RADLib runtime meta-package. | `sudo apt install radlib-runtime` |
-| `radlib-runtime-0-1` | RADLib ABI 0.1 runtime meta-package. | `sudo apt install radlib-runtime-0-1` |
+| `radlib-runtime-0-2` | RADLib ABI 0.2 runtime meta-package. | `sudo apt install radlib-runtime-0-2` |
 | `radlib-dev` | Latest RADLib public headers and CMake package files. | `sudo apt install radlib-dev` |
-| `radlib-dev-0-1` | RADLib ABI 0.1 public headers and CMake package files. | `sudo apt install radlib-dev-0-1` |
+| `radlib-dev-0-2` | RADLib ABI 0.2 public headers and CMake package files. | `sudo apt install radlib-dev-0-2` |
 | `radlib-doc` | RADLib generated API documentation package. | `sudo apt install radlib-doc` |
 | `radlib-examples` | RADLib example applications and sample projects. | `sudo apt install radlib-examples` |
 | `radlib-tools` | RADLib SDK tools and protocol generator. | `sudo apt install radlib-tools` |
 
-Targeted module installs are also available. Use the unversioned package for the current line or the `-0-1` package when you need to pin the RADLib 0.1 ABI runtime line.
+Targeted module installs are also available. Use the unversioned package for the current line or the `-0-2` package when you need to pin the RADLib 0.2 ABI runtime line.
 
 ```bash
 sudo apt install radlib-core
@@ -88,7 +88,7 @@ Current module package names include `radlib-core`, `radlib-ui`, `radlib-net`, `
 
 ## Experimental Packages
 
-Experimental packages are allowed to move faster than stable. RADBard, RadBuild, and RADPx-OS documentation live here while they are still beta, and RADLib `0.1.1` development packages should be published here until promoted.
+Experimental packages are allowed to move faster than stable. RADBard, RadBuild, and RADPx-OS documentation live here while they are still beta. RADLib development packages should be published here until promoted to the stable channel.
 
 | Package | Description | Install |
 | --- | --- | --- |
@@ -103,12 +103,12 @@ Experimental packages are allowed to move faster than stable. RADBard, RadBuild,
 ## Documentation
 
 - [Documentation Index](docs/)
-- [RADLib 0.2.0 API Documentation](docs/radlib/0.2.0/api/)
+- [RADLib 0.2.1 API Documentation](docs/radlib/0.2.1/api/)
 - [RadHDL 0.2.1 Documentation](docs/radhdl/0.2.1/)
-- [RadBuild 0.2.2-beta.1 Documentation](docs/radbuild/0.2.2-beta.1/)
+- [RadBuild 0.2.2-beta.2 Documentation](docs/radbuild/0.2.2-beta.2/)
 - [RADPx-OS Crimson 0.1.5 API Documentation](docs/radpx-os/0.1.5/api/)
 
-Documentation is organized by product, release channel, and major version family. Use exact version paths such as `docs/radlib/0.1.0/` and `docs/radhdl/0.2.0/`; newer exact versions supersede older versions without a `current` alias.
+Documentation is organized by product, release channel, and major version family. Use exact version paths such as `docs/radlib/0.2.1/` and `docs/radhdl/0.2.0/`; newer exact versions supersede older versions without a `current` alias.
 
 ## Repository Layout
 
@@ -118,7 +118,7 @@ debian/
 keys/
   radical-packages-archive-key.asc
 docs/
-  radlib/0.1.0/api/
+  radlib/0.2.1/api/
   radhdl/0.2.1/
   radbuild/0.2.1/
   radpx-os/0.1.5/api/
@@ -138,7 +138,7 @@ export RADICAL_PACKAGE_GPG_KEY=F3731ADBB37AFA120A7D5EBD20B2754CF3894789
 
 scripts/stage_github_release_apt_repo.py \
   --suite stable \
-  --version 0.1.0 \
+  --version 0.2.1 \
   --out-dir release-staging/apt-stable \
   --force \
   ../RADLib/build/package/deb/out/*.deb \
@@ -175,12 +175,12 @@ Regenerate RADLib Doxygen documentation:
 
 ```bash
 scripts/update_radlib_docs.sh ../RADLib
-scripts/update_radlib_docs.sh ../RADLib 0.1.0
+scripts/update_radlib_docs.sh ../RADLib 0.2.1
 ```
 
 Regenerate RADPx-OS and RadBuild documentation:
 
 ```bash
 scripts/update_radpx_docs.sh ../RADPx-OS 0.1.0
-scripts/update_radbuild_docs.sh ../RadBuild 0.2.2-beta.1
+scripts/update_radbuild_docs.sh ../RadBuild 0.2.2-beta.2
 ```

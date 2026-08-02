@@ -1,0 +1,399 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="classRADDsp_1_1FftPlan" kind="class" language="C++" prot="public">
+    <compoundname>RADDsp::FftPlan</compoundname>
+    <includes refid="RADDsp_8h" local="no">RADDsp.h</includes>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classRADDsp_1_1FftPlan_1a8131e3e7cac83f8bd5f99a34808bc368" prot="private" static="no" mutable="no">
+        <type>size_t</type>
+        <definition>size_t RADDsp::FftPlan::size_</definition>
+        <argsstring></argsstring>
+        <name>size_</name>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDsp/headers/RADDsp.h" line="72" column="16" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADDsp/headers/RADDsp.h" bodystart="72" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classRADDsp_1_1FftPlan_1ad3856ca46e2186e653f8b5a02b68e71f" prot="private" static="no" mutable="no">
+        <type>std::vector&lt; size_t &gt;</type>
+        <definition>std::vector&lt;size_t&gt; RADDsp::FftPlan::bitReverse_</definition>
+        <argsstring></argsstring>
+        <name>bitReverse_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDsp/headers/RADDsp.h" line="73" column="21" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADDsp/headers/RADDsp.h" bodystart="73" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classRADDsp_1_1FftPlan_1aaf516bb9c23e0cc6906e1d088bbebcf5" prot="private" static="no" mutable="no">
+        <type>std::vector&lt; <ref refid="structRADDsp_1_1ComplexSample" kindref="compound">ComplexSample</ref> &gt;</type>
+        <definition>std::vector&lt;ComplexSample&gt; RADDsp::FftPlan::twiddlesForward_</definition>
+        <argsstring></argsstring>
+        <name>twiddlesForward_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDsp/headers/RADDsp.h" line="74" column="21" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADDsp/headers/RADDsp.h" bodystart="74" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classRADDsp_1_1FftPlan_1a8f100dd41382ce0b50ebaaf747a47cf6" prot="private" static="no" mutable="no">
+        <type>std::vector&lt; <ref refid="structRADDsp_1_1ComplexSample" kindref="compound">ComplexSample</ref> &gt;</type>
+        <definition>std::vector&lt;ComplexSample&gt; RADDsp::FftPlan::twiddlesInverse_</definition>
+        <argsstring></argsstring>
+        <name>twiddlesInverse_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDsp/headers/RADDsp.h" line="75" column="21" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADDsp/headers/RADDsp.h" bodystart="75" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classRADDsp_1_1FftPlan_1a4107e648024142899673a7b187630234" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>RADDsp::FftPlan::FftPlan</definition>
+        <argsstring>()=default</argsstring>
+        <name>FftPlan</name>
+        <briefdescription>
+<para>Creates an empty invalid plan. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDsp/headers/RADDsp.h" line="33" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADDsp_1_1FftPlan_1ad2711309c12c3fb229fb54ab893a7731" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>RADDsp::FftPlan::FftPlan</definition>
+        <argsstring>(size_t size)</argsstring>
+        <name>FftPlan</name>
+        <param>
+          <type>size_t</type>
+          <declname>size</declname>
+        </param>
+        <briefdescription>
+<para>Creates a plan for size when size is a non-zero power of two. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDsp/headers/RADDsp.h" line="35" column="18"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADDsp_1_1FftPlan_1ab3d0ff4ba3e561f4c81ca1f597c4ea18" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool RADDsp::FftPlan::reset</definition>
+        <argsstring>(size_t size)</argsstring>
+        <name>reset</name>
+        <param>
+          <type>size_t</type>
+          <declname>size</declname>
+        </param>
+        <briefdescription>
+<para>Rebuilds the plan and returns false for zero or non-power-of-two sizes. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDsp/headers/RADDsp.h" line="38" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADDsp_1_1FftPlan_1af93851bbd465998ed3019a7906355263" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>size_t</type>
+        <definition>size_t RADDsp::FftPlan::size</definition>
+        <argsstring>() const</argsstring>
+        <name>size</name>
+        <briefdescription>
+<para>Returns the FFT length owned by this plan. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDsp/headers/RADDsp.h" line="40" column="16"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADDsp_1_1FftPlan_1a2c14a0926dfaf1709874c5034361356c" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool RADDsp::FftPlan::valid</definition>
+        <argsstring>() const</argsstring>
+        <name>valid</name>
+        <briefdescription>
+<para>Returns true when the plan has a non-zero power-of-two size. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDsp/headers/RADDsp.h" line="42" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADDsp_1_1FftPlan_1a43edce9d539e836f09c7200401e3b66f" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool RADDsp::FftPlan::transformInPlace</definition>
+        <argsstring>(std::vector&lt; ComplexSample &gt; &amp;samples, bool inverse=false) const</argsstring>
+        <name>transformInPlace</name>
+        <param>
+          <type>std::vector&lt; <ref refid="structRADDsp_1_1ComplexSample" kindref="compound">ComplexSample</ref> &gt; &amp;</type>
+          <declname>samples</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>inverse</declname>
+          <defval>false</defval>
+        </param>
+        <briefdescription>
+<para>Transforms samples in place. Returns false if the plan or sample count is invalid. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDsp/headers/RADDsp.h" line="45" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADDsp_1_1FftPlan_1a921918aaa79516f8a8487cf6c1a65143" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool RADDsp::FftPlan::transform</definition>
+        <argsstring>(const std::vector&lt; ComplexSample &gt; &amp;input, std::vector&lt; ComplexSample &gt; &amp;output, bool inverse=false) const</argsstring>
+        <name>transform</name>
+        <param>
+          <type>const std::vector&lt; <ref refid="structRADDsp_1_1ComplexSample" kindref="compound">ComplexSample</ref> &gt; &amp;</type>
+          <declname>input</declname>
+        </param>
+        <param>
+          <type>std::vector&lt; <ref refid="structRADDsp_1_1ComplexSample" kindref="compound">ComplexSample</ref> &gt; &amp;</type>
+          <declname>output</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>inverse</declname>
+          <defval>false</defval>
+        </param>
+        <briefdescription>
+<para>Transforms input into output. Returns false if the plan or sample count is invalid. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDsp/headers/RADDsp.h" line="47" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADDsp_1_1FftPlan_1a20ff67d9f8c4c518217dce7fc1f80dcd" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>std::vector&lt; <ref refid="structRADDsp_1_1ComplexSample" kindref="compound">ComplexSample</ref> &gt;</type>
+        <definition>std::vector&lt;ComplexSample&gt; RADDsp::FftPlan::transform</definition>
+        <argsstring>(const std::vector&lt; ComplexSample &gt; &amp;input, bool inverse=false) const</argsstring>
+        <name>transform</name>
+        <param>
+          <type>const std::vector&lt; <ref refid="structRADDsp_1_1ComplexSample" kindref="compound">ComplexSample</ref> &gt; &amp;</type>
+          <declname>input</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>inverse</declname>
+          <defval>false</defval>
+        </param>
+        <briefdescription>
+<para>Transforms input and returns an empty vector if the plan or sample count is invalid. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDsp/headers/RADDsp.h" line="50" column="21"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADDsp_1_1FftPlan_1a2787d9b3b4287671ef595ec238b382ee" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool RADDsp::FftPlan::transformManyInPlace</definition>
+        <argsstring>(std::vector&lt; std::vector&lt; ComplexSample &gt;&gt; &amp;frames, bool inverse=false) const</argsstring>
+        <name>transformManyInPlace</name>
+        <param>
+          <type>std::vector&lt; std::vector&lt; <ref refid="structRADDsp_1_1ComplexSample" kindref="compound">ComplexSample</ref> &gt;&gt; &amp;</type>
+          <declname>frames</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>inverse</declname>
+          <defval>false</defval>
+        </param>
+        <briefdescription>
+<para>Transforms many equal-sized frames in place. Returns false if any frame has the wrong size. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDsp/headers/RADDsp.h" line="53" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADDsp_1_1FftPlan_1ac1fb21a462b6d60955dd8917183aa3c4" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool RADDsp::FftPlan::transformMany</definition>
+        <argsstring>(const std::vector&lt; std::vector&lt; ComplexSample &gt;&gt; &amp;inputs, std::vector&lt; std::vector&lt; ComplexSample &gt;&gt; &amp;outputs, bool inverse=false) const</argsstring>
+        <name>transformMany</name>
+        <param>
+          <type>const std::vector&lt; std::vector&lt; <ref refid="structRADDsp_1_1ComplexSample" kindref="compound">ComplexSample</ref> &gt;&gt; &amp;</type>
+          <declname>inputs</declname>
+        </param>
+        <param>
+          <type>std::vector&lt; std::vector&lt; <ref refid="structRADDsp_1_1ComplexSample" kindref="compound">ComplexSample</ref> &gt;&gt; &amp;</type>
+          <declname>outputs</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>inverse</declname>
+          <defval>false</defval>
+        </param>
+        <briefdescription>
+<para>Transforms many equal-sized frames. Returns false if any frame has the wrong size. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDsp/headers/RADDsp.h" line="56" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADDsp_1_1FftPlan_1afe54568fb0807b2850a6e6e32edc6c2a" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>std::vector&lt; std::vector&lt; <ref refid="structRADDsp_1_1ComplexSample" kindref="compound">ComplexSample</ref> &gt; &gt;</type>
+        <definition>std::vector&lt;std::vector&lt;ComplexSample&gt; &gt; RADDsp::FftPlan::transformMany</definition>
+        <argsstring>(const std::vector&lt; std::vector&lt; ComplexSample &gt;&gt; &amp;inputs, bool inverse=false) const</argsstring>
+        <name>transformMany</name>
+        <param>
+          <type>const std::vector&lt; std::vector&lt; <ref refid="structRADDsp_1_1ComplexSample" kindref="compound">ComplexSample</ref> &gt;&gt; &amp;</type>
+          <declname>inputs</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>inverse</declname>
+          <defval>false</defval>
+        </param>
+        <briefdescription>
+<para>Transforms many equal-sized frames, returning an empty vector on invalid input. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDsp/headers/RADDsp.h" line="59" column="21"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADDsp_1_1FftPlan_1a7606f631b7e76e35807a48b0a96d7f18" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool RADDsp::FftPlan::transformFramesInPlace</definition>
+        <argsstring>(std::vector&lt; ComplexSample &gt; &amp;frames, size_t frameCount, bool inverse=false) const</argsstring>
+        <name>transformFramesInPlace</name>
+        <param>
+          <type>std::vector&lt; <ref refid="structRADDsp_1_1ComplexSample" kindref="compound">ComplexSample</ref> &gt; &amp;</type>
+          <declname>frames</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>frameCount</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>inverse</declname>
+          <defval>false</defval>
+        </param>
+        <briefdescription>
+<para>Transforms frameCount contiguous frames of <ref refid="classRADDsp_1_1FftPlan_1af93851bbd465998ed3019a7906355263" kindref="member">size()</ref> in place. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDsp/headers/RADDsp.h" line="62" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADDsp_1_1FftPlan_1afbe68fe06d53e0aa71dbce6fd23df73a" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool RADDsp::FftPlan::transformFrames</definition>
+        <argsstring>(const std::vector&lt; ComplexSample &gt; &amp;input, size_t frameCount, std::vector&lt; ComplexSample &gt; &amp;output, bool inverse=false) const</argsstring>
+        <name>transformFrames</name>
+        <param>
+          <type>const std::vector&lt; <ref refid="structRADDsp_1_1ComplexSample" kindref="compound">ComplexSample</ref> &gt; &amp;</type>
+          <declname>input</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>frameCount</declname>
+        </param>
+        <param>
+          <type>std::vector&lt; <ref refid="structRADDsp_1_1ComplexSample" kindref="compound">ComplexSample</ref> &gt; &amp;</type>
+          <declname>output</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>inverse</declname>
+          <defval>false</defval>
+        </param>
+        <briefdescription>
+<para>Transforms frameCount contiguous frames of <ref refid="classRADDsp_1_1FftPlan_1af93851bbd465998ed3019a7906355263" kindref="member">size()</ref>. Returns false on invalid sizes. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDsp/headers/RADDsp.h" line="65" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADDsp_1_1FftPlan_1a2502ea13cd57076fd1838ac6cf411846" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>std::vector&lt; <ref refid="structRADDsp_1_1ComplexSample" kindref="compound">ComplexSample</ref> &gt;</type>
+        <definition>std::vector&lt;ComplexSample&gt; RADDsp::FftPlan::transformFrames</definition>
+        <argsstring>(const std::vector&lt; ComplexSample &gt; &amp;input, size_t frameCount, bool inverse=false) const</argsstring>
+        <name>transformFrames</name>
+        <param>
+          <type>const std::vector&lt; <ref refid="structRADDsp_1_1ComplexSample" kindref="compound">ComplexSample</ref> &gt; &amp;</type>
+          <declname>input</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>frameCount</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>inverse</declname>
+          <defval>false</defval>
+        </param>
+        <briefdescription>
+<para>Transforms frameCount contiguous frames, returning an empty vector on invalid input. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDsp/headers/RADDsp.h" line="68" column="21"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Reusable power-of-two complex FFT plan with cached bit-reversal and twiddle factors. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDsp/headers/RADDsp.h" line="30" column="5" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADDsp/headers/RADDsp.h" bodystart="30" bodyend="76"/>
+    <listofallmembers>
+      <member refid="classRADDsp_1_1FftPlan_1ad3856ca46e2186e653f8b5a02b68e71f" prot="private" virt="non-virtual"><scope>RADDsp::FftPlan</scope><name>bitReverse_</name></member>
+      <member refid="classRADDsp_1_1FftPlan_1a4107e648024142899673a7b187630234" prot="public" virt="non-virtual"><scope>RADDsp::FftPlan</scope><name>FftPlan</name></member>
+      <member refid="classRADDsp_1_1FftPlan_1ad2711309c12c3fb229fb54ab893a7731" prot="public" virt="non-virtual"><scope>RADDsp::FftPlan</scope><name>FftPlan</name></member>
+      <member refid="classRADDsp_1_1FftPlan_1ab3d0ff4ba3e561f4c81ca1f597c4ea18" prot="public" virt="non-virtual"><scope>RADDsp::FftPlan</scope><name>reset</name></member>
+      <member refid="classRADDsp_1_1FftPlan_1af93851bbd465998ed3019a7906355263" prot="public" virt="non-virtual"><scope>RADDsp::FftPlan</scope><name>size</name></member>
+      <member refid="classRADDsp_1_1FftPlan_1a8131e3e7cac83f8bd5f99a34808bc368" prot="private" virt="non-virtual"><scope>RADDsp::FftPlan</scope><name>size_</name></member>
+      <member refid="classRADDsp_1_1FftPlan_1a921918aaa79516f8a8487cf6c1a65143" prot="public" virt="non-virtual"><scope>RADDsp::FftPlan</scope><name>transform</name></member>
+      <member refid="classRADDsp_1_1FftPlan_1a20ff67d9f8c4c518217dce7fc1f80dcd" prot="public" virt="non-virtual"><scope>RADDsp::FftPlan</scope><name>transform</name></member>
+      <member refid="classRADDsp_1_1FftPlan_1afbe68fe06d53e0aa71dbce6fd23df73a" prot="public" virt="non-virtual"><scope>RADDsp::FftPlan</scope><name>transformFrames</name></member>
+      <member refid="classRADDsp_1_1FftPlan_1a2502ea13cd57076fd1838ac6cf411846" prot="public" virt="non-virtual"><scope>RADDsp::FftPlan</scope><name>transformFrames</name></member>
+      <member refid="classRADDsp_1_1FftPlan_1a7606f631b7e76e35807a48b0a96d7f18" prot="public" virt="non-virtual"><scope>RADDsp::FftPlan</scope><name>transformFramesInPlace</name></member>
+      <member refid="classRADDsp_1_1FftPlan_1a43edce9d539e836f09c7200401e3b66f" prot="public" virt="non-virtual"><scope>RADDsp::FftPlan</scope><name>transformInPlace</name></member>
+      <member refid="classRADDsp_1_1FftPlan_1ac1fb21a462b6d60955dd8917183aa3c4" prot="public" virt="non-virtual"><scope>RADDsp::FftPlan</scope><name>transformMany</name></member>
+      <member refid="classRADDsp_1_1FftPlan_1afe54568fb0807b2850a6e6e32edc6c2a" prot="public" virt="non-virtual"><scope>RADDsp::FftPlan</scope><name>transformMany</name></member>
+      <member refid="classRADDsp_1_1FftPlan_1a2787d9b3b4287671ef595ec238b382ee" prot="public" virt="non-virtual"><scope>RADDsp::FftPlan</scope><name>transformManyInPlace</name></member>
+      <member refid="classRADDsp_1_1FftPlan_1aaf516bb9c23e0cc6906e1d088bbebcf5" prot="private" virt="non-virtual"><scope>RADDsp::FftPlan</scope><name>twiddlesForward_</name></member>
+      <member refid="classRADDsp_1_1FftPlan_1a8f100dd41382ce0b50ebaaf747a47cf6" prot="private" virt="non-virtual"><scope>RADDsp::FftPlan</scope><name>twiddlesInverse_</name></member>
+      <member refid="classRADDsp_1_1FftPlan_1a2c14a0926dfaf1709874c5034361356c" prot="public" virt="non-virtual"><scope>RADDsp::FftPlan</scope><name>valid</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

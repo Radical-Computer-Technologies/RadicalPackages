@@ -1,0 +1,77 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="classRADUi_1_1PlotRenderer" kind="class" language="C++" prot="public" abstract="yes">
+    <compoundname>RADUi::PlotRenderer</compoundname>
+    <derivedcompoundref refid="classRADUi_1_1OpenGLPlotRenderer" prot="public" virt="non-virtual">RADUi::OpenGLPlotRenderer</derivedcompoundref>
+    <derivedcompoundref refid="classRADUi_1_1SoftwarePlotRenderer" prot="public" virt="non-virtual">RADUi::SoftwarePlotRenderer</derivedcompoundref>
+    <includes refid="RADPlot_8h" local="no">RADPlot.h</includes>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classRADUi_1_1PlotRenderer_1a432efdc5c906ddc6ec630822d3961865" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type></type>
+        <definition>virtual RADUi::PlotRenderer::~PlotRenderer</definition>
+        <argsstring>()=default</argsstring>
+        <name>~PlotRenderer</name>
+        <briefdescription>
+<para>Destroys renderer implementations through the base class. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADPlot.h" line="259" column="17"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADUi_1_1PlotRenderer_1a35d4445d1b36606b9bb8ef6e8fa012da" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type><ref refid="structRADUi_1_1PlotImage" kindref="compound">PlotImage</ref></type>
+        <definition>virtual PlotImage RADUi::PlotRenderer::render</definition>
+        <argsstring>(const PlotModelSnapshot &amp;snapshot, const PlotViewport &amp;viewport)=0</argsstring>
+        <name>render</name>
+        <reimplementedby refid="classRADUi_1_1SoftwarePlotRenderer_1ac6e4aaecad25f3260128d998a21e0a99">render</reimplementedby>
+        <reimplementedby refid="classRADUi_1_1OpenGLPlotRenderer_1a51760d0e9dff9bedb0c918806561923a">render</reimplementedby>
+        <param>
+          <type>const <ref refid="structRADUi_1_1PlotModelSnapshot" kindref="compound">PlotModelSnapshot</ref> &amp;</type>
+          <declname>snapshot</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structRADUi_1_1PlotViewport" kindref="compound">PlotViewport</ref> &amp;</type>
+          <declname>viewport</declname>
+        </param>
+        <briefdescription>
+<para>Renders snapshot into an image using viewport. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADPlot.h" line="261" column="27"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Abstract renderer that converts plot snapshots into images. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="3">
+        <label>RADUi::SoftwarePlotRenderer</label>
+        <link refid="classRADUi_1_1SoftwarePlotRenderer"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>RADUi::PlotRenderer</label>
+        <link refid="classRADUi_1_1PlotRenderer"/>
+      </node>
+      <node id="2">
+        <label>RADUi::OpenGLPlotRenderer</label>
+        <link refid="classRADUi_1_1OpenGLPlotRenderer"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <location file="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADPlot.h" line="256" column="5" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADUi/headers/RADPlot.h" bodystart="256" bodyend="262"/>
+    <listofallmembers>
+      <member refid="classRADUi_1_1PlotRenderer_1a35d4445d1b36606b9bb8ef6e8fa012da" prot="public" virt="pure-virtual"><scope>RADUi::PlotRenderer</scope><name>render</name></member>
+      <member refid="classRADUi_1_1PlotRenderer_1a432efdc5c906ddc6ec630822d3961865" prot="public" virt="virtual"><scope>RADUi::PlotRenderer</scope><name>~PlotRenderer</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

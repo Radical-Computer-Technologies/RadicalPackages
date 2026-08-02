@@ -1,0 +1,131 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="classRADCore_1_1RADError" kind="class" language="C++" prot="public">
+    <compoundname>RADCore::RADError</compoundname>
+    <includes refid="RADCore_8h" local="no">RADCore.h</includes>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classRADCore_1_1RADError_1a9b44877b4428d8e5078eb7b702a52a9a" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int RADCore::RADError::code_</definition>
+        <argsstring></argsstring>
+        <name>code_</name>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADCore/headers/RADCore.h" line="152" column="13" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADCore/headers/RADCore.h" bodystart="152" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classRADCore_1_1RADError_1a29a01e409491c8d3aa77dfdbc7c368ce" prot="private" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string RADCore::RADError::message_</definition>
+        <argsstring></argsstring>
+        <name>message_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADCore/headers/RADCore.h" line="153" column="21" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADCore/headers/RADCore.h" bodystart="153" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classRADCore_1_1RADError_1acaaf1410a41f7493cfdbca3691b19cf7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>RADCore::RADError::RADError</definition>
+        <argsstring>()=default</argsstring>
+        <name>RADError</name>
+        <briefdescription>
+<para>Creates a no-error object. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADCore/headers/RADCore.h" line="139" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADCore_1_1RADError_1a24924e894ea6d430f6cf9062aab57865" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>RADCore::RADError::RADError</definition>
+        <argsstring>(int code, std::string message)</argsstring>
+        <name>RADError</name>
+        <param>
+          <type>int</type>
+          <declname>code</declname>
+        </param>
+        <param>
+          <type>std::string</type>
+          <declname>message</declname>
+        </param>
+        <briefdescription>
+<para>Creates an error with code and message. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADCore/headers/RADCore.h" line="141" column="9" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADCore/headers/RADCore.h" bodystart="141" bodyend="142"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADCore_1_1RADError_1a488b32d87d6d9696f5d04ff3efe198a1" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool RADCore::RADError::hasError</definition>
+        <argsstring>() const</argsstring>
+        <name>hasError</name>
+        <briefdescription>
+<para>Returns true when this object represents an error. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADCore/headers/RADCore.h" line="145" column="14" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADCore/headers/RADCore.h" bodystart="145" bodyend="145"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADCore_1_1RADError_1a0be415b4c13cda8ee42e54b5d6e76117" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>int RADCore::RADError::code</definition>
+        <argsstring>() const</argsstring>
+        <name>code</name>
+        <briefdescription>
+<para>Returns numeric error code; 0 means no error. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADCore/headers/RADCore.h" line="147" column="13" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADCore/headers/RADCore.h" bodystart="147" bodyend="147"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADCore_1_1RADError_1afd1098b7ee1b671a66f6f40e0a9f8e35" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>const std::string &amp;</type>
+        <definition>const std::string&amp; RADCore::RADError::message</definition>
+        <argsstring>() const</argsstring>
+        <name>message</name>
+        <briefdescription>
+<para>Returns human-readable error message. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADCore/headers/RADCore.h" line="149" column="27" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADCore/headers/RADCore.h" bodystart="149" bodyend="149"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Structured error object returned by <ref refid="classRADCore_1_1RADResult" kindref="compound">RADResult</ref> and newer APIs. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/media/jvincent/Kingspec512/repos/RADLib/RADCore/headers/RADCore.h" line="136" column="5" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADCore/headers/RADCore.h" bodystart="136" bodyend="154"/>
+    <listofallmembers>
+      <member refid="classRADCore_1_1RADError_1a0be415b4c13cda8ee42e54b5d6e76117" prot="public" virt="non-virtual"><scope>RADCore::RADError</scope><name>code</name></member>
+      <member refid="classRADCore_1_1RADError_1a9b44877b4428d8e5078eb7b702a52a9a" prot="private" virt="non-virtual"><scope>RADCore::RADError</scope><name>code_</name></member>
+      <member refid="classRADCore_1_1RADError_1a488b32d87d6d9696f5d04ff3efe198a1" prot="public" virt="non-virtual"><scope>RADCore::RADError</scope><name>hasError</name></member>
+      <member refid="classRADCore_1_1RADError_1afd1098b7ee1b671a66f6f40e0a9f8e35" prot="public" virt="non-virtual"><scope>RADCore::RADError</scope><name>message</name></member>
+      <member refid="classRADCore_1_1RADError_1a29a01e409491c8d3aa77dfdbc7c368ce" prot="private" virt="non-virtual"><scope>RADCore::RADError</scope><name>message_</name></member>
+      <member refid="classRADCore_1_1RADError_1acaaf1410a41f7493cfdbca3691b19cf7" prot="public" virt="non-virtual"><scope>RADCore::RADError</scope><name>RADError</name></member>
+      <member refid="classRADCore_1_1RADError_1a24924e894ea6d430f6cf9062aab57865" prot="public" virt="non-virtual"><scope>RADCore::RADError</scope><name>RADError</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

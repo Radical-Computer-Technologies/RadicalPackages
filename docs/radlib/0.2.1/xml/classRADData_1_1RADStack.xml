@@ -1,0 +1,196 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="classRADData_1_1RADStack" kind="class" language="C++" prot="public">
+    <compoundname>RADData::RADStack</compoundname>
+    <includes refid="RADDataStructures_8h" local="no">RADDataStructures.h</includes>
+    <templateparamlist>
+      <param>
+        <type>typename T</type>
+      </param>
+      <param>
+        <type>typename Alloc</type>
+        <defval>std::allocator&lt;T&gt;</defval>
+      </param>
+    </templateparamlist>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classRADData_1_1RADStack_1a437071acd6ffd1943a2f807f1cee7250" prot="private" static="no" mutable="no">
+        <type><ref refid="classRADData_1_1RADVector" kindref="compound">RADVector</ref>&lt; T, Alloc &gt;</type>
+        <definition>RADVector&lt;T, Alloc&gt; RADData::RADStack&lt; T, Alloc &gt;::values_</definition>
+        <argsstring></argsstring>
+        <name>values_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" line="1016" column="19" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" bodystart="1016" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classRADData_1_1RADStack_1a5ce8af3568a6109eefdb75bb99a10ca6" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool RADData::RADStack&lt; T, Alloc &gt;::empty</definition>
+        <argsstring>() const noexcept</argsstring>
+        <name>empty</name>
+        <briefdescription>
+<para>Returns true when the stack is empty. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" line="995" column="14" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" bodystart="995" bodyend="995"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADData_1_1RADStack_1a239e7b96baeaae048ff981bb59f5c869" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type>size_t</type>
+        <definition>size_t RADData::RADStack&lt; T, Alloc &gt;::size</definition>
+        <argsstring>() const noexcept</argsstring>
+        <name>size</name>
+        <briefdescription>
+<para>Returns number of stacked elements. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" line="997" column="16" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" bodystart="997" bodyend="997"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADData_1_1RADStack_1a27bff4ce51c2e368ae8b4e37422e58be" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type>T &amp;</type>
+        <definition>T&amp; RADData::RADStack&lt; T, Alloc &gt;::top</definition>
+        <argsstring>() noexcept</argsstring>
+        <name>top</name>
+        <briefdescription>
+<para>Returns the top element. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" line="999" column="11" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" bodystart="999" bodyend="999"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADData_1_1RADStack_1a1d22201eb4a2050de1eeae2a7203d0aa" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type>const T &amp;</type>
+        <definition>const T&amp; RADData::RADStack&lt; T, Alloc &gt;::top</definition>
+        <argsstring>() const noexcept</argsstring>
+        <name>top</name>
+        <briefdescription>
+<para>Returns the top element. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" line="1001" column="17" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" bodystart="1001" bodyend="1001"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADData_1_1RADStack_1a3e1545d8140e7aa6691fdfda063a8719" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void RADData::RADStack&lt; T, Alloc &gt;::push</definition>
+        <argsstring>(const T &amp;value)</argsstring>
+        <name>push</name>
+        <param>
+          <type>const T &amp;</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+<para>Pushes a copy onto the stack. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" line="1003" column="14" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" bodystart="1003" bodyend="1003"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADData_1_1RADStack_1a71ddb290bfb3030ba6efcac89708adf5" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void RADData::RADStack&lt; T, Alloc &gt;::push</definition>
+        <argsstring>(T &amp;&amp;value)</argsstring>
+        <name>push</name>
+        <param>
+          <type>T &amp;&amp;</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+<para>Pushes a moved value onto the stack. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" line="1005" column="14" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" bodystart="1005" bodyend="1005"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADData_1_1RADStack_1a9cde52844c52e295a7e7a5ce628e8480" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename...</type>
+            <declname>Args</declname>
+            <defname>Args</defname>
+          </param>
+        </templateparamlist>
+        <type>T &amp;</type>
+        <definition>T&amp; RADData::RADStack&lt; T, Alloc &gt;::emplace</definition>
+        <argsstring>(Args &amp;&amp;... args)</argsstring>
+        <name>emplace</name>
+        <param>
+          <type>Args &amp;&amp;...</type>
+          <declname>args</declname>
+        </param>
+        <briefdescription>
+<para>Constructs an element on top of the stack. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" line="1007" column="23" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" bodystart="1007" bodyend="1009"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADData_1_1RADStack_1ad00107fa049f9e3e0ec9bf3c98dcccb4" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void RADData::RADStack&lt; T, Alloc &gt;::pop</definition>
+        <argsstring>()</argsstring>
+        <name>pop</name>
+        <briefdescription>
+<para>Removes the top element. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" line="1011" column="14" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" bodystart="1011" bodyend="1011"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADData_1_1RADStack_1a7bd91bc0442b6760dc35f44d97794c39" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void RADData::RADStack&lt; T, Alloc &gt;::clear</definition>
+        <argsstring>()</argsstring>
+        <name>clear</name>
+        <briefdescription>
+<para>Removes all elements. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" line="1013" column="14" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" bodystart="1013" bodyend="1013"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>LIFO stack adapter backed by <ref refid="classRADData_1_1RADVector" kindref="compound">RADVector</ref>. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" line="992" column="5" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" bodystart="992" bodyend="1017"/>
+    <listofallmembers>
+      <member refid="classRADData_1_1RADStack_1a7bd91bc0442b6760dc35f44d97794c39" prot="public" virt="non-virtual"><scope>RADData::RADStack</scope><name>clear</name></member>
+      <member refid="classRADData_1_1RADStack_1a9cde52844c52e295a7e7a5ce628e8480" prot="public" virt="non-virtual"><scope>RADData::RADStack</scope><name>emplace</name></member>
+      <member refid="classRADData_1_1RADStack_1a5ce8af3568a6109eefdb75bb99a10ca6" prot="public" virt="non-virtual"><scope>RADData::RADStack</scope><name>empty</name></member>
+      <member refid="classRADData_1_1RADStack_1ad00107fa049f9e3e0ec9bf3c98dcccb4" prot="public" virt="non-virtual"><scope>RADData::RADStack</scope><name>pop</name></member>
+      <member refid="classRADData_1_1RADStack_1a3e1545d8140e7aa6691fdfda063a8719" prot="public" virt="non-virtual"><scope>RADData::RADStack</scope><name>push</name></member>
+      <member refid="classRADData_1_1RADStack_1a71ddb290bfb3030ba6efcac89708adf5" prot="public" virt="non-virtual"><scope>RADData::RADStack</scope><name>push</name></member>
+      <member refid="classRADData_1_1RADStack_1a239e7b96baeaae048ff981bb59f5c869" prot="public" virt="non-virtual"><scope>RADData::RADStack</scope><name>size</name></member>
+      <member refid="classRADData_1_1RADStack_1a27bff4ce51c2e368ae8b4e37422e58be" prot="public" virt="non-virtual"><scope>RADData::RADStack</scope><name>top</name></member>
+      <member refid="classRADData_1_1RADStack_1a1d22201eb4a2050de1eeae2a7203d0aa" prot="public" virt="non-virtual"><scope>RADData::RADStack</scope><name>top</name></member>
+      <member refid="classRADData_1_1RADStack_1a437071acd6ffd1943a2f807f1cee7250" prot="private" virt="non-virtual"><scope>RADData::RADStack</scope><name>values_</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

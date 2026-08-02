@@ -1,0 +1,210 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="classRADData_1_1RADArrayView" kind="class" language="C++" prot="public">
+    <compoundname>RADData::RADArrayView</compoundname>
+    <includes refid="RADDataStructures_8h" local="no">RADDataStructures.h</includes>
+    <templateparamlist>
+      <param>
+        <type>typename T</type>
+      </param>
+    </templateparamlist>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classRADData_1_1RADArrayView_1acd0d15d0228eeb1841780dc63523030e" prot="private" static="no" mutable="no">
+        <type>T *</type>
+        <definition>T* RADData::RADArrayView&lt; T &gt;::data_</definition>
+        <argsstring></argsstring>
+        <name>data_</name>
+        <initializer>= nullptr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" line="69" column="11" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" bodystart="69" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classRADData_1_1RADArrayView_1a89a1b020d79e5ba70bd814a6ea8700f6" prot="private" static="no" mutable="no">
+        <type>size_t</type>
+        <definition>size_t RADData::RADArrayView&lt; T &gt;::size_</definition>
+        <argsstring></argsstring>
+        <name>size_</name>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" line="70" column="16" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" bodystart="70" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classRADData_1_1RADArrayView_1a609d421b651db64c5979d9348adb18b7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>RADData::RADArrayView&lt; T &gt;::RADArrayView</definition>
+        <argsstring>()=default</argsstring>
+        <name>RADArrayView</name>
+        <briefdescription>
+<para>Creates an empty view. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" line="48" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADData_1_1RADArrayView_1ac45befd92690d7c8e3016d81edbe69d3" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>RADData::RADArrayView&lt; T &gt;::RADArrayView</definition>
+        <argsstring>(T *data, size_t size)</argsstring>
+        <name>RADArrayView</name>
+        <param>
+          <type>T *</type>
+          <declname>data</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>size</declname>
+        </param>
+        <briefdescription>
+<para>Creates a view over data and size. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" line="50" column="9" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" bodystart="50" bodyend="50"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADData_1_1RADArrayView_1acd750bb6b1b5a84e98ec4015983c09d7" prot="public" static="no" const="no" explicit="yes" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename Container</type>
+          </param>
+        </templateparamlist>
+        <type></type>
+        <definition>RADData::RADArrayView&lt; T &gt;::RADArrayView</definition>
+        <argsstring>(Container &amp;container)</argsstring>
+        <name>RADArrayView</name>
+        <param>
+          <type>Container &amp;</type>
+          <declname>container</declname>
+        </param>
+        <briefdescription>
+<para>Creates a view over a vector-like container. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" line="53" column="18" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" bodystart="53" bodyend="53"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADData_1_1RADArrayView_1a82aaadfaec21d53eb047ac3cf870e878" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>T *</type>
+        <definition>T* RADData::RADArrayView&lt; T &gt;::data</definition>
+        <argsstring>() const</argsstring>
+        <name>data</name>
+        <briefdescription>
+<para>Returns pointer to first element. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" line="56" column="11" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" bodystart="56" bodyend="56"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADData_1_1RADArrayView_1a481255a915a0dd05eac784a94afd0ac4" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>size_t</type>
+        <definition>size_t RADData::RADArrayView&lt; T &gt;::size</definition>
+        <argsstring>() const</argsstring>
+        <name>size</name>
+        <briefdescription>
+<para>Returns number of elements. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" line="58" column="16" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" bodystart="58" bodyend="58"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADData_1_1RADArrayView_1a028b95c8493b81fe63667a4aaef6191b" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool RADData::RADArrayView&lt; T &gt;::empty</definition>
+        <argsstring>() const</argsstring>
+        <name>empty</name>
+        <briefdescription>
+<para>Returns true when empty. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" line="60" column="14" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" bodystart="60" bodyend="60"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADData_1_1RADArrayView_1ae7fe8de3168d48ce1db6cfa7f8f9b0d4" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>T &amp;</type>
+        <definition>T&amp; RADData::RADArrayView&lt; T &gt;::operator[]</definition>
+        <argsstring>(size_t index) const</argsstring>
+        <name>operator[]</name>
+        <param>
+          <type>size_t</type>
+          <declname>index</declname>
+        </param>
+        <briefdescription>
+<para>Returns element at index. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" line="62" column="11" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" bodystart="62" bodyend="62"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADData_1_1RADArrayView_1a272936056afd5759dd5c24274de74f20" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>T *</type>
+        <definition>T* RADData::RADArrayView&lt; T &gt;::begin</definition>
+        <argsstring>() const</argsstring>
+        <name>begin</name>
+        <briefdescription>
+<para>Returns iterator to first element. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" line="64" column="11" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" bodystart="64" bodyend="64"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADData_1_1RADArrayView_1a3abcd1b1a0e981e4404c88e4f9c10feb" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>T *</type>
+        <definition>T* RADData::RADArrayView&lt; T &gt;::end</definition>
+        <argsstring>() const</argsstring>
+        <name>end</name>
+        <briefdescription>
+<para>Returns iterator one past last element. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" line="66" column="11" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" bodystart="66" bodyend="66"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Non-owning contiguous view over T values. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" line="45" column="5" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADDataStructures/headers/RADDataStructures.h" bodystart="45" bodyend="71"/>
+    <listofallmembers>
+      <member refid="classRADData_1_1RADArrayView_1a272936056afd5759dd5c24274de74f20" prot="public" virt="non-virtual"><scope>RADData::RADArrayView</scope><name>begin</name></member>
+      <member refid="classRADData_1_1RADArrayView_1a82aaadfaec21d53eb047ac3cf870e878" prot="public" virt="non-virtual"><scope>RADData::RADArrayView</scope><name>data</name></member>
+      <member refid="classRADData_1_1RADArrayView_1acd0d15d0228eeb1841780dc63523030e" prot="private" virt="non-virtual"><scope>RADData::RADArrayView</scope><name>data_</name></member>
+      <member refid="classRADData_1_1RADArrayView_1a028b95c8493b81fe63667a4aaef6191b" prot="public" virt="non-virtual"><scope>RADData::RADArrayView</scope><name>empty</name></member>
+      <member refid="classRADData_1_1RADArrayView_1a3abcd1b1a0e981e4404c88e4f9c10feb" prot="public" virt="non-virtual"><scope>RADData::RADArrayView</scope><name>end</name></member>
+      <member refid="classRADData_1_1RADArrayView_1ae7fe8de3168d48ce1db6cfa7f8f9b0d4" prot="public" virt="non-virtual"><scope>RADData::RADArrayView</scope><name>operator[]</name></member>
+      <member refid="classRADData_1_1RADArrayView_1a609d421b651db64c5979d9348adb18b7" prot="public" virt="non-virtual"><scope>RADData::RADArrayView</scope><name>RADArrayView</name></member>
+      <member refid="classRADData_1_1RADArrayView_1ac45befd92690d7c8e3016d81edbe69d3" prot="public" virt="non-virtual"><scope>RADData::RADArrayView</scope><name>RADArrayView</name></member>
+      <member refid="classRADData_1_1RADArrayView_1acd750bb6b1b5a84e98ec4015983c09d7" prot="public" virt="non-virtual"><scope>RADData::RADArrayView</scope><name>RADArrayView</name></member>
+      <member refid="classRADData_1_1RADArrayView_1a481255a915a0dd05eac784a94afd0ac4" prot="public" virt="non-virtual"><scope>RADData::RADArrayView</scope><name>size</name></member>
+      <member refid="classRADData_1_1RADArrayView_1a89a1b020d79e5ba70bd814a6ea8700f6" prot="private" virt="non-virtual"><scope>RADData::RADArrayView</scope><name>size_</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,115 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="RADSerial_8h" kind="file" language="C++">
+    <compoundname>RADSerial.h</compoundname>
+    <includes local="no">RADCore/RADCore.h</includes>
+    <includes local="no">cstdint</includes>
+    <includes local="no">memory</includes>
+    <includes local="no">string</includes>
+    <includes local="no">vector</includes>
+    <incdepgraph>
+      <node id="2">
+        <label>RADCore/RADCore.h</label>
+      </node>
+      <node id="3">
+        <label>cstdint</label>
+      </node>
+      <node id="5">
+        <label>string</label>
+      </node>
+      <node id="6">
+        <label>vector</label>
+      </node>
+      <node id="1">
+        <label>/media/jvincent/Kingspec512/repos/RADLib/RADSerial/headers/RADSerial.h</label>
+        <link refid="RADSerial_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>memory</label>
+      </node>
+    </incdepgraph>
+    <innerclass refid="structRADSerial_1_1SerialConfig" prot="public">RADSerial::SerialConfig</innerclass>
+    <innerclass refid="structRADSerial_1_1SerialPortInfo" prot="public">RADSerial::SerialPortInfo</innerclass>
+    <innerclass refid="classRADSerial_1_1RADSerialPort" prot="public">RADSerial::RADSerialPort</innerclass>
+    <innernamespace refid="namespaceRADSerial">RADSerial</innernamespace>
+    <briefdescription>
+<para>Event-loop integrated Linux serial port support. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#ifndef<sp/>RADSERIAL_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>RADSERIAL_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="preprocessor">#pragma<sp/>once</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;RADCore/RADCore.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;cstdint&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;memory&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;string&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;vector&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight></codeline>
+<codeline lineno="18" refid="namespaceRADSerial" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal"><ref refid="namespaceRADSerial" kindref="compound">RADSerial</ref><sp/>{</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight></codeline>
+<codeline lineno="21" refid="namespaceRADSerial_1a03bbd9504108adb1d166e2d35ec4e9ab" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">enum<sp/>class</highlight><highlight class="normal"><sp/><ref refid="namespaceRADSerial_1a03bbd9504108adb1d166e2d35ec4e9ab" kindref="member">Parity</ref><sp/>{<sp/><ref refid="namespaceRADSerial_1a03bbd9504108adb1d166e2d35ec4e9aba6adf97f83acf6453d4a6a4b1070f3754" kindref="member">None</ref>,<sp/><ref refid="namespaceRADSerial_1a03bbd9504108adb1d166e2d35ec4e9aba35537fbc25d87ffe59e4f35fefcd34b7" kindref="member">Even</ref>,<sp/><ref refid="namespaceRADSerial_1a03bbd9504108adb1d166e2d35ec4e9aba37b6bd7fe61d651735cec3d3b0356c66" kindref="member">Odd</ref><sp/>};</highlight></codeline>
+<codeline lineno="23" refid="namespaceRADSerial_1a28d138130b567c1a85b22f8783c068d9" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">enum<sp/>class</highlight><highlight class="normal"><sp/><ref refid="namespaceRADSerial_1a28d138130b567c1a85b22f8783c068d9" kindref="member">StopBits</ref><sp/>{<sp/><ref refid="namespaceRADSerial_1a28d138130b567c1a85b22f8783c068d9a06c2cea18679d64399783748fa367bdd" kindref="member">One</ref>,<sp/><ref refid="namespaceRADSerial_1a28d138130b567c1a85b22f8783c068d9aaada29daee1d64ed0fe907043855cb7e" kindref="member">Two</ref><sp/>};</highlight></codeline>
+<codeline lineno="25" refid="namespaceRADSerial_1aa22a1b61fdba854ab2d685cb8398758e" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">enum<sp/>class</highlight><highlight class="normal"><sp/><ref refid="namespaceRADSerial_1aa22a1b61fdba854ab2d685cb8398758e" kindref="member">FlowControl</ref><sp/>{<sp/><ref refid="namespaceRADSerial_1aa22a1b61fdba854ab2d685cb8398758ea6adf97f83acf6453d4a6a4b1070f3754" kindref="member">None</ref>,<sp/><ref refid="namespaceRADSerial_1aa22a1b61fdba854ab2d685cb8398758ea3c02a379965ab0dfcd77b1c484450433" kindref="member">Hardware</ref>,<sp/><ref refid="namespaceRADSerial_1aa22a1b61fdba854ab2d685cb8398758ea719d067b229178f03bcfa1da4ac4dede" kindref="member">Software</ref><sp/>};</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight></codeline>
+<codeline lineno="28" refid="structRADSerial_1_1SerialConfig" refkind="compound"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structRADSerial_1_1SerialConfig" kindref="compound">SerialConfig</ref><sp/>{</highlight></codeline>
+<codeline lineno="30" refid="structRADSerial_1_1SerialConfig_1a8bd59a36b8ae31e6b6174851ddd0a3bb" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="structRADSerial_1_1SerialConfig_1a8bd59a36b8ae31e6b6174851ddd0a3bb" kindref="member">baudRate</ref><sp/>=<sp/>115200;</highlight></codeline>
+<codeline lineno="32" refid="structRADSerial_1_1SerialConfig_1a7576a0560c0c626fa4d8b9f132ca4e88" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="structRADSerial_1_1SerialConfig_1a7576a0560c0c626fa4d8b9f132ca4e88" kindref="member">dataBits</ref><sp/>=<sp/>8;</highlight></codeline>
+<codeline lineno="34" refid="structRADSerial_1_1SerialConfig_1a6a2993e5482e4ecba58792824b762c1b" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespaceRADSerial_1a03bbd9504108adb1d166e2d35ec4e9ab" kindref="member">Parity</ref><sp/><ref refid="structRADSerial_1_1SerialConfig_1a6a2993e5482e4ecba58792824b762c1b" kindref="member">parity</ref><sp/>=<sp/><ref refid="namespaceRADSerial_1a03bbd9504108adb1d166e2d35ec4e9aba6adf97f83acf6453d4a6a4b1070f3754" kindref="member">Parity::None</ref>;</highlight></codeline>
+<codeline lineno="36" refid="structRADSerial_1_1SerialConfig_1a0b59f725e598d6d1e51b60ad485a1163" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespaceRADSerial_1a28d138130b567c1a85b22f8783c068d9" kindref="member">StopBits</ref><sp/><ref refid="structRADSerial_1_1SerialConfig_1a0b59f725e598d6d1e51b60ad485a1163" kindref="member">stopBits</ref><sp/>=<sp/><ref refid="namespaceRADSerial_1a28d138130b567c1a85b22f8783c068d9a06c2cea18679d64399783748fa367bdd" kindref="member">StopBits::One</ref>;</highlight></codeline>
+<codeline lineno="38" refid="structRADSerial_1_1SerialConfig_1a4aef1e84d0855d1dfdd6b4ab938d3580" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespaceRADSerial_1aa22a1b61fdba854ab2d685cb8398758e" kindref="member">FlowControl</ref><sp/><ref refid="structRADSerial_1_1SerialConfig_1a4aef1e84d0855d1dfdd6b4ab938d3580" kindref="member">flowControl</ref><sp/>=<sp/><ref refid="namespaceRADSerial_1aa22a1b61fdba854ab2d685cb8398758ea6adf97f83acf6453d4a6a4b1070f3754" kindref="member">FlowControl::None</ref>;</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/>};</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"></highlight></codeline>
+<codeline lineno="42" refid="structRADSerial_1_1SerialPortInfo" refkind="compound"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structRADSerial_1_1SerialPortInfo" kindref="compound">SerialPortInfo</ref><sp/>{</highlight></codeline>
+<codeline lineno="44" refid="structRADSerial_1_1SerialPortInfo_1a801f812709853ecc03ba1cc49d4c620e" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::string<sp/><ref refid="structRADSerial_1_1SerialPortInfo_1a801f812709853ecc03ba1cc49d4c620e" kindref="member">path</ref>;</highlight></codeline>
+<codeline lineno="46" refid="structRADSerial_1_1SerialPortInfo_1a70f230a9ec88d2b3f13c8bbe485b7d2f" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::string<sp/><ref refid="structRADSerial_1_1SerialPortInfo_1a70f230a9ec88d2b3f13c8bbe485b7d2f" kindref="member">name</ref>;</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/>};</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"></highlight></codeline>
+<codeline lineno="50" refid="classRADSerial_1_1RADSerialPort" refkind="compound"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classRADSerial_1_1RADSerialPort" kindref="compound">RADSerialPort</ref><sp/>:<sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="classRADCore_1_1RADIODevice" kindref="compound">RADCore::RADIODevice</ref><sp/>{</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="RADCore_8h_1a839276d514e8d63a3803d5cafc923a0d" kindref="member">RADEvents</ref>:</highlight></codeline>
+<codeline lineno="54" refid="classRADSerial_1_1RADSerialPort_1a4065836d69948308b8559ee5c4edc0b6" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="RADCore_8h_1a6834046ef184f6f1f29ac61c42919a6c" kindref="member">RAD_EVENT</ref>(<ref refid="classRADSerial_1_1RADSerialPort_1a4065836d69948308b8559ee5c4edc0b6" kindref="member">opened</ref>,<sp/>());</highlight></codeline>
+<codeline lineno="56" refid="classRADSerial_1_1RADSerialPort_1aaae123b03440b69b85f125b50e48bbbe" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="RADCore_8h_1a6834046ef184f6f1f29ac61c42919a6c" kindref="member">RAD_EVENT</ref>(<ref refid="classRADSerial_1_1RADSerialPort_1aaae123b03440b69b85f125b50e48bbbe" kindref="member">closed</ref>,<sp/>());</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"></highlight></codeline>
+<codeline lineno="59" refid="classRADSerial_1_1RADSerialPort_1a564bd9930c5cd2907bf641bf77a2c9c0" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">explicit</highlight><highlight class="normal"><sp/><ref refid="classRADSerial_1_1RADSerialPort_1a564bd9930c5cd2907bf641bf77a2c9c0" kindref="member">RADSerialPort</ref>(<ref refid="classRADCore_1_1EventLoop" kindref="compound">RADCore::EventLoop</ref>&amp;<sp/>loop);</highlight></codeline>
+<codeline lineno="61" refid="classRADSerial_1_1RADSerialPort_1a0f157bf0da01e71613136fae1584c6a1" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classRADSerial_1_1RADSerialPort_1a0f157bf0da01e71613136fae1584c6a1" kindref="member">~RADSerialPort</ref>()<sp/></highlight><highlight class="keyword">override</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"></highlight></codeline>
+<codeline lineno="64" refid="classRADSerial_1_1RADSerialPort_1ad1ae5f915be9a3150aebb28773627c6e" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classRADSerial_1_1RADSerialPort_1ad1ae5f915be9a3150aebb28773627c6e" kindref="member">setPortName</ref>(std::string<sp/>path);</highlight></codeline>
+<codeline lineno="66" refid="classRADSerial_1_1RADSerialPort_1acefc88428b3ddb31a79cfc7eed5452ef" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::string&amp;<sp/><ref refid="classRADSerial_1_1RADSerialPort_1acefc88428b3ddb31a79cfc7eed5452ef" kindref="member">portName</ref>()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="68" refid="classRADSerial_1_1RADSerialPort_1adee12b2372af83daea9fcde74147cb64" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classRADSerial_1_1RADSerialPort_1adee12b2372af83daea9fcde74147cb64" kindref="member">setConfig</ref>(<ref refid="structRADSerial_1_1SerialConfig" kindref="compound">SerialConfig</ref><sp/><ref refid="classRADSerial_1_1RADSerialPort_1addc8833112659075c3fc10b77026f694" kindref="member">config</ref>);</highlight></codeline>
+<codeline lineno="70" refid="classRADSerial_1_1RADSerialPort_1addc8833112659075c3fc10b77026f694" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structRADSerial_1_1SerialConfig" kindref="compound">SerialConfig</ref><sp/><ref refid="classRADSerial_1_1RADSerialPort_1addc8833112659075c3fc10b77026f694" kindref="member">config</ref>()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"></highlight></codeline>
+<codeline lineno="73" refid="classRADSerial_1_1RADSerialPort_1a6400695f7c1a13f0b71cb035a7a64d9d" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classRADSerial_1_1RADSerialPort_1a6400695f7c1a13f0b71cb035a7a64d9d" kindref="member">open</ref>(<ref refid="namespaceRADCore_1aefc7037828eebd6f6c85bda2ea2b2852" kindref="member">RADCore::OpenMode</ref><sp/>mode)<sp/></highlight><highlight class="keyword">override</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="75" refid="classRADSerial_1_1RADSerialPort_1a3657321dee539b57346035197f2996d1" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classRADSerial_1_1RADSerialPort_1a3657321dee539b57346035197f2996d1" kindref="member">close</ref>()<sp/></highlight><highlight class="keyword">override</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="77" refid="classRADSerial_1_1RADSerialPort_1a18e8182eb12b20a817270089896bcc95" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classRADSerial_1_1RADSerialPort_1a18e8182eb12b20a817270089896bcc95" kindref="member">isOpen</ref>()<sp/></highlight><highlight class="keyword">const<sp/>override</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="79" refid="classRADSerial_1_1RADSerialPort_1a46acba510fea1e4961931697865c6420" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ssize_t<sp/><ref refid="classRADSerial_1_1RADSerialPort_1a46acba510fea1e4961931697865c6420" kindref="member">readData</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">*<sp/>buffer,<sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>maxBytes)<sp/></highlight><highlight class="keyword">override</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="81" refid="classRADSerial_1_1RADSerialPort_1ae93d0f327375ec07f4507895af2f299b" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ssize_t<sp/><ref refid="classRADSerial_1_1RADSerialPort_1ae93d0f327375ec07f4507895af2f299b" kindref="member">writeData</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal">*<sp/>data,<sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>size)<sp/></highlight><highlight class="keyword">override</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"></highlight></codeline>
+<codeline lineno="84" refid="classRADSerial_1_1RADSerialPort_1adf815cfaae2e74a06c3739ba6c65021b" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/>std::vector&lt;SerialPortInfo&gt;<sp/><ref refid="classRADSerial_1_1RADSerialPort_1adf815cfaae2e74a06c3739ba6c65021b" kindref="member">listPorts</ref>();</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"></highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">Impl;</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::shared_ptr&lt;Impl&gt;<sp/>pImpl_;</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/><sp/><sp/>};</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"></highlight></codeline>
+<codeline lineno="91"><highlight class="normal">}<sp/></highlight><highlight class="comment">//<sp/>namespace<sp/>RADSerial</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="92"><highlight class="normal"></highlight></codeline>
+<codeline lineno="93"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+    </programlisting>
+    <location file="/media/jvincent/Kingspec512/repos/RADLib/RADSerial/headers/RADSerial.h"/>
+  </compounddef>
+</doxygen>

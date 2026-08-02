@@ -1,0 +1,124 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="classRADCore_1_1Internal_1_1LogStream" kind="class" language="C++" prot="public">
+    <compoundname>RADCore::Internal::LogStream</compoundname>
+    <includes refid="RADCore_8h" local="no">RADCore.h</includes>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classRADCore_1_1Internal_1_1LogStream_1a2d50117b3261aad45334c44f4e1fa9fb" prot="private" static="no" mutable="no">
+        <type><ref refid="namespaceRADCore_1adba067bcb67349515b1d2010a775ebe3" kindref="member">LogLevel</ref></type>
+        <definition>LogLevel RADCore::Internal::LogStream::level_</definition>
+        <argsstring></argsstring>
+        <name>level_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADCore/headers/RADCore.h" line="1986" column="22" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADCore/headers/RADCore.h" bodystart="1986" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classRADCore_1_1Internal_1_1LogStream_1aa41c5bbd5df552b7a66f235f8e61b43c" prot="private" static="no" mutable="no">
+        <type>std::stringstream</type>
+        <definition>std::stringstream RADCore::Internal::LogStream::stream_</definition>
+        <argsstring></argsstring>
+        <name>stream_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADCore/headers/RADCore.h" line="1987" column="31" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADCore/headers/RADCore.h" bodystart="1987" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classRADCore_1_1Internal_1_1LogStream_1aa13e52b19aacb84e7ccb420e1c6b8bd6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>RADCore::Internal::LogStream::LogStream</definition>
+        <argsstring>(LogLevel level)</argsstring>
+        <name>LogStream</name>
+        <param>
+          <type><ref refid="namespaceRADCore_1adba067bcb67349515b1d2010a775ebe3" kindref="member">LogLevel</ref></type>
+          <declname>level</declname>
+        </param>
+        <briefdescription>
+<para>Creates a log stream for level. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADCore/headers/RADCore.h" line="1968" column="13"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADCore_1_1Internal_1_1LogStream_1aaad87c7fc2973f312bb7c059fa243ffb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>RADCore::Internal::LogStream::~LogStream</definition>
+        <argsstring>()</argsstring>
+        <name>~LogStream</name>
+        <briefdescription>
+<para>Flushes the accumulated string to the logger. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADCore/headers/RADCore.h" line="1970" column="13"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADCore_1_1Internal_1_1LogStream_1a545731d2a56e6b45c43a1e588c37a344" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename T</type>
+          </param>
+        </templateparamlist>
+        <type><ref refid="classRADCore_1_1Internal_1_1LogStream" kindref="compound">LogStream</ref> &amp;</type>
+        <definition>LogStream&amp; RADCore::Internal::LogStream::operator&lt;&lt;</definition>
+        <argsstring>(const T &amp;value)</argsstring>
+        <name>operator&lt;&lt;</name>
+        <param>
+          <type>const T &amp;</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+<para>Appends value to the log stream. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADCore/headers/RADCore.h" line="1974" column="13" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADCore/headers/RADCore.h" bodystart="1974" bodyend="1977"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADCore_1_1Internal_1_1LogStream_1ad4ea563e8ff731eb403b8a253dccd03a" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classRADCore_1_1Internal_1_1LogStream" kindref="compound">LogStream</ref> &amp;</type>
+        <definition>LogStream&amp; RADCore::Internal::LogStream::operator&lt;&lt;</definition>
+        <argsstring>(std::ostream &amp;(*manip)(std::ostream &amp;))</argsstring>
+        <name>operator&lt;&lt;</name>
+        <param>
+          <type>std::ostream &amp;(*)(std::ostream &amp;)</type>
+          <declname>manip</declname>
+        </param>
+        <briefdescription>
+<para>Appends an ostream manipulator such as std::endl. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADCore/headers/RADCore.h" line="1980" column="13" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADCore/headers/RADCore.h" bodystart="1980" bodyend="1983"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Streaming log proxy used by <ref refid="RADCore_8h_1a9b7f86af1c42e10d0ce826c5e81ee8d1" kindref="member">RADInfo()</ref> and <ref refid="RADCore_8h_1a3bc3a248153b740b5ffe41e3fecd3942" kindref="member">RADDebug()</ref>. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/media/jvincent/Kingspec512/repos/RADLib/RADCore/headers/RADCore.h" line="1965" column="9" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADCore/headers/RADCore.h" bodystart="1965" bodyend="1988"/>
+    <listofallmembers>
+      <member refid="classRADCore_1_1Internal_1_1LogStream_1a2d50117b3261aad45334c44f4e1fa9fb" prot="private" virt="non-virtual"><scope>RADCore::Internal::LogStream</scope><name>level_</name></member>
+      <member refid="classRADCore_1_1Internal_1_1LogStream_1aa13e52b19aacb84e7ccb420e1c6b8bd6" prot="public" virt="non-virtual"><scope>RADCore::Internal::LogStream</scope><name>LogStream</name></member>
+      <member refid="classRADCore_1_1Internal_1_1LogStream_1a545731d2a56e6b45c43a1e588c37a344" prot="public" virt="non-virtual"><scope>RADCore::Internal::LogStream</scope><name>operator&lt;&lt;</name></member>
+      <member refid="classRADCore_1_1Internal_1_1LogStream_1ad4ea563e8ff731eb403b8a253dccd03a" prot="public" virt="non-virtual"><scope>RADCore::Internal::LogStream</scope><name>operator&lt;&lt;</name></member>
+      <member refid="classRADCore_1_1Internal_1_1LogStream_1aa41c5bbd5df552b7a66f235f8e61b43c" prot="private" virt="non-virtual"><scope>RADCore::Internal::LogStream</scope><name>stream_</name></member>
+      <member refid="classRADCore_1_1Internal_1_1LogStream_1aaad87c7fc2973f312bb7c059fa243ffb" prot="public" virt="non-virtual"><scope>RADCore::Internal::LogStream</scope><name>~LogStream</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

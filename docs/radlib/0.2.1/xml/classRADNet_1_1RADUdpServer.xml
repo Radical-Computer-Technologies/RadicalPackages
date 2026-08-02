@@ -1,0 +1,293 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="classRADNet_1_1RADUdpServer" kind="class" language="C++" prot="public">
+    <compoundname>RADNet::RADUdpServer</compoundname>
+    <basecompoundref refid="classRADCore_1_1RADObject" prot="public" virt="non-virtual">RADCore::RADObject</basecompoundref>
+    <includes refid="RADNet_8h" local="no">RADNet.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="classRADNet_1_1RADUdpServer_1a7798bed037e214a22cc10f73df2e796c" prot="public" static="no" mutable="no">
+        <type><ref refid="classRADCore_1_1Event" kindref="compound">RADCore::Event</ref>&lt; void(<ref refid="structRADNet_1_1Datagram" kindref="compound">RADNet::Datagram</ref>) &gt;</type>
+        <definition>RADCore::Event&lt;void (RADNet::Datagram) &gt; RADNet::RADUdpServer::datagramReceived</definition>
+        <argsstring></argsstring>
+        <name>datagramReceived</name>
+        <briefdescription>
+<para>Re-emits datagrams received by the internal socket. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADNet/headers/RADNet.h" line="97" column="30" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADNet/headers/RADNet.h" bodystart="97" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classRADNet_1_1RADUdpServer_1a4d04aa1430bbbec8bd2693f5321057d6" prot="public" static="no" mutable="no">
+        <type><ref refid="classRADCore_1_1Event" kindref="compound">RADCore::Event</ref>&lt; void(std::string) &gt;</type>
+        <definition>RADCore::Event&lt;void (std::string) &gt; RADNet::RADUdpServer::errorOccurred</definition>
+        <argsstring></argsstring>
+        <name>errorOccurred</name>
+        <briefdescription>
+<para>Re-emits socket errors from the internal socket. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADNet/headers/RADNet.h" line="99" column="30" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADNet/headers/RADNet.h" bodystart="99" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classRADNet_1_1RADUdpServer_1ab69d04b260e124f62524f14736c7f966" prot="private" static="no" mutable="no">
+        <type><ref refid="classRADNet_1_1RADUdpSocket" kindref="compound">RADUdpSocket</ref></type>
+        <definition>RADUdpSocket RADNet::RADUdpServer::socket_</definition>
+        <argsstring></argsstring>
+        <name>socket_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADNet/headers/RADNet.h" line="122" column="22" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADNet/headers/RADNet.h" bodystart="122" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classRADNet_1_1RADUdpServer_1a303cd26a01400f9c46b2f57ab18d06cb" prot="private" static="no" mutable="no">
+        <type><ref refid="classRADCore_1_1Connection" kindref="compound">RADCore::Connection</ref></type>
+        <definition>RADCore::Connection RADNet::RADUdpServer::datagramConnection_</definition>
+        <argsstring></argsstring>
+        <name>datagramConnection_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADNet/headers/RADNet.h" line="123" column="29" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADNet/headers/RADNet.h" bodystart="123" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classRADNet_1_1RADUdpServer_1a86e9a8d6d7e8019441d89972b745038c" prot="private" static="no" mutable="no">
+        <type><ref refid="classRADCore_1_1Connection" kindref="compound">RADCore::Connection</ref></type>
+        <definition>RADCore::Connection RADNet::RADUdpServer::errorConnection_</definition>
+        <argsstring></argsstring>
+        <name>errorConnection_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADNet/headers/RADNet.h" line="124" column="29" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADNet/headers/RADNet.h" bodystart="124" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classRADNet_1_1RADUdpServer_1a048aeb353f47ca541c544252c573de0e" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>RADNet::RADUdpServer::RADUdpServer</definition>
+        <argsstring>(RADCore::EventLoop &amp;loop)</argsstring>
+        <name>RADUdpServer</name>
+        <param>
+          <type><ref refid="classRADCore_1_1EventLoop" kindref="compound">RADCore::EventLoop</ref> &amp;</type>
+          <declname>loop</declname>
+        </param>
+        <briefdescription>
+<para>Creates a UDP server whose events are posted to loop. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADNet/headers/RADNet.h" line="102" column="18"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADNet_1_1RADUdpServer_1a9cc9ce230c6089a47f83d60757a7ede9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>RADNet::RADUdpServer::~RADUdpServer</definition>
+        <argsstring>()</argsstring>
+        <name>~RADUdpServer</name>
+        <briefdescription>
+<para>Closes the internal socket. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADNet/headers/RADNet.h" line="104" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADNet_1_1RADUdpServer_1ac3a4f9fdaa22f1d4cf75c984c2115454" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool RADNet::RADUdpServer::listen</definition>
+        <argsstring>(uint16_t port, const std::string &amp;address=&quot;0.0.0.0&quot;)</argsstring>
+        <name>listen</name>
+        <param>
+          <type>uint16_t</type>
+          <declname>port</declname>
+        </param>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>address</declname>
+          <defval>&quot;0.0.0.0&quot;</defval>
+        </param>
+        <briefdescription>
+<para>Starts listening for UDP datagrams on address:port. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADNet/headers/RADNet.h" line="107" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADNet_1_1RADUdpServer_1a09af753afabe83eee01acc43e0d8db8a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool RADNet::RADUdpServer::sendTo</definition>
+        <argsstring>(const std::string &amp;address, uint16_t port, const std::vector&lt; uint8_t &gt; &amp;payload)</argsstring>
+        <name>sendTo</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>address</declname>
+        </param>
+        <param>
+          <type>uint16_t</type>
+          <declname>port</declname>
+        </param>
+        <param>
+          <type>const std::vector&lt; uint8_t &gt; &amp;</type>
+          <declname>payload</declname>
+        </param>
+        <briefdescription>
+<para>Sends payload from the server socket to address:port. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADNet/headers/RADNet.h" line="109" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADNet_1_1RADUdpServer_1a6b48c89f71a289c981e7714c1f4e3c3b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void RADNet::RADUdpServer::close</definition>
+        <argsstring>()</argsstring>
+        <name>close</name>
+        <briefdescription>
+<para>Stops listening and closes the socket. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADNet/headers/RADNet.h" line="111" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADNet_1_1RADUdpServer_1af90a401a4afae6300d6d6721f9b4f081" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>uint16_t</type>
+        <definition>uint16_t RADNet::RADUdpServer::localPort</definition>
+        <argsstring>() const</argsstring>
+        <name>localPort</name>
+        <briefdescription>
+<para>Returns the bound local port, or 0 when unavailable. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADNet/headers/RADNet.h" line="113" column="18"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADNet_1_1RADUdpServer_1a5e9c491c63dfdd03fbca3ae889da916e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void RADNet::RADUdpServer::handleDatagram</definition>
+        <argsstring>(RADNet::Datagram datagram)</argsstring>
+        <name>handleDatagram</name>
+        <param>
+          <type><ref refid="structRADNet_1_1Datagram" kindref="compound">RADNet::Datagram</ref></type>
+          <declname>datagram</declname>
+        </param>
+        <briefdescription>
+<para>Internal handler that forwards datagrams from the owned socket. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADNet/headers/RADNet.h" line="117" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classRADNet_1_1RADUdpServer_1a4a930e62c4b145e5bb14444ae160d69b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void RADNet::RADUdpServer::handleError</definition>
+        <argsstring>(std::string message)</argsstring>
+        <name>handleError</name>
+        <param>
+          <type>std::string</type>
+          <declname>message</declname>
+        </param>
+        <briefdescription>
+<para>Internal handler that forwards socket errors. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/media/jvincent/Kingspec512/repos/RADLib/RADNet/headers/RADNet.h" line="119" column="14"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Convenience UDP server built on <ref refid="classRADNet_1_1RADUdpSocket" kindref="compound">RADUdpSocket</ref>. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>RADCore::RADObject</label>
+        <link refid="classRADCore_1_1RADObject"/>
+      </node>
+      <node id="1">
+        <label>RADNet::RADUdpServer</label>
+        <link refid="classRADNet_1_1RADUdpServer"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>RADCore::RADObject</label>
+        <link refid="classRADCore_1_1RADObject"/>
+      </node>
+      <node id="4">
+        <label>RADCore::Event&lt; void(std::string) &gt;</label>
+        <link refid="classRADCore_1_1Event"/>
+      </node>
+      <node id="1">
+        <label>RADNet::RADUdpServer</label>
+        <link refid="classRADNet_1_1RADUdpServer"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="3" relation="usage">
+          <edgelabel>datagramReceived</edgelabel>
+        </childnode>
+        <childnode refid="4" relation="usage">
+          <edgelabel>errorOccurred</edgelabel>
+        </childnode>
+      </node>
+      <node id="3">
+        <label>RADCore::Event&lt; void(RADNet::Datagram) &gt;</label>
+        <link refid="classRADCore_1_1Event"/>
+      </node>
+    </collaborationgraph>
+    <location file="/media/jvincent/Kingspec512/repos/RADLib/RADNet/headers/RADNet.h" line="93" column="5" bodyfile="/media/jvincent/Kingspec512/repos/RADLib/RADNet/headers/RADNet.h" bodystart="93" bodyend="125"/>
+    <listofallmembers>
+      <member refid="classRADCore_1_1RADObject_1a06cdf252ffb5e2f88332ebda12a62080" prot="public" virt="non-virtual"><scope>RADNet::RADUdpServer</scope><name>associatedEventLoop</name></member>
+      <member refid="classRADNet_1_1RADUdpServer_1a6b48c89f71a289c981e7714c1f4e3c3b" prot="public" virt="non-virtual"><scope>RADNet::RADUdpServer</scope><name>close</name></member>
+      <member refid="classRADNet_1_1RADUdpServer_1a303cd26a01400f9c46b2f57ab18d06cb" prot="private" virt="non-virtual"><scope>RADNet::RADUdpServer</scope><name>datagramConnection_</name></member>
+      <member refid="classRADNet_1_1RADUdpServer_1a7798bed037e214a22cc10f73df2e796c" prot="public" virt="non-virtual"><scope>RADNet::RADUdpServer</scope><name>datagramReceived</name></member>
+      <member refid="classRADNet_1_1RADUdpServer_1a86e9a8d6d7e8019441d89972b745038c" prot="private" virt="non-virtual"><scope>RADNet::RADUdpServer</scope><name>errorConnection_</name></member>
+      <member refid="classRADNet_1_1RADUdpServer_1a4d04aa1430bbbec8bd2693f5321057d6" prot="public" virt="non-virtual"><scope>RADNet::RADUdpServer</scope><name>errorOccurred</name></member>
+      <member refid="classRADNet_1_1RADUdpServer_1a5e9c491c63dfdd03fbca3ae889da916e" prot="public" virt="non-virtual"><scope>RADNet::RADUdpServer</scope><name>handleDatagram</name></member>
+      <member refid="classRADNet_1_1RADUdpServer_1a4a930e62c4b145e5bb14444ae160d69b" prot="public" virt="non-virtual"><scope>RADNet::RADUdpServer</scope><name>handleError</name></member>
+      <member refid="classRADCore_1_1RADObject_1ad2ddfd066d14be9adc2f96bfca417fc6" prot="public" virt="non-virtual"><scope>RADNet::RADUdpServer</scope><name>lifetimeToken</name></member>
+      <member refid="classRADNet_1_1RADUdpServer_1ac3a4f9fdaa22f1d4cf75c984c2115454" prot="public" virt="non-virtual"><scope>RADNet::RADUdpServer</scope><name>listen</name></member>
+      <member refid="classRADNet_1_1RADUdpServer_1af90a401a4afae6300d6d6721f9b4f081" prot="public" virt="non-virtual"><scope>RADNet::RADUdpServer</scope><name>localPort</name></member>
+      <member refid="classRADCore_1_1RADObject_1a1f7f7f2fb40211e28455cd74a029339a" prot="public" virt="non-virtual"><scope>RADNet::RADUdpServer</scope><name>moveToThread</name></member>
+      <member refid="classRADCore_1_1RADObject_1a9bc3fed915f7c71232e68c2628d34708" prot="public" virt="non-virtual"><scope>RADNet::RADUdpServer</scope><name>RADObject</name></member>
+      <member refid="classRADNet_1_1RADUdpServer_1a048aeb353f47ca541c544252c573de0e" prot="public" virt="non-virtual"><scope>RADNet::RADUdpServer</scope><name>RADUdpServer</name></member>
+      <member refid="classRADCore_1_1RADObject_1af3e26b970c8080418f0d6b80cad986a2" prot="public" virt="non-virtual"><scope>RADNet::RADUdpServer</scope><name>registerLink</name></member>
+      <member refid="classRADNet_1_1RADUdpServer_1a09af753afabe83eee01acc43e0d8db8a" prot="public" virt="non-virtual"><scope>RADNet::RADUdpServer</scope><name>sendTo</name></member>
+      <member refid="classRADNet_1_1RADUdpServer_1ab69d04b260e124f62524f14736c7f966" prot="private" virt="non-virtual"><scope>RADNet::RADUdpServer</scope><name>socket_</name></member>
+      <member refid="classRADCore_1_1RADObject_1a8b11df0b951d0db1ba99cfb851e34f31" prot="public" virt="non-virtual"><scope>RADNet::RADUdpServer</scope><name>threadAffinity</name></member>
+      <member refid="classRADCore_1_1RADObject_1ac7ca67b41523794ae5a6b3634d6ce3b6" prot="public" virt="non-virtual"><scope>RADNet::RADUdpServer</scope><name>threadId</name></member>
+      <member refid="classRADCore_1_1RADObject_1a7369e27a46c163ee89c63227db650ce5" prot="public" virt="virtual"><scope>RADNet::RADUdpServer</scope><name>~RADObject</name></member>
+      <member refid="classRADNet_1_1RADUdpServer_1a9cc9ce230c6089a47f83d60757a7ede9" prot="public" virt="non-virtual"><scope>RADNet::RADUdpServer</scope><name>~RADUdpServer</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

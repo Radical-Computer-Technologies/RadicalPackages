@@ -19,10 +19,10 @@
       RadBuild is the graph-based build framework for FPGA, Linux, firmware, software, package, deployment, RADPx-OS image, VSCode, and optional server workflows.
     </p>
     <div class="status-row">
-      <span class="pill"><strong>Version:</strong> 0.2.1</span>
+      <span class="pill"><strong>Version:</strong> 0.2.2-beta.2</span>
       <span class="pill"><strong>Suite:</strong> experimental</span>
       <span class="pill"><strong>Runtime:</strong> frozen executables</span>
-      <span class="pill"><strong>Architectures:</strong> amd64 runtime, all docs/assets</span>
+      <span class="pill"><strong>Architectures:</strong> amd64 runtime, Windows x86_64 MSI, all docs/assets</span>
     </div>
   </section>
 
@@ -70,7 +70,19 @@ sudo apt install radbuild-radhdl radbuild-server radbuild-vscode-support radbuil
       <div class="package"><code>Project Settings</code><br><span>Edits baseline settings, systems, config values, and toolchain selectors through a form UI.</span></div>
     </div>
     <div class="command"><code>sudo apt install radbuild-vscode-support
-code --install-extension /usr/share/radbuild/vscode/radbuild-vscode-0.2.2-beta.1.vsix --force</code></div>
+code --install-extension /usr/share/radbuild/vscode/radbuild-vscode-0.2.2-beta.2.vsix --force</code></div>
+  </section>
+
+  <section class="card">
+    <h2>Windows Experimental Installer</h2>
+    <p>RadBuild 0.2.2-beta.2 adds an experimental Windows MSI path for native FPGA and light embedded workflows. The first Windows scope covers frozen CLI launchers, Vivado/Vitis tool discovery, Gowin discovery, and OSS CAD Suite discovery. RADPx OS, PetaLinux, Yocto, and Buildroot remain Linux-native until the WSL provider mode is completed.</p>
+    <div class="command"><code>radbuild host inspect
+radbuild project create C:\radbuild-work --non-interactive --template fpga-vivado --project-name vivado-smoke
+radbuild project validate --settings C:\radbuild-work\vivado-smoke\settings.json
+radbuild build fpga --settings C:\radbuild-work\vivado-smoke\settings.json --dry-run --json-events</code></div>
+    <div class="links">
+      <a class="link-card" href="https://github.com/Radical-Computer-Technologies/RadicalPackages/releases/download/radbuild-0.2.2-beta.2/radbuild-0.2.2-beta.2-windows-x86_64.msi"><strong>Download Windows MSI</strong><span>Experimental native Windows installer.</span></a>
+    </div>
   </section>
 
   <section class="card">
@@ -91,9 +103,9 @@ code --install-extension /usr/share/radbuild/vscode/radbuild-vscode-0.2.2-beta.1
     <summary>Repository Metadata</summary>
       <div class="links">
         <a class="link-card" href="https://github.com/Radical-Computer-Technologies/RadicalPackages/releases/tag/apt-experimental"><strong>Experimental APT Release</strong><span>Signed package-manager metadata and package assets.</span></a>
-        <a class="link-card" href="https://github.com/Radical-Computer-Technologies/RadicalPackages/releases/tag/radbuild-0.2.2-beta.1"><strong>RadBuild 0.2.2-beta.1 Release</strong><span>Frozen Linux x86_64 archive, Debian packages, checksums, and signatures.</span></a>
+        <a class="link-card" href="https://github.com/Radical-Computer-Technologies/RadicalPackages/releases/tag/radbuild-0.2.2-beta.2"><strong>RadBuild 0.2.2-beta.2 Release</strong><span>Frozen Linux x86_64 archive, Windows MSI, Debian packages, checksums, and signatures.</span></a>
         <a class="link-card" href="keys/radical-packages-archive-key.asc"><strong>APT Signing Key</strong><span>Public key for <code>Signed-By</code> install instructions.</span></a>
-        <a class="link-card" href="docs/radbuild/0.2.2-beta.1/"><strong>RadBuild 0.2.2-beta.1 Docs</strong><span>Install, FPGA builds, OS builds, packaging, examples, and compatibility notes.</span></a>
+        <a class="link-card" href="docs/radbuild/0.2.2-beta.2/"><strong>RadBuild 0.2.2-beta.2 Docs</strong><span>Install, FPGA builds, OS builds, packaging, examples, and compatibility notes.</span></a>
       </div>
   </details>
 
@@ -107,9 +119,9 @@ radbuild menuconfig --settings settings.json
 radbuild build os --settings settings.json --json-events
 ./artifacts/radpx/x86_64-grub-terminal/run-radpx-vm.sh</code></div>
     <div class="links">
-      <a class="link-card" href="docs/radbuild/0.2.2-beta.1/examples/radpx-from-scratch.html"><strong>Full RADPx From Scratch Example</strong><span>Project creation, packagegroups, rkconfig, artifacts, and VM login checks.</span></a>
-      <a class="link-card" href="docs/radbuild/0.2.2-beta.1/os-builds.html"><strong>OS Build Providers</strong><span>RADPx, PetaLinux, and Buildroot support levels.</span></a>
-      <a class="link-card" href="docs/radbuild/0.2.2-beta.1/settings-fields.html"><strong>Settings Field Reference</strong><span>Detailed <code>settings.json</code>, <code>rkconfig</code>, packagegroup, and SDK fields.</span></a>
+      <a class="link-card" href="docs/radbuild/0.2.2-beta.2/examples/radpx-from-scratch.html"><strong>Full RADPx From Scratch Example</strong><span>Project creation, packagegroups, rkconfig, artifacts, and VM login checks.</span></a>
+      <a class="link-card" href="docs/radbuild/0.2.2-beta.2/os-builds.html"><strong>OS Build Providers</strong><span>RADPx, PetaLinux, and Buildroot support levels.</span></a>
+      <a class="link-card" href="docs/radbuild/0.2.2-beta.2/settings-fields.html"><strong>Settings Field Reference</strong><span>Detailed <code>settings.json</code>, <code>rkconfig</code>, packagegroup, and SDK fields.</span></a>
     </div>
   </section>
 
