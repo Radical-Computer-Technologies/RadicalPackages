@@ -8,6 +8,7 @@
       <a href="packages.html">Packages</a>
       <a href="radpx-os.html">RADPx OS</a>
       <a href="docs/">Docs</a>
+      <a href="contribute.html">Contribute</a>
     </div>
   </nav>
 
@@ -69,7 +70,7 @@ sudo apt install radbuild-radhdl radbuild-server radbuild-vscode-support radbuil
       <div class="package"><code>Project Settings</code><br><span>Edits baseline settings, systems, config values, and toolchain selectors through a form UI.</span></div>
     </div>
     <div class="command"><code>sudo apt install radbuild-vscode-support
-code --install-extension /usr/share/radbuild/vscode/radbuild-vscode-0.2.1.vsix --force</code></div>
+code --install-extension /usr/share/radbuild/vscode/radbuild-vscode-0.2.2-beta.1.vsix --force</code></div>
   </section>
 
   <section class="card">
@@ -90,9 +91,9 @@ code --install-extension /usr/share/radbuild/vscode/radbuild-vscode-0.2.1.vsix -
     <summary>Repository Metadata</summary>
       <div class="links">
         <a class="link-card" href="https://github.com/Radical-Computer-Technologies/RadicalPackages/releases/tag/apt-experimental"><strong>Experimental APT Release</strong><span>Signed package-manager metadata and package assets.</span></a>
-        <a class="link-card" href="https://github.com/Radical-Computer-Technologies/RadicalPackages/releases/tag/radbuild-0.2.1"><strong>RadBuild 0.2.1 Release</strong><span>Frozen Linux x86_64 archive, Debian packages, checksums, and signatures.</span></a>
+        <a class="link-card" href="https://github.com/Radical-Computer-Technologies/RadicalPackages/releases/tag/radbuild-0.2.2-beta.1"><strong>RadBuild 0.2.2-beta.1 Release</strong><span>Frozen Linux x86_64 archive, Debian packages, checksums, and signatures.</span></a>
         <a class="link-card" href="keys/radical-packages-archive-key.asc"><strong>APT Signing Key</strong><span>Public key for <code>Signed-By</code> install instructions.</span></a>
-        <a class="link-card" href="docs/radbuild/0.2.1/"><strong>RadBuild 0.2.1 Docs</strong><span>Install, FPGA builds, OS builds, packaging, examples, and compatibility notes.</span></a>
+        <a class="link-card" href="docs/radbuild/0.2.2-beta.1/"><strong>RadBuild 0.2.2-beta.1 Docs</strong><span>Install, FPGA builds, OS builds, packaging, examples, and compatibility notes.</span></a>
       </div>
   </details>
 
@@ -106,9 +107,9 @@ radbuild menuconfig --settings settings.json
 radbuild build os --settings settings.json --json-events
 ./artifacts/radpx/x86_64-grub-terminal/run-radpx-vm.sh</code></div>
     <div class="links">
-      <a class="link-card" href="docs/radbuild/0.2.1/examples/radpx-from-scratch.html"><strong>Full RADPx From Scratch Example</strong><span>Project creation, packagegroups, rkconfig, artifacts, and VM login checks.</span></a>
-      <a class="link-card" href="docs/radbuild/0.2.1/os-builds.html"><strong>OS Build Providers</strong><span>RADPx, PetaLinux, and Buildroot support levels.</span></a>
-      <a class="link-card" href="docs/radbuild/0.2.1/settings-fields.html"><strong>Settings Field Reference</strong><span>Detailed <code>settings.json</code>, <code>rkconfig</code>, packagegroup, and SDK fields.</span></a>
+      <a class="link-card" href="docs/radbuild/0.2.2-beta.1/examples/radpx-from-scratch.html"><strong>Full RADPx From Scratch Example</strong><span>Project creation, packagegroups, rkconfig, artifacts, and VM login checks.</span></a>
+      <a class="link-card" href="docs/radbuild/0.2.2-beta.1/os-builds.html"><strong>OS Build Providers</strong><span>RADPx, PetaLinux, and Buildroot support levels.</span></a>
+      <a class="link-card" href="docs/radbuild/0.2.2-beta.1/settings-fields.html"><strong>Settings Field Reference</strong><span>Detailed <code>settings.json</code>, <code>rkconfig</code>, packagegroup, and SDK fields.</span></a>
     </div>
   </section>
 

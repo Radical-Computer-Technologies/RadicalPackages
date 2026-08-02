@@ -59,6 +59,7 @@ cat > "$ROOT/docs/radhdl/index.html" <<'HTML'
       <a href="../../packages.html">Packages</a>
       <a href="../../radpx-os.html">RADPx-OS</a>
       <a href="../">Docs</a>
+      <a href="../../contribute.html">Contribute</a>
     </div>
   </nav>
   <section class="hero">
@@ -77,6 +78,7 @@ cat > "$ROOT/docs/radhdl/index.html" <<'HTML'
       <details class="doc-release">
         <summary>RadHDL 0 - Crimson</summary>
         <div class="links">
+          <a class="link-card" href="0.2.2-beta.1/"><strong>RadHDL 0.2.2-beta.1 Documentation</strong><span>Experimental Getting Started, primitive portability notes, guides, generated datasheets, and change notes</span></a>
           <a class="link-card" href="0.2.2/"><strong>RadHDL 0.2.2 Documentation</strong><span>Experimental Getting Started, primitive portability notes, guides, generated datasheets, and change notes</span></a>
           <a class="link-card" href="0.2.1/"><strong>RadHDL 0.2.1</strong><span>Experimental HDL module datasheets, register maps, and simulation evidence</span></a>
           <a class="link-card" href="0.2.0/"><strong>RadHDL 0.2.0</strong><span>Experimental HDL module datasheets, register maps, and simulation evidence</span></a>

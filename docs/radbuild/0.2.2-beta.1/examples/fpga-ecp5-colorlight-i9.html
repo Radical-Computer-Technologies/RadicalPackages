@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>FPGA ECP5 Colorlight i9 Project</title>
+  <link rel="stylesheet" href="../../../../assets/site.css">
+</head>
+<body>
+<main class="page">
+  <nav class="nav">
+    <a class="brand" href="../../../../"><img src="../../../../assets/rad-logo.png" alt="">Radical Packages</a>
+    <div class="nav-links">
+      <a href="../../../../">Home</a>
+      <a href="../../../../packages.html">Packages</a>
+      <a href="../../../../radpx-os.html">RADPx-OS</a>
+      <a href="../../../../docs/">Docs</a>
+      <a href="../../../../contribute.html">Contribute</a>
+    </div>
+  </nav>
+  <section class="hero compact-hero">
+    <div class="eyebrow">RadBuild 0.2.2-beta.1</div>
+    <h1>FPGA ECP5 Colorlight i9 Project</h1>
+  </section>
+  <article class="card doc-content">
+<h1>FPGA ECP5 Colorlight i9 Project</h1>
+<p>This example creates a minimal Colorlight i9 v7.2 ECP5 project using the open-source OSS CAD Suite flow.</p>
+<h2>Create</h2>
+<pre><code>radbuild project create ./workspace \
+  --non-interactive \
+  --template fpga-ecp5-colorlight-i9 \
+  --project-name colorlight-i9-smoke</code></pre>
+<p>The template writes:</p>
+<ul>
+<li><code>settings.json</code></li>
+<li><code>hdl/src/top.vhd</code></li>
+<li><code>constraints/colorlight_i9_v7_2.lpf</code></li>
+</ul>
+<h2>Validate</h2>
+<pre><code>radbuild project validate --settings ./workspace/colorlight-i9-smoke/settings.json</code></pre>
+<p>The system uses:</p>
+<pre><code>{
+  &quot;id&quot;: &quot;colorlight-i9-ecp5&quot;,
+  &quot;type&quot;: &quot;fpga.ecp5&quot;,
+  &quot;provider&quot;: &quot;oss-cad-suite&quot;
+}</code></pre>
+<h2>Build</h2>
+<p>Install or unpack OSS CAD Suite and set the suite root in <code>settings.json</code>:</p>
+<pre><code>{
+  &quot;toolchain&quot;: {
+    &quot;suite_root&quot;: &quot;/home/jvincent/oss-cad-suite/oss-cad-suite&quot;
+  }
+}</code></pre>
+<p>Then build:</p>
+<pre><code>radbuild build fpga \
+  --settings ./workspace/colorlight-i9-smoke/settings.json \
+  --system colorlight-i9-ecp5</code></pre>
+<p>The provider runs any configured GHDL testbenches, imports VHDL through Yosys/GHDL, runs <code>synth_ecp5</code>, places/routes with <code>nextpnr-ecp5</code>, and packs bitstream artifacts with <code>ecppack</code>.</p>
+  </article>
+</main>
+</body>
+</html>

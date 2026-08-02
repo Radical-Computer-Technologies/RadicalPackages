@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Example: RADPx Package Dependencies</title>
+  <link rel="stylesheet" href="../../../../assets/site.css">
+</head>
+<body>
+<main class="page">
+  <nav class="nav">
+    <a class="brand" href="../../../../"><img src="../../../../assets/rad-logo.png" alt="">Radical Packages</a>
+    <div class="nav-links">
+      <a href="../../../../">Home</a>
+      <a href="../../../../packages.html">Packages</a>
+      <a href="../../../../radpx-os.html">RADPx-OS</a>
+      <a href="../../../../docs/">Docs</a>
+      <a href="../../../../contribute.html">Contribute</a>
+    </div>
+  </nav>
+  <section class="hero compact-hero">
+    <div class="eyebrow">RadBuild 0.2.2-beta.1</div>
+    <h1>Example: RADPx Package Dependencies</h1>
+  </section>
+  <article class="card doc-content">
+<h1>Example: RADPx Package Dependencies</h1>
+<h2>settings.json</h2>
+<pre><code>{
+  &quot;radbuild_schema&quot;: &quot;2.0&quot;,
+  &quot;radbuild_version&quot;: &quot;0.2.2-beta.1&quot;,
+  &quot;project_name&quot;: &quot;radpm-demo&quot;,
+  &quot;systems&quot;: [
+    {
+      &quot;id&quot;: &quot;radpx-x86&quot;,
+      &quot;type&quot;: &quot;os.radpx&quot;,
+      &quot;provider&quot;: &quot;radpx-os&quot;,
+      &quot;depends_on&quot;: [],
+      &quot;config&quot;: {
+        &quot;ui_profile&quot;: &quot;terminal&quot;,
+        &quot;feature_chunks&quot;: [&quot;kernel.core&quot;, &quot;userspace.rash&quot;],
+        &quot;radpm&quot;: {
+          &quot;repository&quot;: &quot;../RadicalPackages&quot;,
+          &quot;suite&quot;: &quot;experimental&quot;,
+          &quot;packages&quot;: [],
+          &quot;packagegroups&quot;: [&quot;radpx-terminal-base&quot;]
+        }
+      }
+    }
+  ],
+  &quot;connections&quot;: [],
+  &quot;artifacts&quot;: [],
+  &quot;deploy&quot;: [],
+  &quot;packages&quot;: {}
+}</code></pre>
+<h2>Commands</h2>
+<pre><code>radbuild menuconfig --settings settings.json --enable-packagegroup radpx-networking --resolve-packages --json
+radbuild menuconfig --settings settings.json --enable-package radlib-ui --resolve-packages --json</code></pre>
+<p>Expected lock package order for <code>radpx-terminal-base</code>:</p>
+<pre><code>radpx-core
+radlib
+radpx-ncurses
+radpx-vim-tiny</code></pre>
+<p>If an explicit package is selected without its dependencies, RadBuild fails with a package or packagegroup hint instead of silently adding dependencies. For example, selecting <code>radpx-vim-tiny</code> alone reports that <code>radpx-core</code> is required and is available through <code>radpx-terminal-base</code>.</p>
+<p>Expected lock path:</p>
+<pre><code>.radmeta/radpx-os/radpx-x86/radpm/radpm-lock.json</code></pre>
+  </article>
+</main>
+</body>
+</html>

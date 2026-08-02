@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>RadHDL 0.2.2-beta.1 Getting Started</title>
+  <link rel="stylesheet" href="assets/radhdl-docgen.css">
+</head>
+<body>
+<div class="sitebar"><div class="wrap">
+  <a class="brand-mark" href="index.html"><img class="brand-logo" src="assets/rad-logo.png" alt="" onerror="this.style.display='none'"><span>Radical Computer Technologies</span></a>
+</div></div>
+<header><div class="wrap">
+  <div class="kicker">RadHDL Documentation</div>
+  <h1>Getting Started</h1>
+  <div class="meta">Documentation version: 0.2.2-beta.1</div>
+  <p class="summary">RadHDL is a VHDL-first FPGA library for portable interfaces, DSP blocks, debug cores, and explicit vendor primitive wrappers.</p>
+</div></header>
+<main class="wrap">
+  <h2>RadHDL Overview</h2>
+  <p>RadHDL is organized around reusable packages instead of board-local one-off HDL. The current Crimson beta line includes RADIF interface blocks, RADDSP signal-processing blocks, RadDebug/RadILA observability blocks, and RadPrimitive wrappers for RAM, FIFO, CDC, and DSP resources.</p>
+  <p>The RadPrimitive layer is intentionally explicit. Portable top-level designs instantiate a vendor-neutral wrapper such as <code>radhdl_ram</code> or <code>radhdl_fifo</code>, while the lower-level implementation selects Xilinx, Lattice, Gowin, or generic simulation models through configuration. Primitive-backed synthesis paths should use real vendor primitives rather than silent inference.</p>
+
+  <h2>Install With RadBuild</h2>
+  <pre><code>sudo apt update
+sudo apt install radbuild radbuild-radhdl radbuild-doc
+
+radbuild-hdlgen --help
+radhdl-docgen build --radhdl /usr/share/radbuild/radhdl --out ./radhdl-docs</code></pre>
+  <p>The <code>radbuild-radhdl</code> package installs the current HDL catalog under <code>/usr/share/radbuild/radhdl</code>. RadBuild projects can reference packaged HDL directly, or point at a local RadHDL checkout while developing library changes.</p>
+
+  <h2>Use With Vendor Toolchains</h2>
+  <p>RadHDL source can also be used directly in vendor projects. Add the package VHDL files for the blocks you instantiate, then include project-specific constraints and build scripts. For Xilinx, keep XPM use isolated inside RadPrimitive wrappers. For Gowin and Lattice, prefer the matching explicit primitive wrappers or the provided generic simulation models when validating behavior with GHDL.</p>
+
+  <h2>Package Structure</h2>
+  <table><tbody>
+    <tr><th><code>common/hdl/src</code></th><td>RadPrimitive public wrappers and common primitive infrastructure.</td></tr>
+    <tr><th><code>interfaces/hdl/radif</code></th><td>Register banks, AXI/AXIS bridges, I2C, I2S, SPI, UART, and simple management interfaces.</td></tr>
+    <tr><th><code>dsp/hdl/raddsp</code></th><td>DSP transforms, filters, detection blocks, audio synthesis, and vendor DSP wrappers.</td></tr>
+    <tr><th><code>debug/radila</code></th><td>Portable ILA and RadDebugHub capture infrastructure.</td></tr>
+    <tr><th><code>projects/examples</code></th><td>Integration examples such as the FPiGA Audio Hat shared-math design.</td></tr>
+    <tr><th><code>scripts</code></th><td>Documentation generation, simulation matrix, and helper tooling.</td></tr>
+  </tbody></table>
+
+  <h2>Example Workflow</h2>
+  <ol>
+    <li>Choose a portable interface such as <code>radif_reg_bank</code> or <code>radif_i2s_axis</code>.</li>
+    <li>Open the module datasheet from the searchable catalog and copy the instantiation template.</li>
+    <li>Run the relevant GHDL testbench before integrating it into a board-level project.</li>
+    <li>For vendor primitives, run the primitive simulation matrix so generic and vendor-specific behavior stay aligned.</li>
+    <li>Commit source HDL, constraints, and RadBuild JSON project files; keep generated vendor build outputs out of revision control.</li>
+  </ol>
+
+  <h2>Guides</h2>
+  <p>
+    <a class="pill" href="modules/radif__radif__radif_reg_bank/index.html">radif_reg_bank Datasheet</a>
+    <a class="pill" href="modules/Primitive__radprimitive__radhdl_ram/index.html">radhdl_ram Datasheet</a>
+    <a class="pill" href="modules/radila__radila__RadDebugHub/index.html">RadDebugHub Datasheet</a>
+    <a class="pill" href="change-notes.html">Version Change Notes</a>
+  </p>
+</main>
+<footer><div class="wrap">RadHDL documentation version 0.2.2-beta.1</div></footer>
+</body>
+</html>

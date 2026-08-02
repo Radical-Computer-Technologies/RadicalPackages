@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>RadHDL 0.2.2-beta.1 Change Notes</title>
+  <link rel="stylesheet" href="assets/radhdl-docgen.css">
+</head>
+<body>
+<div class="sitebar"><div class="wrap">
+  <a class="brand-mark" href="index.html"><img class="brand-logo" src="assets/rad-logo.png" alt="" onerror="this.style.display='none'"><span>Radical Computer Technologies</span></a>
+</div></div>
+<header><div class="wrap">
+  <div class="kicker">RadHDL Documentation</div>
+  <h1>Version Change Notes</h1>
+  <div class="meta">Documentation version: 0.2.2-beta.1</div>
+  <p class="summary">This beta documentation snapshot reflects the Crimson primitive portability and FPiGA Audio integration work.</p>
+</div></header>
+<main class="wrap">
+  <h2>Highlights</h2>
+  <ul>
+    <li>Expanded RadPrimitive coverage for vendor-neutral RAM, FIFO, CDC, and DSP wrapper entry points.</li>
+    <li>Added explicit Gowin and Lattice primitive-backed paths where available, while keeping generic models available for simulation and unsupported families.</li>
+    <li>Added searchable datasheet organization for primitive RAM, FIFO, CDC, DSP, RADIF interface, RADDSP, and RadDebug/RadILA modules.</li>
+    <li>Added contribution guidance for primitive policy, simulation expectations, and HDL style.</li>
+    <li>Packaged the FPiGA Audio Hat shared-math example with top-level I2C/I2S simulation infrastructure.</li>
+    <li>Refreshed RadBuild integration so the packaged RadHDL catalog can be consumed by beta RadBuild projects.</li>
+  </ul>
+
+  <h2>Datasheet Coverage</h2>
+  <table><tbody>
+    <tr><th>Datasheets</th><td>98 generated module datasheets</td></tr>
+    <tr><th>Testbenches</th><td>29 indexed testbenches</td></tr>
+    <tr><th>Register maps</th><td>16 indexed register maps</td></tr>
+    <tr><th>Primitive datasheets</th><td>RAM, FIFO, CDC, and DSP primitive groups are separately searchable.</td></tr>
+  </tbody></table>
+
+  <h2>Known Follow-Up</h2>
+  <p>The next hardening pass should continue expanding primitive simulation matrix coverage, add more vendor-authoritative simulation comparisons, and publish board bring-up evidence for the FPiGA Audio Hat path.</p>
+</main>
+<footer><div class="wrap">RadHDL documentation version 0.2.2-beta.1</div></footer>
+</body>
+</html>

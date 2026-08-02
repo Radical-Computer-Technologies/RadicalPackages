@@ -8,6 +8,7 @@
       <a href="packages.html">Packages</a>
       <a href="radpx-os.html">RADPx OS</a>
       <a href="docs/">Docs</a>
+      <a href="contribute.html">Contribute</a>
     </div>
   </nav>
 

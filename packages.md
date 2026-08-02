@@ -8,6 +8,7 @@
       <a href="packages.html">Packages</a>
       <a href="radpx-os.html">RADPx OS</a>
       <a href="docs/">Docs</a>
+      <a href="contribute.html">Contribute</a>
     </div>
   </nav>
 
@@ -20,7 +21,7 @@
     </p>
     <div class="status-row">
       <span class="pill"><strong>Stable:</strong> RADLib 0.1.0</span>
-      <span class="pill"><strong>Experimental:</strong> RadBuild 0.2.1, RADPx-OS Crimson 0.1.5, RADBard 0.1.0 beta</span>
+      <span class="pill"><strong>Experimental:</strong> RadBuild 0.2.2-beta.1, RADPx-OS Crimson 0.1.5, RADBard 0.1.0 beta</span>
       <span class="pill"><strong>Architectures:</strong> amd64, arm64, all</span>
       <span class="pill"><strong>Hosting:</strong> GitHub Releases</span>
     </div>
@@ -60,7 +61,7 @@
 
     <details class="doc-group package-search-group" data-search-group>
       <summary>Experimental</summary>
-      <details class="doc-release" data-search-item data-search-text="radbuild experimental 0.2.1 crimson cli server vscode support radhdl docs graph build framework project fpga linux firmware software packages deploy all radpx os image">
+      <details class="doc-release" data-search-item data-search-text="radbuild experimental 0.2.2-beta.1 crimson cli server vscode support radhdl docs graph build framework project fpga linux firmware software packages deploy all radpx os image">
         <summary>RadBuild 0 - Crimson</summary>
         <div class="package-list">
           <a class="package package-link" href="radbuild.html"><code>radbuild</code><span>Frozen CLI and graph build helper executables.</span></a>

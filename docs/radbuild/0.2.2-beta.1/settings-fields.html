@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Settings Fields</title>
+  <link rel="stylesheet" href="../../../assets/site.css">
+</head>
+<body>
+<main class="page">
+  <nav class="nav">
+    <a class="brand" href="../../../"><img src="../../../assets/rad-logo.png" alt="">Radical Packages</a>
+    <div class="nav-links">
+      <a href="../../../">Home</a>
+      <a href="../../../packages.html">Packages</a>
+      <a href="../../../radpx-os.html">RADPx-OS</a>
+      <a href="../../../docs/">Docs</a>
+      <a href="../../../contribute.html">Contribute</a>
+    </div>
+  </nav>
+  <section class="hero compact-hero">
+    <div class="eyebrow">RadBuild 0.2.2-beta.1</div>
+    <h1>Settings Fields</h1>
+  </section>
+  <article class="card doc-content">
+<h1>Settings Fields</h1>
+<p>RadBuild projects use <code>settings.json</code> with schema v2. Packaged templates live in the RadBuild payload and are selected by <code>radbuild project create --template</code>.</p>
+<h2>Top-Level Fields</h2>
+<ul>
+<li><code>radbuild_schema</code>: required schema identifier. Use <code>2.0</code>.</li>
+<li><code>radbuild_version</code>: required RadBuild implementation version. Use <code>0.2.2-beta.1</code> for this experimental release.</li>
+<li><code>project_name</code>: required project name.</li>
+<li><code>systems</code>: required build graph node array.</li>
+<li><code>connections</code>: required graph connection metadata array. May be empty.</li>
+<li><code>artifacts</code>: required expected artifact metadata array. May be empty.</li>
+<li><code>deploy</code>: required deployment metadata array. May be empty.</li>
+<li><code>packages</code>: required package metadata object. May be empty.</li>
+<li><code>legacy</code>: optional compatibility metadata for migrated projects.</li>
+</ul>
+<h2>System Fields</h2>
+<ul>
+<li><code>id</code>: unique system id used by <code>depends_on</code> and <code>--system</code>.</li>
+<li><code>type</code>: namespaced system type such as <code>fpga.vivado</code>, <code>fpga.ecp5</code>, <code>linux.buildroot</code>, <code>os.radpx</code>, or <code>package.debian</code>.</li>
+<li><code>name</code>: display name.</li>
+<li><code>provider</code>: provider implementation name.</li>
+<li><code>depends_on</code>: array of system ids this system depends on.</li>
+<li><code>toolchain</code>: toolchain/platform metadata.</li>
+<li><code>config</code>: provider-specific settings.</li>
+<li><code>hdl</code>: optional HDL instance metadata for FPGA systems.</li>
+</ul>
+<h2>Common Config Fields</h2>
+<ul>
+<li><code>version</code>: tool, package, or image version.</li>
+<li><code>project_name</code>: provider-local project name.</li>
+<li><code>source_dir</code>: source directory for software providers.</li>
+<li><code>binary</code>: expected binary name for software providers.</li>
+<li><code>artifact_dir</code>: copied artifact output directory.</li>
+<li><code>log_dir</code>: provider log directory.</li>
+</ul>
+<h2>Provider Config Fields</h2>
+<ul>
+<li><code>fpga.vivado.part_number</code>: Vivado part number.</li>
+<li><code>fpga.vivado.testbench_stop_time</code>: HDL simulation stop time.</li>
+<li><code>fpga.ecp5.toolchain.suite_root</code>: OSS CAD Suite root containing the <code>environment</code> script.</li>
+<li><code>fpga.ecp5.config.device</code>: nextpnr ECP5 size such as <code>45k</code>.</li>
+<li><code>fpga.ecp5.config.package</code>: nextpnr package such as <code>CABGA381</code>.</li>
+<li><code>fpga.ecp5.config.sources</code>: VHDL source list in compile order.</li>
+<li><code>fpga.ecp5.config.constraints_lpf</code>: LPF constraints file.</li>
+<li><code>fpga.ecp5.config.testbenches</code>: optional GHDL testbench list.</li>
+<li><code>linux.petalinux.target_ip</code>: deploy target address.</li>
+<li><code>linux.petalinux.modules</code>: kernel module list.</li>
+<li><code>linux.petalinux.firmware</code>: firmware file globs.</li>
+<li><code>linux.petalinux.xsa_dir</code>: hardware handoff directory.</li>
+<li><code>linux.petalinux.template</code>: PetaLinux template such as <code>zynqMP</code>.</li>
+<li><code>linux.petalinux.bsp_release_dir</code>: BSP release directory.</li>
+<li><code>linux.petalinux.fast_update_dir</code>: fast update deploy directory.</li>
+<li><code>linux.buildroot.board</code>: board/platform label.</li>
+<li><code>linux.buildroot.external_tree</code>: generated Buildroot external tree path.</li>
+<li><code>linux.yocto.layer</code>: generated Yocto layer.</li>
+<li><code>os.radpx.target</code>: RADPx build target.</li>
+<li><code>os.radpx.ui_profile</code>: RADPx UI profile such as <code>terminal</code> or <code>wm</code>.</li>
+<li><code>os.radpx.source</code>: RADPx source acquisition. <code>type=local</code> uses <code>path</code> or <code>source_dir</code>; <code>type=git</code> uses <code>url</code>, optional <code>branch</code>, <code>tag</code>, <code>commit</code>, <code>ref</code>, <code>checkout_dir</code>, <code>update</code>, and <code>depth</code>.</li>
+<li><code>os.radpx.feature_chunks</code>: RADPx kernel/userspace chunks.</li>
+<li><code>os.radpx.rkconfig</code>: RADPx runtime kernel/image configuration, including terminal theme, package toggles, static IPv4, gateway, DNS, and NTP settings.</li>
+<li><code>os.radpx.radpm</code>: RADPx package repository, suite, packagegroups, and explicit packages.</li>
+<li><code>os.radpx.sdk</code>: RADPx SDK export settings. <code>enabled</code> emits a SDK tarball, <code>name</code> sets the archive filename, <code>root_name</code> sets the top-level directory inside the archive, and <code>dir</code> overrides the temporary SDK staging directory.</li>
+<li><code>os.radpx.build_dir</code>: RADPx build output directory.</li>
+<li><code>os.radpx.smoke_script</code>: script invoked by RadBuild.</li>
+<li><code>os.radpx.qemu_smp</code>: QEMU SMP counts used by smoke testing.</li>
+<li><code>os.radpx.skip_qemu</code>: skip VM execution when true.</li>
+</ul>
+<p>The machine-readable catalog is packaged as <code>radbuild/schemas/project-fields-v0.2.2-beta.1.json</code>.</p>
+<p>When <code>os.radpx.radpm.packagegroups</code> or <code>os.radpx.radpm.packages</code> is set, RadBuild resolves the selected metadata, verifies signed <code>.radpm</code> archives when signatures are required, stages package payloads into the generated RADPx root filesystem, and reuses development payloads for the exported SDK. Packagegroups select complete feature sets such as <code>radpx-terminal-base</code>, while direct packages are intentionally explicit. Missing dependencies are reported with the available packagegroup or package that can satisfy them. The <code>menuconfig</code> interface exposes source, packagegroup selection, package selection, and SDK settings; non-interactive flows can use <code>--set-source KEY=VALUE</code>, <code>--enable-packagegroup</code>, <code>--disable-packagegroup</code>, <code>--enable-package</code>, <code>--disable-package</code>, and <code>--set-sdk KEY=VALUE</code>.</p>
+<h2>RADPx Configuration Detail</h2>
+<p><code>os.radpx.source</code> accepts either a local checkout or a Git repository:</p>
+<pre><code>{
+  &quot;type&quot;: &quot;git&quot;,
+  &quot;url&quot;: &quot;https://github.com/Radical-Computer-Technologies/RADPx-OS.git&quot;,
+  &quot;branch&quot;: &quot;crimson-v0.1.3&quot;,
+  &quot;checkout_dir&quot;: &quot;.radmeta/sources/RADPx-OS&quot;,
+  &quot;update&quot;: true,
+  &quot;depth&quot;: 1
+}</code></pre>
+<p><code>os.radpx.rkconfig</code> is copied into the image build environment. Common fields include <code>hostname</code>, <code>root_password</code>, <code>rootfs_size_mb</code>, terminal font/theme settings, terminal autocomplete, POSIX terminal compatibility, Vim/ncurses toggles, static IPv4 settings, DNS, NTP server/port, timezone, max process counts, and kernel task stack sizing.</p>
+<p><code>os.radpx.radpm</code> points at a RadicalPackages repository or release mirror:</p>
+<pre><code>{
+  &quot;repository&quot;: &quot;https://github.com/Radical-Computer-Technologies/RadicalPackages/releases/download/radpx-os-0.2.0-beta.1&quot;,
+  &quot;suite&quot;: &quot;experimental&quot;,
+  &quot;packagegroups&quot;: [&quot;radpx-terminal-base&quot;, &quot;radpx-networking&quot;],
+  &quot;packages&quot;: [],
+  &quot;verify_signatures&quot;: true,
+  &quot;allow_unsigned&quot;: false
+}</code></pre>
+<p>Prefer packagegroups for normal images. Use direct packages for narrow experiments, overlays, and debugging. RadBuild reports unmet dependencies and the packagegroup or package that can satisfy them; it does not silently add dependencies to the project file.</p>
+<p><code>os.radpx.sdk.enabled=true</code> exports a sysroot and wrapper scripts suitable for cross-compiling RADPx userspace ports against the staged headers and libraries.</p>
+<h2>Linux Provider Detail</h2>
+<p><code>linux.petalinux</code> expects an installed Xilinx/PetaLinux environment. RadBuild does not vendor Xilinx tools. It records the XSA handoff, selected template, module list, firmware globs, BSP release directory, and deploy target so the same project graph can be regenerated and rebuilt.</p>
+<p><code>linux.buildroot</code> expects Buildroot to be available on the host or through the project&#x27;s own tooling. RadBuild generates the external-tree location and graph metadata; board package policy remains in the Buildroot external tree.</p>
+  </article>
+</main>
+</body>
+</html>

@@ -8,6 +8,7 @@
       <a href="packages.html">Packages</a>
       <a href="radpx-os.html">RADPx OS</a>
       <a href="docs/">Docs</a>
+      <a href="contribute.html">Contribute</a>
     </div>
   </nav>
 
@@ -20,7 +21,7 @@
     </p>
     <div class="status-row">
       <span class="pill"><strong>Stable:</strong> RADLib 0.1.0</span>
-      <span class="pill"><strong>Experimental:</strong> RADBard beta, RadBuild 0.2.1, RADPx-OS Crimson 0.1.5</span>
+      <span class="pill"><strong>Experimental:</strong> RADBard beta, RadBuild 0.2.2-beta.1, RADPx-OS Crimson 0.1.5</span>
       <span class="pill"><strong>Architectures:</strong> amd64, arm64, all</span>
     </div>
   </section>
@@ -42,7 +43,7 @@ sudo apt update</code></div>
 
     <article class="card">
       <h2>Experimental Repository</h2>
-      <p>Use experimental for beta applications and development releases before promotion to stable, including RadBuild 0.2.1 and RADPx OS Crimson assets.</p>
+      <p>Use experimental for beta applications and development releases before promotion to stable, including RadBuild 0.2.2-beta.1 and RADPx OS Crimson assets.</p>
       <div class="command"><code>sudo tee /etc/apt/sources.list.d/radical-computer-technologies-experimental.sources &gt;/dev/null &lt;&lt;'EOF'
 Types: deb
 URIs: https://github.com/Radical-Computer-Technologies/RadicalPackages/releases/download/apt-experimental
@@ -78,7 +79,7 @@ curl -fsSL https://radical-computer-technologies.github.io/RadicalPackages/keys/
     </details>
     <details class="doc-group package-search-group" data-search-group>
       <summary>Experimental</summary>
-      <details class="doc-release" data-search-item data-search-text="radbuild experimental 0.2.1 cli server vscode radhdl docs graph build framework radpx os image">
+      <details class="doc-release" data-search-item data-search-text="radbuild experimental 0.2.2-beta.1 cli server vscode radhdl docs graph build framework radpx os image">
         <summary>RadBuild 0 - Crimson</summary>
         <div class="links">
           <a class="link-card" href="radbuild.html"><strong>RadBuild Packages</strong><span>Graph build framework, server, VSCode support, RADPx-OS provider, RadHDL package, and docs.</span></a>

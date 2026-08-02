@@ -10,7 +10,7 @@ from urllib.parse import urlsplit, urlunsplit
 
 
 ROOT = Path(__file__).resolve().parents[1]
-RADBUILD_DOCS = ROOT / "docs" / "radbuild" / "0.2.1"
+RADBUILD_DOCS_ROOT = ROOT / "docs" / "radbuild"
 
 
 def local_doc_href(href: str) -> str:
@@ -107,7 +107,7 @@ def markdown_title(source: Path) -> str:
     return source.stem.replace("-", " ").title()
 
 
-def page(title: str, body: str, rel_root: str) -> str:
+def page(title: str, body: str, rel_root: str, release: str) -> str:
     return f"""<!doctype html>
 <html lang="en">
 <head>
@@ -125,10 +125,11 @@ def page(title: str, body: str, rel_root: str) -> str:
       <a href="{rel_root}packages.html">Packages</a>
       <a href="{rel_root}radpx-os.html">RADPx-OS</a>
       <a href="{rel_root}docs/">Docs</a>
+      <a href="{rel_root}contribute.html">Contribute</a>
     </div>
   </nav>
   <section class="hero compact-hero">
-    <div class="eyebrow">RadBuild 0.2.1</div>
+    <div class="eyebrow">RadBuild {html.escape(release)}</div>
     <h1>{html.escape(title)}</h1>
   </section>
   <article class="card doc-content">
@@ -141,13 +142,17 @@ def page(title: str, body: str, rel_root: str) -> str:
 
 
 def main() -> int:
-    for source in sorted(RADBUILD_DOCS.rglob("*.md")):
-        title = markdown_title(source)
-        target = source.with_suffix(".html")
-        depth = len(target.relative_to(ROOT).parents) - 1
-        rel_root = "../" * depth
-        target.write_text(page(title, render_markdown(source), rel_root), encoding="utf-8")
-        print(target)
+    if not RADBUILD_DOCS_ROOT.exists():
+        return 0
+    for docs_dir in sorted(path for path in RADBUILD_DOCS_ROOT.iterdir() if path.is_dir()):
+        release = docs_dir.name
+        for source in sorted(docs_dir.rglob("*.md")):
+            title = markdown_title(source)
+            target = source.with_suffix(".html")
+            depth = len(target.relative_to(ROOT).parents) - 1
+            rel_root = "../" * depth
+            target.write_text(page(title, render_markdown(source), rel_root, release), encoding="utf-8")
+            print(target)
     return 0
 
 
